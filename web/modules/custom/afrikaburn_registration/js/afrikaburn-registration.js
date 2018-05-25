@@ -17,12 +17,12 @@
         }
       );
 
-      // // You're a wizard Harry
-      // $('.js-wizard:not(.js-wizard-processed)', context).each(
-      //   function(){
-      //     new Wizard(this);
-      //   }
-      // );
+      // You're a wizard Harry
+      $('.js-wizard:not(.js-wizard-processed)', context).each(
+        function(){
+          new Wizard(this);
+        }
+      );
 
     }
   };
