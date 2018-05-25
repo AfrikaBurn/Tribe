@@ -1,0 +1,9 @@
+<?php
+
+
+/**
+ * Implements hook_form_FOMR_ID_alter().
+ */
+function afrikaburn_registration_form_user_form_alter(&$form, $form_state, $form_id){
+  $form['#attached']['library'][] = 'afrikaburn_registration/afrikaburn_registration';
+}
