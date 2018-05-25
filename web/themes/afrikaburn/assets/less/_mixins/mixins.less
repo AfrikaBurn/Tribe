@@ -1,0 +1,79 @@
+.button-styles {
+	background-color: @button-background-color;
+	*background-color: @button-background-color;
+	height: @button-height;
+	border: @button-border-width solid @button-border-color;
+	border-radius: @button-border-radius;
+	-moz-border-radius: @button-border-radius;
+	-webkit-border-radius: @button-border-radius;
+	box-shadow: none;
+	text-align: center;
+	color: @button-color;
+	font-size: @button-font-size;
+	line-height: @button-line-height;
+	letter-spacing: @button-letter-spacing;
+	text-transform: @button-text-transform;
+	font-family: @button-font-family;
+	font-weight: @button-font-weight;
+	cursor: pointer;
+	// display: inline-block;
+	box-sizing: border-box;
+	padding: @button-padding;
+	outline: none;
+}
+
+.button-hover-styles {
+	background: @button-hover-background-color;
+	border: @button-border-width solid @button-hover-border-color;
+	height: @button-height;
+	color: @button-hover-color;
+	cursor: pointer;
+	// display: block;
+	border-radius: @button-border-radius;
+	-moz-border-radius: @button-border-radius;
+	-webkit-border-radius: @button-border-radius;
+	transition: inherit !important;
+	box-shadow: inherit !important;
+}
+
+.box-shadow-top(@opacity: 0.16) {
+	box-shadow: 0 -3px 6px rgba(0,0,0,0.16);
+	-moz-box-shadow: 0 -3px 6px rgba(0,0,0,0.16);
+	-webkit-box-shadow: 0 -3px 6px rgba(0,0,0,0.16);
+}
+
+.box-shadow-bottom(@opacity: 0.16) {
+	box-shadow: 0 3px 6px rgba(0,0,0,@opacity);
+	-moz-box-shadow: 0 3px 6px rgba(0,0,0,@opacity);
+	-webkit-box-shadow: 0 3px 6px rgba(0,0,0,@opacity);
+}
+
+.box-shadow-left(@opacity: 0.16) {
+	box-shadow: -4px 0 6px 0 rgba(0,0,0,@opacity);
+	-moz-box-shadow: -4px 0 6px 0 rgba(0,0,0,@opacity);
+	-webkit-box-shadow: -4px 0 6px 0 rgba(0,0,0,@opacity);
+}
+
+.box-shadow-right(@opacity: 0.16) {
+	box-shadow: 6px 0 4px 0 rgba(0,0,0,@opacity);
+	-moz-box-shadow: 6px 0 4px 0 rgba(0,0,0,@opacity);
+	-webkit-box-shadow: 6px 0 4px 0 rgba(0,0,0,@opacity);
+}
+
+.box-shadow-left-inset(@opacity: 0.16) {
+	box-shadow: inset 10px 0px 6px -6px rgba(0,0,0,@opacity);
+	-moz-box-shadow: inset 10px 0px 6px -6px rgba(0,0,0,@opacity);
+	-webkit-box-shadow: inset 10px 0px 6px -6px rgba(0,0,0,@opacity);
+}
+
+.box-shadow-bottom-right(@opacity: 0.16) {
+	box-shadow: 3px 3px 6px rgba(0,0,0,@opacity);
+	-moz-box-shadow: 3px 3px 6px rgba(0,0,0,@opacity);
+	-webkit-box-shadow: 3px 3px 6px rgba(0,0,0,@opacity);
+}
+
+.border-radius(@radiusSize: 3px) {
+	border-radius: @radiusSize;
+	-moz-border-radius: @radiusSize;
+	-webkit-border-radius: @radiusSize;
+}

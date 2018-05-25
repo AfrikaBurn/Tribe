@@ -1,0 +1,55 @@
+/*---Community pages (List theme camps, performances, stages) and allow visitors to contact---*/
+
+.page-community .views-row {
+  border-bottom: 1px solid @ab-maroon;
+}
+.page-community .views-row > div {
+  padding-bottom: 13px;
+}
+.page-community .views-row .views-field-titlee {
+  padding-bottom: 0px;
+}
+
+.page-community .views-row label {
+  color: @ab-peach;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.page-community .views-row .form-item label {
+  color: @body-content-text-color;
+}
+
+.page-community .form-item-copy {
+   display: none;
+}
+
+.page-community label.views-label-field-creative-lead,
+.page-community label.views-label-field-new-members-email  {
+  background-color: @ab-peach;
+  color: #fff;
+  border-radius: @button-border-radius;
+  padding: 10px 15px;
+  margin: 15px 0;
+  display: block;
+  cursor: pointer;
+}
+
+.page-community label.views-label-field-creative-lead:hover,
+.page-community label.views-label-field-new-members-email:hover {
+  background-color: @ab-peach-lighter;
+}
+
+.page-node-add-community-tickets-and-outreach .field-name-field-proof-of-income-private {
+  clear: both;
+}
+
+//Hide user menu from users on the reset password page.
+.page-user-reset div.user-menu {
+  display: none;
+}
+//Hide the tabs and user greeting from users on the change password page.
+.page-user-change-password div.user-greeting,
+.page-user-change-password ul.tabs.primary {
+  display: none;
+}

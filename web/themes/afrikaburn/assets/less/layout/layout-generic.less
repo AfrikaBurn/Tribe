@@ -1,0 +1,495 @@
+html {
+	padding: 0;
+	margin: 0;
+}
+body {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	background: @body-background-color @body-background-image @body-background-repeat @body-background-position;
+	margin: 0;
+	padding: 0 0 @body-padding-bottom 0;
+	font-size: 62.5%;
+	color: @body-color;
+	min-width: 320px;
+	font-family: @main-font-family;
+}
+
+/*--------------------------------------------------------------------------
+DEFAULT RIBBON STYLES {CORRESPOND TO "01-variables-general-site-layout.less"}
+---------------------------------------------------------------------------*/
+/*--------------------------------------------------------------------------
+NEVER SET HEIGHT ON RIBBON 2 OR RIBBON 3 IF RIBBON CONTAINS A BOOTSTRAP
+NAVBAR- CAUSES PROBLEMS WITH MOBILE TRANSITION IN WEBKIT BROWSERS.
+---------------------------------------------------------------------------*/
+
+.container-3 {
+	max-width: 100%;
+	width: 100%;
+	clear: both;
+	border-width: 0;
+	padding: 0;
+}
+
+div#wrapper {
+	background: @wrapper-background-color @wrapper-background-image @wrapper-background-repeat @wrapper-background-position;
+}
+
+.container-2  {
+	max-width: @pc-content-container-max-width;
+	padding: @pc-main-content-box-outer-padding-top @pc-page-gutter-left-right @pc-main-content-box-outer-padding-bottom;
+	background-color: transparent;
+	background-image: none;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.container-1 {
+	width: auto;
+}
+
+div#user-ribbon {
+	background-color: @user-ribbon-background-color;
+}
+
+#header-ribbon-top  {
+	position: @header-ribbon-top-position;
+	z-index: @header-ribbon-top-z-index;
+	background: @header-ribbon-top-background-color;
+
+}
+
+/*---------------------------------------------------------*/
+
+#header-ribbon-bottom  {
+	background-color: @header-ribbon-bottom-background-color;
+}
+
+/*---------------------------------------------------------*/
+
+#footer-ribbon  {
+	background-color: @footer-ribbon-background-color;
+}
+
+div#header {
+	background-color: @header-background-color;
+}
+
+/*-------------------
+MAIN SITE LOGO STYLES
+-------------------*/
+
+div.custom.logo-container {
+	padding: @logo-padding-top @logo-padding-right @logo-padding-bottom;
+	float: @logo-float;
+	margin-left: @logo-margin-left;
+	margin-right: @logo-margin-right;
+	max-width: @main-site-logo-max-width;
+}
+
+div.custom.logo-container a {
+	display: block;
+}
+div.custom.logo-container a:link,
+div.custom.logo-container a:visited,
+div.custom.logo-container a:hover {
+	text-decoration: none;
+}
+
+div.custom.logo-container img {
+	width: 100%;
+	height: auto;
+}
+
+/*-----------------------------------------------------------------------
+MAIN CONTENT STRIP STYLE OVERRIDES
+-----------------------------------------------------------------------*/
+
+#main-content-strip {
+	background-color: @main-content-strip-background-color;
+	background-image: @main-content-strip-background-image;
+	background-repeat: @main-content-strip-background-repeat;
+	background-position: @main-content-strip-background-position;
+}
+
+#main-content-strip div.container-1 {
+	background-color: @main-content-box-background-color;
+	border: @pc-main-content-box-border-width @main-content-box-border-style @main-content-box-border-color;
+	position: relative;
+	/*Always set padding to 0. Side padding can be applied to ".container-2" and "div.body-content"*/
+	padding: 0;
+}
+
+div.body-content {
+	padding: @pc-body-content-padding-top @pc-body-content-padding-left-right @pc-body-content-padding-bottom;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.main-block {
+	width: @main-block-box-width;
+	max-width: @main-block-box-max-width;
+	float: @main-block-box-float;
+	position: relative;
+}
+body.no-sidebars div.main-block,
+body.layout-no-sidebars div.main-block {
+	float: none;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: @main-block-centred-box-max-width;
+}
+
+body.no-sidebars div.sidebar-outer,
+body.layout-no-sidebars div.sidebar-outer {
+	display: none;
+}
+
+div.sidebar-outer {
+	width: @sidebar-box-width;
+	max-width: @sidebar-box-max-width;
+	float: @sidebar-box-float;
+}
+
+ div.sidebar {
+	padding: @sidebar-box-padding-top @sidebar-box-padding-right @sidebar-box-padding-bottom @sidebar-box-padding-left;
+	background-color: @sidebar-box-background-color;
+	border: @sidebar-box-border-width @sidebar-box-border-style @sidebar-box-border-color;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	color: #999;
+}
+
+div.sidebar-outer div.sidebar h2 {
+	color: #fff;
+	font-size: 1.8em/@body-content-text-font-size;
+}
+
+div.sidebar-outer div.sidebar p {
+	text-align: left;
+}
+
+div.sidebar .content ul > li {
+	list-style: none;
+	padding: 5px 0 7px;
+	margin: 5px 0;
+	border-bottom: 1px solid @ab-maroon;
+}
+
+div.sidebar .content ul > li li {
+	list-style: none;
+	padding: 0 0 0 5px;
+	margin: 0 0 0 5px;
+	font-size: 0.8em;
+	color: @ab-peach;
+	border-bottom-width: 0;
+}
+
+div.sidebar-outer > div.sidebar a {
+	text-decoration: none;
+}
+
+/*-----------------------------------------------------------------------
+FOOTER STRIP STYLES {CORRESPOND TO "01-variables-general-site-layout"}
+------------------------------------------------------------------------*/
+
+#footer {
+	background: @footer-strip-background-color @footer-strip-background-image @footer-strip-background-repeat @footer-strip-background-position;
+
+}
+#footer h2 {
+	padding-bottom: 15px;
+}
+#footer div.body-content {
+	padding-bottom: 0;
+}
+
+
+
+#footer div.body-content h2 {
+	font-size: 1.6em/@body-content-text-font-size;
+	line-height: 100%;
+	padding-bottom: 0.6em;
+}
+
+#footer ul {
+	list-style-image: url("../images/sep1.png");
+	border-top: 1px solid @ab-maroon;
+}
+
+#footer ul li {
+	border-bottom: 1px solid @ab-maroon;
+}
+
+#footer ul li a {
+	color: @ab-peach;
+	text-decoration: none;
+	padding: 9px 0;
+	display: block;
+}
+
+#footer ul li a:hover {
+	color: #fff;
+}
+
+/*#copyright div.copyright-inner {
+	padding-left: 45px;
+	background: transparent url("../images/power_by.jpg") no-repeat left top;
+
+}*/
+
+#copyright {
+	padding: 15px 0;
+	background: #2E1519;
+}
+
+#copyright div.copyright-inner ul {
+	font-size: 1em;
+	margin-left: 0;
+	margin-bottom: 0;
+	width: 100%;
+
+}
+
+#copyright div.copyright-inner ul li,
+#copyright div.copyright-inner p  {
+	list-style: none;
+	text-align: center;
+	color: @copyright-info-color;
+	font-style: @copyright-info-font-style;
+	font-weight: @copyright-info-font-weight;
+	font-family: @copyright-info-font-family;
+	text-transform: @copyright-info-text-transform;
+	font-size: @copyright-info-font-size;
+	margin: 0;
+
+}
+
+#copyright div.copyright-inner a {
+	color: @copyright-info-link-color;
+	text-decoration: @copyright-info-link-text-decoration;
+}
+
+#copyright div.copyright-inner a:hover {
+	color: @copyright-info-link-hover-color;
+	text-decoration: @copyright-info-link-hover-text-decoration;
+}
+
+div.user-links-loader {
+	height: 0;
+	width: 0;
+	opacity: 0;
+	background-image: url("../images/user-links-bg.png");
+}
+
+div.buttons-png-loader {
+	height: 0;
+	width: 0;
+	opacity: 0;
+	background-image: url("../images/buttons.png");
+}
+
+body.custom-error-page div#main-content-strip .container-2 {
+	max-width: 700px;
+}
+
+div.blocks-container {
+	margin: -1*@block-item-margin;
+
+}
+
+div.block-outer {
+	width: 25%;
+	float: left;
+
+}
+
+div.block-inner {
+	margin: @block-item-margin;
+	background-color: transparent;
+}
+// #user-ribbon.container-3 .container-2,
+// #header-ribbon-top.container-3 .container-2,
+// #header-ribbon-bottom.container-3 .container-2,
+// .container-3.bootstrap-navbar .container-2,
+// #footer-ribbon .container-2
+//  {
+// 	padding-top: 0;
+// 	padding-bottom: 0;
+// }
+
+//Social media link icons
+
+div.social-media-links {
+	float: right;
+}
+
+div.sm-link
+{
+	height: @sm-link-height;
+	width: @sm-link-width;
+	float: left;
+}
+
+div.sm-link a:link {
+	height: @sm-link-height;
+	width: @sm-link-width;
+	display: block;
+	color: transparent !important;
+	font-size: 0;
+	background: @sm-links-background-color url("../images/afrikaburn-sm-icons.png") no-repeat center top;
+	background-size: @sm-links-background-size;
+	float: left;
+	border-radius: @sm-link-border-radius;
+	-webkit-border-radius: @sm-link-border-radius;
+	-moz-border-radius: @sm-link-border-radius;
+
+}
+
+div.sm-link.twitter a:link {
+	background-color: @twitter-link-background-color;
+	background-position:  @twitter-link-background-position;
+}
+
+div.sm-link.twitter a:hover {
+	background-color: @twitter-link-hover-background-color;
+	background-position:  @twitter-link-hover-background-position;
+}
+
+div.sm-link.facebook a:link {
+	background-color: @facebook-link-background-color;
+	background-position:  @facebook-link-background-position;
+}
+
+div.sm-link.facebook a:hover {
+	background-color: @facebook-link-hover-background-color;
+	background-position:  @facebook-link-hover-background-position;
+}
+
+// Hide unwanted Drupal elements.
+.menu-toggle,
+.menu-toggle-target {
+	display: none !important;
+}
+
+div.block-outer {
+	float: left;
+}
+
+.six-column div.block-outer,
+.six-column div.catItemViewOuter {
+	width: 16.6%;
+	float: left;
+}
+
+.five-column div.block-outer,
+.five-column div.catItemViewOuter {
+	width: 20%;
+	float: left;
+}
+
+.four-column div.block-outer,
+.four-column div.catItemViewOuter {
+	width: 25%;
+	float: left;
+}
+
+.three-column div.block-outer,
+.three-column div.catItemViewOuter {
+	width: 33.3%;
+	float: left;
+}
+
+.two-column div.block-outer,
+.two-column div.catItemViewOuter {
+	width: 50%;
+	float: left;
+}
+
+.one-column div.block-outer,
+.one-column div.catItemViewOuter {
+	width: 100%;
+	float: left;
+}
+
+@media (max-width: 979px) {
+	.show-below-979px {
+		display: block;
+	}
+	.hide-below-979px {
+		display: none;
+	}
+	.container-2  {
+		padding: @979-main-content-box-outer-padding-top @979-page-gutter-left-right @979-main-content-box-outer-padding-bottom;
+	}
+	div.body-content,
+	#main-content-strip div.body-content {
+		padding: @979-body-content-padding-top @979-body-content-padding-left-right @979-body-content-padding-bottom;
+	}
+	#k2Container div.main-block {
+		margin-left: auto;
+		margin-right: auto;
+		float: none;
+	}
+}
+
+@media (max-width: 599px) {
+  .container-2  {
+  	padding: @599-main-content-box-outer-padding-top @599-page-gutter-left-right @599-main-content-box-outer-padding-bottom;
+  }
+  div.body-content,
+  #main-content-strip div.body-content {
+  	padding: @599-body-content-padding-top @599-body-content-padding-left-right @599-body-content-padding-bottom;
+  }
+}
+
+@media (max-width: 479px) {
+  body {
+  	font-size: 56%;
+  }
+}
+
+@media (max-width: 322px) {
+  .container-2  {
+  	padding: @322-main-content-box-outer-padding-top @322-page-gutter-left-right @322-main-content-box-outer-padding-bottom;
+  }
+
+  div.body-content,
+  #main-content-strip div.body-content {
+  	padding: @322-body-content-padding-top @322-body-content-padding-left-right @322-body-content-padding-bottom;
+
+  }
+}
+
+// Drupal layout
+
+div.sidebar div.block {
+	margin-bottom: 20px;
+}
+
+div.sidebar div#block-views-block-collectives-my-collectives .view-content > .views-row {
+	padding: 0 0 12px 0;
+	border-bottom: 1px solid @ab-maroon;
+	margin: 0 0 12px 0;
+}
+
+div.sidebar div#block-views-block-collectives-my-collectives .view-content > .views-row:first-child {
+	padding-top: 12px;
+	border-top: 1px solid @ab-maroon;
+	margin-top: 12px;
+}
+
+div.sidebar div#block-views-block-collectives-my-collectives  .view-content .views-row .views-row {
+	padding: 0;
+	border-width: 0;
+	margin: 0;
+}
+
+div.sidebar div#block-views-block-collectives-my-collectives .views-row .views-field-view {
+	margin-left: 20px;
+}
+
+div.sidebar div#block-views-block-collectives-my-collectives div.view-footer {
+	margin: 10px 0;
+}
+
+

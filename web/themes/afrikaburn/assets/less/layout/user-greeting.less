@@ -1,0 +1,240 @@
+#wrapper {
+	/*---User name and profile picture---*/
+	div.user-greeting {
+		float: right;
+	}
+
+	div.user-greeting h2 {
+		display: none;
+	}
+
+	div.user-greeting div.block {
+		float: left;
+	}
+
+	div.user-greeting div.views-field-user-picture {
+		float: left;
+		height: auto;
+	}
+
+	div.user-greeting div.views-field-user-picture a {
+		height: 30px;
+		width: 30px;
+		border-radius: 3px;
+		-moz-border-radius: 3px;
+		-webkit-border-radius: 3px;
+		float: left;
+		overflow: hidden;
+		margin-top: 5px;
+		background: #222;
+	}
+
+	div.user-greeting div.views-field-user-picture img {
+		max-width: 30px;
+		max-height: 30px;
+		border: 1px solid #000;
+		float: left;
+	}
+
+	div.user-greeting div.views-field-name {
+		float: left;
+
+	}
+
+	div.user-greeting div.views-field-name a {
+		text-transform: none;
+		font-family: @main-font-family;
+		font-size: 1.4em;
+		letter-spacing: 0;
+		padding: 13px 8px;
+		line-height: 100%;
+		color: #fff;
+		margin: 0;
+		display: block;
+		text-decoration: none;
+	}
+
+	div.user-greeting div.user-menu-icon {
+		float: left;
+		margin: 15px 0 0 5px;
+	}
+
+	div.user-greeting div.user-menu-icon span.user-icon-bar {
+		display: block;
+		width: 20px;
+		height: 2px;
+		background-color: #fff;
+		margin-bottom: 3px;
+	}
+
+	div.user-greeting div.user-menu-icon:hover {
+		cursor: pointer;
+	}
+
+	div.user-greeting div.user-menu-icon:hover span.user-icon-bar,
+	div.user-greeting div.user-menu-icon.active span.user-icon-bar {
+		background-color: @ab-peach;
+	}
+
+	@media(min-width: 980px) {
+		div.user-greeting {
+			margin-left: 10px;
+			margin-right: 5px;
+		}
+
+
+	}
+
+	@media(max-width: 979px) {
+		div.user-greeting {
+			margin-top: 5px;
+			margin-right: 10px;
+		}
+
+		a.my-collectives {
+			padding-top: 18px;
+			padding-bottom: 18px;
+		}
+	}
+
+	/*---Login and register links in top right corner---*/
+
+	div.user-menu,
+	div.user-menu ul,
+	div.user-menu ul li {
+		margin: 0;
+		padding: 0;
+	}
+
+	div.user-menu,
+	div.user-menu ul {
+		float: right;
+		list-style: none;
+	}
+
+	div.user-menu ul li {
+		float: left;
+	}
+
+	div.user-menu a {
+		float: right;
+		display: block;
+		color: @body-content-link-color;
+		font-size: 1.4em;
+		padding: 14px 10px 12px;
+		text-decoration: none;
+		line-height: 100%;
+	}
+
+	div.user-menu a.active,
+	div.user-menu a:hover {
+		background-color: @body-content-link-color;
+		color: #330B13;
+		cursor: pointer;
+		text-decoration: none;
+	}
+
+	@media (max-width: 979px) {
+		div.user-menu a {
+			padding-top: 18px;
+			padding-bottom: 15px;
+		}
+	}
+
+	@media (max-width: 479px) {
+		div.user-menu a {
+			padding-top: 19px;
+			padding-bottom: 16px;
+		}
+	}
+}
+
+	//Drop down box with user links for logged in users
+body.user-logged-in div#wrapper {
+	div.user-menu {
+		display: none;
+		position: absolute;
+		top: 44px;
+		right: 0;
+		background: @ab-peach;
+		padding: 10px 20px;
+		z-index: 99999;
+		border: 1px solid #ccc;
+		-webkit-border-radius: 5px;
+		-moz-border-radius: 5px;
+		border-radius: 5px;
+		min-width: 120px;
+		box-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+	}
+
+	div.user-menu.show {
+		display: block;
+	}
+
+
+	div.user-menu:before,
+	div.user-menu:after  {
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		bottom: 100%;
+		right: 7px;
+	}
+
+	div.user-menu:after {
+		border-color: transparent;
+		border-width: 8px;
+		border-bottom-color: @ab-peach;
+	}
+	div.user-menu:before {
+		border-color: transparent;
+		border-width: 9px;
+		border-bottom-color: inherit;
+		margin-right: -1px;
+	}
+
+	div.user-menu ul {
+		float: left;
+	}
+
+	div.user-menu ul li {
+		float: none;
+	}
+
+	div.user-menu ul li a {
+		color: #fff;
+		font-weight: 600;
+		float: none;
+		padding: 10px 0 10px 26px;
+		background-image: url("../images/afrikaburn-icons.png");
+		background-repeat: no-repeat;
+		background-size: 200px;
+		background-position: left -291px;
+	}
+
+	div.user-menu ul li a:hover {
+		color: #330B13;
+	}
+
+	div.user-menu ul li a.user {
+		background-position: left -191px;
+	}
+
+	div.user-menu ul li a.logout {
+		background-position: left -242px;
+	}
+
+	@media (max-width: 979px) {
+		div.user-menu {
+			right: 5px;
+			top: 54px;
+		}
+	}
+}
+
+
+
+

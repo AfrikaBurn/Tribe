@@ -1,0 +1,52 @@
+.ui-widget {
+  font-family: @input-font-family;
+  font-size: inherit;
+}
+.ui-widget .ui-widget {
+  font-size: inherit;
+}
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea {
+  font-family: @input-font-family;
+  font-size: inherit;
+}
+
+.ui-widget button,
+.ui-widget input.button {
+  font-family: @button-font-family;
+}
+
+.ui-widget-content a {
+  color: @body-content-link-color;
+}
+
+.ui-widget-content a:visited {
+  color: @body-content-link-visited-color;
+}
+
+.ui-widget-content a:hover {
+  color: @body-content-link-hover-color;
+}
+
+.ui-widget-content a:active {
+  color: @body-content-link-color;
+}
+
+//Override the default drupal spinner.
+
+.ajax-progress-throbber {
+  margin-top: 5px;
+}
+
+.ajax-progress-throbber .throbber {
+  background-image: url(../images/loading.gif);
+  display: inline;
+  padding: 10px;
+  background-size: 20px auto;
+}
+
+// Get rid of the revision blocks that Drupal inserts.
+.form-type-vertical-tabs {
+    display: none;
+}

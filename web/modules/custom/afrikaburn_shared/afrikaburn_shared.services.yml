@@ -1,0 +1,13 @@
+services:
+  afrikaburn_shared.route_subscriber:
+    class: Drupal\afrikaburn_shared\Routing\RegistrationRoutes
+    tags:
+      - { name: event_subscriber }
+  access_check.collective_member:
+    class: Drupal\afrikaburn_shared\Access\CollectiveMemberCheck
+    tags:
+      - { name: access_check, applies_to: _is_collective_member }
+  access_check.collective_admin:
+    class: Drupal\afrikaburn_shared\Access\CollectiveAdminCheck
+    tags:
+      - { name: access_check, applies_to: _is_collective_admin }

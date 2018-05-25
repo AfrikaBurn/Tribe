@@ -1,0 +1,47 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - afrikaburn_shared
+    - ctools
+    - node
+    - php
+    - system
+  theme:
+    - afrikaburn
+id: membersblock
+theme: afrikaburn
+region: sidebar
+weight: -19
+provider: null
+plugin: members_block
+settings:
+  id: members_block
+  label: Members
+  provider: afrikaburn_shared
+  label_display: visible
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      collective: collective
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  node_type:
+    id: node_type
+    bundles:
+      collective: collective
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  php:
+    id: php
+    negate: false
+    php: '<?php return TRUE; ?>'
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: '/node/*/edit'
+    negate: true
+    context_mapping: {  }

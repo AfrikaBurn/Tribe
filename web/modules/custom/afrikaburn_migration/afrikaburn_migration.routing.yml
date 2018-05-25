@@ -1,0 +1,7 @@
+afrikaburn_migration.rebuild_users:
+  path: '/migrate/rebuild-users'
+  defaults:
+    _form: '\Drupal\afrikaburn_migration\Form\RebuildUsersForm'
+    _title: 'Rebuild users'
+  requirements:
+   _permission: 'administer site configuration'

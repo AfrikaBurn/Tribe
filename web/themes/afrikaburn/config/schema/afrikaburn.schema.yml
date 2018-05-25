@@ -1,0 +1,5 @@
+# Schema for the configuration files of the afrikaburn theme.
+
+afrikaburn.settings:
+  type: theme_settings
+  label: 'afrikaburn settings'

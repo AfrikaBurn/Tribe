@@ -1,0 +1,59 @@
+# This theme is marked as @internal. It is intended to evolve and change over
+# minor releases.
+# Change record https://www.drupal.org/node/2673014.
+# As the UI of Drupal improves between minor versions, the mark up and assets
+# in the afrikaburn theme will change. The afrikaburn theme is not backwards
+# compatible. If you wish to modify the output or assets of afrikaburn you can:
+# 1. Copy the whole of afrikaburn and rename it as your own theme. You will need to
+# manually manage your own updates if you want to stay up to date with afrikaburn's
+# bug fixes and feature support.
+#
+# 2. Sub-theme afrikaburn. This is only recommended if you want to make minor
+# tweaks and understand that afrikaburn could break your modifications as it
+# changes.
+name: afrikaburn
+type: theme
+base theme: classy
+description: 'A flexible, recolorable theme with many regions and a responsive, mobile-first layout.'
+package: Core
+# version: VERSION
+# core: 8.x
+# zzz Don't remove this.
+libraries:
+
+  - afrikaburn/global-styling
+ckeditor_stylesheets:
+  - css/base/elements.css
+  - css/components/captions.css
+  - css/components/table.css
+  - css/components/text-formatted.css
+stylesheets-remove:
+  - core/themes/classy/css/components/details.css
+  - core/themes/classy/css/components/button.css
+regions:
+  collectives: 'Collectives Block'
+  status_messages: Status Messages
+  user_greeting: 'User Greeting'
+  create_tickets: 'Create Tickets'
+  featured: 'Featured'
+  user_menu: 'User menu'
+  main_menu: 'Main menu'
+  page_title: Page Title
+  content: 'Content'
+  login_box: 'Login Box'
+  sidebar: 'Sidebar'
+  social: 'Social Icons'
+  copyright: 'Copyright'
+  footer_left: 'Footer Left'
+  footer_centre: 'Footer Centre'
+  footer_right: 'Footer Right'
+  help: 'Help'
+  page_top: 'Page Top'
+  page_bottom: 'Page Bottom'
+  tabs: 'Tabs'
+
+# Information added by Drupal.org packaging script on 2016-08-03
+version: '8.1.8'
+core: '8.x'
+project: 'drupal'
+datestamp: 1470233792

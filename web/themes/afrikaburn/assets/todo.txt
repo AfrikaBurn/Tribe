@@ -1,0 +1,37 @@
+Active menu item styling.
+Check if community-pages.less is still relevant when those pages are up.
+
+Forms
+  PAGE SPECIFIC
+  http://dev.afrikaburn.com/node/add/art
+    Fields underneath save button.
+  GENERAL
+    Remove the "Revision information" boxes on each form (Alastair to add a unique class, Paddy to update the CSS).
+    Got additional docs or PDF's? Add them here (http://dev.afrikaburn.com/node/add/performances)
+    After addeing, the remove button is a normal button- needs to change.
+    AJAX added input type file (After clicking remove)
+    Replace the terrible spinner (Click Add another item).
+    "Please submit concept images" blocks
+      Remove the border and the drop down functionality.
+
+
+
+Blocks
+Add
+  Copyright text [region = Copyright]
+
+Time:
+20/08/2017 [Mon] - 04:00
+21/08/2017 [Mon] - 01:00
+
+24/08/2018 [Thurs] - 02:00
+28-30/08/2017 [Mon - Wed] 6h - Implemented accordions and styled mobile menus. Little bits of form styling.
+30/08/2017 [Wed] - 1h Organised LESS files better.
+
+Issues
+All forms
+  [WTF GUIDE AND COMMUITY]  Don't know what remove button does under planned activities (Layer 2)
+
+
+http://dev.afrikaburn.com/node/add/theme_camps/form_
+  This still has the old layout (Sidebar menu instead of accordion.)

@@ -1,0 +1,227 @@
+<?php
+
+/**
+ * @file
+ * Contains Afrikaburn Shared module.
+ */
+
+use \Drupal\Core\Form\FormStateInterface;
+use \Drupal\Core\Entity\EntityInterface;
+use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use \Drupal\user\Entity\User;
+
+/**
+ * Implements hook_form_alter().
+ */
+function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
+
+  // Redirect to front page after password reset
+  if ($form_id == 'user_form') {
+    if (preg_match('/user\/reset/', \Drupal::request()->server->get('HTTP_REFERER'))) {
+      $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
+      $response->send();
+    }
+  }
+
+  // Add ID validation
+  if (in_array($form_id, ['user_form', 'user_register_form'])) {
+    $form['#validate'][] = 'afrikaburn_shared_user_id_validate';
+  }
+
+  // Fetch new quicket info on acceptance of agreements
+  if (isset($form['#webform_id']) && in_array($form['#webform_id'], ['update', 'introduction'])){
+    $form['actions']['submit']['#submit'][] = 'afrikaburn_shared_agreement_submit';
+  }
+
+  // On non-admin pages
+  if (!\Drupal::service('router.admin_context')->isAdminRoute(\Drupal::routeMatch()->getRouteObject())) {
+    module_load_include('inc', 'afrikaburn_shared', 'includes/form');
+
+    // Get Registration and Collective if applicable
+    list($registration, $registration_title) = _get_registration();
+    list($collective, $collective_title) = _get_collective($registration);
+
+    // Set titles and defaults
+    static $user;
+    $user = isset($user) ? $user : User::load(\Drupal::currentUser()->id());
+    _set_registration_form_title($form, $form_id, $collective_title, $registration_title);
+    _set_registration_form_defaults($form, $form_state, $form_id, $user, $collective);
+    _set_collective_defaults($form, $form_id, $user);
+  }
+
+}
+
+/**
+ * Implements hook_form_FOMR_ID_alter().
+ */
+function afrikaburn_shared_form_user_form_alter(&$form, $form_state, $form_id){
+  switch ($form_id){
+    case 'user_form': $form['actions']['submit']['#submit'][] = 'afrikaburn_shared_update_quicket'; break;
+    case 'user_register_form': $form['actions']['submit']['#submit'][] = 'afrikaburn_shared_new_quicket'; break;
+  }
+}
+
+/**
+ * Implements hook_user_login().
+ * Hooked to redirect users to the home page
+ */
+function afrikaburn_shared_user_login($account){
+  if (\Drupal::service('path.current')->getPath() == '/user/login'){
+    $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
+    $response->send();
+  }
+}
+
+/**
+ * Implements hook_views_pre_view().
+ * Hooked to set collective on drop down view selects
+ */
+function afrikaburn_shared_views_pre_view(\Drupal\views\ViewExecutable $view, $display_id, &$args){
+  if ($view->id() == 'collective_members' && $display_id == 'entity_reference_1'){
+    $node = \Drupal::routeMatch()->getParameter('node');
+    if ($node && $node->field_collective){
+      $args[0] = $node->field_collective->first()->getValue()['target_id'];
+    } else if ($cid = \Drupal::request()->query->get('field_collective')) {
+      $args[0] = $cid;
+    }
+  }
+}
+
+/* ---- Validators ---- */
+
+/**
+ * ID number validation
+ */
+function afrikaburn_shared_user_id_validate($form, FormStateInterface &$form_state) {
+
+  $id = $form_state->getValue('field_id_number')[0]['value'];
+  if (isset($id)) {
+
+    if (!preg_match('/^[a-zA-Z0-9]+$/', $id)){
+      $form_state->setErrorByName('field_id_number', t('Only numbers and letters are allowed.'));
+    }
+
+    if ($user = $form_state->getFormObject()->getEntity()){
+
+      $existing = db_query(
+        '
+          SELECT COUNT(entity_id)
+          FROM {user__field_id_number}
+          WHERE entity_id != :uid AND field_id_number_value = :id
+        ',
+        [
+          ':uid' => $user->id(),
+          ':id' => $id,
+        ]
+      )->fetchField();
+
+      if ($existing) {
+        $form_state->setErrorByName('field_id_number', t('This number is already in use.'));
+      }
+
+    } else {
+
+      $existing = db_query(
+        '
+          SELECT COUNT(entity_id)
+          FROM {user__field_id_number}
+          WHERE field_id_number_value = :id
+        ',
+        [
+          ':id' => $form_state->getValue('field_id_number')[0]['value'],
+        ]
+      )->fetchField();
+
+      if ($existing) {
+        $form_state->setErrorByName('field_id_number', t('This number is already in use.'));
+      }
+
+    }
+  }
+}
+
+/* ---- Submit handlers ---- */
+
+/**
+ * User registration form.
+ */
+function afrikaburn_shared_new_quicket($form, FormStateInterface &$form_state) {
+
+  $values = $form_state->getValues();
+  $user = \Drupal\user\Entity\User::load($form_state->getValues()['uid']);
+
+  module_load_include('inc', 'afrikaburn_shared', 'includes/quicket');
+  $quicket = _quicket(
+    'POST',
+    isset($values['field_id_number']) ? $values['field_id_number'][0]['value']: NULL,
+    isset($values['field_teens']) ? $values['field_teens'][0]['value']: 0,
+    isset($values['field_kids']) ? $values['field_kids'][0]['value'] : 0
+  );
+
+  $user->field_quicket_code = $quicket['code'];
+  $user->field_quicket_id = $quicket['id'];
+  $user->save();
+}
+
+/**
+ * User edit submission handler.
+ */
+function afrikaburn_shared_update_quicket($form, FormStateInterface &$form_state) {
+
+  $values = $form_state->getValues();
+  $user = \Drupal\user\Entity\User::load($form_state->getValues()['uid']);
+  $quicket_id = $user->get('field_quicket_id')->getValue()[0]['value'];
+
+  $new = [
+    'id' => isset($values['field_id_number']) ? $values['field_id_number'][0]['value']: 0,
+    'teens' => isset($values['field_teens']) ? $values['field_teens'][0]['value']: 0,
+    'kids' => isset($values['field_kids']) ? $values['field_kids'][0]['value'] : 0,
+  ];
+
+  module_load_include('inc', 'afrikaburn_shared', 'includes/quicket');
+  $quicket = _quicket(
+    'PUT',
+    $new['id'],
+    $new['teens'],
+    $new['kids'],
+    $quicket_id
+  );
+
+  if (!$quicket) {
+    $quicket = _quicket(
+      'POST',
+      $new['id'],
+      $new['teens'],
+      $new['kids']
+    );
+  }
+
+  $user->field_quicket_code = $quicket['code'];
+  $user->field_quicket_id = $quicket['id'];
+  $user->save();
+}
+
+/**
+ * Agreement submission handler.
+ */
+function afrikaburn_shared_agreement_submit($form, $form_state){
+  module_load_include('inc', 'afrikaburn_shared', 'includes/quicket');
+
+  $user = User::load(\Drupal::currentUser()->id());
+  $new = [
+    'id' => $user->hasField('field_id_number') ? $user->get('field_id_number')->getValue()[0]['value']: 0,
+    'teens' => $user->hasField('field_teens') ? $user->get('field_teens')->getValue()[0]['value']: 0,
+    'kids' => $user->hasField('field_kids') ? $user->get('field_kids')->getValue()[0]['value'] : 0,
+  ];
+
+  $quicket = _quicket(
+    'POST',
+    $new['id'],
+    $new['teens'],
+    $new['kids']
+  );
+
+  $user->field_quicket_code = $quicket['code'];
+  $user->field_quicket_id = $quicket['id'];
+  $user->save();
+}

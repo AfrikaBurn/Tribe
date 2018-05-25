@@ -1,0 +1,145 @@
+/* 18 Oct 2017 - collective form */
+
+.field--name-field-col-invitee table,
+.field--name-field-col-invitee .description{
+  float: left;
+  margin-right: 20px;
+  width: 40%;
+}
+
+form.node-collective-form details summary{
+  color: #f26c55;
+  padding: 9px 0 18px;
+  cursor: pointer;
+}
+
+form.node-collective-form .clearfix{
+  clear: both;
+}
+
+/* 11 Oct 2017 - scheepers */
+
+.view-id-wrangler_registrations > .view-header {
+  float: right;
+}
+
+/* Go live quilckfixes 23 Sept */
+
+.view-display-id-my_collectives_block > .view-content{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.view-display-id-my_collectives_block .attachment-before{
+  float: none !important;
+}
+
+.view-display-id-my_collectives_block .collective-row{
+  flex-basis: 30%;
+  width: auto;
+}
+
+body.path-frontpage .sidebar-outer{
+  display: none;
+}
+
+body.path-frontpage .main-block{
+  max-width: none !important;
+}
+
+.view-display-id-my_collectives_block .views-field-field-picture{
+  float: none !important;
+}
+
+.field--name-field-grt-breakdown .paragraph-type-top {
+   min-width: auto;
+   width: 25px;
+}
+.field--name-field-grt-breakdown .paragraph-type-title {
+   max-height: 0;
+   min-width: auto;
+}
+
+.path-wranglers .body-content {
+    width: 1300px;
+    position: relative;
+    left: -180px;
+    background: #450b14;
+}
+
+.path-wranglers .main-block {
+    max-width: 100%;
+    width: 1300px;
+}
+
+.path-wranglers .details-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+.path-wranglers .wrangler_ovr_1 {
+    max-height: 240px;
+    overflow: hidden;
+    width: 20%;
+}
+
+.path-wranglers .wrangler_ovr_1,
+.path-wranglers .wrangler_ovr_2,
+.path-wranglers .wrangler_ovr_3,
+.path-wranglers .wrangler_ovr_4,
+.path-wranglers .wrangler_ovr_5 {
+    max-width: 25%;
+    width: 22%;
+    padding: 7px;
+}
+
+.path-wranglers .wrangler_ovr_4 {
+    width: 25%;
+}
+
+.path-wranglers .wrangler_ovr_1 .field__item {
+    padding-left: 0em;
+}
+
+.path-wranglers .wrangler_ovr_4 .field--name-field-prj-adm-notes .field__item {
+    max-height: 150px;
+    height: 150px;
+    overflow-y: scroll;
+}
+
+.path-wranglers .wrangler_ovr_5 .field__item {
+    overflow-y: scroll;
+    max-height: 213px;
+    height: 213px;
+
+}
+.path-wranglers .views-row {
+    display: flex;
+}
+.path-wranglers td.views-field-field-last-name {
+    vertical-align: top;
+    padding-top: 89px;
+}
+.path-wranglers div.body-content table td {
+    background-color: transparent;
+}
+
+.page-node-type-art .node-art-edit-form .field--name-field-grt-breakdown,
+.page-node-type-performances .field--name-field-grt-breakdown  {
+    display: none;
+}
+
+.node-art-grant-form .field--name-field-grt-breakdown,
+.node-performances-grant-form .field--name-field-grt-breakdown {
+    display: block;
+}
+
+
+
+.paragraph.paragraph--type--grant-expences.paragraph--view-mode--default {
+    display: flex;
+}
+.paragraph.paragraph--type--grant-expences.paragraph--view-mode--default .field__item {
+    border-bottom: none;
+    padding-left: 0;
+    overflow-wrap: break-word;
+}
