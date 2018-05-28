@@ -1,3 +1,4 @@
-.horizontal-tabs .horizontal-tabs-list{
+.horizontal-tabs .horizontal-tabs-list,
+.horizontal-tabs .horizontal-tabs-list li{
   background: none;
 }
