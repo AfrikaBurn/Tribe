@@ -18,7 +18,7 @@
       );
 
       // Text size fixing
-      $('.user-form .form-text').removeAttr('size')
+      $('.user-form .form-text, .user-form .form-email').removeAttr('size')
 
     }
   };
