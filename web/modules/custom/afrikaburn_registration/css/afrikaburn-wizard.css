@@ -19,3 +19,7 @@
   position: absolute;
   left: -5px;
 }
+
+.horizontal-tabs .horizontal-tabs-list li.first:before{
+  content : "";
+}
