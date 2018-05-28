@@ -7,10 +7,11 @@
 function afrikaburn_registration_form_user_form_alter(&$form, $form_state, $form_id){
   $form['#attached']['library'][] = 'afrikaburn_registration/afrikaburn_registration';
   $form['#after_build'][] = 'afrikaburn_registration_after_build';
-}
-
-
-function afrikaburn_registration_after_build($form, $form_state){
   dpm($form);
-  return $form;
 }
+
+
+// function afrikaburn_registration_after_build($form, $form_state){
+//   dpm($form);
+//   return $form;
+// }
