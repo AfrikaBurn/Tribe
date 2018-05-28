@@ -12,10 +12,10 @@
   flex-basis: 100%;
 }
 
-.user-form .description{
-  margin: 0px;
+.user-form .form-item .description{
+  margin: 0 0 0 10px;
 }
 
-.user-form .description p{
+.user-form .form-item .description p{
   margin: 0 0 1em;
 }
