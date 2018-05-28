@@ -6,6 +6,4 @@
  */
 function afrikaburn_registration_form_user_form_alter(&$form, $form_state, $form_id){
   $form['#attached']['library'][] = 'afrikaburn_registration/afrikaburn_registration';
-
-  unset($form['actions']['captcha']);
 }
