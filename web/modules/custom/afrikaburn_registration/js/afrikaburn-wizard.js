@@ -77,7 +77,7 @@
     attachSubmit(){
       this.root.parents('form').find('#edit-submit').click(
         () => {
-          alert(this.root.find('.error:visible').first().parents('.details-wrapper'))
+          alert(this.root.find('.error:visible').first().parents('.details-wrapper').length)
 
           setTimeout(
             () => {
