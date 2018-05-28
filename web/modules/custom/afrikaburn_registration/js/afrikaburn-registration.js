@@ -18,7 +18,9 @@
       );
 
       // Text size fixing
-      $('.user-form *[size]').removeAttr('size')
+      $('.user-form input[size]').each(
+        () => this.removeAttr('size')
+      )
 
     }
   };
