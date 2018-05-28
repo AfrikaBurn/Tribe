@@ -8,8 +8,16 @@
 
 .js-wizard .horizontal-tabs .horizontal-tabs-list,
 .js-wizard .horizontal-tabs .horizontal-tabs-list li{
-  padding: 0 15px;
   position: relative;
+}
+
+.js-wizard .horizontal-tabs .horizontal-tabs-list{
+  text-align: center;
+  padding: 20px 0;
+}
+
+.js-wizard .horizontal-tabs .horizontal-tabs-list li{
+  padding: 0 15px;
 }
 
 .js-wizard .horizontal-tabs .horizontal-tabs-list li.selected a{
