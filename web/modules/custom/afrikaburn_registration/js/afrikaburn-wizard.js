@@ -45,7 +45,7 @@
       this.root.parents('form').find('.form-actions').appendTo(this.panels.last().find('.wizard-actions'));
       this.attachPrevious();
       this.attachNext();
-
+      this.attachSubmit();
     }
 
     // Attach the previous buttons and behaviours
@@ -72,6 +72,20 @@
           }
         }
       );
+    }
+
+    attachSubmit(){
+      this.root.parents('form').find('#edit-submit').click(
+        () => {
+          setTimeout(
+            () => {
+              var first = this.root.find('.error:visible').first().parents('.details-wrapper')
+              this.tabs[this.panels.index(first)].click()
+            },
+            100
+          )
+        }
+      )
     }
 
     // Validate the current tab
