@@ -31,3 +31,11 @@
 .js-wizard .pager{
   margin-bottom: 25px;
 }
+
+.js-wizard .wizard-actions{
+  text-align: right;
+}
+
+.js-wizard .wizard-actions input{
+  margin-left: 10px;
+}
