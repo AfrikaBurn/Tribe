@@ -33,7 +33,7 @@
       this.panels.each(
       	(panel) => $(panel).prepend(
       	  '<div class="pager">Step ' +
-      	  this.panels.index(this) +
+      	  this.panels.index(panel) +
       	  ' of ' + 
       	  this.panels.length +
       	  '</div>'
