@@ -5,6 +5,8 @@
   display: flex;
   flex-wrap: wrap;
   min-width: 300px;
+  padding-bottom: 2em;
+  position: relative;
 }
 
 .user-form .form-item *{
@@ -26,6 +28,11 @@
 
 .user-form .form-item .description p:last-child{
   margin: 0;
+}
+
+.user-form .form-item label.error{
+  position: absolute;
+  bottom: 0;
 }
 
 .user-form .form-item.form-type-checkbox *{
