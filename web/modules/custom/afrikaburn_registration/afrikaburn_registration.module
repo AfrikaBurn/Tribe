@@ -11,5 +11,6 @@ function afrikaburn_registration_form_user_form_alter(&$form, $form_state, $form
 
 
 function afrikaburn_registration_after_build($form, $form_state){
+  dpm($form);
   return $form;
 }
