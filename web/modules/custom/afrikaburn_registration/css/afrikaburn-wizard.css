@@ -1,7 +1,7 @@
 .horizontal-tabs,
 .horizontal-tabs .horizontal-tabs-list,
 .horizontal-tabs .horizontal-tabs-list li,
-.horizontal-tabs .horizontal-tabs-list li a:hover,
+.horizontal-tabs .horizontal-tabs-list li a:hover{
   background: none;
   border: none;
 }
