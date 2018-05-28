@@ -45,6 +45,6 @@
   width: 50%;
 }
 
-.user-form #edit-contact summary{
+.user-form details summary{
   display: none;
 }

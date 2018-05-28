@@ -41,8 +41,8 @@
   	  );
 
       this.panels.append('<div class="wizard-actions"></div>');
-      this.root.parents('form').find('.form-actions').appendTo(this.panels.last());
       this.root.parents('form').find('.captcha').appendTo(this.panels.last());
+      this.root.parents('form').find('.form-actions').appendTo(this.panels.last());
       this.attachPrevious();
       this.attachNext();
 
