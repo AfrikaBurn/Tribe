@@ -83,7 +83,7 @@
               firstErrorPanel = this.root.find('.error:visible').first().parents('.details-wrapper'),
               firstErrorTab = this.tabs[this.panels.index(firstErrorPanel)]
 
-              console.log(this.root.find('.error:visible').first())
+              console.log(firstErrorPanel)
 
               firstErrorTab.click()
             },

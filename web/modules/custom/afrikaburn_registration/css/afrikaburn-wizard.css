@@ -12,7 +12,8 @@
 }
 
 .js-wizard .horizontal-tabs .horizontal-tabs-list{
-  text-align: center;
+  display: flex;
+  justify-content: center;
   padding: 20px 0;
 }
 
