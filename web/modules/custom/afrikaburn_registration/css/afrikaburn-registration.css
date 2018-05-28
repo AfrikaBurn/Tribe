@@ -35,6 +35,7 @@
   bottom: .75em;
 }
 
+.user-form .form-item .select-wrapper,
 .user-form .form-item.form-type-checkbox *{
   min-width: auto;
   flex-basis: auto;
