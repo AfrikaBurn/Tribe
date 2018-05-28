@@ -16,9 +16,10 @@
 }
 
 .horizontal-tabs .horizontal-tabs-list li:before{
-  content : ">>";
+  content : ">";
   position: absolute;
   left: -5px;
+  top: 5px;
 }
 
 .horizontal-tabs .horizontal-tabs-list li.first:before{
