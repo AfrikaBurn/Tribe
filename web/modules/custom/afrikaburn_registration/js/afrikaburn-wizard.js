@@ -75,20 +75,19 @@
     }
 
     attachSubmit(){
-      alert('purse')
-      // this.root.parents('form').find('#edit-submit').click(
-      //   () => {
-      //     alert(this.root.find('.error:visible').first().parents('.details-wrapper'))
+      this.root.parents('form').find('#edit-submit').click(
+        () => {
+          alert(this.root.find('.error:visible').first().parents('.details-wrapper'))
 
-      //     setTimeout(
-      //       () => {
-      //         var first = this.root.find('.error:visible').first().parents('.details-wrapper')
-      //         this.tabs[this.panels.index(first)].click()
-      //       },
-      //       100
-      //     )
-      //   }
-      // )
+          setTimeout(
+            () => {
+              var first = this.root.find('.error:visible').first().parents('.details-wrapper')
+              this.tabs[this.panels.index(first)].click()
+            },
+            100
+          )
+        }
+      )
     }
 
     // Validate the current tab
