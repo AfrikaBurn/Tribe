@@ -74,6 +74,7 @@
       );
     }
 
+    // On submit, go to the first panel with an error
     attachSubmit(){
       this.root.parents('form').find('#edit-submit').click(
         () => {
@@ -82,10 +83,7 @@
               var
               firstErrorPanel = this.root.find('.error:visible').first().parents('.details-wrapper'),
               firstErrorTab = this.tabs[this.panels.index(firstErrorPanel)]
-
-              console.log(firstErrorPanel)
-
-              firstErrorTab.click()
+              $(firstErrorTab).find('a').click()
             },
             100
           )
