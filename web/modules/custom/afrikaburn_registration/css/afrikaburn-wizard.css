@@ -8,12 +8,11 @@
   border: none;
 }
 
-.horizontal-tabs .horizontal-tabs-list li.selected{
+.horizontal-tabs .horizontal-tabs-list li.selected a{
   border: 1px solid #f26c55;
   border-radius: 10px;
 }
 
 .horizontal-tabs .horizontal-tabs-list li:before{
-  display: block;
-  content : "&gt;";
+  content : " > ";
 }
