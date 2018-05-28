@@ -30,6 +30,16 @@
       this.tabs = $('.vertical-tabs__menu, .horizontal-tabs-list', this.root).children();
       this.panels = $('.field-group-tab > .details-wrapper', this.root);
 
+      this.panels.each(
+      	(panel) => $(panel).prepend(
+      	  '<div class="pager">Step ' +
+      	  this.panels.indexOf(this) +
+      	  ' of ' + 
+      	  this.panels.length
+      	  '</div>'
+  	  	)
+  	  );
+
       this.panels.append('<div class="wizard-actions"></div>');
       this.root.parents('form').find('.form-actions').appendTo(this.panels.last());
       this.attachPrevious();
