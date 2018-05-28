@@ -77,12 +77,17 @@
     attachSubmit(){
       this.root.parents('form').find('#edit-submit').click(
         () => {
-          alert(this.root.find('.error:visible').first().parents('.details-wrapper').length)
+          var
+            firstErrorPanel = this.root.find('.error:visible')
+              .first()
+              .parents('.details-wrapper'),
+            firstErrorTab = this.tabs[this.panels.index(firstErrorPanel)]
+
+          console.log(firstErrorPanel, firstErrorTab)
 
           setTimeout(
             () => {
-              var first = this.root.find('.error:visible').first().parents('.details-wrapper')
-              this.tabs[this.panels.index(first)].click()
+              firstErrorTab.click()
             },
             100
           )
