@@ -29,11 +29,12 @@
 }
 
 .js-wizard .pager{
-  margin-bottom: 25px;
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 .js-wizard .wizard-actions{
-  padding: 20px;
+  padding: 40px;
 }
 
 .js-wizard .wizard-actions:after{
@@ -46,8 +47,4 @@
 
 .js-wizard .wizard-actions .js-next{
   float: right;
-}
-
-.js-wizard .wizard-actions input{
-  margin-left: 10px;
 }
