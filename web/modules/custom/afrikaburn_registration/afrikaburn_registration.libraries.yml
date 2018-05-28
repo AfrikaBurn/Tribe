@@ -6,3 +6,5 @@ afrikaburn_registration:
   css:
     layout:
       css/afrikaburn-registration.css: {}
+    theme:
+      css/afrikaburn-wizard.css: {}
