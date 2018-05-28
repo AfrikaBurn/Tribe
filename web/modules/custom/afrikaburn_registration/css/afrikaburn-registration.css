@@ -1,13 +1,21 @@
-.form-item{
+.user-form .form-item{
   align-items: top;
   display: flex;
   flex-wrap: wrap;
 }
 
-.form-item *{
+.user-form .form-item *{
   flex-basis: 50%;
 }
 
-.form-item label{
+.user-form .form-item label{
   flex-basis: 100%;
+}
+
+.user-form .description{
+  margin: 0px;
+}
+
+.user-form .description p{
+  margin: 0 0 1em;
 }

@@ -1,29 +1,33 @@
-.horizontal-tabs,
-.horizontal-tabs .horizontal-tabs-list,
-.horizontal-tabs .horizontal-tabs-list li,
-.horizontal-tabs .horizontal-tabs-list li a:hover{
+.js-wizard .horizontal-tabs,
+.js-wizard .horizontal-tabs .horizontal-tabs-list,
+.js-wizard .horizontal-tabs .horizontal-tabs-list li,
+.js-wizard .horizontal-tabs .horizontal-tabs-list li a:hover{
   background: none;
   border: none;
 }
 
-.horizontal-tabs .horizontal-tabs-list,
-.horizontal-tabs .horizontal-tabs-list li{
+.js-wizard .horizontal-tabs .horizontal-tabs-list,
+.js-wizard .horizontal-tabs .horizontal-tabs-list li{
   padding: 0 15px;
   position: relative;
 }
 
-.horizontal-tabs .horizontal-tabs-list li.selected a{
+.js-wizard .horizontal-tabs .horizontal-tabs-list li.selected a{
   border: 1px solid #f26c55;
   border-radius: 10px;
 }
 
-.horizontal-tabs .horizontal-tabs-list li:before{
+.js-wizard .horizontal-tabs .horizontal-tabs-list li:before{
   content : ">";
   position: absolute;
   left: -5px;
   top: 5px;
 }
 
-.horizontal-tabs .horizontal-tabs-list li.first:before{
+.js-wizard .horizontal-tabs .horizontal-tabs-list li.first:before{
   content : "";
+}
+
+.js-wizard .pager{
+  margin-bottom: 25px;
 }
