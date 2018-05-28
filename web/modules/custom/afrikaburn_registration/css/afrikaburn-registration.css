@@ -48,3 +48,8 @@
 .user-form details summary{
   display: none;
 }
+
+.user-form h4.label{
+  text-transform: none;
+  font-size: 100%;
+}
