@@ -28,7 +28,16 @@
   margin: 0;
 }
 
+.user-form .form-type-checkbox *{
+  min-width: auto;
+  flex-basis: auto;
+}
+
 .user-form .field--name-user-picture{
   float: right;
   width: 50%;
+}
+
+.user-form #edit-contact summary{
+  display: none;
 }
