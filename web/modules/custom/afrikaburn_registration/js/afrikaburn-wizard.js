@@ -35,7 +35,7 @@
       	  '<div class="pager">Step ' +
       	  this.panels.indexOf(this) +
       	  ' of ' + 
-      	  this.panels.length
+      	  this.panels.length +
       	  '</div>'
   	  	)
   	  );
