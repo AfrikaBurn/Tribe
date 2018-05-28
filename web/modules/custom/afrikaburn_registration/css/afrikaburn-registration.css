@@ -1,6 +1,7 @@
 .user-form .details-wrapper{
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 .user-form .form-item{
@@ -28,4 +29,8 @@
 
 .user-form .form-item .description p:last-child{
   margin: 0;
+}
+
+.user-form .field--name-user-picture{
+  flex-basis: 50%;
 }
