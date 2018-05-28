@@ -32,8 +32,8 @@
   margin-bottom: 25px;
 }
 
-.js-wizard .wizard-actions .js-next{
-  float: right;
+.js-wizard .wizard-actions{
+  padding: 20px;
 }
 
 .js-wizard .wizard-actions:after{
@@ -42,6 +42,10 @@
   display: block;
   height: 0;
   visibility: hidden;
+}
+
+.js-wizard .wizard-actions .js-next{
+  float: right;
 }
 
 .js-wizard .wizard-actions input{
