@@ -6,6 +6,7 @@
 .horizontal-tabs .horizontal-tabs-list li{
   background: none;
   border: none;
+  position: relative;
 }
 
 .horizontal-tabs .horizontal-tabs-list li.selected a{
@@ -14,5 +15,7 @@
 }
 
 .horizontal-tabs .horizontal-tabs-list li:before{
-  content : " > ";
+  content : ">>";
+  position: absolute;
+  left: -5px;
 }
