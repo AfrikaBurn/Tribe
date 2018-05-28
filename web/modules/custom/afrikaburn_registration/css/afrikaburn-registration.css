@@ -1,14 +1,8 @@
-.user-form .details-wrapper{
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row-reverse;
-}
 
 .user-form .form-item{
   align-items: top;
   box-sizing: border-box;
   display: flex;
-  flex-basis: 100%;
   flex-wrap: wrap;
   min-width: 300px;
 }
@@ -34,16 +28,7 @@
   margin: 0;
 }
 
-
-.user-form .details-wrapper .pager{
-  flex-basis: 100%;
-}
-
 .user-form .field--name-user-picture{
-  flex-basis: 50%;
-}
-
-.user-form .field--name-field-first-name,
-.user-form .field--name-field-last-name{
-  flex-basis: 50%;
+  float: right;
+  width: 50%;
 }
