@@ -78,9 +78,7 @@
       this.root.parents('form').find('#edit-submit').click(
         () => {
           var
-            firstErrorPanel = this.root.find('.error:visible')
-              .first()
-              .parents('.details-wrapper'),
+            firstErrorPanel = this.root.find('.error:visible').first().parents('.details-wrapper'),
             firstErrorTab = this.tabs[this.panels.index(firstErrorPanel)]
 
           console.log(firstErrorPanel, firstErrorTab)
