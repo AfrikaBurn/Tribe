@@ -1,11 +1,16 @@
 .user-form .details-wrapper{
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-end;
+  flex-direction: row-reverse;
+}
+
+.user-form .details-wrapper .pager{
+  flex-basis: 100%;
 }
 
 .user-form .form-item{
   flex-basis: 100%;
+  min-width: 300px;
   align-items: top;
   display: flex;
   flex-wrap: wrap;
@@ -13,6 +18,7 @@
 
 .user-form .form-item *{
   flex-basis: 45%;
+  min-width: 300px;
 }
 
 .user-form .form-item label{
