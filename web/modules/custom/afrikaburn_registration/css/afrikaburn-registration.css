@@ -1,4 +1,10 @@
+.user-form .details-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .user-form .form-item{
+  flex-basis: 100%;
   align-items: top;
   display: flex;
   flex-wrap: wrap;
