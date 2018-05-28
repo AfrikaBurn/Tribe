@@ -45,6 +45,11 @@
   visibility: hidden;
 }
 
-.js-wizard .wizard-actions .js-next{
+.js-wizard .wizard-actions .form-actions{
+  width: 50%;
+}
+
+.js-wizard .wizard-actions .js-next,
+.js-wizard .wizard-actions .form-actions{
   float: right;
 }
