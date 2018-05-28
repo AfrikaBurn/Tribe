@@ -29,7 +29,7 @@
 }
 
 .user-form .form-item label.error{
-  position: relative;
+  position: absolute;
   left: 45%;
 }
 
