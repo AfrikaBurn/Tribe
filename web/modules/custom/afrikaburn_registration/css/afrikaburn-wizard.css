@@ -1,11 +1,13 @@
-.horizontal-tabs {
+.horizontal-tabs,
+.horizontal-tabs .horizontal-tabs-list,
+.horizontal-tabs .horizontal-tabs-list li,
+.horizontal-tabs .horizontal-tabs-list li a:hover,
+  background: none;
   border: none;
 }
 
 .horizontal-tabs .horizontal-tabs-list,
 .horizontal-tabs .horizontal-tabs-list li{
-  background: none;
-  border: none;
   padding: 0 15px;
   position: relative;
 }
