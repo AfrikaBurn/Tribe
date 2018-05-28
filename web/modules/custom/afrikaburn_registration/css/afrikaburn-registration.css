@@ -28,7 +28,12 @@
   margin: 0;
 }
 
-.user-form .form-type-checkbox *{
+.user-form .form-item label.error{
+  position: relative;
+  left: 45%;
+}
+
+.user-form .form-item.form-type-checkbox *{
   min-width: auto;
   flex-basis: auto;
 }
