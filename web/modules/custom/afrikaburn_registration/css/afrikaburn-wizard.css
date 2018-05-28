@@ -46,7 +46,7 @@
 }
 
 .js-wizard .wizard-actions .form-actions{
-  width: 50%;
+  width: 50% !important;
 }
 
 .js-wizard .wizard-actions .js-next,
