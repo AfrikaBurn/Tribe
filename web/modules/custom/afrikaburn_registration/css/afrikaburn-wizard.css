@@ -5,9 +5,15 @@
 .horizontal-tabs .horizontal-tabs-list,
 .horizontal-tabs .horizontal-tabs-list li{
   background: none;
+  border: none;
 }
 
 .horizontal-tabs .horizontal-tabs-list li.selected{
   border: 1px solid #f26c55;
   border-radius: 10px;
+}
+
+.horizontal-tabs .horizontal-tabs-list li:before{
+  display: block;
+  content : "&gt;";
 }
