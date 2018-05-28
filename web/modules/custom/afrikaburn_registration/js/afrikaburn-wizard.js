@@ -31,9 +31,9 @@
       this.panels = $('.field-group-tab > .details-wrapper', this.root);
 
       this.panels.each(
-      	(panel) => $(panel).prepend(
+      	(index, panel) => $(panel).prepend(
       	  '<div class="pager">Step ' +
-      	  this.panels.index(panel) +
+      	  (index + 1) +
       	  ' of ' + 
       	  this.panels.length +
       	  '</div>'
