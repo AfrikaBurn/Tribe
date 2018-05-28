@@ -32,8 +32,16 @@
   margin-bottom: 25px;
 }
 
-.js-wizard .wizard-actions{
-  text-align: right;
+.js-wizard .wizard-actions .js-next{
+  float: right;
+}
+
+.js-wizard .wizard-actions:after{
+  clear: both;
+  content: '.';
+  display: block;
+  height: 0;
+  visibility: hidden;
 }
 
 .js-wizard .wizard-actions input{
