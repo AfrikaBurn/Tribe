@@ -32,12 +32,12 @@
 
 .user-form .form-item label.error{
   position: absolute;
-  bottom: 0;
+  bottom: .75em;
 }
 
 .user-form .form-item.form-type-checkbox *{
   min-width: auto;
-  flex-basis: 45%;
+  flex-basis: auto;
 }
 
 .user-form .field--name-user-picture{
