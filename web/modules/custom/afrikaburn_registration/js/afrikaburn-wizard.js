@@ -34,7 +34,7 @@
       	(index, panel) => $(panel).prepend(
       	  '<div class="pager">Step ' +
       	  (index + 1) +
-      	  ' of ' + 
+      	  ' of ' +
       	  this.panels.length +
       	  '</div>'
   	  	)
@@ -42,6 +42,7 @@
 
       this.panels.append('<div class="wizard-actions"></div>');
       this.root.parents('form').find('.form-actions').appendTo(this.panels.last());
+      this.root.parents('form').find('.captcha').appendTo(this.panels.last());
       this.attachPrevious();
       this.attachNext();
 
