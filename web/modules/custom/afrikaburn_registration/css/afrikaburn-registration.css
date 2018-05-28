@@ -19,3 +19,7 @@
 .user-form .form-item .description p{
   margin: 0 0 1em;
 }
+
+.user-form .form-item .description p:last-child{
+  margin: 0;
+}
