@@ -36,7 +36,8 @@
 }
 
 .user-form .form-item .select-wrapper,
-.user-form .form-item.form-type-checkbox *{
+.user-form .form-item.form-type-checkbox *,
+.user-form .form-item.form-type-radio *{
   min-width: auto;
   flex-basis: auto;
 }
@@ -55,12 +56,13 @@
   font-size: 100%;
 }
 
-#edit-roles .fieldset-wrapper{
+#edit-roles{
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
 }
 
-#edit-roles .fieldset-wrapper .form-item{
-  flex-basis: 30%;
-  min-width: 300px;
+#edit-roles .form-item{
+  flex-basis: 25%;
+  min-width: 160px;
 }
+
