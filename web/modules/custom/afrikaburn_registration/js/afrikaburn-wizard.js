@@ -45,7 +45,6 @@
       this.root.parents('form').find('.form-actions').appendTo(this.panels.last().find('.wizard-actions'));
       this.attachPrevious();
       this.attachNext();
-      this.attachSubmit();
     }
 
     // Attach the previous buttons and behaviours
@@ -72,23 +71,6 @@
           }
         }
       );
-    }
-
-    // On submit, go to the first panel with an error
-    attachSubmit(){
-      this.root.parents('form').find('#edit-submit').click(
-        () => {
-          setTimeout(
-            () => {
-              var
-              firstErrorPanel = this.root.find('.error:visible').first().parents('.details-wrapper'),
-              firstErrorTab = this.tabs[this.panels.index(firstErrorPanel)]
-              $(firstErrorTab).find('a').click()
-            },
-            100
-          )
-        }
-      )
     }
 
     // Validate the current tab
