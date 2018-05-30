@@ -18,15 +18,19 @@
       );
 
       $('form.user-form', context).find('#edit-submit').click(
-        () => {
+        function(){
+
+          var
+            root = $(this).parents('form').first(),
+            panels = root.find('.details-wrapper'),
+            tabs = root.find('.vertical-tabs__menu, .horizontal-tabs-list')
+
           setTimeout(
-            () => {
+            function(){
               var
-                root = $(this).parents('form').first(),
-                panels = root.find('.details-wrapper'),
-                tabs = root.find('.vertical-tabs__menu, .horizontal-tabs-list'),
                 firstErrorPanel = root.find('.error:visible').first().parents('.details-wrapper'),
                 firstErrorTab = tabs[panels.index(firstErrorPanel)]
+
               $(firstErrorTab).find('a').click()
             },
             100
