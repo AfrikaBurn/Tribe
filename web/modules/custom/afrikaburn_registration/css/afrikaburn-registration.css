@@ -54,3 +54,13 @@
   text-transform: none;
   font-size: 100%;
 }
+
+#edit-roles .fieldset-wrapper{
+  display: flex;
+  flex-direction: column;
+}
+
+#edit-roles .fieldset-wrapper .form-item{
+  flex-basis: 30%;
+  min-width: 300px;
+}
