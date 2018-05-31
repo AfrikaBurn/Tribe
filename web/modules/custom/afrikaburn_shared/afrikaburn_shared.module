@@ -225,3 +225,10 @@ function afrikaburn_shared_agreement_submit($form, $form_state){
   $user->field_quicket_id = $quicket['id'];
   $user->save();
 }
+
+/**
+ * Attach shared script
+ */
+function afrikaburn_shared_page_attachments(array &$page) {
+  $page['#attached']['library'][] = 'afrikaburn_shared/afrikaburn_shared';
+}

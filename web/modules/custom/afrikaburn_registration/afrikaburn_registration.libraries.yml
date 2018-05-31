@@ -2,9 +2,6 @@ afrikaburn_registration:
   version: 0.0
   js:
     js/afrikaburn-registration.js: {}
-    js/afrikaburn-wizard.js: {}
   css:
-    layout:
-      css/afrikaburn-registration.css: {}
     theme:
-      css/afrikaburn-wizard.css: {}
+      css/afrikaburn-registration.css: {}

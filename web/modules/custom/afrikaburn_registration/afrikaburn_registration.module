@@ -5,14 +5,18 @@
  * Implements hook_form_FOMR_ID_alter().
  */
 function afrikaburn_registration_form_user_form_alter(&$form, $form_state, $form_id){
+
   $form['#attached']['library'][] = 'afrikaburn_registration/afrikaburn_registration';
+  $form['#attached']['library'][] = 'afrikaburn_shared/afrikaburn_wizard';
+
+  // Hide submit while loading
   $form['actions']['#attributes']['class'][] = 'hidden';
 
   dpm($form);
 
   // Fix gender validation
   $options = &$form['field_gender']['widget']['#options'];
-  if (array_key_exists( '_none', $options)) { 
+  if (array_key_exists( '_none', $options)) {
     $keys = array_keys($options);
     $keys[0] = '';
     $options = array_combine( $keys, $options);
