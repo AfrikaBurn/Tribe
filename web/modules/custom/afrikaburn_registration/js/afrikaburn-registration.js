@@ -35,7 +35,7 @@
               console.log(retype)
 
               if (retype.length && retype.val() != email.val()){
-                $(email, retype)
+                email.add(retype)
                   .addClass('error')
                   .after('<label class="error retype-error">Email address and Retype Email address should match!</label>')
               }
