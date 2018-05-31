@@ -66,6 +66,6 @@
   min-width: 160px;
 }
 
-.field--name-field-email-retype .retype-error{
+.field--name-field-email-retype label:last-child{
   margin-top: 1em;
 }
