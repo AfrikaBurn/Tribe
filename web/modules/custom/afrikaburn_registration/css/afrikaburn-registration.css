@@ -37,14 +37,14 @@
 
 .user-form .form-item label.error,
 .user-form .form-item .form-item--error-message{
-  border-radius: 0;
-  background: none;
-  border: none;
-  color: #fff;
   flex-basis: 100%;
-  margin: 0;
-  padding: 0;
   order: 2;
+  padding: 8px;
+  background: #e85157;
+  border: 1px solid #802727;
+  color: #fff;
+  border-radius: 5px;
+  margin-top: 10px;
 }
 
 .user-form .form-item .select-wrapper,
