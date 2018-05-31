@@ -20,7 +20,7 @@
 
 .user-form .form-item .description{
   visibility: hidden;
-  position: absolute;
+  height: 0;
   margin: 0 0 0 10px;
 }
 
