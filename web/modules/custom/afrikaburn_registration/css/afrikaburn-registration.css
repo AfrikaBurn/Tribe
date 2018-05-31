@@ -49,12 +49,14 @@
 
 .user-form .form-item label.error:before,
 .user-form .form-item .form-item--error-message:before{
-  background-image: url(/themes/afrikaburn/images/afrikaburn-icons.png);
+  background-image: url(/themes/afrikaburn/assets/images/afrikaburn-icons.png);
+  background-color: #e85157;
   background-repeat: no-repeat;
   background-position: left -40px top -50px;
   background-size: 200px;
   width: 24px;
   height: 20px;
+  border-radius: 10px;
 }
 
 .user-form .form-item .select-wrapper,
