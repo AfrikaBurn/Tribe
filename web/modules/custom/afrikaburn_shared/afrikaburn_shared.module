@@ -23,9 +23,10 @@ function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
     }
   }
 
-  // Add ID validation
+  // Add ID, email validation
   if (in_array($form_id, ['user_form', 'user_register_form'])) {
     $form['#validate'][] = 'afrikaburn_shared_user_id_validate';
+    $form['#validate'][] = 'afrikaburn_shared_mail_validate';
   }
 
   // Fetch new quicket info on acceptance of agreements
@@ -137,6 +138,20 @@ function afrikaburn_shared_user_id_validate($form, FormStateInterface &$form_sta
       }
 
     }
+  }
+}
+
+/**
+ * Email retype validation
+ */
+function afrikaburn_shared_mail_validate($form, FormStateInterface &$form_state) {
+
+  $mail = $form_state->getValue('mail')['value'];
+  $retype = $form_state->getValue('field_email_retype')[0]['value'];
+
+  if ($mail != $retype) {
+    $form_state->setErrorByName('field_email_retype', t('Email address and Retype Email address should match!'));
+    $form_state->setErrorByName('mail', t('Email address and Retype Email address should match!'));
   }
 }
 

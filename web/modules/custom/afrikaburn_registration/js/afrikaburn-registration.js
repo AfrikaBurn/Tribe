@@ -32,8 +32,6 @@
                 retype = $('#edit-field-email-retype-0-value:visible'),
                 email = $('#edit-mail')
 
-              console.log(retype)
-
               if (retype.length && retype.val() != email.val()){
                 email.add(retype)
                   .addClass('error')
