@@ -48,7 +48,7 @@
   font-weight: bold;
 }
 
-.user-form .form-item label.error:before,
+.user-form .form-item .error:before,
 .user-form .form-item .form-item--error-message:before{
   background-image: url(/themes/afrikaburn/assets/images/afrikaburn-icons.png);
   background-color: #e85157;
