@@ -32,6 +32,8 @@
                 retype = $('#edit-field-email-retype-0-value:visible'),
                 email = $('#edit-mail')
 
+              console.log(retype)
+
               if (retype.length && retype.val() != email.val()){
                 retype.addClass('error')
                 $('<label class="error">Email addresses should match!</label>').insertAfter(retype)
