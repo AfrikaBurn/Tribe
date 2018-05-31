@@ -22,9 +22,7 @@ Drupal.afrikaburn = {
 
 (function ($, toValidate) {
 
-
   Drupal.behaviors.afrikaburnShared = {
-
     attach: function (context, settings) {
 
       // Validate everything on blur
@@ -34,7 +32,5 @@ Drupal.afrikaburn = {
         }
       )
     }
-
   }
-
 })(jQuery, Drupal.afrikaburn.validate)
