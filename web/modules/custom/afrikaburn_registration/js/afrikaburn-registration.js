@@ -20,13 +20,21 @@
       // Unhide the submit button
       $('.form-actions').removeClass('hidden')
 
-      // Validate retype
-      $('.js-next').click(
-        function(){
-          alert('h')
-      	}
-      )
+      // Let wizardy things happen first
+      setTimeout(
+        () => {
 
+          alert('Yes?')
+
+          // Validate retype
+          $('#edit-group-identity .js-next').click(
+            function(){
+              alert('h')
+            }
+          )
+
+        }, 100
+      )
     }
   }
 
