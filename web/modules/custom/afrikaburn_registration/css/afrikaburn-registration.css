@@ -32,7 +32,11 @@
 
 .user-form .form-item label.error{
   position: absolute;
-  top: 4.5em;
+  bottom: 2em;
+}
+.form-item-mail label.error:nth-child(2),
+.field--name-field-email-retype label.error:nth-child(2){
+  margin-bottom: -1em;
 }
 
 .user-form .form-item .select-wrapper,
@@ -64,9 +68,4 @@
 #edit-roles .form-item{
   flex-basis: 25%;
   min-width: 160px;
-}
-
-.form-item-mail label.error:nth-child(2),
-.field--name-field-email-retype label.error:nth-child(2){
-  margin-top: 1em;
 }
