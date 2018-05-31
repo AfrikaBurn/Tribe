@@ -36,4 +36,4 @@
 
   }
 
-})(jQuery)
+})(jQuery, Drupal.afrikaburn.validate)
