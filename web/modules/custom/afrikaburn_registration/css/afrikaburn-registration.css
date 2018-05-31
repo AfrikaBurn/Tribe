@@ -36,7 +36,7 @@
 }
 
 .user-form .form-item label.error,
-.user-form .form-item form-item--error-message{
+.user-form .form-item .form-item--error-message{
   flex-basis: 100%;
   order: 2;
 }
