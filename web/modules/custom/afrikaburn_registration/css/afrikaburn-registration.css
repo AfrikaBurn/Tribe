@@ -31,6 +31,7 @@
 }
 
 .user-form .form-item label.error{
+  flex-basis: 100%;
   order: 2;
 }
 
