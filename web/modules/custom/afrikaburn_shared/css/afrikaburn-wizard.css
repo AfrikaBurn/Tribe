@@ -13,6 +13,7 @@
 
 .js-wizard .horizontal-tabs .horizontal-tabs-list{
   display: flex;
+  flex-wrap: wrap;
   padding: 20px 0;
 }
 

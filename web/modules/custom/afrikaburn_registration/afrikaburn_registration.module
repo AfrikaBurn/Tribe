@@ -44,7 +44,7 @@ function afrikaburn_registration_form_user_form_alter(&$form, $form_state, $form
 /**
  * ID number validation
  */
-function afrikaburn_registration_user_id_validate($form, FormStateInterface &$form_state) {
+function afrikaburn_registration_user_id_validate($form, &$form_state) {
 
   $id = $form_state->getValue('field_id_number')[0]['value'];
   if (isset($id)) {
@@ -95,7 +95,7 @@ function afrikaburn_registration_user_id_validate($form, FormStateInterface &$fo
 /**
  * Email retype validation
  */
-function afrikaburn_registration_mail_validate($form, FormStateInterface &$form_state) {
+function afrikaburn_registration_mail_validate($form, &$form_state) {
 
   $mail = $form_state->getValue('mail')['value'];
   $retype = $form_state->getValue('field_email_retype')[0]['value'];
