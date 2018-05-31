@@ -90,11 +90,14 @@
 
     // Go to first error
     showFirstError(){
+
+      var thisObject = this
+
       setTimeout(
         function(){
           var
-            firstErrorPanel = this.root.find('.error:visible').first().parents('.details-wrapper'),
-            firstErrorTab = this.tabs[panels.index(firstErrorPanel)]
+            firstErrorPanel = thisObject.root.find('.error:visible').first().parents('.details-wrapper'),
+            firstErrorTab = thisObject.tabs[panels.index(firstErrorPanel)]
           $(firstErrorTab).find('a').click()
         },
         100
