@@ -6,4 +6,21 @@
  */
 function afrikaburn_registration_form_user_form_alter(&$form, $form_state, $form_id){
   $form['#attached']['library'][] = 'afrikaburn_registration/afrikaburn_registration';
+  $form['actions']['#attributes']['class'][] = 'hidden';
+
+  dpm($form);
+
+  // Fix gender validation
+  $options = &$form['field_gender']['widget']['#options'];
+  if (array_key_exists( '_none', $options)) { 
+    $keys = array_keys($options);
+    $keys[0] = '';
+    $options = array_combine( $keys, $options);
+  }
+
+  // Hide email retype on user create
+  $form['field_email_retype']['#access'] = \Drupal::currentUser()->isAnonymous();
+
+  dpm($form);
+
 }

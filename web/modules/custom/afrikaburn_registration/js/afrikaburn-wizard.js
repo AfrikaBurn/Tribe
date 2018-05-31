@@ -7,6 +7,19 @@
 
   'use strict';
 
+  Drupal.behaviors.afrikaburnToValidate = [
+    '.form-email', 
+    '.form-text', 
+    '.form-tel', 
+    '.form-autocomplete', 
+    '.form-checkbox', 
+    '.form-select', 
+    '.form-textarea', 
+    '.form-file', 
+    '.form-number', 
+    '.form-date'
+  ].join(',')
+
   Drupal.behaviors.afrikaBurnWizard = {
     attach: function (context, settings) {
 
@@ -103,5 +116,5 @@
 
   }
 
-})(jQuery, '.form-text, .form-tel, .form-autocomplete, .form-checkbox, .form-select, .form-textarea, .form-file, .form-number, .form-date');
+})(jQuery, Drupal.behaviors.afrikaburnToValidate)
 
