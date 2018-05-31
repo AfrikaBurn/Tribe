@@ -24,12 +24,18 @@
       setTimeout(
         () => {
 
-          alert('Yes?')
-
           // Validate retype
-          $('#edit-group-identity .js-next').click(
+          $('#edit-group-account .js-next').click(
             function(){
-              alert('h')
+
+              var
+                retype = $('#edit-field-email-retype-0-value:visible'),
+                email = $('#edit-mail')
+
+              if (retype.length && retype.val() != email.val()){
+                retype.addClass('error')
+                retype.insertAfter('<label class="error">Email addresses should match!</label>')
+              }
             }
           )
 
