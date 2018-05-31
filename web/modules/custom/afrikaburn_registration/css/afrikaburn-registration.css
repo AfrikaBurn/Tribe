@@ -31,12 +31,7 @@
 }
 
 .user-form .form-item label.error{
-  position: absolute;
-  bottom: 2em;
-}
-.form-item-mail label.error:nth-child(2),
-.field--name-field-email-retype label.error:nth-child(2){
-  margin-bottom: -1em;
+  order: 2;
 }
 
 .user-form .form-item .select-wrapper,
