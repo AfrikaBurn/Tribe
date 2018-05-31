@@ -21,7 +21,7 @@
       $('.form-actions').removeClass('hidden')
 
       // Validate retype
-      $('#edit-group-identity .js-next').click(
+      $('.js-next').click(
         function(){
           alert('h')
       	}
