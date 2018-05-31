@@ -66,6 +66,7 @@
   min-width: 160px;
 }
 
-.field--name-field-email-retype label:last-child{
+.form-item-mail label:nth-child(2),
+.field--name-field-email-retype label:nth-child(2){
   margin-top: 1em;
 }
