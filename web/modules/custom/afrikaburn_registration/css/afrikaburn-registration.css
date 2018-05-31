@@ -66,3 +66,6 @@
   min-width: 160px;
 }
 
+.field--name-field-email-retype .retype-error{
+  margin-top: 1em;
+}
