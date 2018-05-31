@@ -37,7 +37,13 @@
 
 .user-form .form-item label.error,
 .user-form .form-item .form-item--error-message{
+  border-radius: 0;
+  background: none;
+  border: none;
+  color: #fff;
   flex-basis: 100%;
+  margin: 0;
+  padding: 0;
   order: 2;
 }
 
