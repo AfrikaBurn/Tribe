@@ -19,7 +19,13 @@
 }
 
 .user-form .form-item .description{
+  visibility: hidden;
+  position: absolute;
   margin: 0 0 0 10px;
+}
+
+.user-form .form-item:hover .description{
+  visibility: visible;
 }
 
 .user-form .form-item .description p{
