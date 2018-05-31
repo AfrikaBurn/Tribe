@@ -5,24 +5,9 @@
 
 'use strict';
 
-Drupal.afrikaburn = {
-  validate: [
-    '.form-email',
-    '.form-text',
-    '.form-tel',
-    '.form-autocomplete',
-    '.form-checkbox',
-    '.form-select',
-    '.form-textarea',
-    '.form-file',
-    '.form-number',
-    '.form-date'
-  ].join(',')
-}
-
 (function ($, toValidate) {
 
-  Drupal.behaviors.afrikaburnShared = {
+  Drupal.behaviors.afrikaBurnShared = {
     attach: function (context, settings) {
 
       // Validate everything on blur
@@ -33,4 +18,4 @@ Drupal.afrikaburn = {
       )
     }
   }
-})(jQuery, Drupal.afrikaburn.validate)
+})(jQuery, '.form-email,.form-text,.form-tel,.form-autocomplete,.form-checkbox,.form-select,.form-textarea,.form-file,.form-number,.form-date')
