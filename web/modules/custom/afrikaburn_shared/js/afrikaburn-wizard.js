@@ -91,17 +91,12 @@
     // Go to first error
     showFirstError(){
 
-      var thisObject = this
+      var
+        firstErrorPanel = this.root.find('.error:visible').first().parents('.details-wrapper'),
+        firstErrorTab = this.tabs[this.panels.index(firstErrorPanel)],
+        link = $(firstErrorTab).find('a')
 
-      setTimeout(
-        function(){
-          var
-            firstErrorPanel = thisObject.root.find('.error:visible').first().parents('.details-wrapper'),
-            firstErrorTab = thisObject.tabs[panels.index(firstErrorPanel)]
-          $(firstErrorTab).find('a').click()
-        },
-        100
-      )
+      setTimeout(() => link.click(), 100)
     }
 
     // Scroll to top of element
