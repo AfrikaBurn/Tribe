@@ -71,3 +71,7 @@
   flex-basis: 25%;
   min-width: 160px;
 }
+
+.captcha .details-description{
+  display: none;
+}
