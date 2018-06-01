@@ -97,12 +97,12 @@ function afrikaburn_registration_user_id_validate($form, &$form_state) {
  */
 function afrikaburn_registration_mail_validate($form, &$form_state) {
 
-  $mail = $form_state->getValue('mail')['value'];
+  $mail = $form_state->getValue('mail');
   $retype = $form_state->getValue('field_email_retype')[0]['value'];
 
   if ($mail != $retype) {
-    $form_state->setErrorByName('field_email_retype', t('Email address and Retype Email address should match!'));
     $form_state->setErrorByName('mail', t('Email address and Retype Email address should match!'));
+    $form_state->setErrorByName('field_email_retype', t('Email address and Retype Email address should match!'));
   }
 }
 
