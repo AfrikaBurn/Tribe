@@ -53,12 +53,12 @@ function _quicket($method, $id_number, $teens, $kids, $quicket_id = FALSE){
       'https://api.quicket.co.za/api/codes' . ($quicket_id ? '/' . $quicket_id : '') . '?api_key=' . $settings['api_key'],
       $options
     );
-    \Drupal::logger('afrikaburn_shared')->debug('<pre>' . var_export($response, TRUE) . '</pre>');
+    //\Drupal::logger('afrikaburn_shared')->debug('<pre>' . var_export($response, TRUE) . '</pre>');
 
     if ($response && $response->getStatusCode() == 200){
 
       $result = json_decode($response->getBody()->getContents())->result;
-      \Drupal::logger('afrikaburn_shared')->debug('<pre>' . var_export($result, TRUE) . '</pre>');
+      //\Drupal::logger('afrikaburn_shared')->debug('<pre>' . var_export($result, TRUE) . '</pre>');
 
       return [
         'code' => $result->CodeValue,

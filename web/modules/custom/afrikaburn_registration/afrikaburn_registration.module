@@ -113,7 +113,7 @@ function afrikaburn_registration_mail_validate($form, &$form_state) {
 /**
  * User registration form.
  */
-function afrikaburn_registration_new_quicket($form, FormStateInterface &$form_state) {
+function afrikaburn_registration_new_quicket($form, &$form_state) {
 
   $values = $form_state->getValues();
   $user = \Drupal\user\Entity\User::load($form_state->getValues()['uid']);
@@ -134,7 +134,7 @@ function afrikaburn_registration_new_quicket($form, FormStateInterface &$form_st
 /**
  * User edit submission handler.
  */
-function afrikaburn_registration_update_quicket($form, FormStateInterface &$form_state) {
+function afrikaburn_registration_update_quicket($form, &$form_state) {
 
   $values = $form_state->getValues();
   $user = \Drupal\user\Entity\User::load($form_state->getValues()['uid']);
