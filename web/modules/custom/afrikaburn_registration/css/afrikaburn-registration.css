@@ -14,6 +14,7 @@
 }
 
 .user-form .form-item label{
+  display: block;
   flex-basis: 100%;
 }
 
@@ -23,6 +24,7 @@
   margin: 0 0 0 10px;
 }
 
+.user-form .form-item-field-terms-and-conditions-value .description,
 .user-form .form-item:hover .description{
   visibility: visible;
 }
