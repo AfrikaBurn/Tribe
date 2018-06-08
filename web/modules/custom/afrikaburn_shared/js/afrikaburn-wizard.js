@@ -83,8 +83,10 @@
 
     // Validate the current tab
     validate(){
-      var activePanel = this.getActivePanel()
-      if ($.fn.valid) activePanel.find(toValidate).valid()
+      var 
+        activePanel = this.getActivePanel(),
+        elementsToValidate = activePanel.find(toValidate).length
+      if ($.fn.valid && elementsToValidate.length) elementsToValidate.valid()
       return this.getVisibleErrors().length < 1
     }
 

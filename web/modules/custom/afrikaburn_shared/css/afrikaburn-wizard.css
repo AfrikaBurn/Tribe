@@ -1,11 +1,3 @@
-.js-wizard .horizontal-tabs,
-.js-wizard .horizontal-tabs .horizontal-tabs-list,
-.js-wizard .horizontal-tabs .horizontal-tabs-list li,
-.js-wizard .horizontal-tabs .horizontal-tabs-list li a:hover{
-  background: none;
-  border: none;
-}
-
 .js-wizard .horizontal-tabs .horizontal-tabs-list,
 .js-wizard .horizontal-tabs .horizontal-tabs-list li{
   position: relative;
@@ -19,6 +11,10 @@
 
 .js-wizard .horizontal-tabs .horizontal-tabs-list li{
   padding: 0 15px;
+}
+
+.js-wizard .horizontal-tabs .horizontal-tabs-list li.selected{
+  border: none;
 }
 
 .js-wizard .horizontal-tabs .horizontal-tabs-list li.selected a{
@@ -35,6 +31,10 @@
 
 .js-wizard .horizontal-tabs .horizontal-tabs-list li.first:before{
   content : "";
+}
+
+.js-wizard .horizontal-tabs .horizontal-tabs-panes{
+  border: none;
 }
 
 .js-wizard .pager{

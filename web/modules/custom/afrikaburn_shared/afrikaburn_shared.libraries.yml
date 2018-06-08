@@ -2,6 +2,9 @@ afrikaburn_shared:
   version: 1.x
   js:
     js/afrikaburn-shared.js: {}
+  css:
+    theme:
+      css/afrikaburn-shared.css: {}
 
 afrikaburn_wizard:
   version: 1.x

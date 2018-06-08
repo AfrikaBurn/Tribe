@@ -1,0 +1,68 @@
+.messages.messages--warning{
+  color: #450B05;
+}
+
+.field--name-field-links .tableresponsive-toggle-columns{
+  display: none;
+}
+
+.field--name-field-links .form-type-url input,
+.field--name-field-links .form-type-url .description{
+  flex-basis: 100%;
+}
+
+.field--name-user-picture{
+  margin-bottom: 1em;
+}
+
+#edit-pass .description{
+  height: auto;
+  visibility: visible;
+}
+
+#edit-pass .password-suggestions{
+  border: none;
+}
+
+body .horizontal-tabs,
+body .horizontal-tabs .horizontal-tabs-list,
+body .horizontal-tabs .horizontal-tabs-list li,
+body .horizontal-tabs .horizontal-tabs-list li a:hover{
+  background: none;
+  border: none;
+}
+
+body .horizontal-tabs .horizontal-tabs-panes{
+  border: 1px #f26c55;
+  border-style: solid none none;
+  padding: 20px 0 0;
+}
+
+body .horizontal-tabs .horizontal-tabs-list{
+  display: block;
+}
+
+body .horizontal-tabs .horizontal-tabs-list:after{
+  content: '.';
+  color: transparent;
+  visibility: hidden;
+  height: 0;
+  display: block; 
+  clear: both;
+}
+
+body .horizontal-tabs .horizontal-tabs-list li{
+  padding: 0 15px;
+}
+
+body .horizontal-tabs .horizontal-tabs-list li.selected{
+  border: 1px solid #f26c55;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 3px solid #450B05;
+  margin-bottom: -2px;
+}
+
+body .horizontal-tabs .horizontal-tabs-list li.selected a{
+  color: #fff;
+  text-shadow: 0px 0px 3px #000;
+}

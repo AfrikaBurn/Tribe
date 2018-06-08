@@ -72,4 +72,5 @@ function afrikaburn_shared_views_pre_view(\Drupal\views\ViewExecutable $view, $d
  */
 function afrikaburn_shared_page_attachments(array &$page) {
   $page['#attached']['library'][] = 'afrikaburn_shared/afrikaburn_shared';
+  $page['#attached']['library'][] = 'afrikaburn_shared/afrikaburn_wizard';
 }
