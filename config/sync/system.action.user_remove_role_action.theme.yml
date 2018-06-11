@@ -1,0 +1,14 @@
+uuid: 87a5cfc2-13af-4627-ba3e-215deb0f06fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.theme
+  module:
+    - user
+id: user_remove_role_action.theme
+label: 'Remove the Theme Camp Admin role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: theme

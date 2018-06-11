@@ -1,0 +1,25 @@
+uuid: ad457e75-f06b-4c75-99ae-dc2be5bd56a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_email_retype
+  module:
+    - custom_add_another
+    - user
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: user.user.field_email_retype
+field_name: field_email_retype
+entity_type: user
+bundle: user
+label: 'Please retype your email address'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

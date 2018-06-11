@@ -1,0 +1,26 @@
+uuid: 3278163b-8f65-484a-98a2-5bf6f244d8da
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: hMWLFqXymISIJw5gg4mbmaJaiRxdJBRDt-8_H24mpwA
+id: node.field_prj_gen_contact
+field_name: field_prj_gen_contact
+entity_type: node
+type: entity_reference
+settings:
+  target_type: user
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

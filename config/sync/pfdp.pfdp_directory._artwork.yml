@@ -1,0 +1,27 @@
+uuid: 75b89326-2181-44ef-a972-769589a4faf2
+langcode: en
+status: true
+dependencies: {  }
+id: _artwork
+path: /artwork
+bypass: false
+grant_file_owners: true
+users: {  }
+roles:
+  authenticated: authenticated
+  art_wrangler: art_wrangler
+  art_admin: art_admin
+  communications_wrangler: communications_wrangler
+  communications_admin: communications_admin
+  leave_no_trace_moop: leave_no_trace_moop
+  mutant_vehicle_viewer: mutant_vehicle_viewer
+  mutant_vehicle_wrangler: mutant_vehicle_wrangler
+  mutant_vehicle_admin: mutant_vehicle_admin
+  outreach_wrangler: outreach_wrangler
+  outreach_admin: outreach_admin
+  administrator: administrator
+  support_wrangler: support_wrangler
+  support_admin: support_admin
+  theme_camp_wrangler: theme_camp_wrangler
+  theme: theme
+  anonymous: '0'

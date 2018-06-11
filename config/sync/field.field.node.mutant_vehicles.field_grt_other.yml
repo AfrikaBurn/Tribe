@@ -1,0 +1,29 @@
+uuid: 63e4b100-1a90-42f3-ac4a-25136c691385
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_grt_other
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_grt_other
+field_name: field_grt_other
+entity_type: node
+bundle: mutant_vehicles
+label: 'Are you applying for other funding?'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

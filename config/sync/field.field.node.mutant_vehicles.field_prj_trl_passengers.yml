@@ -1,0 +1,29 @@
+uuid: 0dc5a6aa-c941-4d7e-abe8-96532b2c205f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_trl_passengers
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_trl_passengers
+field_name: field_prj_trl_passengers
+entity_type: node
+bundle: mutant_vehicles
+label: 'Number of passengers on trailer?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

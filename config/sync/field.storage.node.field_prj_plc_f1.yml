@@ -1,0 +1,25 @@
+uuid: ce0cba46-9864-487f-bc25-a0616f10f8c0
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - markup
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: oQy40JSyLa0xWMAXAOxOmFUEb8CBGowSvoej9p13X00
+id: node.field_prj_plc_f1
+field_name: field_prj_plc_f1
+entity_type: node
+type: markup
+settings: {  }
+module: markup
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

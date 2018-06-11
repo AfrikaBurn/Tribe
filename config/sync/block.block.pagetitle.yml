@@ -1,0 +1,25 @@
+uuid: e917d891-cafa-48aa-8033-124d71f9e454
+langcode: en
+status: true
+dependencies:
+  module:
+    - php
+  theme:
+    - afrikaburn
+id: pagetitle
+theme: afrikaburn
+region: page_title
+weight: -21
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  php:
+    id: php
+    negate: false
+    php: ''
+    context_mapping: {  }

@@ -1,0 +1,36 @@
+uuid: e4f9be07-bfc4-451e-bff0-d5a21bde3cbc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_wtf_categories
+    - node.type.art
+    - taxonomy.vocabulary.activity_types
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: Zex-RHm1JSMK1pazTG0FrsntmptLL2Hj2a8EZf6pa9k
+id: node.art.field_prj_wtf_categories
+field_name: field_prj_wtf_categories
+entity_type: node
+bundle: art
+label: 'Activity Categories'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      activity_types: activity_types
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: activity_types
+field_type: entity_reference

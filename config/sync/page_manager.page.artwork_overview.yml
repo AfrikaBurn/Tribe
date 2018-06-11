@@ -1,0 +1,29 @@
+uuid: 7995f51d-670a-47fc-95a1-178896e1065e
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+_core:
+  default_config_hash: YsGo6w5dh-Ga2Hbqyv1YGYLj0joBCViCMc29Mb_AP9w
+id: artwork_overview
+label: 'Artwork Overview'
+description: ''
+use_admin_theme: false
+path: /wrangle/artworks
+access_logic: and
+access_conditions:
+  -
+    id: user_role
+    roles:
+      art_wrangler: art_wrangler
+      art_admin: art_admin
+      communications_wrangler: communications_wrangler
+      communications_admin: communications_admin
+      support_wrangler: support_wrangler
+      support_admin: support_admin
+      administrator: administrator
+    negate: false
+    context_mapping:
+      user: current_user
+parameters: {  }

@@ -1,0 +1,11 @@
+uuid: 6f7f10a5-97d5-428f-9830-653df4c63a85
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: HZ21I7u_dJRJSc7O70EAorJ72pi3HNy1CvIVoVmGQ0g
+name: Departments
+vid: departments
+description: 'This is for project team management, so is limited to Art, MV, Theme Camps'
+hierarchy: 0
+weight: 0

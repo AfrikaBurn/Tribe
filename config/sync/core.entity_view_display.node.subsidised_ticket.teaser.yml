@@ -1,0 +1,31 @@
+uuid: 9402bd57-a3a4-45ca-ab7f-8b7056c28046
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.subsidised_ticket
+  module:
+    - user
+id: node.subsidised_ticket.teaser
+targetEntityType: node
+bundle: subsidised_ticket
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_sub_comment: true
+  field_sub_contributions: true
+  field_sub_expenses: true
+  field_sub_funding: true
+  field_sub_gift: true
+  field_sub_history: true
+  field_sub_id: true
+  field_sub_income: true
+  field_sub_motivation: true
+  field_sub_personal: true
+  field_sub_proof_of_income: true
+  field_sub_review: true
+  field_sub_transferable: true

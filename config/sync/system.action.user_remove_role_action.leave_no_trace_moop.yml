@@ -1,0 +1,14 @@
+uuid: ed96c1fb-1765-4a68-853e-e5e5dff4e53d
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.leave_no_trace_moop
+  module:
+    - user
+id: user_remove_role_action.leave_no_trace_moop
+label: 'Remove the Leave No Trace Moop role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: leave_no_trace_moop

@@ -1,0 +1,25 @@
+uuid: 2334cbd9-1179-479d-979b-19603f8ffcd5
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: QBY3gQnbIyMojLu4aABqxIKfwi8ehpvWogtnr2INXZ8
+id: node.field_prj_saf_guide
+field_name: field_prj_saf_guide
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

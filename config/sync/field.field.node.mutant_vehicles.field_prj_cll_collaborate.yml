@@ -1,0 +1,29 @@
+uuid: 13d1ece6-3dd3-49c4-9c09-a251d4b3a4a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_cll_collaborate
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_cll_collaborate
+field_name: field_prj_cll_collaborate
+entity_type: node
+bundle: mutant_vehicles
+label: 'Click this to have your project listed in our Community Directory.'
+description: 'The <a href="/community/joinproject" target="_blank">Community Directory</a> enables participants and volunteers to choose the project(s) that they feel they can contribute to.<br>Listing your project on the Community Directory means you''re open to being contacted by people interested in collaboration. You can choose to be removed from the Community Directory at any time.  '
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

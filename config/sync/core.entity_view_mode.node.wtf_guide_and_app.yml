@@ -1,0 +1,10 @@
+uuid: 8756b068-b554-40ee-9152-70a88e506173
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.wtf_guide_and_app
+label: 'WTF Guide and App'
+targetEntityType: node
+cache: true

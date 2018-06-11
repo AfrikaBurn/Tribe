@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "756f9db9b086f0323ffda5cf05cdf5db",
+    "content-hash": "d44d5223e41ad04642970a3fd29d13c8",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -121,6 +121,139 @@
                 "stack"
             ],
             "time": "2017-12-20T14:37:45+00:00"
+        },
+        {
+            "name": "aws/aws-php-sns-message-validator",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aws/aws-php-sns-message-validator.git",
+                "reference": "7b8eee4a56fe27d70395f1d87cc35a0651889d9f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aws/aws-php-sns-message-validator/zipball/7b8eee4a56fe27d70395f1d87cc35a0651889d9f",
+                "reference": "7b8eee4a56fe27d70395f1d87cc35a0651889d9f",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*",
+                "php": ">=5.4",
+                "psr/http-message": "^1.0"
+            },
+            "require-dev": {
+                "guzzlehttp/psr7": "^1.4",
+                "phpunit/phpunit": "^4.0",
+                "squizlabs/php_codesniffer": "^2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Aws\\Sns\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Amazon Web Services",
+                    "homepage": "http://aws.amazon.com"
+                }
+            ],
+            "description": "Amazon SNS message validation for PHP",
+            "homepage": "http://aws.amazon.com/sdkforphp",
+            "keywords": [
+                "SNS",
+                "amazon",
+                "aws",
+                "cloud",
+                "message",
+                "sdk",
+                "webhooks"
+            ],
+            "time": "2017-09-27T23:05:21+00:00"
+        },
+        {
+            "name": "aws/aws-sdk-php",
+            "version": "3.61.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/aws/aws-sdk-php.git",
+                "reference": "527d7d10b30a2294686d146b0a12b587f28057b0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/527d7d10b30a2294686d146b0a12b587f28057b0",
+                "reference": "527d7d10b30a2294686d146b0a12b587f28057b0",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "ext-pcre": "*",
+                "ext-simplexml": "*",
+                "ext-spl": "*",
+                "guzzlehttp/guzzle": "^5.3.1|^6.2.1",
+                "guzzlehttp/promises": "~1.0",
+                "guzzlehttp/psr7": "^1.4.1",
+                "mtdowling/jmespath.php": "~2.2",
+                "php": ">=5.5"
+            },
+            "require-dev": {
+                "andrewsville/php-token-reflection": "^1.4",
+                "aws/aws-php-sns-message-validator": "~1.0",
+                "behat/behat": "~3.0",
+                "doctrine/cache": "~1.4",
+                "ext-dom": "*",
+                "ext-openssl": "*",
+                "nette/neon": "^2.3",
+                "phpunit/phpunit": "^4.8.35|^5.4.3",
+                "psr/cache": "^1.0"
+            },
+            "suggest": {
+                "aws/aws-php-sns-message-validator": "To validate incoming SNS notifications",
+                "doctrine/cache": "To use the DoctrineCacheAdapter",
+                "ext-curl": "To send requests using cURL",
+                "ext-openssl": "Allows working with CloudFront private distributions and verifying received SNS messages"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Aws\\": "src/"
+                },
+                "files": [
+                    "src/functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Amazon Web Services",
+                    "homepage": "http://aws.amazon.com"
+                }
+            ],
+            "description": "AWS SDK for PHP - Use Amazon Web Services in your PHP project",
+            "homepage": "http://aws.amazon.com/sdkforphp",
+            "keywords": [
+                "amazon",
+                "aws",
+                "cloud",
+                "dynamodb",
+                "ec2",
+                "glacier",
+                "s3",
+                "sdk"
+            ],
+            "time": "2018-06-05T22:44:12+00:00"
         },
         {
             "name": "bshaffer/oauth2-server-httpfoundation-bridge",
@@ -1539,6 +1672,71 @@
             }
         },
         {
+            "name": "drupal/amazon_sns",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/amazon_sns",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/amazon_sns-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "fb69009006d94f06ab937e2e758a75a2d122fc1b"
+            },
+            "require": {
+                "aws/aws-php-sns-message-validator": "^1.1",
+                "aws/aws-sdk-php": "^3.28",
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1498849143",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Dave Reid",
+                    "homepage": "https://www.drupal.org/user/53892"
+                },
+                {
+                    "name": "deviantintegral",
+                    "homepage": "https://www.drupal.org/user/71291"
+                },
+                {
+                    "name": "juampynr",
+                    "homepage": "https://www.drupal.org/user/682736"
+                },
+                {
+                    "name": "m4olivei",
+                    "homepage": "https://www.drupal.org/user/410384"
+                },
+                {
+                    "name": "sunset_bill",
+                    "homepage": "https://www.drupal.org/user/279881"
+                }
+            ],
+            "description": "Amazon Simple Notification Service integration for Drupal.",
+            "homepage": "https://www.drupal.org/project/amazon_sns",
+            "support": {
+                "source": "http://cgit.drupalcode.org/amazon_sns"
+            }
+        },
+        {
             "name": "drupal/auto_entitylabel",
             "version": "2.1.0-beta1",
             "source": {
@@ -1721,54 +1919,6 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/backup_migrate",
                 "issues": "https://www.drupal.org/project/issues/backup_migrate"
-            }
-        },
-        {
-            "name": "drupal/business_rules",
-            "version": "1.0.0-alpha10",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/business_rules",
-                "reference": "8.x-1.0-alpha10"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/business_rules-8.x-1.0-alpha10.zip",
-                "reference": "8.x-1.0-alpha10",
-                "shasum": "c0352e40b5db5dbbfeda7463601b37bd30f93da6"
-            },
-            "require": {
-                "drupal/core": "~8.0",
-                "drupal/dbug": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.0-alpha10",
-                    "datestamp": "1494455585",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Project has not opted into security advisory coverage!"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "yuriseki",
-                    "homepage": "https://www.drupal.org/user/1523064"
-                }
-            ],
-            "description": "Business Rules",
-            "homepage": "https://www.drupal.org/project/business_rules",
-            "support": {
-                "source": "http://cgit.drupalcode.org/business_rules"
             }
         },
         {
@@ -2151,6 +2301,69 @@
             "homepage": "https://www.drupal.org/project/clientside_validation",
             "support": {
                 "source": "http://cgit.drupalcode.org/clientside_validation"
+            }
+        },
+        {
+            "name": "drupal/collapsiblock",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/collapsiblock",
+                "reference": "8.x-2.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/collapsiblock-8.x-2.0.zip",
+                "reference": "8.x-2.0",
+                "shasum": "30b5a96f9b9ee08ef89d989a2cb6718120c990dd"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.0",
+                    "datestamp": "1528611185",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Darvanen",
+                    "homepage": "https://www.drupal.org/user/1068770"
+                },
+                {
+                    "name": "gagarine",
+                    "homepage": "https://www.drupal.org/user/162439"
+                },
+                {
+                    "name": "j0rd",
+                    "homepage": "https://www.drupal.org/user/61506"
+                },
+                {
+                    "name": "nedjo",
+                    "homepage": "https://www.drupal.org/user/4481"
+                },
+                {
+                    "name": "sonvir249",
+                    "homepage": "https://www.drupal.org/user/3225171"
+                }
+            ],
+            "description": "Makes blocks collapsible.",
+            "homepage": "https://www.drupal.org/project/collapsiblock",
+            "support": {
+                "source": "http://cgit.drupalcode.org/collapsiblock"
             }
         },
         {
@@ -3244,6 +3457,81 @@
             }
         },
         {
+            "name": "drupal/delete_all",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/delete_all",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/delete_all-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "9294b0d99fd82c28ef21725de9ec572ac8ac125f"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1526542684",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Hammad Ghani",
+                    "homepage": "https://www.drupal.org/user/3196009"
+                },
+                {
+                    "name": "coderintherye",
+                    "homepage": "https://www.drupal.org/user/297478"
+                },
+                {
+                    "name": "danylevskyi",
+                    "homepage": "https://www.drupal.org/user/322039"
+                },
+                {
+                    "name": "dipakmdhrm",
+                    "homepage": "https://www.drupal.org/user/1687410"
+                },
+                {
+                    "name": "douggreen",
+                    "homepage": "https://www.drupal.org/user/29191"
+                },
+                {
+                    "name": "kbahey",
+                    "homepage": "https://www.drupal.org/user/4063"
+                },
+                {
+                    "name": "realityloop",
+                    "homepage": "https://www.drupal.org/user/139189"
+                },
+                {
+                    "name": "wafaa",
+                    "homepage": "https://www.drupal.org/user/50133"
+                }
+            ],
+            "description": "Allows deletion of all nodes, comments and users on a site. Useful for development or prior to launching a site.",
+            "homepage": "https://www.drupal.org/project/delete_all",
+            "support": {
+                "source": "http://cgit.drupalcode.org/delete_all"
+            }
+        },
+        {
             "name": "drupal/devel",
             "version": "1.2.0",
             "source": {
@@ -4055,6 +4343,84 @@
             "time": "2016-07-27T19:01:11+00:00"
         },
         {
+            "name": "drupal/flag",
+            "version": "4.0.0-alpha3",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/flag",
+                "reference": "8.x-4.0-alpha3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/flag-8.x-4.0-alpha3.zip",
+                "reference": "8.x-4.0-alpha3",
+                "shasum": "cb55277b79ff66871f0e1bd9a417b2490cae3a84"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "require-dev": {
+                "drupal/rules": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-4.x": "4.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-4.0-alpha3",
+                    "datestamp": "1521598850",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "fago",
+                    "homepage": "https://www.drupal.org/user/16747"
+                },
+                {
+                    "name": "fubhy",
+                    "homepage": "https://www.drupal.org/user/761344"
+                },
+                {
+                    "name": "joachim",
+                    "homepage": "https://www.drupal.org/user/107701"
+                },
+                {
+                    "name": "merlinofchaos",
+                    "homepage": "https://www.drupal.org/user/26979"
+                },
+                {
+                    "name": "mooffie",
+                    "homepage": "https://www.drupal.org/user/78454"
+                },
+                {
+                    "name": "quicksketch",
+                    "homepage": "https://www.drupal.org/user/35821"
+                },
+                {
+                    "name": "shabana.navas",
+                    "homepage": "https://www.drupal.org/user/1311398"
+                },
+                {
+                    "name": "socketwench",
+                    "homepage": "https://www.drupal.org/user/65793"
+                }
+            ],
+            "description": "Create customized flags that users can set on entities.",
+            "homepage": "https://www.drupal.org/project/flag",
+            "support": {
+                "source": "http://cgit.drupalcode.org/flag"
+            }
+        },
+        {
             "name": "drupal/force_password_change",
             "version": "1.3.0",
             "source": {
@@ -4277,17 +4643,17 @@
         },
         {
             "name": "drupal/gdpr",
-            "version": "1.0.0-alpha12",
+            "version": "1.0.0-alpha13",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/gdpr",
-                "reference": "8.x-1.0-alpha12"
+                "reference": "8.x-1.0-alpha13"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/gdpr-8.x-1.0-alpha12.zip",
-                "reference": "8.x-1.0-alpha12",
-                "shasum": "d7400f91a2533351adb555b4b05234141a06b58b"
+                "url": "https://ftp.drupal.org/files/projects/gdpr-8.x-1.0-alpha13.zip",
+                "reference": "8.x-1.0-alpha13",
+                "shasum": "90439161a0dee2e3aadb8abc83663438533ef37a"
             },
             "require": {
                 "cweagans/composer-patches": "~1.0",
@@ -4316,8 +4682,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-alpha12",
-                    "datestamp": "1527610080",
+                    "version": "8.x-1.0-alpha13",
+                    "datestamp": "1527780784",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
@@ -6002,63 +6368,6 @@
             }
         },
         {
-            "name": "drupal/rules",
-            "version": "3.0.0-alpha4",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/rules",
-                "reference": "8.x-3.0-alpha4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/rules-8.x-3.0-alpha4.zip",
-                "reference": "8.x-3.0-alpha4",
-                "shasum": "d6f11a6bd867b3479504b00278b4465a5b138d3a"
-            },
-            "require": {
-                "drupal/core": "~8.0",
-                "drupal/typed_data": "*"
-            },
-            "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "dev-master",
-                "drupal/coder": "8.2.*",
-                "squizlabs/php_codesniffer": "2.9.*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-3.x": "3.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-3.0-alpha4",
-                    "datestamp": "1526654284",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "fago",
-                    "homepage": "https://www.drupal.org/user/16747"
-                },
-                {
-                    "name": "klausi",
-                    "homepage": "https://www.drupal.org/user/262198"
-                }
-            ],
-            "description": "React on events and conditionally evaluate actions.",
-            "homepage": "https://www.drupal.org/project/rules",
-            "support": {
-                "source": "http://cgit.drupalcode.org/rules"
-            }
-        },
-        {
             "name": "drupal/smtp",
             "version": "1.0.0-beta4",
             "source": {
@@ -6849,17 +7158,17 @@
         },
         {
             "name": "drupal/webform",
-            "version": "5.0.0-rc12",
+            "version": "5.0.0-rc14",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/webform",
-                "reference": "8.x-5.0-rc12"
+                "reference": "8.x-5.0-rc14"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.0-rc12.zip",
-                "reference": "8.x-5.0-rc12",
-                "shasum": "d677eb59bf2084267476fa482b5fbccb0dc8afb9"
+                "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.0-rc14.zip",
+                "reference": "8.x-5.0-rc14",
+                "shasum": "b069b9c9b9fc9b367732285e3b331c29ebeb6c00"
             },
             "require": {
                 "drupal/core": "*"
@@ -6876,8 +7185,8 @@
                     "dev-5.x": "5.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-5.0-rc12",
-                    "datestamp": "1524706684",
+                    "version": "8.x-5.0-rc14",
+                    "datestamp": "1528277284",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "RC releases are not covered by Drupal security advisories."
@@ -7849,6 +8158,61 @@
                 "xml"
             ],
             "time": "2017-09-04T12:26:28+00:00"
+        },
+        {
+            "name": "mtdowling/jmespath.php",
+            "version": "2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jmespath/jmespath.php.git",
+                "reference": "adcc9531682cf87dfda21e1fd5d0e7a41d292fac"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jmespath/jmespath.php/zipball/adcc9531682cf87dfda21e1fd5d0e7a41d292fac",
+                "reference": "adcc9531682cf87dfda21e1fd5d0e7a41d292fac",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "bin": [
+                "bin/jp.php"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JmesPath\\": "src/"
+                },
+                "files": [
+                    "src/JmesPath.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Michael Dowling",
+                    "email": "mtdowling@gmail.com",
+                    "homepage": "https://github.com/mtdowling"
+                }
+            ],
+            "description": "Declaratively specify how to extract elements from a JSON document",
+            "keywords": [
+                "json",
+                "jsonpath"
+            ],
+            "time": "2016-12-03T22:08:25+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -12718,7 +13082,6 @@
     "stability-flags": {
         "drupal/auto_entitylabel": 10,
         "drupal/autocomplete_deluxe": 10,
-        "drupal/business_rules": 15,
         "drupal/captcha": 10,
         "drupal/clientside_validation": 5,
         "drupal/computed_field": 15,
@@ -12730,6 +13093,7 @@
         "drupal/field_permissions": 5,
         "drupal/field_validation": 15,
         "drupal/filter_perms": 20,
+        "drupal/flag": 15,
         "drupal/form_mode_control": 5,
         "drupal/formblock": 10,
         "drupal/gdpr": 15,
@@ -12741,7 +13105,6 @@
         "drupal/page_manager": 10,
         "drupal/paragraphs_edit": 15,
         "drupal/php": 10,
-        "drupal/rules": 15,
         "drupal/smtp": 10,
         "drupal/swiftmailer": 10,
         "drupal/taxonomy_manager": 15,

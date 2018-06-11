@@ -1,0 +1,30 @@
+uuid: 873a163b-930e-49ba-a771-4c0bd4f23ce7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_saf_mark
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_saf_mark
+field_name: field_prj_saf_mark
+entity_type: node
+bundle: mutant_vehicles
+label: 'Safety is the main priority'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p>In the interest of ensuring the best possible event for all involved by not having any vehicle-related accidents or injuries, S-A-F-E-T-Y at the DMV is always considered a priority for all involved. With this mantra in mind, any and all vehicles seeking DMV licensing must have the driver(s) review and sign off on an on-site safety form.</p>\r\n\r\n<p>IMPORTANT: You need to print and complete the <a href=\"https://www.afrikaburn.com/wp-content/uploads/2017/12/Mutant-Vehicle-Safety-SignOff-2018.pdf\">Safety Document</a> and bring it to the DMV office upon arrival in Tankwa Town.</p>\r\n"
+    format: basic_html
+field_type: markup

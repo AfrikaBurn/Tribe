@@ -1,0 +1,38 @@
+uuid: 7b50dfa4-41cf-441c-b899-7e7a4ac0f78c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cost_type
+    - paragraphs.paragraphs_type.grant_expences
+    - taxonomy.vocabulary.cost_type
+  content:
+    - 'taxonomy_term:cost_type:49f8c499-f2be-49ee-bed6-6a246beb64d1'
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.grant_expences.field_cost_type
+field_name: field_cost_type
+entity_type: paragraph
+bundle: grant_expences
+label: 'Price type'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 49f8c499-f2be-49ee-bed6-6a246beb64d1
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      cost_type: cost_type
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

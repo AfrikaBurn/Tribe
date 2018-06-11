@@ -1,0 +1,57 @@
+uuid: adeadb1d-4488-44ce-be31-e577834ed738
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.compact
+    - field.field.user.user.field_agreements
+    - field.field.user.user.field_country
+    - field.field.user.user.field_date_of_birth
+    - field.field.user.user.field_district
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_gender
+    - field.field.user.user.field_id_number
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_links
+    - field.field.user.user.field_mobile
+    - field.field.user.user.field_newsletter
+    - field.field.user.user.field_other_burns
+    - field.field.user.user.field_participation
+    - field.field.user.user.field_secondary_mail
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - image
+    - user
+_core:
+  default_config_hash: '-cLsS3M3JycipXQt9rEb81_HxKneReoGuRh8ijcOPXs'
+id: user.user.compact
+targetEntityType: user
+bundle: user
+mode: compact
+content:
+  user_picture:
+    type: image
+    weight: 0
+    region: content
+    settings:
+      image_style: thumbnail
+      image_link: content
+    third_party_settings: {  }
+    label: hidden
+hidden:
+  field_agreements: true
+  field_country: true
+  field_date_of_birth: true
+  field_district: true
+  field_first_name: true
+  field_gender: true
+  field_id_number: true
+  field_last_name: true
+  field_links: true
+  field_mobile: true
+  field_newsletter: true
+  field_other_burns: true
+  field_participation: true
+  field_secondary_mail: true
+  member_for: true

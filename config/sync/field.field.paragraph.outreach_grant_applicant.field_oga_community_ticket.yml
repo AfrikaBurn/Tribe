@@ -1,0 +1,29 @@
+uuid: bc143cb2-fb96-4476-90c7-035687ec3454
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_oga_community_ticket
+    - paragraphs.paragraphs_type.outreach_grant_applicant
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.outreach_grant_applicant.field_oga_community_ticket
+field_name: field_oga_community_ticket
+entity_type: paragraph
+bundle: outreach_grant_applicant
+label: 'Community ticket'
+description: 'Community Ticket sales open on X at X and close on X at X'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

@@ -1,0 +1,25 @@
+uuid: bde14411-772f-43b8-9a98-a0e3e1807fc2
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:7171e6af-8d3c-4413-a495-894fa39c939b'
+  module:
+    - block_content
+  theme:
+    - stark
+id: stark_howzit
+theme: stark
+region: sidebar_first
+weight: -4
+provider: null
+plugin: 'block_content:7171e6af-8d3c-4413-a495-894fa39c939b'
+settings:
+  id: 'block_content:7171e6af-8d3c-4413-a495-894fa39c939b'
+  label: Howzit!
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

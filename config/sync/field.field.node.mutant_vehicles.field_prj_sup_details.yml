@@ -1,0 +1,42 @@
+uuid: 99484a77-ff4a-49a7-888a-3623df533204
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_sup_details
+    - node.type.mutant_vehicles
+    - paragraphs.paragraphs_type.supplier_details
+  module:
+    - custom_add_another
+    - entity_reference_revisions
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_sup_details
+field_name: field_prj_sup_details
+entity_type: node
+bundle: mutant_vehicles
+label: 'Supplier details'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      supplier_details: supplier_details
+    target_bundles_drag_drop:
+      grant_expences:
+        weight: 4
+        enabled: false
+      mutant_grant_expense:
+        weight: 5
+        enabled: false
+      supplier_details:
+        enabled: true
+        weight: 6
+field_type: entity_reference_revisions

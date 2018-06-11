@@ -1,0 +1,20 @@
+uuid: 5ca49449-f209-49a5-8ba5-9e3f6d1bd457
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.agreement.field_agreement_introduction
+    - node.type.agreement
+  module:
+    - user
+id: node.agreement.teaser
+targetEntityType: node
+bundle: agreement
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_agreement_introduction: true

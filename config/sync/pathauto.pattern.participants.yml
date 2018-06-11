@@ -1,0 +1,14 @@
+uuid: 8af78445-7c26-4129-9121-f79a75be3f9f
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: participants
+label: Participants
+type: 'canonical_entities:user'
+pattern: 'participant/[user:display-name]'
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

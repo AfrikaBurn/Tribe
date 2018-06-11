@@ -1,0 +1,12 @@
+uuid: 1cc3afe6-5e66-4b79-b75c-d281024b28cd
+langcode: en
+status: true
+dependencies: {  }
+id: community_joinproject
+label: community/joinproject
+description: ''
+use_admin_theme: false
+path: '/community/joinproject '
+access_logic: and
+access_conditions: {  }
+parameters: {  }

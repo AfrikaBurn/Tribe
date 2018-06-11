@@ -1,0 +1,30 @@
+uuid: 467b769c-5d55-43b8-94fa-f2709dda6cab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_saf_mark
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.theme_camps.field_prj_saf_mark
+field_name: field_prj_saf_mark
+entity_type: node
+bundle: theme_camps
+label: 'Gas cages'
+description: ''
+required: false
+translatable: true
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p>If you have more than 18kg of gas at your camp you need to have a metal cage for it or you can take it to our fuel dump. See the Safety Officer on site or ask a Ranger to direct you to the VOC for details of the location.</p>\r\n\r\n<ol>\r\n\t<li>Theme camp and artwork coordinators contact the VOC to arrange for collection of fuel from their site</li>\r\n\t<li>Fire Crew will log, collect, tag and transport fuel to Fuel Dump</li>\r\n\t<li>Theme camps and artworks requiring fuel delivery contact the VOC 3 hours in advance</li>\r\n\t<li>Fire Crew will deliver fuels.</li>\r\n\t<li>Theme camps and artworks will not be permitted to drop off and/or collect their own fuels from the dump as there were complaints last year that fuels went missing.</li>\r\n</ol>\r\n"
+    format: basic_html
+field_type: markup

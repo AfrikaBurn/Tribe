@@ -1,0 +1,25 @@
+uuid: ef62f174-2a3b-43b2-8c19-5aecaa9fa129
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+_core:
+  default_config_hash: CwUvzJnvwaq7ufG0KtkhLA0yh46PvLfX7U5bGRJ_JDo
+id: node.field_prj_saf_comment
+field_name: field_prj_saf_comment
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

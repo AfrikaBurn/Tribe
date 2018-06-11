@@ -1,0 +1,56 @@
+uuid: 2ca904d2-f939-4a82-a012-294ae5463608
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.member_invitation
+    - field.field.node.collective.field_col_admins
+    - field.field.node.collective.field_col_description
+    - field.field.node.collective.field_col_invitee
+    - field.field.node.collective.field_col_members
+    - field.field.node.collective.field_col_posts
+    - field.field.node.collective.field_picture
+    - node.type.collective
+  module:
+    - content_moderation
+id: node.collective.member_invitation
+targetEntityType: node
+bundle: collective
+mode: member_invitation
+content:
+  field_col_invitee:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 121
+    third_party_settings: {  }
+    region: content
+  url_redirects:
+    weight: 50
+    region: content
+hidden:
+  created: true
+  field_col_admins: true
+  field_col_description: true
+  field_col_members: true
+  field_col_posts: true
+  field_picture: true
+  path: true
+  promote: true
+  sticky: true
+  title: true
+  uid: true

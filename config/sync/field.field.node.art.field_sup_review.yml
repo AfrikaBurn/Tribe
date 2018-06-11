@@ -1,0 +1,35 @@
+uuid: 3b99c367-525e-4fa2-b6d3-a6cd832edfa1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sup_review
+    - node.type.art
+    - taxonomy.vocabulary.wrangler_review
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.art.field_sup_review
+field_name: field_sup_review
+entity_type: node
+bundle: art
+label: 'Suppliers review status'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      wrangler_review: wrangler_review
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

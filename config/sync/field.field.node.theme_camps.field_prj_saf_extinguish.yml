@@ -1,0 +1,31 @@
+uuid: 3f04c944-765d-4ac0-89d5-713d64d1111e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_saf_extinguish
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: xoPV2s-biVnYHZdsCcKxte_oDLw-nRhV9me97-gMhnQ
+id: node.theme_camps.field_prj_saf_extinguish
+field_name: field_prj_saf_extinguish
+entity_type: node
+bundle: theme_camps
+label: 'How many fire extinguishers do you have?'
+description: 'Have you got a plan to store your fuel away from your fire, vehicles, tents and generators? '
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 42
+  prefix: ''
+  suffix: ''
+field_type: integer

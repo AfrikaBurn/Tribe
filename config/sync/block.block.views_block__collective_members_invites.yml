@@ -1,0 +1,54 @@
+uuid: 47d47e2a-512f-4cef-8cbf-d0878c168381
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.collective_members
+  module:
+    - ctools
+    - node
+    - system
+    - user
+    - views
+  theme:
+    - afrikaburn
+id: views_block__collective_members_invites
+theme: afrikaburn
+region: sidebar
+weight: -19
+provider: null
+plugin: 'views_block:collective_members-invites'
+settings:
+  id: 'views_block:collective_members-invites'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      collective: collective
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  node_type:
+    id: node_type
+    bundles:
+      collective: collective
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: "/collective/*\r\n/node/add/*"
+    negate: true
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

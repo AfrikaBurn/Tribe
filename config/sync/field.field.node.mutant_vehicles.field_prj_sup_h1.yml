@@ -1,0 +1,30 @@
+uuid: f4b619ea-2cf5-4a9c-a301-140befa91f72
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_sup_h1
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_sup_h1
+field_name: field_prj_sup_h1
+entity_type: node
+bundle: mutant_vehicles
+label: 'Suppliers Header'
+description: ''
+required: false
+translatable: true
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p>Have you read the supplier stuff <a href=\"https://www.afrikaburn.com/the-event/suppliers\" title=\"here\">here</a>.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Map of Afrikaburn:</p>\r\n\r\n<p><img src=\"https://tribe.afrikaburn.com/system/files/consent/2017-12/AB-2018-Map-Switch-w-Sound-Zones-610x431.png\" /></p>\r\n\r\n<p>Street names are labelled alphabetical outwards from the Buiterkring road. Actual names are only assigned in March for each event.</p>\r\n"
+    format: full_html
+field_type: markup

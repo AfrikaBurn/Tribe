@@ -1,0 +1,26 @@
+uuid: 3658c8f3-144b-4e53-9282-85e5575fc100
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_arrival_date
+    - paragraphs.paragraphs_type.early_access_and_vehicle_passes
+  module:
+    - custom_add_another
+    - datetime
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.early_access_and_vehicle_passes.field_arrival_date
+field_name: field_arrival_date
+entity_type: paragraph
+bundle: early_access_and_vehicle_passes
+label: 'Estimated arrival date'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,33 @@
+uuid: 2676b197-0299-4fd2-bcf8-98be3f7c4d29
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_cll_contact
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: kMnHhhoZa2ejPFba99YAdkneYMiRJrOwu0e8Xkfgzfo
+id: node.art.field_prj_cll_contact
+field_name: field_prj_cll_contact
+entity_type: node
+bundle: art
+label: 'Team contact person to be alerted to member requests'
+description: 'Interested collaborators will contact you directly.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: collective_members
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

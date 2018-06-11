@@ -1,0 +1,193 @@
+uuid: 414fe6ef-b922-4b19-9db3-960dde988f9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.wrangler
+  content:
+    - 'block_content:basic:11e9454e-0a14-486d-b9f7-08358cdf4a31'
+    - 'block_content:basic:14d2c42c-cffe-469c-81ae-fbd4732bfd5d'
+    - 'block_content:basic:3dbfbbc4-a747-4939-a38a-099f8d1fe791'
+    - 'block_content:basic:4f754bd8-bc1d-4bd1-9324-f69ad6401fa4'
+    - 'block_content:basic:63b8ad28-7540-40b9-bb2c-a4bd486b33af'
+    - 'block_content:basic:9c70a8bb-808d-4743-a42f-64a52e66a1c9'
+    - 'block_content:basic:a4b82411-0a8b-4690-8c98-a4492af84cec'
+    - 'block_content:basic:d90adb8d-23a3-4d3e-834a-165858df5c41'
+    - 'block_content:basic:da31640e-ffc1-4f97-8c0d-59e2a99188c9'
+    - 'block_content:basic:dbf2871f-1170-4f06-85de-ba2e720d1132'
+    - 'block_content:basic:e5fca3be-ebdc-4c07-9457-e0cee7b5af40'
+  module:
+    - block_content
+    - user
+id: wrangler-block_display-0
+label: 'Wrangler Landing'
+variant: block_display
+variant_settings:
+  blocks:
+    69a92337-932b-4ef6-b861-80c8eda9a3c3:
+      id: 'block_content:11e9454e-0a14-486d-b9f7-08358cdf4a31'
+      label: 'Art Com'
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: 69a92337-932b-4ef6-b861-80c8eda9a3c3
+      context_mapping: {  }
+    deeafe43-b12c-44be-8145-4e81135c7dd9:
+      id: 'block_content:9c70a8bb-808d-4743-a42f-64a52e66a1c9'
+      label: Communications
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: deeafe43-b12c-44be-8145-4e81135c7dd9
+      context_mapping: {  }
+    eb821e5b-75a5-4f8d-a9ea-c0ec40944aa3:
+      id: 'block_content:3dbfbbc4-a747-4939-a38a-099f8d1fe791'
+      label: 'Department of Mutant Vehicles'
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: eb821e5b-75a5-4f8d-a9ea-c0ec40944aa3
+      context_mapping: {  }
+    670dc6a4-bf4b-4082-a33a-542c4f7fec82:
+      id: 'block_content:63b8ad28-7540-40b9-bb2c-a4bd486b33af'
+      label: 'Fire Rangers'
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: 670dc6a4-bf4b-4082-a33a-542c4f7fec82
+      context_mapping: {  }
+    24c18269-445a-48e0-bddc-21e59804aaf4:
+      id: 'block_content:14d2c42c-cffe-469c-81ae-fbd4732bfd5d'
+      label: 'Leave No Trace'
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: 24c18269-445a-48e0-bddc-21e59804aaf4
+      context_mapping: {  }
+    47b8da28-ff64-42bc-a06c-7b77f5c9b338:
+      id: 'block_content:a4b82411-0a8b-4690-8c98-a4492af84cec'
+      label: 'Safety Marshels'
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: 47b8da28-ff64-42bc-a06c-7b77f5c9b338
+      context_mapping: {  }
+    a5c9d3dd-c835-4af6-9967-5101c531f380:
+      id: 'block_content:dbf2871f-1170-4f06-85de-ba2e720d1132'
+      label: 'Sound Rangers'
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: a5c9d3dd-c835-4af6-9967-5101c531f380
+      context_mapping: {  }
+    b2a0e6d6-7488-426c-a27e-abf0f7cad5ae:
+      id: 'block_content:e5fca3be-ebdc-4c07-9457-e0cee7b5af40'
+      label: Tickets
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: b2a0e6d6-7488-426c-a27e-abf0f7cad5ae
+      context_mapping: {  }
+    938b4f3e-e515-4e1a-8ebb-dca0dfdd96d5:
+      id: 'block_content:da31640e-ffc1-4f97-8c0d-59e2a99188c9'
+      label: 'Theme Camp Wrangers overview'
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: 938b4f3e-e515-4e1a-8ebb-dca0dfdd96d5
+      context_mapping: {  }
+    670c8eb5-3477-4d6a-aaf7-a3083c6514ae:
+      id: 'block_content:d90adb8d-23a3-4d3e-834a-165858df5c41'
+      label: Support
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: 670c8eb5-3477-4d6a-aaf7-a3083c6514ae
+      context_mapping: {  }
+    a06b5e62-0d51-4f7c-bf6a-7d1511a1f0d9:
+      id: 'block_content:4f754bd8-bc1d-4bd1-9324-f69ad6401fa4'
+      label: DPW
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: a06b5e62-0d51-4f7c-bf6a-7d1511a1f0d9
+      context_mapping: {  }
+  id: block_display
+  uuid: 9b9679fe-4dc6-419c-8517-fe93da7afd3e
+  label: null
+  weight: 0
+  page_title: 'Wranglers General'
+page: wrangler
+weight: 0
+selection_criteria:
+  -
+    id: user_role
+    roles:
+      art_wrangler: art_wrangler
+      art_admin: art_admin
+      communications_wrangler: communications_wrangler
+      communications_admin: communications_admin
+      leave_no_trace_moop: leave_no_trace_moop
+      mutant_vehicle_viewer: mutant_vehicle_viewer
+      mutant_vehicle_wrangler: mutant_vehicle_wrangler
+      mutant_vehicle_admin: mutant_vehicle_admin
+      outreach_wrangler: outreach_wrangler
+      outreach_admin: outreach_admin
+      administrator: administrator
+      support_wrangler: support_wrangler
+      support_admin: support_admin
+      theme_camp_wrangler: theme_camp_wrangler
+      theme: theme
+      supplier: supplier
+      dpw: dpw
+      volunteer_admin: volunteer_admin
+      ranger_admin: ranger_admin
+    negate: false
+    context_mapping:
+      user: current_user
+selection_logic: and
+static_context: {  }

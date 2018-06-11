@@ -15,7 +15,7 @@ function afrikaburn_registration_page_top() {
     drupal_set_message(
       \Drupal\Core\Render\Markup::create('
         Your information may be out of date!<br />
-        To be eligible to buy tickets, please <a href="/user/' . $uid . '/edit/update">update your Bio</a>.'
+        To be eligible for ticket sales, please <a href="/user/' . $uid . '/edit/update">update your Bio</a>.'
       ),
       'warning'
     );
@@ -36,14 +36,18 @@ function afrikaburn_registration_page_attachments(&$page) {
  */
 function afrikaburn_registration_form_user_form_alter(&$form, $form_state, $form_id){
 
-  // Set form title
+  // Set form title & attach quicket handlers
   switch($form_id){
     case 'user_update_form': $form['#title'] = 'Updating my Bio'; break;
-    case 'user_form': $form['#title'] = 'Editing my Bio'; break;
+    case 'user_form': 
+      $form['#title'] = 'Editing my Bio'; 
+      $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_update_quicket';
+    break;
+    case 'user_register_form': 
+      $form['#title'] = 'Create a Bio';
+      $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_new_quicket';  
+    break;
   }
-
-  // Hide submit while loading
-//  $form['actions']['#attributes']['class'][] = 'hidden';
 
   // Fix gender validation
   $options = &$form['field_gender']['widget']['#options'];
@@ -60,12 +64,6 @@ function afrikaburn_registration_form_user_form_alter(&$form, $form_state, $form
   if (in_array($form_id, ['user_form', 'user_register_form'])) {
     $form['#validate'][] = 'afrikaburn_registration_user_id_validate';
     if (\Drupal::currentUser()->isAnonymous()) $form['#validate'][] = 'afrikaburn_registration_mail_validate';
-  }
-
-  // Add quicket handlers
-  switch ($form_id){
-    case 'user_form': $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_update_quicket'; break;
-    case 'user_register_form': $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_new_quicket'; break;
   }
 
   // Add Updated flag to new and updated accounts

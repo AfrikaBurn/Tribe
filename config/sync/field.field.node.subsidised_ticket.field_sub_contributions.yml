@@ -1,0 +1,25 @@
+uuid: bddfcd9a-f727-41a0-81f4-82baa9805a60
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sub_contributions
+    - node.type.subsidised_ticket
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.subsidised_ticket.field_sub_contributions
+field_name: field_sub_contributions
+entity_type: node
+bundle: subsidised_ticket
+label: 'Have you participated in past AfrikaBurn events and if so, how did you participate?'
+description: 'Did you volunteer? Were you involved in any creative projects? What was your gift?'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

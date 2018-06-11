@@ -1,0 +1,33 @@
+uuid: 7ac79cae-ca10-49ca-bc7c-5ae0dcd438d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_brn_person
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: 9yHCd_BW-oz6Zukv180g78gQ1YwhhHwiRAVpushoKbk
+id: node.performances.field_prj_brn_person
+field_name: field_prj_brn_person
+entity_type: node
+bundle: performances
+label: 'You''ll have to designate someone in your team specifically as the Pyro Person (This can be you).'
+description: 'The Pyro Person will attend to pyro workshops, burn briefs, fill in the pyro form, organize the burn perimeter, and supply all details requested by our pyro team, and engage in any activity and communication about this matter.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: collective_members
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

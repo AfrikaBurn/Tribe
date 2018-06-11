@@ -1,0 +1,29 @@
+uuid: fe491177-9c62-427c-aa09-e468da3e6d96
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_early_access
+    - paragraphs.paragraphs_type.early_access_and_vehicle_passes
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.early_access_and_vehicle_passes.field_early_access
+field_name: field_early_access
+entity_type: paragraph
+bundle: early_access_and_vehicle_passes
+label: 'Early access'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

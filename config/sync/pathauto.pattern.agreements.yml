@@ -1,0 +1,22 @@
+uuid: 9796a2ea-b34e-451c-873d-5ef4472beae7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: agreements
+label: Agreements
+type: 'canonical_entities:node'
+pattern: 'participant/agreement/[node:title]'
+selection_criteria:
+  74fccb95-14dc-4cd0-adc4-7687cff5e166:
+    id: node_type
+    bundles:
+      agreement: agreement
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 74fccb95-14dc-4cd0-adc4-7687cff5e166
+selection_logic: and
+weight: -5
+relationships: {  }

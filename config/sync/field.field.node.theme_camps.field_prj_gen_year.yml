@@ -1,0 +1,33 @@
+uuid: 4c257f2f-f255-4ec9-b156-bda09927c429
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_year
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: EwqgU40A1IzStfbC5Je-UvVZLfsBUyl43dDhoDfyVRw
+id: node.theme_camps.field_prj_gen_year
+field_name: field_prj_gen_year
+entity_type: node
+bundle: theme_camps
+label: 'Event Year'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 2018
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

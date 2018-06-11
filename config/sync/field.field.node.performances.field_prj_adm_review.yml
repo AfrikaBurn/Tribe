@@ -1,0 +1,36 @@
+uuid: 277fbdb6-e152-4fad-93d7-4db1e7f067d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_adm_review
+    - node.type.performances
+    - taxonomy.vocabulary.wrangler_review
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: jozJHAlunGRzZT6YgRU1AoO8eZUPEZLEbhlqojaF43o
+id: node.performances.field_prj_adm_review
+field_name: field_prj_adm_review
+entity_type: node
+bundle: performances
+label: Review
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      wrangler_review: wrangler_review
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

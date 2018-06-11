@@ -1,0 +1,19 @@
+uuid: 25e2ad19-bd3d-4bf6-a598-8a4f243625ac
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: y965rJC9Z3GG6dV8WcL48Y82SGRz2fSoezgCZxqWrSY
+name: 'Mutant Vehicles'
+type: mutant_vehicles
+description: ''
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

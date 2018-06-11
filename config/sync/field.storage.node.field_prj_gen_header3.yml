@@ -1,0 +1,23 @@
+uuid: cb0d4a53-aa94-4779-8b54-10f49f3dbc61
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - markup
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_prj_gen_header3
+field_name: field_prj_gen_header3
+entity_type: node
+type: markup
+settings: {  }
+module: markup
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

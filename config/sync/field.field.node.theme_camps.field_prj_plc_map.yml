@@ -1,0 +1,32 @@
+uuid: f0c7069e-048f-44aa-9319-4394d6ae2ae3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_map
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: 9bolwvjTiN7eOgXlpufhdlBmIsywj-fBVBCK-89VhJ0
+id: node.theme_camps.field_prj_plc_map
+field_name: field_prj_plc_map
+entity_type: node
+bundle: theme_camps
+label: 'Location Map'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p><img alt=\"Map of street address\" data-entity-type=\"file\" data-entity-uuid=\"4a949dbf-fa3f-4c33-9fc2-e43334eece78\" src=\"https://tribe.afrikaburn.com/sites/default/files/inline-images/20180115_Theme%20camp%20map4.jpg\" /></p>\r\n"
+    format: full_html
+field_type: markup

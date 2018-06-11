@@ -1,0 +1,29 @@
+uuid: 2989d435-f398-4567-9786-38e9f3fac961
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_oth_agree
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_oth_agree
+field_name: field_prj_oth_agree
+entity_type: node
+bundle: mutant_vehicles
+label: 'I have read & agreed to the terms & conditions of AfrikaBurn’s Privacy Policy and Safety Guidelines. <br> Safety Guidelines'
+description: "<p><a href=\"https://www.afrikaburn.com/wp-content/uploads/2017/11/AFRIKABURN-DMV-SAFETY-GUIDELINES-1.pdf\" target=\"_blank\"> DMV Safety Guidelines</a></p>\r\n<p><a href=\"https://www.afrikaburn.com/wp-content/uploads/2014/02/AfrikaBurn-Privacy-Policy-v1-1.docx\" target=\"_blank\"> AfrikaBurn Privacy Policy</a></p>\r\n"
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

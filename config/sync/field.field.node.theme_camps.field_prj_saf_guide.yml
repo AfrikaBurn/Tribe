@@ -1,0 +1,27 @@
+uuid: 904741dd-1b25-4c77-9962-10e21820c9d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_saf_guide
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: TOvLg6-8-kpzNkrKhIFI3Di610QPoUQF-E77Df6biA4
+id: node.theme_camps.field_prj_saf_guide
+field_name: field_prj_saf_guide
+entity_type: node
+bundle: theme_camps
+label: 'Describe your Safety measures (ie: markings / visibility)'
+description: "The most common injures in Tankwa Town are as a result of rebar and guy ropes not being well marked or covered. <br>\r\nA Safety Officer will inspect your camp safety requirements and provide advice on site - and there's advice in our <a href=\"afrikaburn.com/the-event/preparation/survival-guide\">Survival Guide</a>. "
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

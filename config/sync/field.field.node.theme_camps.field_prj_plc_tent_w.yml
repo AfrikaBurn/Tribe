@@ -1,0 +1,31 @@
+uuid: 247522af-3369-4658-90b0-f80937a29c3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_tent_w
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: z1ig3FUML_Y0Kr5P1UXPtrFVI-05ul1lPCLxdqtXKO8
+id: node.theme_camps.field_prj_plc_tent_w
+field_name: field_prj_plc_tent_w
+entity_type: node
+bundle: theme_camps
+label: 'Public Space - Stretch tent dimentions – Width'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

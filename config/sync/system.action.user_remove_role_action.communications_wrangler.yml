@@ -1,0 +1,14 @@
+uuid: 37d2426b-01b6-4fd0-ab7b-de6c62dc01be
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.communications_wrangler
+  module:
+    - user
+id: user_remove_role_action.communications_wrangler
+label: 'Remove the Communications Wrangler role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: communications_wrangler

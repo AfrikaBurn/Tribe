@@ -1,0 +1,26 @@
+uuid: 931f8fb8-bf8e-4956-b839-30f2b17aa92c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_minor_date_of_birth
+    - paragraphs.paragraphs_type.minors
+  module:
+    - custom_add_another
+    - datetime
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.minors.field_minor_date_of_birth
+field_name: field_minor_date_of_birth
+entity_type: paragraph
+bundle: minors
+label: 'Date of birth of child/minor'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

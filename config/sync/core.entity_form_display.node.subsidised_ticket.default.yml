@@ -1,0 +1,188 @@
+uuid: 4a62da9f-79a1-4090-b09a-32701b4d0a18
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.subsidised_ticket.field_sub_comment
+    - field.field.node.subsidised_ticket.field_sub_contributions
+    - field.field.node.subsidised_ticket.field_sub_expenses
+    - field.field.node.subsidised_ticket.field_sub_funding
+    - field.field.node.subsidised_ticket.field_sub_gift
+    - field.field.node.subsidised_ticket.field_sub_history
+    - field.field.node.subsidised_ticket.field_sub_id
+    - field.field.node.subsidised_ticket.field_sub_income
+    - field.field.node.subsidised_ticket.field_sub_motivation
+    - field.field.node.subsidised_ticket.field_sub_personal
+    - field.field.node.subsidised_ticket.field_sub_proof_of_income
+    - field.field.node.subsidised_ticket.field_sub_review
+    - field.field.node.subsidised_ticket.field_sub_transferable
+    - node.type.subsidised_ticket
+  module:
+    - content_moderation
+    - file
+    - path
+id: node.subsidised_ticket.default
+targetEntityType: node
+bundle: subsidised_ticket
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_sub_comment:
+    weight: 19
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_sub_contributions:
+    weight: 13
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_sub_expenses:
+    weight: 10
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_sub_funding:
+    weight: 15
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_sub_gift:
+    weight: 14
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_sub_history:
+    weight: 12
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_sub_id:
+    weight: 17
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_sub_income:
+    weight: 9
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_sub_motivation:
+    weight: 8
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_sub_personal:
+    weight: 18
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_sub_proof_of_income:
+    weight: 11
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  field_sub_review:
+    weight: 20
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_sub_transferable:
+    weight: 16
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 6
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 2
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 7
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 3
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 21
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 0
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

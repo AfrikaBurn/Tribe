@@ -1,0 +1,26 @@
+uuid: 5dcd8667-c8dc-48bd-9a12-037d84d32c4f
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: 8I6YsT30QcUT2omXHhCP0x93gs5kMI_hNWimahL2z04
+id: node.field_prj_plc_fire
+field_name: field_prj_plc_fire
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

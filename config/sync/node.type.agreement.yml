@@ -1,0 +1,17 @@
+uuid: f21cc3ed-d5c3-46f2-91e4-b89ea57a4bc3
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Agreement
+type: agreement
+description: 'Made between Participants.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

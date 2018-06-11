@@ -1,0 +1,33 @@
+uuid: 2837bb55-935c-4a8a-af61-1584006c654b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_brn_person
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: a_XBCPRGX3_EGdc6x-Z_DQ5fkwOebYVZNecxeaEyhUo
+id: node.art.field_prj_brn_person
+field_name: field_prj_brn_person
+entity_type: node
+bundle: art
+label: 'If you plan to burn your piece, you''ll need a designated Pyro Co-ordinator (This can be you).'
+description: 'The Pyro Person will attend to pyro workshops, burn briefs, fill in the pyro form, organize the burn perimeter, and supply all details requested by our pyro team, and engage in any activity and communication about this matter.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: collective_members
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

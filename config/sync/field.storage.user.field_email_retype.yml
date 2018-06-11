@@ -1,0 +1,22 @@
+uuid: f436af31-8ade-4cf4-8755-6e9947621cc1
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: user.field_email_retype
+field_name: field_email_retype
+entity_type: user
+type: email
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

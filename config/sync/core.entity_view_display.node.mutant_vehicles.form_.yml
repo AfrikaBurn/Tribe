@@ -1,0 +1,924 @@
+uuid: 31d2a172-b6b3-4d74-8cb5-bb20623fddad
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_form_mode.node.form_
+    - field.field.node.mutant_vehicles.field_collective
+    - field.field.node.mutant_vehicles.field_form_mode
+    - field.field.node.mutant_vehicles.field_grt_art_comment
+    - field.field.node.mutant_vehicles.field_grt_art_total
+    - field.field.node.mutant_vehicles.field_grt_awarded
+    - field.field.node.mutant_vehicles.field_grt_contribution
+    - field.field.node.mutant_vehicles.field_grt_dmv_budget
+    - field.field.node.mutant_vehicles.field_grt_materials
+    - field.field.node.mutant_vehicles.field_grt_other
+    - field.field.node.mutant_vehicles.field_grt_other_description
+    - field.field.node.mutant_vehicles.field_grt_services
+    - field.field.node.mutant_vehicles.field_grt_status
+    - field.field.node.mutant_vehicles.field_grt_total
+    - field.field.node.mutant_vehicles.field_grt_transport
+    - field.field.node.mutant_vehicles.field_mutant_drivers
+    - field.field.node.mutant_vehicles.field_prj_adm_comms
+    - field.field.node.mutant_vehicles.field_prj_adm_form_grant
+    - field.field.node.mutant_vehicles.field_prj_adm_form_wtf
+    - field.field.node.mutant_vehicles.field_prj_adm_notes
+    - field.field.node.mutant_vehicles.field_prj_adm_ranger_comment
+    - field.field.node.mutant_vehicles.field_prj_adm_review
+    - field.field.node.mutant_vehicles.field_prj_adm_wrangler
+    - field.field.node.mutant_vehicles.field_prj_brn_burning
+    - field.field.node.mutant_vehicles.field_prj_brn_desc
+    - field.field.node.mutant_vehicles.field_prj_brn_person
+    - field.field.node.mutant_vehicles.field_prj_brn_plan
+    - field.field.node.mutant_vehicles.field_prj_cll_collaborate
+    - field.field.node.mutant_vehicles.field_prj_cll_contact
+    - field.field.node.mutant_vehicles.field_prj_cll_description
+    - field.field.node.mutant_vehicles.field_prj_cll_thread
+    - field.field.node.mutant_vehicles.field_prj_gen_base
+    - field.field.node.mutant_vehicles.field_prj_gen_concept
+    - field.field.node.mutant_vehicles.field_prj_gen_contact
+    - field.field.node.mutant_vehicles.field_prj_gen_description
+    - field.field.node.mutant_vehicles.field_prj_gen_doc
+    - field.field.node.mutant_vehicles.field_prj_gen_fundraiser
+    - field.field.node.mutant_vehicles.field_prj_gen_fundraising
+    - field.field.node.mutant_vehicles.field_prj_gen_lead
+    - field.field.node.mutant_vehicles.field_prj_gen_location
+    - field.field.node.mutant_vehicles.field_prj_gen_mutating
+    - field.field.node.mutant_vehicles.field_prj_gen_owner
+    - field.field.node.mutant_vehicles.field_prj_gen_story
+    - field.field.node.mutant_vehicles.field_prj_gen_year
+    - field.field.node.mutant_vehicles.field_prj_lgh_description
+    - field.field.node.mutant_vehicles.field_prj_lgh_f1
+    - field.field.node.mutant_vehicles.field_prj_lgh_lighter
+    - field.field.node.mutant_vehicles.field_prj_lgh_night
+    - field.field.node.mutant_vehicles.field_prj_lgh_projection
+    - field.field.node.mutant_vehicles.field_prj_lnt_agree
+    - field.field.node.mutant_vehicles.field_prj_lnt_comments
+    - field.field.node.mutant_vehicles.field_prj_lnt_f1
+    - field.field.node.mutant_vehicles.field_prj_lnt_handled
+    - field.field.node.mutant_vehicles.field_prj_lnt_historic
+    - field.field.node.mutant_vehicles.field_prj_lnt_images
+    - field.field.node.mutant_vehicles.field_prj_lnt_publish
+    - field.field.node.mutant_vehicles.field_prj_lnt_representative
+    - field.field.node.mutant_vehicles.field_prj_lnt_score
+    - field.field.node.mutant_vehicles.field_prj_lnt_signoff
+    - field.field.node.mutant_vehicles.field_prj_lnt_type
+    - field.field.node.mutant_vehicles.field_prj_oth_agree
+    - field.field.node.mutant_vehicles.field_prj_oth_associated
+    - field.field.node.mutant_vehicles.field_prj_oth_grant
+    - field.field.node.mutant_vehicles.field_prj_oth_other
+    - field.field.node.mutant_vehicles.field_prj_saf_access
+    - field.field.node.mutant_vehicles.field_prj_saf_comment
+    - field.field.node.mutant_vehicles.field_prj_saf_guide
+    - field.field.node.mutant_vehicles.field_prj_saf_mark
+    - field.field.node.mutant_vehicles.field_prj_saf_other
+    - field.field.node.mutant_vehicles.field_prj_saf_passengers
+    - field.field.node.mutant_vehicles.field_prj_snd_agree
+    - field.field.node.mutant_vehicles.field_prj_snd_comment
+    - field.field.node.mutant_vehicles.field_prj_snd_description
+    - field.field.node.mutant_vehicles.field_prj_snd_level
+    - field.field.node.mutant_vehicles.field_prj_snd_person
+    - field.field.node.mutant_vehicles.field_prj_snd_safety
+    - field.field.node.mutant_vehicles.field_prj_snd_soop
+    - field.field.node.mutant_vehicles.field_prj_snd_sound
+    - field.field.node.mutant_vehicles.field_prj_stg_contact
+    - field.field.node.mutant_vehicles.field_prj_stg_description
+    - field.field.node.mutant_vehicles.field_prj_stg_stage
+    - field.field.node.mutant_vehicles.field_prj_stg_tread
+    - field.field.node.mutant_vehicles.field_prj_stg_type
+    - field.field.node.mutant_vehicles.field_prj_sup_address
+    - field.field.node.mutant_vehicles.field_prj_sup_details
+    - field.field.node.mutant_vehicles.field_prj_sup_h1
+    - field.field.node.mutant_vehicles.field_prj_trl_area
+    - field.field.node.mutant_vehicles.field_prj_trl_capasity
+    - field.field.node.mutant_vehicles.field_prj_trl_communicate
+    - field.field.node.mutant_vehicles.field_prj_trl_describe
+    - field.field.node.mutant_vehicles.field_prj_trl_markup
+    - field.field.node.mutant_vehicles.field_prj_trl_passengers
+    - field.field.node.mutant_vehicles.field_prj_trl_size
+    - field.field.node.mutant_vehicles.field_prj_trl_walkers
+    - field.field.node.mutant_vehicles.field_prj_wtf_categories
+    - field.field.node.mutant_vehicles.field_prj_wtf_image
+    - field.field.node.mutant_vehicles.field_prj_wtf_long
+    - field.field.node.mutant_vehicles.field_prj_wtf_short
+    - field.field.node.mutant_vehicles.field_prj_wtf_short_copy
+    - field.field.node.mutant_vehicles.field_prj_wtf_website
+    - image.style.thumbnail
+    - node.type.mutant_vehicles
+  module:
+    - content_moderation
+    - field_group
+    - file
+    - image
+    - link
+    - markup
+    - path
+third_party_settings:
+  field_group:
+    group_acc_project_overview:
+      children:
+        - group_acc_overview
+        - group_acc_the_project
+        - group_acc_safety
+        - group_acc_night_driving
+        - group_acc_sound
+        - group_acc_flame_effects
+        - group_acc_trailer
+        - group_acc_moop
+        - group_acc_wtf_guide
+        - group_acc_almost_done
+      parent_name: ''
+      weight: 7
+      format_type: accordion
+      format_settings:
+        id: ''
+        classes: ''
+        effect: none
+      label: 'Project Overview'
+    group_acc_overview:
+      children:
+        - field_prj_gen_contact
+        - field_prj_gen_lead
+        - field_prj_gen_owner
+        - field_prj_gen_fundraising
+        - field_prj_gen_fundraiser
+        - field_prj_gen_location
+      parent_name: group_acc_project_overview
+      weight: 20
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: open
+        required_fields: true
+        description: ''
+      label: Overview
+    group_acc_the_project:
+      children:
+        - field_prj_gen_description
+        - field_prj_gen_story
+        - field_prj_gen_base
+        - field_prj_gen_mutating
+        - field_prj_gen_concept
+        - field_prj_gen_doc
+      parent_name: group_acc_project_overview
+      weight: 21
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: 'The Project'
+    group_acc_safety:
+      children:
+        - field_prj_saf_guide
+        - field_prj_saf_passengers
+        - field_prj_saf_access
+        - field_prj_saf_other
+        - field_prj_saf_mark
+      parent_name: group_acc_project_overview
+      weight: 22
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Safety
+    group_acc_night_driving:
+      children:
+        - field_prj_lgh_night
+        - field_prj_lgh_description
+        - field_prj_lgh_projection
+        - field_prj_lgh_lighter
+      parent_name: group_acc_project_overview
+      weight: 23
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: 'Night Driving'
+    group_acc_sound:
+      children:
+        - field_prj_snd_sound
+        - field_prj_snd_level
+        - field_prj_snd_description
+        - field_prj_snd_safety
+        - field_prj_snd_soop
+        - field_prj_snd_agree
+        - field_prj_snd_person
+      parent_name: group_acc_project_overview
+      weight: 24
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Sound
+    group_acc_flame_effects:
+      children:
+        - field_prj_brn_burning
+        - field_prj_brn_plan
+        - field_prj_brn_person
+        - field_prj_brn_desc
+      parent_name: group_acc_project_overview
+      weight: 25
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: 'Flame effects'
+    group_acc_trailer:
+      children:
+        - field_prj_trl_area
+        - field_prj_trl_describe
+        - field_prj_trl_size
+        - field_prj_trl_walkers
+        - field_prj_trl_passengers
+        - field_prj_trl_capasity
+        - field_prj_trl_communicate
+        - field_prj_trl_markup
+      parent_name: group_acc_project_overview
+      weight: 26
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Trailer
+    group_acc_moop:
+      children:
+        - field_prj_lnt_handled
+        - field_prj_lnt_historic
+        - field_prj_lnt_representative
+      parent_name: group_acc_project_overview
+      weight: 27
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Moop
+    group_acc_wtf_guide:
+      children:
+        - field_prj_wtf_image
+        - field_prj_wtf_categories
+        - field_prj_wtf_website
+        - field_prj_cll_collaborate
+        - field_prj_cll_description
+        - field_prj_cll_contact
+        - field_prj_stg_stage
+        - field_prj_stg_type
+        - field_prj_stg_description
+        - field_prj_stg_contact
+      parent_name: group_acc_project_overview
+      weight: 28
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: 'WTF Guide and Activities'
+    group_acc_almost_done:
+      children:
+        - field_prj_oth_other
+        - field_prj_oth_associated
+        - field_prj_oth_agree
+        - field_prj_oth_grant
+      parent_name: group_acc_project_overview
+      weight: 29
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: 'Almost done!'
+_core:
+  default_config_hash: FHLYUGK-mQGVYzvIKsUSwq4IdPmIgOzk9wE9K3NHGck
+id: node.mutant_vehicles.form_
+targetEntityType: node
+bundle: mutant_vehicles
+mode: form_
+content:
+  field_prj_brn_burning:
+    weight: 9
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_brn_desc:
+    weight: 12
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_brn_person:
+    weight: 11
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: basic_string.autocomplete
+      target_type: taxonomy_term
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_brn_plan:
+    weight: 10
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_cll_collaborate:
+    weight: 12
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_cll_contact:
+    weight: 14
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: basic_string.autocomplete
+      target_type: taxonomy_term
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_cll_description:
+    weight: 13
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_gen_base:
+    weight: 29
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_gen_concept:
+    weight: 31
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_prj_gen_contact:
+    weight: 16
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: basic_string.autocomplete
+      target_type: taxonomy_term
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_gen_description:
+    weight: 27
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_gen_doc:
+    weight: 32
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_gen_fundraiser:
+    weight: 20
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: basic_string.autocomplete
+      target_type: taxonomy_term
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_gen_fundraising:
+    weight: 19
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_gen_lead:
+    weight: 17
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: basic_string.autocomplete
+      target_type: taxonomy_term
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_gen_location:
+    weight: 21
+    settings:
+      force_deepest: '1'
+      parent: '0'
+      level_labels: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_gen_mutating:
+    weight: 30
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_gen_story:
+    weight: 28
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_gen_year:
+    weight: 6
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_prj_lgh_description:
+    weight: 62
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_lgh_lighter:
+    weight: 64
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: basic_string.autocomplete
+      target_type: taxonomy_term
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_lgh_night:
+    weight: 61
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_lgh_projection:
+    weight: 63
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_lnt_handled:
+    weight: 7
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_lnt_historic:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_lnt_representative:
+    weight: 9
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: basic_string.autocomplete
+      target_type: taxonomy_term
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_oth_agree:
+    weight: 24
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_oth_associated:
+    weight: 23
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_oth_grant:
+    weight: 25
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_oth_other:
+    weight: 22
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_saf_access:
+    weight: 25
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_saf_guide:
+    weight: 23
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_saf_mark:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_saf_other:
+    weight: 26
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_saf_passengers:
+    weight: 24
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_snd_agree:
+    weight: 13
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_snd_comment:
+    type: basic_string
+    weight: 28
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_snd_description:
+    weight: 10
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_snd_level:
+    weight: 9
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: basic_string.autocomplete
+      target_type: taxonomy_term
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_snd_person:
+    weight: 14
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: basic_string.autocomplete
+      target_type: taxonomy_term
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_snd_safety:
+    weight: 11
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_snd_soop:
+    weight: 12
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_snd_sound:
+    weight: 8
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_stg_contact:
+    weight: 18
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      autocomplete_route_name: basic_string.autocomplete
+      target_type: taxonomy_term
+      selection_handler: default
+      limit: 10
+      min_length: 0
+      delimiter: ''
+      not_found_message_allow: false
+      not_found_message: 'The term ''@term'' will be added'
+      new_terms: false
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_stg_description:
+    weight: 17
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_stg_stage:
+    weight: 15
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_stg_type:
+    weight: 16
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_trl_area:
+    weight: 6
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_trl_capasity:
+    weight: 11
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_trl_communicate:
+    weight: 12
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_trl_describe:
+    weight: 7
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_trl_markup:
+    weight: 13
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_trl_passengers:
+    weight: 10
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_prj_trl_size:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_trl_walkers:
+    weight: 9
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_wtf_categories:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_wtf_image:
+    weight: 9
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_prj_wtf_website:
+    weight: 11
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  links:
+    weight: 100
+    region: content
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean
+    settings:
+      display_label: true
+    weight: 3
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean
+    settings:
+      display_label: true
+    weight: 121
+    third_party_settings: {  }
+    region: content
+  sticky:
+    type: boolean
+    settings:
+      display_label: true
+    weight: 4
+    region: content
+    third_party_settings: {  }
+hidden:
+  field_collective: true
+  field_form_mode: true
+  field_grt_art_comment: true
+  field_grt_art_total: true
+  field_grt_awarded: true
+  field_grt_contribution: true
+  field_grt_dmv_budget: true
+  field_grt_materials: true
+  field_grt_other: true
+  field_grt_other_description: true
+  field_grt_services: true
+  field_grt_status: true
+  field_grt_total: true
+  field_grt_transport: true
+  field_mutant_drivers: true
+  field_prj_adm_comms: true
+  field_prj_adm_form_grant: true
+  field_prj_adm_form_wtf: true
+  field_prj_adm_notes: true
+  field_prj_adm_ranger_comment: true
+  field_prj_adm_registration: true
+  field_prj_adm_review: true
+  field_prj_adm_wrangler: true
+  field_prj_brn_agree: true
+  field_prj_cll_thread: true
+  field_prj_gen_owner: true
+  field_prj_lgh_f1: true
+  field_prj_lnt_agree: true
+  field_prj_lnt_comments: true
+  field_prj_lnt_f1: true
+  field_prj_lnt_images: true
+  field_prj_lnt_publish: true
+  field_prj_lnt_score: true
+  field_prj_lnt_signoff: true
+  field_prj_lnt_type: true
+  field_prj_oth_unregistered: true
+  field_prj_saf_comment: true
+  field_prj_stg_tread: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_details_view: true
+  field_prj_sup_h1: true
+  field_prj_wtf_long: true
+  field_prj_wtf_short: true
+  field_prj_wtf_short_copy: true
+  field_sup_comment: true
+  field_sup_review: true
+  field_vp_ea: true

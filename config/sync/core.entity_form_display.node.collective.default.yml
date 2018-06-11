@@ -1,0 +1,113 @@
+uuid: 1c6fee8d-a6d2-4ff6-bd68-5ce83a0a071d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.collective.field_col_admins
+    - field.field.node.collective.field_col_description
+    - field.field.node.collective.field_col_invitee
+    - field.field.node.collective.field_col_members
+    - field.field.node.collective.field_col_posts
+    - field.field.node.collective.field_picture
+    - image.style.thumbnail
+    - node.type.collective
+  module:
+    - content_moderation
+    - field_group
+    - image
+    - text
+third_party_settings:
+  field_group:
+    group_optional:
+      children:
+        - field_col_mem_writeup
+        - field_col_description
+        - field_picture
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        label: 'Click to add a description and picture (You can do this later, too)'
+        id: ''
+        classes: ''
+        open: false
+        required_fields: false
+      label: 'Click to add a description and picture (You can do this later, too)'
+id: node.collective.default
+targetEntityType: node
+bundle: collective
+mode: default
+content:
+  field_col_admins:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_col_description:
+    weight: 4
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_col_invitee:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_col_members:
+    type: entity_reference_autocomplete
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_picture:
+    weight: 5
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 121
+    third_party_settings: {  }
+    region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+hidden:
+  created: true
+  field_col_posts: true
+  path: true
+  promote: true
+  sticky: true
+  uid: true

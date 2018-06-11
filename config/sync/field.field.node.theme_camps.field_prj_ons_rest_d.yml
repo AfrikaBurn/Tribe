@@ -1,0 +1,27 @@
+uuid: daedfd8a-782a-45e5-b9b9-8755436e7f56
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_ons_rest_d
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: kvMLj2j3q0LgDaSFuCFjiPu6mKUt6gU5VMFwCD6npdY
+id: node.theme_camps.field_prj_ons_rest_d
+field_name: field_prj_ons_rest_d
+entity_type: node
+bundle: theme_camps
+label: 'Rest of event – Comment'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

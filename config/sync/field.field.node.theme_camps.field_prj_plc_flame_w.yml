@@ -1,0 +1,31 @@
+uuid: 7215d11e-f7eb-428b-9943-fc4b7b83afe7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_flame_w
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: iBtXp5flzfOpD9S8Rvd4qHBA7viy8CHn-UZX8VU55Hg
+id: node.theme_camps.field_prj_plc_flame_w
+field_name: field_prj_plc_flame_w
+entity_type: node
+bundle: theme_camps
+label: 'Large Fire or Flame Effect – width'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

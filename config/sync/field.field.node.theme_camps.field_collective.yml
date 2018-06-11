@@ -1,0 +1,34 @@
+uuid: 57d42b79-f9b6-4eba-8fc8-4e9981677343
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_collective
+    - node.type.collective
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.theme_camps.field_collective
+field_name: field_collective
+entity_type: node
+bundle: theme_camps
+label: Collective
+description: 'Collective that this Theme Camp is part of'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      collective: collective
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

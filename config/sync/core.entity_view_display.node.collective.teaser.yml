@@ -1,0 +1,24 @@
+uuid: 16628369-3567-46a8-9573-46d222babb48
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.collective.field_col_description
+    - field.field.node.collective.field_col_invitee
+    - field.field.node.collective.field_col_members
+    - node.type.collective
+  module:
+    - user
+id: node.collective.teaser
+targetEntityType: node
+bundle: collective
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_col_description: true
+  field_col_invitee: true
+  field_col_members: true

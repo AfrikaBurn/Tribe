@@ -1,0 +1,27 @@
+uuid: 9a4849a6-466c-48e2-8c06-b68d064f01dc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_field_specifications
+    - paragraphs.paragraphs_type.grant_expences
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.grant_expences.field_field_specifications
+field_name: field_field_specifications
+entity_type: paragraph
+bundle: grant_expences
+label: Specifications
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 30x20x4000
+default_value_callback: ''
+settings: {  }
+field_type: string

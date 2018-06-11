@@ -1,0 +1,29 @@
+uuid: f1b2e120-9b54-4049-86d9-0fbeb75a57b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_trl_walkers
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_trl_walkers
+field_name: field_prj_trl_walkers
+entity_type: node
+bundle: mutant_vehicles
+label: 'Do you understand why you must have walkers and/or conductors for your mutant vehicle (if applicable)? *'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

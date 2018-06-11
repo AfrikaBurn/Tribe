@@ -1,0 +1,57 @@
+uuid: e1eba68f-6752-49b9-95e4-10953efced23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_adm_wrangler
+    - node.type.theme_camps
+  content:
+    - 'user:user:89dcd4de-d42c-4e3c-becc-16eccf2f39e9'
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: _YF9-zJVzN7dWvD958AG5uwZMe-879SCiUavSk8e6XU
+id: node.theme_camps.field_prj_adm_wrangler
+field_name: field_prj_adm_wrangler
+entity_type: node
+bundle: theme_camps
+label: Wrangler
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 89dcd4de-d42c-4e3c-becc-16eccf2f39e9
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: role
+      role:
+        theme_camp_wrangler: theme_camp_wrangler
+        theme: theme
+        art_wrangler: '0'
+        art_admin: '0'
+        communications_wrangler: '0'
+        communications_admin: '0'
+        leave_no_trace_moop: '0'
+        mutant_vehicle_viewer: '0'
+        mutant_vehicle_wrangler: '0'
+        mutant_vehicle_admin: '0'
+        outreach_wrangler: '0'
+        outreach_admin: '0'
+        administrator: '0'
+        support_wrangler: '0'
+        support_admin: '0'
+    target_bundles: null
+    sort:
+      field: name
+      direction: ASC
+    auto_create: false
+field_type: entity_reference

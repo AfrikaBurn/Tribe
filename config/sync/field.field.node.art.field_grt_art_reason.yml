@@ -1,0 +1,25 @@
+uuid: e746c691-4950-4fb6-b4f8-a38b194d0503
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_grt_art_reason
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.art.field_grt_art_reason
+field_name: field_grt_art_reason
+entity_type: node
+bundle: art
+label: 'Why do you feel this project deseves an art grant?'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

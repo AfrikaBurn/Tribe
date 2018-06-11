@@ -1,0 +1,22 @@
+uuid: 8d6bd42d-4c2d-4123-9a31-89a372b7b942
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: paragraph.field_legal_guardian
+field_name: field_legal_guardian
+entity_type: paragraph
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

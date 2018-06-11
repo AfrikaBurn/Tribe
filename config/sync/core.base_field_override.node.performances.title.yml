@@ -1,0 +1,20 @@
+uuid: 09067321-0f13-4642-a033-8526a506a256
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.performances
+_core:
+  default_config_hash: fVkT927JbAsMlY7rhXhDTKDbvRy97o1z0aljDsvyxo8
+id: node.performances.title
+field_name: title
+entity_type: node
+bundle: performances
+label: 'Title of the Project'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

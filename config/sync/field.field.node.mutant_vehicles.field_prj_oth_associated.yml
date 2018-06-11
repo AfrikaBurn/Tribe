@@ -1,0 +1,39 @@
+uuid: 8bd9393f-998c-4227-8897-f65af4ce54f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_oth_associated
+    - node.type.art
+    - node.type.mutant_vehicles
+    - node.type.performances
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_oth_associated
+field_name: field_prj_oth_associated
+entity_type: node
+bundle: mutant_vehicles
+label: 'Are there any other projects associated with your Mutant Vehicle? (If they not registered yet, please add below)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      art: art
+      mutant_vehicles: mutant_vehicles
+      performances: performances
+      theme_camps: theme_camps
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: mutant_vehicles
+field_type: entity_reference

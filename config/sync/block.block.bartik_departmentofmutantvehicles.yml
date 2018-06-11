@@ -1,0 +1,25 @@
+uuid: b52a2abd-9c71-436a-9f44-dfa54e4fe19c
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:3dbfbbc4-a747-4939-a38a-099f8d1fe791'
+  module:
+    - block_content
+  theme:
+    - bartik
+id: bartik_departmentofmutantvehicles
+theme: bartik
+region: header
+weight: -17
+provider: null
+plugin: 'block_content:3dbfbbc4-a747-4939-a38a-099f8d1fe791'
+settings:
+  id: 'block_content:3dbfbbc4-a747-4939-a38a-099f8d1fe791'
+  label: 'Department of Mutant Vehicles'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

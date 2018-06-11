@@ -1,0 +1,22 @@
+uuid: 4c5f61c2-a136-4c68-948f-62175a6532f9
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - node
+_core:
+  default_config_hash: JNAkijNovQJeIqRZkP0iVPxfhMpiDQYYkJ-UBaoI99k
+id: node.field_prj_adm_comms
+field_name: field_prj_adm_comms
+entity_type: node
+type: comment
+settings:
+  comment_type: comment
+module: comment
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

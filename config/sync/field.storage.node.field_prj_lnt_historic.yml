@@ -1,0 +1,26 @@
+uuid: 74a8f682-9acf-47ea-9fd0-c3e620fc630c
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - taxonomy
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: oO32a_99Gb2kxtR67WXt-cGLh_Oq3RlGloFuZUECAyw
+id: node.field_prj_lnt_historic
+field_name: field_prj_lnt_historic
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

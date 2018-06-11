@@ -1,0 +1,27 @@
+uuid: b9456186-ed9d-4f3f-ba7d-64644877236e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_location_extra
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: x_LWrPMLSGZE1GryFeaGDRmlnh0QgTN6kSTXQf0BoVM
+id: node.art.field_prj_plc_location_extra
+field_name: field_prj_plc_location_extra
+entity_type: node
+bundle: art
+label: 'Placement - where would you like to be'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,23 @@
+uuid: 4f02d6e3-987f-401b-ab01-7afa2f6e8af4
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: node.field_sub_gift
+field_name: field_sub_gift
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,31 @@
+uuid: 7ef96dc0-a263-429f-ae74-649c2b20eac7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_helpers
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: COESOW0DSFGWmQAe3TRdhohNVDWjWhf0Vy9HSqrxiRQ
+id: node.art.field_prj_lnt_helpers
+field_name: field_prj_lnt_helpers
+entity_type: node
+bundle: art
+label: 'How many people do you have to help you clean up your site after removal or burn of the artwork?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: people
+field_type: integer

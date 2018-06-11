@@ -1,0 +1,25 @@
+uuid: 89be6293-bc92-4506-924e-9cdb343a0241
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: lJWbPRhOcJYBtlDjvrMIaWLpYxT8IfMAj-eh3-vEDWc
+id: node.field_prj_ons_rest_d
+field_name: field_prj_ons_rest_d
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

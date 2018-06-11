@@ -1,0 +1,24 @@
+uuid: d9af378f-8bb2-4a01-ab75-1c18ec56ddda
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: 5dK5Tv4dGsI35SoGQGXmPFvdMusvtDTxarV2MV4eXPQ
+id: node.field_prj_ons_wednesday_b
+field_name: field_prj_ons_wednesday_b
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,27 @@
+uuid: 51f41545-f0fb-4d04-aaca-91ccf77fd558
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_oth_relationship
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: Xg_V-ww5pXxyDrZMiCOox9-AiJhllfHqi1IDihDWvJg
+id: node.performances.field_prj_oth_relationship
+field_name: field_prj_oth_relationship
+entity_type: node
+bundle: performances
+label: 'Is there any other project associated with this artwork, what is the name and and how is it related?'
+description: "Don’t forget to tell us what type of project it is (theme camp, performance, mutant vehicle, another artwork). Have you registered it or are you planning to register it? </br>\r\nHow do they relate and/or depend on each other? Sharing resources? Do they need to be placed nearby?"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

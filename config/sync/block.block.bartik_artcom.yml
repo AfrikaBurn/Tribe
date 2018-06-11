@@ -1,0 +1,25 @@
+uuid: cb387fb0-e4c6-4305-9934-52be5749ec84
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:11e9454e-0a14-486d-b9f7-08358cdf4a31'
+  module:
+    - block_content
+  theme:
+    - bartik
+id: bartik_artcom
+theme: bartik
+region: header
+weight: -18
+provider: null
+plugin: 'block_content:11e9454e-0a14-486d-b9f7-08358cdf4a31'
+settings:
+  id: 'block_content:11e9454e-0a14-486d-b9f7-08358cdf4a31'
+  label: 'Art Com'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

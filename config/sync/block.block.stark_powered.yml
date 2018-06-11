@@ -1,0 +1,20 @@
+uuid: c927260d-e4b6-4acc-bc65-19decb705ceb
+langcode: en
+status: false
+dependencies:
+  module:
+    - system
+  theme:
+    - stark
+id: stark_powered
+theme: stark
+region: sidebar_first
+weight: -5
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,13 @@
+uuid: d4586d9a-704c-4e05-9108-862e176ee1eb
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.updated.flag
+label: 'Flag as up to date'
+type: user
+plugin: 'flag_action:updated.flag'
+configuration:
+  flag_id: updated
+  flag_action: flag

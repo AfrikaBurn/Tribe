@@ -1,3 +1,22 @@
+/* 10 June 2018 Collective menu */
+
+.view-collective-menu .view-content div:after{
+  content: ".";
+  visibility: hidden;
+  height: 0;
+  display: block;
+  clear: both;
+}
+
+.view-collective-menu .view-content .views-field-new-comments{
+  display: inline-block;
+  background: #450b14;
+  border-radius: 1em;
+  float: right;
+  min-width: 2em;
+  text-align: center;
+}
+
 /* 18 Oct 2017 - collective form */
 
 .field--name-field-col-invitee table,
@@ -40,11 +59,11 @@ form.node-collective-form .clearfix{
 }
 
 body.path-frontpage .sidebar-outer{
-  display: none;
+/*  display: none; */
 }
 
 body.path-frontpage .main-block{
-  max-width: none !important;
+/*  max-width: none !important; */
 }
 
 .view-display-id-my_collectives_block .views-field-field-picture{

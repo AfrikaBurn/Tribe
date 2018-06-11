@@ -1,0 +1,18 @@
+uuid: c650c623-fa66-4c32-b8c3-2c8022bfcaf9
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.collective
+id: node.collective.title
+field_name: title
+entity_type: node
+bundle: collective
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

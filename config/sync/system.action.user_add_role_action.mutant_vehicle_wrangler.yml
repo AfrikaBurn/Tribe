@@ -1,0 +1,14 @@
+uuid: 0728b5e7-03f5-4d25-9ee4-2862a7619d90
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.mutant_vehicle_wrangler
+  module:
+    - user
+id: user_add_role_action.mutant_vehicle_wrangler
+label: 'Add the Mutant Vehicle Wrangler role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: mutant_vehicle_wrangler

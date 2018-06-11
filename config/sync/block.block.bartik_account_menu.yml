@@ -1,0 +1,29 @@
+uuid: 4dd94b19-dad3-4072-9fa2-34e501c0d5be
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+  theme:
+    - bartik
+id: bartik_account_menu
+theme: bartik
+region: header
+weight: -20
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 1
+visibility:
+  request_path:
+    id: request_path
+    pages: /collective
+    negate: true
+    context_mapping: {  }

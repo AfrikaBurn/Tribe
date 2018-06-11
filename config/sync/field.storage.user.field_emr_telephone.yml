@@ -1,0 +1,23 @@
+uuid: f558e187-ed8f-4e9f-ac00-831db8dc1112
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - telephone
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: user.field_emr_telephone
+field_name: field_emr_telephone
+entity_type: user
+type: telephone
+settings: {  }
+module: telephone
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,25 @@
+uuid: 5b36e20d-9f24-46a0-b7c3-18fe12eb90ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_saf_guide
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_saf_guide
+field_name: field_prj_saf_guide
+entity_type: node
+bundle: mutant_vehicles
+label: 'How will passengers get on and off your vehicle?'
+description: 'Pay special attention if visibility is inhibited or there''s a trailer(s). Heavy/dangerous vehicles/trailers require walkers/conductors.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

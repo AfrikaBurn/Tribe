@@ -1,0 +1,31 @@
+uuid: ba291d1f-fc7c-4796-8b77-e6530c5b5895
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_stc_physical
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: OJccmt6-vcYCsR7LZmbM4q2-mXm29bRdSFwZMOGcYP0
+id: node.performances.field_prj_stc_physical
+field_name: field_prj_stc_physical
+entity_type: node
+bundle: performances
+label: 'Is there a physical structure associated with your performance?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

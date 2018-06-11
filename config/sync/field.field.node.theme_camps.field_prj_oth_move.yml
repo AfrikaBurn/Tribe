@@ -1,0 +1,31 @@
+uuid: 38ff21f2-f8ac-45eb-9a95-38de8960bb81
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_oth_move
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: kSuANDMYt1knApM0tdgMShsR8NFDUVCMtTof0wVtVKk
+id: node.theme_camps.field_prj_oth_move
+field_name: field_prj_oth_move
+entity_type: node
+bundle: theme_camps
+label: 'Does your Artwork move?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

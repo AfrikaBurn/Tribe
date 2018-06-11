@@ -1,0 +1,25 @@
+uuid: 5985cfd3-6f98-4eb8-a68a-a44784651356
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:7171e6af-8d3c-4413-a495-894fa39c939b'
+  module:
+    - block_content
+  theme:
+    - afrikaburn
+id: howzit
+theme: afrikaburn
+region: status_messages
+weight: -4
+provider: null
+plugin: 'block_content:7171e6af-8d3c-4413-a495-894fa39c939b'
+settings:
+  id: 'block_content:7171e6af-8d3c-4413-a495-894fa39c939b'
+  label: Howzit!
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

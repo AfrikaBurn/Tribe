@@ -1,0 +1,31 @@
+uuid: b6ab11b4-9f96-46a4-9286-c675ad95f47d
+langcode: en
+status: true
+dependencies: {  }
+id: _subsidised_tickets
+path: /subsidised_tickets
+bypass: false
+grant_file_owners: true
+users: {  }
+roles:
+  administrator: administrator
+  support_admin: support_admin
+  supplier: supplier
+  anonymous: '0'
+  authenticated: '0'
+  art_wrangler: '0'
+  art_admin: '0'
+  communications_wrangler: '0'
+  communications_admin: '0'
+  leave_no_trace_moop: '0'
+  mutant_vehicle_viewer: '0'
+  mutant_vehicle_wrangler: '0'
+  mutant_vehicle_admin: '0'
+  outreach_wrangler: '0'
+  outreach_admin: '0'
+  support_wrangler: '0'
+  theme_camp_wrangler: '0'
+  theme: '0'
+  dpw: '0'
+  volunteer_admin: '0'
+  ranger_admin: '0'

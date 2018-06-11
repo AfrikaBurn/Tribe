@@ -1,0 +1,25 @@
+uuid: 44a8e4ee-d74b-4a68-89a9-cedcd7bebff2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sub_income
+    - node.type.subsidised_ticket
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.subsidised_ticket.field_sub_income
+field_name: field_sub_income
+entity_type: node
+bundle: subsidised_ticket
+label: 'How do you financially support yourself? What is your monthly income? (if you earn one)'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

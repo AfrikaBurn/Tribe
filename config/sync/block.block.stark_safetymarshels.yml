@@ -1,0 +1,25 @@
+uuid: e8987bdd-06d3-404d-8827-fa0c89e41846
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:a4b82411-0a8b-4690-8c98-a4492af84cec'
+  module:
+    - block_content
+  theme:
+    - stark
+id: stark_safetymarshels
+theme: stark
+region: sidebar_first
+weight: -9
+provider: null
+plugin: 'block_content:a4b82411-0a8b-4690-8c98-a4492af84cec'
+settings:
+  id: 'block_content:a4b82411-0a8b-4690-8c98-a4492af84cec'
+  label: 'Safety Marshels'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

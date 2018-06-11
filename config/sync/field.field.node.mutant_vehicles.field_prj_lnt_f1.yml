@@ -1,0 +1,30 @@
+uuid: f80e6e4f-f42b-42de-a120-d61376a2d10d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_f1
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_lnt_f1
+field_name: field_prj_lnt_f1
+entity_type: node
+bundle: mutant_vehicles
+label: 'LNT Header'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p>If you are a sound or performance mutant you need to MOOP the area after an event, before moving off... remind your participants to before the end of the performance to do a MOOP sweep.</p>\r\n"
+    format: basic_html
+field_type: markup

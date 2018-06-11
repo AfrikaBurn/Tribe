@@ -1,0 +1,31 @@
+uuid: c3bf5dd6-2e8d-49dd-bac5-dcd97ceeb637
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_signoff
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: H_SjYdeJS-xt13Hcf-eRHjZUKy9nntaf9422iZ2JQ8k
+id: node.art.field_prj_lnt_signoff
+field_name: field_prj_lnt_signoff
+entity_type: node
+bundle: art
+label: 'Moop signed off by the Leave No Trace before leaving site'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'yes'
+  off_label: 'no'
+field_type: boolean

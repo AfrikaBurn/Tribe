@@ -1,0 +1,26 @@
+uuid: 95b159bc-935e-484f-a115-6ca38f50d221
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: Bo2JSaVFdXZP94T8SjcEUxKTfOT4jUG_dZdqz45515A
+id: node.field_prj_plc_artwork_w
+field_name: field_prj_plc_artwork_w
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,27 @@
+uuid: cb262a4e-1857-4f80-a590-ebf5146cb9f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_snd_description
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: TKFjd2AkMuaq8g6u_MA0ObukZOFlwh60lkULJiD3o28
+id: node.performances.field_prj_snd_description
+field_name: field_prj_snd_description
+entity_type: node
+bundle: performances
+label: 'Please describe the nature, intention and genres of music that you intend to play'
+description: 'Use this space to tell us everything about your sound plan; and, if it’s your case, to motivate for a sound component (level 1 does NOT need to motivate)'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

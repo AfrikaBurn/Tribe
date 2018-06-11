@@ -1,0 +1,30 @@
+uuid: aa9cf4d9-6048-491a-9606-14151b8d2395
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - php
+    - system
+  theme:
+    - bartik
+id: bartik_main_menu
+theme: bartik
+region: header
+weight: -19
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 2
+visibility:
+  php:
+    id: php
+    negate: false
+    php: '<?php return TRUE; ?>'
+    context_mapping: {  }

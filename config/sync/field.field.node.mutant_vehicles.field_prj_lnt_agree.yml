@@ -1,0 +1,29 @@
+uuid: 76062e84-eb94-46dc-aca4-4d0462599e5f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_agree
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_lnt_agree
+field_name: field_prj_lnt_agree
+entity_type: node
+bundle: mutant_vehicles
+label: 'I have read the Leave No Trace documents and briefed my collective.'
+description: 'Leave no trace guidelines a available <a href="https://www.afrikaburn.com/wp-content/uploads/2017/12/MOOP-for-mutants-vehicles-2018.pdf">here</a>. '
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

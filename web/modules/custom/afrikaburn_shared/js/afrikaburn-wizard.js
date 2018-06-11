@@ -85,7 +85,7 @@
     validate(){
       var 
         activePanel = this.getActivePanel(),
-        elementsToValidate = activePanel.find(toValidate).length
+        elementsToValidate = activePanel.find(toValidate)
       if ($.fn.valid && elementsToValidate.length) elementsToValidate.valid()
       return this.getVisibleErrors().length < 1
     }

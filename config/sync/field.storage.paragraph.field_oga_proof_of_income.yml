@@ -1,0 +1,27 @@
+uuid: 39801e2d-dc9f-4903-a010-81f97ba1223a
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - file
+    - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: paragraph.field_oga_proof_of_income
+field_name: field_oga_proof_of_income
+entity_type: paragraph
+type: file
+settings:
+  display_field: false
+  display_default: false
+  uri_scheme: private
+  target_type: file
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

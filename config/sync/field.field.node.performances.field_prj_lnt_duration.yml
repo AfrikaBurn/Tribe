@@ -1,0 +1,31 @@
+uuid: 87116ee1-4226-416e-81c5-28bb04828bbe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_duration
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: Ho3bCvQMVX_gAYfMLlLCcermtkrf8gyLl87W2T9-iLM
+id: node.performances.field_prj_lnt_duration
+field_name: field_prj_lnt_duration
+entity_type: node
+bundle: performances
+label: 'How long do you estimate that it will take'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: hours
+field_type: integer

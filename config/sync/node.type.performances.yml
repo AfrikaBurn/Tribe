@@ -1,0 +1,19 @@
+uuid: 4a2d3523-7e95-45f1-9f3b-01be0a1712b9
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: SWkwWyMYbj_okk07GRjSEu-7LlDLECxoOR2Cy9Bg7Ss
+name: Performances
+type: performances
+description: ''
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

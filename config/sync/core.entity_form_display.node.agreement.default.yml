@@ -1,0 +1,90 @@
+uuid: 78906866-0021-4dfd-a603-cfdcda88e0df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.agreement.field_agreement_introduction
+    - field.field.node.agreement.field_agreement_terms
+    - node.type.agreement
+  module:
+    - content_moderation
+    - path
+    - text
+    - webform
+id: node.agreement.default
+targetEntityType: node
+bundle: agreement
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_agreement_introduction:
+    weight: 32
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
+  field_agreement_terms:
+    weight: 31
+    settings: {  }
+    third_party_settings: {  }
+    type: webform_entity_reference_select
+    region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 15
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 121
+    third_party_settings: {  }
+    region: content
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 16
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden: {  }

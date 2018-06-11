@@ -16,9 +16,14 @@
         tabs = root.find('.vertical-tabs__menu, .horizontal-tabs-list').children()
 
       // Text size fixing
-      $('.user-form .form-text, .user-form .form-email').removeAttr('size')
+      $('*[size]').removeAttr('size')
       // Unhide the submit button
       $('.form-actions').removeClass('hidden')
+
+      // Block email copy/paste
+      $('.user-form .form-email').on(
+        'cut copy paste', (e) => e.preventDefault()
+      );
 
       // Let wizardy things happen first
       setTimeout(

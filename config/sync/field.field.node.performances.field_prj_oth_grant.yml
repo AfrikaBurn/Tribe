@@ -1,0 +1,31 @@
+uuid: 24b01e20-4425-4023-a6b5-e69f470c5c72
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_oth_grant
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: jkKlB18ZnvkwOGLTbbILsv1MFVVPwZHcm5x6zPyk1EI
+id: node.performances.field_prj_oth_grant
+field_name: field_prj_oth_grant
+entity_type: node
+bundle: performances
+label: 'Are you applying for a Creative Grant?'
+description: "Please read everything about <a href=\"http://www.afrikaburn.com/participation-forms/apply-for-creative-grant\" target=\"_blank\">Creative Grants here.</a>\r\n"
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

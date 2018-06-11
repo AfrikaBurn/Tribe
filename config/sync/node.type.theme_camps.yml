@@ -1,0 +1,19 @@
+uuid: a109f0c3-1f77-4805-a82c-851916f2af54
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: 6TDhad-YQ6oQs-_-ZzS_ZUc8ibRCrozOntoheyKEPes
+name: 'Theme Camps'
+type: theme_camps
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

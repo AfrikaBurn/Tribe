@@ -1,0 +1,40 @@
+uuid: b8cefd96-560a-4422-aa34-a9de06c35f1b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_adm_review
+    - node.type.theme_camps
+    - taxonomy.vocabulary.wrangler_review
+  content:
+    - 'taxonomy_term:wrangler_review:1d358cd6-c398-4830-b495-28ebd0eaf305'
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: F4K-_GTAy3BLib3ALgSb43XP-LJZjzFihTsd6Rf6gvM
+id: node.theme_camps.field_prj_adm_review
+field_name: field_prj_adm_review
+entity_type: node
+bundle: theme_camps
+label: Review
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 1d358cd6-c398-4830-b495-28ebd0eaf305
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      wrangler_review: wrangler_review
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

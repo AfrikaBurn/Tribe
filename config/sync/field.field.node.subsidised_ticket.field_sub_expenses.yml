@@ -1,0 +1,25 @@
+uuid: ebbd15b4-a52c-4ee2-890e-fa602a9cb507
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sub_expenses
+    - node.type.subsidised_ticket
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.subsidised_ticket.field_sub_expenses
+field_name: field_sub_expenses
+entity_type: node
+bundle: subsidised_ticket
+label: 'What are your monthly expenses?'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

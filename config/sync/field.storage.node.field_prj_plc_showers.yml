@@ -1,0 +1,22 @@
+uuid: 760c0cbc-e340-4c4e-a0f8-c376fb9f5671
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: iVMSYMjW1VkBqRD49xiqdOK7_BYGdkG04-DOb0k4pFA
+id: node.field_prj_plc_showers
+field_name: field_prj_plc_showers
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

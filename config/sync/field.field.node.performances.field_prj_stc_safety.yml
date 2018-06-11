@@ -1,0 +1,27 @@
+uuid: 5766fa1a-1edc-4712-bbd3-a4518fba824a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_stc_safety
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: rTdN2Q-Br4tiHfxgYOHvf4wTCuSv_IU5v3T1nBlGCqw
+id: node.performances.field_prj_stc_safety
+field_name: field_prj_stc_safety
+entity_type: node
+bundle: performances
+label: 'Structural safety'
+description: "Your artwork needs to withstand extreme weather, including high winds. Make sure it's securely anchored, that it’s not going to fall over, and nothing will fall off. Describe how you intend to anchor it: what will you use to mark guy ropes and cover rebar? For large-scale installations, we'll need to have your piece signed off by an engineer. \r\n"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

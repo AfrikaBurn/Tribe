@@ -1,0 +1,25 @@
+uuid: 9cc7d713-2a22-4d43-bc45-abccb07231f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sup_email
+    - paragraphs.paragraphs_type.supplier_details
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.supplier_details.field_sup_email
+field_name: field_sup_email
+entity_type: paragraph
+bundle: supplier_details
+label: 'Contact Person Email'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

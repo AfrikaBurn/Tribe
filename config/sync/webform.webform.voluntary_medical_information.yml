@@ -1,0 +1,186 @@
+uuid: aa307084-fc41-47d3-9ba2-e895bd5053a1
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+uid: 1
+template: false
+archive: false
+id: voluntary_medical_information
+title: 'Voluntary Medical Information'
+description: ''
+category: ''
+elements: "medical_information:\n  '#type': webform_wizard_page\n  '#title': 'Medical Information'\n  medication:\n    '#type': webform_custom_composite\n    '#title': 'Are you taking any medication'\n    '#element':\n      medication:\n        '#type': textfield\n        '#title': Medication\n      dosage:\n        '#type': textfield\n        '#title': Dosage\n      frequency:\n        '#type': textfield\n        '#title': Frequency\n  allergies:\n    '#type': textfield\n    '#title': Allergies\n  medical_history:\n    '#type': textarea\n    '#title': 'Medical history'\n  medic_alert_bracelet:\n    '#type': textfield\n    '#title': 'If you have a medic alert bracelet, what is it for?'\n  medical_aid:\n    '#type': textfield\n    '#title': 'Medical Aid'\n  medical_aid_number:\n    '#type': textfield\n    '#title': 'Medical Aid Number'\nin_the_dust:\n  '#type': webform_wizard_page\n  '#title': 'In the dust'\n  theme_camps:\n    '#type': entity_autocomplete\n    '#title': 'Theme camps'\n    '#target_type': node\n    '#selection_handler': 'default:node'\n    '#selection_settings':\n      target_bundles:\n        theme_camps: theme_camps\n  camp_location:\n    '#type': webform_entity_select\n    '#title': 'Where are you planning on camping?'\n    '#target_type': taxonomy_term\n    '#selection_handler': 'default:taxonomy_term'\n    '#selection_settings':\n      target_bundles:\n        theme_camp_location: theme_camp_location\n      sort:\n        field: name\n        direction: ASC\n  additional_location:\n    '#type': textarea\n    '#title': 'Additional location information'\ncontacts:\n  '#type': webform_wizard_page\n  '#title': Contacts\n  emergency_contact_not_at_the_burn:\n    '#type': webform_custom_composite\n    '#title': 'Emergency contact NOT at the burn'\n    '#element':\n      name:\n        '#type': textfield\n        '#title': Name\n      email:\n        '#type': textfield\n        '#title': Email\n      phone:\n        '#type': textfield\n        '#title': Phone\n  emergency_contact_at_the_burn:\n    '#type': webform_custom_composite\n    '#title': 'Emergency contact AT the burn'\n    '#element':\n      name:\n        '#type': textfield\n        '#title': Name\n      email:\n        '#type': textfield\n        '#title': Email\n      phone:\n        '#type': textfield\n        '#title': Phone\n"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_login: true
+  form_login_message: ''
+  submission_label: ''
+  submission_log: false
+  submission_user_columns: {  }
+  submission_login: false
+  submission_login_message: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_start_label: ''
+  wizard_confirmation: false
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: authenticated
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: page
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+access:
+  create:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles:
+      - administrator
+      - support_admin
+      - volunteer_admin
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles:
+      - administrator
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email:
+    id: email
+    label: Email
+    handler_id: email
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:user:mail]'
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: shared@afrikaburn.com
+      bcc_options: {  }
+      from_mail: default
+      from_options: {  }
+      from_name: default
+      subject: 'Thank you for submitting your Voluntary Medical Information'
+      body: "Dear {{ webform_token('[webform_submission:user]', webform_submission) }}\n\nThank you, we have received your Voluntary Medical Information.\nIt will only be used in case of emergency.\n\nAfrikaBurn Medical"
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: true
+      attachments: false
+      twig: true
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''

@@ -1,0 +1,38 @@
+uuid: b41b8c03-20de-4345-9d33-9630cbc28392
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_type_of_expence
+    - paragraphs.paragraphs_type.grant_expences
+    - taxonomy.vocabulary.type_of_expence
+  content:
+    - 'taxonomy_term:type_of_expence:81b48c63-2bcd-4db1-be20-47bfd45f2ada'
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.grant_expences.field_type_of_expence
+field_name: field_type_of_expence
+entity_type: paragraph
+bundle: grant_expences
+label: 'Type of Expense'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 81b48c63-2bcd-4db1-be20-47bfd45f2ada
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      type_of_expence: type_of_expence
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,51 @@
+uuid: 514cea48-9145-418f-823e-3d42d14b2ab1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_kids_and_teens
+    - paragraphs.paragraphs_type.minors
+  module:
+    - custom_add_another
+    - entity_reference_revisions
+    - user
+third_party_settings:
+  custom_add_another:
+    custom_add_another: 'Add another minor'
+    custom_remove: ''
+id: user.user.field_kids_and_teens
+field_name: field_kids_and_teens
+entity_type: user
+bundle: user
+label: 'List your minor (between 15 & 18 yrs) OR child (14 yrs & younger) here'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      minors: minors
+    target_bundles_drag_drop:
+      grant_expences:
+        weight: 5
+        enabled: false
+      minors:
+        enabled: true
+        weight: 6
+      early_access_and_vehicle_passes:
+        weight: 7
+        enabled: false
+      mutant_grant_expense:
+        weight: 7
+        enabled: false
+      supplier_details:
+        weight: 8
+        enabled: false
+      outreach_grant_applicant:
+        weight: 9
+        enabled: false
+field_type: entity_reference_revisions

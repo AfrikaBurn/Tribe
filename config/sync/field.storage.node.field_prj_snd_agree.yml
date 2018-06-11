@@ -1,0 +1,24 @@
+uuid: c89c96fc-0aa8-4d68-bae9-3cdd259c123d
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: dbyiuQXd0-c6KzjMng4cdlMg_JFqYv4-MRCJ8sgX-Qo
+id: node.field_prj_snd_agree
+field_name: field_prj_snd_agree
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,31 @@
+uuid: 864dea13-3d5d-4202-b265-2a8e8c2459ec
+langcode: en
+status: true
+dependencies: {  }
+id: _webform_community_access_grant
+path: /webform/community_access_grant
+bypass: false
+grant_file_owners: true
+users: {  }
+roles:
+  outreach_wrangler: outreach_wrangler
+  outreach_admin: outreach_admin
+  anonymous: '0'
+  authenticated: '0'
+  art_wrangler: '0'
+  art_admin: '0'
+  communications_wrangler: '0'
+  communications_admin: '0'
+  leave_no_trace_moop: '0'
+  mutant_vehicle_viewer: '0'
+  mutant_vehicle_wrangler: '0'
+  mutant_vehicle_admin: '0'
+  administrator: '0'
+  support_wrangler: '0'
+  support_admin: '0'
+  theme_camp_wrangler: '0'
+  theme: '0'
+  supplier: '0'
+  dpw: '0'
+  volunteer_admin: '0'
+  ranger_admin: '0'

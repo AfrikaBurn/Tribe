@@ -1,0 +1,25 @@
+uuid: f39109f2-8cf8-469e-b0b3-b3fb1cec7f7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_brn_desc
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_brn_desc
+field_name: field_prj_brn_desc
+entity_type: node
+bundle: mutant_vehicles
+label: 'Describe your safety considerations and technical design for the flame effects. *'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

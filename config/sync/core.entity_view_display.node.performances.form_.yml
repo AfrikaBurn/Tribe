@@ -1,0 +1,553 @@
+uuid: add3cc3b-cac4-4d68-abe0-96e254f227b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.form_
+    - field.field.node.performances.field_collective
+    - field.field.node.performances.field_form_mode
+    - field.field.node.performances.field_grt_art_total
+    - field.field.node.performances.field_grt_breakdown
+    - field.field.node.performances.field_grt_contribution
+    - field.field.node.performances.field_grt_f1
+    - field.field.node.performances.field_grt_lighting
+    - field.field.node.performances.field_grt_location
+    - field.field.node.performances.field_grt_materials
+    - field.field.node.performances.field_grt_more
+    - field.field.node.performances.field_grt_pyrotechnics
+    - field.field.node.performances.field_grt_services
+    - field.field.node.performances.field_grt_short
+    - field.field.node.performances.field_grt_short_desc
+    - field.field.node.performances.field_grt_specify
+    - field.field.node.performances.field_grt_tool
+    - field.field.node.performances.field_grt_total
+    - field.field.node.performances.field_grt_transport
+    - field.field.node.performances.field_muncipal_district
+    - field.field.node.performances.field_prj_adm_comms
+    - field.field.node.performances.field_prj_adm_notes
+    - field.field.node.performances.field_prj_adm_ranger_comment
+    - field.field.node.performances.field_prj_adm_review
+    - field.field.node.performances.field_prj_adm_wrangler
+    - field.field.node.performances.field_prj_brn_agree
+    - field.field.node.performances.field_prj_brn_burning
+    - field.field.node.performances.field_prj_brn_f2
+    - field.field.node.performances.field_prj_brn_motivation
+    - field.field.node.performances.field_prj_brn_person
+    - field.field.node.performances.field_prj_brn_plan
+    - field.field.node.performances.field_prj_cll_collaborate
+    - field.field.node.performances.field_prj_cll_contact
+    - field.field.node.performances.field_prj_cll_description
+    - field.field.node.performances.field_prj_cll_thread
+    - field.field.node.performances.field_prj_gen_bio
+    - field.field.node.performances.field_prj_gen_concept
+    - field.field.node.performances.field_prj_gen_contact
+    - field.field.node.performances.field_prj_gen_description
+    - field.field.node.performances.field_prj_gen_doc
+    - field.field.node.performances.field_prj_gen_external
+    - field.field.node.performances.field_prj_gen_fundraiser
+    - field.field.node.performances.field_prj_gen_fundraising
+    - field.field.node.performances.field_prj_gen_history
+    - field.field.node.performances.field_prj_gen_lead
+    - field.field.node.performances.field_prj_gen_location
+    - field.field.node.performances.field_prj_gen_manager
+    - field.field.node.performances.field_prj_gen_story
+    - field.field.node.performances.field_prj_gen_year
+    - field.field.node.performances.field_prj_lgh_agree
+    - field.field.node.performances.field_prj_lgh_description
+    - field.field.node.performances.field_prj_lgh_f1
+    - field.field.node.performances.field_prj_lgh_f2
+    - field.field.node.performances.field_prj_lgh_lighter
+    - field.field.node.performances.field_prj_lgh_night
+    - field.field.node.performances.field_prj_lgh_policy
+    - field.field.node.performances.field_prj_lnt_comments
+    - field.field.node.performances.field_prj_lnt_duration
+    - field.field.node.performances.field_prj_lnt_handled
+    - field.field.node.performances.field_prj_lnt_helpers
+    - field.field.node.performances.field_prj_lnt_historic
+    - field.field.node.performances.field_prj_lnt_images
+    - field.field.node.performances.field_prj_lnt_publish
+    - field.field.node.performances.field_prj_lnt_representative
+    - field.field.node.performances.field_prj_lnt_score
+    - field.field.node.performances.field_prj_lnt_signoff
+    - field.field.node.performances.field_prj_lnt_type
+    - field.field.node.performances.field_prj_oth_associated
+    - field.field.node.performances.field_prj_oth_grant
+    - field.field.node.performances.field_prj_oth_mv
+    - field.field.node.performances.field_prj_oth_other
+    - field.field.node.performances.field_prj_oth_relationship
+    - field.field.node.performances.field_prj_oth_unregistered
+    - field.field.node.performances.field_prj_prp_duration
+    - field.field.node.performances.field_prj_prp_erection
+    - field.field.node.performances.field_prj_prp_start
+    - field.field.node.performances.field_prj_prp_transport
+    - field.field.node.performances.field_prj_saf_comment
+    - field.field.node.performances.field_prj_snd_agree
+    - field.field.node.performances.field_prj_snd_comment
+    - field.field.node.performances.field_prj_snd_description
+    - field.field.node.performances.field_prj_snd_level
+    - field.field.node.performances.field_prj_snd_person
+    - field.field.node.performances.field_prj_snd_sound
+    - field.field.node.performances.field_prj_stc_attributes
+    - field.field.node.performances.field_prj_stc_footprint
+    - field.field.node.performances.field_prj_stc_height
+    - field.field.node.performances.field_prj_stc_materials
+    - field.field.node.performances.field_prj_stc_physical
+    - field.field.node.performances.field_prj_stc_safety
+    - field.field.node.performances.field_prj_stc_structural
+    - field.field.node.performances.field_prj_stc_weight
+    - field.field.node.performances.field_prj_sup_address
+    - field.field.node.performances.field_prj_sup_details
+    - field.field.node.performances.field_prj_sup_h1
+    - field.field.node.performances.field_prj_total_cost
+    - field.field.node.performances.field_prj_wtf_categories
+    - field.field.node.performances.field_prj_wtf_image
+    - field.field.node.performances.field_prj_wtf_long
+    - field.field.node.performances.field_prj_wtf_plan
+    - field.field.node.performances.field_prj_wtf_planned
+    - field.field.node.performances.field_prj_wtf_scheduled
+    - field.field.node.performances.field_prj_wtf_short
+    - field.field.node.performances.field_prj_wtf_short_copy
+    - field.field.node.performances.field_prj_wtf_website
+    - field.field.node.performances.field_sup_comment
+    - field.field.node.performances.field_sup_review
+    - field.field.node.performances.field_this_is_the_amount_of_mone
+    - image.style.thumbnail
+    - node.type.performances
+  module:
+    - comment
+    - content_moderation
+    - field_group
+    - image
+    - link
+    - markup
+    - path
+third_party_settings:
+  field_group:
+    group_project:
+      children:
+        - group_lighting
+        - group_sound
+        - group_burn
+        - group_moop
+        - group_wtf
+      parent_name: ''
+      weight: 5
+      format_type: accordion
+      format_settings:
+        label: 'Project Registration'
+        direction: horizontal
+        id: ''
+        classes: js-wizard
+      label: 'Project Registration'
+      region: content
+    group_sound:
+      children:
+        - field_prj_snd_sound
+        - field_prj_snd_level
+        - field_prj_snd_description
+        - field_prj_snd_person
+        - field_prj_snd_agree
+      parent_name: group_project
+      weight: 11
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Sound
+      region: content
+    group_burn:
+      children:
+        - field_prj_brn_burning
+        - field_prj_brn_motivation
+        - field_prj_brn_plan
+        - field_prj_brn_person
+        - field_prj_brn_agree
+      parent_name: group_project
+      weight: 12
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Burn
+      region: content
+    group_moop:
+      children:
+        - field_prj_lnt_handled
+        - field_prj_lnt_helpers
+        - field_prj_lnt_duration
+        - field_prj_lnt_historic
+        - field_prj_lnt_representative
+      parent_name: group_project
+      weight: 13
+      format_type: accordion_item
+      format_settings:
+        label: 'Leave No Trace'
+        formatter: closed
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Leave No Trace'
+      region: content
+    group_wtf:
+      children:
+        - field_prj_wtf_image
+        - field_prj_wtf_planned
+        - field_prj_wtf_website
+        - field_prj_cll_collaborate
+        - field_prj_cll_description
+        - field_prj_cll_contact
+        - field_prj_cll_thread
+      parent_name: group_project
+      weight: 14
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'WTF Guide and Community'
+      region: content
+    group_lighting:
+      children:
+        - field_prj_lgh_f2
+        - field_prj_lgh_night
+        - field_prj_lgh_description
+        - field_prj_lgh_lighter
+        - field_prj_lgh_policy
+        - field_prj_lgh_agree
+      parent_name: group_project
+      weight: 10
+      format_type: accordion_item
+      format_settings:
+        label: Lighting
+        formatter: open
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Lighting
+      region: content
+_core:
+  default_config_hash: GszY5o7FPcrv2Z8_LMFChqNpGZCA9kaS3WAz3lVtB0o
+id: node.performances.form_
+targetEntityType: node
+bundle: performances
+mode: form_
+content:
+  field_form_mode:
+    type: basic_string
+    weight: 1000
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_brn_agree:
+    weight: 51
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_brn_burning:
+    weight: 47
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_brn_motivation:
+    type: basic_string
+    weight: 48
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_brn_person:
+    weight: 50
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_brn_plan:
+    weight: 49
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_cll_collaborate:
+    weight: 13
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_cll_contact:
+    weight: 15
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_cll_description:
+    weight: 14
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_cll_thread:
+    weight: 16
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  field_prj_lgh_agree:
+    weight: 77
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_lgh_description:
+    weight: 74
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_lgh_f2:
+    type: markup
+    weight: 70
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_prj_lgh_lighter:
+    weight: 75
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_lgh_night:
+    weight: 73
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_lgh_policy:
+    weight: 76
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_lnt_duration:
+    weight: 52
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_prj_lnt_handled:
+    weight: 50
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_lnt_helpers:
+    weight: 51
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_prj_lnt_historic:
+    weight: 53
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_lnt_representative:
+    type: basic_string
+    weight: 61
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_prj_snd_agree:
+    weight: 48
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_snd_description:
+    weight: 45
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_snd_level:
+    weight: 44
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_snd_person:
+    weight: 46
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_prj_snd_sound:
+    weight: 43
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_wtf_image:
+    weight: 10
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image
+    region: content
+  field_prj_wtf_planned:
+    type: basic_string
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_prj_wtf_website:
+    type: link
+    weight: 12
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  links:
+    weight: 100
+    region: content
+  path:
+    type: path
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean
+    settings:
+      display_label: true
+    weight: 2
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean
+    settings:
+      display_label: true
+    weight: 3
+    region: content
+    third_party_settings: {  }
+  url_redirects:
+    weight: 50
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_collective: true
+  field_grt_art_total: true
+  field_grt_breakdown: true
+  field_grt_contribution: true
+  field_grt_f1: true
+  field_grt_lighting: true
+  field_grt_location: true
+  field_grt_materials: true
+  field_grt_more: true
+  field_grt_pyrotechnics: true
+  field_grt_services: true
+  field_grt_short: true
+  field_grt_short_desc: true
+  field_grt_specify: true
+  field_grt_tool: true
+  field_grt_total: true
+  field_grt_transport: true
+  field_muncipal_district: true
+  field_prj_adm_comms: true
+  field_prj_adm_notes: true
+  field_prj_adm_ranger_comment: true
+  field_prj_adm_review: true
+  field_prj_adm_wrangler: true
+  field_prj_brn_f2: true
+  field_prj_gen_bio: true
+  field_prj_gen_concept: true
+  field_prj_gen_contact: true
+  field_prj_gen_description: true
+  field_prj_gen_doc: true
+  field_prj_gen_external: true
+  field_prj_gen_fundraiser: true
+  field_prj_gen_fundraising: true
+  field_prj_gen_history: true
+  field_prj_gen_lead: true
+  field_prj_gen_location: true
+  field_prj_gen_manager: true
+  field_prj_gen_story: true
+  field_prj_gen_year: true
+  field_prj_lgh_f1: true
+  field_prj_lnt_comments: true
+  field_prj_lnt_images: true
+  field_prj_lnt_publish: true
+  field_prj_lnt_score: true
+  field_prj_lnt_signoff: true
+  field_prj_lnt_type: true
+  field_prj_oth_associated: true
+  field_prj_oth_grant: true
+  field_prj_oth_mv: true
+  field_prj_oth_other: true
+  field_prj_oth_relationship: true
+  field_prj_oth_unregistered: true
+  field_prj_prp_duration: true
+  field_prj_prp_erection: true
+  field_prj_prp_start: true
+  field_prj_prp_transport: true
+  field_prj_saf_comment: true
+  field_prj_snd_comment: true
+  field_prj_stc_attributes: true
+  field_prj_stc_footprint: true
+  field_prj_stc_height: true
+  field_prj_stc_materials: true
+  field_prj_stc_physical: true
+  field_prj_stc_safety: true
+  field_prj_stc_structural: true
+  field_prj_stc_weight: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_details_view: true
+  field_prj_sup_h1: true
+  field_prj_total_cost: true
+  field_prj_wtf_categories: true
+  field_prj_wtf_long: true
+  field_prj_wtf_plan: true
+  field_prj_wtf_scheduled: true
+  field_prj_wtf_short: true
+  field_prj_wtf_short_copy: true
+  field_sup_comment: true
+  field_sup_review: true
+  field_this_is_the_amount_of_mone: true
+  field_vp_ea: true
+  status: true

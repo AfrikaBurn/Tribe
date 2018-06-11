@@ -1,0 +1,25 @@
+uuid: 0a4e6492-6d9e-48ea-8d03-b5264673a292
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:14d2c42c-cffe-469c-81ae-fbd4732bfd5d'
+  module:
+    - block_content
+  theme:
+    - bartik
+id: bartik_leavenotrace
+theme: bartik
+region: header
+weight: -10
+provider: null
+plugin: 'block_content:14d2c42c-cffe-469c-81ae-fbd4732bfd5d'
+settings:
+  id: 'block_content:14d2c42c-cffe-469c-81ae-fbd4732bfd5d'
+  label: 'Leave No Trace'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

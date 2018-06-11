@@ -1,0 +1,10 @@
+uuid: c1f7a8b3-dd66-45c4-b6fc-9ceafd5f85b0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.early_access_and_vehicle_passes
+label: 'Early Access and Vehicle Passes'
+targetEntityType: node
+cache: true

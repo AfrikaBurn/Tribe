@@ -1,0 +1,28 @@
+uuid: 49667ae9-c016-4044-8a98-070c0f137bd1
+langcode: en
+status: true
+dependencies:
+  module:
+    - afrikaburn_registration
+    - user
+  theme:
+    - afrikaburn
+id: bioblock
+theme: afrikaburn
+region: sidebar
+weight: -17
+provider: null
+plugin: bio_block
+settings:
+  id: bio_block
+  label: 'Bio Block'
+  provider: afrikaburn_registration
+  label_display: '0'
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

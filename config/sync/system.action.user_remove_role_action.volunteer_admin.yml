@@ -1,0 +1,14 @@
+uuid: 5454aedb-1b9e-44a8-acf4-e7c5477ad4e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.volunteer_admin
+  module:
+    - user
+id: user_remove_role_action.volunteer_admin
+label: 'Remove the Volunteer admin role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: volunteer_admin

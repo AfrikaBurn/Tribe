@@ -1,0 +1,25 @@
+uuid: 40586587-af31-4701-92be-1df9b6818c50
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:ccc13d9d-fc4f-4f7a-b7d7-9264195cd850'
+  module:
+    - block_content
+  theme:
+    - stark
+id: stark_themecampregestationoverview
+theme: stark
+region: sidebar_first
+weight: -7
+provider: null
+plugin: 'block_content:ccc13d9d-fc4f-4f7a-b7d7-9264195cd850'
+settings:
+  id: 'block_content:ccc13d9d-fc4f-4f7a-b7d7-9264195cd850'
+  label: 'Theme Camp Regestation Overview'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

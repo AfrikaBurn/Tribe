@@ -1,0 +1,31 @@
+uuid: bccb2848-01d6-4c7e-a6cc-7e77ba230500
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_camp_d
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: SY9x5hd568xDcjdYS0rjiXWvY5eyA4EVE9eCWy_1ew4
+id: node.theme_camps.field_prj_plc_camp_d
+field_name: field_prj_plc_camp_d
+entity_type: node
+bundle: theme_camps
+label: 'Camp Depth (in total)'
+description: 'The largest blocks are only 50 meters deep.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 3
+  max: 50
+  prefix: ''
+  suffix: ''
+field_type: integer

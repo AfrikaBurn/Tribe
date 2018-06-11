@@ -1,0 +1,34 @@
+uuid: 736c499d-4ad9-407f-9613-e6361dd9f648
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.gdpr_task.sar_export
+    - gdpr_tasks.gdpr_task_type.gdpr_sar
+  module:
+    - custom_add_another
+    - file
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: OnYJR9bjy51D1ZoYOq6KTV0F0C6N9d8-u0O1gqWECi8
+id: gdpr_task.gdpr_sar.sar_export
+field_name: sar_export
+entity_type: gdpr_task
+bundle: gdpr_sar
+label: Export
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: gdpr-exports
+  file_extensions: csv
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

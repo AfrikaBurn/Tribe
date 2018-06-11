@@ -1,0 +1,31 @@
+uuid: 9e707958-d24b-46c4-bbeb-b842b67a4db6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_cars
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: _xxCJrl3jjM4H90pdEzayC6sA9m5lIHAvY83HiVLxGk
+id: node.theme_camps.field_prj_plc_cars
+field_name: field_prj_plc_cars
+entity_type: node
+bundle: theme_camps
+label: 'Team Cars'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

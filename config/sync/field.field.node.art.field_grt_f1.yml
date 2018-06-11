@@ -1,0 +1,30 @@
+uuid: 22f33721-1538-4c47-8e8d-e51425208ec9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_grt_f1
+    - node.type.art
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.art.field_grt_f1
+field_name: field_grt_f1
+entity_type: node
+bundle: art
+label: 'Grants Header'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p>This Grant Application is locked to this project. If you would like to apply for a different project, please register that project first.</p>\r\n\r\n<p dir=\"ltr\"><span>Every year we get loads of grant applications, requesting funding totaling many times the value of the AfrikaBurn creative grant pot. Experience has shown that it is important not to spread the grant pot too thin, but rather to make a meaningful contribution to a smaller amount of projects. </span><strong>This means that many grant applications will not get funding. </strong></p>\r\n\r\n<p dir=\"ltr\"><span>Please think about how else you could secure assistance or support for your project. </span></p>\r\n\r\n<p dir=\"ltr\"><span>Creative Grants are intended to help enable creative expression in Tankwa Town. They are intended to support projects by alleviating </span><strong>some</strong><span> of the financial responsibility. All applicants should expect to carry some of the financial responsibility for their project themselves.</span></p>\r\n\r\n<p dir=\"ltr\"><span>It is very important to </span><strong>BE RESOURCEFUL</strong><span> – recycle, upcycle, use scrap and waste material. You’re a bright spark, be inventive, make more with less. </span></p>\r\n\r\n<p dir=\"ltr\"><span>We ask that you do not apply for a grant unless you really do need funding support and your project is unlikely to happen without it.</span></p>\r\n\r\n<p><span>Before you carry on, please read the following documents:</span><br />\r\n<a href=\"https://www.afrikaburn.com/the-event/artworks/creative-grants/creative-grant-policy\" target=\"_blank\" title=\"Creative Grant Policy\"><span>Creative Grants Policy</span></a><br />\r\n<span><a href=\"https://www.afrikaburn.com/the-event/artworks/creative-grants/creative-grant-assessment\" target=\"_blank\" title=\"Creative Grant Assessment Policy\">How we assess&nbsp;Creative Grants</a></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<h4>Breakdown of expenses</h4>\r\n\r\n<p class=\"color=#f26c55\" dir=\"ltr\"><span>Please list everything that is going into your project. This is important to help you making a realistic budget and &nbsp;give us an idea of the real cost of the project. Be as thorough as you can. </span></p>\r\n\r\n<p class=\"color=#f26c55\" dir=\"ltr\"><span>Some of the items, that you need for your project, do not add an extra financial burden on your project.<br />\r\nFor example: You have access to a working space where you can build your project, this has a value. If you had to rent this workspace, how much would it cost? </span><br />\r\n<span>You can borrow your friend’s uncle’s cordless drill for your project. How much would it cost you to rent it? Your team has agreed that all transport costs would be shared by every team member. Etc.</span><br />\r\n<span>- Please include items like these in your Breakdown of Expenses and mark them as your OWN.<br />\r\n- This means that they are part of the total cost of the project, but are not considered in the amount that you are applying for.</span></p>\r\n"
+    format: full_html
+field_type: markup

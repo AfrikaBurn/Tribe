@@ -1,0 +1,20 @@
+uuid: aeda7d3f-d1e5-4831-bebe-5cd207f64cfc
+langcode: en
+status: true
+dependencies: {  }
+id: sanctuary_admin
+label: 'Sanctuary Admin'
+weight: 10
+is_admin: null
+permissions:
+  - 'access in-place editing'
+  - 'display eu cookie compliance popup'
+  - 'edit field_approved'
+  - 'edit field_vp_approved'
+  - 'edit field_wa_approved'
+  - 'edit own field_vp_approved'
+  - 'view field_approved'
+  - 'view field_email'
+  - 'view field_vp_approved'
+  - 'view field_wa_approved'
+  - 'view own field_vp_approved'

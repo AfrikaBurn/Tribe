@@ -1,0 +1,472 @@
+uuid: eb32fa17-abca-45f1-8bc3-12327a3602fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.early_access_and_vehicle_passes
+    - field.field.node.mutant_vehicles.field_collective
+    - field.field.node.mutant_vehicles.field_form_mode
+    - field.field.node.mutant_vehicles.field_grt_art_comment
+    - field.field.node.mutant_vehicles.field_grt_art_total
+    - field.field.node.mutant_vehicles.field_grt_awarded
+    - field.field.node.mutant_vehicles.field_grt_contribution
+    - field.field.node.mutant_vehicles.field_grt_dmv_budget
+    - field.field.node.mutant_vehicles.field_grt_materials
+    - field.field.node.mutant_vehicles.field_grt_other
+    - field.field.node.mutant_vehicles.field_grt_other_description
+    - field.field.node.mutant_vehicles.field_grt_services
+    - field.field.node.mutant_vehicles.field_grt_status
+    - field.field.node.mutant_vehicles.field_grt_total
+    - field.field.node.mutant_vehicles.field_grt_transport
+    - field.field.node.mutant_vehicles.field_mutant_drivers
+    - field.field.node.mutant_vehicles.field_prj_adm_comms
+    - field.field.node.mutant_vehicles.field_prj_adm_form_grant
+    - field.field.node.mutant_vehicles.field_prj_adm_form_wtf
+    - field.field.node.mutant_vehicles.field_prj_adm_notes
+    - field.field.node.mutant_vehicles.field_prj_adm_ranger_comment
+    - field.field.node.mutant_vehicles.field_prj_adm_registration
+    - field.field.node.mutant_vehicles.field_prj_adm_review
+    - field.field.node.mutant_vehicles.field_prj_adm_wrangler
+    - field.field.node.mutant_vehicles.field_prj_brn_agree
+    - field.field.node.mutant_vehicles.field_prj_brn_burning
+    - field.field.node.mutant_vehicles.field_prj_brn_desc
+    - field.field.node.mutant_vehicles.field_prj_brn_person
+    - field.field.node.mutant_vehicles.field_prj_brn_plan
+    - field.field.node.mutant_vehicles.field_prj_cll_collaborate
+    - field.field.node.mutant_vehicles.field_prj_cll_contact
+    - field.field.node.mutant_vehicles.field_prj_cll_description
+    - field.field.node.mutant_vehicles.field_prj_cll_thread
+    - field.field.node.mutant_vehicles.field_prj_gen_base
+    - field.field.node.mutant_vehicles.field_prj_gen_concept
+    - field.field.node.mutant_vehicles.field_prj_gen_contact
+    - field.field.node.mutant_vehicles.field_prj_gen_description
+    - field.field.node.mutant_vehicles.field_prj_gen_doc
+    - field.field.node.mutant_vehicles.field_prj_gen_fundraiser
+    - field.field.node.mutant_vehicles.field_prj_gen_fundraising
+    - field.field.node.mutant_vehicles.field_prj_gen_lead
+    - field.field.node.mutant_vehicles.field_prj_gen_location
+    - field.field.node.mutant_vehicles.field_prj_gen_mutating
+    - field.field.node.mutant_vehicles.field_prj_gen_owner
+    - field.field.node.mutant_vehicles.field_prj_gen_story
+    - field.field.node.mutant_vehicles.field_prj_gen_year
+    - field.field.node.mutant_vehicles.field_prj_lgh_description
+    - field.field.node.mutant_vehicles.field_prj_lgh_f1
+    - field.field.node.mutant_vehicles.field_prj_lgh_lighter
+    - field.field.node.mutant_vehicles.field_prj_lgh_night
+    - field.field.node.mutant_vehicles.field_prj_lgh_projection
+    - field.field.node.mutant_vehicles.field_prj_lnt_agree
+    - field.field.node.mutant_vehicles.field_prj_lnt_comments
+    - field.field.node.mutant_vehicles.field_prj_lnt_f1
+    - field.field.node.mutant_vehicles.field_prj_lnt_handled
+    - field.field.node.mutant_vehicles.field_prj_lnt_historic
+    - field.field.node.mutant_vehicles.field_prj_lnt_images
+    - field.field.node.mutant_vehicles.field_prj_lnt_publish
+    - field.field.node.mutant_vehicles.field_prj_lnt_representative
+    - field.field.node.mutant_vehicles.field_prj_lnt_score
+    - field.field.node.mutant_vehicles.field_prj_lnt_signoff
+    - field.field.node.mutant_vehicles.field_prj_lnt_type
+    - field.field.node.mutant_vehicles.field_prj_oth_agree
+    - field.field.node.mutant_vehicles.field_prj_oth_associated
+    - field.field.node.mutant_vehicles.field_prj_oth_grant
+    - field.field.node.mutant_vehicles.field_prj_oth_other
+    - field.field.node.mutant_vehicles.field_prj_oth_unregistered
+    - field.field.node.mutant_vehicles.field_prj_saf_access
+    - field.field.node.mutant_vehicles.field_prj_saf_comment
+    - field.field.node.mutant_vehicles.field_prj_saf_guide
+    - field.field.node.mutant_vehicles.field_prj_saf_mark
+    - field.field.node.mutant_vehicles.field_prj_saf_other
+    - field.field.node.mutant_vehicles.field_prj_saf_passengers
+    - field.field.node.mutant_vehicles.field_prj_snd_agree
+    - field.field.node.mutant_vehicles.field_prj_snd_comment
+    - field.field.node.mutant_vehicles.field_prj_snd_description
+    - field.field.node.mutant_vehicles.field_prj_snd_level
+    - field.field.node.mutant_vehicles.field_prj_snd_person
+    - field.field.node.mutant_vehicles.field_prj_snd_safety
+    - field.field.node.mutant_vehicles.field_prj_snd_soop
+    - field.field.node.mutant_vehicles.field_prj_snd_sound
+    - field.field.node.mutant_vehicles.field_prj_stg_contact
+    - field.field.node.mutant_vehicles.field_prj_stg_description
+    - field.field.node.mutant_vehicles.field_prj_stg_stage
+    - field.field.node.mutant_vehicles.field_prj_stg_tread
+    - field.field.node.mutant_vehicles.field_prj_stg_type
+    - field.field.node.mutant_vehicles.field_prj_sup_address
+    - field.field.node.mutant_vehicles.field_prj_sup_details
+    - field.field.node.mutant_vehicles.field_prj_sup_details_view
+    - field.field.node.mutant_vehicles.field_prj_sup_h1
+    - field.field.node.mutant_vehicles.field_prj_trl_area
+    - field.field.node.mutant_vehicles.field_prj_trl_capasity
+    - field.field.node.mutant_vehicles.field_prj_trl_communicate
+    - field.field.node.mutant_vehicles.field_prj_trl_describe
+    - field.field.node.mutant_vehicles.field_prj_trl_markup
+    - field.field.node.mutant_vehicles.field_prj_trl_passengers
+    - field.field.node.mutant_vehicles.field_prj_trl_size
+    - field.field.node.mutant_vehicles.field_prj_trl_walkers
+    - field.field.node.mutant_vehicles.field_prj_wtf_categories
+    - field.field.node.mutant_vehicles.field_prj_wtf_image
+    - field.field.node.mutant_vehicles.field_prj_wtf_long
+    - field.field.node.mutant_vehicles.field_prj_wtf_short
+    - field.field.node.mutant_vehicles.field_prj_wtf_short_copy
+    - field.field.node.mutant_vehicles.field_prj_wtf_website
+    - field.field.node.mutant_vehicles.field_sup_comment
+    - field.field.node.mutant_vehicles.field_sup_review
+    - field.field.node.mutant_vehicles.field_vp_ea
+    - node.type.mutant_vehicles
+  module:
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_acc_project_overview:
+      children:
+        - group_the_overview
+        - group_acc_the_project
+        - group_acc_safety
+        - group_acc_night_driving
+        - group_acc_sound
+        - group_acc_flame_effects
+        - group_acc_trailer
+        - group_acc_moop
+        - group_acc_wtf_guide
+        - group_acc_almost_done
+      parent_name: ''
+      weight: 5
+      format_type: accordion
+      format_settings:
+        label: 'Project Overview'
+        effect: none
+        id: ''
+        classes: ''
+      label: 'Project Overview'
+      region: hidden
+    group_acc_the_project:
+      children:
+        - field_prj_gen_base
+        - field_prj_gen_concept
+        - field_prj_gen_description
+        - field_prj_gen_doc
+        - field_prj_gen_mutating
+        - field_prj_gen_story
+      parent_name: group_acc_project_overview
+      weight: 4
+      format_type: accordion_item
+      format_settings:
+        label: 'The Project'
+        formatter: closed
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'The Project'
+      region: hidden
+    group_acc_safety:
+      children:
+        - field_prj_saf_access
+        - field_prj_saf_guide
+        - field_prj_saf_mark
+        - field_prj_saf_other
+        - field_prj_saf_passengers
+      parent_name: group_acc_project_overview
+      weight: 5
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Safety
+      region: hidden
+    group_acc_night_driving:
+      children:
+        - field_prj_lgh_description
+        - field_prj_lgh_f1
+        - field_prj_lgh_lighter
+        - field_prj_lgh_night
+      parent_name: group_acc_project_overview
+      weight: 6
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: 'Night Driving'
+      region: hidden
+    group_acc_sound:
+      children:
+        - field_prj_snd_agree
+        - field_prj_snd_description
+        - field_prj_snd_level
+        - field_prj_snd_person
+        - field_prj_snd_safety
+        - field_prj_snd_soop
+        - field_prj_snd_sound
+      parent_name: group_acc_project_overview
+      weight: 7
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Sound
+      region: hidden
+    group_acc_flame_effects:
+      children:
+        - field_prj_brn_agree
+        - field_prj_brn_burning
+        - field_prj_brn_desc
+        - field_prj_brn_person
+        - field_prj_brn_plan
+      parent_name: group_acc_project_overview
+      weight: 8
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: 'Flame effects'
+      region: hidden
+    group_acc_trailer:
+      children:
+        - field_prj_lgh_projection
+        - field_prj_trl_area
+        - field_prj_trl_capasity
+        - field_prj_trl_communicate
+        - field_prj_trl_describe
+        - field_prj_trl_markup
+        - field_prj_trl_passengers
+        - field_prj_trl_size
+        - field_prj_trl_walkers
+      parent_name: group_acc_project_overview
+      weight: 9
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Trailer
+      region: hidden
+    group_acc_moop:
+      children:
+        - field_prj_lnt_agree
+        - field_prj_lnt_f1
+        - field_prj_lnt_handled
+        - field_prj_lnt_historic
+        - field_prj_lnt_representative
+      parent_name: group_acc_project_overview
+      weight: 10
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Moop
+      region: hidden
+    group_acc_wtf_guide:
+      children:
+        - field_prj_cll_collaborate
+        - field_prj_cll_contact
+        - field_prj_cll_description
+        - field_prj_stg_contact
+        - field_prj_stg_description
+        - field_prj_stg_stage
+        - field_prj_stg_type
+        - field_prj_wtf_categories
+        - field_prj_wtf_image
+        - field_prj_wtf_long
+        - field_prj_wtf_short
+        - field_prj_wtf_website
+      parent_name: group_acc_project_overview
+      weight: 11
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: 'WTF Guide and Activities'
+      region: hidden
+    group_acc_almost_done:
+      children:
+        - field_prj_oth_agree
+        - field_prj_oth_associated
+        - field_prj_oth_grant
+        - field_prj_oth_other
+        - field_prj_oth_unregistered
+      parent_name: group_acc_project_overview
+      weight: 12
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: 'Almost done!'
+      region: hidden
+    group_the_overview:
+      children:
+        - title
+        - promote
+        - sticky
+        - field_mutant_drivers
+        - field_prj_gen_contact
+        - field_prj_gen_fundraiser
+        - field_prj_gen_fundraising
+        - field_prj_gen_lead
+        - field_prj_gen_location
+        - field_prj_gen_owner
+      parent_name: group_acc_project_overview
+      weight: 1
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: open
+        required_fields: true
+        description: ''
+      label: 'The overview'
+      region: hidden
+_core:
+  default_config_hash: FHLYUGK-mQGVYzvIKsUSwq4IdPmIgOzk9wE9K3NHGck
+id: node.mutant_vehicles.early_access_and_vehicle_passes
+targetEntityType: node
+bundle: mutant_vehicles
+mode: early_access_and_vehicle_passes
+content:
+  field_vp_ea:
+    weight: 0
+    settings:
+      title: 'Early access and/or Vehicle Pass '
+      title_plural: 'Early access and/or Vehicle Passes'
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: early_access_and_vehicle_passes
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+hidden:
+  created: true
+  field_collective: true
+  field_form_mode: true
+  field_grt_art_comment: true
+  field_grt_art_total: true
+  field_grt_awarded: true
+  field_grt_contribution: true
+  field_grt_dmv_budget: true
+  field_grt_materials: true
+  field_grt_other: true
+  field_grt_other_description: true
+  field_grt_services: true
+  field_grt_status: true
+  field_grt_total: true
+  field_grt_transport: true
+  field_mutant_drivers: true
+  field_prj_adm_comms: true
+  field_prj_adm_form_grant: true
+  field_prj_adm_form_wtf: true
+  field_prj_adm_notes: true
+  field_prj_adm_ranger_comment: true
+  field_prj_adm_registration: true
+  field_prj_adm_review: true
+  field_prj_adm_wrangler: true
+  field_prj_brn_agree: true
+  field_prj_brn_burning: true
+  field_prj_brn_desc: true
+  field_prj_brn_person: true
+  field_prj_brn_plan: true
+  field_prj_cll_collaborate: true
+  field_prj_cll_contact: true
+  field_prj_cll_description: true
+  field_prj_cll_thread: true
+  field_prj_gen_base: true
+  field_prj_gen_concept: true
+  field_prj_gen_contact: true
+  field_prj_gen_description: true
+  field_prj_gen_doc: true
+  field_prj_gen_fundraiser: true
+  field_prj_gen_fundraising: true
+  field_prj_gen_lead: true
+  field_prj_gen_location: true
+  field_prj_gen_mutating: true
+  field_prj_gen_owner: true
+  field_prj_gen_story: true
+  field_prj_gen_year: true
+  field_prj_lgh_description: true
+  field_prj_lgh_f1: true
+  field_prj_lgh_lighter: true
+  field_prj_lgh_night: true
+  field_prj_lgh_projection: true
+  field_prj_lnt_agree: true
+  field_prj_lnt_comments: true
+  field_prj_lnt_f1: true
+  field_prj_lnt_handled: true
+  field_prj_lnt_historic: true
+  field_prj_lnt_images: true
+  field_prj_lnt_publish: true
+  field_prj_lnt_representative: true
+  field_prj_lnt_score: true
+  field_prj_lnt_signoff: true
+  field_prj_lnt_type: true
+  field_prj_oth_agree: true
+  field_prj_oth_associated: true
+  field_prj_oth_grant: true
+  field_prj_oth_other: true
+  field_prj_oth_unregistered: true
+  field_prj_saf_access: true
+  field_prj_saf_comment: true
+  field_prj_saf_guide: true
+  field_prj_saf_mark: true
+  field_prj_saf_other: true
+  field_prj_saf_passengers: true
+  field_prj_snd_agree: true
+  field_prj_snd_comment: true
+  field_prj_snd_description: true
+  field_prj_snd_level: true
+  field_prj_snd_person: true
+  field_prj_snd_safety: true
+  field_prj_snd_soop: true
+  field_prj_snd_sound: true
+  field_prj_stg_contact: true
+  field_prj_stg_description: true
+  field_prj_stg_stage: true
+  field_prj_stg_tread: true
+  field_prj_stg_type: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_details_view: true
+  field_prj_sup_h1: true
+  field_prj_trl_area: true
+  field_prj_trl_capasity: true
+  field_prj_trl_communicate: true
+  field_prj_trl_describe: true
+  field_prj_trl_markup: true
+  field_prj_trl_passengers: true
+  field_prj_trl_size: true
+  field_prj_trl_walkers: true
+  field_prj_wtf_categories: true
+  field_prj_wtf_image: true
+  field_prj_wtf_long: true
+  field_prj_wtf_short: true
+  field_prj_wtf_short_copy: true
+  field_prj_wtf_website: true
+  field_sup_comment: true
+  field_sup_review: true
+  moderation_state: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  title: true
+  uid: true
+  url_redirects: true

@@ -1,0 +1,31 @@
+uuid: 1443bb63-201a-4e23-9310-bd8958e168c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_fundraising
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: WIzoR6Pt4Mo19gN_PCmd8QDv4PZYCymREhSM8C1kWgQ
+id: node.theme_camps.field_prj_gen_fundraising
+field_name: field_prj_gen_fundraising
+entity_type: node
+bundle: theme_camps
+label: 'Is your team planning any fundraisers?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

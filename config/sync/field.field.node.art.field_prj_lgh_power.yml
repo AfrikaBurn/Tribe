@@ -1,0 +1,27 @@
+uuid: c306d04e-d509-46be-bca6-a0e7ea54a15d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lgh_power
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: pEh4DVa-qqfD3geKFdZURlNZHHnK4txVKiozq7LTii4
+id: node.art.field_prj_lgh_power
+field_name: field_prj_lgh_power
+entity_type: node
+bundle: art
+label: 'Please describe your light output devices and power sources'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

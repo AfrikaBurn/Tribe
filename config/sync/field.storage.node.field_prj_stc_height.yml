@@ -1,0 +1,26 @@
+uuid: 3cc7b76a-030f-40e0-8e94-05bb15635721
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: PHrI8u3HzY4LHCjR2i--39CoLay0U9ldrp4rguPNsOs
+id: node.field_prj_stc_height
+field_name: field_prj_stc_height
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

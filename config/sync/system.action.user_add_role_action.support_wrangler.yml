@@ -1,0 +1,14 @@
+uuid: 16a5462d-1bcf-49f8-a622-e9f7c8db7a19
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.support_wrangler
+  module:
+    - user
+id: user_add_role_action.support_wrangler
+label: 'Add the Support Wrangler role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: support_wrangler

@@ -1,0 +1,26 @@
+uuid: 3824c291-68d2-41bc-8ba5-b3cd09abc2e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_mobile
+  module:
+    - custom_add_another
+    - telephone
+    - user
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: user.user.field_mobile
+field_name: field_mobile
+entity_type: user
+bundle: user
+label: 'Mobile number'
+description: "<p>If you are international, please add your country code.</p>\r\n<p>Don't want to enter your number? No problem: just enter 'NO' and proceed. (just be aware that if there are any last-minute updates, a text is the best way to get it to you soonest)</p>"
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

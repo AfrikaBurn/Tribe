@@ -1,0 +1,40 @@
+uuid: dbdf99fa-42d0-48a1-8133-20908fdc3eec
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_prj_trl_size
+field_name: field_prj_trl_size
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: xs
+      label: 'Extra Small - 1m'
+    -
+      value: s
+      label: 'Small - 2m'
+    -
+      value: m
+      label: 'Medium - 3m'
+    -
+      value: l
+      label: 'Large - 4m'
+    -
+      value: xl
+      label: 'Extra Large - 5m or more'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

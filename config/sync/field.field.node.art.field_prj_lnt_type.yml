@@ -1,0 +1,36 @@
+uuid: c5b6395d-ec8c-4c19-ab20-1d60558b3b29
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_type
+    - node.type.art
+    - taxonomy.vocabulary.moop_type
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: nj_QcUPOCyFxqcmV1muVRRPIQ4NP7aKhYgioLin1h4w
+id: node.art.field_prj_lnt_type
+field_name: field_prj_lnt_type
+entity_type: node
+bundle: art
+label: 'Moop type check list'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      moop_type: moop_type
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

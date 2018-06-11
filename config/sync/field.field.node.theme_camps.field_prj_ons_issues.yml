@@ -1,0 +1,27 @@
+uuid: 6c59465b-1fd4-43d2-8b88-51a3cac48018
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_ons_issues
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: Vj4km-B03PWjO92-mHdoorYwqJcyK0YjZ4MtQCgKC_k
+id: node.theme_camps.field_prj_ons_issues
+field_name: field_prj_ons_issues
+entity_type: node
+bundle: theme_camps
+label: Isssues
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

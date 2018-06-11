@@ -1,0 +1,37 @@
+uuid: 01e73425-c9a1-468e-969b-37f99a3212f9
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:c43a52f9-3fed-4002-938f-abbb3239cecb'
+  module:
+    - block_content
+    - php
+    - system
+  theme:
+    - afrikaburn
+id: copyrighttext
+theme: afrikaburn
+region: copyright
+weight: -15
+provider: null
+plugin: 'block_content:c43a52f9-3fed-4002-938f-abbb3239cecb'
+settings:
+  id: 'block_content:c43a52f9-3fed-4002-938f-abbb3239cecb'
+  label: 'Copyright text'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: "/collective/*\r\n/collective"
+    negate: true
+    context_mapping: {  }
+  php:
+    id: php
+    negate: false
+    php: '<?php return TRUE; ?>'
+    context_mapping: {  }

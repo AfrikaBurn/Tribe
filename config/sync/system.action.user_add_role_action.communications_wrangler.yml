@@ -1,0 +1,14 @@
+uuid: e747e94b-bd8e-43e9-83ba-d13c5934363c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.communications_wrangler
+  module:
+    - user
+id: user_add_role_action.communications_wrangler
+label: 'Add the Communications Wrangler role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: communications_wrangler

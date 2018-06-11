@@ -1,0 +1,29 @@
+uuid: 1826fe76-3292-4a02-9076-38b5f07a1126
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_adm_ranger_comment
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: nWXKJHOVvXswRVyA7tGK5yfx_4XrFRsPkXAorlnbX4s
+id: node.art.field_prj_adm_ranger_comment
+field_name: field_prj_adm_ranger_comment
+entity_type: node
+bundle: art
+label: 'Comments related to Rangers'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: .
+default_value_callback: ''
+settings: {  }
+field_type: string_long

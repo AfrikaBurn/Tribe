@@ -1,0 +1,25 @@
+uuid: 3185cf34-2a23-451f-a6d6-5112acf6e139
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:9c70a8bb-808d-4743-a42f-64a52e66a1c9'
+  module:
+    - block_content
+  theme:
+    - afrikaburn
+id: afrikaburn_communications
+theme: afrikaburn
+region: status_messages
+weight: -12
+provider: null
+plugin: 'block_content:9c70a8bb-808d-4743-a42f-64a52e66a1c9'
+settings:
+  id: 'block_content:9c70a8bb-808d-4743-a42f-64a52e66a1c9'
+  label: Communications
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

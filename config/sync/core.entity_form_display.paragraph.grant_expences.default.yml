@@ -1,0 +1,93 @@
+uuid: 119c6045-97f7-424d-bd3b-210059465f8b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.grant_expences.field_cost_type
+    - field.field.paragraph.grant_expences.field_field_quantity
+    - field.field.paragraph.grant_expences.field_field_specifications
+    - field.field.paragraph.grant_expences.field_grt_brk_description
+    - field.field.paragraph.grant_expences.field_other
+    - field.field.paragraph.grant_expences.field_price_total_
+    - field.field.paragraph.grant_expences.field_type_of_expence
+    - paragraphs.paragraphs_type.grant_expences
+  module:
+    - conditional_fields
+    - content_moderation
+id: paragraph.grant_expences.default
+targetEntityType: paragraph
+bundle: grant_expences
+mode: default
+content:
+  field_cost_type:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_field_quantity:
+    weight: 8
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_field_specifications:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: 30x40x2000
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_grt_brk_description:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: 'Wooden Batten'
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_other:
+    weight: 12
+    settings:
+      size: 60
+      placeholder: 'type of cost'
+    third_party_settings:
+      conditional_fields:
+        fab82031-ebbc-4224-9a8e-ad144c5ffff8:
+          dependee: field_type_of_expence
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: '516'
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: paragraph
+          bundle: grant_expences
+    type: string_textfield
+    region: content
+  field_price_total_:
+    weight: 9
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_type_of_expence:
+    weight: 11
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

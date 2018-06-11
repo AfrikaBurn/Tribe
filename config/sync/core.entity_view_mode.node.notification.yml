@@ -1,0 +1,10 @@
+uuid: 7aa20ce1-bea6-4477-8f9e-3fe047855ec9
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.notification
+label: Notification
+targetEntityType: node
+cache: true

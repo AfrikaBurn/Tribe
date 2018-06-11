@@ -1,0 +1,27 @@
+uuid: 0219ba8f-f2c9-4874-8a2c-bb53df78c0c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_brn_plan
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: i5_fg-LYRIifaZzg-90L6n__JRl29YFEPr-W-Xd28Tk
+id: node.performances.field_prj_brn_plan
+field_name: field_prj_brn_plan
+entity_type: node
+bundle: performances
+label: 'Please describe the fire element in your performance.'
+description: "Depending on your answer we might have more questions for you...\r\n"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

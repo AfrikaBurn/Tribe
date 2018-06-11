@@ -1,0 +1,25 @@
+uuid: c2a63078-2632-428c-ab2e-6a4307a88eab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_wtf_plan
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.performances.field_prj_wtf_plan
+field_name: field_prj_wtf_plan
+entity_type: node
+bundle: performances
+label: 'Please describe your performance plan'
+description: "<p>Don't worry if you haven't yet worked out your performance down to the minute. How many appearances are you planning during the event? What is the duration of your performance/s? Does your performance require a set-up time? Please describe.</p>\r\n<p>This may be published in the What The Fuck Guide</p>"
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,31 @@
+uuid: 65f2da11-b4ba-45fc-a28c-32796afcd896
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_ons_monday_b
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: wJnS_KcJ-myisuYddu435PrtQhrTja-pWYHapU21Rbk
+id: node.theme_camps.field_prj_ons_monday_b
+field_name: field_prj_ons_monday_b
+entity_type: node
+bundle: theme_camps
+label: 'Monday 9:30 am – Fully setup and open'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,27 @@
+uuid: 00a90e00-4815-46f0-b5ec-c6cdfac88ad5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_snd_comment
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: 8RcoKT7RPSmEs5DeEGeI30tGDUzxSEOyYjdGS1rim-w
+id: node.performances.field_prj_snd_comment
+field_name: field_prj_snd_comment
+entity_type: node
+bundle: performances
+label: 'Sound Comment'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

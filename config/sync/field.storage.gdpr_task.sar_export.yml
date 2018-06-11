@@ -1,0 +1,25 @@
+uuid: 1d13ea3c-f2a5-4121-b370-7499e1b62646
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - gdpr_tasks
+_core:
+  default_config_hash: _BdW5JIt_RuSCDab6cvJlMo_nuz4Y32JCqlXB8bAths
+id: gdpr_task.sar_export
+field_name: sar_export
+entity_type: gdpr_task
+type: file
+settings:
+  display_field: false
+  display_default: false
+  uri_scheme: private
+  target_type: file
+module: file
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

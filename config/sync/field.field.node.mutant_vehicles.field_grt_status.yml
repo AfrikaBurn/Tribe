@@ -1,0 +1,34 @@
+uuid: 19b66ee4-3c9b-4dca-9977-4737bcb29192
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_grt_status
+    - node.type.mutant_vehicles
+    - taxonomy.vocabulary.grant_review
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_grt_status
+field_name: field_grt_status
+entity_type: node
+bundle: mutant_vehicles
+label: 'Grant Status'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      grant_review: grant_review
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

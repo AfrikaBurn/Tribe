@@ -1,0 +1,29 @@
+uuid: 61eab4b5-a496-4144-bf18-88bae046a555
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_brn_burning
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_brn_burning
+field_name: field_prj_brn_burning
+entity_type: node
+bundle: mutant_vehicles
+label: 'Does your Mutant have flame effects?'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

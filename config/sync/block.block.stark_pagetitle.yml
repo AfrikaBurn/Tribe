@@ -1,0 +1,25 @@
+uuid: 870e8b16-c0b8-4054-b260-c9c9df6553f5
+langcode: en
+status: true
+dependencies:
+  module:
+    - php
+  theme:
+    - stark
+id: stark_pagetitle
+theme: stark
+region: sidebar_first
+weight: -21
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility:
+  php:
+    id: php
+    negate: false
+    php: ''
+    context_mapping: {  }

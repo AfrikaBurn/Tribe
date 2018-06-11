@@ -1,0 +1,19 @@
+uuid: 4419cc4c-041f-4537-b2a4-f5d16899c1e2
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+_core:
+  default_config_hash: ePDYjDqQ-sgz-LZrdevjxgPj6Zi0QE9R32GDGZlui3Q
+name: Artworks
+type: art
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

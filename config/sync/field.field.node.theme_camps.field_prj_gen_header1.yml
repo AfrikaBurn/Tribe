@@ -1,0 +1,32 @@
+uuid: d4544a60-671e-4536-a284-4167fbdc2777
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_header1
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: BWuxPD3cULTOLsZUWtjODumwxUIEhIL6E62aToZ9mVw
+id: node.theme_camps.field_prj_gen_header1
+field_name: field_prj_gen_header1
+entity_type: node
+bundle: theme_camps
+label: 'Recommended Reading'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p>Before you register your Theme Camp, please read through these important docs:</p>\r\n"
+    format: full_html
+field_type: markup

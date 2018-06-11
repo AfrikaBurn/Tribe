@@ -1,0 +1,37 @@
+uuid: c74a725b-6b17-4029-a6d7-461c796e9716
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:f6bbd3ef-9b64-460b-bc52-64c88c5327cf'
+  module:
+    - block_content
+    - php
+    - system
+  theme:
+    - afrikaburn
+id: findyourway
+theme: afrikaburn
+region: footer_centre
+weight: 0
+provider: null
+plugin: 'block_content:f6bbd3ef-9b64-460b-bc52-64c88c5327cf'
+settings:
+  id: 'block_content:f6bbd3ef-9b64-460b-bc52-64c88c5327cf'
+  label: 'Find your way'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: ''
+    negate: true
+    context_mapping: {  }
+  php:
+    id: php
+    negate: false
+    php: '<?php return TRUE; ?>'
+    context_mapping: {  }

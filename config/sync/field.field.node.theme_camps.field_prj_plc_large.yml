@@ -1,0 +1,31 @@
+uuid: 3baceeac-32b5-49c8-9684-370d3c9a9382
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_large
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: sFb7EPGVg9W-97X59erZvtIO8mZLLR1n7D5D9P29DV4
+id: node.theme_camps.field_prj_plc_large
+field_name: field_prj_plc_large
+entity_type: node
+bundle: theme_camps
+label: 'Number of Large Personal Tents'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

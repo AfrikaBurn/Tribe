@@ -1,0 +1,32 @@
+uuid: a9987275-4392-41e5-8d30-d8695ea2d966
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.agreement.field_agreement_introduction
+    - node.type.agreement
+  module:
+    - text
+    - user
+id: node.agreement.default
+targetEntityType: node
+bundle: agreement
+mode: default
+content:
+  field_agreement_introduction:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_agreement_terms:
+    weight: 1
+    label: hidden
+    settings:
+      source_entity: true
+    third_party_settings: {  }
+    type: webform_entity_reference_entity_view
+    region: content
+hidden:
+  links: true

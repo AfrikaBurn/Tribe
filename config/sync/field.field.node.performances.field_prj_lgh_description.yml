@@ -1,0 +1,27 @@
+uuid: a3dec38c-4e2e-472b-b4cb-4ab6df22575b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lgh_description
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: 6sWC2NMsHD4QD5390lh6H_gCONU4KZdcZRAFf95LvIk
+id: node.performances.field_prj_lgh_description
+field_name: field_prj_lgh_description
+entity_type: node
+bundle: performances
+label: 'Describe your lighting plan'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

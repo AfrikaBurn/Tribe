@@ -1,0 +1,27 @@
+uuid: 2e794df6-4b9f-4c4c-8f74-de436c097bd4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_brn_plan
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: GaD9Ta0cLVEpcC3rKlgFmnAGKn3WO0YTY2Je4qyOrpo
+id: node.art.field_prj_brn_plan
+field_name: field_prj_brn_plan
+entity_type: node
+bundle: art
+label: 'What is your pyro plan?'
+description: 'How are you envisioning the burn of your piece? Are you using accelerants? What is your ignition plan? Is there a performance or any kind of ceremony before, during or after the burn? Please tell us everything!'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

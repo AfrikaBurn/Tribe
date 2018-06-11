@@ -1,0 +1,17 @@
+uuid: 63ad5463-d40f-4f0d-a0ed-76759b0b80e1
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Subsidised Ticket application'
+type: subsidised_ticket
+description: ''
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: true

@@ -1,0 +1,31 @@
+uuid: 8863a287-47f9-48e2-96ec-ce20fa37a137
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_grt_location
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.performances.field_grt_location
+field_name: field_grt_location
+entity_type: node
+bundle: performances
+label: Locations
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: -1
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: R
+  suffix: 'ZAR (South African Rands)'
+field_type: integer

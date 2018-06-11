@@ -1,0 +1,36 @@
+uuid: 13a41013-bb97-4085-ad3a-a87a96d74df2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_wtf_planned
+    - node.type.theme_camps
+    - taxonomy.vocabulary.planned_activities
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: II_jIVocFWJU3_eZk7RlT7KnL6dy4_mHmdhNHXasvaM
+id: node.theme_camps.field_prj_wtf_planned
+field_name: field_prj_wtf_planned
+entity_type: node
+bundle: theme_camps
+label: 'When do your camp activities happen?'
+description: "Whether yours is a day or night-time camp affects your placement. <br> \r\nThe timing & diversity of your camp activities affects your placement. <br>\r\nWe aim to make the Binnekring & 10ish vibrant and busy spaces, even at night: if you request placement here, your camp should have some presence at night - even if it's quiet but still well-lit and inviting. <br><br> \r\nIf you want placement in these areas, one of the criteria is that your camp offers more than one activity in the day."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      planned_activities: planned_activities
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

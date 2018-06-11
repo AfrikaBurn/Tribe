@@ -1,0 +1,29 @@
+uuid: 339a4b40-2a7c-47a5-9d67-8cd84feea6df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_signoff
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_lnt_signoff
+field_name: field_prj_lnt_signoff
+entity_type: node
+bundle: mutant_vehicles
+label: 'Moop signed off by the Leave No Trace before leaving site'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

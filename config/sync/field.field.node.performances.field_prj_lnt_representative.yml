@@ -1,0 +1,33 @@
+uuid: 8add3d74-6dec-4b99-854e-2175e065d843
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_representative
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: 2pzwXF6GMM2g1OLnWa9nNpCMhsj0S0qKjEpcYfVxBPs
+id: node.performances.field_prj_lnt_representative
+field_name: field_prj_lnt_representative
+entity_type: node
+bundle: performances
+label: 'Your LNT (MOOP) Representative'
+description: "<p>It is highly recommended that you have a dedicated representative to fulfil this role of handling your performances waste.</p>\r\n<p>Please select the individual by typing their name into the above field and selecting it once loaded.<br>\r\nThis list will only show people you have already added to your collective.<br>\r\nIf you're unsure of who your representative will be, please select yourself in the meantime, you can change this later.</p>"
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: collective_members
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

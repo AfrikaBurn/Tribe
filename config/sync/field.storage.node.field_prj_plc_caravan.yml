@@ -1,0 +1,22 @@
+uuid: c4f14c6f-2762-45ba-aec7-b7b4315bd96e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: k3yxLsUixYYc-bsacrBnIcPNqBfIOw1CvPJiivL_vmw
+id: node.field_prj_plc_caravan
+field_name: field_prj_plc_caravan
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

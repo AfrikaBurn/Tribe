@@ -1,0 +1,36 @@
+uuid: 139c5a95-0c70-42b5-88ba-3229906ab575
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.home_page_logged_in
+  module:
+    - panels
+    - user
+id: home_page_logged_in-panels_variant-1
+label: 'Not Logged in'
+variant: panels_variant
+variant_settings:
+  blocks: {  }
+  id: panels_variant
+  uuid: c4dd57bf-e288-4b1b-9944-65c0233632db
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: home_page_logged_in-panels_variant-1
+  builder: standard
+page: home_page_logged_in
+weight: -10
+selection_criteria:
+  -
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: current_user
+selection_logic: and
+static_context: {  }

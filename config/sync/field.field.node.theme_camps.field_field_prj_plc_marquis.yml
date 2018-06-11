@@ -1,0 +1,29 @@
+uuid: ce83abf7-624a-454e-afbc-b808a1deea10
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_field_prj_plc_marquis
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.theme_camps.field_field_prj_plc_marquis
+field_name: field_field_prj_plc_marquis
+entity_type: node
+bundle: theme_camps
+label: 'Are you bring a marquis tent? Any marquis tent will need a sign off from an engineer(even privately owned tents)'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

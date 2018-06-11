@@ -1,0 +1,42 @@
+uuid: 3990e93a-e7ad-4768-874e-935f109c0f36
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_oth_associated
+    - node.type.art
+    - node.type.mutant_vehicles
+    - node.type.performances
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: _7djysZ_Bg6KJIqawAKZPvFBRt3q8gSL0KbfNMZTVSQ
+id: node.performances.field_prj_oth_associated
+field_name: field_prj_oth_associated
+entity_type: node
+bundle: performances
+label: 'Are there any other projects associated with your artwork? Please use this field to link to other projects in your Collective.'
+description: 'If you''re associated with another project, but it''s not yet registered, will never be registered, or is not a part of your Collective, please use the next field to tell us about it.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      art: art
+      mutant_vehicles: mutant_vehicles
+      performances: performances
+      theme_camps: theme_camps
+    sort:
+      field: title
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: art
+field_type: entity_reference

@@ -1,0 +1,79 @@
+uuid: 7a4e6227-e9e9-409a-b54a-50ef506e26c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.early_access_and_vehicle_passes.field_arrival_date
+    - field.field.paragraph.early_access_and_vehicle_passes.field_early_access
+    - field.field.paragraph.early_access_and_vehicle_passes.field_member
+    - field.field.paragraph.early_access_and_vehicle_passes.field_motivation
+    - field.field.paragraph.early_access_and_vehicle_passes.field_vehicle_pass
+    - field.field.paragraph.early_access_and_vehicle_passes.field_vp_approved
+    - field.field.paragraph.early_access_and_vehicle_passes.field_wa_approved
+    - paragraphs.paragraphs_type.early_access_and_vehicle_passes
+  module:
+    - content_moderation
+    - datetime
+id: paragraph.early_access_and_vehicle_passes.default
+targetEntityType: paragraph
+bundle: early_access_and_vehicle_passes
+mode: default
+content:
+  field_arrival_date:
+    weight: 105
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_early_access:
+    weight: 102
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_member:
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_motivation:
+    weight: 104
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_vehicle_pass:
+    weight: 103
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_vp_approved:
+    weight: 107
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_wa_approved:
+    weight: 108
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

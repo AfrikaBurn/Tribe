@@ -1,0 +1,31 @@
+uuid: 4987c269-2610-4b2f-8c94-c925bdcce71f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_grt_services
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.art.field_grt_services
+field_name: field_grt_services
+entity_type: node
+bundle: art
+label: Services
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: -1
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: R
+  suffix: 'ZAR (South African Rands)'
+field_type: integer

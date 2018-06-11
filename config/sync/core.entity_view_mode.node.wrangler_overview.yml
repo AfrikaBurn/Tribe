@@ -1,0 +1,12 @@
+uuid: a3efc88b-ac16-4f06-b3e7-a72a672b115b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: dEeAABENQAFd2EZPZJ9scZGvQyNHXj1QsanetIKwh0I
+id: node.wrangler_overview
+label: 'Wrangler Overview'
+targetEntityType: node
+cache: true

@@ -1,0 +1,25 @@
+uuid: 7dbe34f8-15a4-4f7e-b543-0272a02d2ab8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sup_comment
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_sup_comment
+field_name: field_sup_comment
+entity_type: node
+bundle: mutant_vehicles
+label: 'Suppliers review comment'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

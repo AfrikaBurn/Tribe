@@ -1,0 +1,33 @@
+uuid: 6060235d-1deb-4ac7-9671-ea8f82763304
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_fundraiser
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: EiY6i4iKzlAXbp_MbbTL5dWZ9bt6M7P4X01xjHSl7o0
+id: node.theme_camps.field_prj_gen_fundraiser
+field_name: field_prj_gen_fundraiser
+entity_type: node
+bundle: theme_camps
+label: 'Fundraiser Person (this can be you)'
+description: "<p>Please select the individual by typing their name into the above field and selecting it once loaded.<br>\r\nThis list will only show people you have already added to your collective.</p>"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: collective_members
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

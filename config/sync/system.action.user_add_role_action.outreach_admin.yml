@@ -1,0 +1,14 @@
+uuid: 0fa5efff-d76f-462f-a5ef-f0def82c1598
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.outreach_admin
+  module:
+    - user
+id: user_add_role_action.outreach_admin
+label: 'Add the Outreach Admin role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: outreach_admin

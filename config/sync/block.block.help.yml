@@ -1,0 +1,26 @@
+uuid: ad3bbf99-47c4-4174-8198-6fc3de59a851
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+    - php
+  theme:
+    - afrikaburn
+id: help
+theme: afrikaburn
+region: help
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: visible
+visibility:
+  php:
+    id: php
+    negate: false
+    php: ''
+    context_mapping: {  }

@@ -1,0 +1,26 @@
+uuid: 15efd3fd-13d4-4e72-b084-abe86e7c2210
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.post
+    - field.storage.comment.comment_body
+  module:
+    - custom_add_another
+    - text
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: comment.post.comment_body
+field_name: comment_body
+entity_type: comment
+bundle: post
+label: Comment
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

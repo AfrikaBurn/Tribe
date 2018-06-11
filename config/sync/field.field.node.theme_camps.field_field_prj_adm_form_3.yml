@@ -1,0 +1,27 @@
+uuid: 4452e3c9-75b5-421f-ab41-8e90e2a85adc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_field_prj_adm_form_3
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.theme_camps.field_field_prj_adm_form_3
+field_name: field_field_prj_adm_form_3
+entity_type: node
+bundle: theme_camps
+label: field_prj_adm_form_3
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

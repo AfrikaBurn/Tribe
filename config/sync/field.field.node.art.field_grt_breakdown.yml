@@ -1,0 +1,36 @@
+uuid: cc6bce4e-fb03-48d9-a988-ce38c0194409
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_grt_breakdown
+    - node.type.art
+    - paragraphs.paragraphs_type.grant_expences
+  module:
+    - custom_add_another
+    - entity_reference_revisions
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.art.field_grt_breakdown
+field_name: field_grt_breakdown
+entity_type: node
+bundle: art
+label: 'Everything that goes into your project'
+description: "<b>Note:</b> Type of expense<br>\r\nHave you phoned around for quoting or are thumbsucking? Do you own it, or can you have it for free."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      grant_expences: grant_expences
+    target_bundles_drag_drop:
+      grant_expences:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions

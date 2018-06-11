@@ -1,0 +1,14 @@
+uuid: 5cd92940-fb7f-4a44-b2b7-c917c79691fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.art_admin
+  module:
+    - user
+id: user_remove_role_action.art_admin
+label: 'Remove the Art Admin role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: art_admin

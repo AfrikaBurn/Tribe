@@ -1,0 +1,27 @@
+uuid: 7ec1a1f4-edbb-4574-b309-41893929517c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_oth_relationship
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: a-Rd-eKZnuZpMMM0dK8dlmDb1jXBFwreBfABl0mzJ6A
+id: node.art.field_prj_oth_relationship
+field_name: field_prj_oth_relationship
+entity_type: node
+bundle: art
+label: 'Is there any other project associated with this artwork, what is the name and and how is it related?'
+description: "<p>Don’t forget to tell us what type of project it is (theme camp, performance, mutant vehicle, another artwork). Have you registered it or are you planning to register it?</p>\r\n<p>How do they relate and/or depend on each other? Sharing resources?  Do they need to be placed nearby?</p>"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

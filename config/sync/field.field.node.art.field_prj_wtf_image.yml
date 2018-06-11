@@ -1,0 +1,45 @@
+uuid: 4e6e91c4-af00-46bf-8af1-e8885819a107
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_wtf_image
+    - node.type.art
+  module:
+    - custom_add_another
+    - image
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: 6HZYt6CIfYElv0n5gWqv4zVTsCZCrJor4yFrtUN_46o
+id: node.art.field_prj_wtf_image
+field_name: field_prj_wtf_image
+entity_type: node
+bundle: art
+label: 'Public Project image, used on the website and app'
+description: 'This will appear on the Community Directory page. </br> This is a space for community members to find additional talent or other Collectives and spaces to join. '
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: wtf
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: '3 MB'
+  max_resolution: ''
+  min_resolution: 100x100
+  alt_field: false
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: 2fc27f03-1438-4984-9249-93f17889742f
+    alt: ''
+    title: ''
+    width: 100
+    height: 100
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

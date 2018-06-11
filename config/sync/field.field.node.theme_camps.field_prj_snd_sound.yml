@@ -1,0 +1,31 @@
+uuid: 67c0d8e1-6f6d-43fa-8ce9-7c4e88f98a38
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_snd_sound
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: _JUuOFD0sMb42AJaWqCTEO_2ezzFd4IuXwCKqmUo43E
+id: node.theme_camps.field_prj_snd_sound
+field_name: field_prj_snd_sound
+entity_type: node
+bundle: theme_camps
+label: 'Does your camp have a sound component?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

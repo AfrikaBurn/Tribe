@@ -1,0 +1,26 @@
+uuid: 2828c517-59b8-4253-9bfe-ed4a6354eb7d
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: 0c-wQ349s60SufLK2WLWHLJbOqggAZS1PP0XLLlk2x0
+id: node.field_prj_plc_recreational
+field_name: field_prj_plc_recreational
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

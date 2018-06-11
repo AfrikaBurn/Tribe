@@ -1,0 +1,40 @@
+uuid: 55587afc-c670-4b3f-a187-9d76d52e8ef7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_location
+    - node.type.theme_camps
+    - taxonomy.vocabulary.location
+  content:
+    - 'taxonomy_term:location:77c8b7e9-2730-443f-a50a-4588a4c21d1b'
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: B9HDuaNtFst2u0oWJ60RZY8GajS29XV5pvGn4SGPrfA
+id: node.theme_camps.field_prj_gen_location
+field_name: field_prj_gen_location
+entity_type: node
+bundle: theme_camps
+label: 'Where are you, as a collective, based?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: 77c8b7e9-2730-443f-a50a-4588a4c21d1b
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      location: location
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

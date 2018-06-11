@@ -1,0 +1,14 @@
+uuid: b169e83a-a846-440e-bf4c-63ac557d130e
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.communications_admin
+  module:
+    - user
+id: user_remove_role_action.communications_admin
+label: 'Remove the Communications Admin role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: communications_admin

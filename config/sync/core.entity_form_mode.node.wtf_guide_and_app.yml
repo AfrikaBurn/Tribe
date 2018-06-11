@@ -1,0 +1,12 @@
+uuid: 6bd8a5e7-eecb-437f-aa42-92e494197d00
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: SYTEnJPeUMBY-e2FRv4HBuJIcOX9BrY0Tc1elzi4KUc
+id: node.wtf_guide_and_app
+label: 'WTF Guide and App'
+targetEntityType: node
+cache: true

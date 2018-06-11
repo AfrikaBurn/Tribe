@@ -1,0 +1,14 @@
+uuid: ce44a37d-fe2c-4c22-8f95-8a3a8e302756
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.mutant_vehicle_viewer
+  module:
+    - user
+id: user_add_role_action.mutant_vehicle_viewer
+label: 'Add the Mutant Vehicle Viewer role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: mutant_vehicle_viewer

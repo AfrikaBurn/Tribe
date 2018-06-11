@@ -1,0 +1,37 @@
+uuid: d6b5e9bb-4543-4531-88d8-662b915bdb8c
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:1260ebfa-59e7-4d86-b191-edabb15a0f9c'
+  module:
+    - block_content
+    - php
+    - system
+  theme:
+    - afrikaburn
+id: participatenow
+theme: afrikaburn
+region: footer_left
+weight: -15
+provider: null
+plugin: 'block_content:1260ebfa-59e7-4d86-b191-edabb15a0f9c'
+settings:
+  id: 'block_content:1260ebfa-59e7-4d86-b191-edabb15a0f9c'
+  label: 'Participate Now!'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '/collective/*'
+    negate: true
+    context_mapping: {  }
+  php:
+    id: php
+    negate: false
+    php: '<?php return TRUE; ?>'
+    context_mapping: {  }

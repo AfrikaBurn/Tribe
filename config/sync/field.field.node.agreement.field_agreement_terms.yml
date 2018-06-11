@@ -1,0 +1,34 @@
+uuid: 81a535d8-0185-4e27-9569-3fd9bc6f69c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_agreement_terms
+    - node.type.agreement
+  module:
+    - custom_add_another
+    - webform
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.agreement.field_agreement_terms
+field_name: field_agreement_terms
+entity_type: node
+bundle: agreement
+label: Terms
+description: 'One or more forms representing the agreement terms'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:webform'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+  default_data: ''
+  status: open
+  open: ''
+  close: ''
+field_type: webform

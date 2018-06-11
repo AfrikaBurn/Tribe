@@ -1,0 +1,73 @@
+uuid: 9498441b-9b92-4780-8bd3-59a2250c897c
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page._access_denied
+  content:
+    - 'block_content:basic:55aa31be-40b6-4186-854e-f1d94e6d4725'
+    - 'block_content:basic:ef007ed2-4f7d-4bf7-972b-feb3bb9c61fa'
+  module:
+    - block_content
+    - panels
+    - user
+id: _access_denied-panels_variant-0
+label: 'Not logged in'
+variant: panels_variant
+variant_settings:
+  blocks:
+    6d37966b-263d-4e70-bd5a-072d16ca245c:
+      id: user_login_block
+      label: 'Welcome Home - Please login'
+      provider: user
+      label_display: '0'
+      region: content
+      weight: 0
+      uuid: 6d37966b-263d-4e70-bd5a-072d16ca245c
+      context_mapping: {  }
+    f7d90df9-629b-4373-b322-53917d4b0f8b:
+      id: 'block_content:ef007ed2-4f7d-4bf7-972b-feb3bb9c61fa'
+      label: 'Welcome Home - Please login'
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      region: content
+      weight: -1
+      uuid: f7d90df9-629b-4373-b322-53917d4b0f8b
+      context_mapping: {  }
+    a10b5af8-1be0-4e8b-b1cd-4ddc32844d06:
+      id: 'block_content:55aa31be-40b6-4186-854e-f1d94e6d4725'
+      label: 'Welcome Home - Please login picture'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: content
+      weight: 1
+      uuid: a10b5af8-1be0-4e8b-b1cd-4ddc32844d06
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 6de421e5-a47c-4702-89ed-2017a9f6efe3
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: _access_denied-panels_variant-0
+  builder: standard
+page: _access_denied
+weight: 0
+selection_criteria:
+  -
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: current_user
+selection_logic: and
+static_context: {  }

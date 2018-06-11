@@ -1,0 +1,29 @@
+uuid: 02e069a5-ecb4-4b25-9b9f-694e6efa91d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_comments
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: bG-ovc4ai60j4HSdXsYmqn0f5qrfQBn5WJWh7Xfg2eY
+id: node.theme_camps.field_prj_lnt_comments
+field_name: field_prj_lnt_comments
+entity_type: node
+bundle: theme_camps
+label: 'Moop comment'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: ".\r\n.\r\n.\r\n.\r\n."
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,29 @@
+uuid: de506323-d3f5-4ec5-9515-79a21e26b421
+langcode: en
+status: true
+dependencies: {  }
+name: node_art
+label: 'node art validation'
+entity_type: node
+bundle: art
+field_validation_rules:
+  c0d4951d-a84a-4334-be80-f0a5b57a4c9b:
+    uuid: c0d4951d-a84a-4334-be80-f0a5b57a4c9b
+    id: plain_text_field_validation_rule
+    title: 'Description, plain text'
+    weight: '1'
+    field_name: field_prj_gen_description
+    column: value
+    error_message: 'Please only uses normal characters in your description'
+    data: {  }
+  15847afd-c9bb-4899-a845-e2beeb420b89:
+    uuid: 15847afd-c9bb-4899-a845-e2beeb420b89
+    id: words_field_validation_rule
+    title: 'Word limit'
+    weight: 2
+    field_name: field_prj_wtf_short
+    column: value
+    error_message: 'Short blurb must be between 10 and 100 words'
+    data:
+      min: '10'
+      max: '100'

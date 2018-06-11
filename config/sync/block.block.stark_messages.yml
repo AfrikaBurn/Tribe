@@ -1,0 +1,26 @@
+uuid: 3b77f340-9231-4f1f-abc1-ec26e825bedd
+langcode: en
+status: true
+dependencies:
+  module:
+    - php
+    - system
+  theme:
+    - stark
+id: stark_messages
+theme: stark
+region: sidebar_first
+weight: -21
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  provider: system
+  label_display: '0'
+visibility:
+  php:
+    id: php
+    negate: false
+    php: ''
+    context_mapping: {  }

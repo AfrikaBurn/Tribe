@@ -1,0 +1,31 @@
+uuid: 8fec7a12-8d06-480c-85f3-4727c5c61e25
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_recreational
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: F11F5A_DmrCjzwabXXvbjsLNnW7oMxJms8L-xIHgZvg
+id: node.theme_camps.field_prj_plc_recreational
+field_name: field_prj_plc_recreational
+entity_type: node
+bundle: theme_camps
+label: 'RV''s / Motorhomes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

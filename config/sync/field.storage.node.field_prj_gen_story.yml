@@ -1,0 +1,25 @@
+uuid: 028f0327-9f64-47cc-9bf4-35de126032ff
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: gZg5tQrxw9WqOIBazTanC9J2UIEDpwwva043xpD7-Zg
+id: node.field_prj_gen_story
+field_name: field_prj_gen_story
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

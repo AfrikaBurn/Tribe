@@ -1,0 +1,30 @@
+uuid: f06c6aa1-9926-4bb3-afdb-299dbe732434
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_header2
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.theme_camps.field_prj_gen_header2
+field_name: field_prj_gen_header2
+entity_type: node
+bundle: theme_camps
+label: prj_gen_header2
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p>For your convenience find all the important documents here:</p>\r\n"
+    format: basic_html
+field_type: markup

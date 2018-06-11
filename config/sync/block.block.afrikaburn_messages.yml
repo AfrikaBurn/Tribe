@@ -1,0 +1,20 @@
+uuid: f1332717-0545-4f79-9350-d42e76ce241d
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - afrikaburn
+id: afrikaburn_messages
+theme: afrikaburn
+region: status_messages
+weight: -21
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

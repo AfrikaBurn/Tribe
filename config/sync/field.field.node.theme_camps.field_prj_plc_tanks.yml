@@ -1,0 +1,31 @@
+uuid: 2c9a0032-c66d-44fc-95e3-12fabce5b5ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_tanks
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: nETJeaqU2j6mYIXS7AEVfxz7Tavrs36tHCqWqTyS6ns
+id: node.theme_camps.field_prj_plc_tanks
+field_name: field_prj_plc_tanks
+entity_type: node
+bundle: theme_camps
+label: 'Number of Water Tanks'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 20
+  prefix: ''
+  suffix: ''
+field_type: integer

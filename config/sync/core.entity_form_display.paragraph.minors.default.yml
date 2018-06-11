@@ -1,0 +1,83 @@
+uuid: 7cba97fe-dc6b-4de6-af33-3707628173e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.minors.field_consent_form
+    - field.field.paragraph.minors.field_legal_guardian
+    - field.field.paragraph.minors.field_minor_date_of_birth
+    - field.field.paragraph.minors.field_minor_form
+    - field.field.paragraph.minors.field_minor_id
+    - field.field.paragraph.minors.field_minor_last_name
+    - field.field.paragraph.minors.field_minor_name
+    - paragraphs.paragraphs_type.minors
+  module:
+    - content_moderation
+    - datetime
+    - file
+    - markup
+id: paragraph.minors.default
+targetEntityType: paragraph
+bundle: minors
+mode: default
+content:
+  field_consent_form:
+    weight: 7
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  field_legal_guardian:
+    weight: 0
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_minor_date_of_birth:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_minor_form:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_minor_id:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_minor_last_name:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_minor_name:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 1
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

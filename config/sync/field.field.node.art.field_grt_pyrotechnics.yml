@@ -1,0 +1,31 @@
+uuid: d49b0e26-9810-4f6a-a54c-357260a23eb3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_grt_pyrotechnics
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.art.field_grt_pyrotechnics
+field_name: field_grt_pyrotechnics
+entity_type: node
+bundle: art
+label: Pyrotechnics
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: -1
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: R
+  suffix: 'ZAR (South African Rands)'
+field_type: integer

@@ -1,0 +1,24 @@
+uuid: 7da27589-bd2a-4293-b383-aa19ca7d555f
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: 9_b832cyx3DfMg8duMWxaexGYE9U6v8w8nDJ274Pp7M
+id: node.field_prj_gen_commodification
+field_name: field_prj_gen_commodification
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

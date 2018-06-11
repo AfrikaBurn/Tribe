@@ -1,0 +1,34 @@
+uuid: 8d331fb7-cb4c-4032-b06e-6abfffeff6f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_score
+    - node.type.mutant_vehicles
+    - taxonomy.vocabulary.moop_score
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_lnt_score
+field_name: field_prj_lnt_score
+entity_type: node
+bundle: mutant_vehicles
+label: 'Moop Map score for 2018'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      moop_score: moop_score
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

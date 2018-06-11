@@ -1,0 +1,26 @@
+uuid: f78facbb-c1cb-4daf-8c94-bb6f6fa16ce9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_oga_transport_type
+    - paragraphs.paragraphs_type.outreach_grant_applicant
+  module:
+    - custom_add_another
+    - options
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.outreach_grant_applicant.field_oga_transport_type
+field_name: field_oga_transport_type
+entity_type: paragraph
+bundle: outreach_grant_applicant
+label: 'Transport type'
+description: 'Transport provision is either a contribution towards fuel, or a seat on an overland truck departing from Cape Town on Monday 23 April and returning on Monday 30 April. Overland trucks are very limited but also come with two man tents, mattresses and cooking equipment.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

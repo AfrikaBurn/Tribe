@@ -1,0 +1,25 @@
+uuid: a049f78f-d016-4ebb-b73c-7bb55835c459
+langcode: en
+status: true
+dependencies:
+  module:
+    - computed_field
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_stretch_tent_dimen
+field_name: field_stretch_tent_dimen
+entity_type: node
+type: computed_decimal
+settings:
+  precision: '10'
+  scale: '2'
+module: computed_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

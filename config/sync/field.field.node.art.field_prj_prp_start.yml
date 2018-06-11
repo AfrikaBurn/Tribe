@@ -1,0 +1,28 @@
+uuid: 41eb217d-7c4a-49bd-8af6-ce66188992c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_prp_start
+    - node.type.art
+  module:
+    - custom_add_another
+    - datetime
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: iOmZFeOsssrhvxRLDP0RTGgCYFod1fGVKP-4MlxqrdM
+id: node.art.field_prj_prp_start
+field_name: field_prj_prp_start
+entity_type: node
+bundle: art
+label: 'When are you planning to start building offsite?'
+description: "We suggest that you construct and test your project as much as possible off site. This will help you to troubleshoot most problems in advance, and thus prepare properly for the setup of the artwork in Tankwa. \r\nBasically, start building offsite as soon as you can. Gates open on the 23 April 2018\r\n"
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

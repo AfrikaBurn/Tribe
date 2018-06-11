@@ -1,0 +1,14 @@
+uuid: 06b17650-ad81-4d82-8c9d-4eeb0431c5f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.theme_camp_wrangler
+  module:
+    - user
+id: user_add_role_action.theme_camp_wrangler
+label: 'Add the Theme Camp Wrangler role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: theme_camp_wrangler

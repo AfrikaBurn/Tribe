@@ -1,0 +1,24 @@
+uuid: 0957901c-2001-4609-90db-8691226a5d26
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: Ultf6BxHas0i4Rn4sgLxqjIcI5hR8hQpW9BDg8RJhi0
+id: node.field_prj_lgh_agree
+field_name: field_prj_lgh_agree
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

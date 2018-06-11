@@ -1,0 +1,211 @@
+uuid: 423c7d3a-583b-4059-b728-3e30841b265c
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.wrangler_overview
+    - field.field.node.subsidised_ticket.field_sub_comment
+    - field.field.node.subsidised_ticket.field_sub_contributions
+    - field.field.node.subsidised_ticket.field_sub_expenses
+    - field.field.node.subsidised_ticket.field_sub_funding
+    - field.field.node.subsidised_ticket.field_sub_gift
+    - field.field.node.subsidised_ticket.field_sub_history
+    - field.field.node.subsidised_ticket.field_sub_id
+    - field.field.node.subsidised_ticket.field_sub_income
+    - field.field.node.subsidised_ticket.field_sub_motivation
+    - field.field.node.subsidised_ticket.field_sub_personal
+    - field.field.node.subsidised_ticket.field_sub_proof_of_income
+    - field.field.node.subsidised_ticket.field_sub_review
+    - field.field.node.subsidised_ticket.field_sub_transferable
+    - node.type.subsidised_ticket
+  module:
+    - empty_fields
+    - field_group
+    - file
+    - user
+third_party_settings:
+  field_group:
+    group_application:
+      children:
+        - group_overview
+        - group_full
+      parent_name: ''
+      weight: 1
+      format_type: tabs
+      format_settings:
+        id: ''
+        classes: ''
+        direction: horizontal
+      label: Application
+      region: content
+    group_overview:
+      children:
+        - group_left
+        - field_sub_comment
+      parent_name: group_application
+      weight: 2
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: open
+        description: ''
+      label: Overview
+      region: content
+    group_full:
+      children:
+        - field_sub_motivation
+        - field_sub_income
+        - field_sub_expenses
+        - field_sub_history
+        - field_sub_contributions
+        - field_sub_gift
+        - field_sub_funding
+        - field_sub_transferable
+        - field_sub_id
+        - field_sub_personal
+      parent_name: group_application
+      weight: 3
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+      label: Full
+      region: content
+    group_left:
+      children:
+        - field_sub_proof_of_income
+        - field_sub_review
+      parent_name: group_overview
+      weight: 20
+      format_type: html_element
+      format_settings:
+        label: Left
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: subsidised-left
+      label: Left
+      region: content
+id: node.subsidised_ticket.wrangler_overview
+targetEntityType: node
+bundle: subsidised_ticket
+mode: wrangler_overview
+content:
+  field_sub_comment:
+    weight: 113
+    label: above
+    settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
+    type: basic_string
+    region: content
+  field_sub_contributions:
+    weight: 106
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_sub_expenses:
+    weight: 103
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_sub_funding:
+    weight: 108
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_sub_gift:
+    weight: 107
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_sub_history:
+    weight: 105
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_sub_id:
+    weight: 110
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_sub_income:
+    weight: 102
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_sub_motivation:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_sub_personal:
+    weight: 111
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_sub_proof_of_income:
+    weight: 114
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: file_default
+    region: content
+  field_sub_review:
+    weight: 110
+    label: above
+    settings:
+      link: true
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
+    type: entity_reference_label
+    region: content
+  field_sub_transferable:
+    weight: 109
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,22 @@
+uuid: 8d3eb3f6-8785-4403-b37d-c21200f5f0fd
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ZdXs2w2VgcBDSNvfHyc7bOT7cju3BWoY5fgvd4kFbus
+name: node_theme_camps
+label: 'node theme_camps validation'
+entity_type: node
+bundle: theme_camps
+field_validation_rules:
+  e9b0b1e3-47c8-4092-ba10-675e811fe03a:
+    uuid: e9b0b1e3-47c8-4092-ba10-675e811fe03a
+    id: words_field_validation_rule
+    title: 'Word limit'
+    weight: 1
+    field_name: field_prj_wtf_short
+    column: value
+    error_message: 'Short blurb must be between 10 and 100 words'
+    data:
+      min: '10'
+      max: '100'

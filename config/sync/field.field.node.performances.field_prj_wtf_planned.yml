@@ -1,0 +1,36 @@
+uuid: 07d38350-2c61-4652-9a49-b7a10d4e7d0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_wtf_planned
+    - node.type.performances
+    - taxonomy.vocabulary.planned_activities
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: NpTkF3gxvUWfb_FZCSnlqogR1JWFKi-NudbctetJcbg
+id: node.performances.field_prj_wtf_planned
+field_name: field_prj_wtf_planned
+entity_type: node
+bundle: performances
+label: 'Planned activities'
+description: "\r\n"
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      planned_activities: planned_activities
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

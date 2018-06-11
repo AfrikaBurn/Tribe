@@ -1,0 +1,255 @@
+uuid: 73dc38cc-2582-467a-8c44-c314c0b16890
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.user.wrangler_overview
+    - field.field.user.user.field_agreements
+    - field.field.user.user.field_country
+    - field.field.user.user.field_date_of_birth
+    - field.field.user.user.field_district
+    - field.field.user.user.field_emr_email
+    - field.field.user.user.field_emr_name
+    - field.field.user.user.field_emr_telephone
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_gender
+    - field.field.user.user.field_id_number
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_links
+    - field.field.user.user.field_location
+    - field.field.user.user.field_mobile
+    - field.field.user.user.field_newsletter
+    - field.field.user.user.field_other_burns
+    - field.field.user.user.field_participation
+    - field.field.user.user.field_quicket_code
+    - field.field.user.user.field_quicket_id
+    - field.field.user.user.field_secondary_mail
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - datetime
+    - field_group
+    - image
+    - telephone
+    - user
+third_party_settings:
+  field_group:
+    group_root:
+      children:
+        - group_identity
+      parent_name: ''
+      weight: 0
+      format_type: accordion
+      format_settings:
+        label: Root
+        effect: none
+        id: ''
+        classes: ''
+      label: Root
+    group_account:
+      children:
+        - language
+        - group_location
+      parent_name: ''
+      weight: 3
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Account
+    group_identity:
+      children:
+        - user_picture
+        - account
+        - field_first_name
+        - field_last_name
+        - field_secondary_mail
+        - field_mobile
+        - field_id_number
+        - field_date_of_birth
+        - field_agreements
+      parent_name: group_root
+      weight: 20
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Identity
+    group_location:
+      children:
+        - field_location
+        - timezone
+      parent_name: group_account
+      weight: 5
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Location
+    group_contact:
+      children:
+        - contact
+        - field_links
+        - field_newsletter
+        - group_emergency_medical_informat
+        - group_history
+      parent_name: group_history
+      weight: 30
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Contact
+    group_history:
+      children:
+        - group_contact
+        - field_participation
+        - field_other_burns
+        - path
+        - google_analytics
+      parent_name: group_contact
+      weight: 6
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: History
+    group_emergency_medical_informat:
+      children:
+        - field_emr_name
+        - field_emr_telephone
+        - field_emr_email
+      parent_name: group_contact
+      weight: 5
+      format_type: accordion_item
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: 'Emergency medical information'
+_core:
+  default_config_hash: K-1rBM8mTIkFp9RqOC2tMRUukOQ1xbRCfSKK8dEddnA
+id: user.user.wrangler_overview
+targetEntityType: user
+bundle: user
+mode: wrangler_overview
+content:
+  account:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_agreements:
+    type: entity_reference_autocomplete
+    weight: 10
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_date_of_birth:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_first_name:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_id_number:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_last_name:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_mobile:
+    weight: 7
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_quicket_code:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_quicket_id:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_secondary_mail:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  user_picture:
+    type: image_image
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  contact: true
+  field_country: true
+  field_district: true
+  field_email: true
+  field_emr_email: true
+  field_emr_name: true
+  field_emr_telephone: true
+  field_gender: true
+  field_kids_and_teens: true
+  field_links: true
+  field_location: true
+  field_newsletter: true
+  field_other_burns: true
+  field_participation: true
+  google_analytics: true
+  language: true
+  path: true
+  timezone: true

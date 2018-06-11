@@ -1,0 +1,14 @@
+uuid: e49e9a06-a7f4-4bbd-99ce-bb45d98da845
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.mutant_vehicle_admin
+  module:
+    - user
+id: user_remove_role_action.mutant_vehicle_admin
+label: 'Remove the Mutant Vehicle Admin role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: mutant_vehicle_admin

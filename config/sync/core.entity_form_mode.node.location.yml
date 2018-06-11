@@ -1,0 +1,10 @@
+uuid: 2f4717cd-7cbf-469d-9b78-62b8936b753a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.location
+label: Location
+targetEntityType: node
+cache: true

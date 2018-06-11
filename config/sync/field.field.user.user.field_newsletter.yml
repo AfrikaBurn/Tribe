@@ -1,0 +1,29 @@
+uuid: fa179708-ab97-46c2-a8d9-52ef587317cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_newsletter
+  module:
+    - custom_add_another
+    - user
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: user.user.field_newsletter
+field_name: field_newsletter
+entity_type: user
+bundle: user
+label: 'Receive our newsletter?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

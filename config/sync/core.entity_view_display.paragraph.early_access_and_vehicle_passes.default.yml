@@ -1,0 +1,68 @@
+uuid: 0af386cf-de80-47ad-9bc7-7904ef90e48c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.early_access_and_vehicle_passes.field_arrival_date
+    - field.field.paragraph.early_access_and_vehicle_passes.field_early_access
+    - field.field.paragraph.early_access_and_vehicle_passes.field_member
+    - field.field.paragraph.early_access_and_vehicle_passes.field_motivation
+    - field.field.paragraph.early_access_and_vehicle_passes.field_vehicle_pass
+    - field.field.paragraph.early_access_and_vehicle_passes.field_vp_approved
+    - field.field.paragraph.early_access_and_vehicle_passes.field_wa_approved
+    - paragraphs.paragraphs_type.early_access_and_vehicle_passes
+  module:
+    - datetime
+id: paragraph.early_access_and_vehicle_passes.default
+targetEntityType: paragraph
+bundle: early_access_and_vehicle_passes
+mode: default
+content:
+  field_arrival_date:
+    weight: 4
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_early_access:
+    weight: 1
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_member:
+    weight: 0
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_motivation:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_vehicle_pass:
+    weight: 2
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+hidden:
+  field_vp_approved: true
+  field_wa_approved: true

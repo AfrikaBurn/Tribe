@@ -1,0 +1,40 @@
+uuid: 685ebd04-c953-4341-bacb-ce9c0cdd40eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_score
+    - node.type.theme_camps
+    - taxonomy.vocabulary.moop_score
+  content:
+    - 'taxonomy_term:moop_score:ff4fa8a1-1859-4792-9f73-a95b1e74388d'
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: Fh9UY2mx_tRqRGLVxB4FMXbY1q5u_6dBTgSD8Kl0YkA
+id: node.theme_camps.field_prj_lnt_score
+field_name: field_prj_lnt_score
+entity_type: node
+bundle: theme_camps
+label: 'Moop Map score for 2018'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: ff4fa8a1-1859-4792-9f73-a95b1e74388d
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      moop_score: moop_score
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

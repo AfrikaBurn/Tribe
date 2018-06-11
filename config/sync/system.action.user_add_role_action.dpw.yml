@@ -1,0 +1,14 @@
+uuid: 19704e17-4fe7-4ca9-9273-4c91a64966cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.dpw
+  module:
+    - user
+id: user_add_role_action.dpw
+label: 'Add the DPW role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: dpw

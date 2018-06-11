@@ -1,0 +1,25 @@
+uuid: 6a42cbd2-bbbc-4fce-9705-82a0d11a751a
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:da31640e-ffc1-4f97-8c0d-59e2a99188c9'
+  module:
+    - block_content
+  theme:
+    - afrikaburn
+id: afrikaburn_themecampwrangersoverview
+theme: afrikaburn
+region: status_messages
+weight: -15
+provider: null
+plugin: 'block_content:da31640e-ffc1-4f97-8c0d-59e2a99188c9'
+settings:
+  id: 'block_content:da31640e-ffc1-4f97-8c0d-59e2a99188c9'
+  label: 'Theme Camp Wrangers overview'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

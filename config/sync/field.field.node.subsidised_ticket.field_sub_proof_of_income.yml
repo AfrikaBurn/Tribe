@@ -1,0 +1,32 @@
+uuid: c387628d-8a35-4a10-a2e5-8917308989a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sub_proof_of_income
+    - node.type.subsidised_ticket
+  module:
+    - custom_add_another
+    - file
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.subsidised_ticket.field_sub_proof_of_income
+field_name: field_sub_proof_of_income
+entity_type: node
+bundle: subsidised_ticket
+label: 'Bank Statement'
+description: 'Please attach 1 calendar month bank statement. If you’re a salary earner or get a monthly income, please attach your bank statement from your last salary/income to your most recent salary/income deposit.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: subsidised_tickets
+  file_extensions: 'png jpg jpeg doc xls pdf odt ods odf'
+  max_filesize: '3 MB'
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

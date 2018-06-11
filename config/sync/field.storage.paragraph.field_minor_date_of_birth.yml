@@ -1,0 +1,24 @@
+uuid: bef951ad-3c35-4205-9314-08ef961c6f1a
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - field_permissions
+    - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: paragraph.field_minor_date_of_birth
+field_name: field_minor_date_of_birth
+entity_type: paragraph
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

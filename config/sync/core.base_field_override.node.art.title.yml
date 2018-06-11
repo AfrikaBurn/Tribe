@@ -1,0 +1,20 @@
+uuid: 43bfbedb-3f8b-4557-964d-a516828ecf4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.art
+_core:
+  default_config_hash: DXbTMNbpnxKWp4nK1aWAQ9yserkqAOPIJn6Nsxv6dOw
+id: node.art.title
+field_name: title
+entity_type: node
+bundle: art
+label: 'Title of the project'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,36 @@
+uuid: 8fa5798d-7c57-4231-946f-c2ede2024667
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_stg_type
+    - node.type.art
+    - taxonomy.vocabulary.performer_types
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: '-WdovcZkHhhuSyLGvHxe9Uk4yRzXbQxQzfUCVv6sS-Q'
+id: node.art.field_prj_stg_type
+field_name: field_prj_stg_type
+entity_type: node
+bundle: art
+label: 'Performer Types'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      performer_types: performer_types
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

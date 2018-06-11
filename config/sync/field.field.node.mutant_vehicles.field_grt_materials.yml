@@ -1,0 +1,29 @@
+uuid: 14b32ea5-8bdd-483c-a230-9602f6660987
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_grt_materials
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_grt_materials
+field_name: field_grt_materials
+entity_type: node
+bundle: mutant_vehicles
+label: 'Material cost TOTAL'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: R
+  suffix: (ZAR)
+field_type: integer

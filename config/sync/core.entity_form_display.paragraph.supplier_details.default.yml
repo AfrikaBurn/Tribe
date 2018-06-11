@@ -1,0 +1,103 @@
+uuid: b3234559-55f7-4b93-b719-6d48ff6a8708
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.supplier_details.field_sup_contact
+    - field.field.paragraph.supplier_details.field_sup_cost
+    - field.field.paragraph.supplier_details.field_sup_email
+    - field.field.paragraph.supplier_details.field_sup_invoice
+    - field.field.paragraph.supplier_details.field_sup_mobile
+    - field.field.paragraph.supplier_details.field_sup_name
+    - field.field.paragraph.supplier_details.field_sup_supplies
+    - field.field.paragraph.supplier_details.field_sup_telephone
+    - field.field.paragraph.supplier_details.field_sup_website
+    - paragraphs.paragraphs_type.supplier_details
+  module:
+    - content_moderation
+    - file
+    - link
+    - telephone
+id: paragraph.supplier_details.default
+targetEntityType: paragraph
+bundle: supplier_details
+mode: default
+content:
+  field_sup_contact:
+    weight: 102
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_sup_cost:
+    weight: 108
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_sup_email:
+    weight: 105
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_sup_invoice:
+    weight: 109
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  field_sup_mobile:
+    weight: 104
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_sup_name:
+    weight: 101
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_sup_supplies:
+    weight: 107
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_sup_telephone:
+    weight: 103
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_sup_website:
+    weight: 106
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

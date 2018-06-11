@@ -1,0 +1,30 @@
+uuid: b69250d4-040c-44c8-8a3b-26ca5215b50c
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - php
+    - system
+  theme:
+    - afrikaburn
+id: afrikaburn_main_menu
+theme: afrikaburn
+region: main_menu
+weight: -19
+provider: null
+plugin: 'system_menu_block:main'
+settings:
+  id: 'system_menu_block:main'
+  label: 'Main navigation'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 2
+visibility:
+  php:
+    id: php
+    negate: false
+    php: '<?php return TRUE; ?>'
+    context_mapping: {  }

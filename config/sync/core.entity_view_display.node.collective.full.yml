@@ -1,0 +1,55 @@
+uuid: 66c770cc-2aa5-4a2c-93ef-069aeea8b320
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.post.default
+    - core.entity_view_mode.node.full
+    - field.field.node.collective.field_col_admins
+    - field.field.node.collective.field_col_description
+    - field.field.node.collective.field_col_invitee
+    - field.field.node.collective.field_col_members
+    - field.field.node.collective.field_col_posts
+    - field.field.node.collective.field_picture
+    - image.style.medium
+    - node.type.collective
+  module:
+    - comment
+    - image
+    - text
+    - user
+id: node.collective.full
+targetEntityType: node
+bundle: collective
+mode: full
+content:
+  field_col_description:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_col_posts:
+    type: comment_default
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+  field_picture:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  field_col_admins: true
+  field_col_invitee: true
+  field_col_members: true
+  links: true

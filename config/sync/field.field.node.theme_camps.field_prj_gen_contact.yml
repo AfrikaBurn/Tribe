@@ -1,0 +1,33 @@
+uuid: 5b94ce52-40dd-4736-94e8-89bd2861b10e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_contact
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: KRoAzaQz8lWa9lHjIPfmOBriyg3EpQJlLVvO1Eid87I
+id: node.theme_camps.field_prj_gen_contact
+field_name: field_prj_gen_contact
+entity_type: node
+bundle: theme_camps
+label: 'Camp Lead'
+description: "<p>The camp lead is responsible for all correspondence, including Creative Crew tickets, Early Arrivals Passes and camp logistics. Please use the same email address that you used on your Burner Bio and make sure you check it regularly. </p>\r\n<p>Please select the individual by typing their name into the above field and selecting it once loaded.<br>\r\nThis list will only show people you have already added to your collective.</p>"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: collective_members
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

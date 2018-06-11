@@ -1,0 +1,14 @@
+uuid: 503892de-e542-4887-aa05-c3cc46942c53
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.mutant_vehicle_wrangler
+  module:
+    - user
+id: user_remove_role_action.mutant_vehicle_wrangler
+label: 'Remove the Mutant Vehicle Wrangler role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: mutant_vehicle_wrangler

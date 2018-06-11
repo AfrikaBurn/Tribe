@@ -1,0 +1,36 @@
+uuid: 490683d4-e6f6-46d8-a48d-d013a07ad048
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_historic
+    - node.type.art
+    - taxonomy.vocabulary.moop_score
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: K_yHC_uaQfoujVcJUU28LC7PTcmCLFHoMWfTFRtNlRo
+id: node.art.field_prj_lnt_historic
+field_name: field_prj_lnt_historic
+entity_type: node
+bundle: art
+label: 'Moop Map score in 2017'
+description: 'If you were part of a Creative Project in 2017 what was your MOOP map rating?<br>Red, Yellow, Green'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      moop_score: moop_score
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

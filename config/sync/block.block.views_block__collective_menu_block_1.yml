@@ -1,0 +1,25 @@
+uuid: b23392d2-a06e-4188-9cf1-a00f2ec14804
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.collective_menu
+  module:
+    - views
+  theme:
+    - afrikaburn
+id: views_block__collective_menu_block_1
+theme: afrikaburn
+region: sidebar
+weight: -16
+provider: null
+plugin: 'views_block:collective_menu-block_1'
+settings:
+  id: 'views_block:collective_menu-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility: {  }

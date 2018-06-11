@@ -1,0 +1,31 @@
+uuid: 26e4a4cd-f452-4f78-bd17-645a3d97b578
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_brn_agree
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: zbFMZsZ6UpLpCkgHmm2VFlrzKmARRCo4oqhA9Tlxv88
+id: node.performances.field_prj_brn_agree
+field_name: field_prj_brn_agree
+entity_type: node
+bundle: performances
+label: 'I have read all information available about fire at AfrikaBurn. '
+description: '<p><b>Please consider carefully whether fire or flame effects are important to the meaning of your performance - if they are, please ensure you''re familiar with our <a href="https://www.afrikaburn.com/the-event/artworks/artworks/building-art-burn" target="_blank">fire guidelines.</a> </b></p>'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

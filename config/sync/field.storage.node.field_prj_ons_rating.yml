@@ -1,0 +1,25 @@
+uuid: 26af83d0-5224-4170-a5ca-aee52df27e8d
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: SVUtwb9_-99el0L-AVTiupnXOQCqqC_bIUUQknk7Qjw
+id: node.field_prj_ons_rating
+field_name: field_prj_ons_rating
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

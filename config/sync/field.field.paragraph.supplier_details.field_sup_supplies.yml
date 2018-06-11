@@ -1,0 +1,25 @@
+uuid: 615c8dc8-2f52-4e75-b7d1-881c64115c68
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sup_supplies
+    - paragraphs.paragraphs_type.supplier_details
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.supplier_details.field_sup_supplies
+field_name: field_sup_supplies
+entity_type: paragraph
+bundle: supplier_details
+label: 'Please describe what your supplier is providing you as well as the quantities you have ordered:'
+description: 'E.g.: 1 x stretch tent 12m by 20m'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

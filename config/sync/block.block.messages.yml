@@ -1,0 +1,26 @@
+uuid: a2f22c4c-677e-4f28-b763-1790c9efb572
+langcode: en
+status: true
+dependencies:
+  module:
+    - php
+    - system
+  theme:
+    - afrikaburn
+id: messages
+theme: afrikaburn
+region: status_messages
+weight: -21
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  provider: system
+  label_display: '0'
+visibility:
+  php:
+    id: php
+    negate: false
+    php: ''
+    context_mapping: {  }

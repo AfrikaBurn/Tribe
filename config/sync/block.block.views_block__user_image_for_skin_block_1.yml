@@ -1,0 +1,31 @@
+uuid: d1c8e093-c45d-407f-ad16-2dcd708b13f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.user_image_for_skin
+  module:
+    - system
+    - views
+  theme:
+    - afrikaburn
+id: views_block__user_image_for_skin_block_1
+theme: afrikaburn
+region: user_greeting
+weight: 0
+provider: null
+plugin: 'views_block:user_image_for_skin-block_1'
+settings:
+  id: 'views_block:user_image_for_skin-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: /collective
+    negate: true
+    context_mapping: {  }

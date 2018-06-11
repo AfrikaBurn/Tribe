@@ -1,0 +1,26 @@
+uuid: f70afcc0-1ba5-40ca-a9cc-eec2e390d5f5
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: zBOzIh_3L3rSrGk89enFUUq7Br3GdFGJj3KznJsyHyw
+id: node.field_prj_cll_contact
+field_name: field_prj_cll_contact
+entity_type: node
+type: entity_reference
+settings:
+  target_type: user
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

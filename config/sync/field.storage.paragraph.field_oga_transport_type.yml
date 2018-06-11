@@ -1,0 +1,31 @@
+uuid: 391ec348-0777-4468-b7b8-27ced662c5fc
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - options
+    - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: paragraph.field_oga_transport_type
+field_name: field_oga_transport_type
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: fuel
+      label: 'A contribution towards fuel costs?'
+    -
+      value: seat
+      label: 'Seat/s on an overland truck (departing from Cape Town)?'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

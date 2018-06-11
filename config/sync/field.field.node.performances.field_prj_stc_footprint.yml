@@ -1,0 +1,31 @@
+uuid: 452f6847-6ecd-41e4-bdfe-bb18e39d99be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_stc_footprint
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: AwXyY78eXr2311BF8BAY5Y2SaneWXURiG35_eL9Z4xQ
+id: node.performances.field_prj_stc_footprint
+field_name: field_prj_stc_footprint
+entity_type: node
+bundle: performances
+label: 'Foot Print Area'
+description: "in metres square\r\n"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

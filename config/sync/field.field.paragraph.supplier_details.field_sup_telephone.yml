@@ -1,0 +1,26 @@
+uuid: 7d6d609e-f291-4c68-8d05-898b4cfd7ced
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sup_telephone
+    - paragraphs.paragraphs_type.supplier_details
+  module:
+    - custom_add_another
+    - telephone
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.supplier_details.field_sup_telephone
+field_name: field_sup_telephone
+entity_type: paragraph
+bundle: supplier_details
+label: 'Contact Person Telephone'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

@@ -1,0 +1,146 @@
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+uid: 1
+template: false
+archive: false
+id: update
+title: 'Updates to how we do stuff'
+description: ''
+category: Agreement
+elements: "howzit:\n  '#type': webform_wizard_page\n  '#title': Howzit\n  thanks:\n    '#type': webform_markup\n    '#markup': 'Howzit - thanks for updating your Bio. So - you&#39;ve been to Tankwa Town before, and you know that AfrikaBurn is not a party. You&#39;d also know that unlike a commercial event, you can&#39;t expect anyone to set up your camp, feed you or clean up after you.'\n  but_do_your_campmates_know_:\n    '#type': radios\n    '#title': 'But do your campmates know?'\n    '#options':\n      'Yep - we''re all clear on how things work. Sorted': 'Yep - we''re all clear on how things work. Sorted'\n      'They might not, so I''ll fill them in.': 'They might not, so I''ll fill them in.'\n    '#required': true\nno_nos:\n  '#type': webform_wizard_page\n  '#title': 'New No-Nos'\n  register_drones:\n    '#type': radios\n    '#title': 'Are you aware that in order to fly anything at the event (including drones), you have to register it with our Airspace crew?'\n    '#options':\n      'Yep, I know all about this and will let my drone-loving friends know.': 'Yep, I know all about this and will let my drone-loving friends know.'\n      'I didn’t know that, but thanks for filling me in.': 'I didn’t know that, but thanks for filling me in.'\n    '#required': true\n  have_you_seen_the_no_photo_no_video_pink_wristbands_that_people_:\n    '#type': radios\n    '#title': 'Have you seen the ''NO PHOTO NO VIDEO'' pink wristbands that people wear?'\n    '#description': 'They&rsquo;re a visual signal that the wearer is not interested in being captured on photo, or video.'\n    '#description_display': before\n    '#options':\n      N/A: N/A\n      'Never seen them, but thanks for the heads up, I’ll keep an eye out in future.': 'Never seen them, but thanks for the heads up, I’ll keep an eye out in future.'\n      'Seen them, and I think they’re great.': 'Seen them, and I think they’re great.'\n  if_you_re_gifting_booze_are_you_aware_that_anyone_18_or_under_we:\n    '#type': radios\n    '#title': 'If you’re gifting booze, are you aware that anyone 18 or under wears a different coloured wristband?'\n    '#description': 'So you&rsquo;re able to identify who&rsquo;s OK (and not OK) to gift your drink to'\n    '#description_display': before\n    '#options':\n      'Hell, that’s organised, thanks for letting me know.': 'Hell, that’s organised, thanks for letting me know.'\n      'I’d never gift booze to anyone that looks underage.': 'I’d never gift booze to anyone that looks underage.'\n      'All good- I plan on having a clean burn, and won''t be gifting booze.': 'All good- I plan on having a clean burn, and won''t be gifting booze.'\ntankwa_town_and_you:\n  '#type': webform_wizard_page\n  '#title': 'Tankwa Town and you'\n  tankwa_town_is_built_on_the_spirit_of_volunteering_have_you_sign:\n    '#type': radios\n    '#title': 'Tankwa Town is built on the spirit of volunteering - have you signed up for any shifts?'\n    '#description': '<a href=\"https://new.afrikaburn.com/node/add/volunteer-registration-form\">Sign up here!</a>'\n    '#options':\n      'yes': 'I know all about them, and will be signing up for shifts'\n      'I didn''t know that, but thanks - I''ll see where I can help out.': 'I didn''t know that, but thanks - I''ll see where I can help out.'\n    '#required': true\n  no_pnp:\n    '#type': radios\n    '#title': 'Do you realise that in Tankwa Town, you can''t employ anyone to build your camp, clean it, cook for you - or take your camp down?'\n    '#description': 'In other words, Plug &amp; Play camps are not permitted at AfrikaBurn. Capiche?'\n    '#description_display': before\n    '#options':\n      Yes.: Yes.\n      'Hell. There goes my luxury experience...': 'Hell. There goes my luxury experience...'\n      'Happy days - Plug & Play camps have no place in a radically self-reliant community.': 'Happy days - Plug & Play camps have no place in a radically self-reliant community.'\n      'So I''m going to actually have to do work in my camp? OK, time to get stuck in...': 'So I''m going to actually have to do work in my camp? OK, time to get stuck in...'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': 'Got it!'\n"
+css: ''
+javascript: ''
+settings:
+  ajax: true
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_login: false
+  form_login_message: ''
+  submission_label: ''
+  submission_log: false
+  submission_user_columns: {  }
+  submission_login: false
+  submission_login_message: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_start_label: ''
+  wizard_confirmation: false
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: message
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+access:
+  create:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers: {  }
+uuid: 832f9d95-b713-4663-912c-c15b5923946d

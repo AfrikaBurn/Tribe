@@ -1,0 +1,51 @@
+uuid: ed9041f7-1668-411a-b874-545ebb9793a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.wrangler_overview
+    - field.field.paragraph.early_access_and_vehicle_passes.field_arrival_date
+    - field.field.paragraph.early_access_and_vehicle_passes.field_early_access
+    - field.field.paragraph.early_access_and_vehicle_passes.field_member
+    - field.field.paragraph.early_access_and_vehicle_passes.field_motivation
+    - field.field.paragraph.early_access_and_vehicle_passes.field_vehicle_pass
+    - field.field.paragraph.early_access_and_vehicle_passes.field_vp_approved
+    - field.field.paragraph.early_access_and_vehicle_passes.field_wa_approved
+    - paragraphs.paragraphs_type.early_access_and_vehicle_passes
+  module:
+    - empty_fields
+id: paragraph.early_access_and_vehicle_passes.wrangler_overview
+targetEntityType: paragraph
+bundle: early_access_and_vehicle_passes
+mode: wrangler_overview
+content:
+  field_vp_approved:
+    type: boolean
+    weight: 0
+    region: content
+    label: inline
+    settings:
+      format: default
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
+  field_wa_approved:
+    type: boolean
+    weight: 1
+    region: content
+    label: inline
+    settings:
+      format: default
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
+hidden:
+  field_arrival_date: true
+  field_early_access: true
+  field_member: true
+  field_motivation: true
+  field_vehicle_pass: true

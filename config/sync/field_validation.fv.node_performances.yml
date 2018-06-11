@@ -1,0 +1,20 @@
+uuid: 65d81e7f-0676-492e-b580-6ca135412327
+langcode: en
+status: true
+dependencies: {  }
+name: node_performances
+label: 'node performances validation'
+entity_type: node
+bundle: performances
+field_validation_rules:
+  b2644c83-7a03-45b9-9faa-7f95190db177:
+    uuid: b2644c83-7a03-45b9-9faa-7f95190db177
+    id: words_field_validation_rule
+    title: 'Word limit'
+    weight: 1
+    field_name: field_prj_wtf_short
+    column: value
+    error_message: 'Short blurb must be between 10 and 100 words'
+    data:
+      min: '10'
+      max: '100'

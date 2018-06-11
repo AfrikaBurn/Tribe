@@ -1,0 +1,29 @@
+uuid: 35ad4cdf-c842-4359-8851-5449d5e22b14
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_grt_contribution
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.performances.field_grt_contribution
+field_name: field_grt_contribution
+entity_type: node
+bundle: performances
+label: 'Financial contributions from your Crew & campmates / friends '
+description: "This is the amount of money that you've secured to actualise your project, either through 'team fees', generous enthusiasts, altruistic benefactors and/or any other source of money. (You already specified non-financial contributions, above)\r\n\r\nCreative Crews usually start planning ahead, and make provision for their creative projects - some start building an AfrikaBurn kitty.\r\n\r\nFor example: each member of the team puts aside R50/month. In 10 months, this is R500 per person. In a team of 20 people, it means R 10 000!\r\n\r\nIf you haven't started your kitty yet, consider starting it now. You still have 6 months and any amount of money that your team can gather will help, regardless of the outcome of this grant application."
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: R
+  suffix: 'ZAR (South African Rands)'
+field_type: integer

@@ -1,0 +1,38 @@
+uuid: 2f9bd1fb-501c-4dfb-897c-9b45379a0665
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_cll_thread
+    - node.type.mutant_vehicles
+  module:
+    - comment
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_cll_thread
+field_name: field_prj_cll_thread
+entity_type: node
+bundle: mutant_vehicles
+label: 'New member request'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    status: 2
+    cid: 0
+    last_comment_timestamp: 0
+    last_comment_name: null
+    last_comment_uid: 0
+    comment_count: 0
+default_value_callback: ''
+settings:
+  default_mode: 1
+  per_page: 50
+  anonymous: 0
+  form_location: true
+  preview: 1
+field_type: comment

@@ -1,0 +1,29 @@
+uuid: 3db8bae4-8f00-45e3-acd3-16fdde86c2cd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_fundraising
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_gen_fundraising
+field_name: field_prj_gen_fundraising
+entity_type: node
+bundle: mutant_vehicles
+label: 'Is your team planning any fundraisers?'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

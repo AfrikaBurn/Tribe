@@ -1,0 +1,14 @@
+uuid: 75ab1477-6788-404f-aed1-097839d9a4e8
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.outreach_admin
+  module:
+    - user
+id: user_remove_role_action.outreach_admin
+label: 'Remove the Outreach Admin role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: outreach_admin

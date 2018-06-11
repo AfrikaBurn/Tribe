@@ -1,0 +1,26 @@
+uuid: 53dbe420-1cfd-4170-8d86-4790da14ee62
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_oga_ticket_type
+    - paragraphs.paragraphs_type.outreach_grant_applicant
+  module:
+    - custom_add_another
+    - options
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.outreach_grant_applicant.field_oga_ticket_type
+field_name: field_oga_ticket_type
+entity_type: paragraph
+bundle: outreach_grant_applicant
+label: 'Ticket type'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

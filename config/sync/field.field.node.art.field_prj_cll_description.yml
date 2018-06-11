@@ -1,0 +1,27 @@
+uuid: 5b9b69e1-0f4b-4816-918d-8669a42e282e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_cll_description
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: CZY5-jQmCMYjjF8ThG3hXu2fpowyomNcbo3ez01XKRw
+id: node.art.field_prj_cll_description
+field_name: field_prj_cll_description
+entity_type: node
+bundle: art
+label: 'Tell our community about your project'
+description: 'Who are you as a collective, and what’s your project about? What kind of collaboration are you looking for? Add anything here that you feel is relevant and will help you get the participation that you need (and try to be brief).'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

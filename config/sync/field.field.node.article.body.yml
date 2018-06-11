@@ -1,0 +1,29 @@
+uuid: 5c73a628-5055-4554-8975-cb65ec87ccdf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.article
+  module:
+    - custom_add_another
+    - text
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: Ay3b2hq42cpQTFB_lNu8S2ZxuVIY6-dlBsc7vLeJ-YY
+id: node.article.body
+field_name: body
+entity_type: node
+bundle: article
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

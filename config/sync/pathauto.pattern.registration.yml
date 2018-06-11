@@ -1,0 +1,25 @@
+uuid: 8394d96c-2a56-47ab-abef-c3f64df68c69
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: registration
+label: Registration
+type: 'canonical_entities:node'
+pattern: 'collective/[node:field_collective]/registration/[node:title] [current-date:custom:M Y]'
+selection_criteria:
+  de192a34-d278-4e4d-9ba6-bab37a21d401:
+    id: node_type
+    bundles:
+      art: art
+      mutant_vehicles: mutant_vehicles
+      performances: performances
+      theme_camps: theme_camps
+    negate: false
+    context_mapping:
+      node: node
+    uuid: de192a34-d278-4e4d-9ba6-bab37a21d401
+selection_logic: and
+weight: -5
+relationships: {  }

@@ -1,0 +1,25 @@
+uuid: 0666a374-ddd8-4528-bf82-c1f7e9610d94
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_other_burns
+  module:
+    - custom_add_another
+    - user
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: user.user.field_other_burns
+field_name: field_other_burns
+entity_type: user
+bundle: user
+label: 'Other burns you''ve attended'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

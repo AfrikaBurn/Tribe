@@ -1,0 +1,33 @@
+uuid: ca99b90f-8cdf-4d77-b5be-9ebadfe2e4d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_snd_person
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: qBgS4-EiI13lm0DPV0SGSQ7YJOI07HQpFDRGIqaGKOQ
+id: node.art.field_prj_snd_person
+field_name: field_prj_snd_person
+entity_type: node
+bundle: art
+label: 'Who is the sound co-ordinator in your team? (This can be you.)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: collective_members
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

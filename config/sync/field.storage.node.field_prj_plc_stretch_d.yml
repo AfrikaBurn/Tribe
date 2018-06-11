@@ -1,0 +1,26 @@
+uuid: c33e89e3-fbd4-4af5-98a2-c14f7bd0353e
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: d4IP_wRo8UPFKKzvg9ejfUop_NbLs3hBQvY30QDdP7o
+id: node.field_prj_plc_stretch_d
+field_name: field_prj_plc_stretch_d
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

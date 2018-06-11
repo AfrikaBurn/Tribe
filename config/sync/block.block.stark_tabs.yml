@@ -1,0 +1,27 @@
+uuid: a9ae3e7a-65db-47d6-b4ba-3c3bd3224447
+langcode: en
+status: true
+dependencies:
+  module:
+    - php
+  theme:
+    - stark
+id: stark_tabs
+theme: stark
+region: sidebar_first
+weight: -1
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility:
+  php:
+    id: php
+    negate: false
+    php: ''
+    context_mapping: {  }
