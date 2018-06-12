@@ -1,0 +1,29 @@
+uuid: dafabf12-8608-4f67-b6a4-919b22aa7d90
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.announcement.field_publish_on
+    - field.field.node.announcement.field_unpublish_on
+    - node.type.announcement
+  module:
+    - user
+id: node.announcement.teaser
+targetEntityType: node
+bundle: announcement
+mode: teaser
+content:
+  flag_archived:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  links:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_publish_on: true
+  field_unpublish_on: true

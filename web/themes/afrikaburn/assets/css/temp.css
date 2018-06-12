@@ -1,5 +1,11 @@
 /* 10 June 2018 Collective menu */
 
+.view-id-anouncements .views-field-edit-node{
+  float: right;
+  position: relative;
+  z-index: 1000;
+}
+
 .view-collective-menu .view-content div:after{
   content: ".";
   visibility: hidden;

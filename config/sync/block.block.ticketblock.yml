@@ -1,4 +1,4 @@
-uuid: 39f9232c-0346-47d9-9b6f-33d7a2f7083e
+uuid: dea574ed-9614-4d51-83b9-a3382297603c
 langcode: en
 status: true
 dependencies:
@@ -7,15 +7,15 @@ dependencies:
     - user
   theme:
     - afrikaburn
-id: bioblock
+id: ticketblock
 theme: afrikaburn
 region: sidebar
-weight: -18
+weight: -19
 provider: null
-plugin: bio_block
+plugin: ticket_block
 settings:
-  id: bio_block
-  label: 'Bio Block'
+  id: ticket_block
+  label: 'Ticket Block'
   provider: afrikaburn_registration
   label_display: '0'
 visibility:

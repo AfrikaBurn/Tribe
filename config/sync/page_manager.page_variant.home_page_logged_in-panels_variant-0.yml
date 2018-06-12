@@ -4,11 +4,8 @@ status: true
 dependencies:
   config:
     - page_manager.page.home_page_logged_in
-    - views.view.collectives
-  content:
-    - 'block_content:basic:7171e6af-8d3c-4413-a495-894fa39c939b'
+    - views.view.anouncements
   module:
-    - block_content
     - panels
     - user
     - views
@@ -17,28 +14,16 @@ label: Home
 variant: panels_variant
 variant_settings:
   blocks:
-    967d6bad-27f1-4085-b056-3ac565fad25e:
-      id: 'block_content:7171e6af-8d3c-4413-a495-894fa39c939b'
-      label: Howzit!
-      provider: block_content
-      label_display: visible
-      status: true
-      info: ''
-      view_mode: full
-      region: content
-      weight: -10
-      uuid: 967d6bad-27f1-4085-b056-3ac565fad25e
-      context_mapping: {  }
-    f70a88e4-54ca-481d-a8db-090e7710e76c:
-      id: 'views_block:collectives-my_collectives_block'
+    d6d09bb2-57c6-41e7-8a8a-c35afac03463:
+      id: 'views_block:anouncements-block_1'
       label: ''
       provider: views
-      label_display: visible
+      label_display: '0'
       views_label: ''
       items_per_page: none
       region: content
       weight: 0
-      uuid: f70a88e4-54ca-481d-a8db-090e7710e76c
+      uuid: d6d09bb2-57c6-41e7-8a8a-c35afac03463
       context_mapping: {  }
   id: panels_variant
   uuid: 0675148d-30b7-4c21-9732-04195a991461

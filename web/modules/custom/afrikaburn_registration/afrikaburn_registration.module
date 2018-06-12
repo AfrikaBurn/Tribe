@@ -38,7 +38,10 @@ function afrikaburn_registration_form_user_form_alter(&$form, $form_state, $form
 
   // Set form title & attach quicket handlers
   switch($form_id){
-    case 'user_update_form': $form['#title'] = 'Updating my Bio'; break;
+    case 'user_update_form': 
+      $form['#title'] = 'Updating my Bio';
+      $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_update_quicket';
+    break;
     case 'user_form': 
       $form['#title'] = 'Editing my Bio'; 
       $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_update_quicket';

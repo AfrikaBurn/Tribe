@@ -21,7 +21,7 @@ class MemberController extends ControllerBase {
 
     $emails = \Drupal::request()->request->get('emails');
     $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
-    $emails = explode(',', $emails);
+    $emails = explode(',', strstrtolower($emails));
 
     if ($collective->bundle() == 'collective'){
       self::addToInvites($emails, $collective);

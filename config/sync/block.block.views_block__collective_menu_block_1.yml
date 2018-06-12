@@ -5,13 +5,14 @@ dependencies:
   config:
     - views.view.collective_menu
   module:
+    - user
     - views
   theme:
     - afrikaburn
 id: views_block__collective_menu_block_1
 theme: afrikaburn
 region: sidebar
-weight: -16
+weight: -15
 provider: null
 plugin: 'views_block:collective_menu-block_1'
 settings:
@@ -22,4 +23,11 @@ settings:
   views_label: ''
   items_per_page: none
   context_mapping: {  }
-visibility: {  }
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

@@ -1,0 +1,55 @@
+uuid: 565238bf-771e-4591-92d2-2098cb40d858
+langcode: en
+status: true
+dependencies: {  }
+id: node
+bundles:
+  announcement:
+    body:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: announcement
+      name: body
+    field_publishing_schedule:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: announcement
+      name: field_publishing_schedule
+    field_publish_on:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: announcement
+      name: field_publish_on
+    field_unpublish_on:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: announcement
+      name: field_unpublish_on
+    field_body:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: announcement
+      name: field_body
+    field_pin_to_top:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: announcement
+      name: field_pin_to_top

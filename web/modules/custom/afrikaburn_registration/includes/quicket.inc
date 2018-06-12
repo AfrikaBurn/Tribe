@@ -18,6 +18,7 @@ function _quicket($method, $id_number, $teens, $kids, $quicket_id = FALSE){
   $ticket_types = array_filter(
     [
       $settings['ticket_codes']['general'],
+      $settings['ticket_codes']['mayday'],
       $kids ? $settings['ticket_codes']['kids'] : 0,
       $teens ? $settings['ticket_codes']['teens'] : 0
     ]
@@ -65,12 +66,12 @@ function _quicket($method, $id_number, $teens, $kids, $quicket_id = FALSE){
         'id' => $result->CodeId,
       ];
     } else {
-      \Drupal::logger('my_module')->error('An unexpected response has been received from quicket! ' . var_export($response, TRUE));
+      \Drupal::logger('afrikaburn_shared')->error('An unexpected response has been received from quicket! ' . var_export($response, TRUE));
       return FALSE;
     }
 
   } catch (Exception $e){
-    \Drupal::logger('my_module')->error('A request to quicket failed! ' . $e);
+    \Drupal::logger('afrikaburn_shared')->error('A request to quicket failed! ' . $e);
     return FALSE;
   }
 }

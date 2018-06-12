@@ -1,0 +1,13 @@
+uuid: 03334512-4484-484c-9204-d0b7ed63eb54
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.archived.flag
+label: 'Archive this item'
+type: node
+plugin: 'flag_action:archived.flag'
+configuration:
+  flag_id: archived
+  flag_action: flag

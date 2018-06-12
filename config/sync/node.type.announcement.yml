@@ -1,0 +1,18 @@
+uuid: 91888dc4-c14a-4705-a0cb-7f8363278e22
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Announcement
+type: announcement
+description: 'A notification that is displayed on each user landing page for a specified period.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

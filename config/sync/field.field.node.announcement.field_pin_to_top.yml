@@ -1,0 +1,29 @@
+uuid: 8b6307bd-5d46-4881-ac31-6f7f68967636
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pin_to_top
+    - node.type.announcement
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.announcement.field_pin_to_top
+field_name: field_pin_to_top
+entity_type: node
+bundle: announcement
+label: 'Pin to top'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean
