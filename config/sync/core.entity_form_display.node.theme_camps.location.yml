@@ -13,6 +13,8 @@ dependencies:
     - field.field.node.theme_camps.field_prj_adm_form_2
     - field.field.node.theme_camps.field_prj_adm_form_3
     - field.field.node.theme_camps.field_prj_adm_form_wtf
+    - field.field.node.theme_camps.field_prj_adm_latitude
+    - field.field.node.theme_camps.field_prj_adm_longitude
     - field.field.node.theme_camps.field_prj_adm_notes
     - field.field.node.theme_camps.field_prj_adm_ranger_comment
     - field.field.node.theme_camps.field_prj_adm_review
@@ -134,7 +136,6 @@ dependencies:
     - node.type.theme_camps
   module:
     - computed_field
-    - content_moderation
     - field_group
     - markup
     - path
@@ -338,11 +339,13 @@ content:
     type: options_select
     region: content
   moderation_state:
-    type: moderation_state_default
-    weight: 11
-    settings: {  }
-    region: content
+    weight: 110
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
+    type: string_textfield
+    region: content
   path:
     type: path
     weight: 4

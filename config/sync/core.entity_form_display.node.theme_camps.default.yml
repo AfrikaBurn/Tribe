@@ -138,7 +138,6 @@ dependencies:
     - comment
     - computed_field
     - conditional_fields
-    - content_moderation
     - cshs
     - field_group
     - image
@@ -685,11 +684,13 @@ content:
     type: options_select
     region: content
   moderation_state:
-    type: moderation_state_default
-    weight: 10
-    settings: {  }
-    region: content
+    weight: 38
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
+    type: string_textfield
+    region: content
   path:
     type: path
     weight: 4

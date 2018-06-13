@@ -42,7 +42,7 @@ class TicketBlock extends BlockBase {
       }  
     } else {
       $links = [
-        'To be eligible for ticket sales, please',	      
+        'To be eligible for ticket sales, please<br />',	      
         '<a class="button" href="/user/'.$uid.'/edit"><strong>Update your Bio</strong></a>',
       ];
     }

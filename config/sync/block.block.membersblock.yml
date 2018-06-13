@@ -1,6 +1,6 @@
 uuid: 94308424-9cc1-468e-b256-2eae6bdd41fd
 langcode: en
-status: false
+status: true
 dependencies:
   module:
     - afrikaburn_shared
@@ -12,8 +12,8 @@ dependencies:
     - afrikaburn
 id: membersblock
 theme: afrikaburn
-region: content
-weight: -19
+region: sidebar
+weight: -21
 provider: null
 plugin: members_block
 settings:

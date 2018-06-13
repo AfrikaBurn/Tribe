@@ -15,6 +15,16 @@ use Drupal\Core\Block\BlockBase;
  */
 class BioBlock extends BlockBase {
 
+  private function l($text, $uri){
+    return \Drupal::service('link_generator')->generate(
+      t($text), 
+      \Drupal\Core\Url::fromUri(
+        'internal://'.$uri, 
+	['set_active_class' => TRUE]
+      )
+    );
+  }
+
   /**
    * {@inheritdoc}
    */
@@ -27,17 +37,18 @@ class BioBlock extends BlockBase {
     $updated = $flag_service->getFlagging($flag, $account);
     $quicket_code = $account->get('field_quicket_code');
 
-    $links = [
-      '<a href="/user">View my Bio</a>',
+    $items = [
+      $this::l('View my Bio', 'user'),
       $updated
-        ? '<a href="/user/'.$uid.'/edit">Edit my Bio</a>'
-        : '<a href="/user/'.$uid.'/edit/update"><strong>Update my Bio</strong></a>',
-      '<a href="/user/logout">Log out</a>',
+        ? $this::l('Edit my Bio', 'user/'.$uid.'/edit')
+        : $this::l('Update my Bio', 'user/'.$uid.'/edit/update'),
+      $this::l('Log out', 'user/logout'),
+      '<ul><li></li><li>'.$this::l('Delete my Bio', 'user/'.$uid.'/cancel').'</li></ul>'
     ];
 
     return [
       '#type' => 'markup',
-      '#markup' => '<h2>My Bio</h2>' . implode($links, '<br />'),
+      '#markup' => '<h2>My Bio</h2>' . implode($items, '<br />'),
       '#cache' => [
         'max-age' => 0,
       ]

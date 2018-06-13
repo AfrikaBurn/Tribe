@@ -12,7 +12,6 @@ dependencies:
     - field.field.node.collective.field_picture
     - node.type.collective
   module:
-    - content_moderation
     - field_group
     - path
     - text
@@ -76,11 +75,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   moderation_state:
-    type: moderation_state_default
-    weight: 100
-    settings: {  }
-    region: content
+    weight: 122
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
+    type: string_textfield
+    region: content
   path:
     type: path
     weight: 5

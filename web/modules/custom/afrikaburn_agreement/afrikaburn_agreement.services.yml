@@ -1,0 +1,5 @@
+services:
+  afrikaburn_agreement_event_subscriber:
+    class: Drupal\afrikaburn_agreement\EventSubscriber\AgreementEnforcer
+    tags:
+      - {name: event_subscriber}

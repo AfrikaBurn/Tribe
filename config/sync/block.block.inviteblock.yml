@@ -1,6 +1,6 @@
 uuid: cc1b0be3-3a1c-4637-a68d-a23ad7c702cc
 langcode: en
-status: false
+status: true
 dependencies:
   module:
     - afrikaburn_shared
@@ -11,8 +11,8 @@ dependencies:
     - afrikaburn
 id: inviteblock
 theme: afrikaburn
-region: content
-weight: -18
+region: sidebar
+weight: -20
 provider: null
 plugin: invite_block
 settings:

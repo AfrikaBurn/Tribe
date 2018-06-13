@@ -109,9 +109,9 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_wtf_website
     - field.field.node.mutant_vehicles.field_sup_comment
     - field.field.node.mutant_vehicles.field_sup_review
+    - field.field.node.mutant_vehicles.field_vp_ea
     - node.type.mutant_vehicles
   module:
-    - content_moderation
     - paragraphs
 _core:
   default_config_hash: FHLYUGK-mQGVYzvIKsUSwq4IdPmIgOzk9wE9K3NHGck
@@ -196,11 +196,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   moderation_state:
-    type: moderation_state_default
-    weight: 15
-    settings: {  }
-    region: content
+    weight: 26
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
+    type: string_textfield
+    region: content
   promote:
     type: boolean_checkbox
     settings:
@@ -341,4 +343,5 @@ hidden:
   field_prj_wtf_website: true
   field_sup_comment: true
   field_sup_review: true
+  field_vp_ea: true
   path: true

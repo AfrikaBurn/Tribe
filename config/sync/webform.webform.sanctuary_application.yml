@@ -1,4 +1,3 @@
-uuid: 0c326090-6f71-4529-b8da-061ca183c1d0
 langcode: en
 status: open
 dependencies: {  }
@@ -47,6 +46,7 @@ settings:
   submission_label: ''
   submission_log: false
   submission_user_columns: {  }
+  submission_user_duplicate: false
   submission_login: false
   submission_login_message: ''
   submission_exception_message: ''
@@ -179,3 +179,4 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
+uuid: 0c326090-6f71-4529-b8da-061ca183c1d0

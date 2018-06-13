@@ -97,6 +97,7 @@ dependencies:
     - field.field.node.performances.field_prj_stc_weight
     - field.field.node.performances.field_prj_sup_address
     - field.field.node.performances.field_prj_sup_details
+    - field.field.node.performances.field_prj_sup_details_view
     - field.field.node.performances.field_prj_sup_h1
     - field.field.node.performances.field_prj_total_cost
     - field.field.node.performances.field_prj_wtf_categories
@@ -111,11 +112,11 @@ dependencies:
     - field.field.node.performances.field_sup_comment
     - field.field.node.performances.field_sup_review
     - field.field.node.performances.field_this_is_the_amount_of_mone
+    - field.field.node.performances.field_vp_ea
     - image.style.thumbnail
     - node.type.performances
   module:
     - comment
-    - content_moderation
     - field_group
     - image
     - link
@@ -448,11 +449,13 @@ content:
       placeholder_title: ''
     third_party_settings: {  }
   moderation_state:
-    type: moderation_state_default
-    weight: 100
-    settings: {  }
-    region: content
+    weight: 1001
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
+    type: string_textfield
+    region: content
   path:
     type: path
     weight: 4

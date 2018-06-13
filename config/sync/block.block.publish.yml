@@ -12,7 +12,7 @@ dependencies:
 id: publish
 theme: afrikaburn
 region: sidebar
-weight: -21
+weight: -18
 provider: null
 plugin: 'system_menu_block:publish'
 settings:

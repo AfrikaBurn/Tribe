@@ -1,26 +1,5 @@
 <?php
 
-/**
- * Implements_hook_page_alter().
- */
-function afrikaburn_registration_page_top() { 
-
-  $uid = \Drupal::currentUser()->id();
-  $account = \Drupal\user\Entity\User::load($uid);
-  $flag_service = \Drupal::service('flag');
-  $flag = $flag_service->getFlagById('updated');
-  $updated = $flag_service->getFlagging($flag, $account);
-   
-  if(!$updated && $uid > 0){
-    drupal_set_message(
-      \Drupal\Core\Render\Markup::create('
-        Your information may be out of date!<br />
-        To be eligible for ticket sales, please <a href="/user/' . $uid . '/edit/update">update your Bio</a>.'
-      ),
-      'warning'
-    );
-  }
-}
 
 /**
  * Implements hook_page_attachments().

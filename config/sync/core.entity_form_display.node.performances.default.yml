@@ -117,7 +117,6 @@ dependencies:
   module:
     - comment
     - conditional_fields
-    - content_moderation
     - cshs
     - datetime
     - field_group
@@ -1066,11 +1065,13 @@ content:
     type: link_default
     region: content
   moderation_state:
-    type: moderation_state_default
-    weight: 10
-    settings: {  }
-    region: content
+    weight: 69
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
+    type: string_textfield
+    region: content
   path:
     type: path
     weight: 4

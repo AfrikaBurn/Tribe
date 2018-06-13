@@ -15,7 +15,7 @@ dependencies:
 id: views_block__collective_members_invites
 theme: afrikaburn
 region: sidebar
-weight: -17
+weight: -19
 provider: null
 plugin: 'views_block:collective_members-invites'
 settings:
