@@ -19,7 +19,7 @@ class BioBlock extends BlockBase {
     return \Drupal::service('link_generator')->generate(
       t($text), 
       \Drupal\Core\Url::fromUri(
-        'internal://'.$uri, 
+        'internal:/'.$uri, 
 	['set_active_class' => TRUE]
       )
     );
