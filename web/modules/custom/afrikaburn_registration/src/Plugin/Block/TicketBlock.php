@@ -31,7 +31,7 @@ class TicketBlock extends BlockBase {
 
     if ($updated){
       if (count($quicket_code)){
-        $links[] = '<a class="button" href="https://www.quicket.co.za/events/'.$settings['event_id'].'-#/?dc='.$quicket_code.'">Buy tickets</a>';
+        $links[] = '<a class="button" target="_blank" href="https://www.quicket.co.za/events/'.$settings['event_id'].'-#/?dc='.$quicket_code.'">Buy tickets</a>';
       } else {
 	$links = [
 	  'Something went wrong! Please try:',
