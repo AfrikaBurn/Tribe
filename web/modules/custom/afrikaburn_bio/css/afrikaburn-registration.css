@@ -1,0 +1,118 @@
+
+article.profile .field,
+.user-form .form-item{
+  align-items: top;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 300px;
+  padding-bottom: 2em;
+  position: relative;
+}
+
+article.profile .field *,
+.user-form .form-item *{
+  flex-basis: 45%;
+}
+
+.paragraphs-tabs-wrapper .form-item,
+.paragraphs-tabs-wrapper .form-item *{
+  flex-basis: 100%;
+}
+
+body .paragraphs-tabs-wrapper .form-item .description{
+  height: auto;
+  visibility: visible;
+}
+
+
+article.profile .field__item .field_label,
+.user-form .form-item label{
+  display: block;
+  flex-basis: 100%;
+}
+
+.user-form .form-item .description{
+  visibility: hidden;
+  height: 0;
+  margin: 0 0 0 10px;
+}
+
+.user-form .form-item-field-terms-and-conditions-value .description,
+.user-form #field-links-add-more-wrapper td .description,
+.user-form .form-item:hover .description{
+  visibility: visible;
+}
+
+.user-form #field-links-add-more-wrapper .description{
+  margin-top: 2em;
+}
+
+.user-form .form-item .description p{
+  margin: 0 0 1em;
+}
+
+.user-form .form-item .description p:last-child{
+  margin: 0;
+}
+
+.user-form .form-item label.error,
+.user-form .form-item .form-item--error-message{
+  flex-basis: 100%;
+  order: 2;
+  padding: 0;
+  background: none;
+  border: none;
+  color: #fff;
+  border-radius: 0;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.user-form .form-item .error:before,
+.user-form .form-item .form-item--error-message:before{
+  background-image: url(/themes/afrikaburn/assets/images/afrikaburn-icons.png);
+  background-color: #e85157;
+  background-repeat: no-repeat;
+  background-position: left -40px top -50px;
+  background-size: 200px;
+  width: 24px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.user-form .form-item .select-wrapper,
+.user-form .form-item.form-type-checkbox *,
+.user-form .form-item.form-type-radio *{
+  min-width: auto;
+  flex-basis: auto;
+}
+
+article.profile .field--name-user-picture,
+.user-form .field--name-user-picture{
+  float: right;
+  width: 50%;
+}
+
+.user-form details summary{
+  display: none;
+}
+
+.user-form h4.label{
+  text-transform: none;
+  font-size: 100%;
+}
+
+#edit-roles{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#edit-roles .form-item{
+  flex-basis: 25%;
+  min-width: 160px;
+}
+
+.captcha .details-description{
+  display: none;
+}

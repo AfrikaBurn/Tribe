@@ -1,0 +1,14 @@
+bio:
+  version: 0.0
+  js:
+    js/afrikaburn-bio.js: {}
+  css:
+    theme:
+      css/afrikaburn-bio.css: {}
+registration:
+  version: 0.0
+  js:
+    js/afrikaburn-registration.js: {}
+  css:
+    theme:
+      css/afrikaburn-registration.css: {}
