@@ -17,8 +17,8 @@ id: node.art.field_prj_oth_grant
 field_name: field_prj_oth_grant
 entity_type: node
 bundle: art
-label: 'Click here if you applying for a Creative Grant?'
-description: "Please read everything about <a href=\"https://www.afrikaburn.com/participation-forms/apply-for-creative-grant\" target=\"_blank\">Creative Grants here.</a>\r\n"
+label: 'Are you interested in applying for a creative grant?'
+description: 'Please read everything about <a href="https://www.afrikaburn.com/the-event/artworks/creative-grants" target="_blank">Creative Grants here</a>, where you will also find instructions on how to apply.'
 required: false
 translatable: false
 default_value:

@@ -1,8 +1,9 @@
-uuid: 45557753-cb81-42fe-9569-ce1d8bd9e72d
+uuid: db432c65-421b-4d75-a557-10b7f61898d2
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.node.art_form_1
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_form_mode
@@ -151,7 +152,6 @@ dependencies:
     - image
     - link
     - markup
-    - path
 third_party_settings:
   field_group:
     group_overview:
@@ -320,19 +320,6 @@ third_party_settings:
         classes: ''
       label: 'Leave No Trace'
       region: content
-    group_wtf_guide_and_community:
-      children: {  }
-      parent_name: ''
-      weight: 8
-      format_type: accordion_item
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-      label: 'WTF Guide and Community'
-      region: content
     group_other:
       children:
         - field_prj_oth_relationship
@@ -405,17 +392,11 @@ third_party_settings:
       label: "Community and collaboration\t"
 _core:
   default_config_hash: ehnjrE-MS25SZlH5syS8NpyAb0kWLGl88OywWqUiYwM
-id: node.art.default
+id: node.art.art_form_1
 targetEntityType: node
 bundle: art
-mode: default
+mode: art_form_1
 content:
-  created:
-    type: datetime_timestamp
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_collective:
     type: options_select
     weight: 12
@@ -442,12 +423,6 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_adm_wrangler:
-    type: options_select
-    weight: 6
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_prj_brn_burning:
     type: boolean_checkbox
     weight: 3
@@ -954,26 +929,6 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-  path:
-    type: path
-    weight: 5
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 3
-    region: content
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 4
-    region: content
-    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 7
@@ -982,16 +937,8 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 0
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    region: content
-    third_party_settings: {  }
 hidden:
+  created: true
   field_col_members: true
   field_grt_art_apply: true
   field_grt_art_comment: true
@@ -1028,6 +975,7 @@ hidden:
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
   field_prj_adm_review: true
+  field_prj_adm_wrangler: true
   field_prj_brn_agree: true
   field_prj_brn_desc: true
   field_prj_brn_perimeter: true
@@ -1082,5 +1030,9 @@ hidden:
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
   moderation_state: true
+  path: true
+  promote: true
   status: true
+  sticky: true
+  uid: true
   url_redirects: true

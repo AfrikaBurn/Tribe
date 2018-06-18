@@ -53,3 +53,44 @@ bundles:
       notes: ''
       bundle: announcement
       name: field_pin_to_top
+  art:
+    field_prj_gen_bio:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: art
+      name: field_prj_gen_bio
+    field_prj_gen_history:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: art
+      name: field_prj_gen_history
+    field_prj_cll_description:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: art
+      name: field_prj_cll_description
+    field_prj_wtf_image:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: art
+      name: field_prj_wtf_image
+    field_prj_oth_grant:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: art
+      name: field_prj_oth_grant

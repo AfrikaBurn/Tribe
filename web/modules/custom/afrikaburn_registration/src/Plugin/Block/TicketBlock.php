@@ -28,9 +28,9 @@ class TicketBlock extends BlockBase {
     $flag = $flag_service->getFlagById('updated');
     $updated = $flag_service->getFlagging($flag, $account);
     $quicket_code = $account->get('field_quicket_code')->value;
-
+    
     if ($updated){
-      if (count($quicket_code)){
+      if ($quicket_code && strlen($quicket_code)){
         $links[] = '<a class="button" target="_blank" href="https://www.quicket.co.za/events/'.$settings['event_id'].'-#/?dc='.$quicket_code.'">Buy tickets</a>';
       } else {
 	$links = [
@@ -43,7 +43,7 @@ class TicketBlock extends BlockBase {
     } else {
       $links = [
         'To be eligible for ticket sales, please<br />',	      
-        '<a class="button" href="/user/'.$uid.'/edit"><strong>Update your Bio</strong></a>',
+        '<a class="button" href="/user/'.$uid.'/edit/update"><strong>Update your Bio</strong></a>',
       ];
     }
 
