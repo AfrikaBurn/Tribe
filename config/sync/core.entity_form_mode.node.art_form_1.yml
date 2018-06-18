@@ -1,0 +1,10 @@
+uuid: dc399452-0c5e-434e-823c-d6a1ad470d28
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.art_form_1
+label: 'Art Form 1'
+targetEntityType: node
+cache: true

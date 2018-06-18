@@ -18,7 +18,7 @@ field_name: field_prj_cll_description
 entity_type: node
 bundle: art
 label: 'Tell our community about your project'
-description: 'Who are you as a collective, and what’s your project about? What kind of collaboration are you looking for? Add anything here that you feel is relevant and will help you get the participation that you need (and try to be brief).'
+description: 'Who are you as a collective, and what’s your project about? What kind of collaboration are you looking for? Do you have a stage? What type of performance are you looking for? Add anything here that you feel is relevant and will help you get the participation that you need (and try to be brief).'
 required: false
 translatable: true
 default_value: {  }

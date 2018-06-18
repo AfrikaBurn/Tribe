@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\afrikaburn_registration\Plugin\Block;
+namespace Drupal\afrikaburn_bio\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use \Drupal\Core\Site\Settings;
@@ -28,7 +28,7 @@ class TicketBlock extends BlockBase {
     $flag = $flag_service->getFlagById('updated');
     $updated = $flag_service->getFlagging($flag, $account);
     $quicket_code = $account->get('field_quicket_code')->value;
-    
+
     if ($updated){
       if ($quicket_code && strlen($quicket_code)){
         $links[] = '<a class="button" target="_blank" href="https://www.quicket.co.za/events/'.$settings['event_id'].'-#/?dc='.$quicket_code.'">Buy tickets</a>';
@@ -39,10 +39,10 @@ class TicketBlock extends BlockBase {
 	  'Or, if that fails:',
 	  '<a href="mailto:ict@afrikaburn.com">Contact tech support</a>'
 	];
-      }  
+      }
     } else {
       $links = [
-        'To be eligible for ticket sales, please<br />',	      
+        'To be eligible for ticket sales, please<br />',
         '<a class="button" href="/user/'.$uid.'/edit/update"><strong>Update your Bio</strong></a>',
       ];
     }

@@ -6,10 +6,10 @@
 
 /**
  * Implements hook_page_attachments().
- * Attach registration libraries.
+ * Attach bio libraries.
  */
-function afrikaburn_registration_page_attachments(&$page) {
-  $page['#attached']['library'][] = 'afrikaburn_registration/afrikaburn_registration';
+function afrikaburn_bio_page_attachments(&$page) {
+  $page['#attached']['library'][] = 'afrikaburn_bio/bio';
 }
 
 
@@ -17,13 +17,13 @@ function afrikaburn_registration_page_attachments(&$page) {
  * Implements hook_form_FOMR_ID_alter().
  * Sets form titles, Add validation, Add submission handlers
  */
-function afrikaburn_registration_form_user_form_alter(&$form, $form_state, $form_id){
+function afrikaburn_bio_form_user_form_alter(&$form, $form_state, $form_id){
 
   // Set form title, attach quicket handlers, set redirects
   switch($form_id){
     case 'user_update_form':
       $form['#title'] = 'Updating my Bio';
-      $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_update_quicket';
+      $form['actions']['submit']['#submit'][] = 'afrikaburn_bio_update_quicket';
     break;
     case 'user_form':
       $form['#title'] = 'Editing my Bio';
@@ -31,13 +31,14 @@ function afrikaburn_registration_form_user_form_alter(&$form, $form_state, $form
         $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
         $response->send();
       } else {
-        $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_update_quicket';
+        $form['actions']['submit']['#submit'][] = 'afrikaburn_bio_update_quicket';
       }
     break;
     case 'user_register_form':
       $form['#title'] = 'Create a Bio';
-      $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_new_quicket';
-    break;
+      $form['actions']['submit']['#submit'][] = 'afrikaburn_bio_new_quicket';
+      $form['#attached']['library'][] = 'afrikaburn_bio/bio';
+      break;
   }
 
   // Fix gender validation
@@ -53,12 +54,12 @@ function afrikaburn_registration_form_user_form_alter(&$form, $form_state, $form
 
   // Add ID, email validation
   if (in_array($form_id, ['user_form', 'user_register_form'])) {
-    $form['#validate'][] = 'afrikaburn_registration_user_id_validate';
-    if (\Drupal::currentUser()->isAnonymous()) $form['#validate'][] = 'afrikaburn_registration_mail_validate';
+    $form['#validate'][] = 'afrikaburn_bio_user_id_validate';
+    if (\Drupal::currentUser()->isAnonymous()) $form['#validate'][] = 'afrikaburn_bio_mail_validate';
   }
 
   // Add Updated flag to new and updated accounts
-  $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_updated';
+  $form['actions']['submit']['#submit'][] = 'afrikaburn_bio_updated';
 }
 
 
@@ -68,7 +69,7 @@ function afrikaburn_registration_form_user_form_alter(&$form, $form_state, $form
 /**
  * Flag accounts edited by their owners as updated.
  */
-function afrikaburn_registration_updated($form, &$form_state){
+function afrikaburn_bio_updated($form, &$form_state){
 
   $updated = $form_state->getFormObject()->getEntity();
   $updated_id = $updated->id();
@@ -93,7 +94,7 @@ function afrikaburn_registration_updated($form, &$form_state){
 /**
  * ID number validation
  */
-function afrikaburn_registration_user_id_validate($form, &$form_state) {
+function afrikaburn_bio_user_id_validate($form, &$form_state) {
 
   $id = $form_state->getValue('field_id_number')[0]['value'];
   if (isset($id)) {
@@ -144,7 +145,7 @@ function afrikaburn_registration_user_id_validate($form, &$form_state) {
 /**
  * Email retype validation
  */
-function afrikaburn_registration_mail_validate($form, &$form_state) {
+function afrikaburn_bio_mail_validate($form, &$form_state) {
 
   $mail = $form_state->getValue('mail');
   $retype = $form_state->getValue('field_email_retype')[0]['value'];
@@ -160,14 +161,14 @@ function afrikaburn_registration_mail_validate($form, &$form_state) {
 
 
 /**
- * User registration form.
+ * User bio form.
  */
-function afrikaburn_registration_new_quicket($form, &$form_state) {
+function afrikaburn_bio_new_quicket($form, &$form_state) {
 
   $values = $form_state->getValues();
   $user = \Drupal\user\Entity\User::load($form_state->getValues()['uid']);
 
-  module_load_include('inc', 'afrikaburn_registration', 'includes/quicket');
+  module_load_include('inc', 'afrikaburn_bio', 'includes/quicket');
   $quicket = _quicket(
     'POST',
     isset($values['field_id_number']) ? $values['field_id_number'][0]['value']: NULL,
@@ -183,7 +184,7 @@ function afrikaburn_registration_new_quicket($form, &$form_state) {
 /**
  * User edit submission handler.
  */
-function afrikaburn_registration_update_quicket($form, &$form_state) {
+function afrikaburn_bio_update_quicket($form, &$form_state) {
 
   $values = $form_state->getValues();
   $user = \Drupal\user\Entity\User::load($form_state->getValues()['uid']);
@@ -197,7 +198,7 @@ function afrikaburn_registration_update_quicket($form, &$form_state) {
     'kids' => isset($values['field_kids']) ? $values['field_kids'][0]['value'] : 0,
   ];
 
-  module_load_include('inc', 'afrikaburn_registration', 'includes/quicket');
+  module_load_include('inc', 'afrikaburn_bio', 'includes/quicket');
   $quicket = _quicket(
     'PUT',
     $new['id'],
