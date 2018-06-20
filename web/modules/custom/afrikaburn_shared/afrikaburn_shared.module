@@ -24,3 +24,16 @@ function afrikaburn_shared_page_attachments(array &$page) {
   $page['#attached']['library'][] = 'afrikaburn_shared/shared';
   $page['#attached']['library'][] = 'afrikaburn_shared/wizard';
 }
+
+function afrikaburn_shared_mail_alter(&$message){
+
+  $body = &$message['body'][0];
+
+  if (strpos($body, '[registration]') !== FALSE){
+    $node = \Drupal::routeMatch()->getParameter('node');
+    $rendered = node_view($node, 'mail');
+    dpm($rendered);
+    $body = str_replace('[registration]', $rendered, $body);
+  }
+
+}
