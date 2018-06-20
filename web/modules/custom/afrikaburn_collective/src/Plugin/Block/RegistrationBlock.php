@@ -1,19 +1,19 @@
 <?php
 
-namespace Drupal\afrikaburn_shared\Plugin\Block;
+namespace Drupal\afrikaburn_collective\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 
 /**
- * Provides a 'Hello' Block.
+ * Provides a 'Registration' Block.
  *
  * @Block(
- *   id = "project_block",
- *   admin_label = @Translation("Project Block"),
- *   category = @Translation("Project Block"),
+ *   id = "registration_block",
+ *   admin_label = @Translation("Registration Block"),
+ *   category = @Translation("Registration Block"),
  * )
  */
-class ProjectBlock extends BlockBase {
+class RegistrationBlock extends BlockBase {
 
   /**
    * {@inheritdoc}
@@ -26,7 +26,7 @@ class ProjectBlock extends BlockBase {
       ? $collective->id()
       : FALSE;
 
-    return $cid && \Drupal::service('access_manager')->checkNamedRoute('afrikaburn_shared.admin', ['cid' => $cid], $user)
+    return $cid && \Drupal::service('access_manager')->checkNamedRoute('afrikaburn_collective.admin', ['cid' => $cid], $user)
       ? [
         '#type' => 'markup',
         '#markup' => '

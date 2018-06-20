@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains afrikaburn_shared form utilities
+ * Contains afrikaburn_collective form utilities
  */
 
 /**

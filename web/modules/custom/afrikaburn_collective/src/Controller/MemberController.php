@@ -1,10 +1,10 @@
 <?php
 /**
  * @file
- * Contains \Drupal\afrikaburn_shared\MemberController.
+ * Contains \Drupal\afrikaburn_collective\MemberController.
  */
 
-namespace Drupal\afrikaburn_shared\Controller;
+namespace Drupal\afrikaburn_collective\Controller;
 
 
 use Drupal\Core\Controller\ControllerBase;
@@ -148,15 +148,15 @@ class MemberController extends ControllerBase {
 
       drupal_set_message(
         t(
-          '%user has been booted from %collective', 
+          '%user has been booted from %collective',
           [
-              '%user' => $user->getUsername(), 
+              '%user' => $user->getUsername(),
               '%collective' => $collective->getTitle(),
           ]
         ),
         'status',
         TRUE
-      );      
+      );
     } else {
       drupal_set_message(
         t('You cannot boot the owner of a collective!'),
@@ -185,9 +185,9 @@ class MemberController extends ControllerBase {
 
     drupal_set_message(
       t(
-        '%user is now an administrator of %collective', 
+        '%user is now an administrator of %collective',
         [
-            '%user' => $user->getUsername(), 
+            '%user' => $user->getUsername(),
             '%collective' => $collective->getTitle(),
         ]
       ),
@@ -214,7 +214,7 @@ class MemberController extends ControllerBase {
   // Remove email address(es) from invites
   private static function removeFromInvites($inviteIndexes, $collective) {
     foreach(array_reverse($inviteIndexes) as $index){
-      $collective->get('field_col_invitee')->removeItem($index);    
+      $collective->get('field_col_invitee')->removeItem($index);
     }
   }
 
@@ -228,7 +228,7 @@ class MemberController extends ControllerBase {
   // Remove user from members
   private static function removeFromMembers($memberIndexes, $collective) {
     if (count($memberIndexes)){
-      $collective->get('field_col_members')->removeItem(array_reverse($memberIndexes)[0]);    
+      $collective->get('field_col_members')->removeItem(array_reverse($memberIndexes)[0]);
     }
   }
 
@@ -242,7 +242,7 @@ class MemberController extends ControllerBase {
   // Remove user from Admins
   private static function removeFromAdmins($memberIndexes, $collective) {
     if (count($memberIndexes)){
-      $collective->get('field_col_admins')->removeItem(array_reverse($memberIndexes)[0]);    
+      $collective->get('field_col_admins')->removeItem(array_reverse($memberIndexes)[0]);
     }
   }
 
