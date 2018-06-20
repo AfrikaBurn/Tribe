@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - afrikaburn_shared
+    - afrikaburn_collective
     - ctools
     - node
     - php
@@ -13,7 +13,7 @@ dependencies:
 id: membersblock
 theme: afrikaburn
 region: sidebar
-weight: -21
+weight: -19
 provider: null
 plugin: members_block
 settings:

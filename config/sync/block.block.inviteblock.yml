@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   module:
-    - afrikaburn_shared
+    - afrikaburn_collective
     - ctools
     - node
     - php
@@ -12,7 +12,7 @@ dependencies:
 id: inviteblock
 theme: afrikaburn
 region: sidebar
-weight: -20
+weight: -18
 provider: null
 plugin: invite_block
 settings:

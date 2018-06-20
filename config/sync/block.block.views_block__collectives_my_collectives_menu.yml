@@ -1,6 +1,6 @@
 uuid: 4e0c5395-5262-46d8-bdfb-bee00018fd6a
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.collectives

@@ -1,6 +1,6 @@
 uuid: d1c8e093-c45d-407f-ad16-2dcd708b13f6
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.user_image_for_skin

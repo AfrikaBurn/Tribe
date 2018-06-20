@@ -317,20 +317,7 @@ display:
           tokenize: false
           content: 'Nope... no invites here.'
           plugin_id: text_custom
-      header:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content:
-            value: '<h2>Invitations</h2>'
-            format: full_html
-          plugin_id: text
+      header: {  }
       fields:
         nid:
           id: nid
@@ -512,7 +499,7 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
-      title: ''
+      title: Invitations
       footer:
         area:
           id: area

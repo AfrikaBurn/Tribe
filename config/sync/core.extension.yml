@@ -2,8 +2,9 @@ module:
   action: 0
   admin_toolbar: 0
   admin_toolbar_tools: 0
+  afrikaburn_bio: 0
+  afrikaburn_collective: 0
   afrikaburn_emails: 0
-  afrikaburn_registration: 0
   afrikaburn_shared: 0
   amazon_sns: 0
   anonymizer: 0
@@ -21,6 +22,7 @@ module:
   clamav: 0
   clientside_validation: 0
   clientside_validation_jquery: 0
+  collapsiblock: 0
   color: 0
   comment: 0
   computed_field: 0
@@ -103,6 +105,7 @@ module:
   responsive_image: 0
   rest: 0
   restui: 0
+  rules: 0
   search: 0
   serialization: 0
   settings_tray: 0
