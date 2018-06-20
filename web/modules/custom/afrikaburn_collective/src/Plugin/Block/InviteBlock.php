@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\afrikaburn_shared\Plugin\Block;
+namespace Drupal\afrikaburn_collective\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 
@@ -23,11 +23,11 @@ class InviteBlock extends BlockBase {
     $user = \Drupal::currentUser();
     $collective = \Drupal::routeMatch()->getParameter('node');
 
-    return $collective && \Drupal::service('access_manager')->checkNamedRoute('afrikaburn_shared.invite', ['cid' => $collective->id()], $user)
+    return $collective && \Drupal::service('access_manager')->checkNamedRoute('afrikaburn_collective.invite', ['cid' => $collective->id()], $user)
       ? [
         '#type' => 'form',
         '#action' => '/collective/' . $collective->id() . '/invite',
-        
+
         'emails' => [
           '#type' => 'textfield',
           '#attributes' => [
@@ -45,7 +45,7 @@ class InviteBlock extends BlockBase {
         '#cache' => [
           'max-age' => 0,
         ],
-      ] 
+      ]
       : [
         '#cache' => [
           'max-age' => 0,

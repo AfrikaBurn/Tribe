@@ -1,3 +1,19 @@
+.collapsiblock a h2:after{
+    background: url(../images/up.png) no-repeat;
+    background-size: contain;
+    color: transparent;
+    content: ".";
+    display: block;
+    width: 1.5em;
+    height: 1.5em;
+    float: right;
+}
+
+.collapsiblock.collapsiblockCollapsed a h2:after{
+  background-image: url(../images/down.png);
+}
+
+
 /* 10 June 2018 Collective menu */
 
 .view-id-anouncements .views-field-edit-node{

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\afrikaburn_shared\Plugin\Block;
+namespace Drupal\afrikaburn_collective\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 
@@ -27,7 +27,7 @@ class MembersBlock extends BlockBase {
       ? [
         '#type' => 'view',
         '#name' => 'collective_members',
-        '#display_id' => \Drupal::service('access_manager')->checkNamedRoute('afrikaburn_shared.admin', ['cid' => $collective->id()], $user) 
+        '#display_id' => \Drupal::service('access_manager')->checkNamedRoute('afrikaburn_collective.admin', ['cid' => $collective->id()], $user)
           ? 'admin_block'
           : 'members_block',
         '#cache' => [

@@ -49,7 +49,7 @@ class TicketBlock extends BlockBase {
 
     return [
       '#type' => 'markup',
-      '#markup' => '<h2>Tickets</h2>' . implode($links, '<br />'),
+      '#markup' => implode($links, '<br />'),
       '#cache' => [
         'max-age' => 0,
       ]

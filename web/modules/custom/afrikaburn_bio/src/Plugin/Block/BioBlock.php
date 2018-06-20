@@ -48,7 +48,7 @@ class BioBlock extends BlockBase {
 
     return [
       '#type' => 'markup',
-      '#markup' => '<h2>My Bio</h2>' . implode($items, '<br />'),
+      '#markup' => implode($items, '<br />'),
       '#cache' => [
         'max-age' => 0,
       ]

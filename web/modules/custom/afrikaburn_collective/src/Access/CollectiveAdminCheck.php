@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Contains Collective Member access checking.
+ * Contains Collective Admin access checking.
  */
 
-namespace Drupal\afrikaburn_shared\Access;
+namespace Drupal\afrikaburn_collective\Access;
 
 use Drupal\Core\Routing\Access\AccessInterface;
 use Symfony\Component\Routing\Route;
@@ -15,12 +15,12 @@ use Drupal\Core\Access\AccessResult;
 use \Drupal\user\Entity\User;
 
 /**
- * Checks Collective Member access.
+ * Checks Collective Admin access.
  */
-class CollectiveMemberCheck implements AccessInterface {
+class CollectiveAdminCheck implements AccessInterface {
 
   public function appliesTo() {
-    return '_is_collective_member';
+    return '_is_collective_admin';
   }
 
   /**
@@ -29,28 +29,34 @@ class CollectiveMemberCheck implements AccessInterface {
   public function access(AccountInterface $account) {
 
     static $user;
-    $user = isset($user) ? $user : User::load(\Drupal::currentUser()->id());
+    $uid = \Drupal::currentUser()->id();
+    $user = isset($user) ? $user : User::load($uid);
     $node = \Drupal::routeMatch()->getParameter('node');
     $bundle = $node ? $node->bundle() : FALSE;
 
     $roles = [
-      'art' => 'art_wrangler', 
-      'performances' => 'art_wrangler',
-      'mutant_vehicles' => 'mutant_vehicle_wrangler',
-      'theme_camps' => 'theme_camp_wrangler',
+      'art' => 'art_admin',
+      'performances' => 'art_admin',
+      'mutant_vehicles' => 'mutant_vehicle_admin',
+      'theme_camps' => 'theme_camp_admin',
     ];
 
     if ($node && in_array($bundle, array_keys($roles))){
       $field_collective = $node->get('field_collective');
       if ($field_collective) {
         $collective = $field_collective->first()->get('entity')->getTarget();
-        return AccessResult::allowedIf($this->isMember($collective) || $user->hasRole('administrator') || $user->hasRole($roles[$bundle]));
+        return AccessResult::allowedIf($this->isAdmin($uid, $collective) || $user->hasRole('administrator'));
       }
       return AccessResult::allowedIf($user->hasRole('administrator'));
     }
 
     if ($bundle == 'collective') {
-      return AccessResult::allowedIf($this->isMember($node) || $user->hasRole('administrator'));
+      return AccessResult::allowedIf($this->isAdmin($uid, $node) || $user->hasRole('administrator') || $user->hasRole($roles[$bundle]));
+    }
+
+    if ( ($cid = \Drupal::routeMatch()->getParameter('cid')) && (\Drupal::routeMatch()->getParameter('uid')) ){
+      $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+      return AccessResult::allowedIf($this->isAdmin($uid, $collective));
     }
 
     return AccessResult::allowedIf(TRUE);
@@ -59,16 +65,16 @@ class CollectiveMemberCheck implements AccessInterface {
   /**
    * Checks whether the current user is an admin
    */
-  private function isMember($collective){
-    $uid = \Drupal::currentUser()->id();
+  private function isAdmin($uid, $collective){
     $admins = $collective
-      ->get('field_col_members')
-      ->referencedEntities();    
+      ->get('field_col_admins')
+      ->referencedEntities();
     foreach ($admins as $admin) {
       if ($admin->id() == $uid){
-        return TRUE;          
+        return TRUE;
       }
     }
     return FALSE;
   }
+
 }

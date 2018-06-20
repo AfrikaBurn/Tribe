@@ -116,3 +116,25 @@ article.profile .field--name-user-picture,
 .captcha .details-description{
   display: none;
 }
+
+.field--name-field-links .tableresponsive-toggle-columns{
+  display: none;
+}
+
+.field--name-field-links .form-type-url input,
+.field--name-field-links .form-type-url .description{
+  flex-basis: 100%;
+}
+
+.field--name-user-picture{
+  margin-bottom: 1em;
+}
+
+#edit-pass .description{
+  height: auto;
+  visibility: visible;
+}
+
+#edit-pass .password-suggestions{
+  border: none;
+}

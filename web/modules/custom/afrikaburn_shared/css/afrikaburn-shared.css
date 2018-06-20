@@ -2,28 +2,6 @@
   color: #450B05;
 }
 
-.field--name-field-links .tableresponsive-toggle-columns{
-  display: none;
-}
-
-.field--name-field-links .form-type-url input,
-.field--name-field-links .form-type-url .description{
-  flex-basis: 100%;
-}
-
-.field--name-user-picture{
-  margin-bottom: 1em;
-}
-
-#edit-pass .description{
-  height: auto;
-  visibility: visible;
-}
-
-#edit-pass .password-suggestions{
-  border: none;
-}
-
 body .horizontal-tabs,
 body .horizontal-tabs .horizontal-tabs-list,
 body .horizontal-tabs .horizontal-tabs-list li,
@@ -47,7 +25,7 @@ body .horizontal-tabs .horizontal-tabs-list:after{
   color: transparent;
   visibility: hidden;
   height: 0;
-  display: block; 
+  display: block;
   clear: both;
 }
 

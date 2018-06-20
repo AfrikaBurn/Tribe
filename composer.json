@@ -83,6 +83,7 @@
         "drupal/recaptcha": "^2.3",
         "drupal/redirect": "^1.2",
         "drupal/restui": "^1.15",
+        "drupal/rules": "^3.0@alpha",
         "drupal/smtp": "^1.0@beta",
         "drupal/swiftmailer": "^1.0@beta",
         "drupal/taxonomy_manager": "^1.0@alpha",
@@ -113,7 +114,10 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "platform": {
+          "php": "7.2"
+        }
     },
     "autoload": {
         "classmap": [

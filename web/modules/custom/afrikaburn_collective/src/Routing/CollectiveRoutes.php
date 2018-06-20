@@ -2,10 +2,10 @@
 
 /**
  * @file
- * Contains Afrikaburn Shared module.
+ * Contains Afrikaburn Collective Routes.
  */
 
-namespace Drupal\afrikaburn_shared\Routing;
+namespace Drupal\afrikaburn_collective\Routing;
 
 use Drupal\Core\Routing\RouteSubscriberBase;
 use Symfony\Component\Routing\RouteCollection;
@@ -13,14 +13,12 @@ use Symfony\Component\Routing\RouteCollection;
 /**
  * Listens to the dynamic route events.
  */
-class RegistrationRoutes extends RouteSubscriberBase {
+class CollectiveRoutes extends RouteSubscriberBase {
 
   /**
    * {@inheritdoc}
    */
   protected function alterRoutes(RouteCollection $collection) {
-
-    // dpm($collection);
 
     // Node views
     if ($route = $collection->get('entity.node.canonical')) {

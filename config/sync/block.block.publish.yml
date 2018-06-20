@@ -5,19 +5,24 @@ dependencies:
   config:
     - system.menu.publish
   module:
+    - collapsiblock
+    - php
     - system
     - user
   theme:
     - afrikaburn
+third_party_settings:
+  collapsiblock:
+    collapse_action: '4'
 id: publish
 theme: afrikaburn
 region: sidebar
-weight: -18
+weight: -20
 provider: null
 plugin: 'system_menu_block:publish'
 settings:
   id: 'system_menu_block:publish'
-  label: Publish
+  label: Publishing
   provider: system
   label_display: visible
   level: 1
@@ -32,3 +37,8 @@ visibility:
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
+  php:
+    id: php
+    negate: false
+    php: '<?php return true; ?>'
+    context_mapping: {  }

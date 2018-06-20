@@ -1,9 +1,10 @@
-uuid: 39f9232c-0346-47d9-9b6f-33d7a2f7083e
+uuid: ddedab0a-62d2-485d-bb38-c3802e4c7e04
 langcode: en
 status: true
 dependencies:
   module:
-    - afrikaburn_registration
+    - afrikaburn_bio
+    - php
     - user
   theme:
     - afrikaburn
@@ -15,10 +16,15 @@ provider: null
 plugin: bio_block
 settings:
   id: bio_block
-  label: 'Bio Block'
-  provider: afrikaburn_registration
-  label_display: '0'
+  label: 'My Bio'
+  provider: afrikaburn_bio
+  label_display: visible
 visibility:
+  php:
+    id: php
+    negate: false
+    php: '<?php return TRUE; ?>'
+    context_mapping: {  }
   user_role:
     id: user_role
     roles:

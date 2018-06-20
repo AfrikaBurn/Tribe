@@ -1,9 +1,10 @@
-uuid: dea574ed-9614-4d51-83b9-a3382297603c
+uuid: 437dc978-2fb8-4f85-bd43-a2bb132f11cc
 langcode: en
 status: true
 dependencies:
   module:
-    - afrikaburn_registration
+    - afrikaburn_bio
+    - php
     - user
   theme:
     - afrikaburn
@@ -15,10 +16,15 @@ provider: null
 plugin: ticket_block
 settings:
   id: ticket_block
-  label: 'Ticket Block'
-  provider: afrikaburn_registration
-  label_display: '0'
+  label: Tickets
+  provider: afrikaburn_bio
+  label_display: visible
 visibility:
+  php:
+    id: php
+    negate: false
+    php: '<?php return TRUE; ?>'
+    context_mapping: {  }
   user_role:
     id: user_role
     roles:
