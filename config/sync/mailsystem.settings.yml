@@ -1,14 +1,11 @@
 theme: afrikaburn
 defaults:
-  sender: php_mail
+  sender: swiftmailer
   formatter: swiftmailer
 _core:
   default_config_hash: IhwTepsVwtbtbcT5GzQKhCXDCRvbk3MNkWqPiuiZ10s
 modules:
-  swiftmailer:
-    none:
-      formatter: swiftmailer
-      sender: SMTPMailSystem
+  swiftmailer: {  }
   afrikaburn_emails:
     ab_notification:
       formatter: swiftmailer
