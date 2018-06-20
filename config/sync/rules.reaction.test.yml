@@ -1,0 +1,15 @@
+uuid: 2f3e5a13-f046-43bb-8829-74db15fb0d26
+langcode: en
+status: true
+dependencies: {  }
+id: test
+label: Test
+events:
+  -
+    event_name: 'rules_entity_update:node'
+description: ''
+tags:
+  - ''
+config_version: '3'
+expression:
+  id: rules_rule
