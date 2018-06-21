@@ -31,9 +31,13 @@ function afrikaburn_shared_mail_alter(&$message){
 
   if (strpos($body, '[registration]') !== FALSE){
     $node = \Drupal::routeMatch()->getParameter('node');
-    $rendered = node_view($node, 'mail');
-    dpm($rendered);
+    $rendered = drupal_render(node_view($node, 'mail'));
     $body = str_replace('[registration]', $rendered, $body);
   }
 
+}
+
+
+function afrikaburn_shared__theme_suggestions_field_alter(&$suggestions, $variables) {
+  $suggestions[] = 'field__' . $variables['element']['#view_mode'];
 }
