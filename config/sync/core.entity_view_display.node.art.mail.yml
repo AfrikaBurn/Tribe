@@ -1,9 +1,10 @@
-uuid: 69c5c5bf-20f3-4f0e-85b5-8a90bb141faf
+uuid: ce8ab703-ec18-44ae-8e56-735acebffd82
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_display.comment.comment.default
+    - core.entity_view_mode.node.mail
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_form_mode
@@ -449,10 +450,10 @@ third_party_settings:
       region: hidden
 _core:
   default_config_hash: F2XD_eUMlwsnh64FXbom-cxJT8e3efAGLdsgfXOFMac
-id: node.art.default
+id: node.art.mail
 targetEntityType: node
 bundle: art
-mode: default
+mode: mail
 content:
   field_collective:
     type: entity_reference_label
