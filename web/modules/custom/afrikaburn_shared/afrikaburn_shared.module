@@ -37,7 +37,6 @@ function afrikaburn_shared_mail_alter(&$message){
 
 }
 
-
-function afrikaburn_shared__theme_suggestions_field_alter(&$suggestions, $variables) {
+function afrikaburn_shared_theme_suggestions_field_alter(&$suggestions, $variables) {
   $suggestions[] = 'field__' . $variables['element']['#view_mode'];
 }

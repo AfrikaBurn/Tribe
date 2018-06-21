@@ -1,9 +1,9 @@
-uuid: db432c65-421b-4d75-a557-10b7f61898d2
+uuid: dc51fa43-1812-4c66-9639-77c14c55f24f
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.node.art_form_1
+    - core.entity_form_mode.node.form_1
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_form_mode
@@ -156,7 +156,6 @@ third_party_settings:
   field_group:
     group_overview:
       children:
-        - title
         - field_prj_gen_contact
         - field_prj_gen_manager
         - field_prj_gen_lead
@@ -166,27 +165,27 @@ third_party_settings:
         - field_prj_gen_history
         - field_prj_gen_fundraising
         - field_prj_gen_fundraiser
-      parent_name: group_project_registration
-      weight: 7
-      format_type: accordion_item
+      parent_name: group_root
+      weight: 20
+      format_type: tab
       format_settings:
         id: ''
         classes: ''
-        formatter: open
+        formatter: closed
         description: ''
         required_fields: true
       label: Overview
-      region: content
     group_the_project:
       children:
+        - title
         - field_prj_gen_description
         - field_prj_gen_story
         - field_prj_gen_concept
         - field_prj_gen_doc
         - field_prj_gen_immortal
-      parent_name: group_project_registration
-      weight: 8
-      format_type: accordion_item
+      parent_name: group_root
+      weight: 20
+      format_type: tab
       format_settings:
         id: ''
         classes: ''
@@ -194,14 +193,13 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'The Project'
-      region: content
     group_the_structure:
       children:
         - group_dimensions
         - group_building_transport_install
-      parent_name: group_project_registration
+      parent_name: group_root
       weight: 9
-      format_type: accordion_item
+      format_type: tab
       format_settings:
         id: ''
         classes: ''
@@ -220,15 +218,15 @@ third_party_settings:
         - field_prj_stc_safety
         - field_prj_stc_structural
       parent_name: group_the_structure
-      weight: 80
-      format_type: fieldset
+      weight: 20
+      format_type: tab
       format_settings:
         id: ''
         classes: ''
+        formatter: closed
         description: ''
         required_fields: true
       label: Dimensions
-      region: content
     group_building_transport_install:
       children:
         - group_offsite_building
@@ -276,9 +274,9 @@ third_party_settings:
       children:
         - field_prj_lgh_f1
         - field_prj_lgh_f2
-      parent_name: group_project_registration
+      parent_name: group_root
       weight: 10
-      format_type: accordion_item
+      format_type: tab
       format_settings:
         id: ''
         classes: ''
@@ -292,9 +290,9 @@ third_party_settings:
         - field_prj_snd_f1
         - field_prj_snd_sound
         - field_prj_snd_level
-      parent_name: group_project_registration
+      parent_name: group_root
       weight: 12
-      format_type: accordion_item
+      format_type: tab
       format_settings:
         id: ''
         classes: ''
@@ -308,9 +306,9 @@ third_party_settings:
         - field_prj_lnt_handled
         - field_prj_lnt_historic
         - field_prj_lnt_representative
-      parent_name: group_project_registration
+      parent_name: group_root
       weight: 13
-      format_type: accordion_item
+      format_type: tab
       format_settings:
         label: 'Leave No Trace'
         formatter: closed
@@ -325,9 +323,9 @@ third_party_settings:
         - field_prj_oth_relationship
         - field_prj_oth_other
         - field_prj_oth_grant
-      parent_name: group_project_registration
+      parent_name: group_root
       weight: 15
-      format_type: accordion_item
+      format_type: tab
       format_settings:
         id: ''
         classes: ''
@@ -342,9 +340,9 @@ third_party_settings:
         - field_prj_brn_burning
         - field_prj_brn_motivation
         - field_prj_brn_f1
-      parent_name: group_project_registration
+      parent_name: group_root
       weight: 11
-      format_type: accordion_item
+      format_type: tab
       format_settings:
         id: ''
         classes: ''
@@ -354,18 +352,9 @@ third_party_settings:
       label: Burn
       region: content
     group_project_registration:
-      children:
-        - group_overview
-        - group_the_project
-        - group_the_structure
-        - group_lighting
-        - group_burn
-        - group_sound
-        - group_moop
-        - group_community_and_collaboratio
-        - group_other
+      children: {  }
       parent_name: ''
-      weight: 7
+      weight: 8
       format_type: accordion
       format_settings:
         id: ''
@@ -380,9 +369,9 @@ third_party_settings:
         - field_prj_wtf_image
         - field_prj_wtf_website
         - field_prj_cll_contact
-      parent_name: group_project_registration
+      parent_name: group_root
       weight: 14
-      format_type: accordion_item
+      format_type: tab
       format_settings:
         id: ''
         classes: ''
@@ -390,12 +379,32 @@ third_party_settings:
         required_fields: true
         description: ''
       label: "Community and collaboration\t"
+    group_root:
+      children:
+        - group_the_structure
+        - group_lighting
+        - group_burn
+        - group_sound
+        - group_moop
+        - group_community_and_collaboratio
+        - group_other
+        - group_overview
+        - group_the_project
+      parent_name: ''
+      weight: 7
+      format_type: tabs
+      format_settings:
+        label: Root
+        direction: horizontal
+        id: ''
+        classes: js-wizard
+      label: Root
 _core:
   default_config_hash: ehnjrE-MS25SZlH5syS8NpyAb0kWLGl88OywWqUiYwM
-id: node.art.art_form_1
+id: node.art.form_1
 targetEntityType: node
 bundle: art
-mode: art_form_1
+mode: form_1
 content:
   field_collective:
     type: options_select
@@ -423,6 +432,12 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_adm_wrangler:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_prj_brn_burning:
     type: boolean_checkbox
     weight: 3
@@ -538,7 +553,7 @@ content:
     third_party_settings: {  }
   field_prj_gen_concept:
     type: image_image
-    weight: 2
+    weight: 10
     region: content
     settings:
       progress_indicator: throbber
@@ -552,7 +567,7 @@ content:
     third_party_settings: {  }
   field_prj_gen_description:
     type: string_textarea
-    weight: 0
+    weight: 8
     region: content
     settings:
       rows: 5
@@ -560,7 +575,7 @@ content:
     third_party_settings: {  }
   field_prj_gen_doc:
     type: file_generic
-    weight: 3
+    weight: 11
     region: content
     settings:
       progress_indicator: throbber
@@ -605,7 +620,7 @@ content:
     third_party_settings: {  }
   field_prj_gen_immortal:
     type: string_textarea
-    weight: 4
+    weight: 12
     region: content
     settings:
       rows: 5
@@ -634,7 +649,7 @@ content:
     third_party_settings: {  }
   field_prj_gen_story:
     type: string_textarea
-    weight: 1
+    weight: 9
     region: content
     settings:
       rows: 5
@@ -975,7 +990,6 @@ hidden:
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
   field_prj_adm_review: true
-  field_prj_adm_wrangler: true
   field_prj_brn_agree: true
   field_prj_brn_desc: true
   field_prj_brn_perimeter: true
