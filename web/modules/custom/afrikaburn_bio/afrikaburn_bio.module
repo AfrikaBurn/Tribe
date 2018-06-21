@@ -78,15 +78,18 @@ function afrikaburn_bio_updated($form, &$form_state){
   $updated_id = $updated->id();
   $editor_id = \Drupal::currentUser()->id();
 
-  if ($updated_id == $editor_id){
+  if ($updated_id == $editor_id || $editor_id == 0){
     $flag_service = \Drupal::service('flag');
     $flag = $flag_service->getFlagById('updated');
 
     if (!$flag_service->getFlagging($flag, $updated)){
-      $flag_service->flag($flag, $updated);
+      $flagging = $flag_service->flag($flag, $updated, $updated);
+      $flagged = $flag_service->getFlagging($flag, $updated, $updated);
     }
 
-    drupal_set_message('Thank you for keeping your information up to date!', 'status', true);
+    if ($editor_id != 0) {
+      drupal_set_message('Thank you for keeping your information up to date!', 'status', true);
+    }
   }
 }
 
