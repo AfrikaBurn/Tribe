@@ -1,10 +1,10 @@
-uuid: dc399452-0c5e-434e-823c-d6a1ad470d28
+uuid: d833e759-0991-4eea-9a41-6c6c8f157bc4
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.art_form_1
-label: 'Art Form 1'
+id: node.form_1
+label: 'Form 1'
 targetEntityType: node
 cache: true

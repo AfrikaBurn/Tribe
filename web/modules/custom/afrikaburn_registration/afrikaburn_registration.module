@@ -1,2 +1,7 @@
 <?php
 
+
+function afrikaburn_registration_mail_alter(&$message){
+  dpm($message);
+}
+

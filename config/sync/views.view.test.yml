@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.mail
     - node.type.art
   module:
     - node
@@ -68,17 +69,14 @@ display:
       style:
         type: default
         options:
-          grouping: {  }
           row_class: ''
-          default_row_class: true
+          default_row_class: false
           uses_fields: false
       row:
-        type: fields
+        type: 'entity:node'
         options:
-          inline: {  }
-          separator: ''
-          hide_empty: false
-          default_field_elements: true
+          relationship: none
+          view_mode: mail
       fields:
         title:
           id: title
@@ -164,11 +162,51 @@ display:
           expose:
             label: ''
           granularity: second
-      header: {  }
-      footer: {  }
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: '<pre>'
+          plugin_id: text_custom
+      footer:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: '</pre>'
+          plugin_id: text_custom
       empty: {  }
       relationships: {  }
       arguments: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: Page
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: test
     cache_metadata:
       max-age: -1
       contexts:

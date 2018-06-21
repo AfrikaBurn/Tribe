@@ -129,13 +129,22 @@ function afrikaburn_form_alter(&$form, FormStateInterface $form_state, $form_id)
 
 }
 
-
-function afrikaburn_preprocess_field(&$variables, $hook){
-  // dpm($hook);
-}
-
-
-
-function afrikaburn_theme_suggestions_field_alter(&$suggestions, $variables) {
-  $suggestions[] = 'field__' . $variables['element']['#view_mode'];
+/**
+ * Implements hook_theme_suggestions_alter()
+ */
+function afrikaburn_theme_suggestions_alter(&$suggestions, $variables, $hook) {
+  switch ($hook){
+    case 'field':
+      $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['element']['#view_mode'];
+    break;
+    case 'fieldset':
+      $view_mode = false;
+      foreach($variables['element'] as $key => $child){
+        if ($key[0] != '#') {
+          $view_mode = $child['#view_mode'];
+          if ($view_mode) break;
+        }
+      }
+      $suggestions[] = $variables['theme_hook_original'] . '__' . $view_mode;
+  }
 }

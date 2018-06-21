@@ -173,11 +173,17 @@ third_party_settings:
         - group_admin
       parent_name: ''
       weight: 27
-      format_type: accordion
+      format_type: html_element
       format_settings:
-        effect: none
+        description: ''
         classes: ''
         id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        effect: none
+        speed: fast
+        attributes: ''
       label: Overview
       region: hidden
     group_wrangler_1:
@@ -195,12 +201,13 @@ third_party_settings:
         - field_prj_sup_details_view
       parent_name: group_overview
       weight: 20
-      format_type: accordion_item
+      format_type: fieldset
       format_settings:
         label: Overview
         formatter: open
         id: ''
         classes: ''
+        description: ''
       label: Overview
       region: hidden
     group_wrangler_2:
@@ -212,12 +219,13 @@ third_party_settings:
         - field_prj_gen_immortal
       parent_name: group_overview
       weight: 21
-      format_type: accordion_item
+      format_type: fieldset
       format_settings:
         label: 'The Project'
         formatter: closed
         id: ''
         classes: ''
+        description: ''
       label: 'The Project'
       region: hidden
     group_wrangler_4:
@@ -237,12 +245,13 @@ third_party_settings:
         - field_prj_prp_duration
       parent_name: group_overview
       weight: 23
-      format_type: accordion_item
+      format_type: fieldset
       format_settings:
         label: 'The Structure'
         formatter: closed
         id: ''
         classes: ''
+        description: ''
       label: 'The Structure'
       region: hidden
     group_wrangler_5:
@@ -250,12 +259,13 @@ third_party_settings:
         - field_prj_saf_comment
       parent_name: group_overview
       weight: 22
-      format_type: accordion_item
+      format_type: fieldset
       format_settings:
         label: Safety
         formatter: closed
         id: ''
         classes: ''
+        description: ''
       label: Safety
       region: hidden
     group_placement:
@@ -266,7 +276,7 @@ third_party_settings:
         - field_prj_adm_longitude
       parent_name: group_overview
       weight: 24
-      format_type: accordion_item
+      format_type: fieldset
       format_settings:
         id: ''
         classes: ''
@@ -286,7 +296,7 @@ third_party_settings:
         - field_prj_lgh_agree
       parent_name: group_overview
       weight: 25
-      format_type: accordion_item
+      format_type: fieldset
       format_settings:
         id: ''
         classes: ''
@@ -305,7 +315,7 @@ third_party_settings:
         - field_prj_snd_comment
       parent_name: group_overview
       weight: 27
-      format_type: accordion_item
+      format_type: fieldset
       format_settings:
         id: ''
         classes: ''
@@ -328,7 +338,7 @@ third_party_settings:
         - field_prj_brn_time_adm
       parent_name: group_overview
       weight: 26
-      format_type: accordion_item
+      format_type: fieldset
       format_settings:
         id: ''
         classes: ''
@@ -351,12 +361,13 @@ third_party_settings:
         - field_prj_lnt_publish
       parent_name: group_overview
       weight: 28
-      format_type: accordion_item
+      format_type: fieldset
       format_settings:
         label: 'Leave No Trace'
         formatter: closed
         id: ''
         classes: ''
+        description: ''
       label: 'Leave No Trace'
       region: hidden
     group_wtf_guide_and_community:
@@ -378,7 +389,7 @@ third_party_settings:
         - field_prj_stg_tread
       parent_name: group_overview
       weight: 29
-      format_type: accordion_item
+      format_type: fieldset
       format_settings:
         id: ''
         classes: ''
@@ -395,7 +406,7 @@ third_party_settings:
         - field_grt_art_apply
       parent_name: group_overview
       weight: 30
-      format_type: accordion_item
+      format_type: fieldset
       format_settings:
         id: ''
         classes: ''
@@ -414,7 +425,7 @@ third_party_settings:
         - field_prj_adm_ranger_comment
       parent_name: group_overview
       weight: 32
-      format_type: accordion_item
+      format_type: fieldset
       format_settings:
         id: ''
         classes: ''
@@ -439,7 +450,7 @@ third_party_settings:
         - field_grt_tec_comment
       parent_name: group_overview
       weight: 31
-      format_type: accordion_item
+      format_type: fieldset
       format_settings:
         id: ''
         classes: ''
