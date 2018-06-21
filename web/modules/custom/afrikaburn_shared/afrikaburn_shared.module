@@ -24,19 +24,3 @@ function afrikaburn_shared_page_attachments(array &$page) {
   $page['#attached']['library'][] = 'afrikaburn_shared/shared';
   $page['#attached']['library'][] = 'afrikaburn_shared/wizard';
 }
-
-function afrikaburn_shared_mail_alter(&$message){
-
-  $body = &$message['body'][0];
-
-  if (strpos($body, '[registration]') !== FALSE){
-    $node = \Drupal::routeMatch()->getParameter('node');
-    $rendered = drupal_render(node_view($node, 'mail'));
-    $body = str_replace('[registration]', $rendered, $body);
-  }
-
-}
-
-function afrikaburn_shared_theme_suggestions_field_alter(&$suggestions, $variables) {
-  $suggestions[] = 'field__' . $variables['element']['#view_mode'];
-}
