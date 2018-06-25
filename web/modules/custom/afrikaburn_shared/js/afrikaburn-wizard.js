@@ -51,7 +51,7 @@
             this.panels.length +
             '</div>'
           )
-          $(this.tabs[index]).find('a .summary').html(index)
+          $(this.tabs[index]).find('a .summary').html(index + 1)
         }
   	  )
     }
