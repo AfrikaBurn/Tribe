@@ -94,3 +94,12 @@ bundles:
       notes: ''
       bundle: art
       name: field_prj_oth_grant
+  theme_camps:
+    field_prj_est_camp_population:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: theme_camps
+      name: field_prj_est_camp_population

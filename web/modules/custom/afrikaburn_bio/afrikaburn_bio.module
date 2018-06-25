@@ -39,7 +39,7 @@ function afrikaburn_bio_form_user_form_alter(&$form, $form_state, $form_id){
     break;
     case 'user_register_form':
       $form['#title'] = 'Create a Bio';
-      $form['actions']['submit']['#submit'][] = 'afrikaburn_bio_new_quicket';
+      $form['actions']['submit']['#submit'][] = 'afrikaburn_bio_update_quicket';
       $form['#attached']['library'][] = 'afrikaburn_bio/registration';
       break;
   }
@@ -78,15 +78,18 @@ function afrikaburn_bio_updated($form, &$form_state){
   $updated_id = $updated->id();
   $editor_id = \Drupal::currentUser()->id();
 
-  if ($updated_id == $editor_id){
+  if ($updated_id == $editor_id || $editor_id == 0){
     $flag_service = \Drupal::service('flag');
     $flag = $flag_service->getFlagById('updated');
 
     if (!$flag_service->getFlagging($flag, $updated)){
-      $flag_service->flag($flag, $updated);
+      $flagging = $flag_service->flag($flag, $updated, $updated);
+      $flagged = $flag_service->getFlagging($flag, $updated, $updated);
     }
 
-    drupal_set_message('Thank you for keeping your information up to date!', 'status', true);
+    if ($editor_id != 0) {
+      drupal_set_message('Thank you for keeping your information up to date!', 'status', true);
+    }
   }
 }
 
@@ -164,27 +167,6 @@ function afrikaburn_bio_mail_validate($form, &$form_state) {
 
 
 /**
- * User bio form.
- */
-function afrikaburn_bio_new_quicket($form, &$form_state) {
-
-  $values = $form_state->getValues();
-  $user = \Drupal\user\Entity\User::load($form_state->getValues()['uid']);
-
-  module_load_include('inc', 'afrikaburn_bio', 'includes/quicket');
-  $quicket = _quicket(
-    'POST',
-    isset($values['field_id_number']) ? $values['field_id_number'][0]['value']: NULL,
-    isset($values['field_teens']) ? $values['field_teens'][0]['value']: 0,
-    isset($values['field_kids']) ? $values['field_kids'][0]['value'] : 0
-  );
-
-  $user->field_quicket_code = $quicket['code'];
-  $user->field_quicket_id = $quicket['id'];
-  $user->save();
-}
-
-/**
  * User edit submission handler.
  */
 function afrikaburn_bio_update_quicket($form, &$form_state) {
@@ -197,9 +179,23 @@ function afrikaburn_bio_update_quicket($form, &$form_state) {
 
   $new = [
     'id' => isset($values['field_id_number']) ? $values['field_id_number'][0]['value']: 0,
-    'teens' => isset($values['field_teens']) ? $values['field_teens'][0]['value']: 0,
-    'kids' => isset($values['field_kids']) ? $values['field_kids'][0]['value'] : 0,
+    'teens' => 0,
+    'kids' => 0,
   ];
+
+  foreach($values['field_kids_and_teens'] as $minor) {
+    if (isset($minor['subform'])){
+      $date = $minor['subform']['field_minor_date_of_birth'][0]['value'];
+      if (isset($date)){
+        $age = (time() - $date->getTimestamp()) / 31556926;
+        if ($age < 15) {
+          $new['kids']++;
+        } else {
+          $new['teens']++;
+        }
+      }
+    }
+  }
 
   module_load_include('inc', 'afrikaburn_bio', 'includes/quicket');
   $quicket = _quicket(

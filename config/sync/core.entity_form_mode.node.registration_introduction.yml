@@ -1,0 +1,10 @@
+uuid: b45d78a2-af1c-4a72-9512-0c5b04f5c9b3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.registration_introduction
+label: 'Registration: Introduction'
+targetEntityType: node
+cache: true

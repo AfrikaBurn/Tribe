@@ -28,5 +28,6 @@ permissions:
   - 'create field_secondary_mail'
   - 'display eu cookie compliance popup'
   - 'edit own field_consent_form'
+  - 'flag updated'
   - 'search content'
   - 'use user.register form mode'

@@ -1,27 +1,27 @@
-uuid: 6915af1d-ea24-479e-ac09-d44d4e054529
+uuid: af2282bc-8a7f-48fd-adb5-16434809c7c1
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.collectives
+    - views.view.my_invites
   module:
     - collapsiblock
+    - ctools
     - php
-    - user
     - views
   theme:
     - afrikaburn
 third_party_settings:
   collapsiblock:
-    collapse_action: '3'
-id: views_block__collectives_block_1
+    collapse_action: '2'
+id: my_invites
 theme: afrikaburn
 region: sidebar
-weight: -12
+weight: 0
 provider: null
-plugin: 'views_block:collectives-block_1'
+plugin: 'views_block:my_invites-block'
 settings:
-  id: 'views_block:collectives-block_1'
+  id: 'views_block:my_invites-block'
   label: ''
   provider: views
   label_display: visible
@@ -29,15 +29,15 @@ settings:
   items_per_page: none
   context_mapping: {  }
 visibility:
-  user_role:
-    id: user_role
-    roles:
-      authenticated: authenticated
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
   php:
     id: php
     negate: false
     php: '<?php return true; ?>'
     context_mapping: {  }
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      collective: collective
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

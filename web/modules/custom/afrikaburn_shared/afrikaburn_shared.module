@@ -23,4 +23,5 @@ function afrikaburn_shared_user_login($account){
 function afrikaburn_shared_page_attachments(array &$page) {
   $page['#attached']['library'][] = 'afrikaburn_shared/shared';
   $page['#attached']['library'][] = 'afrikaburn_shared/wizard';
+  $page['#attached']['drupalSettings']['widthBreakpoint'] = 1;
 }

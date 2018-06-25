@@ -13,7 +13,7 @@ dependencies:
     - afrikaburn
 third_party_settings:
   collapsiblock:
-    collapse_action: '4'
+    collapse_action: '2'
 id: wrangle
 theme: afrikaburn
 region: sidebar
@@ -58,4 +58,9 @@ visibility:
     id: php
     negate: false
     php: '<?php return true; ?>'
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: "/node/*/edit\r\n/node/add/*"
+    negate: true
     context_mapping: {  }

@@ -1,2 +1,109 @@
 <?php
+/**
+ * @file: afrikaburn_registration.module
+ */
+
+use \Drupal\user\Entity\User;
+
+
+/* ----- Form alters ----- */
+
+
+// function afrikaburn_registration_mail_alter(&$message){
+//   dpm($message);
+// }
+
+function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
+
+  $defaults = @([
+
+    'node_art_form' => [
+      'mode' => 'add',
+      'title' => 'Register an Artwork',
+    ],
+
+    'node_art_form_1_form' => [
+      'mode' => 'form_1',
+      'title' => 'Register an Artwork',
+    ],
+
+    'node_theme_camps_form' => [
+      'mode' => 'form_1',
+      'title' => 'Register a Theme Camp',
+    ],
+
+    'node_art_form' => [
+      'mode' => 'form_1',
+      'title' => 'Register an Artwork',
+    ],
+
+    'node_performances_form' => [
+      'mode' => 'form_1',
+      'title' => 'Register a Performance',
+    ],
+
+    'node_theme_camps_edit_form' => [
+      'mode' => 'form_1',
+      'title' => 'Updating %title Theme Camp registration',
+    ],
+
+    'node_art_edit_form' => [
+      'mode' => 'form_1',
+      'title' => 'Updating %title Artwork registration',
+    ],
+
+    'node_performances_edit_form' => [
+      'mode' => 'form_1',
+      'title' => 'Updating %title Performance registration',
+    ],
+
+    'node_art_grant_form' => [
+      'mode' => 'form_1',
+      'title' => 'Grant application for %title',
+    ],
+
+    'node_performances_grant_form' => [
+      'mode' => 'form_1',
+      'title' => 'Grant application for %title',
+    ],
+
+  ])[$form_id];
+
+  if ($defaults){
+
+    $user = User::load(\Drupal::currentUser()->id());
+    $registration = \Drupal::routeMatch()->getParameter('node');
+    $cid = \Drupal::request()->query->get('field_collective')
+      ? \Drupal::request()->query->get('field_collective')
+      : $registration->field_collective->getValue()[0]['target_id'];
+    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+
+    // Help lost users
+    if (!$collective) {
+      drupal_set_message('Oops! You really should create an artwork from within a collective', 'warning', true);
+      $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
+      $response->send();
+    }
+
+    // Set title
+    $collective_title = '<div class="subtitle">by the ' . $collective->getTitle() . ' collective</div>';
+    $form['#title'] = [
+      '#type' => 'markup',
+      '#markup' => t(
+        $defaults['title'],
+        ['%title' => $registration ? $registration->getTitle() : '']
+      ) . $collective_title,
+    ];
+
+    // Set defaults
+    $form['field_collective']['widget'][0]['target_id']['#default_value'] = $collective;
+    $form['field_form_mode']['widget'][0]['value']['#default_value'] = $defaults['mode'];
+
+    // Hide fields
+    $form['revision_log']['#access'] = $user->hasRole('administrator');
+    $form['field_form_mode']['#access'] = false;
+    $form['field_collective']['#access'] = $user->hasRole('administrator');
+  }
+}
+
 

@@ -6,31 +6,78 @@
 .js-wizard .horizontal-tabs .horizontal-tabs-list{
   display: flex;
   align-items: stretch;
-  padding: 20px 0;
+  padding: 20px 0 0;
 }
 
-.js-wizard .horizontal-tabs .horizontal-tabs-list li{
-  padding: 0 15px;
+body .js-wizard .horizontal-tabs .horizontal-tabs-list li{
+  background: #000;
+  border: 1px solid #000;
+  border-radius: 10px;
+  padding: 0;
+  margin: 0 15px 0 0;
+  min-width: 65px;
+  position: relative;
+}
+
+body .js-wizard .horizontal-tabs .horizontal-tabs-list li:after{
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid black;
+  content: '.';
+  display: block;
+  color: transparent;
+  position: absolute;
+  top: 50%;
+  margin-top: -15px;
+  right: -13px;
+}
+
+.js-wizard .horizontal-tabs .horizontal-tabs-list li a{
+  text-align: center;
+  padding: 0.5em 0.6em;
+}
+
+@media (max-width: 599px) {
+  .js-wizard .horizontal-tabs .horizontal-tabs-list li a strong{
+    display: none;
+  }
+
+  body .js-wizard .horizontal-tabs .horizontal-tabs-list li{
+    min-width: auto;
+  }
+}
+
+@media (min-width: 600px) {
+  .js-wizard .horizontal-tabs .horizontal-tabs-list li a span.summary{
+    display: none;
+  }
 }
 
 .js-wizard .horizontal-tabs .horizontal-tabs-list li.selected{
-  border: none;
+  background: none;
+  border-color: #f26c55;
 }
 
-.js-wizard .horizontal-tabs .horizontal-tabs-list li.selected a{
-  border: 1px solid #f26c55;
-  border-radius: 10px;
+.js-wizard .horizontal-tabs .horizontal-tabs-list li.selected:after{
+  border-left-color: #f26c55;
 }
 
-.js-wizard .horizontal-tabs .horizontal-tabs-list li:before{
-  content : ">";
-  position: absolute;
-  left: -5px;
-  top: 5px;
+.js-wizard .horizontal-tabs .horizontal-tabs-list li.selected ~ li{
+  background: none;
+  border-color: transparent;
 }
 
-.js-wizard .horizontal-tabs .horizontal-tabs-list li.first:before{
-  content : "";
+.js-wizard .horizontal-tabs .horizontal-tabs-list li.selected ~ li:after{
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #f26c55;
+  margin-top: -10px;
+}
+
+.js-wizard .horizontal-tabs .horizontal-tabs-list li.last:after{
+  display: none;
 }
 
 .js-wizard .horizontal-tabs .horizontal-tabs-panes{

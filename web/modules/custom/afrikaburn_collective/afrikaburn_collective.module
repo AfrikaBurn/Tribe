@@ -13,24 +13,18 @@ use \Drupal\user\Entity\User;
 /**
  * Implements hook_form_alter().
  */
-function afrikaburn_collective_form_alter(&$form, $form_state, $form_id) {
+function afrikaburn_collective_form_node_collective_form_alter(&$form, $form_state, $form_id) {
 
-  // On non-admin pages
-  if (!\Drupal::service('router.admin_context')->isAdminRoute(\Drupal::routeMatch()->getRouteObject())) {
-    module_load_include('inc', 'afrikaburn_collective', 'includes/form');
+  $user = isset($user) ? $user : User::load(\Drupal::currentUser()->id());
 
-    // Get Registration and Collective if applicable
-    list($registration, $registration_title) = _get_registration();
-    list($collective, $collective_title) = _get_collective($registration);
-
-    // Set titles and defaults
-    static $user;
-    $user = isset($user) ? $user : User::load(\Drupal::currentUser()->id());
-    _set_registration_form_title($form, $form_id, $collective_title, $registration_title);
-    _set_registration_form_defaults($form, $form_state, $form_id, $user, $collective);
-    _set_collective_defaults($form, $form_id, $user);
+  if (substr($form_id, 0, strlen('node_collective')) === 'node_collective') {
+    $form['field_col_admins']['#access'] = $user->hasRole('administrator');
+    $form['field_col_members']['#access'] = $user->hasRole('administrator');
+    if ($form_id == 'node_collective_form'){
+      $form['field_col_admins']['widget'][0]['target_id']['#default_value'] = $user;
+      $form['field_col_members']['widget'][0]['target_id']['#default_value'] = $user;
+    }
   }
-
 }
 
 /**

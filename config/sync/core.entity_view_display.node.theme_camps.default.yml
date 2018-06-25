@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.theme_camps.field_prj_cll_contact
     - field.field.node.theme_camps.field_prj_cll_description
     - field.field.node.theme_camps.field_prj_cll_thread
+    - field.field.node.theme_camps.field_prj_est_camp_population
     - field.field.node.theme_camps.field_prj_gen_bio
     - field.field.node.theme_camps.field_prj_gen_commodification
     - field.field.node.theme_camps.field_prj_gen_concept
@@ -31,7 +32,6 @@ dependencies:
     - field.field.node.theme_camps.field_prj_gen_fundraiser
     - field.field.node.theme_camps.field_prj_gen_fundraising
     - field.field.node.theme_camps.field_prj_gen_header1
-    - field.field.node.theme_camps.field_prj_gen_header2
     - field.field.node.theme_camps.field_prj_gen_header3
     - field.field.node.theme_camps.field_prj_gen_history
     - field.field.node.theme_camps.field_prj_gen_location
@@ -302,6 +302,15 @@ content:
     third_party_settings: {  }
     type: comment_default
     region: content
+  field_prj_est_camp_population:
+    weight: 125
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
   field_prj_gen_bio:
     weight: 7
     label: above
@@ -363,13 +372,6 @@ content:
     region: content
   field_prj_gen_header1:
     weight: 1
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_gen_header2:
-    weight: 106
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -1176,6 +1178,9 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+    region: content
+  flag_archived:
+    weight: 10
     region: content
   links:
     weight: 0

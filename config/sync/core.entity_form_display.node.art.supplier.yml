@@ -1,6 +1,6 @@
 uuid: 84ff0c7c-a2b7-4b05-8cf2-a1fcd9e0b5f9
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_form_mode.node.supplier

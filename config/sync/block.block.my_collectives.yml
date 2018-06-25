@@ -1,27 +1,28 @@
-uuid: b23392d2-a06e-4188-9cf1-a00f2ec14804
+uuid: fe1d3b07-1683-4d9a-b7c9-219db40c7ef4
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.collective_menu
+    - views.view.my_collectives
   module:
     - collapsiblock
     - php
+    - system
     - user
     - views
   theme:
     - afrikaburn
 third_party_settings:
   collapsiblock:
-    collapse_action: '1'
-id: views_block__collective_menu_block_1
+    collapse_action: '2'
+id: my_collectives
 theme: afrikaburn
 region: sidebar
-weight: -13
+weight: 0
 provider: null
-plugin: 'views_block:collective_menu-block_1'
+plugin: 'views_block:my_collectives-block'
 settings:
-  id: 'views_block:collective_menu-block_1'
+  id: 'views_block:my_collectives-block'
   label: ''
   provider: views
   label_display: visible
@@ -29,6 +30,11 @@ settings:
   items_per_page: none
   context_mapping: {  }
 visibility:
+  php:
+    id: php
+    negate: false
+    php: '<?php return true; ?>'
+    context_mapping: {  }
   user_role:
     id: user_role
     roles:
@@ -36,8 +42,8 @@ visibility:
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
-  php:
-    id: php
-    negate: false
-    php: '<?php return true; ?>'
+  request_path:
+    id: request_path
+    pages: "/node/*/edit\r\n/node/add/*"
+    negate: true
     context_mapping: {  }
