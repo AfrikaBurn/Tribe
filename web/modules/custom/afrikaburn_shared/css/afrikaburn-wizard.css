@@ -39,6 +39,22 @@ body .js-wizard .horizontal-tabs .horizontal-tabs-list li:after{
   padding: 0.5em 0.6em;
 }
 
+@media (max-width: 599px) {
+  .js-wizard .horizontal-tabs .horizontal-tabs-list li a strong{
+    display: none;
+  }
+
+  body .js-wizard .horizontal-tabs .horizontal-tabs-list li{
+    min-width: auto;
+  }
+}
+
+@media (min-width: 600px) {
+  .js-wizard .horizontal-tabs .horizontal-tabs-list li a span.summary{
+    display: none;
+  }
+}
+
 .js-wizard .horizontal-tabs .horizontal-tabs-list li.selected{
   background: none;
   border-color: #f26c55;

@@ -13,6 +13,8 @@ dependencies:
     - field.field.node.theme_camps.field_prj_adm_form_2
     - field.field.node.theme_camps.field_prj_adm_form_3
     - field.field.node.theme_camps.field_prj_adm_form_wtf
+    - field.field.node.theme_camps.field_prj_adm_latitude
+    - field.field.node.theme_camps.field_prj_adm_longitude
     - field.field.node.theme_camps.field_prj_adm_notes
     - field.field.node.theme_camps.field_prj_adm_ranger_comment
     - field.field.node.theme_camps.field_prj_adm_review
@@ -21,6 +23,7 @@ dependencies:
     - field.field.node.theme_camps.field_prj_cll_contact
     - field.field.node.theme_camps.field_prj_cll_description
     - field.field.node.theme_camps.field_prj_cll_thread
+    - field.field.node.theme_camps.field_prj_est_camp_population
     - field.field.node.theme_camps.field_prj_gen_bio
     - field.field.node.theme_camps.field_prj_gen_commodification
     - field.field.node.theme_camps.field_prj_gen_concept
@@ -29,7 +32,6 @@ dependencies:
     - field.field.node.theme_camps.field_prj_gen_fundraiser
     - field.field.node.theme_camps.field_prj_gen_fundraising
     - field.field.node.theme_camps.field_prj_gen_header1
-    - field.field.node.theme_camps.field_prj_gen_header2
     - field.field.node.theme_camps.field_prj_gen_header3
     - field.field.node.theme_camps.field_prj_gen_history
     - field.field.node.theme_camps.field_prj_gen_location
@@ -314,6 +316,9 @@ content:
       format_custom_false: ''
       format_custom_true: ''
     third_party_settings: {  }
+  flag_archived:
+    weight: 10
+    region: content
   links:
     weight: 0
     region: content
@@ -335,13 +340,13 @@ hidden:
   field_prj_cll_contact: true
   field_prj_cll_description: true
   field_prj_cll_thread: true
+  field_prj_est_camp_population: true
   field_prj_gen_bio: true
   field_prj_gen_commodification: true
   field_prj_gen_contact: true
   field_prj_gen_fundraiser: true
   field_prj_gen_fundraising: true
   field_prj_gen_header1: true
-  field_prj_gen_header2: true
   field_prj_gen_header3: true
   field_prj_gen_history: true
   field_prj_gen_profit: true

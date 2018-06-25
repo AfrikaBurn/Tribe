@@ -30,22 +30,30 @@
       this.tabs = $('.vertical-tabs__menu, .horizontal-tabs-list', this.root).children()
       this.panels = $('.field-group-tab > .details-wrapper', this.root)
 
-      this.panels.each(
-      	(index, panel) => $(panel).prepend(
-      	  '<div class="pager">Step ' +
-      	  (index + 1) +
-      	  ' of ' +
-      	  this.panels.length +
-      	  '</div>'
-  	  	)
-  	  )
-
       this.root.parents('form').find('.captcha').appendTo(this.panels.last())
       this.panels.append('<div class="wizard-actions"></div>')
       this.root.parents('form').find('.form-actions').appendTo(this.panels.last().find('.wizard-actions'))
+
+      this.alter()
       this.attachPrevious()
       this.attachNext()
       this.attachSubmit()
+    }
+
+    // Add step count
+    alter(){
+      this.panels.each(
+        (index, panel) => {
+          $(panel).prepend(
+            '<div class="pager">Step ' +
+            (index + 1) +
+            ' of ' +
+            this.panels.length +
+            '</div>'
+          )
+          $(this.tabs[index]).find('a .summary').html(index)
+        }
+  	  )
     }
 
     // Attach the previous buttons and behaviours
@@ -83,7 +91,7 @@
 
     // Validate the current tab
     validate(){
-      var 
+      var
         activePanel = this.getActivePanel(),
         elementsToValidate = activePanel.find(toValidate)
       if ($.fn.valid && elementsToValidate.length) elementsToValidate.valid()

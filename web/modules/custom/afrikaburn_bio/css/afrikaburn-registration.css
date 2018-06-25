@@ -1,5 +1,4 @@
 
-article.profile .field,
 .user-form .form-item{
   align-items: top;
   box-sizing: border-box;
@@ -10,9 +9,12 @@ article.profile .field,
   position: relative;
 }
 
-article.profile .field *,
-.user-form .form-item *{
-  flex-basis: 45%;
+@media (min-width: 600px) {
+
+  .user-form .form-item *{
+    flex-basis: 45%;
+  }
+
 }
 
 .paragraphs-tabs-wrapper .form-item,
@@ -26,7 +28,6 @@ body .paragraphs-tabs-wrapper .form-item .description{
 }
 
 
-article.profile .field__item .field_label,
 .user-form .form-item label{
   display: block;
   flex-basis: 100%;
@@ -88,12 +89,6 @@ article.profile .field__item .field_label,
   flex-basis: auto;
 }
 
-article.profile .field--name-user-picture,
-.user-form .field--name-user-picture{
-  float: right;
-  width: 50%;
-}
-
 .user-form details summary{
   display: none;
 }
@@ -137,4 +132,13 @@ article.profile .field--name-user-picture,
 
 #edit-pass .password-suggestions{
   border: none;
+}
+
+@media (min-width: 700px) {
+
+  .user-form .field--name-user-picture{
+    float: right;
+    width: 50%;
+  }
+
 }

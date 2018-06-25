@@ -151,10 +151,9 @@ dependencies:
     - image
     - link
     - markup
-    - path
 third_party_settings:
   field_group:
-    group_overview:
+    group_intro:
       children:
         - title
         - field_prj_gen_contact
@@ -178,7 +177,7 @@ third_party_settings:
         classes: ''
       label: Intro
       region: content
-    group_the_project:
+    group_overview:
       children:
         - field_prj_gen_description
         - field_prj_gen_story
@@ -306,7 +305,7 @@ third_party_settings:
         required_fields: true
       label: Sound
       region: content
-    group_moop:
+    group_lnt:
       children:
         - field_prj_lnt_handled
         - field_prj_lnt_historic
@@ -322,19 +321,6 @@ third_party_settings:
         id: ''
         classes: ''
       label: LNT
-      region: content
-    group_wtf_guide_and_community:
-      children: {  }
-      parent_name: ''
-      weight: 8
-      format_type: accordion_item
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-      label: 'WTF Guide and Community'
       region: content
     group_other:
       children:
@@ -371,14 +357,14 @@ third_party_settings:
       region: content
     group_project_registration:
       children:
+        - group_intro
         - group_overview
-        - group_the_project
         - group_the_structure
         - group_lighting
         - group_burn
         - group_sound
-        - group_moop
-        - group_community_and_collaboratio
+        - group_lnt
+        - group_collaboration
         - group_other
       parent_name: ''
       weight: 7
@@ -387,10 +373,10 @@ third_party_settings:
         label: 'Project Registration'
         direction: horizontal
         id: ''
-        classes: js-wizard
+        classes: ''
       label: 'Project Registration'
       region: content
-    group_community_and_collaboratio:
+    group_collaboration:
       children:
         - field_prj_cll_collaborate
         - field_prj_cll_description
@@ -415,12 +401,6 @@ targetEntityType: node
 bundle: art
 mode: default
 content:
-  created:
-    type: datetime_timestamp
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_collective:
     type: options_select
     weight: 12
@@ -959,26 +939,6 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-  path:
-    type: path
-    weight: 5
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 3
-    region: content
-    third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 4
-    region: content
-    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 7
@@ -987,16 +947,8 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 0
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    region: content
-    third_party_settings: {  }
 hidden:
+  created: true
   field_col_members: true
   field_grt_art_apply: true
   field_grt_art_comment: true
@@ -1087,5 +1039,9 @@ hidden:
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
   moderation_state: true
+  path: true
+  promote: true
   status: true
+  sticky: true
+  uid: true
   url_redirects: true

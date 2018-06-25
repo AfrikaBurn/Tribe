@@ -1,6 +1,6 @@
 uuid: a4f7523e-1a55-4a6a-a457-27a4aa6cc5df
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_form_mode.node.open_camps
@@ -23,6 +23,7 @@ dependencies:
     - field.field.node.theme_camps.field_prj_cll_contact
     - field.field.node.theme_camps.field_prj_cll_description
     - field.field.node.theme_camps.field_prj_cll_thread
+    - field.field.node.theme_camps.field_prj_est_camp_population
     - field.field.node.theme_camps.field_prj_gen_bio
     - field.field.node.theme_camps.field_prj_gen_commodification
     - field.field.node.theme_camps.field_prj_gen_concept
@@ -31,7 +32,6 @@ dependencies:
     - field.field.node.theme_camps.field_prj_gen_fundraiser
     - field.field.node.theme_camps.field_prj_gen_fundraising
     - field.field.node.theme_camps.field_prj_gen_header1
-    - field.field.node.theme_camps.field_prj_gen_header2
     - field.field.node.theme_camps.field_prj_gen_header3
     - field.field.node.theme_camps.field_prj_gen_history
     - field.field.node.theme_camps.field_prj_gen_location
@@ -135,6 +135,7 @@ dependencies:
     - field.field.node.theme_camps.field_vp_ea
     - node.type.theme_camps
   module:
+    - default_config_hash
     - field_group
     - markup
     - paragraphs
@@ -474,6 +475,7 @@ hidden:
   field_prj_cll_contact: true
   field_prj_cll_description: true
   field_prj_cll_thread: true
+  field_prj_est_camp_population: true
   field_prj_gen_bio: true
   field_prj_gen_commodification: true
   field_prj_gen_concept: true
@@ -481,7 +483,6 @@ hidden:
   field_prj_gen_fundraiser: true
   field_prj_gen_fundraising: true
   field_prj_gen_header1: true
-  field_prj_gen_header2: true
   field_prj_gen_header3: true
   field_prj_gen_history: true
   field_prj_gen_location: true
