@@ -13,8 +13,8 @@ dependencies:
 id: collective_members
 label: 'Collective Members'
 module: views
-description: ''
-tag: ''
+description: 'Member select dropdown, Admin list, Member list'
+tag: '2.0'
 base_table: users_field_data
 base_field: uid
 core: 8.x

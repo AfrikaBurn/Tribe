@@ -1,27 +1,26 @@
-uuid: b23392d2-a06e-4188-9cf1-a00f2ec14804
+uuid: af2282bc-8a7f-48fd-adb5-16434809c7c1
 langcode: en
 status: true
 dependencies:
   config:
-    - views.view.collective_menu
+    - views.view.my_invites
   module:
     - collapsiblock
     - php
-    - user
     - views
   theme:
     - afrikaburn
 third_party_settings:
   collapsiblock:
-    collapse_action: '1'
-id: views_block__collective_menu_block_1
+    collapse_action: '2'
+id: my_invites
 theme: afrikaburn
 region: sidebar
-weight: -13
+weight: 0
 provider: null
-plugin: 'views_block:collective_menu-block_1'
+plugin: 'views_block:my_invites-block'
 settings:
-  id: 'views_block:collective_menu-block_1'
+  id: 'views_block:my_invites-block'
   label: ''
   provider: views
   label_display: visible
@@ -29,13 +28,6 @@ settings:
   items_per_page: none
   context_mapping: {  }
 visibility:
-  user_role:
-    id: user_role
-    roles:
-      authenticated: authenticated
-    negate: false
-    context_mapping:
-      user: '@user.current_user_context:current_user'
   php:
     id: php
     negate: false

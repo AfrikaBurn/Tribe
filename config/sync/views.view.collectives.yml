@@ -1,6 +1,6 @@
 uuid: a3aa7991-5c31-49cb-a977-0c739d589de6
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - field.storage.node.field_picture
@@ -499,7 +499,7 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
-      title: Invitations
+      title: 'My Invitations'
       footer:
         area:
           id: area

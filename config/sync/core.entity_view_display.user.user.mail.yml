@@ -43,7 +43,7 @@ content:
     type: computed_string
     weight: 2
     region: content
-    label: above
+    label: hidden
     settings:
       sanitized: true
       cache_unit: -1
@@ -76,7 +76,7 @@ content:
     type: string
     weight: 3
     region: content
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -94,7 +94,7 @@ content:
     type: basic_string
     weight: 4
     region: content
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
 hidden:

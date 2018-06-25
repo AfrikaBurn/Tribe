@@ -2,11 +2,8 @@ uuid: 4e0c5395-5262-46d8-bdfb-bee00018fd6a
 langcode: en
 status: false
 dependencies:
-  config:
-    - views.view.collectives
   module:
     - php
-    - views
   theme:
     - afrikaburn
 id: views_block__collectives_my_collectives_menu

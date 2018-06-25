@@ -1,8 +1,9 @@
-uuid: 45557753-cb81-42fe-9569-ce1d8bd9e72d
+uuid: 57c969f9-4455-49e5-908a-095302d3738c
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.node.registration_introduction
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_form_mode
@@ -410,10 +411,10 @@ third_party_settings:
       label: "Collaboration\t"
 _core:
   default_config_hash: ehnjrE-MS25SZlH5syS8NpyAb0kWLGl88OywWqUiYwM
-id: node.art.default
+id: node.art.registration_introduction
 targetEntityType: node
 bundle: art
-mode: default
+mode: registration_introduction
 content:
   created:
     type: datetime_timestamp

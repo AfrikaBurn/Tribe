@@ -1,6 +1,6 @@
 uuid: 666332ec-8cdd-42a6-a55b-de61a084aede
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - field.storage.node.field_prj_gen_concept

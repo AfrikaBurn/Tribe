@@ -4,6 +4,7 @@ module:
   admin_toolbar_tools: 0
   afrikaburn_bio: 0
   afrikaburn_collective: 0
+  afrikaburn_registration: 0
   afrikaburn_shared: 0
   amazon_sns: 0
   anonymizer: 0
@@ -79,6 +80,7 @@ module:
   mailsystem: 0
   markup: 0
   masquerade: 0
+  menu_export: 0
   menu_ui: 0
   migrate: 0
   migrate_source_csv: 0
