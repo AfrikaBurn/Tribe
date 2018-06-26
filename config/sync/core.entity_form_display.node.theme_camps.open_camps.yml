@@ -135,7 +135,6 @@ dependencies:
     - field.field.node.theme_camps.field_vp_ea
     - node.type.theme_camps
   module:
-    - default_config_hash
     - field_group
     - markup
     - paragraphs
