@@ -8,7 +8,7 @@ bio:
 registration:
   version: 0.0
   js:
-    js/afrikaburn-registration.js: {}
+    js/afrikaburn-bio-registration.js: {}
   css:
     theme:
-      css/afrikaburn-registration.css: {}
+      css/afrikaburn-bio-registration.css: {}

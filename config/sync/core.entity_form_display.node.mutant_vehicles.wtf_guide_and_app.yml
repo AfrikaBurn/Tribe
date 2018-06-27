@@ -1,6 +1,6 @@
 uuid: a0a4163f-e628-49e8-b6d9-413d72c68f27
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_form_mode.node.wtf_guide_and_app

@@ -146,6 +146,7 @@ dependencies:
     - conditional_fields
     - cshs
     - datetime
+    - entity_reference_views_select
     - field_group
     - file
     - image
@@ -367,7 +368,7 @@ third_party_settings:
         - group_collaboration
         - group_other
       parent_name: ''
-      weight: 7
+      weight: 3
       format_type: tabs
       format_settings:
         label: 'Project Registration'
@@ -394,6 +395,19 @@ third_party_settings:
         id: ''
         classes: ''
       label: "Collaboration\t"
+    group_administrative:
+      children:
+        - field_form_mode
+        - field_prj_adm_wrangler
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: Administrative
 _core:
   default_config_hash: ehnjrE-MS25SZlH5syS8NpyAb0kWLGl88OywWqUiYwM
 id: node.art.default
@@ -429,7 +443,7 @@ content:
     region: content
   field_prj_adm_wrangler:
     type: options_select
-    weight: 6
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -491,7 +505,7 @@ content:
       display_label: true
     third_party_settings: {  }
   field_prj_cll_contact:
-    type: options_select
+    type: erviews_options_select
     weight: 11
     region: content
     settings: {  }
@@ -555,7 +569,7 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
   field_prj_gen_contact:
-    type: options_select
+    type: erviews_options_select
     weight: 8
     region: content
     settings: {  }
@@ -576,7 +590,7 @@ content:
       progress_indicator: throbber
     third_party_settings: {  }
   field_prj_gen_fundraiser:
-    type: options_select
+    type: erviews_options_select
     weight: 16
     region: content
     settings: {  }
@@ -622,7 +636,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_prj_gen_lead:
-    type: options_select
+    type: erviews_options_select
     weight: 10
     region: content
     settings: {  }
@@ -637,7 +651,7 @@ content:
       force_deepest: false
     third_party_settings: {  }
   field_prj_gen_manager:
-    type: options_select
+    type: erviews_options_select
     weight: 9
     region: content
     settings: {  }
@@ -695,7 +709,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_prj_lnt_representative:
-    type: options_select
+    type: erviews_options_select
     weight: 0
     region: content
     settings: {  }
@@ -873,7 +887,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_prj_stc_structural:
-    type: options_select
+    type: erviews_options_select
     weight: 14
     region: content
     settings: {  }

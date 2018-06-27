@@ -15,67 +15,73 @@ use \Drupal\user\Entity\User;
 
 function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
 
+  // dpm($form_id);
+
+
+
   $defaults = @([
 
     'node_art_form' => [
       'mode' => 'add',
       'title' => 'Register an Artwork',
     ],
-
     'node_art_form_1_form' => [
       'mode' => 'form_1',
       'title' => 'Register an Artwork',
     ],
-
-    'node_theme_camps_form' => [
-      'mode' => 'form_1',
-      'title' => 'Register a Theme Camp',
-    ],
-
     'node_art_form' => [
       'mode' => 'form_1',
       'title' => 'Register an Artwork',
+    ],
+    'node_art_edit_form' => [
+      'mode' => 'form_1',
+      'title' => 'Updating %title Artwork registration',
+    ],
+    'node_art_grant_form' => [
+      'mode' => 'form_1',
+      'title' => 'Grant application for %title',
+    ],
+
+    'node_mutant_vehicles_form' => [
+      'mode' => 'form_1',
+      'title' => 'Register a Mutant Vehicle',
     ],
 
     'node_performances_form' => [
       'mode' => 'form_1',
       'title' => 'Register a Performance',
     ],
-
-    'node_theme_camps_edit_form' => [
-      'mode' => 'form_1',
-      'title' => 'Updating %title Theme Camp registration',
-    ],
-
-    'node_art_edit_form' => [
-      'mode' => 'form_1',
-      'title' => 'Updating %title Artwork registration',
-    ],
-
     'node_performances_edit_form' => [
       'mode' => 'form_1',
       'title' => 'Updating %title Performance registration',
     ],
-
-    'node_art_grant_form' => [
+    'node_performances_grant_form' => [
       'mode' => 'form_1',
       'title' => 'Grant application for %title',
     ],
 
-    'node_performances_grant_form' => [
+    'node_theme_camps_form' => [
       'mode' => 'form_1',
-      'title' => 'Grant application for %title',
+      'title' => 'Register a Theme Camp',
+    ],
+    'node_theme_camps_edit_form' => [
+      'mode' => 'form_1',
+      'title' => 'Updating %title Theme Camp registration',
     ],
 
   ])[$form_id];
 
   if ($defaults){
 
+    $form['#attached']['library'][] = 'afrikaburn_registration/registration';
+
     $user = User::load(\Drupal::currentUser()->id());
     $registration = \Drupal::routeMatch()->getParameter('node');
     $cid = \Drupal::request()->query->get('field_collective')
       ? \Drupal::request()->query->get('field_collective')
-      : $registration->field_collective->getValue()[0]['target_id'];
+      : ($registration && $registration->field_collective
+        ? $registration->field_collective->getValue()[0]['target_id']
+        : false);
     $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
 
     // Help lost users
@@ -89,10 +95,12 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
     $collective_title = '<div class="subtitle">by the ' . $collective->getTitle() . ' collective</div>';
     $form['#title'] = [
       '#type' => 'markup',
-      '#markup' => t(
-        $defaults['title'],
-        ['%title' => $registration ? $registration->getTitle() : '']
-      ) . $collective_title,
+      '#markup' => $registration
+        ? t(
+            $defaults['title'],
+            ['%title' => $registration ? $registration->getTitle() : '']
+          ) . $collective_title
+        : t($defaults['title']),
     ];
 
     // Set defaults

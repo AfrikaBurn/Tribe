@@ -103,3 +103,12 @@ bundles:
       notes: ''
       bundle: theme_camps
       name: field_prj_est_camp_population
+  mutant_vehicles:
+    field_mutant_drivers:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: mutant_vehicles
+      name: field_mutant_drivers

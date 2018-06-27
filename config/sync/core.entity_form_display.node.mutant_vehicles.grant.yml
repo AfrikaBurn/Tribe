@@ -1,6 +1,6 @@
 uuid: f43ef372-8295-4645-8817-edcf3dea3eef
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_form_mode.node.grant

@@ -1,6 +1,6 @@
 uuid: c3bfc0e9-34f1-4bdd-a211-9ad6b4a94fc1
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_form_mode.node.wangler_overview
