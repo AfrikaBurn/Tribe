@@ -48,3 +48,7 @@ body .horizontal-tabs .horizontal-tabs-list li.selected a{
 body .horizontal-tabs-pane{
   padding: 0;
 }
+
+body .horizontal-tabs .horizontal-tab-button {
+  min-width: auto;
+}
