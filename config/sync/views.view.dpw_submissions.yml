@@ -1,6 +1,6 @@
 uuid: 68b34c90-ec06-42ef-8691-16d369c6e8e5
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - webform.webform.dpw_application_form_2018
@@ -129,6 +129,7 @@ display:
       empty: {  }
       relationships: {  }
       arguments: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: 0
       contexts:

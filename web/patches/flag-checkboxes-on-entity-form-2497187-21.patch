@@ -1,0 +1,262 @@
+diff --git a/flag.libraries.yml b/flag.libraries.yml
+new file mode 100644
+index 0000000..4c4fbc5
+--- /dev/null
++++ b/flag.libraries.yml
+@@ -0,0 +1,9 @@
++flag.admin:
++  version: VERSION
++  js:
++    js/flag-admin.js: {}
++  dependencies:
++    - core/jquery
++    - core/drupal
++    - core/drupalSettings
++    - core/drupal.form
+diff --git a/flag.module b/flag.module
+index 0460372..f3720df 100644
+--- a/flag.module
++++ b/flag.module
+@@ -8,6 +8,9 @@
+ define('FLAG_API_VERSION', 3);
+ 
+ use Drupal\Core\Access\AccessResult;
++use Drupal\Core\Entity\ContentEntityFormInterface;
++use Drupal\Core\Form\FormStateInterface;
++use Drupal\flag\Plugin\Flag\EntityFlagType;
+ use Drupal\Core\Cache\Cache;
+ use Drupal\node\NodeInterface;
+ use Drupal\Core\Entity\EntityInterface;
+@@ -121,6 +124,84 @@ function flag_help($route_name, RouteMatchInterface $route_match) {
+ }*/
+ 
+ /**
++ * Implements hook_form_alter().
++ */
++function flag_form_alter(&$form, FormStateInterface $form_state, $form_id) {
++  $object = $form_state->getFormObject();
++  if (!($object instanceof ContentEntityFormInterface)) {
++    return;
++  }
++  $flag_service = \Drupal::service('flag');
++  $entity = $object->getEntity();
++  $flags = $flag_service->getFlags($entity->getEntityTypeId(), $entity->bundle(), \Drupal::currentUser());
++  $filtered_flags = array_filter($flags, function(FlagInterface $flag) {
++    $plugin = $flag->getFlagTypePlugin();
++    return $plugin instanceof EntityFlagType && $plugin->showOnForm();
++  });
++  if (!empty($filtered_flags)) {
++    $form['flag'] = array(
++      '#type' => 'details',
++      '#title' => t('Flags'),
++      '#attached' => array('library' => array('flag/flag.admin')),
++      '#group' => 'advanced',
++      '#tree' => TRUE,
++    );
++    foreach ($filtered_flags as $flag) {
++      $account = $flag->isGlobal()? NULL : \Drupal::currentUser();
++      $flagging = $flag_service->getFlagging($flag, $entity, $account);
++      $form['flag'][$flag->id()] = array(
++        '#type' => 'checkbox',
++        '#title' => $flag->label(),
++        '#description' => $flag->getFlagLongText(),
++        '#default_value' => is_null($flagging)? NULL: 1,
++        '#return_value' => 1,
++        // Used by our drupalSetSummary() on vertical tabs.
++        '#attributes' => array('title' => $flag->label()),
++      );
++    }
++    foreach (array_keys($form['actions']) as $action) {
++      if ($action != 'preview' && isset($form['actions'][$action]['#type']) && $form['actions'][$action]['#type'] === 'submit') {
++        $form['actions'][$action]['#submit'][] = 'flag_form_submit';
++      }
++    }
++  }
++}
++
++/**
++ * Form submission handler for the flag module.
++ * @see flag_form_alter()
++ */
++function flag_form_submit($form, FormStateInterface $form_state) {
++  $entity = $form_state->getFormObject()->getEntity();
++  if (!$form_state->isValueEmpty('flag')) {
++    $values = $form_state->getValue('flag');
++    flag_form_save($entity, $values);
++  }
++}
++
++function flag_form_save(EntityInterface $entity, $values) {
++  $flag_service = \Drupal::service('flag');
++  $account = \Drupal::currentUser();
++  $flagging_ids = array();
++  if (!$entity->isNew()) {
++    $flaggings = $flag_service->getFlaggings(NULL, $entity, $account);
++    $flagging_ids = array_map(function($flagging) {
++      return $flagging->getFlagId();
++    }, $flaggings);
++  }
++  foreach ($values as $flag_id => $value) {
++    $flag = $flag_service->getFlagById($flag_id);
++    $flag_exists = in_array($flag_id, $flagging_ids);
++    if ($value && !$flag_exists) {
++      $flag_service->flag($flag, $entity);
++    }
++    if (!$value && $flag_exists) {
++      $flag_service->unflag($flag, $entity);
++    }
++  }
++}
++
++/**
+  * Implements hook_entity_extra_field_info().
+  */
+ function flag_entity_extra_field_info() {
+@@ -130,7 +211,7 @@ function flag_entity_extra_field_info() {
+   foreach ($flags as $flag) {
+     // Skip flags that aren't on entities.
+     $flag_type_plugin = $flag->getFlagTypePlugin();
+-    if (!($flag_type_plugin instanceof \Drupal\flag\Plugin\Flag\EntityFlagType)) {
++    if (!($flag_type_plugin instanceof EntityFlagType)) {
+       continue;
+     }
+ 
+diff --git a/js/flag-admin.js b/js/flag-admin.js
+new file mode 100644
+index 0000000..b82628c
+--- /dev/null
++++ b/js/flag-admin.js
+@@ -0,0 +1,24 @@
++/**
++ * @file
++ * Defines Javascript behaviors for the flag module.
++ */
++
++(function ($, Drupal, drupalSettings) {
++
++  'use strict';
++
++  Drupal.behaviors.flagsSummary = {
++    attach: function (context) {
++      var $context = $(context);
++      $context.find('details[data-drupal-selector="edit-flag"]').drupalSetSummary(function (context) {
++        var checkedBoxes = $(context).find('input:checkbox:checked');
++        if (checkedBoxes.length === 0) {
++          return Drupal.t('No flags');
++        }
++        var getTitle = function () {return this.title; };
++        return checkedBoxes.map(getTitle).toArray().join(', ');
++      });
++    }
++  };
++
++})(jQuery, Drupal, drupalSettings);
+diff --git a/src/Tests/ShowOnEntityFormTest.php b/src/Tests/ShowOnEntityFormTest.php
+new file mode 100644
+index 0000000..3a3c514
+--- /dev/null
++++ b/src/Tests/ShowOnEntityFormTest.php
+@@ -0,0 +1,103 @@
++<?php
++/**
++ * @file
++ * Contains \Drupal\flag\Tests\ShowOnEntityFormTest.
++ */
++
++namespace Drupal\flag\Tests;
++
++
++/**
++ * Tests for the base entity Flag Type plugin.
++ *
++ * @group flag
++ */
++class ShowOnEntityFormTest extends FlagTestBase {
++
++  /**
++   * The admin user.
++   *
++   * @var AccountInterface
++   */
++  protected $adminUser;
++
++  /**
++   * The flag to be flagged and unflagged.
++   *
++   * @var FlagInterface
++   */
++  protected $flag;
++
++  /**
++   * The node type to use in the test.
++   *
++   * @var string
++   */
++  protected $nodeType = 'article';
++
++  /**
++   * {@inheritdoc}
++   */
++  public function setUp() {
++    parent::setUp();
++
++    // Create content type.
++    $this->drupalCreateContentType(['type' => $this->nodeType]);
++
++    // Setup an admin user.
++    $this->adminUser = $this->createUser([
++      'administer flags',
++      'administer flagging display',
++      'administer node display',
++      'administer nodes',
++      'edit any ' . $this->nodeType . ' content',
++    ]);
++  }
++
++  /**
++   * Tests if flags appear on the entity form.
++   */
++  public function testEntityForm() {
++    // Login as the admin user.
++    $this->drupalLogin($this->adminUser);
++
++    // Create the flag with show_on_form, and grant permissions.
++    $edit = [
++      'bundles[' . $this->nodeType . ']' => $this->nodeType,
++      'show_on_form' => '1',
++    ];
++    $flag = $this->createFlagWithForm('node', $edit);
++    $this->grantFlagPermissions($flag);
++    $flag_checkbox_id = 'edit-flag-' . $flag->id();
++
++    // Create a node and get the ID.
++    $node = $this->createNode(['type' => $this->nodeType]);
++    $node_id = $node->id();
++    $node_edit_path = 'node/' . $node_id . '/edit';
++
++    // See if the form element exists.
++    $this->drupalGet($node_edit_path);
++    $this->assertField($flag_checkbox_id, $this->t('The flag checkbox exists on the entity form.'));
++
++    // See if flagging on the form works.
++    $edit = [
++      'flag[' . $flag->id() . ']' => TRUE,
++    ];
++    $this->drupalPostForm($node_edit_path, $edit, $this->t('Save and keep published'));
++
++    // Check to see if the checkbox reflects the state correctly.
++    $this->drupalGet($node_edit_path);
++    $this->assertFieldChecked($flag_checkbox_id, $this->t('The flag checkbox is checked on the entity form.'));
++
++    // See if unflagging on the form works.
++    $edit = [
++      'flag[' . $flag->id() . ']' => FALSE,
++    ];
++    $this->drupalPostForm($node_edit_path, $edit, $this->t('Save and keep published'));
++
++    // Go back to the node edit page and check if the flag checkbox is updated.
++    $this->drupalGet($node_edit_path);
++    $this->assertNoFieldChecked($flag_checkbox_id, $this->t('The flag checkbox is unchecked on the entity form.'));
++  }
++
++}

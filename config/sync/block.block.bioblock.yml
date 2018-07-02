@@ -16,7 +16,7 @@ third_party_settings:
 id: bioblock
 theme: afrikaburn
 region: sidebar
-weight: -15
+weight: -14
 provider: null
 plugin: bio_block
 settings:
@@ -39,6 +39,6 @@ visibility:
       user: '@user.current_user_context:current_user'
   request_path:
     id: request_path
-    pages: "/node/*/edit\r\n/node/add/*"
+    pages: "/node/*/edit*\r\n/node/add/*"
     negate: true
     context_mapping: {  }

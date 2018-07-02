@@ -17,7 +17,7 @@ third_party_settings:
 id: my_invites
 theme: afrikaburn
 region: sidebar
-weight: 0
+weight: -11
 provider: null
 plugin: 'views_block:my_invites-block'
 settings:

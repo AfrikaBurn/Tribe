@@ -1,0 +1,7 @@
+afrikaburn_registration.admin_config:
+  title: 'Open registration forms'
+  description: 'Open project registrations'
+  parent: afrikaburn_shared.admin_config
+  route_name: afrikaburn_registration.admin
+  weight: -100
+  menu_name: afrikaburn

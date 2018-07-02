@@ -1,0 +1,11 @@
+afrikaburn_registration.admin:
+  path: '/admin/config/afrikaburn/registration'
+  defaults:
+    _form: '\Drupal\afrikaburn_registration\Forms\RegistrationSettings'
+    _title: 'Open registration forms'
+  requirements:
+   _permission: 'administer site configuration'
+afrikaburn_registration.wrangle_art:
+  path: '/wrangle/projects/art'
+  options:
+    _admin_route: TRUE

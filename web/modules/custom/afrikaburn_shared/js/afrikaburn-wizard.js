@@ -25,13 +25,17 @@
 
     constructor(element){
 
-      this.root = $(element)
+      this.root = $(element).is('form')
+        ? $('.field-group-tabs-wrapper', element)
+        : $(element)
+
       this.root.addClass('js-wizard-processed')
       this.tabs = $('.vertical-tabs__menu, .horizontal-tabs-list', this.root).children()
       this.panels = $('.field-group-tab > .details-wrapper', this.root)
 
       this.root.parents('form').find('.captcha').appendTo(this.panels.last())
       this.panels.append('<div class="wizard-actions"></div>')
+
       this.root.parents('form').find('.form-actions').appendTo(this.panels.last().find('.wizard-actions'))
 
       this.alter()

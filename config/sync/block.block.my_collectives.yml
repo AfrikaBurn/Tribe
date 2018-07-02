@@ -18,7 +18,7 @@ third_party_settings:
 id: my_collectives
 theme: afrikaburn
 region: sidebar
-weight: 0
+weight: -12
 provider: null
 plugin: 'views_block:my_collectives-block'
 settings:
@@ -44,6 +44,6 @@ visibility:
       user: '@user.current_user_context:current_user'
   request_path:
     id: request_path
-    pages: "/node/*/edit\r\n/node/add/*"
+    pages: "/node/*/edit*\r\n/node/add/*"
     negate: true
     context_mapping: {  }

@@ -4,24 +4,18 @@ status: true
 dependencies:
   config:
     - field.field.node.theme_camps.field_collective
-    - field.field.node.theme_camps.field_field_prj_adm_form_3
     - field.field.node.theme_camps.field_field_prj_plc_marquis
     - field.field.node.theme_camps.field_field_prj_plc_stretch_m
     - field.field.node.theme_camps.field_form_mode
-    - field.field.node.theme_camps.field_prj_adm_comms
-    - field.field.node.theme_camps.field_prj_adm_form_2
     - field.field.node.theme_camps.field_prj_adm_form_3
-    - field.field.node.theme_camps.field_prj_adm_form_wtf
     - field.field.node.theme_camps.field_prj_adm_latitude
     - field.field.node.theme_camps.field_prj_adm_longitude
-    - field.field.node.theme_camps.field_prj_adm_notes
-    - field.field.node.theme_camps.field_prj_adm_ranger_comment
     - field.field.node.theme_camps.field_prj_adm_review
     - field.field.node.theme_camps.field_prj_adm_wrangler
     - field.field.node.theme_camps.field_prj_cll_collaborate
     - field.field.node.theme_camps.field_prj_cll_contact
     - field.field.node.theme_camps.field_prj_cll_description
-    - field.field.node.theme_camps.field_prj_cll_thread
+    - field.field.node.theme_camps.field_prj_comments
     - field.field.node.theme_camps.field_prj_est_camp_population
     - field.field.node.theme_camps.field_prj_gen_bio
     - field.field.node.theme_camps.field_prj_gen_commodification
@@ -41,23 +35,18 @@ dependencies:
     - field.field.node.theme_camps.field_prj_lgh_description
     - field.field.node.theme_camps.field_prj_lgh_policy
     - field.field.node.theme_camps.field_prj_lgh_power
-    - field.field.node.theme_camps.field_prj_lnt_comments
     - field.field.node.theme_camps.field_prj_lnt_handled
     - field.field.node.theme_camps.field_prj_lnt_historic
     - field.field.node.theme_camps.field_prj_lnt_images
-    - field.field.node.theme_camps.field_prj_lnt_publish
     - field.field.node.theme_camps.field_prj_lnt_representative
     - field.field.node.theme_camps.field_prj_lnt_score
     - field.field.node.theme_camps.field_prj_lnt_signoff
     - field.field.node.theme_camps.field_prj_lnt_type
     - field.field.node.theme_camps.field_prj_ons_issues
     - field.field.node.theme_camps.field_prj_ons_monday_b
-    - field.field.node.theme_camps.field_prj_ons_monday_d
     - field.field.node.theme_camps.field_prj_ons_rating
     - field.field.node.theme_camps.field_prj_ons_rest_b
-    - field.field.node.theme_camps.field_prj_ons_rest_d
     - field.field.node.theme_camps.field_prj_ons_tuesday_b
-    - field.field.node.theme_camps.field_prj_ons_tuesday_d
     - field.field.node.theme_camps.field_prj_ons_wednesay_d
     - field.field.node.theme_camps.field_prj_ons_wednesday_b
     - field.field.node.theme_camps.field_prj_oth_associated
@@ -96,7 +85,6 @@ dependencies:
     - field.field.node.theme_camps.field_prj_plc_trailers
     - field.field.node.theme_camps.field_prj_saf_access
     - field.field.node.theme_camps.field_prj_saf_cage
-    - field.field.node.theme_camps.field_prj_saf_comment
     - field.field.node.theme_camps.field_prj_saf_extinguish
     - field.field.node.theme_camps.field_prj_saf_gas
     - field.field.node.theme_camps.field_prj_saf_guide
@@ -104,7 +92,6 @@ dependencies:
     - field.field.node.theme_camps.field_prj_saf_markup
     - field.field.node.theme_camps.field_prj_saf_person
     - field.field.node.theme_camps.field_prj_snd_agree
-    - field.field.node.theme_camps.field_prj_snd_comment
     - field.field.node.theme_camps.field_prj_snd_description
     - field.field.node.theme_camps.field_prj_snd_genre
     - field.field.node.theme_camps.field_prj_snd_level
@@ -114,7 +101,6 @@ dependencies:
     - field.field.node.theme_camps.field_prj_stg_contact
     - field.field.node.theme_camps.field_prj_stg_description
     - field.field.node.theme_camps.field_prj_stg_stage
-    - field.field.node.theme_camps.field_prj_stg_tread
     - field.field.node.theme_camps.field_prj_stg_type
     - field.field.node.theme_camps.field_prj_sup_address
     - field.field.node.theme_camps.field_prj_sup_details
@@ -127,8 +113,8 @@ dependencies:
     - field.field.node.theme_camps.field_prj_wtf_short
     - field.field.node.theme_camps.field_prj_wtf_short_copy
     - field.field.node.theme_camps.field_prj_wtf_website
+    - field.field.node.theme_camps.field_prjr_complete
     - field.field.node.theme_camps.field_stretch_tent_dimen
-    - field.field.node.theme_camps.field_sup_comment
     - field.field.node.theme_camps.field_sup_review
     - field.field.node.theme_camps.field_tc_type
     - field.field.node.theme_camps.field_vp_ea
@@ -206,7 +192,6 @@ third_party_settings:
         - field_prj_cll_collaborate
         - field_prj_cll_description
         - field_prj_cll_contact
-        - field_prj_cll_thread
         - field_prj_stg_stage
         - field_prj_stg_type
         - field_prj_stg_description
@@ -264,7 +249,7 @@ third_party_settings:
         - group_collaboration
         - group_almost_done_new
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: tabs
       format_settings:
         label: 'Project registration'
@@ -275,11 +260,15 @@ third_party_settings:
       region: content
     group_administrative:
       children:
+        - field_prjr_complete
+        - field_prj_adm_review
         - field_prj_adm_wrangler
-        - field_form_mode
+        - flag
+        - field_prj_comments
         - field_collective
+        - field_form_mode
       parent_name: ''
-      weight: 0
+      weight: 1
       format_type: details
       format_settings:
         id: ''
@@ -296,7 +285,7 @@ mode: default
 content:
   field_collective:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
@@ -304,16 +293,22 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_form_mode:
-    weight: 2
+    weight: 7
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_prj_adm_wrangler:
+  field_prj_adm_review:
     type: options_select
-    weight: 1
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_prj_adm_wrangler:
+    type: erviews_options_select
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -372,6 +367,12 @@ content:
     region: content
   field_prj_cll_thread:
     weight: 15
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  field_prj_comments:
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: comment_default
@@ -658,6 +659,17 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
+  field_prjr_complete:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  flag:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   moderation_state:
     weight: 38
     settings:
@@ -676,24 +688,19 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_field_prj_adm_form_3: true
   field_field_prj_plc_marquis: true
   field_field_prj_plc_stretch_m: true
   field_prj_adm_comms: true
-  field_prj_adm_form_2: true
   field_prj_adm_form_3: true
-  field_prj_adm_form_wtf: true
   field_prj_adm_latitude: true
   field_prj_adm_longitude: true
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
-  field_prj_adm_review: true
   field_prj_gen_year: true
   field_prj_lgh_agree: true
   field_prj_lgh_description: true
   field_prj_lgh_policy: true
   field_prj_lgh_power: true
-  field_prj_lnt_comments: true
   field_prj_lnt_images: true
   field_prj_lnt_publish: true
   field_prj_lnt_score: true
@@ -704,7 +711,6 @@ hidden:
   field_prj_ons_monday_d: true
   field_prj_ons_rating: true
   field_prj_ons_rest_b: true
-  field_prj_ons_rest_d: true
   field_prj_ons_tuesday_b: true
   field_prj_ons_tuesday_d: true
   field_prj_ons_wednesay_d: true
@@ -744,7 +750,6 @@ hidden:
   field_prj_plc_trailers: true
   field_prj_saf_access: true
   field_prj_saf_cage: true
-  field_prj_saf_comment: true
   field_prj_saf_extinguish: true
   field_prj_saf_gas: true
   field_prj_saf_guide: true

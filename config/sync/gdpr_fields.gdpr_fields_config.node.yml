@@ -94,6 +94,54 @@ bundles:
       notes: ''
       bundle: art
       name: field_prj_oth_grant
+    field_prjr_complete:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: art
+      name: field_prjr_complete
+    field_prj_comments:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: art
+      name: field_prj_comments
+    field_prj_adm_review:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: art
+      name: field_prj_adm_review
+    field_prj_adm_wrangler:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: art
+      name: field_prj_adm_wrangler
+    field_year_cycle:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: art
+      name: field_year_cycle
+    field_yea:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: art
+      name: field_yea
   theme_camps:
     field_prj_est_camp_population:
       enabled: false
@@ -103,6 +151,30 @@ bundles:
       notes: ''
       bundle: theme_camps
       name: field_prj_est_camp_population
+    field_prj_comments:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: theme_camps
+      name: field_prj_comments
+    field_prjr_complete:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: theme_camps
+      name: field_prjr_complete
+    field_prj_adm_wrangler:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: theme_camps
+      name: field_prj_adm_wrangler
   mutant_vehicles:
     field_mutant_drivers:
       enabled: false
@@ -112,3 +184,68 @@ bundles:
       notes: ''
       bundle: mutant_vehicles
       name: field_mutant_drivers
+    field_prj_comments:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: mutant_vehicles
+      name: field_prj_comments
+    field_prjr_complete:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: mutant_vehicles
+      name: field_prjr_complete
+    field_prj_adm_review:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: mutant_vehicles
+      name: field_prj_adm_review
+    field_prj_adm_wrangler:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: mutant_vehicles
+      name: field_prj_adm_wrangler
+  performances:
+    field_prj_comments:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: performances
+      name: field_prj_comments
+    field_prjr_complete:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: performances
+      name: field_prjr_complete
+    field_prj_adm_review:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: performances
+      name: field_prj_adm_review
+    field_prj_adm_wrangler:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: performances
+      name: field_prj_adm_wrangler

@@ -22,9 +22,6 @@ dependencies:
     - field.field.node.performances.field_grt_total
     - field.field.node.performances.field_grt_transport
     - field.field.node.performances.field_muncipal_district
-    - field.field.node.performances.field_prj_adm_comms
-    - field.field.node.performances.field_prj_adm_notes
-    - field.field.node.performances.field_prj_adm_ranger_comment
     - field.field.node.performances.field_prj_adm_review
     - field.field.node.performances.field_prj_adm_wrangler
     - field.field.node.performances.field_prj_brn_agree
@@ -36,7 +33,7 @@ dependencies:
     - field.field.node.performances.field_prj_cll_collaborate
     - field.field.node.performances.field_prj_cll_contact
     - field.field.node.performances.field_prj_cll_description
-    - field.field.node.performances.field_prj_cll_thread
+    - field.field.node.performances.field_prj_comments
     - field.field.node.performances.field_prj_gen_bio
     - field.field.node.performances.field_prj_gen_concept
     - field.field.node.performances.field_prj_gen_contact
@@ -58,13 +55,11 @@ dependencies:
     - field.field.node.performances.field_prj_lgh_lighter
     - field.field.node.performances.field_prj_lgh_night
     - field.field.node.performances.field_prj_lgh_policy
-    - field.field.node.performances.field_prj_lnt_comments
     - field.field.node.performances.field_prj_lnt_duration
     - field.field.node.performances.field_prj_lnt_handled
     - field.field.node.performances.field_prj_lnt_helpers
     - field.field.node.performances.field_prj_lnt_historic
     - field.field.node.performances.field_prj_lnt_images
-    - field.field.node.performances.field_prj_lnt_publish
     - field.field.node.performances.field_prj_lnt_representative
     - field.field.node.performances.field_prj_lnt_score
     - field.field.node.performances.field_prj_lnt_signoff
@@ -79,9 +74,7 @@ dependencies:
     - field.field.node.performances.field_prj_prp_erection
     - field.field.node.performances.field_prj_prp_start
     - field.field.node.performances.field_prj_prp_transport
-    - field.field.node.performances.field_prj_saf_comment
     - field.field.node.performances.field_prj_snd_agree
-    - field.field.node.performances.field_prj_snd_comment
     - field.field.node.performances.field_prj_snd_description
     - field.field.node.performances.field_prj_snd_level
     - field.field.node.performances.field_prj_snd_person
@@ -108,7 +101,7 @@ dependencies:
     - field.field.node.performances.field_prj_wtf_short
     - field.field.node.performances.field_prj_wtf_short_copy
     - field.field.node.performances.field_prj_wtf_website
-    - field.field.node.performances.field_sup_comment
+    - field.field.node.performances.field_prjr_complete
     - field.field.node.performances.field_sup_review
     - field.field.node.performances.field_this_is_the_amount_of_mone
     - field.field.node.performances.field_vp_ea
@@ -119,12 +112,12 @@ dependencies:
     - conditional_fields
     - cshs
     - datetime
+    - entity_reference_views_select
     - field_group
     - file
     - image
     - link
     - markup
-    - path
 third_party_settings:
   field_group:
     group_project:
@@ -139,7 +132,7 @@ third_party_settings:
         - group_wtf
         - group_other
       parent_name: ''
-      weight: 5
+      weight: 1
       format_type: accordion
       format_settings:
         label: 'Project Registration'
@@ -151,7 +144,6 @@ third_party_settings:
     group_overview:
       children:
         - title
-        - field_collective
         - field_prj_gen_contact
         - field_prj_gen_lead
         - field_prj_gen_manager
@@ -246,7 +238,6 @@ third_party_settings:
         - field_prj_cll_collaborate
         - field_prj_cll_description
         - field_prj_cll_contact
-        - field_prj_cll_thread
       parent_name: group_project
       weight: 27
       format_type: accordion_item
@@ -262,8 +253,8 @@ third_party_settings:
       children:
         - field_prj_oth_relationship
         - field_prj_oth_other
-        - field_prj_oth_mv
         - field_prj_oth_unregistered
+        - field_prj_oth_mv
       parent_name: group_project
       weight: 28
       format_type: accordion_item
@@ -359,6 +350,24 @@ third_party_settings:
         description: ''
       label: Burn
       region: content
+    group_administrative:
+      children:
+        - field_prjr_complete
+        - field_prj_adm_review
+        - field_prj_adm_wrangler
+        - flag
+        - field_prj_comments
+        - field_collective
+        - field_form_mode
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: Administrative
 _core:
   default_config_hash: GszY5o7FPcrv2Z8_LMFChqNpGZCA9kaS3WAz3lVtB0o
 id: node.performances.default
@@ -366,15 +375,9 @@ targetEntityType: node
 bundle: performances
 mode: default
 content:
-  created:
-    type: datetime_timestamp
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_collective:
     type: entity_reference_autocomplete
-    weight: 1
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
@@ -382,7 +385,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_form_mode:
-    weight: 9
+    weight: 7
     settings:
       size: 60
       placeholder: ''
@@ -414,14 +417,20 @@ content:
           bundle: performances
     type: cshs
     region: content
-  field_prj_adm_wrangler:
+  field_prj_adm_review:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 2
     region: content
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_prj_adm_wrangler:
+    type: erviews_options_select
+    weight: 3
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_prj_brn_burning:
     type: boolean_checkbox
@@ -571,6 +580,12 @@ content:
     third_party_settings: {  }
     type: comment_default
     region: content
+  field_prj_comments:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
   field_prj_gen_bio:
     weight: 8
     settings:
@@ -712,6 +727,14 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_prj_oth_mv:
+    type: string_textarea
+    weight: 70
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_oth_other:
     weight: 68
     settings:
@@ -728,6 +751,14 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
+  field_prj_oth_unregistered:
+    type: string_textfield
+    weight: 69
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_prp_duration:
     weight: 41
     settings:
@@ -1064,6 +1095,17 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
+  field_prjr_complete:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  flag:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   moderation_state:
     weight: 69
     settings:
@@ -1072,33 +1114,6 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  path:
-    type: path
-    weight: 4
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 2
-    region: content
-    third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 11
-    third_party_settings: {  }
-    region: content
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 3
-    region: content
-    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 0
@@ -1107,21 +1122,8 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 0
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    region: content
-    third_party_settings: {  }
-  url_redirects:
-    weight: 8
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
+  created: true
   field_grt_art_total: true
   field_grt_breakdown: true
   field_grt_contribution: true
@@ -1138,10 +1140,8 @@ hidden:
   field_grt_tool: true
   field_grt_total: true
   field_grt_transport: true
-  field_prj_adm_comms: true
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
-  field_prj_adm_review: true
   field_prj_brn_agree: true
   field_prj_brn_person: true
   field_prj_brn_plan: true
@@ -1151,16 +1151,12 @@ hidden:
   field_prj_lgh_lighter: true
   field_prj_lgh_night: true
   field_prj_lgh_policy: true
-  field_prj_lnt_comments: true
   field_prj_lnt_images: true
-  field_prj_lnt_publish: true
   field_prj_lnt_score: true
   field_prj_lnt_signoff: true
   field_prj_lnt_type: true
   field_prj_oth_associated: true
   field_prj_oth_grant: true
-  field_prj_oth_mv: true
-  field_prj_oth_unregistered: true
   field_prj_saf_comment: true
   field_prj_snd_agree: true
   field_prj_snd_comment: true
@@ -1176,7 +1172,12 @@ hidden:
   field_prj_wtf_plan: true
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
-  field_sup_comment: true
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true
+  url_redirects: true

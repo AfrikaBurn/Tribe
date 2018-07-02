@@ -17,7 +17,7 @@ bundle: announcement
 mode: default
 content:
   field_body:
-    weight: 26
+    weight: 4
     settings:
       rows: 5
       placeholder: ''
@@ -25,7 +25,7 @@ content:
     type: text_textarea
     region: content
   field_pin_to_top:
-    weight: 27
+    weight: 5
     settings:
       display_label: true
     third_party_settings: {  }
@@ -43,9 +43,14 @@ content:
     third_party_settings: {  }
     type: datetime_default
     region: content
+  flag:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60

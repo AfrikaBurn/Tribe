@@ -17,7 +17,7 @@ third_party_settings:
 id: publish
 theme: afrikaburn
 region: sidebar
-weight: -20
+weight: -19
 provider: null
 plugin: 'system_menu_block:publish'
 settings:
@@ -44,6 +44,6 @@ visibility:
     context_mapping: {  }
   request_path:
     id: request_path
-    pages: "/node/*/edit\r\n/node/add/*"
+    pages: "/node/*/edit*\r\n/node/add/*"
     negate: true
     context_mapping: {  }

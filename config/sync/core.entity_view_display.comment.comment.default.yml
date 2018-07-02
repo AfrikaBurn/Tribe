@@ -6,7 +6,27 @@ dependencies:
     - comment.type.comment
     - field.field.comment.comment.comment_body
   module:
+    - ds
     - text
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - comment_user
+        - comment_body
+        - links
+    fields:
+      comment_user:
+        plugin_id: comment_user
+        weight: 0
+        label: hidden
+        formatter: default
 _core:
   default_config_hash: 77Ye1kR-P6AaiGfEO8mnXNSr7nqtnP3PiiVBwJeGGMI
 id: comment.comment.default
@@ -22,7 +42,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   links:
-    weight: 0
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
