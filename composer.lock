@@ -1,10 +1,14 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "84e86c9e087e54874de5240b99400111",
+=======
+    "content-hash": "a4ff87fa67f08a83a19e4cde51ccf5d9",
+>>>>>>> 1de8b477a439ea85d46fe97cc82a4c12f30228a3
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1674,7 +1678,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.24",
-                    "datestamp": "1527523080",
+                    "datestamp": "1527522480",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4278,6 +4282,57 @@
             "homepage": "https://www.drupal.org/project/entity_reference_revisions",
             "support": {
                 "source": "http://cgit.drupalcode.org/entity_reference_revisions"
+            }
+        },
+        {
+            "name": "drupal/entity_reference_views_select",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/entity_reference_views_select",
+                "reference": "8.x-1.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/entity_reference_views_select-8.x-1.3.zip",
+                "reference": "8.x-1.3",
+                "shasum": "bc8a7d0072a45b096989e30b2f81ec000227404b"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.3",
+                    "datestamp": "1524751984",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "bertrama",
+                    "homepage": "https://www.drupal.org/user/343472"
+                },
+                {
+                    "name": "el1_1el",
+                    "homepage": "https://www.drupal.org/user/1795292"
+                }
+            ],
+            "description": "Entity Reference Views displayed as a select list, checkboxes or radio buttons in forms",
+            "homepage": "https://www.drupal.org/project/entity_reference_views_select",
+            "support": {
+                "source": "http://cgit.drupalcode.org/entity_reference_views_select"
             }
         },
         {
@@ -6946,7 +7001,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0-beta2",
-                    "datestamp": "1519655459",
+                    "datestamp": "1519655285",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -11977,57 +12032,6 @@
                 "standards"
             ],
             "time": "2017-03-18T10:28:49+00:00"
-        },
-        {
-            "name": "drupal/entity_reference_views_select",
-            "version": "1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/entity_reference_views_select",
-                "reference": "8.x-1.3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entity_reference_views_select-8.x-1.3.zip",
-                "reference": "8.x-1.3",
-                "shasum": "bc8a7d0072a45b096989e30b2f81ec000227404b"
-            },
-            "require": {
-                "drupal/core": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.3",
-                    "datestamp": "1524751984",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "bertrama",
-                    "homepage": "https://www.drupal.org/user/343472"
-                },
-                {
-                    "name": "el1_1el",
-                    "homepage": "https://www.drupal.org/user/1795292"
-                }
-            ],
-            "description": "Entity Reference Views displayed as a select list, checkboxes or radio buttons in forms",
-            "homepage": "https://www.drupal.org/project/entity_reference_views_select",
-            "support": {
-                "source": "http://cgit.drupalcode.org/entity_reference_views_select"
-            }
         },
         {
             "name": "fabpot/goutte",
