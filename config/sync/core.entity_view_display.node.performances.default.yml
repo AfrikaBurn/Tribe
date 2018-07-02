@@ -4,6 +4,9 @@ status: true
 dependencies:
   config:
     - core.entity_view_display.comment.comment.default
+    - field.field.node.performances.field_bke_day
+    - field.field.node.performances.field_bke_location
+    - field.field.node.performances.field_bke_time
     - field.field.node.performances.field_collective
     - field.field.node.performances.field_form_mode
     - field.field.node.performances.field_grt_art_total
@@ -124,6 +127,7 @@ dependencies:
     - image
     - link
     - markup
+    - options
     - user
 third_party_settings:
   field_group:
@@ -413,6 +417,29 @@ targetEntityType: node
 bundle: performances
 mode: default
 content:
+  field_bke_day:
+    weight: 117
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_bke_location:
+    weight: 115
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_bke_time:
+    weight: 118
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_collective:
     type: entity_reference_label
     weight: 10
@@ -1015,6 +1042,9 @@ content:
       link: ''
     third_party_settings: {  }
     type: entity_reference_revisions_entity_view
+    region: content
+  flag_archived:
+    weight: 10
     region: content
 hidden:
   field_form_mode: true

@@ -112,3 +112,60 @@ bundles:
       notes: ''
       bundle: mutant_vehicles
       name: field_mutant_drivers
+  performances:
+    field_prj_gen_description:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: performances
+      name: field_prj_gen_description
+    field_prj_wtf_short:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: performances
+      name: field_prj_wtf_short
+    field_prj_oth_grant:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: performances
+      name: field_prj_oth_grant
+    field_prj_wtf_categories:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: performances
+      name: field_prj_wtf_categories
+    field_bke_location:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: performances
+      name: field_bke_location
+    field_bke_day:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: performances
+      name: field_bke_day
+    field_bke_time:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: performances
+      name: field_bke_time
