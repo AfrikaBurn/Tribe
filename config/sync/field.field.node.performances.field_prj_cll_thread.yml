@@ -1,0 +1,40 @@
+uuid: 581e6201-816f-46fd-abb5-0e8e696c2757
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_cll_thread
+    - node.type.performances
+  module:
+    - comment
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: eaG5atm2T2dF9rKg5kY4W2VT1vy-nnxP3vebP1BSynU
+id: node.performances.field_prj_cll_thread
+field_name: field_prj_cll_thread
+entity_type: node
+bundle: performances
+label: 'New member request'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    status: 2
+    cid: 0
+    last_comment_timestamp: 0
+    last_comment_name: null
+    last_comment_uid: 0
+    comment_count: 0
+default_value_callback: ''
+settings:
+  default_mode: 1
+  per_page: 50
+  anonymous: 0
+  form_location: true
+  preview: 0
+field_type: comment
