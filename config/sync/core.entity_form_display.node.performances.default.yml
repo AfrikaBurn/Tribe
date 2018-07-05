@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.performances.field_admin_comments
     - field.field.node.performances.field_bke_day
     - field.field.node.performances.field_bke_location
     - field.field.node.performances.field_bke_time
@@ -108,6 +109,7 @@ dependencies:
     - field.field.node.performances.field_prj_wtf_short
     - field.field.node.performances.field_prj_wtf_short_copy
     - field.field.node.performances.field_prj_wtf_website
+    - field.field.node.performances.field_prjr_complete
     - field.field.node.performances.field_sup_review
     - field.field.node.performances.field_this_is_the_amount_of_mone
     - field.field.node.performances.field_vp_ea
@@ -146,11 +148,6 @@ third_party_settings:
         - field_bke_time
         - field_prj_wtf_image
         - field_prj_oth_grant
-        - field_prj_gen_bio
-        - field_prj_gen_external
-        - field_prj_gen_fundraiser
-        - field_prj_gen_history
-        - field_prj_gen_location
       parent_name: group_project
       weight: 20
       format_type: accordion_item
@@ -168,9 +165,6 @@ third_party_settings:
         - field_prj_cll_description
         - field_prj_cll_contact
         - field_prj_wtf_website
-        - field_prj_cll_thread
-        - field_prj_wtf_planned
-        - field_prj_wtf_scheduled
       parent_name: group_project
       weight: 27
       format_type: accordion_item
@@ -182,6 +176,22 @@ third_party_settings:
         classes: ''
       label: 'Community & Collaboration'
       region: content
+    group_administrative:
+      children:
+        - field_prjr_complete
+        - field_prj_adm_wrangler
+        - created
+        - field_collective
+        - field_form_mode
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: Administrative
 _core:
   default_config_hash: GszY5o7FPcrv2Z8_LMFChqNpGZCA9kaS3WAz3lVtB0o
 id: node.performances.default
@@ -191,7 +201,7 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 1
+    weight: 40
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -219,7 +229,7 @@ content:
     region: content
   field_collective:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 41
     region: content
     settings:
       match_operator: CONTAINS
@@ -227,7 +237,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_form_mode:
-    weight: 6
+    weight: 42
     settings:
       size: 60
       placeholder: ''
@@ -236,7 +246,7 @@ content:
     region: content
   field_prj_adm_wrangler:
     type: entity_reference_autocomplete
-    weight: 5
+    weight: 39
     region: content
     settings:
       match_operator: CONTAINS
@@ -398,6 +408,17 @@ content:
           bundle: performances
     type: link_default
     region: content
+  field_prjr_complete:
+    type: options_select
+    weight: 38
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  flag:
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   moderation_state:
     weight: 69
     settings:
@@ -406,13 +427,6 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 2
-    region: content
-    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 0
@@ -421,16 +435,8 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 0
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    region: content
-    third_party_settings: {  }
 hidden:
+  field_admin_comments: true
   field_grt_art_total: true
   field_grt_breakdown: true
   field_grt_contribution: true
@@ -524,6 +530,8 @@ hidden:
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
   path: true
+  promote: true
   status: true
   sticky: true
+  uid: true
   url_redirects: true

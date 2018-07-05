@@ -169,3 +169,11 @@ bundles:
       notes: ''
       bundle: performances
       name: field_bke_time
+    field_prj_adm_review:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: performances
+      name: field_prj_adm_review
