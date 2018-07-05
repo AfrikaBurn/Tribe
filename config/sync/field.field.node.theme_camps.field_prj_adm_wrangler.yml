@@ -28,30 +28,11 @@ default_value:
     target_uuid: 89dcd4de-d42c-4e3c-becc-16eccf2f39e9
 default_value_callback: ''
 settings:
-  handler: 'default:user'
+  handler: views
   handler_settings:
-    include_anonymous: true
-    filter:
-      type: role
-      role:
-        theme_camp_wrangler: theme_camp_wrangler
-        theme: theme
-        art_wrangler: '0'
-        art_admin: '0'
-        communications_wrangler: '0'
-        communications_admin: '0'
-        leave_no_trace_moop: '0'
-        mutant_vehicle_viewer: '0'
-        mutant_vehicle_wrangler: '0'
-        mutant_vehicle_admin: '0'
-        outreach_wrangler: '0'
-        outreach_admin: '0'
-        administrator: '0'
-        support_wrangler: '0'
-        support_admin: '0'
-    target_bundles: null
-    sort:
-      field: name
-      direction: ASC
-    auto_create: false
+    view:
+      view_name: wranglers
+      display_name: wrangler_select
+      arguments:
+        - theme_camp_wrangler
 field_type: entity_reference

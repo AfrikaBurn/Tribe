@@ -1,6 +1,6 @@
 uuid: 70079c84-f866-4be5-afa3-b4fd6e8fc2e9
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - ds
@@ -133,6 +133,7 @@ display:
       empty: {  }
       relationships: {  }
       arguments: {  }
+      display_extenders: {  }
     cache_metadata:
       max-age: -1
       contexts:

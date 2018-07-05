@@ -36,7 +36,7 @@ class SettingsForm extends ConfigFormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state, Request $request = NULL) {
-  
+
     $config = $this->config('afrikaburn_emails.settings');
     $user = \Drupal::currentUser();
     $message_definition = $config->get('message_definition');

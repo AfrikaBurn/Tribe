@@ -1,5 +1,7 @@
 <?php
 
+use \Drupal\user\Entity\User;
+
 
 /* ----- Module Hooks ----- */
 
@@ -21,6 +23,8 @@ function afrikaburn_bio_page_attachments(&$page) {
 function afrikaburn_bio_form_user_form_alter(&$form, $form_state, $form_id){
 
   $form['#attached']['library'][] = 'afrikaburn_bio/bio';
+  $target = $form_state->getFormObject()->getEntity();
+  $user = User::load(\Drupal::currentUser()->id());
 
   // Set form title, attach quicket handlers, set redirects
   switch($form_id){
@@ -51,6 +55,9 @@ function afrikaburn_bio_form_user_form_alter(&$form, $form_state, $form_id){
     $keys[0] = '';
     $options = array_combine( $keys, $options);
   }
+
+  // Require picture of users if they are editing themselves
+  $form['user_picture']['widget'][0]['#required'] = $user->id() == 0 || $user->id() == $target->id();
 
   // Hide email retype on user create
   $form['field_email_retype']['#access'] = \Drupal::currentUser()->isAnonymous();

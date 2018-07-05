@@ -1,3 +1,10 @@
+/* Warning messages */
+
+
+.messages.messages--warning .messages__item{
+  color: #A9905A !important;
+}
+
 .collapsiblock a h2:after{
     background: url(../images/up.png) no-repeat;
     background-size: contain;

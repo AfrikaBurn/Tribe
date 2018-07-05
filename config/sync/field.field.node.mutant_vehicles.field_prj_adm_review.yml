@@ -18,7 +18,7 @@ id: node.mutant_vehicles.field_prj_adm_review
 field_name: field_prj_adm_review
 entity_type: node
 bundle: mutant_vehicles
-label: Review
+label: Status
 description: ''
 required: false
 translatable: true

@@ -1,5 +1,5 @@
 
-article.profile .field{
+.path-user article.profile .field{
   align-items: top;
   box-sizing: border-box;
   display: flex;
@@ -9,11 +9,11 @@ article.profile .field{
   position: relative;
 }
 
-article.profile .field *{
+.path-user article.profile .field *{
   flex-basis: 45%;
 }
 
-article.profile .field__item .field_label{
+.path-user article.profile .field__item .field_label{
   display: block;
   flex-basis: 100%;
 }
@@ -27,9 +27,17 @@ article.profile .field__item .field_label{
 
 @media (min-width: 600px) {
 
-  article.profile .field--name-user-picture{
+  .path-user article.profile .field--name-user-picture{
     float: right;
     width: 50%;
   }
 
+}
+
+.path-user article.profile .field--name-user-picture{
+  text-align: center;
+}
+
+.path-user article.profile .field--name-user-picture a{
+  flex-basis: 100%;
 }

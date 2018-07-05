@@ -1,12 +1,11 @@
 uuid: 12391f7a-cc0b-46e6-98aa-7279209d68e4
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - field.storage.node.field_collective
     - field.storage.node.field_prj_sup_address
     - field.storage.node.field_prj_sup_details
-    - field.storage.node.field_sup_comment
     - field.storage.node.field_sup_review
     - node.type.art
     - node.type.mutant_vehicles
@@ -451,68 +450,6 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_sup_comment:
-          id: field_sup_comment
-          table: node__field_sup_comment
-          field: field_sup_comment
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Suppliers review comment'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: basic_string
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
       filters:
         status:
           value: '1'
@@ -640,7 +577,6 @@ display:
         - 'config:field.storage.node.field_collective'
         - 'config:field.storage.node.field_prj_sup_address'
         - 'config:field.storage.node.field_prj_sup_details'
-        - 'config:field.storage.node.field_sup_comment'
         - 'config:field.storage.node.field_sup_review'
   page_1:
     display_plugin: page
@@ -662,5 +598,4 @@ display:
         - 'config:field.storage.node.field_collective'
         - 'config:field.storage.node.field_prj_sup_address'
         - 'config:field.storage.node.field_prj_sup_details'
-        - 'config:field.storage.node.field_sup_comment'
         - 'config:field.storage.node.field_sup_review'

@@ -16,7 +16,7 @@ third_party_settings:
 id: ticketblock
 theme: afrikaburn
 region: sidebar
-weight: -16
+weight: -15
 provider: null
 plugin: ticket_block
 settings:
@@ -39,6 +39,6 @@ visibility:
       user: '@user.current_user_context:current_user'
   request_path:
     id: request_path
-    pages: "/node/*/edit\r\n/node/add/*"
+    pages: "/node/*/edit*\r\n/node/add/*"
     negate: true
     context_mapping: {  }

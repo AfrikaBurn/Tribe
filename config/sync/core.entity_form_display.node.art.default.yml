@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.art.field_collective
     - field.field.node.art.field_form_mode
     - field.field.node.art.field_grt_art_apply
-    - field.field.node.art.field_grt_art_comment
     - field.field.node.art.field_grt_art_reason
     - field.field.node.art.field_grt_art_total
     - field.field.node.art.field_grt_breakdown
@@ -26,21 +25,14 @@ dependencies:
     - field.field.node.art.field_grt_short_desc
     - field.field.node.art.field_grt_specify
     - field.field.node.art.field_grt_tec_apply
-    - field.field.node.art.field_grt_tec_comment
     - field.field.node.art.field_grt_tec_reason
     - field.field.node.art.field_grt_tec_total
     - field.field.node.art.field_grt_tool
     - field.field.node.art.field_grt_transport
     - field.field.node.art.field_muncipal_district
-    - field.field.node.art.field_prj_adm_comms
-    - field.field.node.art.field_prj_adm_form_2
     - field.field.node.art.field_prj_adm_form_3
-    - field.field.node.art.field_prj_adm_form_grant
-    - field.field.node.art.field_prj_adm_form_wtf
     - field.field.node.art.field_prj_adm_latitude
     - field.field.node.art.field_prj_adm_longitude
-    - field.field.node.art.field_prj_adm_notes
-    - field.field.node.art.field_prj_adm_ranger_comment
     - field.field.node.art.field_prj_adm_review
     - field.field.node.art.field_prj_adm_wrangler
     - field.field.node.art.field_prj_brn_agree
@@ -57,7 +49,7 @@ dependencies:
     - field.field.node.art.field_prj_cll_collaborate
     - field.field.node.art.field_prj_cll_contact
     - field.field.node.art.field_prj_cll_description
-    - field.field.node.art.field_prj_cll_thread
+    - field.field.node.art.field_prj_comments
     - field.field.node.art.field_prj_gen_bio
     - field.field.node.art.field_prj_gen_concept
     - field.field.node.art.field_prj_gen_contact
@@ -80,13 +72,11 @@ dependencies:
     - field.field.node.art.field_prj_lgh_policy
     - field.field.node.art.field_prj_lgh_power
     - field.field.node.art.field_prj_lgh_projection
-    - field.field.node.art.field_prj_lnt_comments
     - field.field.node.art.field_prj_lnt_duration
     - field.field.node.art.field_prj_lnt_handled
     - field.field.node.art.field_prj_lnt_helpers
     - field.field.node.art.field_prj_lnt_historic
     - field.field.node.art.field_prj_lnt_images
-    - field.field.node.art.field_prj_lnt_publish
     - field.field.node.art.field_prj_lnt_representative
     - field.field.node.art.field_prj_lnt_score
     - field.field.node.art.field_prj_lnt_signoff
@@ -102,9 +92,7 @@ dependencies:
     - field.field.node.art.field_prj_prp_erection
     - field.field.node.art.field_prj_prp_start
     - field.field.node.art.field_prj_prp_transport
-    - field.field.node.art.field_prj_saf_comment
     - field.field.node.art.field_prj_snd_agree
-    - field.field.node.art.field_prj_snd_comment
     - field.field.node.art.field_prj_snd_description
     - field.field.node.art.field_prj_snd_f1
     - field.field.node.art.field_prj_snd_level
@@ -121,7 +109,6 @@ dependencies:
     - field.field.node.art.field_prj_stg_contact
     - field.field.node.art.field_prj_stg_description
     - field.field.node.art.field_prj_stg_stage
-    - field.field.node.art.field_prj_stg_tread
     - field.field.node.art.field_prj_stg_type
     - field.field.node.art.field_prj_sup_address
     - field.field.node.art.field_prj_sup_details
@@ -136,13 +123,16 @@ dependencies:
     - field.field.node.art.field_prj_wtf_short
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
-    - field.field.node.art.field_sup_comment
+    - field.field.node.art.field_prjr_complete
     - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
     - field.field.node.art.field_vp_ea
+    - field.field.node.art.field_year_cycle
     - image.style.thumbnail
     - node.type.art
   module:
+    - comment
+    - computed_field
     - conditional_fields
     - cshs
     - datetime
@@ -161,7 +151,6 @@ third_party_settings:
         - field_prj_gen_manager
         - field_prj_gen_lead
         - field_prj_gen_location
-        - field_collective
         - field_prj_gen_bio
         - field_prj_gen_history
         - field_prj_gen_fundraising
@@ -368,7 +357,7 @@ third_party_settings:
         - group_collaboration
         - group_other
       parent_name: ''
-      weight: 3
+      weight: 2
       format_type: tabs
       format_settings:
         label: 'Project Registration'
@@ -397,10 +386,15 @@ third_party_settings:
       label: "Collaboration\t"
     group_administrative:
       children:
-        - field_form_mode
+        - field_prjr_complete
+        - field_prj_adm_review
         - field_prj_adm_wrangler
+        - flag
+        - field_prj_comments
+        - field_collective
+        - field_form_mode
       parent_name: ''
-      weight: 0
+      weight: 1
       format_type: details
       format_settings:
         id: ''
@@ -416,14 +410,17 @@ bundle: art
 mode: default
 content:
   field_collective:
-    type: options_select
-    weight: 12
+    type: entity_reference_autocomplete
+    weight: 11
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_form_mode:
     type: string_textfield
-    weight: 1
+    weight: 12
     region: content
     settings:
       size: 60
@@ -441,9 +438,15 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_adm_wrangler:
+  field_prj_adm_review:
     type: options_select
-    weight: 2
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_prj_adm_wrangler:
+    type: erviews_options_select
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -552,6 +555,12 @@ content:
             selector: ''
           entity_type: node
           bundle: art
+  field_prj_comments:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
   field_prj_gen_bio:
     type: string_textarea
     weight: 13
@@ -953,6 +962,23 @@ content:
             selector: ''
           entity_type: node
           bundle: art
+  field_prjr_complete:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_year_cycle:
+    weight: 83
+    settings: {  }
+    third_party_settings: {  }
+    type: computed_number_widget
+    region: content
+  flag:
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 7
@@ -965,7 +991,6 @@ hidden:
   created: true
   field_col_members: true
   field_grt_art_apply: true
-  field_grt_art_comment: true
   field_grt_art_reason: true
   field_grt_art_total: true
   field_grt_breakdown: true
@@ -984,21 +1009,13 @@ hidden:
   field_grt_short_desc: true
   field_grt_specify: true
   field_grt_tec_apply: true
-  field_grt_tec_comment: true
   field_grt_tec_reason: true
   field_grt_tec_total: true
   field_grt_tool: true
   field_grt_transport: true
-  field_prj_adm_comms: true
-  field_prj_adm_form_2: true
   field_prj_adm_form_3: true
-  field_prj_adm_form_grant: true
-  field_prj_adm_form_wtf: true
   field_prj_adm_latitude: true
   field_prj_adm_longitude: true
-  field_prj_adm_notes: true
-  field_prj_adm_ranger_comment: true
-  field_prj_adm_review: true
   field_prj_brn_agree: true
   field_prj_brn_desc: true
   field_prj_brn_perimeter: true
@@ -1006,7 +1023,6 @@ hidden:
   field_prj_brn_plan: true
   field_prj_brn_time: true
   field_prj_brn_time_adm: true
-  field_prj_cll_thread: true
   field_prj_gen_external: true
   field_prj_lgh_agree: true
   field_prj_lgh_description: true
@@ -1014,7 +1030,6 @@ hidden:
   field_prj_lgh_policy: true
   field_prj_lgh_power: true
   field_prj_lgh_projection: true
-  field_prj_lnt_comments: true
   field_prj_lnt_duration: true
   field_prj_lnt_helpers: true
   field_prj_lnt_images: true
@@ -1035,7 +1050,6 @@ hidden:
   field_prj_stg_contact: true
   field_prj_stg_description: true
   field_prj_stg_stage: true
-  field_prj_stg_tread: true
   field_prj_stg_type: true
   field_prj_sup_address: true
   field_prj_sup_details: true

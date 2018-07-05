@@ -9,109 +9,93 @@ use \Drupal\user\Entity\User;
 /* ----- Form alters ----- */
 
 
-// function afrikaburn_registration_mail_alter(&$message){
-//   dpm($message);
-// }
-
+/**
+ * Implements hook_form_alter().
+ */
 function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
 
-  // dpm($form_id);
+  // dpm($form_state->getFormObject());
 
+  module_load_include('inc', 'afrikaburn_registration', 'includes/form');
+  $registration_config = _project_form_config();
+  $defaults = @($registration_config)[$form_id];
 
-
-  $defaults = @([
-
-    'node_art_form' => [
-      'mode' => 'add',
-      'title' => 'Register an Artwork',
-    ],
-    'node_art_form_1_form' => [
-      'mode' => 'form_1',
-      'title' => 'Register an Artwork',
-    ],
-    'node_art_form' => [
-      'mode' => 'form_1',
-      'title' => 'Register an Artwork',
-    ],
-    'node_art_edit_form' => [
-      'mode' => 'form_1',
-      'title' => 'Updating %title Artwork registration',
-    ],
-    'node_art_grant_form' => [
-      'mode' => 'form_1',
-      'title' => 'Grant application for %title',
-    ],
-
-    'node_mutant_vehicles_form' => [
-      'mode' => 'form_1',
-      'title' => 'Register a Mutant Vehicle',
-    ],
-
-    'node_performances_form' => [
-      'mode' => 'form_1',
-      'title' => 'Register a Performance',
-    ],
-    'node_performances_edit_form' => [
-      'mode' => 'form_1',
-      'title' => 'Updating %title Performance registration',
-    ],
-    'node_performances_grant_form' => [
-      'mode' => 'form_1',
-      'title' => 'Grant application for %title',
-    ],
-
-    'node_theme_camps_form' => [
-      'mode' => 'form_1',
-      'title' => 'Register a Theme Camp',
-    ],
-    'node_theme_camps_edit_form' => [
-      'mode' => 'form_1',
-      'title' => 'Updating %title Theme Camp registration',
-    ],
-
-  ])[$form_id];
-
-  if ($defaults){
-
-    $form['#attached']['library'][] = 'afrikaburn_registration/registration';
+  if (isset($defaults)){
 
     $user = User::load(\Drupal::currentUser()->id());
-    $registration = \Drupal::routeMatch()->getParameter('node');
-    $cid = \Drupal::request()->query->get('field_collective')
-      ? \Drupal::request()->query->get('field_collective')
-      : ($registration && $registration->field_collective
-        ? $registration->field_collective->getValue()[0]['target_id']
-        : false);
-    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+    $is_wrangler = $user->hasRole($defaults['wrangler']);
+    $is_admin = $user->hasRole('administrator');
+    $is_complete = array_search($defaults['mode'], $form['field_prjr_complete']['widget']['#default_value']) !== FALSE;
+    $is_new = $defaults['mode'] == 'new';
 
-    // Help lost users
+    // Get collective and existing registration
+    $registration = \Drupal::routeMatch()->getParameter('node');
+    $collective = _get_collective($registration);
+
+    // Naughty naughty users
     if (!$collective) {
-      drupal_set_message('Oops! You really should create an artwork from within a collective', 'warning', true);
+      drupal_set_message('Oops! You really should do that from within a collective', 'warning', true);
       $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
       $response->send();
     }
 
     // Set title
-    $collective_title = '<div class="subtitle">by the ' . $collective->getTitle() . ' collective</div>';
     $form['#title'] = [
       '#type' => 'markup',
-      '#markup' => $registration
-        ? t(
-            $defaults['title'],
-            ['%title' => $registration ? $registration->getTitle() : '']
-          ) . $collective_title
-        : t($defaults['title']),
+      '#markup' => _get_title($defaults, $collective, $registration),
     ];
+
+    // Attach library
+    $form['#attached']['library'][] = 'afrikaburn_registration/registration';
+
+    // Hide fields
+    $form['revision_log']['#access'] = $is_admin;
+    $form['field_form_mode']['#type'] = 'hidden';
+    $form['field_collective']['#access'] = $is_admin;
+    if (!($is_wrangler || $is_admin)) $form['field_prjr_complete']['widget']['#type'] = 'hidden';
+
+    // Hide inappropriate complete options per type
+    $bundle = $form_state->getFormObject()->getEntity()->bundle();
+    $form['field_prjr_complete']['widget']['#options'] = array_intersect_key(
+      $form['field_prjr_complete']['widget']['#options'],
+      array_flip(_project_form_modes()[$bundle]['modes'])
+    );
 
     // Set defaults
     $form['field_collective']['widget'][0]['target_id']['#default_value'] = $collective;
-    $form['field_form_mode']['widget'][0]['value']['#default_value'] = $defaults['mode'];
+    $form['field_form_mode']['widget'][0]['value']['#default_value'] = $registration
+      ? $defaults['mode']
+      : 'new';
+    if (!$is_wrangler) $form['field_prjr_complete']['widget']['#default_value'][] = $defaults['mode'];
+    $form['#administrator'] = $is_admin || $is_wrangler;
 
-    // Hide fields
-    $form['revision_log']['#access'] = $user->hasRole('administrator');
-    $form['field_form_mode']['#access'] = false;
-    $form['field_collective']['#access'] = $user->hasRole('administrator');
+    // Wizard or tabs (cake or death?)
+    $form['#wizard'] = $is_new || $defaults['mode'] != 'edit' && ($incomplete || !$is_wrangler);
+  }
+}
+
+/**
+ * Implements hook_field_group_pre_render().
+ */
+function afrikaburn_registration_field_group_pre_render(&$element, &$group, &$form) {
+  if ($group->group_name == 'group_project_registration' && $form['#wizard']){
+    $form['#attributes']['class'][] = 'js-wizard';
+  }
+  if ($group->group_name == 'group_administrative' && !$form['#administrator']){
+    $form['group_administrative']['#attributes']['class'][] = 'hidden';
   }
 }
 
 
+function afrikaburn_registration_theme() {
+  return [
+    'views_view_unformatted__wrangle_art__mail_leads' => [
+      'template' => 'wrangle--addresses',
+      'base hook' => 'view',
+    ],
+    'views_view__wrangle_art__mail_leads' => [
+      'template' => 'wrangle--lead-contacts',
+      'base hook' => 'view',
+    ],
+  ];
+}
