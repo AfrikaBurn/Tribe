@@ -1,0 +1,21 @@
+diff --git a/src/Form/MenuImportForm.php b/src/Form/MenuImportForm.php
+index a2611a7..188d512 100644
+--- a/src/Form/MenuImportForm.php
++++ b/src/Form/MenuImportForm.php
+@@ -68,13 +68,13 @@ public function submitForm(array &$form, FormStateInterface $form_state)
+     $menus = $this->config('menu_export.export_data')->get();
+     foreach ($menus as $key => $menu) {
+       $menu_name = $menu['menu_name']['value'];
+-      if (!Menu::load($key)) {
++      if (!Menu::load($menu_name)) {
+         $invalidMenus[] = $menu_name;
+         continue;
+       }
++      unset($menu['id']);
+       $menuLinkEntity = \Drupal::entityQuery('menu_link_content')
+-        ->condition('menu_name', $menu_name)
+-        ->condition('id', $key)
++        ->condition('uuid', $menu['uuid'])
+         ->execute();
+       if (!$menuLinkEntity) {
+         $menuLinkEntity = MenuLinkContent::create();
