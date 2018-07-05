@@ -25,9 +25,7 @@ dependencies:
     - field.field.node.performances.field_grt_total
     - field.field.node.performances.field_grt_transport
     - field.field.node.performances.field_muncipal_district
-    - field.field.node.performances.field_prj_adm_comms
     - field.field.node.performances.field_prj_adm_notes
-    - field.field.node.performances.field_prj_adm_ranger_comment
     - field.field.node.performances.field_prj_adm_review
     - field.field.node.performances.field_prj_adm_wrangler
     - field.field.node.performances.field_prj_brn_agree
@@ -67,7 +65,6 @@ dependencies:
     - field.field.node.performances.field_prj_lnt_helpers
     - field.field.node.performances.field_prj_lnt_historic
     - field.field.node.performances.field_prj_lnt_images
-    - field.field.node.performances.field_prj_lnt_publish
     - field.field.node.performances.field_prj_lnt_representative
     - field.field.node.performances.field_prj_lnt_score
     - field.field.node.performances.field_prj_lnt_signoff
@@ -111,7 +108,6 @@ dependencies:
     - field.field.node.performances.field_prj_wtf_short
     - field.field.node.performances.field_prj_wtf_short_copy
     - field.field.node.performances.field_prj_wtf_website
-    - field.field.node.performances.field_sup_comment
     - field.field.node.performances.field_sup_review
     - field.field.node.performances.field_this_is_the_amount_of_mone
     - field.field.node.performances.field_vp_ea
@@ -452,9 +448,7 @@ hidden:
   field_grt_total: true
   field_grt_transport: true
   field_muncipal_district: true
-  field_prj_adm_comms: true
   field_prj_adm_notes: true
-  field_prj_adm_ranger_comment: true
   field_prj_adm_review: true
   field_prj_brn_agree: true
   field_prj_brn_burning: true
@@ -488,7 +482,6 @@ hidden:
   field_prj_lnt_helpers: true
   field_prj_lnt_historic: true
   field_prj_lnt_images: true
-  field_prj_lnt_publish: true
   field_prj_lnt_representative: true
   field_prj_lnt_score: true
   field_prj_lnt_signoff: true
@@ -527,7 +520,6 @@ hidden:
   field_prj_wtf_planned: true
   field_prj_wtf_scheduled: true
   field_prj_wtf_short_copy: true
-  field_sup_comment: true
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
