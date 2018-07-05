@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.admin_comments.default
+    - field.field.node.performances.field_admin_comments
     - field.field.node.performances.field_collective
     - field.field.node.performances.field_form_mode
     - field.field.node.performances.field_grt_art_total
@@ -33,7 +35,6 @@ dependencies:
     - field.field.node.performances.field_prj_cll_collaborate
     - field.field.node.performances.field_prj_cll_contact
     - field.field.node.performances.field_prj_cll_description
-    - field.field.node.performances.field_prj_comments
     - field.field.node.performances.field_prj_gen_bio
     - field.field.node.performances.field_prj_gen_concept
     - field.field.node.performances.field_prj_gen_contact
@@ -107,6 +108,7 @@ dependencies:
     - field.field.node.performances.field_vp_ea
     - node.type.performances
   module:
+    - comment
     - options
     - user
 id: node.performances.default
@@ -114,6 +116,15 @@ targetEntityType: node
 bundle: performances
 mode: default
 content:
+  field_admin_comments:
+    weight: 102
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    type: comment_default
+    region: content
   field_prjr_complete:
     weight: 101
     label: above
@@ -161,7 +172,6 @@ hidden:
   field_prj_cll_collaborate: true
   field_prj_cll_contact: true
   field_prj_cll_description: true
-  field_prj_comments: true
   field_prj_gen_bio: true
   field_prj_gen_concept: true
   field_prj_gen_contact: true

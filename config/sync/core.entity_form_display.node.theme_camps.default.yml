@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.theme_camps.field_admin_comments
     - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_field_prj_plc_marquis
     - field.field.node.theme_camps.field_field_prj_plc_stretch_m
@@ -15,7 +16,6 @@ dependencies:
     - field.field.node.theme_camps.field_prj_cll_collaborate
     - field.field.node.theme_camps.field_prj_cll_contact
     - field.field.node.theme_camps.field_prj_cll_description
-    - field.field.node.theme_camps.field_prj_comments
     - field.field.node.theme_camps.field_prj_est_camp_population
     - field.field.node.theme_camps.field_prj_gen_bio
     - field.field.node.theme_camps.field_prj_gen_commodification
@@ -283,6 +283,12 @@ targetEntityType: node
 bundle: theme_camps
 mode: default
 content:
+  field_admin_comments:
+    weight: 39
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
   field_collective:
     type: entity_reference_autocomplete
     weight: 6
@@ -367,12 +373,6 @@ content:
     region: content
   field_prj_cll_thread:
     weight: 15
-    settings: {  }
-    third_party_settings: {  }
-    type: comment_default
-    region: content
-  field_prj_comments:
-    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: comment_default

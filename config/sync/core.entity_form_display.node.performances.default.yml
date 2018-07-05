@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.performances.field_admin_comments
     - field.field.node.performances.field_collective
     - field.field.node.performances.field_form_mode
     - field.field.node.performances.field_grt_art_total
@@ -33,7 +34,6 @@ dependencies:
     - field.field.node.performances.field_prj_cll_collaborate
     - field.field.node.performances.field_prj_cll_contact
     - field.field.node.performances.field_prj_cll_description
-    - field.field.node.performances.field_prj_comments
     - field.field.node.performances.field_prj_gen_bio
     - field.field.node.performances.field_prj_gen_concept
     - field.field.node.performances.field_prj_gen_contact
@@ -375,6 +375,12 @@ targetEntityType: node
 bundle: performances
 mode: default
 content:
+  field_admin_comments:
+    weight: 71
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
   field_collective:
     type: entity_reference_autocomplete
     weight: 6
@@ -576,12 +582,6 @@ content:
     region: content
   field_prj_cll_thread:
     weight: 14
-    settings: {  }
-    third_party_settings: {  }
-    type: comment_default
-    region: content
-  field_prj_comments:
-    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: comment_default

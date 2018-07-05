@@ -1,10 +1,10 @@
-uuid: ed360c94-29d8-4b1e-b89e-230116cfd6dd
+uuid: 51b4f2e9-0e1a-47ee-a9a6-dd8d1e817c80
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_prj_comments
-    - node.type.art
+    - field.storage.node.field_admin_comments
+    - node.type.mutant_vehicles
   module:
     - comment
     - custom_add_another
@@ -12,11 +12,11 @@ third_party_settings:
   custom_add_another:
     custom_add_another: ''
     custom_remove: ''
-id: node.art.field_prj_comments
-field_name: field_prj_comments
+id: node.mutant_vehicles.field_admin_comments
+field_name: field_admin_comments
 entity_type: node
-bundle: art
-label: Comments
+bundle: mutant_vehicles
+label: 'Admin comments'
 description: ''
 required: false
 translatable: true
@@ -34,5 +34,5 @@ settings:
   per_page: 50
   anonymous: 0
   form_location: true
-  preview: 1
+  preview: 0
 field_type: comment

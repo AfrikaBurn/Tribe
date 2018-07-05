@@ -53,3 +53,27 @@ expression:
             rules_tokens: {  }
         provides_mapping: {  }
         action_id: rules_system_message
+      -
+        id: rules_action
+        uuid: 2218db63-7569-4de2-8eeb-36fa2b23a75c
+        context_values:
+          to:
+            - shared@afrikaburn.com
+          subject: 'New Artwork registration'
+          message: '[new artwork]'
+          reply: ''
+          language: ''
+        context_mapping: {  }
+        context_processors:
+          to:
+            rules_tokens: {  }
+          subject:
+            rules_tokens: {  }
+          message:
+            rules_tokens: {  }
+          reply:
+            rules_tokens: {  }
+          language:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_send_email

@@ -1,16 +1,16 @@
-uuid: 9e527a6a-f679-4f05-9630-0cc50fb38fb0
+uuid: 3f2ade78-6407-4414-aff6-f5ff3d2625aa
 langcode: en
 status: true
 dependencies:
   module:
     - comment
     - node
-id: node.field_prj_comments
-field_name: field_prj_comments
+id: node.field_admin_comments
+field_name: field_admin_comments
 entity_type: node
 type: comment
 settings:
-  comment_type: comment
+  comment_type: admin_comments
 module: comment
 locked: false
 cardinality: 1

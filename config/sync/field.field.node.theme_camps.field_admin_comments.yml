@@ -1,9 +1,9 @@
-uuid: ce415311-2afb-457c-b8b4-9ef5a9212ba3
+uuid: 36f133fc-b56f-491a-bb93-cde223381d6c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_prj_comments
+    - field.storage.node.field_admin_comments
     - node.type.theme_camps
   module:
     - comment
@@ -12,11 +12,11 @@ third_party_settings:
   custom_add_another:
     custom_add_another: ''
     custom_remove: ''
-id: node.theme_camps.field_prj_comments
-field_name: field_prj_comments
+id: node.theme_camps.field_admin_comments
+field_name: field_admin_comments
 entity_type: node
 bundle: theme_camps
-label: Comments
+label: 'Admin comments'
 description: ''
 required: false
 translatable: true
@@ -34,5 +34,5 @@ settings:
   per_page: 50
   anonymous: 0
   form_location: true
-  preview: 1
+  preview: 0
 field_type: comment

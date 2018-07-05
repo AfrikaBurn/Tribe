@@ -1,10 +1,10 @@
-uuid: 184c75d7-8b3e-4af1-aba7-ea384503e581
+uuid: 305c6fa7-7d54-4e96-9e29-546146bd3be7
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_prj_comments
-    - node.type.performances
+    - field.storage.node.field_admin_comments
+    - node.type.art
   module:
     - comment
     - custom_add_another
@@ -12,11 +12,11 @@ third_party_settings:
   custom_add_another:
     custom_add_another: ''
     custom_remove: ''
-id: node.performances.field_prj_comments
-field_name: field_prj_comments
+id: node.art.field_admin_comments
+field_name: field_admin_comments
 entity_type: node
-bundle: performances
-label: Comments
+bundle: art
+label: 'Admin comments'
 description: ''
 required: false
 translatable: false
@@ -34,5 +34,5 @@ settings:
   per_page: 50
   anonymous: 0
   form_location: true
-  preview: 1
+  preview: 0
 field_type: comment
