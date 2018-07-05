@@ -1,0 +1,23 @@
+uuid: e759d011-692c-45e9-9fc7-a65c52347b61
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.admin_comments
+    - field.field.comment.admin_comments.field_body
+id: comment.admin_comments.default
+targetEntityType: comment
+bundle: admin_comments
+mode: default
+content:
+  field_body:
+    weight: 0
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+hidden:
+  author: true
+  subject: true

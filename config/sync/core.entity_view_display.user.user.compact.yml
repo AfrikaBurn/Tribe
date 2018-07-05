@@ -31,9 +31,32 @@ dependencies:
     - field.field.user.user.user_picture
     - image.style.tiny_25x25
   module:
+    - ds
     - empty_fields
     - image
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - user_picture
+        - username
+    fields:
+      username:
+        plugin_id: username
+        weight: 1
+        label: hidden
+        formatter: default
+        settings:
+          wrapper: ''
+          class: ''
+          link: false
 _core:
   default_config_hash: '-cLsS3M3JycipXQt9rEb81_HxKneReoGuRh8ijcOPXs'
 id: user.user.compact
@@ -41,14 +64,6 @@ targetEntityType: user
 bundle: user
 mode: compact
 content:
-  field_first_name:
-    type: string
-    weight: 1
-    region: content
-    label: hidden
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
   user_picture:
     type: image
     weight: 0
@@ -70,6 +85,7 @@ hidden:
   field_emr_email: true
   field_emr_name: true
   field_emr_telephone: true
+  field_first_name: true
   field_gender: true
   field_id_number: true
   field_kids_and_teens: true

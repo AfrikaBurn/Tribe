@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.art.field_admin_comments
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_form_mode
@@ -49,7 +50,6 @@ dependencies:
     - field.field.node.art.field_prj_cll_collaborate
     - field.field.node.art.field_prj_cll_contact
     - field.field.node.art.field_prj_cll_description
-    - field.field.node.art.field_prj_comments
     - field.field.node.art.field_prj_gen_bio
     - field.field.node.art.field_prj_gen_concept
     - field.field.node.art.field_prj_gen_contact
@@ -409,6 +409,12 @@ targetEntityType: node
 bundle: art
 mode: default
 content:
+  field_admin_comments:
+    weight: 84
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
   field_collective:
     type: entity_reference_autocomplete
     weight: 11
@@ -555,12 +561,6 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-  field_prj_comments:
-    weight: 10
-    settings: {  }
-    third_party_settings: {  }
-    type: comment_default
-    region: content
   field_prj_gen_bio:
     type: string_textarea
     weight: 13

@@ -26,13 +26,6 @@ settings:
   provider: afrikaburn_collective
   label_display: visible
 visibility:
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
-    bundles:
-      collective: collective
-    negate: false
-    context_mapping:
-      node: '@node.node_route_context:node'
   node_type:
     id: node_type
     bundles:
@@ -50,3 +43,10 @@ visibility:
     pages: "/node/*/edit*\r\n/node/add/*"
     negate: true
     context_mapping: {  }
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      collective: collective
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

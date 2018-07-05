@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.mutant_vehicles.field_admin_comments
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
     - field.field.node.mutant_vehicles.field_grt_art_total
@@ -28,7 +29,6 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_cll_collaborate
     - field.field.node.mutant_vehicles.field_prj_cll_contact
     - field.field.node.mutant_vehicles.field_prj_cll_description
-    - field.field.node.mutant_vehicles.field_prj_comments
     - field.field.node.mutant_vehicles.field_prj_gen_base
     - field.field.node.mutant_vehicles.field_prj_gen_concept
     - field.field.node.mutant_vehicles.field_prj_gen_contact
@@ -350,6 +350,12 @@ targetEntityType: node
 bundle: mutant_vehicles
 mode: default
 content:
+  field_admin_comments:
+    weight: 131
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
   field_collective:
     type: entity_reference_autocomplete
     weight: 12
@@ -655,12 +661,6 @@ content:
           entity_type: node
           bundle: mutant_vehicles
     type: string_textarea
-    region: content
-  field_prj_comments:
-    weight: 11
-    settings: {  }
-    third_party_settings: {  }
-    type: comment_default
     region: content
   field_prj_gen_base:
     weight: 29

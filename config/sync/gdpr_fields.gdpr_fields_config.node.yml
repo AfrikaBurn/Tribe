@@ -142,6 +142,14 @@ bundles:
       notes: ''
       bundle: art
       name: field_yea
+    field_admin_comments:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: art
+      name: field_admin_comments
   theme_camps:
     field_prj_est_camp_population:
       enabled: false
@@ -175,6 +183,14 @@ bundles:
       notes: ''
       bundle: theme_camps
       name: field_prj_adm_wrangler
+    field_admin_comments:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: theme_camps
+      name: field_admin_comments
   mutant_vehicles:
     field_mutant_drivers:
       enabled: false
@@ -238,6 +254,14 @@ bundles:
       notes: ''
       bundle: mutant_vehicles
       name: field_prj_adm_wrangler
+    field_admin_comments:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: mutant_vehicles
+      name: field_admin_comments
   performances:
     field_prj_comments:
 >>>>>>> 33b24a11ede4506f3808515f1a5fbad11af24e47
@@ -290,4 +314,15 @@ bundles:
       name: field_bke_time
 =======
       name: field_prj_adm_wrangler
+<<<<<<< HEAD
 >>>>>>> 33b24a11ede4506f3808515f1a5fbad11af24e47
+=======
+    field_admin_comments:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: performances
+      name: field_admin_comments
+>>>>>>> 95eb14c29b9045de788b4f845e1be5b876db0408

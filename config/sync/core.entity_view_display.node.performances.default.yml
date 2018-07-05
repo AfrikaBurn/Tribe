@@ -4,12 +4,17 @@ status: true
 dependencies:
   config:
 <<<<<<< HEAD
+<<<<<<< HEAD
     - core.entity_view_display.comment.comment.default
     - field.field.node.performances.field_bke_day
     - field.field.node.performances.field_bke_location
     - field.field.node.performances.field_bke_time
 =======
 >>>>>>> 33b24a11ede4506f3808515f1a5fbad11af24e47
+=======
+    - core.entity_view_display.comment.admin_comments.default
+    - field.field.node.performances.field_admin_comments
+>>>>>>> 95eb14c29b9045de788b4f845e1be5b876db0408
     - field.field.node.performances.field_collective
     - field.field.node.performances.field_form_mode
     - field.field.node.performances.field_grt_art_total
@@ -40,7 +45,6 @@ dependencies:
     - field.field.node.performances.field_prj_cll_collaborate
     - field.field.node.performances.field_prj_cll_contact
     - field.field.node.performances.field_prj_cll_description
-    - field.field.node.performances.field_prj_comments
     - field.field.node.performances.field_prj_gen_bio
     - field.field.node.performances.field_prj_gen_concept
     - field.field.node.performances.field_prj_gen_contact
@@ -115,6 +119,7 @@ dependencies:
     - node.type.performances
   module:
 <<<<<<< HEAD
+<<<<<<< HEAD
     - comment
     - computed_field
     - datetime
@@ -126,6 +131,9 @@ dependencies:
     - markup
 =======
 >>>>>>> 33b24a11ede4506f3808515f1a5fbad11af24e47
+=======
+    - comment
+>>>>>>> 95eb14c29b9045de788b4f845e1be5b876db0408
     - options
     - user
 id: node.performances.default
@@ -133,6 +141,7 @@ targetEntityType: node
 bundle: performances
 mode: default
 content:
+<<<<<<< HEAD
 <<<<<<< HEAD
   field_bke_day:
     weight: 117
@@ -199,6 +208,17 @@ content:
   field_grt_f1:
     weight: 10
 =======
+=======
+  field_admin_comments:
+    weight: 102
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+>>>>>>> 95eb14c29b9045de788b4f845e1be5b876db0408
   field_prjr_complete:
     weight: 101
 >>>>>>> 33b24a11ede4506f3808515f1a5fbad11af24e47
@@ -643,7 +663,6 @@ hidden:
   field_prj_cll_collaborate: true
   field_prj_cll_contact: true
   field_prj_cll_description: true
-  field_prj_comments: true
   field_prj_gen_bio: true
   field_prj_gen_concept: true
   field_prj_gen_contact: true
