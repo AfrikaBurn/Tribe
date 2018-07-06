@@ -53,17 +53,17 @@ class RegistrationSettings extends ConfigFormBase {
         '#tree' => TRUE,
       ];
 
-      foreach($modes as $mode){
+      foreach($modes as $mode=>$mode_title){
+
         $form[$key][$mode] = [
-          '#type' => 'checkbox',
-          '#title' => str_replace('_', ' ', $mode) . ' open',
+          '#type' => 'checkboxes',
+          '#title' => $mode_title,
           '#default_value' => $config->get($key . '/' . $mode),
         ];
-        $form[$key][$mode . '-visible'] = [
-          '#type' => 'checkbox',
-          '#title' => str_replace('_', ' ', $mode) . ' visible',
-          '#default_value' => $config->get($key . '/' . $mode . '-visible'),
-        ];
+
+        foreach(['Open', 'Editable', 'Visible'] as $i=>$state){
+          $form[$key][$mode]['#options'][strtolower($state)] = $state;
+        }
       }
 
     }
@@ -85,13 +85,10 @@ class RegistrationSettings extends ConfigFormBase {
       $project = $map['title'];
       $modes = $map['modes'];
 
-      foreach($modes as $mode){
+      foreach(array_keys($modes) as $mode){
         $this
           ->config('afrikaburn_registration.settings')
           ->set($key . '/' . $mode, $values[$key][$mode]);
-        $this
-          ->config('afrikaburn_registration.settings')
-          ->set($key . '/' . $mode . '-visible', $values[$key][$mode . '-visible']);
       }
 
     }

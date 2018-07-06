@@ -12,22 +12,49 @@ function _project_form_modes(){
 
     'art' => [
       'title' => 'Artwork',
-      'modes' => ['form_1', 'form_2', 'form_3', 'grant', 'support', 'supplier', 'wap'],
+      'modes' => [
+        'form_1' => 'Registration form 1',
+        'form_2' => 'Registration form 2',
+        'form_3' => 'Registration form 3',
+        'grant' => 'Grant application',
+        'support' => 'Support camp registration',
+        'supplier' => 'Supplier registration',
+        'wap' => 'Work access passes',
+      ],
     ],
 
     'performances' => [
       'title' => 'Binnekring event',
-      'modes' => ['form_1', 'form_2', 'form_3', 'grant', 'support', 'supplier', 'wap'],
+      'modes' => [
+        'form_1' => 'Registration form',
+        'grant' => 'Grant application',
+        'support' => 'Support camp registration',
+        'supplier' => 'Supplier registration',
+        'wap' => 'Work access passes',
+      ],
     ],
 
     'mutant_vehicles' => [
       'title' => 'Mutant Vehicle',
-      'modes' => ['form_1', 'grant', 'support', 'supplier', 'wap'],
+      'modes' => [
+        'form_1' => 'Registration form',
+        'grant' => 'Grant application',
+        'support' => 'Support camp registration',
+        'supplier' => 'Supplier registration',
+        'wap' => 'Work access passes',
+      ],
     ],
 
     'theme_camps' => [
       'title' => 'Theme Camp',
-      'modes' => ['form_1', 'form_2', 'form_3', 'grant', 'supplier', 'wap'],
+      'modes' => [
+        'form_1' => 'Registration form 1',
+        'form_2' => 'Registration form 2',
+        'form_3' => 'Registration form 3',
+        'grant' => 'Grant application',
+        'supplier' => 'Supplier registration',
+        'wap' => 'Work access passes',
+      ],
     ],
   ];
 }

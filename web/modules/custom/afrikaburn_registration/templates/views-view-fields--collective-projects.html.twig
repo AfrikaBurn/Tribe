@@ -32,13 +32,18 @@
  */
 #}
 
-<td>{{ fields.title.content }}</td>
-{%- if (view.group_admin and view.form_modes) -%}
-<td>
-  <ul>
-{% for mode in modes %}
-    <li>{{ mode.title }}</li>
-{% endfor %}
-  </ul>
-</td>
-{%- endif -%}
+<tr>
+  <td class="name" colspan="3">
+    {{ fields.title.content }}
+  </td>
+</tr>
+<tr>
+  <td class="image">
+    {{ fields.field_prj_gen_concept.content }}
+  </td>
+  {%- if links -%}
+  <td class="forms">
+    <ul>{% for link in links %}{{- link|raw -}}{% endfor %}</ul>
+  </td>
+  {%- endif -%}
+</tr>

@@ -3,3 +3,84 @@
 div.body-content .block h3{
   font-size: 100%;
 }
+
+div.body-content .block table{
+  width: 100%;
+}
+
+div.body-content .block .view-id-collective_projects table ul{
+  margin: 0;
+}
+
+div.body-content .block .view-id-collective_projects table td{
+  padding: 0;
+}
+
+div.body-content .block .view-id-collective_projects table td.image{
+  text-align: center;
+  padding: 15px 5px;
+  width: 25px;
+}
+
+div.body-content .block .view-id-collective_projects table td.image img{
+  display: block;
+  padding: 2px;
+}
+
+div.body-content .block .view-id-collective_projects table td.name{
+  padding: 5px 10px;
+}
+
+div.body-content .block .view-id-collective_projects table td.forms{
+  width: 80px;
+}
+
+div.body-content .block .view-id-collective_projects li.messages{
+  background-position: 7px 6px;
+  padding: 0 0 0 30px;
+  border: none;
+  opacity: 0.9;
+}
+
+div.body-content .block .view-id-collective_projects li.messages:hover{
+  opacity: 1;
+}
+
+div.body-content .block .view-id-collective_projects .messages a{
+  display: block;
+  padding: 4px 0;
+}
+
+div.body-content .block .view-id-collective_projects .messages a:hover{
+  color: #000;
+}
+
+div.body-content .block .view-id-collective_projects .messages--info {
+  color: #0000aa;
+  background: #e4f7ff;
+  box-shadow: -8px 0 0 #01b8ff;
+  position: relative;
+}
+
+div.body-content .block .view-id-collective_projects .messages--info a{
+  color: #01b8ff;
+}
+
+div.body-content .block .view-id-collective_projects .messages--info:before{
+  content: 'i';
+  background: #01b8ff;
+  color: #e4f7ff;
+  display: block;
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  text-align: center;
+  border-radius: 10px;
+  font-family: serif;
+  font-weight: 900;
+  line-height: 16px;
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  margin-top: -7.5px;
+}

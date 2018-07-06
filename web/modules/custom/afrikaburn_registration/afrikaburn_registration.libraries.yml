@@ -8,3 +8,8 @@ block:
   css:
     theme:
       css/afrikaburn-project-block.css: {}
+settings:
+  version: 0.0
+  css:
+    theme:
+      css/afrikaburn-project-settings.css: {}

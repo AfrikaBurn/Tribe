@@ -14,8 +14,6 @@ use \Drupal\user\Entity\User;
  */
 function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
 
-  // dpm($form_state->getFormObject());
-
   module_load_include('inc', 'afrikaburn_registration', 'includes/form');
   $registration_config = _project_form_config();
   $defaults = @($registration_config)[$form_id];
@@ -75,6 +73,15 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ * Attach settings form style.
+ */
+function afrikaburn_registration_form_afrikaburn_registration_settings_alter(&$form, $form_state, $form_id) {
+  $form['#attached']['library'][] = 'afrikaburn_registration/settings';
+}
+
+
+/**
  * Implements hook_field_group_pre_render().
  */
 function afrikaburn_registration_field_group_pre_render(&$element, &$group, &$form) {
@@ -86,6 +93,9 @@ function afrikaburn_registration_field_group_pre_render(&$element, &$group, &$fo
   }
 }
 
+/**
+ * Implements hook_theme().
+ */
 function afrikaburn_registration_theme(){
   return [
     'views_view_unformatted__collective_projects' => [
@@ -99,6 +109,10 @@ function afrikaburn_registration_theme(){
   ];
 }
 
+/**
+ * Implements hook_preprocess_views_view().
+ * Adds form states to collective projects view.
+ */
 function afrikaburn_registration_preprocess_views_view(&$variables){
   if ($variables['id'] == 'collective_projects'){
 
@@ -109,39 +123,92 @@ function afrikaburn_registration_preprocess_views_view(&$variables){
       node_load($view->argument['field_collective_target_id']->value[0])
     );
 
-    if ($variables['display_id'] == 'current_block'){
+    module_load_include('inc', 'afrikaburn_registration', 'includes/form');
 
-      module_load_include('inc', 'afrikaburn_registration', 'includes/form');
+    $settings = \Drupal::config('afrikaburn_registration.settings');
 
-      $settings = \Drupal::config('afrikaburn_registration.settings');
+    foreach(_project_form_modes() as $key=>$map){
 
-      foreach(_project_form_modes() as $key=>$map){
+      $modes = $map['modes'];
 
-        $modes = $map['modes'];
+      foreach($modes as $mode=>$mode_title){
 
-        foreach($modes as $mode){
-          if ($settings->get($key . '/' . $mode)){
-            $mode_title = str_replace('_', ' ', $mode);
-            $mode_title[0] = strtoupper($mode[0]);
-            $variables['view']->form_modes[$key][$mode] = [
-              'title' => $mode_title,
-              'name' => $mode,
-            ];
-          }
-        }
+        $state = array_keys(array_filter($settings->get($key . '/' . $mode)));
+        $state = array_combine($state, $state);
+
+        $variables['view']->form_modes[$key][$mode] = [
+          'title' => $mode_title,
+          'name' => $mode,
+          'state' => $state,
+        ];
       }
     }
   }
 }
 
+/**
+ * Implements hook_preprocess_views_view_fields().
+ * Constructs project links.
+ */
 function afrikaburn_registration_preprocess_views_view_fields(&$variables) {
 
   $view = $variables['view'];
   $id = $view->id();
   $display = $view->current_display;
 
-  if ($id == 'collective_projects' && $display == 'current_block'){
-    $variables['modes'] = $view->form_modes[trim(strip_tags($variables['fields']['type_1']->content))];
+  if ($id == 'collective_projects' && in_array($display, ['current_block', 'past_block'])){
+
+    $nid = $variables['row']->nid;
+    $registration = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
+    $type = $registration->get('type')->getValue()[0]['target_id'];
+    $completed = array_column($registration->get('field_prjr_complete')->getValue(), 'value');
+    $completed = array_combine($completed, $completed);
+    $links = false;
+
+    if ($display == 'current_block'){
+
+      foreach($view->form_modes[$type] as $mode){
+        if ($mode['state']['visible']) {
+
+          $editable = $mode['state']['editable'] && $view->group_admin;
+          $complete = $completed[$mode['name']];
+
+          switch (true){
+            case $editable && !$complete:
+            $status = 'warning';
+            $description = 'Please fill out this form.';
+            break;
+            case
+            $editable && $complete: $status = 'status';
+            $description = 'Submitted, but changes still allowed.';
+            break;
+            default:
+            $status = 'info';
+            $description = 'Read only, no further changes allowed';
+          }
+
+          $link = (
+            $editable
+              ? '<a href="/node/' . $nid . '/edit/' . $mode['name'] . '" title="'. $description .'">' . $mode['title'] . '</a>'
+              : '<a href="/node/' . $nid . '/' . $mode['name'] . '" title="'. $description .'">' . $mode['title'] . '</a>'
+          );
+
+          $links[] = '<li class="messages messages--' . $status . '">' . $link . '</li>';
+        }
+      }
+
+    } else {
+
+      foreach($view->form_modes[$type] as $mode){
+        $links[] = '<li class="messages messages--info"><a href="/node/' . $nid . '/' . $mode['name'] . '">' . $mode['title'] . '</a></li>';
+      }
+
+      // if ($view->form_modes[$type]['form_1']['state']['open']){
+      //   $links[] = '<li class="messages messages--warning"><a href="/node/' . $nid . '/' . $mode['name'] . '">Reuse this registration</a></li>';
+      // }
+    }
+
+    $variables['links'] = $links;
   }
 
 }

@@ -9,7 +9,7 @@
 
   const BLOCK_COLLAPSED = {
     'user-logged-in': ['wrangle', 'publish'],
-    'page-node-type-collective': ['bioblock', 'ticketblock', 'my_collectives', 'my_invites']
+    'page-node-type-collective': ['bioblock', 'ticketblock', 'my_collectives', 'my_invites', 'membersblock', 'views_block__collective_projects_past_block']
   }
 
 

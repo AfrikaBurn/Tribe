@@ -11,13 +11,34 @@ dependencies:
     - field.field.node.collective.field_col_members
     - field.field.node.collective.field_col_posts
     - field.field.node.collective.field_picture
-    - image.style.medium
     - node.type.collective
   module:
     - comment
-    - image
+    - ds
+    - responsive_image
     - text
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_reset
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: ''
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - field_picture
+        - field_col_description
+        - field_col_posts
 id: node.collective.full
 targetEntityType: node
 bundle: collective
@@ -26,14 +47,15 @@ content:
   field_col_description:
     weight: 1
     label: hidden
-    settings: {  }
+    settings:
+      trim_length: 600
     third_party_settings: {  }
-    type: text_default
-    region: content
+    type: text_trimmed
+    region: ds_content
   field_col_posts:
     type: comment_default
     weight: 2
-    region: content
+    region: ds_content
     label: hidden
     settings:
       view_mode: default
@@ -43,11 +65,11 @@ content:
     weight: 0
     label: hidden
     settings:
-      image_style: medium
       image_link: ''
+      responsive_image_style: ''
     third_party_settings: {  }
-    type: image
-    region: content
+    type: responsive_image
+    region: ds_content
 hidden:
   field_col_admins: true
   field_col_invitee: true
