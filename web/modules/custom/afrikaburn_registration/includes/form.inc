@@ -15,14 +15,14 @@ function _project_form_modes(){
       'modes' => ['form_1', 'form_2', 'form_3', 'grant', 'support', 'supplier', 'wap'],
     ],
 
-    'mutant_vehicles' => [
-      'title' => 'Mutant Vehicle',
-      'modes' => ['form_1', 'grant', 'support', 'supplier', 'wap'],
-    ],
-
     'performances' => [
       'title' => 'Binnekring event',
       'modes' => ['form_1', 'form_2', 'form_3', 'grant', 'support', 'supplier', 'wap'],
+    ],
+
+    'mutant_vehicles' => [
+      'title' => 'Mutant Vehicle',
+      'modes' => ['form_1', 'grant', 'support', 'supplier', 'wap'],
     ],
 
     'theme_camps' => [

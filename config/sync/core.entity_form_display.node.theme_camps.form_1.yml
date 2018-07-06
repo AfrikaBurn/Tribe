@@ -1,8 +1,9 @@
-uuid: e6da75e3-894b-47ac-b6ca-dbf20c26fd4c
+uuid: 0d34cc8e-046e-4864-85cb-74cbc02e4efc
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.node.form_1
     - field.field.node.theme_camps.field_admin_comments
     - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_field_prj_plc_marquis
@@ -276,10 +277,10 @@ third_party_settings:
       label: Administrative
 _core:
   default_config_hash: eK-XnXl0Ey4pkRcWQtChSHR8xHGuez-kSqbaS81-qXg
-id: node.theme_camps.default
+id: node.theme_camps.form_1
 targetEntityType: node
 bundle: theme_camps
-mode: default
+mode: form_1
 content:
   field_admin_comments:
     weight: 39

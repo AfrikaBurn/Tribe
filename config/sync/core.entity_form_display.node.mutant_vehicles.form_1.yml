@@ -1,8 +1,9 @@
-uuid: d94c6ae3-7a3a-4971-bd1b-c9931ec84823
+uuid: aa20da9d-fe6f-48d1-b05c-2aae94231e1a
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.node.form_1
     - field.field.node.mutant_vehicles.field_admin_comments
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
@@ -343,10 +344,10 @@ third_party_settings:
       label: Administrative
 _core:
   default_config_hash: FHLYUGK-mQGVYzvIKsUSwq4IdPmIgOzk9wE9K3NHGck
-id: node.mutant_vehicles.default
+id: node.mutant_vehicles.form_1
 targetEntityType: node
 bundle: mutant_vehicles
-mode: default
+mode: form_1
 content:
   field_admin_comments:
     weight: 131
