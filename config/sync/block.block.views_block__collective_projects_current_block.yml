@@ -1,0 +1,42 @@
+uuid: e9bd1988-dc19-4db0-9a12-171ecc7c34f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.collective_projects
+  module:
+    - collapsiblock
+    - ctools
+    - php
+    - views
+  theme:
+    - afrikaburn
+third_party_settings:
+  collapsiblock:
+    collapse_action: '2'
+id: views_block__collective_projects_current_block
+theme: afrikaburn
+region: sidebar
+weight: -17
+provider: null
+plugin: 'views_block:collective_projects-current_block'
+settings:
+  id: 'views_block:collective_projects-current_block'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      collective: collective
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  php:
+    id: php
+    negate: true
+    php: ''
+    context_mapping: {  }

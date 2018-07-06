@@ -153,8 +153,10 @@ permissions:
   - userprotect.pass.edit
   - 'view field_department'
   - 'view field_eml_adm_desc'
+  - 'view field_first_name'
   - 'view field_grt_art_total'
   - 'view field_grt_breakdown'
+  - 'view field_last_name'
   - 'view field_prj_adm_wrangler'
   - 'view field_prj_gen_concept'
   - 'view field_prj_gen_doc'

@@ -86,16 +86,60 @@ function afrikaburn_registration_field_group_pre_render(&$element, &$group, &$fo
   }
 }
 
-
-function afrikaburn_registration_theme() {
+function afrikaburn_registration_theme(){
   return [
-    'views_view_unformatted__wrangle_art__mail_leads' => [
-      'template' => 'wrangle--addresses',
-      'base hook' => 'view',
+    'views_view_unformatted__collective_projects' => [
+      'template' => 'views-view-unformatted--collective-projects',
+      'base hook' => 'view'
     ],
-    'views_view__wrangle_art__mail_leads' => [
-      'template' => 'wrangle--lead-contacts',
-      'base hook' => 'view',
+    'views_view_fields__collective_projects' => [
+      'template' => 'views-view-fields--collective-projects',
+      'base hook' => 'view'
     ],
   ];
+}
+
+function afrikaburn_registration_preprocess_views_view(&$variables){
+  if ($variables['id'] == 'collective_projects'){
+
+    $variables['view']->group_admin = Drupal\afrikaburn_collective\Access\CollectiveAdminCheck::isAdmin(
+      \Drupal::currentUser()->id(),
+      \Drupal::routeMatch()->getParameter('node')
+    );
+
+    if ($variables['display_id'] == 'current_block'){
+
+      module_load_include('inc', 'afrikaburn_registration', 'includes/form');
+
+      $settings = \Drupal::config('afrikaburn_registration.settings');
+
+      foreach(_project_form_modes() as $key=>$map){
+
+        $modes = $map['modes'];
+
+        foreach($modes as $mode){
+          if ($settings->get($key . '/' . $mode)){
+            $mode_title = str_replace('_', ' ', $mode);
+            $mode_title[0] = strtoupper($mode[0]);
+            $variables['view']->form_modes[$key][$mode] = [
+              'title' => $mode_title,
+              'name' => $mode,
+            ];
+          }
+        }
+      }
+    }
+  }
+}
+
+function afrikaburn_registration_preprocess_views_view_fields(&$variables) {
+
+  $view = $variables['view'];
+  $id = $view->id();
+  $display = $view->current_display;
+
+  if ($id == 'collective_projects' && $display == 'current_block'){
+    $variables['modes'] = $view->form_modes[trim(strip_tags($variables['fields']['type_1']->content))];
+  }
+
 }

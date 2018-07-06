@@ -11,22 +11,22 @@ function _project_form_modes(){
   return [
 
     'art' => [
-      'title' => 'Art',
+      'title' => 'Artwork',
       'modes' => ['form_1', 'form_2', 'form_3', 'grant', 'support', 'supplier', 'wap'],
     ],
 
     'mutant_vehicles' => [
-      'title' => 'Mutant Vehicles',
+      'title' => 'Mutant Vehicle',
       'modes' => ['form_1', 'grant', 'support', 'supplier', 'wap'],
     ],
 
     'performances' => [
-      'title' => 'Performances',
+      'title' => 'Binnekring event',
       'modes' => ['form_1', 'form_2', 'form_3', 'grant', 'support', 'supplier', 'wap'],
     ],
 
     'theme_camps' => [
-      'title' => 'Theme Camps',
+      'title' => 'Theme Camp',
       'modes' => ['form_1', 'form_2', 'form_3', 'grant', 'supplier', 'wap'],
     ],
   ];
@@ -159,12 +159,8 @@ function _get_title($defaults, $collective, $registration){
 
   $collective_title = ' <div class="subtitle">' . $defaults['type'] . ' by the ' . $collective->getTitle() . ' collective</div>';
 
-  return (
-    $registration
-      ? t(
-          $defaults['title'],
-          ['%title' => $registration ? $registration->getTitle() : '']
-        )
-      : t($defaults['title'])
+  return t(
+    $defaults['title'],
+    ['%title' => $registration ? $registration->getTitle() : '']
   ) . $collective_title;
 }

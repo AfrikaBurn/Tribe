@@ -3,3 +3,8 @@ registration:
   css:
     theme:
       css/afrikaburn-project-registration.css: {}
+block:
+  version: 0.0
+  css:
+    theme:
+      css/afrikaburn-project-block.css: {}

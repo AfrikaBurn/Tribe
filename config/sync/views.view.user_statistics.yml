@@ -1,9 +1,7 @@
 uuid: 66ea5f5d-f653-44f6-aa65-58f0738f142d
 langcode: en
-status: true
+status: false
 dependencies:
-  config:
-    - field.storage.user.field_country
   module:
     - taxonomy
     - user

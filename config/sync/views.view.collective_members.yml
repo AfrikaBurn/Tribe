@@ -12,7 +12,7 @@ dependencies:
     - node
     - user
 id: collective_members
-label: 'Collective Members'
+label: 'Collective: Members'
 module: views
 description: 'Member select dropdown, Admin list, Member list'
 tag: '2.0'

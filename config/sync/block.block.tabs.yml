@@ -9,7 +9,7 @@ dependencies:
 id: tabs
 theme: afrikaburn
 region: tabs
-weight: -1
+weight: -20
 provider: null
 plugin: local_tasks_block
 settings:

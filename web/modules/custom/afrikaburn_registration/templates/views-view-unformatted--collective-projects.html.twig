@@ -17,4 +17,18 @@
  * @ingroup themeable
  */
 #}
-{% if title %}{{ title }}, {% endif %}
+{% if title %}
+  <h3>{{ title }}</h3>
+{% endif %}
+<table>
+{% for row in rows %}
+  {%
+    set row_classes = [
+      default_row_class ? 'views-row',
+    ]
+  %}
+  <tr{{ row.attributes.addClass(row_classes) }}>
+    {{- row.content -}}
+  </tr>
+{% endfor %}
+</table>

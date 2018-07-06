@@ -23,6 +23,37 @@
         }
       )
 
+      // Method to show first form error in tabs
+      var showFirstError = function(rootForm) {
+        setTimeout(
+          () => {
+
+            var
+              root = $(rootForm),
+              tabs = $('.vertical-tabs__menu, .horizontal-tabs-list', root).children(),
+              panels = $('.field-group-tab > .details-wrapper', root),
+              error = root.find('.error:visible').first(),
+              firstErrorPanel = error.parents('.details-wrapper'),
+              firstErrorTab = tabs[panels.index(firstErrorPanel)],
+              link = $(firstErrorTab).find('a')
+
+            link.click()
+
+            $('html, body').animate({
+              scrollTop: error.offset().top - $(window).height() / 2
+            }, 500);
+
+          }, 100
+        )
+      }
+
+      // Show first tab error
+      $('.horizontal-tabs', context).parents('form').submit(
+        (event) => showFirstError(event.target)
+      )
+      showFirstError($('.horizontal-tabs', context).parents('form'))
+
+
       var collapsiblock = Drupal.Collapsiblock.getCookieData()
 
       // Collapse blocks
