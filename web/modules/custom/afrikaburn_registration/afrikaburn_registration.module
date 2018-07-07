@@ -176,15 +176,15 @@ function afrikaburn_registration_preprocess_views_view_fields(&$variables) {
           switch (true){
             case $editable && !$complete:
             $status = 'warning';
-            $description = 'Please fill out this form.';
+            $description = 'TODO: Needs completion.';
             break;
             case
             $editable && $complete: $status = 'status';
-            $description = 'Submitted, but changes still allowed.';
+            $description = 'DONE: Still editable.';
             break;
             default:
-            $status = 'info';
-            $description = 'Read only, no further changes allowed';
+            $status = 'lock';
+            $description = 'LOCKED: Read only.';
           }
 
           $link = (
@@ -200,12 +200,12 @@ function afrikaburn_registration_preprocess_views_view_fields(&$variables) {
     } else {
 
       foreach($view->form_modes[$type] as $mode){
-        $links[] = '<li class="messages messages--info"><a href="/node/' . $nid . '/' . $mode['name'] . '">' . $mode['title'] . '</a></li>';
+        $links[] = '<li class="messages messages--archive"><a href="/node/' . $nid . '/' . $mode['name'] . '" title="ARCHIVED: Read only.">' . $mode['title'] . '</a></li>';
       }
 
-      // if ($view->form_modes[$type]['form_1']['state']['open']){
-      //   $links[] = '<li class="messages messages--warning"><a href="/node/' . $nid . '/' . $mode['name'] . '">Reuse this registration</a></li>';
-      // }
+      if ($view->form_modes[$type]['form_1']['state']['open']){
+        $links[] = '<li class="messages messages--recycle"><a href="/node/' . $nid . '/' . $mode['name'] . '" title="Make a copy of this registration for submission.">Reuse this registration</a></li>';
+      }
     }
 
     $variables['links'] = $links;

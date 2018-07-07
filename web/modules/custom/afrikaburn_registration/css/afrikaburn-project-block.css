@@ -55,32 +55,76 @@ div.body-content .block .view-id-collective_projects .messages a:hover{
   color: #000;
 }
 
-div.body-content .block .view-id-collective_projects .messages--info {
-  color: #0000aa;
-  background: #e4f7ff;
-  box-shadow: -8px 0 0 #01b8ff;
+div.body-content .block .view-id-collective_projects .messages--lock,
+div.body-content .block .view-id-collective_projects .messages--recycle,
+div.body-content .block .view-id-collective_projects .messages--archive {
   position: relative;
 }
 
-div.body-content .block .view-id-collective_projects .messages--info a{
+div.body-content .block .view-id-collective_projects .messages--lock {
+  color: #0000aa;
+  background: #e4f7ff;
+  box-shadow: -8px 0 0 #01b8ff;
+}
+
+div.body-content .block .view-id-collective_projects .messages--recycle {
+  color: #00aa00;
+  background: #e4fff7;
+  box-shadow: -8px 0 0 #00aa00;
+}
+
+div.body-content .block .view-id-collective_projects .messages--archive {
+  color: #aaa;
+  background: #efefef;
+  box-shadow: -8px 0 0 #aaa;
+}
+
+div.body-content .block .view-id-collective_projects .messages--lock a{
   color: #01b8ff;
 }
 
-div.body-content .block .view-id-collective_projects .messages--info:before{
-  content: 'i';
-  background: #01b8ff;
-  color: #e4f7ff;
+div.body-content .block .view-id-collective_projects .messages--recycle a{
+  color: #00aa00;
+}
+
+div.body-content .block .view-id-collective_projects .messages--archive a{
+  color: #aaa;
+}
+
+div.body-content .block .view-id-collective_projects .messages--lock:before,
+div.body-content .block .view-id-collective_projects .messages--recycle:before,
+div.body-content .block .view-id-collective_projects .messages--archive:before{
   display: block;
   position: absolute;
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
   text-align: center;
   border-radius: 10px;
-  font-family: serif;
-  font-weight: 900;
-  line-height: 16px;
+  font: 18px serif;
+  line-height: 20px;
   position: absolute;
   top: 50%;
   left: 8px;
-  margin-top: -7.5px;
+  margin-top: -9px;
+}
+
+div.body-content .block .view-id-collective_projects .messages--lock:before{
+  content: '\268c';
+  background: #01b8ff;
+  color: #e4f7ff;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+div.body-content .block .view-id-collective_projects .messages--recycle:before{
+  content: '\267b';
+  background: #00aa00;
+  color: #e4fff7;
+}
+
+div.body-content .block .view-id-collective_projects .messages--archive:before{
+  content: '\2263';
+  background: #aaa;
+  color: #fff;
+  line-height: 110%;
 }
