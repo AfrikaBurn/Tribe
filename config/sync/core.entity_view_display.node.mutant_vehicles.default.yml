@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.admin_comments.default
     - field.field.node.mutant_vehicles.field_admin_comments
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
@@ -101,40 +100,51 @@ dependencies:
     - field.field.node.mutant_vehicles.field_vp_ea
     - node.type.mutant_vehicles
   module:
-    - comment
-    - options
+    - ds
+    - responsive_image
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_twocol
+      library: layout_discovery/twocol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      first:
+        - field_prj_gen_concept
+      second:
+        - field_prj_gen_description
 id: node.mutant_vehicles.default
 targetEntityType: node
 bundle: mutant_vehicles
 mode: default
 content:
-  field_admin_comments:
-    weight: 102
+  field_prj_gen_concept:
+    type: responsive_image
+    weight: 0
+    region: first
     label: above
     settings:
-      view_mode: default
-      pager_id: 0
+      responsive_image_style: ''
+      image_link: ''
     third_party_settings: {  }
-    type: comment_default
-    region: content
-  field_prjr_complete:
-    weight: 101
+  field_prj_gen_description:
+    type: basic_string
+    weight: 1
+    region: second
     label: above
     settings: {  }
     third_party_settings: {  }
-    type: list_default
-    region: content
   flag_approved:
     weight: 10
     region: content
   flag_archived:
     weight: 10
     region: content
-  links:
-    weight: 100
-    region: content
 hidden:
+  field_admin_comments: true
   field_collective: true
   field_form_mode: true
   field_grt_art_total: true
@@ -161,9 +171,7 @@ hidden:
   field_prj_cll_contact: true
   field_prj_cll_description: true
   field_prj_gen_base: true
-  field_prj_gen_concept: true
   field_prj_gen_contact: true
-  field_prj_gen_description: true
   field_prj_gen_doc: true
   field_prj_gen_fundraiser: true
   field_prj_gen_fundraising: true
@@ -226,5 +234,7 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
+  field_prjr_complete: true
   field_sup_review: true
   field_vp_ea: true
+  links: true

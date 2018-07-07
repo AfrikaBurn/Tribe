@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.admin_comments.default
     - field.field.node.theme_camps.field_admin_comments
     - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_field_prj_plc_marquis
@@ -121,29 +120,48 @@ dependencies:
     - field.field.node.theme_camps.field_vp_ea
     - node.type.theme_camps
   module:
-    - comment
+    - ds
+    - responsive_image
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_twocol
+      library: layout_discovery/twocol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      first:
+        - field_prj_gen_concept
+      second:
+        - field_prj_gen_description
 id: node.theme_camps.default
 targetEntityType: node
 bundle: theme_camps
 mode: default
 content:
-  field_admin_comments:
-    weight: 101
+  field_prj_gen_concept:
+    type: responsive_image
+    weight: 0
+    region: first
     label: above
     settings:
-      view_mode: default
-      pager_id: 0
+      responsive_image_style: ''
+      image_link: ''
     third_party_settings: {  }
-    type: comment_default
-    region: content
+  field_prj_gen_description:
+    type: basic_string
+    weight: 1
+    region: second
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   flag_archived:
     weight: 10
     region: content
-  links:
-    weight: 100
-    region: content
 hidden:
+  field_admin_comments: true
   field_collective: true
   field_field_prj_plc_marquis: true
   field_field_prj_plc_stretch_m: true
@@ -159,9 +177,7 @@ hidden:
   field_prj_est_camp_population: true
   field_prj_gen_bio: true
   field_prj_gen_commodification: true
-  field_prj_gen_concept: true
   field_prj_gen_contact: true
-  field_prj_gen_description: true
   field_prj_gen_fundraiser: true
   field_prj_gen_fundraising: true
   field_prj_gen_header1: true
@@ -258,3 +274,4 @@ hidden:
   field_sup_review: true
   field_tc_type: true
   field_vp_ea: true
+  links: true

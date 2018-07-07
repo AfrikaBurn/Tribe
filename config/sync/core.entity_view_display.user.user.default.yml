@@ -32,7 +32,6 @@ dependencies:
   module:
     - computed_field
     - datetime
-    - ds
     - empty_fields
     - entity_reference_revisions
     - field_group
@@ -242,8 +241,6 @@ content:
     third_party_settings:
       empty_fields:
         handler: ''
-      ds:
-        ds_limit: ''
     region: content
   field_last_name:
     type: string
