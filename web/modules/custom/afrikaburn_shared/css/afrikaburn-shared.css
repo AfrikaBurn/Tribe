@@ -5,20 +5,13 @@
   color: #450B05;
 }
 
-body .horizontal-tabs{
+body .horizontal-tabs,
+body .horizontal-tabs ul.horizontal-tabs-list{
   background: none;
   border: none;
 }
 
-body .horizontal-tabs .horizontal-tabs-list,
 body .horizontal-tabs .horizontal-tabs-list li{
-  background: none;
-  border: none;
-  margin: 5px 0 -1px;
-  border-bottom: 1px solid #f26c55;
-}
-
-body .horizontal-tabs .horizontal-tabs-list li li{
   background: none;
   border: none;
   margin: 5px 0 -1px;
@@ -56,7 +49,7 @@ body .horizontal-tabs .horizontal-tabs-list li{
 body .horizontal-tabs .horizontal-tabs-list li.selected{
   border: 1px solid #f26c55;
   border-radius: 10px 10px 0 0;
-  border-bottom-color: #450B05;
+  border-bottom: 3px solid #450B05;
 }
 
 body .horizontal-tabs .horizontal-tabs-list li.selected a{

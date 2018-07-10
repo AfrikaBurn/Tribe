@@ -4,6 +4,11 @@
  */
 
 use \Drupal\user\Entity\User;
+use \Drupal\node\Entity\Node;
+
+
+module_load_include('inc', 'afrikaburn_registration', 'includes/project.wizard');
+// module_load_include('inc', 'afrikaburn_registration', 'includes/project.draft');
 
 
 /* ----- Form alters ----- */
@@ -11,6 +16,7 @@ use \Drupal\user\Entity\User;
 
 /**
  * Implements hook_form_alter().
+ * Performs project form alterations.
  */
 function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
 
@@ -21,14 +27,13 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
   if (isset($defaults)){
 
     $user = User::load(\Drupal::currentUser()->id());
+    $registration = \Drupal::routeMatch()->getParameter('node');
+    $collective = _get_collective($registration);
+
     $is_wrangler = $user->hasRole($defaults['wrangler']);
     $is_admin = $user->hasRole('administrator');
     $is_complete = array_search($defaults['mode'], $form['field_prjr_complete']['widget']['#default_value']) !== FALSE;
-    $is_new = $defaults['mode'] == 'new';
-
-    // Get collective and existing registration
-    $registration = \Drupal::routeMatch()->getParameter('node');
-    $collective = _get_collective($registration);
+    $is_new = !isset($registration);
 
     // Naughty naughty users
     if (!$collective) {
@@ -37,38 +42,42 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
       $response->send();
     }
 
-    // Set title
+    // The little things
     $form['#title'] = [
       '#type' => 'markup',
       '#markup' => _get_title($defaults, $collective, $registration),
     ];
-
-    // Attach library
+    $form['actions']['submit']['#value'] = 'Submit';
     $form['#attached']['library'][] = 'afrikaburn_registration/registration';
 
-    // Hide fields
+    // Hide fields and inappropriate complete options per type
     $form['revision_log']['#access'] = $is_admin;
     $form['field_form_mode']['#type'] = 'hidden';
     $form['field_collective']['#access'] = $is_admin;
     if (!($is_wrangler || $is_admin)) $form['field_prjr_complete']['widget']['#type'] = 'hidden';
-
-    // Hide inappropriate complete options per type
     $bundle = $form_state->getFormObject()->getEntity()->bundle();
     $form['field_prjr_complete']['widget']['#options'] = array_intersect_key(
       $form['field_prjr_complete']['widget']['#options'],
-      array_flip(_project_form_modes()[$bundle]['modes'])
+      _project_form_modes()[$bundle]['modes']
     );
 
     // Set defaults
     $form['field_collective']['widget'][0]['target_id']['#default_value'] = $collective;
-    $form['field_form_mode']['widget'][0]['value']['#default_value'] = $registration
-      ? $defaults['mode']
-      : 'new';
+    $form['field_form_mode']['widget'][0]['value']['#default_value'] = $defaults['mode'];
     if (!$is_wrangler) $form['field_prjr_complete']['widget']['#default_value'][] = $defaults['mode'];
     $form['#administrator'] = $is_admin || $is_wrangler;
 
     // Wizard or tabs (cake or death?)
     $form['#wizard'] = $is_new || $defaults['mode'] != 'edit' && ($incomplete || !$is_wrangler);
+
+    // // Add "Save Draft" button.
+    // $form['draft'] = [
+    //   '#type' => 'submit',
+    //   '#value' => 'Save Draft',
+    //   '#limit_validation_errors' => [['title'], ['field_form_mode']],
+    //   '#validate' => ['afrikaburn_registration_validate_draft'],
+    //   '#submit' => ['afrikaburn_registration_save_draft'],
+    // ];
   }
 }
 
@@ -80,135 +89,129 @@ function afrikaburn_registration_form_afrikaburn_registration_settings_alter(&$f
   $form['#attached']['library'][] = 'afrikaburn_registration/settings';
 }
 
-
 /**
- * Implements hook_field_group_pre_render().
+ * Implements hook_form_FORM_ID_alter().
+ * Alters dashboard filter form.
  */
-function afrikaburn_registration_field_group_pre_render(&$element, &$group, &$form) {
-  if ($group->group_name == 'group_project_registration' && $form['#wizard']){
-    $form['#attributes']['class'][] = 'js-wizard';
-  }
-  if ($group->group_name == 'group_administrative' && !$form['#administrator']){
-    $form['group_administrative']['#attributes']['class'][] = 'hidden';
+function afrikaburn_registration_form_views_exposed_form_alter(&$form, $form_state, $form_id) {
+
+  $view = $form_state->getStorage('view')['view'];
+  list($purpose, $type) = array_map('trim', explode(',', $view->storage->get('tag')));
+
+  if ($purpose == 'wrangle') {
+    $form['search']['#placeholder'] = 'project, person or collective';
+    $form['status']['#options']['All'] = t('- any review state -');
+    module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
+    ar_prepare_wrangler_filter($form, $type);
   }
 }
+
+
+/* ---- View alters ----- */
+
+
+/**
+ * Implements hook_views_query_alter().
+ * Change "unassigned" wrangler filter into IS NULL in query.
+ */
+function afrikaburn_registration_views_query_alter($view, $query){
+
+  list($purpose, $type) = array_map('trim', explode(',', $view->storage->get('tag')));
+
+  if ($purpose == 'wrangle' && $view->exposed_raw_input['wrangler'] == 'unassigned') {
+
+    foreach ($query->where as &$condition_group) {
+      foreach ($condition_group['conditions'] as &$condition) {
+        if ($condition['field'] == 'node__field_prj_adm_wrangler.field_prj_adm_wrangler_target_id') {
+          $condition = [
+            'field' => 'field_prj_adm_wrangler_target_id',
+            'operator' => 'IS NULL',
+          ];
+        }
+      }
+    }
+
+  }
+}
+
+/* ----- Block alters ----- */
+
+
+// function afrikaburn_registration_block_build_alter(&$build, $block){
+//   if ($block->pluginId == ''){
+//     dpm($build);
+//   }
+// }
+
+
+/* ----- Theme hooks ----- */
+
 
 /**
  * Implements hook_theme().
+ * Views Customizaton.
  */
 function afrikaburn_registration_theme(){
   return [
+
+    // Collective projects
     'views_view_unformatted__collective_projects' => [
       'template' => 'views-view-unformatted--collective-projects',
-      'base hook' => 'view'
+      'base hook' => 'view',
+      // 'file' => 'includes/collective.projects.inc',
     ],
     'views_view_fields__collective_projects' => [
       'template' => 'views-view-fields--collective-projects',
-      'base hook' => 'view'
+      'base hook' => 'view',
+      // 'file' => 'includes/collective.projects.inc',
     ],
+
+    // Wrangle art
+    'views_view_unformatted__wrangle_art' => [
+      'template' => 'views-view-unformatted--wrangle-projects',
+      'base hook' => 'view',
+      // 'file' => 'includes/collective.projects.inc',
+    ],
+    // 'views_view_fields__collective_projects' => [
+    //   'template' => 'views-view-fields--collective-projects',
+    //   'base hook' => 'view',
+    //   'file' => 'includes/collective.projects.inc',
+    // ],
+
   ];
 }
 
+
+/* ----- Preprocessing hooks ----- */
+
+
 /**
  * Implements hook_preprocess_views_view().
- * Adds form states to collective projects view.
  */
 function afrikaburn_registration_preprocess_views_view(&$variables){
-  if ($variables['id'] == 'collective_projects'){
+  switch ($variables['id']){
 
-    $view = $variables['view'];
+    case 'collective_projects':
+      module_load_include('inc', 'afrikaburn_registration', 'includes/collective.projects');
+      ar_prepare_collective_projects($variables);
+    break;
 
-    $view->group_admin = Drupal\afrikaburn_collective\Access\CollectiveAdminCheck::isAdmin(
-      \Drupal::currentUser()->id(),
-      node_load($view->argument['field_collective_target_id']->value[0])
-    );
+    case 'wrangle_art':
+      module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
+      $variables['#attached']['library'][] = 'afrikaburn_registration/wrangle';
+    break;
 
-    module_load_include('inc', 'afrikaburn_registration', 'includes/form');
-
-    $settings = \Drupal::config('afrikaburn_registration.settings');
-
-    foreach(_project_form_modes() as $key=>$map){
-
-      $modes = $map['modes'];
-
-      foreach($modes as $mode=>$mode_title){
-
-        $state = array_keys(array_filter($settings->get($key . '/' . $mode)));
-        $state = array_combine($state, $state);
-
-        $variables['view']->form_modes[$key][$mode] = [
-          'title' => $mode_title,
-          'name' => $mode,
-          'state' => $state,
-        ];
-      }
-    }
   }
 }
 
 /**
  * Implements hook_preprocess_views_view_fields().
- * Constructs project links.
  */
 function afrikaburn_registration_preprocess_views_view_fields(&$variables) {
-
-  $view = $variables['view'];
-  $id = $view->id();
-  $display = $view->current_display;
-
-  if ($id == 'collective_projects' && in_array($display, ['current_block', 'past_block'])){
-
-    $nid = $variables['row']->nid;
-    $registration = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
-    $type = $registration->get('type')->getValue()[0]['target_id'];
-    $completed = array_column($registration->get('field_prjr_complete')->getValue(), 'value');
-    $completed = array_combine($completed, $completed);
-    $links = false;
-
-    if ($display == 'current_block'){
-
-      foreach($view->form_modes[$type] as $mode){
-        if ($mode['state']['visible']) {
-
-          $editable = $mode['state']['editable'] && $view->group_admin;
-          $complete = $completed[$mode['name']];
-
-          switch (true){
-            case $editable && !$complete:
-            $status = 'warning';
-            $description = 'TODO: Needs completion.';
-            break;
-            case
-            $editable && $complete: $status = 'status';
-            $description = 'DONE: Still editable.';
-            break;
-            default:
-            $status = 'lock';
-            $description = 'LOCKED: Read only.';
-          }
-
-          $link = (
-            $editable
-              ? '<a href="/node/' . $nid . '/edit/' . $mode['name'] . '" title="'. $description .'">' . $mode['title'] . '</a>'
-              : '<a href="/node/' . $nid . '/' . $mode['name'] . '" title="'. $description .'">' . $mode['title'] . '</a>'
-          );
-
-          $links[] = '<li class="messages messages--' . $status . '">' . $link . '</li>';
-        }
-      }
-
-    } else {
-
-      foreach($view->form_modes[$type] as $mode){
-        $links[] = '<li class="messages messages--archive"><a href="/node/' . $nid . '/' . $mode['name'] . '" title="ARCHIVED: Read only.">' . $mode['title'] . '</a></li>';
-      }
-
-      if ($view->form_modes[$type]['form_1']['state']['open']){
-        $links[] = '<li class="messages messages--recycle"><a href="/node/' . $nid . '/' . $mode['name'] . '" title="Make a copy of this registration for submission.">Reuse this registration</a></li>';
-      }
-    }
-
-    $variables['links'] = $links;
+  switch ($variables['view']->id()){
+    case 'collective_projects':
+      module_load_include('inc', 'afrikaburn_registration', 'includes/collective.projects');
+      ar_prepare_project_links($variables);
+    break;
   }
-
 }

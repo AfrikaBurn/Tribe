@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+
+.view-wrangle-art table td.views-field-field-prj-gen-concept{
+  text-align: center;
+  width: 102px;
+}
+
+.view-wrangle-art table td.views-field-field-prj-gen-concept img{
+  display: block;
+  float: left;
+  margin: 1px 0;
+}
+
+.view-wrangle-art .form--inline{
+  float: right;
+}
+
+.view-wrangle-art .view-filters:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.view-wrangle-art .form-item,
+.view-wrangle-art .form--inline .form-actions{
+  margin: 2em 0;
+}
+
+.view-wrangle-art .form--inline .form-actions{
+  clear: none;
+  float: left;
+}

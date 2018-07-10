@@ -9,3 +9,12 @@ afrikaburn_registration.wrangle_art:
   path: '/wrangle/projects/art'
   options:
     _admin_route: TRUE
+afrikaburn_registration.reuse:
+  path: '/registration/{nid}/reuse'
+  defaults:
+    _controller: '\Drupal\afrikaburn_registration\Controller\RegistrationController::reuse'
+    _title: 'Reuse registration'
+  requirements:
+    _role: authenticated
+    cid: '^[0-9]+'
+    _is_collective_admin: 'TRUE'

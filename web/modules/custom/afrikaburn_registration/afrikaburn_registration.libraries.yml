@@ -13,3 +13,10 @@ settings:
   css:
     theme:
       css/afrikaburn-project-settings.css: {}
+wrangle:
+  version: 0.0
+  css:
+    theme:
+      css/afrikaburn-project-wrangle.css: {}
+  js:
+    js/afrikaburn-project-wrangle.js: {}

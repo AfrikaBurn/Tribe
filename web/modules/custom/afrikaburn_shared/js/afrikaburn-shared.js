@@ -39,7 +39,7 @@
 
             link.click()
 
-            $('html, body').animate({
+            if (error.length) $('html, body').animate({
               scrollTop: error.offset().top - $(window).height() / 2
             }, 500);
 

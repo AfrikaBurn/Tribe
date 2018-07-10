@@ -19,16 +19,28 @@ div.body-content .block .view-id-collective_projects table td{
 div.body-content .block .view-id-collective_projects table td.image{
   text-align: center;
   padding: 15px 5px;
-  width: 25px;
+  width: 27px;
 }
 
 div.body-content .block .view-id-collective_projects table td.image img{
   display: block;
-  padding: 2px;
+  float: left;
+  padding: 2px 0;
 }
 
 div.body-content .block .view-id-collective_projects table td.name{
   padding: 5px 10px;
+  border-top: 10px solid black
+}
+
+div.body-content .block .view-id-collective_projects table td.name span{
+  display: block;
+  float: right;
+  background: #d24c35;
+  border-radius: 1px 1px 5px 5px;
+  color: black;
+  padding: 2px 5px;
+  margin-top: -6px;
 }
 
 div.body-content .block .view-id-collective_projects table td.forms{

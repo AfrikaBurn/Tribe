@@ -141,7 +141,7 @@ function afrikaburn_theme_suggestions_alter(&$suggestions, $variables, $hook) {
       $view_mode = false;
       foreach($variables['element'] as $key => $child){
         if ($key[0] != '#') {
-          $view_mode = $child['#view_mode'];
+          $view_mode = @$child['#view_mode'];
           if ($view_mode) break;
         }
       }

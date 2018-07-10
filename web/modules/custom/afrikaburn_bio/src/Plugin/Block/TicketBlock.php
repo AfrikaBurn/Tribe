@@ -27,20 +27,10 @@ class TicketBlock extends BlockBase {
     $flag_service = \Drupal::service('flag');
     $flag = $flag_service->getFlagById('updated');
     $updated = $flag_service->getFlagging($flag, $account);
-    $quicket_code = $account->get('field_quicket_code')->value;
 
     if ($updated){
-      if ($quicket_code && strlen($quicket_code)){
-        $links[] = '<a class="button" target="_blank" href="https://www.quicket.co.za/events/'.$settings['event_id'].'-#/?dc='.$quicket_code.'">Buy tickets</a><br/>';
-        $links[] = '<a href="/user/'.$uid.'/edit#edit-group-kids-and-teens-minors-">List your <strong>Kids and Teens (Minors)</strong></a> to be able to purchase tickets for them.';
-      } else {
-        $links = [
-          'Something went wrong! Please try:',
-          '<a href="/user/'.$uid.'/edit">Resaving your Bio</a>',
-          'Or, if that fails:',
-          '<a href="mailto:ict@afrikaburn.com">Contact tech support</a>'
-        ];
-      }
+      $links[] = '<a class="button" target="_blank" href="https://www.quicket.co.za/events/'.$settings['event_id'].'-#">Buy tickets</a><br/>';
+      $links[] = '<a href="/user/'.$uid.'/edit#edit-group-kids-and-teens-minors-">List your <strong>Kids and Teens (Minors)</strong></a> to be able to purchase tickets for them.';
     } else {
       $links = [
         'To be eligible for ticket sales, please<br />',
