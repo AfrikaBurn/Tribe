@@ -1,12 +1,12 @@
-uuid: b9ae4714-4381-4eb2-9b65-a5d0014b626c
+uuid: 73b9bfcb-747f-4ac2-9437-2bcfeaf671c4
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_collective
+    - field.storage.node.field_prj_adm_registration
     - field.storage.node.field_prj_adm_review
     - field.storage.node.field_prj_adm_wrangler
-    - field.storage.node.field_prj_brn_burning
     - field.storage.node.field_prj_cll_collaborate
     - field.storage.node.field_prj_gen_concept
     - field.storage.node.field_prj_gen_contact
@@ -16,14 +16,13 @@ dependencies:
     - field.storage.node.field_prj_gen_manager
     - field.storage.node.field_prj_snd_level
     - field.storage.node.field_prj_snd_sound
-    - field.storage.node.field_prj_stc_safety
     - field.storage.node.field_prj_stc_size
     - field.storage.node.field_prjr_complete
     - field.storage.user.field_first_name
     - field.storage.user.field_last_name
     - image.style.small_50x50
     - image.style.thumbnail
-    - node.type.art
+    - node.type.mutant_vehicles
     - system.menu.wrangle
     - taxonomy.vocabulary.artwork_size
     - taxonomy.vocabulary.location
@@ -35,8 +34,8 @@ dependencies:
     - taxonomy
     - user
     - views_field_view
-id: wrangle_art
-label: 'Wrangle: Art'
+id: wrangle_mutant_vehicles
+label: 'Wrangle: Mutant Vehicles'
 module: views
 description: ''
 tag: 'wrangle, art'
@@ -1239,133 +1238,6 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
-        field_prj_stc_safety:
-          id: field_prj_stc_safety
-          table: node__field_prj_stc_safety
-          field: field_prj_stc_safety
-          relationship: none
-          group_type: group
-          admin_label: 'List: Structure'
-          label: 'Structural safety'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: basic_string
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_prj_brn_burning:
-          id: field_prj_brn_burning
-          table: node__field_prj_brn_burning
-          field: field_prj_brn_burning
-          relationship: none
-          group_type: group
-          admin_label: 'List: Pyro'
-          label: Burning
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: boolean
-          settings:
-            format: default
-            format_custom_true: ''
-            format_custom_false: ''
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
         field_prj_cll_collaborate:
           id: field_prj_cll_collaborate
           table: node__field_prj_cll_collaborate
@@ -1737,6 +1609,69 @@ display:
           settings:
             link: false
           group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_prj_adm_registration:
+          id: field_prj_adm_registration
+          table: node__field_prj_adm_registration
+          field: field_prj_adm_registration
+          relationship: none
+          group_type: group
+          admin_label: 'Admin: Registration Number'
+          label: 'Registration number'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -2709,12 +2644,42 @@ display:
           id: type
           table: node_field_data
           field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
           value:
-            art: art
+            mutant_vehicles: mutant_vehicles
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
           entity_type: node
           entity_field: type
           plugin_id: bundle
-          group: 1
         status:
           id: status
           table: node_field_data
@@ -3120,7 +3085,7 @@ display:
           entity_type: node
           entity_field: created
           plugin_id: date
-      title: Art
+      title: 'Mutant Vehicles'
       header: {  }
       footer: {  }
       empty:
@@ -3133,7 +3098,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: "<div class=\"messages messages--warning\">\nOh no! No matching Artworks found!<br />Have you tried switching it off and on again?\n</div>"
+          content: "<div class=\"messages messages--warning\">\nOh no! No matching Mutants found!<br />Have you tried switching it off and on again?\n</div>"
           plugin_id: text_custom
       relationships:
         field_collective:
@@ -3199,9 +3164,9 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_collective'
+        - 'config:field.storage.node.field_prj_adm_registration'
         - 'config:field.storage.node.field_prj_adm_review'
         - 'config:field.storage.node.field_prj_adm_wrangler'
-        - 'config:field.storage.node.field_prj_brn_burning'
         - 'config:field.storage.node.field_prj_cll_collaborate'
         - 'config:field.storage.node.field_prj_gen_concept'
         - 'config:field.storage.node.field_prj_gen_contact'
@@ -3211,7 +3176,6 @@ display:
         - 'config:field.storage.node.field_prj_gen_manager'
         - 'config:field.storage.node.field_prj_snd_level'
         - 'config:field.storage.node.field_prj_snd_sound'
-        - 'config:field.storage.node.field_prj_stc_safety'
         - 'config:field.storage.node.field_prj_stc_size'
         - 'config:field.storage.node.field_prjr_complete'
         - 'config:field.storage.user.field_first_name'
@@ -3223,10 +3187,10 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: wrangle/projects/art
+      path: wrangle/projects/mutant-vehicles
       menu:
         type: normal
-        title: Artworks
+        title: 'Mutant Vehicles'
         description: ''
         expanded: false
         parent: 'menu_link_content:79d40a9b-d903-44b2-9e61-040a2c95c474'
@@ -3247,9 +3211,9 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_collective'
+        - 'config:field.storage.node.field_prj_adm_registration'
         - 'config:field.storage.node.field_prj_adm_review'
         - 'config:field.storage.node.field_prj_adm_wrangler'
-        - 'config:field.storage.node.field_prj_brn_burning'
         - 'config:field.storage.node.field_prj_cll_collaborate'
         - 'config:field.storage.node.field_prj_gen_concept'
         - 'config:field.storage.node.field_prj_gen_contact'
@@ -3259,7 +3223,6 @@ display:
         - 'config:field.storage.node.field_prj_gen_manager'
         - 'config:field.storage.node.field_prj_snd_level'
         - 'config:field.storage.node.field_prj_snd_sound'
-        - 'config:field.storage.node.field_prj_stc_safety'
         - 'config:field.storage.node.field_prj_stc_size'
         - 'config:field.storage.node.field_prjr_complete'
         - 'config:field.storage.user.field_first_name'

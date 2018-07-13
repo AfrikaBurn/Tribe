@@ -41,25 +41,36 @@ class RegistrationController extends ControllerBase {
   public static function update($nid = FALSE){
     if ($nid){
 
-      $target = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
       $field = \Drupal::request()->get('field');
+      $target = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
       $value = \Drupal::request()->get('value');
 
       preg_match('/(?<name>[^\[]+)\[(?<value>[^\[]+)]/', $field, $parts);
 
-      switch (TRUE){
+      $field_name = count($parts)
+        ? $parts['name']
+        : $field;
 
-        // Single Checkbox
-        case $parts['value'] == 'value':
-          $target->set($parts['name'], $value);
-        break;
+      $definition = $target->get($field_name)->getFieldDefinition()->get('field_type');
+
+      switch ($definition){
 
         // Multiple checkboxes
-        case count($parts) && $parts['value'] != 'value':
-          $storage = $target->get($parts['name']);
+        case 'list_string':
+          $storage = $target->get($field_name);
           $index = array_search(['value' => $parts['value']], $storage->getValue());
           if ($index !== FALSE && !$value) $storage->removeItem($index);
           if ($index === FALSE && $value) $storage->appendItem($parts['value']);
+        break;
+
+        // Single Checkbox
+        case 'boolean':
+          $target->set($field_name, $value);
+        break;
+
+        // Textbox
+        case 'string':
+          $target->set($field_name, $value);
         break;
 
         // Other

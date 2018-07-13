@@ -3,9 +3,13 @@
 
 /* Columns */
 
+.wrangler-view table td{
+  vertical-align: top;
+}
+
 .wrangler-view table .views-field-field-prj-gen-concept{
   text-align: center;
-  width: 102px;
+  width: 75px;
 }
 
 .wrangler-view table .views-field-title,
@@ -14,8 +18,21 @@
   width: 200px;
 }
 
+.wrangler-view table td.views-field-title{
+  padding-top: 25px;
+}
+
+.wrangler-view table td.column-admin{
+  padding-top: 20px;
+}
+
+
 .wrangler-view table .column-admin{
   width: 250px;
+}
+
+.wrangler-view table .form-type-checkbox{
+  margin: 10px 0 0;
 }
 
 .wrangler-view .views-field-field-prj-brn-burning,
@@ -120,8 +137,8 @@ ul.mass-mail{
   float: left;
 }
 
-.wrangler-view {
-
+.wrangler-view .form--inline .form-text{
+  padding: 6px;
 }
 
 /* Editor fields */
@@ -141,6 +158,7 @@ ul.mass-mail{
   margin: 0 !important;
   padding: 0 !important;
   max-width: 90%;
+  flex-basis: 30%;
 }
 
 .editor-parent div.description{
@@ -185,6 +203,7 @@ ul.mass-mail{
 
 .editor-parent.form-item-field-prj-snd-level select{
   width: 228px;
+  max-width: 60%;
 }
 
 .editor-parent.form-item-field-prj-snd-level label{
@@ -197,7 +216,9 @@ ul.mass-mail{
   margin: 0 0 1em 0;
 }
 .editor-parent.form-item-field-prj-adm-wrangler select,
-.editor-parent.form-item-field-prj-adm-review select{
+.editor-parent.form-item-field-prj-adm-review select,
+.editor-parent.form-type-textfield input,
+{
   width: 60%;
 }
 

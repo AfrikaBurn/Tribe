@@ -1,4 +1,4 @@
-uuid: b9ae4714-4381-4eb2-9b65-a5d0014b626c
+uuid: 0e4c0d06-68e2-4963-bcdc-d51f69b17356
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,6 @@ dependencies:
     - field.storage.node.field_collective
     - field.storage.node.field_prj_adm_review
     - field.storage.node.field_prj_adm_wrangler
-    - field.storage.node.field_prj_brn_burning
     - field.storage.node.field_prj_cll_collaborate
     - field.storage.node.field_prj_gen_concept
     - field.storage.node.field_prj_gen_contact
@@ -16,7 +15,6 @@ dependencies:
     - field.storage.node.field_prj_gen_manager
     - field.storage.node.field_prj_snd_level
     - field.storage.node.field_prj_snd_sound
-    - field.storage.node.field_prj_stc_safety
     - field.storage.node.field_prj_stc_size
     - field.storage.node.field_prjr_complete
     - field.storage.user.field_first_name
@@ -35,11 +33,11 @@ dependencies:
     - taxonomy
     - user
     - views_field_view
-id: wrangle_art
-label: 'Wrangle: Art'
+id: wrangle_theme_camps
+label: 'Wrangle: Theme Camps'
 module: views
 description: ''
-tag: 'wrangle, art'
+tag: 'wrangle, theme_camps'
 base_table: node_field_data
 base_field: nid
 core: 8.x
@@ -1239,133 +1237,6 @@ display:
           empty_zero: false
           hide_alter_empty: false
           plugin_id: custom
-        field_prj_stc_safety:
-          id: field_prj_stc_safety
-          table: node__field_prj_stc_safety
-          field: field_prj_stc_safety
-          relationship: none
-          group_type: group
-          admin_label: 'List: Structure'
-          label: 'Structural safety'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: basic_string
-          settings: {  }
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_prj_brn_burning:
-          id: field_prj_brn_burning
-          table: node__field_prj_brn_burning
-          field: field_prj_brn_burning
-          relationship: none
-          group_type: group
-          admin_label: 'List: Pyro'
-          label: Burning
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: boolean
-          settings:
-            format: default
-            format_custom_true: ''
-            format_custom_false: ''
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
         field_prj_cll_collaborate:
           id: field_prj_cll_collaborate
           table: node__field_prj_cll_collaborate
@@ -3120,7 +2991,7 @@ display:
           entity_type: node
           entity_field: created
           plugin_id: date
-      title: Art
+      title: 'Theme Camps'
       header: {  }
       footer: {  }
       empty:
@@ -3201,7 +3072,6 @@ display:
         - 'config:field.storage.node.field_collective'
         - 'config:field.storage.node.field_prj_adm_review'
         - 'config:field.storage.node.field_prj_adm_wrangler'
-        - 'config:field.storage.node.field_prj_brn_burning'
         - 'config:field.storage.node.field_prj_cll_collaborate'
         - 'config:field.storage.node.field_prj_gen_concept'
         - 'config:field.storage.node.field_prj_gen_contact'
@@ -3211,7 +3081,6 @@ display:
         - 'config:field.storage.node.field_prj_gen_manager'
         - 'config:field.storage.node.field_prj_snd_level'
         - 'config:field.storage.node.field_prj_snd_sound'
-        - 'config:field.storage.node.field_prj_stc_safety'
         - 'config:field.storage.node.field_prj_stc_size'
         - 'config:field.storage.node.field_prjr_complete'
         - 'config:field.storage.user.field_first_name'
@@ -3223,10 +3092,10 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: wrangle/projects/art
+      path: wrangle/projects/theme-camps
       menu:
         type: normal
-        title: Artworks
+        title: 'Theme Camps'
         description: ''
         expanded: false
         parent: 'menu_link_content:79d40a9b-d903-44b2-9e61-040a2c95c474'
@@ -3249,7 +3118,6 @@ display:
         - 'config:field.storage.node.field_collective'
         - 'config:field.storage.node.field_prj_adm_review'
         - 'config:field.storage.node.field_prj_adm_wrangler'
-        - 'config:field.storage.node.field_prj_brn_burning'
         - 'config:field.storage.node.field_prj_cll_collaborate'
         - 'config:field.storage.node.field_prj_gen_concept'
         - 'config:field.storage.node.field_prj_gen_contact'
@@ -3259,7 +3127,6 @@ display:
         - 'config:field.storage.node.field_prj_gen_manager'
         - 'config:field.storage.node.field_prj_snd_level'
         - 'config:field.storage.node.field_prj_snd_sound'
-        - 'config:field.storage.node.field_prj_stc_safety'
         - 'config:field.storage.node.field_prj_stc_size'
         - 'config:field.storage.node.field_prjr_complete'
         - 'config:field.storage.user.field_first_name'

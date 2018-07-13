@@ -124,7 +124,7 @@ third_party_settings:
         - group_wtf_guide
         - group_other
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: tabs
       format_settings:
         label: Intro
@@ -333,7 +333,7 @@ third_party_settings:
         - field_collective
         - field_form_mode
       parent_name: ''
-      weight: 0
+      weight: 1
       format_type: details
       format_settings:
         id: ''
@@ -349,14 +349,14 @@ bundle: mutant_vehicles
 mode: default
 content:
   field_admin_comments:
-    weight: 131
+    weight: 3
     settings: {  }
     third_party_settings: {  }
     type: comment_default
     region: content
   field_collective:
     type: entity_reference_autocomplete
-    weight: 12
+    weight: 10
     region: content
     settings:
       match_operator: CONTAINS
@@ -365,7 +365,7 @@ content:
     third_party_settings: {  }
   field_form_mode:
     type: string_textfield
-    weight: 13
+    weight: 11
     region: content
     settings:
       size: 60
@@ -386,13 +386,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_prj_adm_registration:
+    type: string_textfield
     weight: 9
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_prj_adm_review:
     type: options_select
     weight: 7

@@ -5,10 +5,7 @@ afrikaburn_registration.admin:
     _title: 'Open registration forms'
   requirements:
    _permission: 'administer site configuration'
-afrikaburn_registration.wrangle_art:
-  path: '/wrangle/projects/art'
-  options:
-    _admin_route: TRUE
+
 afrikaburn_registration.reuse:
   path: '/registration/{nid}/reuse'
   defaults:
@@ -25,3 +22,20 @@ afrikaburn_registration.update:
     _role: authenticated
     cid: '^[0-9]+'
     _is_collective_admin: 'TRUE'
+
+afrikaburn_registration.wrangle_art:
+  path: '/wrangle/projects/art'
+  options:
+    _admin_route: TRUE
+afrikaburn_registration.wrangle_binnekring_events:
+  path: '/wrangle/projects/binnekring-events'
+  options:
+    _admin_route: TRUE
+afrikaburn_registration.wrangle_mutant_vehicles:
+  path: '/wrangle/projects/mutant-vehicles'
+  options:
+    _admin_route: TRUE
+afrikaburn_registration.wrangle_theme_camps:
+  path: '/wrangle/projects/theme-camps'
+  options:
+    _admin_route: TRUE

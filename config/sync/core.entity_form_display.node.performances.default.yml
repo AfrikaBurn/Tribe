@@ -117,6 +117,7 @@ dependencies:
     - node.type.performances
   module:
     - conditional_fields
+    - entity_reference_views_select
     - field_group
     - image
     - link
@@ -245,13 +246,10 @@ content:
     type: string_textfield
     region: content
   field_prj_adm_wrangler:
-    type: entity_reference_autocomplete
+    type: erviews_options_select
     weight: 39
     region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_prj_cll_collaborate:
     weight: 6
@@ -409,7 +407,7 @@ content:
     type: link_default
     region: content
   field_prjr_complete:
-    type: options_select
+    type: options_buttons
     weight: 38
     region: content
     settings: {  }

@@ -9,7 +9,7 @@
 
   Drupal.behaviors.afrikaburnRegistration = {
     attach: function (context, settings) {
-      $('.form-checkbox, .form-select', context).not('.editor-processed').each(
+      $('.form-checkbox, .form-select, .form-text', context).not('.editor-processed').each(
         (i, element) => new editor(element)
       )
     }

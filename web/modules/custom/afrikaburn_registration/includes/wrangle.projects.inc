@@ -20,6 +20,33 @@ function _editable($id){
         'field_prj_stc_size',
       ],
 
+      'wrangle_binnekring_events' => [
+        'field_prj_adm_wrangler',
+        'field_prj_cll_collaborate',
+        'field_prjr_complete',
+        'field_prj_adm_review',
+        'field_prj_snd_level',
+      ],
+
+      'wrangle_mutant_vehicles' => [
+        'field_prj_adm_wrangler',
+        'field_prj_cll_collaborate',
+        'field_prjr_complete',
+        'field_prj_adm_review',
+        'field_prj_adm_registration',
+        'field_prj_snd_sound',
+        'field_prj_snd_level',
+      ],
+
+      'wrangle_theme_camps' => [
+        'field_prj_adm_wrangler',
+        'field_prj_cll_collaborate',
+        'field_prjr_complete',
+        'field_prj_adm_review',
+        'field_prj_snd_sound',
+        'field_prj_snd_level',
+      ],
+
     ]
   )[$id];
 }
@@ -29,6 +56,7 @@ function _merge(){
     'field_prj_adm_wrangler',
     'field_prj_adm_review',
     'field_prjr_complete',
+    'field_prj_adm_registration',
     'field_prj_snd_level',
     'field_prj_stc_size',
   ];
@@ -94,9 +122,15 @@ function ab_prepare_wrangler_view(&$variables){
     $form = \Drupal::service('entity.form_builder')->getForm($node);
 
     $mails[] = [
-      'contact' => $row->_relationship_entities['field_prj_gen_contact']->get('mail')->value,
-      'lead' => $row->_relationship_entities['field_prj_gen_lead']->get('mail')->value,
-      'manager' => $row->_relationship_entities['field_prj_gen_manager']->get('mail')->value,
+      'contact' => $row->_relationship_entities['field_prj_gen_contact']
+        ? $row->_relationship_entities['field_prj_gen_contact']->get('mail')->value
+        : FALSE,
+      'lead' => $row->_relationship_entities['field_prj_gen_lead']
+        ? $row->_relationship_entities['field_prj_gen_lead']->get('mail')->value
+        : FALSE,
+      'manager' => $row->_relationship_entities['field_prj_gen_manager']
+        ? $row->_relationship_entities['field_prj_gen_manager']->get('mail')->value
+        : FALSE,
     ];
 
     foreach(_editable($view->id()) as $field){
@@ -197,6 +231,7 @@ function ab_insert_wrangler_view_rows(&$variables){
     $row['columns']['admin']['content'][] = [
       'field_output' => render($history)
     ];
+    $row['columns']['admin']['attributes'] =  new \Drupal\Core\Template\Attribute(['class' => 'column-admin']);
   }
 
   // Unset admin column headers

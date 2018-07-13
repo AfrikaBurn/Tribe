@@ -208,6 +208,14 @@ bundles:
       notes: ''
       bundle: mutant_vehicles
       name: field_mutant_drivers
+    field_prj_adm_registration:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: mutant_vehicles
+      name: field_prj_adm_registration
   performances:
     field_prj_gen_description:
       enabled: false
