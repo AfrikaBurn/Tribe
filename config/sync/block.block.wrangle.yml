@@ -1,0 +1,34 @@
+uuid: aaf7447c-3cfa-4375-af45-1d52191f717b
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.wrangle
+  module:
+    - collapsiblock
+    - php
+    - system
+  theme:
+    - afrikaburn
+third_party_settings:
+  collapsiblock:
+    collapse_action: '3'
+id: wrangle
+theme: afrikaburn
+region: biobar
+weight: -21
+provider: null
+plugin: 'system_menu_block:wrangle'
+settings:
+  id: 'system_menu_block:wrangle'
+  label: Wrangle
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility:
+  php:
+    id: php
+    negate: true
+    php: ''
+    context_mapping: {  }

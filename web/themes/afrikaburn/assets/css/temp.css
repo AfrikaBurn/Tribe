@@ -1,8 +1,56 @@
+/* column layout */
+
+.sidebar-outer.biobar{
+  float: left;
+  max-width: 155px;
+  font-size: 85%;
+}
+
+#block-ticketblock .button{
+  padding: 0;
+  width: 100%;
+}
+
+body.layout-biobar .main-block{
+  width: 75%;
+  margin: 0 0 0 5%;
+  max-width: none;
+}
+
+body.layout-both-bars .main-block{
+  margin: 0 2.5%;
+  width: 45%;
+}
+
+div.sidebar-outer.sidebar-outer.biobar .sidebar{
+  background: #000;
+  padding: 5px;
+}
+
+div.sidebar-outer .sidebar{
+  background: #350b04;
+}
+
+.block-system-main-block{
+  clear: both;
+}
+
+nav.tabs ul li a{
+  background: none;
+}
+
 /* Warning messages */
 
 
 .messages.messages--warning .messages__item{
   color: #A9905A !important;
+}
+
+/* -- Collapsiblock -- */
+
+div.collapsiblock,
+div.collapsiblockCollapsed{
+  background: none !important;
 }
 
 .collapsiblock a h2:after{

@@ -14,24 +14,18 @@ use Drupal\Core\Template\Attribute;
  * Adds body classes if certain regions have content.
  */
 function afrikaburn_preprocess_html(&$variables) {
-  // Add information about the number of sidebars.
-  // if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
-  //   $variables['attributes']['class'][] = 'layout-two-sidebars';
-  // }
-  // elseif (!empty($variables['page']['sidebar_first'])) {
-  //   $variables['attributes']['class'][] = 'layout-one-sidebar';
-  //   $variables['attributes']['class'][] = 'layout-sidebar-first';
-  // }
-  // elseif (!empty($variables['page']['sidebar_second'])) {
-  //   $variables['attributes']['class'][] = 'layout-one-sidebar';
-  //   $variables['attributes']['class'][] = 'layout-sidebar-second';
-  // }
-  // else {
-  //   $variables['attributes']['class'][] = 'layout-no-sidebars';
-  // }
 
-  if (empty($variables['page']['sidebar'])) {
+  if (empty($variables['page']['biobar']) && empty($variables['page']['sidebar'])) {
     $variables['attributes']['class'][] = 'layout-no-sidebars';
+  }
+  if (isset($variables['page']['biobar'])){
+    $variables['attributes']['class'][] = 'layout-biobar';
+  }
+  if (isset($variables['page']['sidebar'])){
+    $variables['attributes']['class'][] = 'layout-sidebar';
+  }
+  if (isset($variables['page']['sidebar']) && isset($variables['page']['biobar'])){
+    $variables['attributes']['class'][] = 'layout-both-bars';
   }
 
   if (!empty($variables['page']['featured_top'])) {

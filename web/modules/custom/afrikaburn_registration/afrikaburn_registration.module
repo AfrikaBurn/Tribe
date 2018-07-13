@@ -24,10 +24,17 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
   $registration_config = _project_form_config();
   $defaults = @($registration_config)[$form_id];
 
+  // dpm($form_id);
+
   if (isset($defaults)){
 
     $user = User::load(\Drupal::currentUser()->id());
-    $registration = \Drupal::routeMatch()->getParameter('node');
+    $registration = array_filter(
+      [
+        $form_state->getFormObject()->getEntity(),
+        \Drupal::routeMatch()->getParameter('node'),
+      ]
+    )[0];
     $collective = _get_collective($registration);
 
     $is_wrangler = $user->hasRole($defaults['wrangler']);
@@ -116,7 +123,7 @@ function afrikaburn_registration_form_views_exposed_form_alter(&$form, $form_sta
  */
 function afrikaburn_registration_views_query_alter($view, $query){
 
-  list($purpose, $type) = array_map('trim', explode(',', $view->storage->get('tag')));
+  @list($purpose, $type) = array_map('trim', explode(',', $view->storage->get('tag')));
 
   if ($purpose == 'wrangle' && $view->exposed_raw_input['wrangler'] == 'unassigned') {
 
@@ -134,15 +141,6 @@ function afrikaburn_registration_views_query_alter($view, $query){
   }
 }
 
-/* ----- Block alters ----- */
-
-
-// function afrikaburn_registration_block_build_alter(&$build, $block){
-//   if ($block->pluginId == ''){
-//     dpm($build);
-//   }
-// }
-
 
 /* ----- Theme hooks ----- */
 
@@ -158,25 +156,25 @@ function afrikaburn_registration_theme(){
     'views_view_unformatted__collective_projects' => [
       'template' => 'views-view-unformatted--collective-projects',
       'base hook' => 'view',
-      // 'file' => 'includes/collective.projects.inc',
     ],
     'views_view_fields__collective_projects' => [
       'template' => 'views-view-fields--collective-projects',
       'base hook' => 'view',
-      // 'file' => 'includes/collective.projects.inc',
     ],
 
-    // Wrangle art
-    'views_view_unformatted__wrangle_art' => [
-      'template' => 'views-view-unformatted--wrangle-projects',
+    // Wrangle
+    'views_view__wrangle_art' => [
+      'template' => 'views-view--wrangle',
       'base hook' => 'view',
-      // 'file' => 'includes/collective.projects.inc',
     ],
-    // 'views_view_fields__collective_projects' => [
-    //   'template' => 'views-view-fields--collective-projects',
-    //   'base hook' => 'view',
-    //   'file' => 'includes/collective.projects.inc',
-    // ],
+    'views_view_table__wrangle_art' => [
+      'template' => 'views-view-table--wrangle-projects',
+      'base hook' => 'view',
+    ],
+    'views_view_fields__wrangle_comments' => [
+      'template' => 'views-view-fields--wrangle-comments',
+      'base hook' => 'view',
+    ],
 
   ];
 }
@@ -197,8 +195,9 @@ function afrikaburn_registration_preprocess_views_view(&$variables){
     break;
 
     case 'wrangle_art':
-      module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
       $variables['#attached']['library'][] = 'afrikaburn_registration/wrangle';
+      module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
+      ab_prepare_wrangler_view($variables);
     break;
 
   }
@@ -209,9 +208,25 @@ function afrikaburn_registration_preprocess_views_view(&$variables){
  */
 function afrikaburn_registration_preprocess_views_view_fields(&$variables) {
   switch ($variables['view']->id()){
+
     case 'collective_projects':
       module_load_include('inc', 'afrikaburn_registration', 'includes/collective.projects');
       ar_prepare_project_links($variables);
     break;
+
+  }
+}
+
+/**
+ * Implements hook_preprocess_views_view_table().
+ */
+function afrikaburn_registration_preprocess_views_view_table(&$variables) {
+  switch ($variables['view']->id()){
+
+    case 'wrangle_art':
+      module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
+      ab_insert_wrangler_view_rows($variables);
+    break;
+
   }
 }

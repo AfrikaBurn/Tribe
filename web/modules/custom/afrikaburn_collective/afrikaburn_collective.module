@@ -10,6 +10,15 @@ use \Drupal\Core\Entity\EntityInterface;
 use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use \Drupal\user\Entity\User;
 
+
+/**
+ * Implements hook_page_attachments().
+ * Attach collective libraries.
+ */
+function afrikaburn_collective_page_attachments(&$page) {
+  $page['#attached']['library'][] = 'afrikaburn_collective/main';
+}
+
 /**
  * Implements hook_form_alter().
  */
@@ -31,7 +40,7 @@ function afrikaburn_collective_form_node_collective_form_alter(&$form, $form_sta
  * Implements hook_views_pre_view().
  * Hooked to set collective on drop down view selects
  */
-function afrikaburn_collective_views_pre_view(\Drupal\views\ViewExecutable $view, $display_id, &$args){
+function afrikaburn_collective_views_pre_view($view, $display_id, &$args){
   if ($view->id() == 'collective_members' && $display_id == 'entity_reference_1'){
     $node = \Drupal::routeMatch()->getParameter('node');
     if ($node && $node->field_collective){

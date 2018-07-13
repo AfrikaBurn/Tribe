@@ -51,7 +51,6 @@ function _project_form_modes(){
         'form_1' => 'Registration form 1',
         'form_2' => 'Registration form 2',
         'form_3' => 'Registration form 3',
-        'grant' => 'Grant application',
         'supplier' => 'Supplier registration',
         'wap' => 'Work access passes',
       ],
@@ -81,6 +80,12 @@ function _project_form_config() {
     'node_art_form_1_form' => [
       'mode' => 'form_1',
       'title' => 'Registering: %title',
+      'type' => 'an Artwork',
+      'wrangler' => 'art_wrangler'
+    ],
+    'node_art_grant_form' => [
+      'mode' => 'grant',
+      'title' => 'Grant application for: %title',
       'type' => 'an Artwork',
       'wrangler' => 'art_wrangler'
     ],

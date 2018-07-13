@@ -8,6 +8,7 @@ dependencies:
     - collapsiblock
     - ctools
     - php
+    - system
     - views
   theme:
     - afrikaburn
@@ -16,8 +17,8 @@ third_party_settings:
     collapse_action: '2'
 id: my_invites
 theme: afrikaburn
-region: sidebar
-weight: -11
+region: biobar
+weight: -16
 provider: null
 plugin: 'views_block:my_invites-block'
 settings:
@@ -41,3 +42,8 @@ visibility:
     negate: false
     context_mapping:
       node: '@node.node_route_context:node'
+  request_path:
+    id: request_path
+    pages: '/node/*/edit'
+    negate: true
+    context_mapping: {  }

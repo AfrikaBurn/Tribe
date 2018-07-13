@@ -7,6 +7,7 @@ dependencies:
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_form_mode
+    - field.field.node.art.field_grant_expense_header
     - field.field.node.art.field_grt_art_apply
     - field.field.node.art.field_grt_art_reason
     - field.field.node.art.field_grt_art_total
@@ -131,6 +132,7 @@ dependencies:
     - node.type.art
   module:
     - ds
+    - markup
     - responsive_image
     - user
 third_party_settings:
@@ -151,6 +153,13 @@ targetEntityType: node
 bundle: art
 mode: default
 content:
+  field_grant_expense_header:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
   field_prj_gen_concept:
     type: responsive_image
     weight: 0

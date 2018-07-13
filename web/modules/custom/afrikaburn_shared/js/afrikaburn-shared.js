@@ -19,7 +19,8 @@
       // Validate everything on blur
       $(toValidate, context).blur(
         function(){
-          $(this).valid ? $(this).valid() : false
+          var element = $(this)
+          element.valid && !element.hasClass('editor-processed') ? element.valid() : false
         }
       )
 

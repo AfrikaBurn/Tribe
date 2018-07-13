@@ -5,49 +5,49 @@
 /support: null
 /wap: null
 art/form_1:
+  visible: visible
+  open: 0
+  editable: 0
+art/form_2:
+  open: 0
+  editable: 0
+  visible: 0
+art/form_3:
+  open: 0
+  editable: 0
+  visible: 0
+art/grant:
   open: open
   editable: editable
   visible: visible
-art/form_2:
-  visible: visible
-  open: 0
-  editable: 0
-art/form_3:
-  visible: visible
-  open: 0
-  editable: 0
-art/grant:
-  visible: visible
-  open: 0
-  editable: 0
 art/support:
-  visible: visible
   open: 0
   editable: 0
+  visible: 0
 art/wap:
   open: 0
   editable: 0
   visible: 0
 mutant_vehicles/form_1:
-  editable: editable
-  visible: visible
   open: 0
+  editable: 0
+  visible: 0
 mutant_vehicles/grant:
-  visible: visible
   open: 0
   editable: 0
+  visible: 0
 mutant_vehicles/support:
-  visible: visible
   open: 0
   editable: 0
+  visible: 0
 mutant_vehicles/wap:
-  visible: visible
   open: 0
   editable: 0
+  visible: 0
 performances/form_1:
-  open: open
-  editable: editable
-  visible: visible
+  open: 0
+  editable: 0
+  visible: 0
 performances/form_2:
   visible: visible
   open: 0
@@ -57,53 +57,53 @@ performances/form_3:
   open: 0
   editable: 0
 performances/grant:
-  visible: visible
   open: 0
   editable: 0
+  visible: 0
 performances/support:
-  visible: visible
   open: 0
   editable: 0
+  visible: 0
 performances/wap:
-  visible: visible
   open: 0
   editable: 0
+  visible: 0
 theme_camps/form_1:
+  open: open
   editable: editable
   visible: visible
-  open: 0
 theme_camps/form_2:
-  editable: editable
-  visible: visible
   open: 0
+  editable: 0
+  visible: 0
 theme_camps/form_3:
-  editable: editable
-  visible: visible
   open: 0
+  editable: 0
+  visible: 0
 theme_camps/grant:
-  visible: visible
   open: 0
   editable: 0
+  visible: 0
 theme_camps/wap:
-  visible: visible
   open: 0
   editable: 0
+  visible: 0
 art/supplier:
-  visible: visible
   open: 0
   editable: 0
+  visible: 0
 mutant_vehicles/supplier:
   open: 0
   editable: 0
   visible: 0
 performances/supplier:
-  visible: visible
   open: 0
   editable: 0
+  visible: 0
 theme_camps/supplier:
-  open: open
-  editable: editable
-  visible: visible
+  open: 0
+  editable: 0
+  visible: 0
 art/form_1-visible: 1
 art/form_2-visible: 1
 art/form_3-visible: 0

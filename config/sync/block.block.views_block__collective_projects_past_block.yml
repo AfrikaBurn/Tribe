@@ -8,6 +8,7 @@ dependencies:
     - collapsiblock
     - node
     - php
+    - system
     - views
   theme:
     - afrikaburn
@@ -27,6 +28,7 @@ settings:
   label_display: visible
   views_label: ''
   items_per_page: none
+  context_mapping: {  }
 visibility:
   node_type:
     id: node_type
@@ -39,4 +41,9 @@ visibility:
     id: php
     negate: true
     php: ''
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: '/node/edit/*'
+    negate: true
     context_mapping: {  }

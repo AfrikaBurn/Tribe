@@ -7,6 +7,7 @@ dependencies:
     - collapsiblock
     - node
     - php
+    - system
   theme:
     - afrikaburn
 third_party_settings:
@@ -35,4 +36,9 @@ visibility:
     id: php
     negate: false
     php: '<?php return true; ?>'
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: '/node/edit/*'
+    negate: true
     context_mapping: {  }

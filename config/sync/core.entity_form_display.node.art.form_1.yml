@@ -4,9 +4,11 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.node.form_1
+    - field.field.node.art.field_admin_comments
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_form_mode
+    - field.field.node.art.field_grant_expense_header
     - field.field.node.art.field_grt_art_apply
     - field.field.node.art.field_grt_art_reason
     - field.field.node.art.field_grt_art_total
@@ -387,8 +389,7 @@ third_party_settings:
         - field_prjr_complete
         - field_prj_adm_review
         - field_prj_adm_wrangler
-        - flag
-        - field_prj_comments
+        - field_prj_stc_size
         - field_collective
         - field_form_mode
       parent_name: ''
@@ -409,7 +410,7 @@ mode: form_1
 content:
   field_collective:
     type: entity_reference_autocomplete
-    weight: 11
+    weight: 10
     region: content
     settings:
       match_operator: CONTAINS
@@ -418,7 +419,7 @@ content:
     third_party_settings: {  }
   field_form_mode:
     type: string_textfield
-    weight: 12
+    weight: 11
     region: content
     settings:
       size: 60
@@ -887,6 +888,12 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  field_prj_stc_size:
+    type: options_select
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_prj_stc_structural:
     type: erviews_options_select
     weight: 14
@@ -975,7 +982,9 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_admin_comments: true
   field_col_members: true
+  field_grant_expense_header: true
   field_grt_art_apply: true
   field_grt_art_reason: true
   field_grt_art_total: true
@@ -1032,7 +1041,6 @@ hidden:
   field_prj_snd_comment: true
   field_prj_snd_description: true
   field_prj_snd_person: true
-  field_prj_stc_size: true
   field_prj_stg_contact: true
   field_prj_stg_description: true
   field_prj_stg_stage: true

@@ -218,17 +218,26 @@
         <div class="body-content">
           {{ page.status_messages }}
           {{ page.featured }}
-          <div class='main-block'>
 
-            {{ page.tabs }}
+          {% if page.biobar %}
+          <div class="sidebar-outer biobar">
+            <div class="sidebar">{{ page.biobar }}</div>
+          </div>
+          {% endif %}
+
+          <div class='main-block'>
             <div class='clr'></div>
             {{ page.content }}
           </div>
+
+          {% if page.sidebar %}
           <div class="sidebar-outer">
             <div class="sidebar">
               {{ page.sidebar }}
             </div>
           </div>
+          {% endif %}
+
           <div class='clr'></div>
         </div>
       </div>

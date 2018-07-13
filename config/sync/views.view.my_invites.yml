@@ -387,7 +387,7 @@ display:
           break_phrase: true
           plugin_id: string
       display_extenders: {  }
-      title: 'My Invitations'
+      title: Invitations
       use_ajax: true
     cache_metadata:
       max-age: -1

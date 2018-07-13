@@ -1,6 +1,6 @@
 uuid: c74a725b-6b17-4029-a6d7-461c796e9716
 langcode: en
-status: true
+status: false
 dependencies:
   content:
     - 'block_content:basic:f6bbd3ef-9b64-460b-bc52-64c88c5327cf'
@@ -13,7 +13,7 @@ dependencies:
 id: findyourway
 theme: afrikaburn
 region: footer_centre
-weight: 0
+weight: -20
 provider: null
 plugin: 'block_content:f6bbd3ef-9b64-460b-bc52-64c88c5327cf'
 settings:

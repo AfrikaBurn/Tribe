@@ -12,6 +12,7 @@ dependencies:
     - image.style.thumbnail
     - node.type.collective
   module:
+    - autocomplete_deluxe
     - field_group
     - image
     - text
@@ -19,7 +20,6 @@ third_party_settings:
   field_group:
     group_optional:
       children:
-        - field_col_mem_writeup
         - field_col_description
         - field_picture
       parent_name: ''
@@ -63,13 +63,21 @@ content:
     type: email_default
     region: content
   field_col_members:
-    type: entity_reference_autocomplete
+    type: autocomplete_deluxe
     weight: 4
     region: content
     settings:
+      limit: '10'
+      min_length: '0'
+      delimiter: ''
+      not_found_message: 'Oops! No burners found!'
+      not_found_message_allow: 0
+      new_terms: 0
       match_operator: CONTAINS
+      autocomplete_route_name: autocomplete_deluxe.autocomplete
+      target_type: taxonomy_term
       size: 60
-      placeholder: ''
+      selection_handler: default
     third_party_settings: {  }
   field_picture:
     weight: 5
@@ -105,6 +113,8 @@ content:
   url_redirects:
     weight: 50
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   created: true
   field_col_posts: true

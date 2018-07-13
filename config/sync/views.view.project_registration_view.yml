@@ -1,14 +1,15 @@
-uuid: b2973390-d80a-4a41-a2d3-0efafa6c1c74
+uuid: 8d4a2796-ace2-4dd1-9937-f59f9098d78a
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.form_1
+    - core.entity_view_mode.node.grant
   module:
     - node
     - user
-id: registration_form_
-label: 'Project: View'
+id: project_registration_view
+label: 'Project Registration: View'
 module: views
 description: ''
 tag: ''
@@ -58,7 +59,7 @@ display:
         type: 'entity:node'
         options:
           relationship: none
-          view_mode: form_1
+          view_mode: grant
       fields:
         title:
           id: title
@@ -288,6 +289,48 @@ display:
     display_options:
       display_extenders: {  }
       path: node/%/form_1
+      display_description: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:core.entity_view_display.node.agreement.default'
+        - 'config:core.entity_view_display.node.agreement.teaser'
+        - 'config:core.entity_view_display.node.announcement.default'
+        - 'config:core.entity_view_display.node.announcement.teaser'
+        - 'config:core.entity_view_display.node.art.default'
+        - 'config:core.entity_view_display.node.art.form_1'
+        - 'config:core.entity_view_display.node.article.default'
+        - 'config:core.entity_view_display.node.article.notification'
+        - 'config:core.entity_view_display.node.article.rss'
+        - 'config:core.entity_view_display.node.article.teaser'
+        - 'config:core.entity_view_display.node.collective.default'
+        - 'config:core.entity_view_display.node.collective.full'
+        - 'config:core.entity_view_display.node.collective.teaser'
+        - 'config:core.entity_view_display.node.mutant_vehicles.default'
+        - 'config:core.entity_view_display.node.mutant_vehicles.form_1'
+        - 'config:core.entity_view_display.node.page.default'
+        - 'config:core.entity_view_display.node.page.teaser'
+        - 'config:core.entity_view_display.node.performances.default'
+        - 'config:core.entity_view_display.node.performances.form_1'
+        - 'config:core.entity_view_display.node.subsidised_ticket.default'
+        - 'config:core.entity_view_display.node.subsidised_ticket.teaser'
+        - 'config:core.entity_view_display.node.subsidised_ticket.wrangler_overview'
+        - 'config:core.entity_view_display.node.theme_camps.default'
+        - 'config:core.entity_view_display.node.theme_camps.form_1'
+  grant:
+    display_plugin: page
+    id: grant
+    display_title: Grant
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: node/%/grant
       display_description: ''
     cache_metadata:
       max-age: -1

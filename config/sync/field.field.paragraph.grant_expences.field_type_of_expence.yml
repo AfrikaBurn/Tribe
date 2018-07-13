@@ -20,7 +20,7 @@ entity_type: paragraph
 bundle: grant_expences
 label: 'Type of Expense'
 description: ''
-required: true
+required: false
 translatable: false
 default_value:
   -

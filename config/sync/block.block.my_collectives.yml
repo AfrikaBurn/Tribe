@@ -17,8 +17,8 @@ third_party_settings:
     collapse_action: '2'
 id: my_collectives
 theme: afrikaburn
-region: sidebar
-weight: -12
+region: biobar
+weight: -17
 provider: null
 plugin: 'views_block:my_collectives-block'
 settings:

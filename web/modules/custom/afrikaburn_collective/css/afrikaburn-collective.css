@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+
+#block-my-collectives{
+  margin-bottom: 0;
+}
+
+#block-my-collectives .view-content div{
+  display: flex;
+  position: relative;
+}
+
+#block-my-collectives .view-content .views-field-field-picture{
+  display: block;
+  border-radius: 12.5px;
+  float: none;
+  height: 25px;
+  margin: 0 5px 0 0;
+  overflow: hidden;
+  padding: 0;
+  width: 25px;
+}
+
+#block-my-collectives .view-content .views-field-new-comments{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  text-shadow: 0 0 2px #000;
+  font-weight: 900;
+  line-height: 25px;
+}
+
+#block-my-collectives .view-content .views-field-title{
+  padding-top: 2.5px;
+}
+
+#block-my-collectives .button{
+  font-size: 80%;
+  width: 100%;
+  padding: 5px 10px;
+  line-height: 20px;
+  margin: 20px 0 0;
+  height: 30px;
+}

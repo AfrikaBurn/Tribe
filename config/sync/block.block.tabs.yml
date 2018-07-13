@@ -8,8 +8,8 @@ dependencies:
     - afrikaburn
 id: tabs
 theme: afrikaburn
-region: tabs
-weight: -20
+region: content
+weight: -18
 provider: null
 plugin: local_tasks_block
 settings:

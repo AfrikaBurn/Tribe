@@ -32,6 +32,16 @@ expression:
         provides_mapping: {  }
         condition_id: rules_node_is_of_type
         negate: false
+      -
+        id: rules_condition
+        uuid: fba28b4c-becd-410f-be1d-aa42329bc763
+        context_values: {  }
+        context_mapping:
+          node: node
+        context_processors: {  }
+        provides_mapping: {  }
+        condition_id: rules_node_is_published
+        negate: false
   actions:
     id: rules_action_set
     uuid: 5313fa87-86dc-4c53-858f-6d7ca925e88a
@@ -42,7 +52,7 @@ expression:
         context_values:
           message: 'Thank you for starting this journey with us!'
           type: info
-          repeat: true
+          repeat: false
         context_mapping: {  }
         context_processors:
           message:
@@ -60,7 +70,7 @@ expression:
           to:
             - shared@afrikaburn.com
           subject: 'New Artwork registration'
-          message: '[new artwork]'
+          message: '[art:form_1]'
           reply: ''
           language: ''
         context_mapping: {  }

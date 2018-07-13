@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.post.default
     - core.entity_view_mode.node.full
     - field.field.node.collective.field_col_admins
     - field.field.node.collective.field_col_description
@@ -13,43 +12,26 @@ dependencies:
     - field.field.node.collective.field_picture
     - node.type.collective
   module:
-    - comment
-    - responsive_image
-    - text
+    - image
     - user
 id: node.collective.full
 targetEntityType: node
 bundle: collective
 mode: full
 content:
-  field_col_description:
-    weight: 1
-    label: hidden
-    settings:
-      trim_length: 600
-    third_party_settings: {  }
-    type: text_trimmed
-    region: ds_content
-  field_col_posts:
-    type: comment_default
-    weight: 2
-    region: ds_content
-    label: hidden
-    settings:
-      view_mode: default
-      pager_id: 0
-    third_party_settings: {  }
   field_picture:
     weight: 0
     label: hidden
     settings:
       image_link: ''
-      responsive_image_style: ''
+      image_style: ''
     third_party_settings: {  }
-    type: responsive_image
-    region: ds_content
+    type: image
+    region: content
 hidden:
   field_col_admins: true
+  field_col_description: true
   field_col_invitee: true
   field_col_members: true
+  field_col_posts: true
   links: true

@@ -29,8 +29,7 @@ class TicketBlock extends BlockBase {
     $updated = $flag_service->getFlagging($flag, $account);
 
     if ($updated){
-      $links[] = '<a class="button" target="_blank" href="https://www.quicket.co.za/events/'.$settings['event_id'].'-#">Buy tickets</a><br/>';
-      $links[] = '<a href="/user/'.$uid.'/edit#edit-group-kids-and-teens-minors-">List your <strong>Kids and Teens (Minors)</strong></a> to be able to purchase tickets for them.';
+      $links[] = '<a class="button" target="_blank" href="https://www.quicket.co.za/events/'.$settings['event_id'].'-#' . md5($uid) . '">Buy tickets</a><br/>';
     } else {
       $links = [
         'To be eligible for ticket sales, please<br />',
