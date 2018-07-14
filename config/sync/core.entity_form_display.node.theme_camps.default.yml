@@ -7,7 +7,14 @@ dependencies:
     - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_field_prj_plc_marquis
     - field.field.node.theme_camps.field_field_prj_plc_stretch_m
+    - field.field.node.theme_camps.field_final_placement
     - field.field.node.theme_camps.field_form_mode
+    - field.field.node.theme_camps.field_ice_card
+    - field.field.node.theme_camps.field_neighbours
+    - field.field.node.theme_camps.field_placed
+    - field.field.node.theme_camps.field_placement_card
+    - field.field.node.theme_camps.field_placement_letter_sent
+    - field.field.node.theme_camps.field_plot
     - field.field.node.theme_camps.field_prj_adm_form_3
     - field.field.node.theme_camps.field_prj_adm_latitude
     - field.field.node.theme_camps.field_prj_adm_longitude
@@ -263,8 +270,21 @@ third_party_settings:
         - field_prjr_complete
         - field_prj_adm_review
         - field_prj_adm_wrangler
+        - field_prj_plc_location_extra
+        - field_prj_plc_location
+        - field_prj_plc_camp_w
+        - field_prj_plc_camp_d
+        - field_prj_plc_binnekring
+        - field_ice_card
+        - field_placed
+        - field_placement_card
+        - field_plot
+        - field_final_placement
+        - field_placement_letter_sent
         - field_collective
         - field_form_mode
+        - field_admin_comments
+        - field_neighbours
       parent_name: ''
       weight: 1
       format_type: details
@@ -282,27 +302,79 @@ bundle: theme_camps
 mode: default
 content:
   field_admin_comments:
-    weight: 39
+    weight: 18
     settings: {  }
     third_party_settings: {  }
     type: comment_default
     region: content
   field_collective:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 16
     region: content
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_form_mode:
-    weight: 7
+  field_final_placement:
+    weight: 13
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_form_mode:
+    weight: 17
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ice_card:
+    weight: 9
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_neighbours:
+    weight: 39
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_placed:
+    weight: 10
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_placement_card:
+    weight: 11
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_placement_letter_sent:
+    weight: 15
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_plot:
+    weight: 12
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
   field_prj_adm_review:
     type: options_select
@@ -521,6 +593,41 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  field_prj_plc_binnekring:
+    type: boolean_checkbox
+    weight: 8
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_prj_plc_camp_d:
+    type: number
+    weight: 7
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_plc_camp_w:
+    type: number
+    weight: 6
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_plc_location:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_prj_plc_location_extra:
+    type: string_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_snd_level:
     weight: 26
     settings: {  }
@@ -719,9 +826,6 @@ hidden:
   field_prj_plc_artwork: true
   field_prj_plc_artwork_d: true
   field_prj_plc_artwork_w: true
-  field_prj_plc_binnekring: true
-  field_prj_plc_camp_d: true
-  field_prj_plc_camp_w: true
   field_prj_plc_caravan: true
   field_prj_plc_cars: true
   field_prj_plc_fire: true
@@ -730,8 +834,6 @@ hidden:
   field_prj_plc_frontage: true
   field_prj_plc_large: true
   field_prj_plc_layout: true
-  field_prj_plc_location: true
-  field_prj_plc_location_extra: true
   field_prj_plc_map: true
   field_prj_plc_motivation: true
   field_prj_plc_people: true

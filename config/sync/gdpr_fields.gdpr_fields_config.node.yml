@@ -199,6 +199,70 @@ bundles:
       notes: ''
       bundle: theme_camps
       name: field_prj_est_camp_population
+    field_prj_adm_review:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: theme_camps
+      name: field_prj_adm_review
+    field_ice_card:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: theme_camps
+      name: field_ice_card
+    field_placed:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: theme_camps
+      name: field_placed
+    field_placement_card:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: theme_camps
+      name: field_placement_card
+    field_plot:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: theme_camps
+      name: field_plot
+    field_final_placement:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: theme_camps
+      name: field_final_placement
+    field_neighbours:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: theme_camps
+      name: field_neighbours
+    field_placement_letter_sent:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: theme_camps
+      name: field_placement_letter_sent
   mutant_vehicles:
     field_mutant_drivers:
       enabled: false

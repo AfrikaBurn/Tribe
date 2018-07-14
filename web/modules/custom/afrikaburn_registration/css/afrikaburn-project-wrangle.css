@@ -9,7 +9,7 @@
 
 .wrangler-view table .views-field-field-prj-gen-concept{
   text-align: center;
-  width: 75px;
+  width: 102px;
 }
 
 .wrangler-view table .views-field-title,
@@ -18,17 +18,18 @@
   width: 200px;
 }
 
-.wrangler-view table td.views-field-title{
-  padding-top: 25px;
-}
-
-.wrangler-view table td.column-admin{
+.wrangler-view table td.views-field-title,
+.wrangler-view table td.column-process,
+.wrangler-view table td.views-field-field-prj-plc-location,
+.wrangler-view table td.views-field-field-prj-plc-camp-d{
   padding-top: 20px;
 }
 
 
-.wrangler-view table .column-admin{
-  width: 250px;
+.wrangler-view table .column-administrative,
+.wrangler-view table .column-process{
+  max-width: 220px;
+  width: 220px;
 }
 
 .wrangler-view table .form-type-checkbox{
@@ -37,6 +38,12 @@
 
 .wrangler-view .views-field-field-prj-brn-burning,
 .wrangler-view .views-field-field-prj-cll-collaborate,
+.wrangler-view .views-field-field-ice-card,
+.wrangler-view .views-field-field-prj-plc-binnekring,
+.wrangler-view .views-field-field-placed,
+.wrangler-view .views-field-field-placement-card,
+.wrangler-view .views-field-field-placement-letter-sent,
+.wrangler-view .views-field-field-ice-card,
 .wrangler-view .views-field-field-prj-snd-sound{
   width: 15px;
 }
@@ -73,6 +80,7 @@
   height: 15px;
   right: 50%;
   margin-right: -7.5px;
+  top: -9px;
 }
 
 .wrangler-view table th{
@@ -105,36 +113,41 @@ ul.mass-mail{
   float: left;
   display: flex;
   flex-wrap: wrap;
-  margin: 20px 0;
+  margin: 45px 0;
 }
-
-.wrangler-view .form--inline .form-item{
-  float: none;
-  width: 140px;
-}
-
-.wrangler-view .form--inline .form-type-textfield{
-  width: 185px;
-}
-
-.wrangler-view .form--inline .form-text{
-  padding: 6px;
-}
-
 .wrangler-view .view-filters:after{
   content: "";
   display: block;
   clear: both;
 }
 
-.wrangler-view .form-item,
-.wrangler-view .form--inline .form-actions{
-  margin: 2em 0;
+.wrangler-view .form--inline .form-item{
+  margin: 0;
+  padding: 0;
+  float: none;
+  width: 140px;
+}
+
+.wrangler-view .form--inline .form-item.form-type-textfield{
+  width: 200px;
+}
+
+.wrangler-view .form--inline .form-actions *,
+.wrangler-view .form--inline .form-item *{
+  display: block;
+  box-sizing: border-box;
+  height: 32px;
+  padding: 6px;
+  font-size: 90%;
+  width: 90%;
+  margin-right: 20px;
 }
 
 .wrangler-view .form--inline .form-actions{
   clear: none;
   float: left;
+  margin: 0;
+  padding: 0;
 }
 
 .wrangler-view .form--inline .form-text{
@@ -145,8 +158,6 @@ ul.mass-mail{
 
 .editor-parent {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .editor-parent input{
@@ -154,11 +165,8 @@ ul.mass-mail{
 }
 
 .editor-parent label{
-  flex-grow: 1;
   margin: 0 !important;
   padding: 0 !important;
-  max-width: 90%;
-  flex-basis: 30%;
 }
 
 .editor-parent div.description{
@@ -201,11 +209,6 @@ ul.mass-mail{
   border: 2px solid #802727;
 }
 
-.editor-parent.form-item-field-prj-snd-level select{
-  width: 228px;
-  max-width: 60%;
-}
-
 .editor-parent.form-item-field-prj-snd-level label{
   content: 'Sound level';
 }
@@ -219,11 +222,15 @@ ul.mass-mail{
 .editor-parent.form-item-field-prj-adm-review select,
 .editor-parent.form-type-textfield input,
 {
-  width: 60%;
+  width: 100%;
 }
 
 
 /* Comments */
+
+.wrangler-view .view-wrangle-comments{
+  margin: 2em 0 1em;
+}
 
 .wrangler-view article.admin-comment{
   margin-bottom: 10px;

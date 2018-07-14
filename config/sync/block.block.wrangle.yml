@@ -32,3 +32,8 @@ visibility:
     negate: true
     php: ''
     context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: "/node/add*\r\n/node/*/edit*"
+    negate: true
+    context_mapping: {  }

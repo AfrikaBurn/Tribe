@@ -506,7 +506,18 @@ display:
           granularity: second
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: "<div class=\"messages messages--info\">\nNo comments. Enjoy it while it lasts.\n</div>"
+          plugin_id: text_custom
       arguments:
         nid:
           id: nid
@@ -570,6 +581,19 @@ display:
           offset: 1
       defaults:
         pager: false
+        empty: false
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: "<div class=\"messages messages--info\">\nNo history. All is forgiven.\n</div>"
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:
