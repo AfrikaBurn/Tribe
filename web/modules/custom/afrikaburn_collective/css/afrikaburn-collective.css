@@ -130,11 +130,18 @@ details.comment-form .form-actions{
   margin-top: 0;
 }
 
-details.comment-form .form-submit{
+details.comment-form .form-submit,
+details.comment-form .form-submit:hover,
+details.comment-form .form-submit.active{
   margin-top: 0;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 10px 10px !important;
 }
+
 
 details.comment-form .text-format-wrapper{
   margin: 0;
+}
+
+details.comment-form .filter-wrapper{
+  display: none;
 }
