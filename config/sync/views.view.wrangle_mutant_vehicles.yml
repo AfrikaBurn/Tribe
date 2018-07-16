@@ -3187,7 +3187,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: wrangle/projects/mutant-vehicles
+      path: wrangle/projects/mutant_vehicles
       menu:
         type: normal
         title: 'Mutant Vehicles'

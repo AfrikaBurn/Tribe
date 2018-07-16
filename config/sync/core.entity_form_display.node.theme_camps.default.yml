@@ -125,10 +125,12 @@ dependencies:
     - field.field.node.theme_camps.field_sup_review
     - field.field.node.theme_camps.field_tc_type
     - field.field.node.theme_camps.field_vp_ea
+    - field.field.node.theme_camps.field_year_cycle
     - image.style.thumbnail
     - node.type.theme_camps
   module:
     - comment
+    - computed_field
     - conditional_fields
     - cshs
     - entity_reference_views_select
@@ -285,6 +287,7 @@ third_party_settings:
         - field_form_mode
         - field_admin_comments
         - field_neighbours
+        - field_year_cycle
       parent_name: ''
       weight: 1
       format_type: details
@@ -769,6 +772,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
+  field_year_cycle:
+    weight: 40
+    settings: {  }
+    third_party_settings: {  }
+    type: computed_number_widget
     region: content
   flag:
     weight: 4

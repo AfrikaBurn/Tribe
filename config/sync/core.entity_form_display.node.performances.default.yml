@@ -113,9 +113,11 @@ dependencies:
     - field.field.node.performances.field_sup_review
     - field.field.node.performances.field_this_is_the_amount_of_mone
     - field.field.node.performances.field_vp_ea
+    - field.field.node.performances.field_year_cycle
     - image.style.thumbnail
     - node.type.performances
   module:
+    - computed_field
     - conditional_fields
     - entity_reference_views_select
     - field_group
@@ -184,6 +186,7 @@ third_party_settings:
         - created
         - field_collective
         - field_form_mode
+        - field_year_cycle
       parent_name: ''
       weight: 0
       format_type: details
@@ -412,6 +415,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_year_cycle:
+    weight: 43
+    settings: {  }
+    third_party_settings: {  }
+    type: computed_number_widget
+    region: content
   flag:
     weight: 8
     region: content

@@ -1,0 +1,31 @@
+uuid: 405dce23-b686-440d-81dc-40f5d86d1569
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_year_cycle
+    - node.type.mutant_vehicles
+  module:
+    - computed_field
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_year_cycle
+field_name: field_year_cycle
+entity_type: node
+bundle: mutant_vehicles
+label: 'Year cycle'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  code: '$value = 0;'
+  prefix: ''
+  suffix: ''
+field_type: computed_integer

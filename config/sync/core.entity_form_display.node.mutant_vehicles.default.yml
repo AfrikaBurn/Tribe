@@ -98,10 +98,12 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prjr_complete
     - field.field.node.mutant_vehicles.field_sup_review
     - field.field.node.mutant_vehicles.field_vp_ea
+    - field.field.node.mutant_vehicles.field_year_cycle
     - image.style.thumbnail
     - node.type.mutant_vehicles
   module:
     - comment
+    - computed_field
     - conditional_fields
     - entity_reference_views_select
     - field_group
@@ -332,6 +334,8 @@ third_party_settings:
         - field_prj_adm_registration
         - field_collective
         - field_form_mode
+        - field_admin_comments
+        - field_year_cycle
       parent_name: ''
       weight: 1
       format_type: details
@@ -1500,6 +1504,12 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
+  field_year_cycle:
+    weight: 131
+    settings: {  }
+    third_party_settings: {  }
+    type: computed_number_widget
     region: content
   flag:
     weight: 10

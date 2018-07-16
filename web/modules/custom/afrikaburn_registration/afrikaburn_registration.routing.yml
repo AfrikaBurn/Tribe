@@ -27,15 +27,15 @@ afrikaburn_registration.wrangle_art:
   path: '/wrangle/projects/art'
   options:
     _admin_route: TRUE
-afrikaburn_registration.wrangle_binnekring_events:
-  path: '/wrangle/projects/binnekring-events'
+afrikaburn_registration.wrangle_performances:
+  path: '/wrangle/projects/performances'
   options:
     _admin_route: TRUE
 afrikaburn_registration.wrangle_mutant_vehicles:
-  path: '/wrangle/projects/mutant-vehicles'
+  path: '/wrangle/projects/mutant_vehicles'
   options:
     _admin_route: TRUE
 afrikaburn_registration.wrangle_theme_camps:
-  path: '/wrangle/projects/theme-camps'
+  path: '/wrangle/projects/theme_camps'
   options:
     _admin_route: TRUE

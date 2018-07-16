@@ -271,6 +271,14 @@ bundles:
       notes: ''
       bundle: theme_camps
       name: field_placement_letter_sent
+    field_year_cycle:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: theme_camps
+      name: field_year_cycle
   mutant_vehicles:
     field_mutant_drivers:
       enabled: false
@@ -288,6 +296,14 @@ bundles:
       notes: ''
       bundle: mutant_vehicles
       name: field_prj_adm_registration
+    field_year_cycle:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: mutant_vehicles
+      name: field_year_cycle
   performances:
     field_prj_gen_description:
       enabled: false
@@ -353,6 +369,14 @@ bundles:
       notes: ''
       bundle: performances
       name: field_prj_adm_review
+    field_year_cycle:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: performances
+      name: field_year_cycle
   collective:
     field_col_members:
       enabled: false

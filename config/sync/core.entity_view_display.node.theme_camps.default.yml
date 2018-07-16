@@ -125,8 +125,10 @@ dependencies:
     - field.field.node.theme_camps.field_sup_review
     - field.field.node.theme_camps.field_tc_type
     - field.field.node.theme_camps.field_vp_ea
+    - field.field.node.theme_camps.field_year_cycle
     - node.type.theme_camps
   module:
+    - computed_field
     - ds
     - responsive_image
     - user
@@ -229,6 +231,17 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
+  field_year_cycle:
+    weight: 19
+    label: above
+    settings:
+      cache_unit: -1
+      cache_duration: 1
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: computed_integer
+    region: content
   flag_archived:
     weight: 10
     region: content

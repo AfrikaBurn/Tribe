@@ -44,5 +44,14 @@
     {{ fields.created.content }}
     {{ fields.edit_comment.content }}
     {{ fields.delete_comment.content }}
+    <aside>
+      {{ fields.view.content }}
+      {% if fields.replyto_comment.content %}
+      <details class="comment-form">
+        <summary class="button">Reply</summary>
+      {{ fields.replyto_comment.content }}
+      <details>
+      {% endif %}
+    </aside>
   </footer>
 </article>
