@@ -190,6 +190,14 @@ bundles:
       notes: ''
       bundle: art
       name: field_prj_stc_size
+    field_year_cycle:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: art
+      name: field_year_cycle
   theme_camps:
     field_prj_est_camp_population:
       enabled: false

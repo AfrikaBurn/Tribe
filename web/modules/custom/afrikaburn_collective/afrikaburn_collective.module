@@ -50,3 +50,83 @@ function afrikaburn_collective_views_pre_view($view, $display_id, &$args){
     }
   }
 }
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function afrikaburn_collective_entity_extra_field_info() {
+  $extra = array();
+
+  $extra['node']['collective']['display']['posts'] = array(
+    'label' => t('Posts'),
+    'description' => t('View of the latest posts'),
+    'weight' => 100,
+    'visible' => TRUE,
+  );
+
+  $extra['node']['collective']['display']['post_something'] = array(
+    'label' => t('Post form'),
+    'description' => t('Form to create a post'),
+    'weight' => 100,
+    'visible' => TRUE,
+  );
+
+  return $extra;
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view().
+ */
+function afrikaburn_collective_node_view(&$build, $entity, $display, $view_mode) {
+
+  $nid = $entity->id();
+
+  if ($display->getComponent('posts')){
+    $build['posts'] = views_embed_view('collective_posts', 'posts', $nid);
+  }
+
+  if ($display->getComponent('post_something')){
+    $form = \Drupal::service('entity.form_builder')->getForm(
+      \Drupal::entityTypeManager()->getStorage('comment')->create(
+        [
+          'entity_type'  => 'node',
+          'entity_id'    => $nid,
+          'field_name'   => 'field_col_posts',
+          'comment_type' => 'post',
+          'pid' => NULL,
+        ]
+      )
+    );
+
+    unset($form['comment_body']['widget'][0]['value']['#title']);
+    $form['actions']['submit']['#value'] = t('Post it!');
+
+    $form['#action'] .= '?destination=' . \Drupal\Component\Utility\UrlHelper::encodePath(drupal_get_destination()['destination']);
+
+    $build['post_something'] = [
+      '#type' => 'markup',
+      '#markup' => render($form),
+      '#prefix' => '<details class="comment-form"><summary class="button">Post something</summary>',
+      '#suffix' => '</details>',
+    ];
+  }
+}
+
+
+/* ----- Theme hooks ----- */
+
+
+/**
+ * Implements hook_theme().
+ * Views Customizaton.
+ */
+function afrikaburn_collective_theme(){
+  return [
+
+    'views_view_fields__collective_posts' => [
+      'template' => 'views-view-fields--collective-posts',
+      'base hook' => 'view',
+    ],
+
+  ];
+}

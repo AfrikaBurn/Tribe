@@ -90,6 +90,23 @@
   border-left: 1px solid #efefef;
 }
 
+/* Misc */
+
+.wrangler-view details summary{
+  padding: 0;
+}
+
+.wrangler-view .details-wrapper{
+  padding: 0;
+  margin: 0;
+}
+
+/* No results */
+
+.wrangler-view .messages{
+  clear: both;
+}
+
 
 /* Images */
 
@@ -270,19 +287,4 @@ ul.mass-mail{
 .wrangler-view details{
   border: none;
   padding: 0;
-}
-
-.wrangler-view details summary{
-  padding: 0;
-}
-
-.wrangler-view .details-wrapper{
-  padding: 0;
-  margin: 0;
-}
-
-/* No results */
-
-.wrangler-view .messages{
-  clear: both;
 }

@@ -25,7 +25,7 @@ default_value:
     value: 0
 default_value_callback: ''
 settings:
-  code: '$value = date(''Y'', strtotime(''-4 months'', $entity->get(''created'')->value));'
+  code: '$value = date(''Y'', strtotime(''+8 months'', $entity->get(''created'')->value));'
   prefix: ''
   suffix: ''
 field_type: computed_integer
