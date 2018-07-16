@@ -279,6 +279,7 @@ function computed_field_field_year_cycle_compute($entity_type_manager, $entity, 
 function afrikaburn_registration_entity_presave($entity){
   if (isset($entity->getType) && in_array($entity->getType(), ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
     if (!count($entity->get('field_year_cycle')->getValue())){
+      drupal_set_message('Setting initial cycle for ' . $entity->getTitle());
       $entity->set('field_year_cycle', computed_field_field_year_cycle_compute(null, $entity, null, null));
     }
   }
