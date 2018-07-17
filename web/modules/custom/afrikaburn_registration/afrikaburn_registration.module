@@ -292,9 +292,9 @@ function afrikaburn_registration_node_presave($entity){
 function afrikaburn_registration_mail_alter(&$message){
 
   $node = \Drupal::routeMatch()->getParameter('node');
-  $bundle = $node->bundle();
+  $bundle = $node ? $node->bundle() : FALSE;
 
-  if ($node && in_array($bundle, ['art', 'mutant_vehicles', 'performances', 'theme_camps'])){
+  if (in_array($bundle, ['art', 'mutant_vehicles', 'performances', 'theme_camps'])){
 
     $template = $message['params']['message'];
     preg_match_all('/\[' . $bundle . ':(?<mode>[^\[]+)\]/', $message['params']['message'], $renderings);
