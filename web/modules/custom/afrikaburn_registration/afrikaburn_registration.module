@@ -313,6 +313,48 @@ function afrikaburn_registration_mail_alter(&$message){
     }
 
     $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
-    $message['body'] = [$template];
+    $message['body'][] = _afrikaburn_registration_email_images($message, $template);
   }
+}
+
+
+// Replace images in email
+function _afrikaburn_registration_email_images(&$message, $body){
+
+  $patterns = array(
+    '/"(image:[^"]+)"/',
+    '/src="(\/[^"]+\.gif[^"]*)"/',
+    '/src="(\/[^"]+\.jpg[^"]*)"/',
+    '/src="(\/[^"]+\.png[^"]*)"/',
+    '/src="(\/[^"]+\.GIF[^"]*)"/',
+    '/src="(\/[^"]+\.JPG[^"]*)"/',
+    '/src="(\/[^"]+\.PNG[^"]*)"/',
+  );
+
+  $processed_images = array();
+  foreach ($patterns as $pattern) {
+    $embeddable_images = array();
+    preg_match_all($pattern, $body, $embeddable_images);
+    for ($i = 0; $i < count($embeddable_images[1]); $i++) {
+      $raw = $embeddable_images[1][$i];
+      $image_uri = trim(str_replace('/system/files', 'private:/', $raw));
+
+      if (!isset($processed_images[$image_uri])) {
+        $image_path = preg_replace('/^(image:|\/)+/', '', $image_uri);
+        $image_name = basename($image_path);
+
+        $image = new stdClass();
+        $image->uri = $image_path;
+        $image->filename = $image_name;
+        $image->filemime = \Drupal::service('file.mime_type.guesser')->guess($image_path);
+        $image->cid = preg_replace('/[^0-9a-zA-Z]|\?.+$/', '', $raw);
+
+        $message['params']['images'][] = $image;
+        $body = str_replace($raw, 'cid:' . $image->cid, $body);
+        $processed_images[$image_uri] = 1;
+      }
+    }
+  }
+
+  return $body;
 }
