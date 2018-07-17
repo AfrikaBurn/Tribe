@@ -46,7 +46,7 @@ expression:
           to:
             - scheepers.debruin@gmail.com
           subject: 'Artwork Form 1'
-          message: '[art:form_1_mail] [art:form_1_mail] '
+          message: '[art:form_1_mail]'
           reply: ''
           language: ''
         context_mapping: {  }

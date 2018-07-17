@@ -15,6 +15,27 @@ dependencies:
     - image
     - text
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_reset
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: ''
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - field_picture
+        - field_col_description
+        - field_col_posts
 id: node.collective.full
 targetEntityType: node
 bundle: collective
