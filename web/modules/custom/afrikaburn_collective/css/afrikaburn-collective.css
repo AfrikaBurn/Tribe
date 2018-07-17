@@ -24,8 +24,9 @@
 #block-my-collectives .view-content .views-field-new-comments{
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   width: 25px;
+  min-width: 25px;
   height: 25px;
   text-align: center;
   text-shadow: 0 0 2px #000;
@@ -109,10 +110,19 @@
 
 .view-collective-posts aside .form-submit,
 .view-collective-posts aside details summary{
+  font-size: 80% !important;
+  height: 3em !important;
+  line-height: 3em !important;
+}
+
+.view-collective-posts aside .form-submit.active,
+.view-collective-posts aside .form-submit:active,
+.view-collective-posts aside .form-submit:hover{
   font-size: 80%;
   height: 3em;
   line-height: 3em;
 }
+
 
 .view-collective-posts aside details{
   margin-bottom: 30px;

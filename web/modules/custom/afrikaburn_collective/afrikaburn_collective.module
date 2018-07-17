@@ -160,7 +160,17 @@ function afrikaburn_collective_preprocess_views_view_fields(&$variables) {
       )
     );
     unset($form['comment_body']['widget'][0]['value']['#title']);
+    $form['pid']['#value'] = $cid;
 
     $variables['fields']['replyto_comment']['content'] = render($form);
   }
+}
+
+
+function afrikaburn_collective_form_comment_comment_form_alter(&$form, $form_state, $form_id){
+  $form['pid'] = [
+    '#name' => 'pid',
+    '#type' => 'hidden',
+  ];
+  $form['actions']['submit']['#value'] = t('Say it!');
 }

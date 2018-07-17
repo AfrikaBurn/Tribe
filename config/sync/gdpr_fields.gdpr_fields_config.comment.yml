@@ -13,3 +13,21 @@ bundles:
       notes: ''
       bundle: admin_comments
       name: field_body
+  post:
+    comment_body:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: post
+      name: comment_body
+  comment:
+    comment_body:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: comment
+      name: comment_body

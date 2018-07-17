@@ -1,0 +1,65 @@
+uuid: 810ff82f-573b-4ab1-8482-1ac97ce9b6f2
+langcode: en
+status: true
+dependencies: {  }
+id: new_art_form_1
+label: 'New Art Form 1'
+events:
+  -
+    event_name: 'rules_entity_update:node'
+description: ''
+tags:
+  - Art
+  - New
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: cd725a09-606e-4d40-8b01-bf2ea35e9f9b
+  conditions:
+    id: rules_and
+    uuid: bb20e55e-3511-4f29-93e3-81e8cb3484f0
+    conditions:
+      -
+        id: rules_condition
+        uuid: c57a16ff-64b9-42a2-b7ce-02d3ffc29234
+        context_values:
+          type: node
+          bundle: art
+        context_mapping:
+          entity: node
+        context_processors:
+          type:
+            rules_tokens: {  }
+          bundle:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        condition_id: rules_entity_is_of_bundle
+        negate: false
+  actions:
+    id: rules_action_set
+    uuid: b6dd9af8-d655-43d8-aa75-23cc1a4d4b6f
+    actions:
+      -
+        id: rules_action
+        uuid: a36f30b8-109c-48bd-8926-424f9a2d4259
+        context_values:
+          to:
+            - scheepers.debruin@gmail.com
+          subject: 'Artwork Form 1'
+          message: '[art:form_1_mail] [art:form_1_mail] '
+          reply: ''
+          language: ''
+        context_mapping: {  }
+        context_processors:
+          to:
+            rules_tokens: {  }
+          subject:
+            rules_tokens: {  }
+          message:
+            rules_tokens: {  }
+          reply:
+            rules_tokens: {  }
+          language:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_send_email

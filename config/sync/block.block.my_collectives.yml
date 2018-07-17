@@ -44,6 +44,6 @@ visibility:
       user: '@user.current_user_context:current_user'
   request_path:
     id: request_path
-    pages: "/node/*/edit*\r\n/node/add/*"
+    pages: "/node/add*\r\n/node/*/edit*\r\n*/form_*\r\n*/grant\r\n*/support\r\n*/supplier\r\n*/wap"
     negate: true
     context_mapping: {  }

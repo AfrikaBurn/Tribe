@@ -132,7 +132,6 @@ dependencies:
     - node.type.art
   module:
     - ds
-    - markup
     - responsive_image
     - user
 third_party_settings:
@@ -153,18 +152,11 @@ targetEntityType: node
 bundle: art
 mode: default
 content:
-  field_grant_expense_header:
-    weight: 3
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
   field_prj_gen_concept:
     type: responsive_image
     weight: 0
     region: first
-    label: above
+    label: hidden
     settings:
       responsive_image_style: ''
       image_link: ''
@@ -173,7 +165,7 @@ content:
     type: basic_string
     weight: 1
     region: second
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
   flag_approved:
@@ -186,6 +178,7 @@ hidden:
   field_col_members: true
   field_collective: true
   field_form_mode: true
+  field_grant_expense_header: true
   field_grt_art_apply: true
   field_grt_art_reason: true
   field_grt_art_total: true

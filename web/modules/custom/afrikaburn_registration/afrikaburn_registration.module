@@ -103,7 +103,7 @@ function afrikaburn_registration_form_afrikaburn_registration_settings_alter(&$f
 function afrikaburn_registration_form_views_exposed_form_alter(&$form, $form_state, $form_id) {
 
   $view = $form_state->getStorage('view')['view'];
-  list($purpose, $type) = array_map('trim', explode(',', $view->storage->get('tag')));
+  list($purpose, $type) = @array_map('trim', explode(',', $view->storage->get('tag')));
 
   if ($purpose == 'wrangle') {
     $form['search']['#placeholder'] = 'project, person or collective';
@@ -275,12 +275,44 @@ function computed_field_field_year_cycle_compute($entity_type_manager, $entity, 
 
 /**
  * Implements hook_entity_presave().
+ * Force calculation of year cycle.
  */
 function afrikaburn_registration_node_presave($entity){
   if (in_array($entity->bundle(), ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
     if (!count($entity->get('field_year_cycle')->getValue())){
-      drupal_set_message('Setting initial cycle for ' . $entity->getTitle());
       $entity->set('field_year_cycle', computed_field_field_year_cycle_compute(null, $entity, null, null));
     }
+  }
+}
+
+
+/* ----- Emails ----- */
+
+
+function afrikaburn_registration_mail_alter(&$message){
+
+  $node = \Drupal::routeMatch()->getParameter('node');
+  $bundle = $node->bundle();
+
+  if ($node && in_array($bundle, ['art', 'mutant_vehicles', 'performances', 'theme_camps'])){
+
+    $template = $message['params']['message'];
+    preg_match_all('/\[' . $bundle . ':(?<mode>[^\[]+)\]/', $message['params']['message'], $renderings);
+
+    foreach ($renderings['mode'] as $index=>$mode){
+
+      if (!$rendered[$mode]){
+        $rendered[$mode] = render(
+          \Drupal::entityTypeManager()
+            ->getViewBuilder('node')
+            ->view($node, $mode)
+        );
+      }
+
+      $template = str_replace($renderings[0][$index], $rendered[$mode], $template);
+    }
+
+    $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+    $message['body'] = [$template];
   }
 }

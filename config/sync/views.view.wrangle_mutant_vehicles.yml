@@ -27,6 +27,12 @@ dependencies:
     - taxonomy.vocabulary.artwork_size
     - taxonomy.vocabulary.location
     - taxonomy.vocabulary.wrangler_review
+    - user.role.administrator
+    - user.role.mutant_vehicle_admin
+    - user.role.mutant_vehicle_viewer
+    - user.role.mutant_vehicle_wrangler
+    - user.role.support_admin
+    - user.role.support_wrangler
   module:
     - colorbox
     - node
@@ -50,9 +56,15 @@ display:
     position: 0
     display_options:
       access:
-        type: perm
+        type: role
         options:
-          perm: 'access content'
+          role:
+            mutant_vehicle_viewer: mutant_vehicle_viewer
+            mutant_vehicle_wrangler: mutant_vehicle_wrangler
+            mutant_vehicle_admin: mutant_vehicle_admin
+            administrator: administrator
+            support_wrangler: support_wrangler
+            support_admin: support_admin
       cache:
         type: tag
         options: {  }
@@ -3161,7 +3173,7 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.field_collective'
         - 'config:field.storage.node.field_prj_adm_registration'
@@ -3208,7 +3220,7 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.field_collective'
         - 'config:field.storage.node.field_prj_adm_registration'

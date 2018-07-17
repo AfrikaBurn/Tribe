@@ -619,23 +619,12 @@ display:
           entity_type: comment
           entity_field: uid
           plugin_id: standard
+      arguments:
         pid:
           id: pid
           table: comment_field_data
           field: pid
           relationship: none
-          group_type: group
-          admin_label: parent
-          required: true
-          entity_type: comment
-          entity_field: pid
-          plugin_id: standard
-      arguments:
-        cid:
-          id: cid
-          table: comment_field_data
-          field: cid
-          relationship: pid
           group_type: group
           admin_label: ''
           default_action: 'not found'
@@ -666,7 +655,7 @@ display:
           break_phrase: false
           not: false
           entity_type: comment
-          entity_field: cid
+          entity_field: pid
           plugin_id: numeric
       fields:
         comment_body:
@@ -1460,7 +1449,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: true
+          exclude: false
           alter:
             alter_text: false
             text: ''
