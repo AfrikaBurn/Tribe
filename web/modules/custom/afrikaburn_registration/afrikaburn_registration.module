@@ -103,7 +103,7 @@ function afrikaburn_registration_form_afrikaburn_registration_settings_alter(&$f
 function afrikaburn_registration_form_views_exposed_form_alter(&$form, $form_state, $form_id) {
 
   $view = $form_state->getStorage('view')['view'];
-  list($purpose, $type) = @array_map('trim', explode(',', $view->storage->get('tag')));
+  if ($view->storage->get('tag')) list($purpose, $type) = array_map('trim', explode(',', $view->storage->get('tag')));
 
   if ($purpose == 'wrangle') {
     $form['search']['#placeholder'] = 'project, person or collective';
@@ -195,12 +195,16 @@ function afrikaburn_registration_theme(){
       'template' => 'views-view-table--wrangle-projects',
       'base hook' => 'view',
     ],
-
     'views_view_fields__wrangle_comments' => [
       'template' => 'views-view-fields--wrangle-comments',
       'base hook' => 'view',
     ],
 
+    // Email displays
+    'field__mail_display' => [
+      'template' => 'field--mail-display',
+      'base hook' => 'field',
+    ],
   ];
 }
 
@@ -235,13 +239,9 @@ function afrikaburn_registration_preprocess_views_view(&$variables){
  * Implements hook_preprocess_views_view_fields().
  */
 function afrikaburn_registration_preprocess_views_view_fields(&$variables) {
-  switch ($variables['view']->id()){
-
-    case 'collective_projects':
-      module_load_include('inc', 'afrikaburn_registration', 'includes/collective.projects');
-      ar_prepare_project_links($variables);
-    break;
-
+  if ($variables['view']->id() == 'collective_projects'){
+    module_load_include('inc', 'afrikaburn_registration', 'includes/collective.projects');
+    ar_prepare_project_links($variables);
   }
 }
 
@@ -278,7 +278,11 @@ function computed_field_field_year_cycle_compute($entity_type_manager, $entity, 
  * Force calculation of year cycle.
  */
 function afrikaburn_registration_node_presave($entity){
-  if (in_array($entity->bundle(), ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
+  if ($entity && in_array($entity->bundle(), ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
+
+    module_load_include('inc', 'afrikaburn_registration', 'includes/diff');
+    afrikaburn_registration_diff($entity);
+
     if (!count($entity->get('field_year_cycle')->getValue())){
       $entity->set('field_year_cycle', computed_field_field_year_cycle_compute(null, $entity, null, null));
     }
@@ -288,7 +292,10 @@ function afrikaburn_registration_node_presave($entity){
 
 /* ----- Emails ----- */
 
-
+/**
+ * Implements hook_mail_alter().
+ * Inserts rendered nodes.
+ */
 function afrikaburn_registration_mail_alter(&$message){
 
   $node = \Drupal::routeMatch()->getParameter('node');
@@ -296,28 +303,61 @@ function afrikaburn_registration_mail_alter(&$message){
 
   if (in_array($bundle, ['art', 'mutant_vehicles', 'performances', 'theme_camps'])){
 
-    $template = $message['params']['message'];
-    preg_match_all('/\[' . $bundle . ':(?<mode>[^\[]+)\]/', $message['params']['message'], $renderings);
+    $body = $message['params']['message'];
 
-    foreach ($renderings['mode'] as $index=>$mode){
+    _afrikaburn_registration_entity_render($node, $bundle, $body);
+    _afrikaburn_registration_entity_diff($node, $bundle, $body);
 
-      if (!$rendered[$mode]){
-        $rendered[$mode] = render(
-          \Drupal::entityTypeManager()
-            ->getViewBuilder('node')
-            ->view($node, $mode)
-        );
-      }
-
-      $template = str_replace($renderings[0][$index], $rendered[$mode], $template);
-    }
+    $body = \Drupal::token()->replace(
+      $body,
+      ['node' => $node],
+      ['clear' => true]
+    );
 
     $message['body'] = [];
     $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
-    $message['body'][] = _afrikaburn_registration_email_images($message, $template);
+    $message['body'][] = _afrikaburn_registration_email_images($message, $body);
   }
 }
 
+// Replace diff mail body.
+function _afrikaburn_registration_entity_diff($node, $bundle, &$body){
+
+  module_load_include('inc', 'afrikaburn_registration', 'includes/diff');
+  $diff = afrikaburn_registration_diff($node->id());
+  if ($diff) {
+
+    $rendered = '<table><tr><th>Changed</th><th>From</th><th>To</th></tr>';
+    foreach($diff as $title=>$change){
+      $rendered .= '<tr><td>' . implode('</td><td>', [$title, $change[0], $change[1]]) .'</td></tr>';
+    }
+    $rendered .= '</table>';
+  } else {
+    $rendered = '';
+  }
+
+  $body = str_replace('[diff]', $rendered, $body);
+}
+
+// Replace entity rendering in mail body.
+function _afrikaburn_registration_entity_render($node, $bundle, &$body){
+
+  $renderings = [];
+
+  preg_match_all('/\[' . $bundle . ':(?<mode>[^\[]+)\]/', $body, $renderings);
+  foreach ($renderings['mode'] as $index=>$mode){
+
+    if (!$rendered[$mode]){
+      $rendered[$mode] = render(
+        \Drupal::entityTypeManager()
+          ->getViewBuilder('node')
+          ->view($node, $mode)
+      );
+    }
+
+    $body = str_replace($renderings[0][$index], $rendered[$mode], $body);
+  }
+}
 
 // Replace images in email
 function _afrikaburn_registration_email_images(&$message, $body){

@@ -19,6 +19,7 @@
   overflow: hidden;
   padding: 0;
   width: 25px;
+  min-width: 25px;
 }
 
 #block-my-collectives .view-content .views-field-new-comments{
@@ -123,6 +124,10 @@
   line-height: 3em;
 }
 
+.view-collective-posts aside textarea.form-textarea{
+  border-radius: 0;
+  border: none !important;
+}
 
 .view-collective-posts aside details{
   margin-bottom: 30px;

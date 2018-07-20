@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a787e3cc69facb39ab12d0cc63f7715",
+    "content-hash": "da5cd0eac28c801f3f5c37692d02091b",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -2315,17 +2315,17 @@
         },
         {
             "name": "drupal/chosen",
-            "version": "2.5.0",
+            "version": "2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/chosen",
-                "reference": "8.x-2.5"
+                "reference": "8.x-2.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/chosen-8.x-2.5.zip",
-                "reference": "8.x-2.5",
-                "shasum": "62041c004bfe3c406c4a18b5b9d57f1a1812236c"
+                "url": "https://ftp.drupal.org/files/projects/chosen-8.x-2.6.zip",
+                "reference": "8.x-2.6",
+                "shasum": "b43565838274ba8f32fff6df221d16a3f21c0607"
             },
             "require": {
                 "drupal/chosen_lib": "*",
@@ -2337,8 +2337,8 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.5",
-                    "datestamp": "1519034284",
+                    "version": "8.x-2.6",
+                    "datestamp": "1531588121",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2400,7 +2400,7 @@
         },
         {
             "name": "drupal/chosen_lib",
-            "version": "2.5.0",
+            "version": "2.6.0",
             "require": {
                 "drupal/chosen": "self.version",
                 "drupal/core": "~8.0"
@@ -2411,8 +2411,8 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.5",
-                    "datestamp": "1519034284",
+                    "version": "8.x-2.6",
+                    "datestamp": "1531588121",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -5296,6 +5296,63 @@
             }
         },
         {
+            "name": "drupal/html_diff",
+            "version": "dev-1.x",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/html_diff",
+                "reference": "14b164c14cc868ca30b64ac42026e7c77808e37c"
+            },
+            "require": {
+                "drupal/core": "~8.0",
+                "drupal/diff": "*",
+                "mkalkbrenner/php-htmldiff-advanced": "~0.0.8"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.x-dev",
+                    "datestamp": "1471533839",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "davidum",
+                    "homepage": "https://www.drupal.org/user/3099395"
+                },
+                {
+                    "name": "hchonov",
+                    "homepage": "https://www.drupal.org/user/2901211"
+                },
+                {
+                    "name": "julia_schwarz",
+                    "homepage": "https://www.drupal.org/user/2855031"
+                },
+                {
+                    "name": "mkalkbrenner",
+                    "homepage": "https://www.drupal.org/user/124705"
+                }
+            ],
+            "description": "Compares two entity revisions visually - like WYSIWYG",
+            "homepage": "https://www.drupal.org/project/html_diff",
+            "support": {
+                "source": "http://cgit.drupalcode.org/html_diff",
+                "issues": "https://www.drupal.org/project/issues/html_diff"
+            },
+            "time": "2016-08-18T15:32:13+00:00"
+        },
+        {
             "name": "drupal/linkit",
             "version": "4.3.0",
             "source": {
@@ -6607,6 +6664,52 @@
             "homepage": "https://www.drupal.org/project/pathauto",
             "support": {
                 "source": "http://cgit.drupalcode.org/pathauto"
+            }
+        },
+        {
+            "name": "drupal/pdf_using_mpdf8",
+            "version": "1.0.0-alpha2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/pdf_using_mpdf8",
+                "reference": "8.x-1.0-alpha2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/pdf_using_mpdf8-8.x-1.0-alpha2.zip",
+                "reference": "8.x-1.0-alpha2",
+                "shasum": "87432c2083282f576fb514c63a1123d2dae5cacb"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha2",
+                    "datestamp": "1511957884",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "gauravjeet",
+                    "homepage": "https://www.drupal.org/user/2248054"
+                }
+            ],
+            "homepage": "https://www.drupal.org/project/pdf_using_mpdf8",
+            "support": {
+                "source": "http://cgit.drupalcode.org/pdf_using_mpdf8"
             }
         },
         {
@@ -14001,6 +14104,7 @@
         "drupal/form_mode_control": 5,
         "drupal/formblock": 10,
         "drupal/gdpr": 15,
+        "drupal/html_diff": 20,
         "drupal/markup": 10,
         "drupal/masquerade": 10,
         "drupal/mimemail": 15,
@@ -14008,6 +14112,7 @@
         "drupal/oauth2_server": 10,
         "drupal/page_manager": 10,
         "drupal/paragraphs_edit": 15,
+        "drupal/pdf_using_mpdf8": 15,
         "drupal/php": 10,
         "drupal/rules": 15,
         "drupal/smtp": 10,
