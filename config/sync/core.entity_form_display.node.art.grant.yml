@@ -52,6 +52,7 @@ dependencies:
     - field.field.node.art.field_prj_cll_collaborate
     - field.field.node.art.field_prj_cll_contact
     - field.field.node.art.field_prj_cll_description
+    - field.field.node.art.field_prj_cost
     - field.field.node.art.field_prj_gen_bio
     - field.field.node.art.field_prj_gen_concept
     - field.field.node.art.field_prj_gen_contact
@@ -66,6 +67,7 @@ dependencies:
     - field.field.node.art.field_prj_gen_location
     - field.field.node.art.field_prj_gen_manager
     - field.field.node.art.field_prj_gen_story
+    - field.field.node.art.field_prj_grant_expenses
     - field.field.node.art.field_prj_lgh_agree
     - field.field.node.art.field_prj_lgh_description
     - field.field.node.art.field_prj_lgh_f1
@@ -132,8 +134,8 @@ dependencies:
     - field.field.node.art.field_year_cycle
     - node.type.art
   module:
-    - computed_field
     - field_group
+    - file
     - markup
 third_party_settings:
   field_group:
@@ -170,6 +172,7 @@ third_party_settings:
     group_expense_totals_by_type:
       children:
         - field_grant_expense_header
+        - field_prj_grant_expenses
       parent_name: group_project_registration
       weight: 7
       format_type: tab
@@ -227,16 +230,7 @@ third_party_settings:
       label: Other
     group_summary:
       children:
-        - field_grt_lighting
-        - field_grt_location
-        - field_grt_materials
-        - field_grt_pyrotechnics
-        - field_grt_services
-        - field_grt_specify
-        - field_grt_tool
-        - field_grt_transport
-        - field_prj_total_cost
-        - field_grt_contribution
+        - field_prj_cost
         - field_grt_art_total
       parent_name: group_project_registration
       weight: 8
@@ -279,46 +273,18 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_grt_art_total:
-    weight: 11
+    type: number
+    weight: 99
+    region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
-    type: number
-    region: content
-  field_grt_contribution:
-    weight: 10
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
   field_grt_f1:
     weight: 1
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
-  field_grt_lighting:
-    type: number
-    weight: 1
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_grt_location:
-    type: number
-    weight: 2
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_grt_materials:
-    type: number
-    weight: 3
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
   field_grt_more:
     weight: 7
     settings:
@@ -327,20 +293,6 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
-  field_grt_pyrotechnics:
-    type: number
-    weight: 4
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_grt_services:
-    type: number
-    weight: 5
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
   field_grt_short:
     weight: 4
     settings: {  }
@@ -355,27 +307,6 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
-  field_grt_specify:
-    type: number
-    weight: 6
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_grt_tool:
-    type: number
-    weight: 7
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_grt_transport:
-    type: number
-    weight: 8
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
   field_prj_adm_area:
     weight: 78
     settings: {  }
@@ -400,6 +331,20 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_cost:
+    type: number
+    weight: 98
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_grant_expenses:
+    type: file_generic
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
   field_prj_hed_project:
     weight: 6
     settings: {  }
@@ -466,12 +411,6 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_total_cost:
-    type: computed_number_widget
-    weight: 9
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_prj_wtf_area:
     weight: 67
     settings: {  }
@@ -506,13 +445,22 @@ hidden:
   field_grt_art_comment: true
   field_grt_art_reason: true
   field_grt_breakdown: true
+  field_grt_contribution: true
   field_grt_health: true
+  field_grt_lighting: true
+  field_grt_location: true
+  field_grt_materials: true
   field_grt_other: true
   field_grt_other_description: true
+  field_grt_pyrotechnics: true
+  field_grt_services: true
+  field_grt_specify: true
   field_grt_tec_apply: true
   field_grt_tec_comment: true
   field_grt_tec_reason: true
   field_grt_tec_total: true
+  field_grt_tool: true
+  field_grt_transport: true
   field_muncipal_district: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
@@ -607,6 +555,7 @@ hidden:
   field_prj_sup_details: true
   field_prj_sup_details_view: true
   field_prj_sup_h1: true
+  field_prj_total_cost: true
   field_prj_wtf_categories: true
   field_prj_wtf_image: true
   field_prj_wtf_long: true

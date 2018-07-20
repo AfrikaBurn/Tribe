@@ -51,6 +51,7 @@ dependencies:
     - field.field.node.art.field_prj_cll_collaborate
     - field.field.node.art.field_prj_cll_contact
     - field.field.node.art.field_prj_cll_description
+    - field.field.node.art.field_prj_cost
     - field.field.node.art.field_prj_gen_bio
     - field.field.node.art.field_prj_gen_concept
     - field.field.node.art.field_prj_gen_contact
@@ -65,6 +66,7 @@ dependencies:
     - field.field.node.art.field_prj_gen_location
     - field.field.node.art.field_prj_gen_manager
     - field.field.node.art.field_prj_gen_story
+    - field.field.node.art.field_prj_grant_expenses
     - field.field.node.art.field_prj_lgh_agree
     - field.field.node.art.field_prj_lgh_description
     - field.field.node.art.field_prj_lgh_f1
@@ -555,6 +557,13 @@ content:
             selector: ''
           entity_type: node
           bundle: art
+  field_prj_cost:
+    weight: 84
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   field_prj_gen_bio:
     type: string_textarea
     weight: 13
@@ -667,6 +676,13 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  field_prj_grant_expenses:
+    weight: 83
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
   field_prj_hed_project:
     weight: 6
     settings: {  }

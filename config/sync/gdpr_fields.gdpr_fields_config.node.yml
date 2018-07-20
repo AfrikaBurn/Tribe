@@ -198,6 +198,22 @@ bundles:
       notes: ''
       bundle: art
       name: field_year_cycle
+    field_prj_grant_expenses:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: art
+      name: field_prj_grant_expenses
+    field_prj_cost:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: art
+      name: field_prj_cost
   theme_camps:
     field_prj_est_camp_population:
       enabled: false

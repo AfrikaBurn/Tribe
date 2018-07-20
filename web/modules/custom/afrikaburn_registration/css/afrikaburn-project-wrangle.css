@@ -145,20 +145,25 @@ ul.mass-mail{
   width: 140px;
 }
 
+.wrangler-view .form--inline .form-item-wrangler,
 .wrangler-view .form--inline .form-item.form-type-textfield{
   width: 200px;
 }
 
 .wrangler-view .form--inline .form-actions *,
 .wrangler-view .form--inline .form-item *{
-  display: block;
+  display: inline-block;
   box-sizing: border-box;
   height: 32px;
   padding: 6px;
   font-size: 90%;
-  width: 90%;
   margin-right: 20px;
 }
+
+.wrangler-view .form--inline .form-item *{
+  width: 90%;
+}
+
 
 .wrangler-view .form--inline .form-actions{
   clear: none;

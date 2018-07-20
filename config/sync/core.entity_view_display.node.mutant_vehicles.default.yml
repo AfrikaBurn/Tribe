@@ -101,7 +101,6 @@ dependencies:
     - field.field.node.mutant_vehicles.field_year_cycle
     - node.type.mutant_vehicles
   module:
-    - computed_field
     - ds
     - responsive_image
     - user
@@ -127,7 +126,7 @@ content:
     type: responsive_image
     weight: 0
     region: first
-    label: above
+    label: hidden
     settings:
       responsive_image_style: ''
       image_link: ''
@@ -136,20 +135,9 @@ content:
     type: basic_string
     weight: 1
     region: second
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-  field_year_cycle:
-    weight: 11
-    label: above
-    settings:
-      cache_unit: -1
-      cache_duration: 1
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: computed_integer
-    region: content
   flag_approved:
     weight: 10
     region: content
@@ -250,4 +238,5 @@ hidden:
   field_prjr_complete: true
   field_sup_review: true
   field_vp_ea: true
+  field_year_cycle: true
   links: true

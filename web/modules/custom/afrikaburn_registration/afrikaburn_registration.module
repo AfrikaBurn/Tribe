@@ -275,16 +275,41 @@ function computed_field_field_year_cycle_compute($entity_type_manager, $entity, 
 
 /**
  * Implements hook_entity_presave().
- * Force calculation of year cycle.
+ * Force calculation of year cycle and mutant registration.
  */
 function afrikaburn_registration_node_presave($entity){
-  if ($entity && in_array($entity->bundle(), ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
+  if ($entity) {
 
-    module_load_include('inc', 'afrikaburn_registration', 'includes/diff');
-    afrikaburn_registration_diff($entity);
+    // Year cycle
+    if (in_array($entity->bundle(), ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
 
-    if (!count($entity->get('field_year_cycle')->getValue())){
-      $entity->set('field_year_cycle', computed_field_field_year_cycle_compute(null, $entity, null, null));
+      module_load_include('inc', 'afrikaburn_registration', 'includes/diff');
+      afrikaburn_registration_diff($entity);
+
+      if (!count($entity->get('field_year_cycle')->getValue())){
+        $entity->set('field_year_cycle', computed_field_field_year_cycle_compute(null, $entity, null, null));
+      }
+    }
+
+    // Registration number
+    if ($entity->bundle() == 'mutant_vehicles' && !$entity->get('field_prj_adm_registration')->value){
+      $prefix = date('ymd');
+      $query = \Drupal::entityQuery('node')
+        ->condition('type', 'mutant_vehicles')
+        ->condition('field_prj_adm_registration', $prefix . '%', 'like')
+        ->sort('field_prj_adm_registration', 'DESC');
+      $nids = $query->execute();
+      if (count($nids)){
+        $last = \Drupal::entityTypeManager()->getStorage('node')->load(array_shift($nids))->get('field_prj_adm_registration')->value;
+        $lettering = substr($last, strlen($lettering) - 1);
+        if ($lettering == 'Z') {
+          $entity->set('field_prj_adm_registration', $prefix . 'ZA');
+        } else {
+          $entity->set('field_prj_adm_registration', $prefix . chr(ord($lettering) + 1));
+        }
+      } else {
+        $entity->set('field_prj_adm_registration', $prefix . 'A');
+      }
     }
   }
 }

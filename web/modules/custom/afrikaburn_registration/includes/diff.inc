@@ -10,7 +10,9 @@ function afrikaburn_registration_diff($entity){
   if (is_string($entity)){
     return $cache[$entity];
   } else {
-    $cache[$entity->id()] = _entity_compare($entity, $entity->original);
+    if ($entity->original) {
+      $cache[$entity->id()] = _entity_compare($entity, $entity->original);
+    }
   }
 }
 
