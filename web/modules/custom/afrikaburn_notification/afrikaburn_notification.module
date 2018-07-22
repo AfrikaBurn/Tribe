@@ -34,7 +34,7 @@ function afrikaburn_notification_node_update($entity){
         'collective' => $settings->get($bundle . '-wranglers'),
         'wranglers' =>
           $user->field_first_name->value .
-          '"' . $user->name . '"' .
+          " '" . $user->name->value . "' " .
           $user->field_last_name->value . ' via AfrikaBurn Tribe' .
           '<' . $user->field_display_mail->value . '>',
       ],
