@@ -1,0 +1,197 @@
+art-label: 'AfrikaBurn Artcom'
+art-address: art@afrikaburn.com
+art-form_1-new-collective-subject: '[node:title] artwork registration'
+art-form_1-new-collective-body: "Well done!\r\n<p>We've received form 1 of your artwork registration submitted by [user:name]:</p>\r\n<hr />\r\n[render form_1_mail]"
+art-form_1-new-wranglers-subject: 'New artwork registration: [node:title]'
+art-form_1-new-wranglers-body: "Submitted by [user:field_first_name] \"[user:name]\" [user:field_last_name]:\r\n<hr />\r\n[render form_1_mail]"
+art-form_1-update-collective-subject: '[node:title] artwork registration updated'
+art-form_1-update-collective-body: "Excellent!\r\n<p>Form 1 of your artwork registration has been updated by [user:name]:</p>\r\n<hr />\r\n[diff]"
+art-form_1-update-wranglers-subject: 'Artwork registration updated: [node:title]'
+art-form_1-update-wranglers-body: "Updated by [user:field_first_name] \"[user:name]\" [user:field_last_name]:\r\n<hr />\r\n[diff]"
+art-form_2-new-collective-subject: ''
+art-form_2-new-collective-body: ''
+art-form_2-new-wranglers-subject: ''
+art-form_2-new-wranglers-body: ''
+art-form_2-update-collective-subject: ''
+art-form_2-update-collective-body: ''
+art-form_2-update-wranglers-subject: ''
+art-form_2-update-wranglers-body: ''
+art-form_3-new-collective-subject: ''
+art-form_3-new-collective-body: ''
+art-form_3-new-wranglers-subject: ''
+art-form_3-new-wranglers-body: ''
+art-form_3-update-collective-subject: ''
+art-form_3-update-collective-body: ''
+art-form_3-update-wranglers-subject: ''
+art-form_3-update-wranglers-body: ''
+art-grant-new-collective-subject: '[node:title] grant application submitted'
+art-grant-new-collective-body: "Well done!\r\n<p>We've received your grant application submitted by [user:name]:</p>\r\n<hr />\r\n[render grant_mail]"
+art-grant-new-wranglers-subject: 'New grant application: [node:title]'
+art-grant-new-wranglers-body: "Submitted by [user:field_first_name] \"[user:name]\" [user:field_last_name]:\r\n<hr />\r\n[render grant_mail]"
+art-grant-update-collective-subject: '[node:title] grant application updated'
+art-grant-update-collective-body: "Excellent!\r\n<p>Your grant application has been updated by [user:name]:</p>\r\n<hr />\r\n[diff]"
+art-grant-update-wranglers-subject: 'Grant application updated: [node:title]'
+art-grant-update-wranglers-body: "Updated by [user:field_first_name] \"[user:name]\" [user:field_last_name]:\r\n<hr />\r\n[diff]"
+art-support-new-collective-subject: ''
+art-support-new-collective-body: ''
+art-support-new-wranglers-subject: ''
+art-support-new-wranglers-body: ''
+art-support-update-collective-subject: ''
+art-support-update-collective-body: ''
+art-support-update-wranglers-subject: ''
+art-support-update-wranglers-body: ''
+art-supplier-new-collective-subject: ''
+art-supplier-new-collective-body: ''
+art-supplier-new-wranglers-subject: ''
+art-supplier-new-wranglers-body: ''
+art-supplier-update-collective-subject: ''
+art-supplier-update-collective-body: ''
+art-supplier-update-wranglers-subject: ''
+art-supplier-update-wranglers-body: ''
+art-wap-new-collective-subject: ''
+art-wap-new-collective-body: ''
+art-wap-new-wranglers-subject: ''
+art-wap-new-wranglers-body: ''
+art-wap-update-collective-subject: ''
+art-wap-update-collective-body: ''
+art-wap-update-wranglers-subject: ''
+art-wap-update-wranglers-body: ''
+performances-label: 'AfrikaBurn Artcom'
+performances-address: art@afrikaburn.com
+performances-form_1-new-collective-subject: '[node:title] binnekring event registration'
+performances-form_1-new-collective-body: "Well done!\r\n<p>We've received your binnekring event registration submitted by [user:name]:</p>\r\n<hr />\r\n[render form_1_mail]"
+performances-form_1-new-wranglers-subject: 'New binnekring event registration: [node:title]'
+performances-form_1-new-wranglers-body: "Submitted by [user:field_first_name] \"[user:name]\" [user:field_last_name]:\r\n<hr />\r\n[render form_1_mail]"
+performances-form_1-update-collective-subject: '[node:title] binnekring event registration updated'
+performances-form_1-update-collective-body: "Excellent!\r\n<p>Your binnekring event registration has been updated by [user:name]:</p>\r\n<hr />\r\n[diff]"
+performances-form_1-update-wranglers-subject: 'Binnekring event registration updated: [node:title]'
+performances-form_1-update-wranglers-body: "Updated by [user:field_first_name] \"[user:name]\" [user:field_last_name]:\r\n<hr />\r\n[diff]"
+performances-grant-new-collective-subject: '[node:title] grant application submitted'
+performances-grant-new-collective-body: "Well done!\r\n<p>We've received your grant application submitted by [user:name]:</p>\r\n<hr />\r\n[render grant_mail]"
+performances-grant-new-wranglers-subject: 'New grant application: [node:title]'
+performances-grant-new-wranglers-body: "Submitted by [user:field_first_name] \"[user:name]\" [user:field_last_name]:\r\n<hr />\r\n[render grant_mail]"
+performances-grant-update-collective-subject: '[node:title] grant application updated'
+performances-grant-update-collective-body: "Excellent!\r\n<p>Your grant application has been updated by [user:name]:</p>\r\n<hr />\r\n[diff]"
+performances-grant-update-wranglers-subject: 'Grant application updated: [node:title]'
+performances-grant-update-wranglers-body: "Updated by [user:field_first_name] \"[user:name]\" [user:field_last_name]:\r\n<hr />\r\n[diff]"
+performances-support-new-collective-subject: ''
+performances-support-new-collective-body: ''
+performances-support-new-wranglers-subject: ''
+performances-support-new-wranglers-body: ''
+performances-support-update-collective-subject: ''
+performances-support-update-collective-body: ''
+performances-support-update-wranglers-subject: ''
+performances-support-update-wranglers-body: ''
+performances-supplier-new-collective-subject: ''
+performances-supplier-new-collective-body: ''
+performances-supplier-new-wranglers-subject: ''
+performances-supplier-new-wranglers-body: ''
+performances-supplier-update-collective-subject: ''
+performances-supplier-update-collective-body: ''
+performances-supplier-update-wranglers-subject: ''
+performances-supplier-update-wranglers-body: ''
+performances-wap-new-collective-subject: ''
+performances-wap-new-collective-body: ''
+performances-wap-new-wranglers-subject: ''
+performances-wap-new-wranglers-body: ''
+performances-wap-update-collective-subject: ''
+performances-wap-update-collective-body: ''
+performances-wap-update-wranglers-subject: ''
+performances-wap-update-wranglers-body: ''
+mutant_vehicles-label: 'AfrikaBurn DMV'
+mutant_vehicles-address: dmvreg@afrikaburn.com
+mutant_vehicles-form_1-new-collective-subject: '[node:title] mutant vehicle registration'
+mutant_vehicles-form_1-new-collective-body: "Well done!\r\n<p>We've received your mutant vehicle registration submitted by [user:name]:</p>\r\n<hr />\r\n[render form_1_mail]"
+mutant_vehicles-form_1-new-wranglers-subject: 'New mutant vehicle registration: [node:title]'
+mutant_vehicles-form_1-new-wranglers-body: "Submitted by [user:field_first_name] \"[user:name]\" [user:field_last_name]:\r\n<hr />\r\n[render form_1_mail]"
+mutant_vehicles-form_1-update-collective-subject: '[node:title] mutant vehicle registration updated'
+mutant_vehicles-form_1-update-collective-body: "Excellent!\r\n<p>Your mutant vehicle registration has been updated by [user:name]:</p>\r\n<hr />\r\n[diff]"
+mutant_vehicles-form_1-update-wranglers-subject: 'Mutant vehicle registration updated: [node:title]'
+mutant_vehicles-form_1-update-wranglers-body: "Updated by [user:field_first_name] \"[user:name]\" [user:field_last_name]:\r\n<hr />\r\n[diff]"
+mutant_vehicles-grant-new-collective-subject: '[node:title] grant application submitted'
+mutant_vehicles-grant-new-collective-body: "Well done!\r\n<p>We've received your grant application submitted by [user:name]:</p>\r\n<hr />\r\n[render grant_mail]"
+mutant_vehicles-grant-new-wranglers-subject: 'New grant application: [node:title]'
+mutant_vehicles-grant-new-wranglers-body: "Submitted by [user:field_first_name] \"[user:name]\" [user:field_last_name]:\r\n<hr />\r\n[render grant_mail]"
+mutant_vehicles-grant-update-collective-subject: '[node:title] grant application updated'
+mutant_vehicles-grant-update-collective-body: "Well done!\r\n<p>We've received your grant application submitted by [user:name]:</p>\r\n<hr />\r\n[render grant_mail]"
+mutant_vehicles-grant-update-wranglers-subject: 'Grant application updated: [node:title]'
+mutant_vehicles-grant-update-wranglers-body: "Updated by [user:field_first_name] \"[user:name]\" [user:field_last_name]:\r\n<hr />\r\n[diff]"
+mutant_vehicles-support-new-collective-subject: ''
+mutant_vehicles-support-new-collective-body: ''
+mutant_vehicles-support-new-wranglers-subject: ''
+mutant_vehicles-support-new-wranglers-body: ''
+mutant_vehicles-support-update-collective-subject: ''
+mutant_vehicles-support-update-collective-body: ''
+mutant_vehicles-support-update-wranglers-subject: ''
+mutant_vehicles-support-update-wranglers-body: ''
+mutant_vehicles-supplier-new-collective-subject: ''
+mutant_vehicles-supplier-new-collective-body: ''
+mutant_vehicles-supplier-new-wranglers-subject: ''
+mutant_vehicles-supplier-new-wranglers-body: ''
+mutant_vehicles-supplier-update-collective-subject: ''
+mutant_vehicles-supplier-update-collective-body: ''
+mutant_vehicles-supplier-update-wranglers-subject: ''
+mutant_vehicles-supplier-update-wranglers-body: ''
+mutant_vehicles-wap-new-collective-subject: ''
+mutant_vehicles-wap-new-collective-body: ''
+mutant_vehicles-wap-new-wranglers-subject: ''
+mutant_vehicles-wap-new-wranglers-body: ''
+mutant_vehicles-wap-update-collective-subject: ''
+mutant_vehicles-wap-update-collective-body: ''
+mutant_vehicles-wap-update-wranglers-subject: ''
+mutant_vehicles-wap-update-wranglers-body: ''
+theme_camps-label: 'AfrikaBurn TTC'
+theme_camps-address: tcc@afrikaburn.com
+theme_camps-form_1-new-collective-subject: '[node:title] theme camp registration'
+theme_camps-form_1-new-collective-body: "Well done!\r\n<p>We've received your theme camp registration submitted by [user:name]:</p>\r\n<hr />\r\n[render form_1_mail]"
+theme_camps-form_1-new-wranglers-subject: 'New theme camp registration: [node:title]'
+theme_camps-form_1-new-wranglers-body: "Submitted by [user:field_first_name] \"[user:name]\" [user:field_last_name]:\r\n<hr />\r\n[render form_1_mail]"
+theme_camps-form_1-update-collective-subject: '[node:title] theme camp registration updated'
+theme_camps-form_1-update-collective-body: "Excellent!\r\n<p>Your theme camp registration has been updated by [user:name]:</p>\r\n<hr />\r\n[diff]"
+theme_camps-form_1-update-wranglers-subject: 'theme camp registration updated: [node:title]'
+theme_camps-form_1-update-wranglers-body: "Updated by [user:field_first_name] \"[user:name]\" [user:field_last_name]:\r\n<hr />\r\n[diff]"
+theme_camps-form_2-new-collective-subject: ''
+theme_camps-form_2-new-collective-body: ''
+theme_camps-form_2-new-wranglers-subject: ''
+theme_camps-form_2-new-wranglers-body: ''
+theme_camps-form_2-update-collective-subject: ''
+theme_camps-form_2-update-collective-body: ''
+theme_camps-form_2-update-wranglers-subject: ''
+theme_camps-form_2-update-wranglers-body: ''
+theme_camps-form_3-new-collective-subject: ''
+theme_camps-form_3-new-collective-body: ''
+theme_camps-form_3-new-wranglers-subject: ''
+theme_camps-form_3-new-wranglers-body: ''
+theme_camps-form_3-update-collective-subject: ''
+theme_camps-form_3-update-collective-body: ''
+theme_camps-form_3-update-wranglers-subject: ''
+theme_camps-form_3-update-wranglers-body: ''
+theme_camps-supplier-new-collective-subject: ''
+theme_camps-supplier-new-collective-body: ''
+theme_camps-supplier-new-wranglers-subject: ''
+theme_camps-supplier-new-wranglers-body: ''
+theme_camps-supplier-update-collective-subject: ''
+theme_camps-supplier-update-collective-body: ''
+theme_camps-supplier-update-wranglers-subject: ''
+theme_camps-supplier-update-wranglers-body: ''
+theme_camps-wap-new-collective-subject: ''
+theme_camps-wap-new-collective-body: ''
+theme_camps-wap-new-wranglers-subject: ''
+theme_camps-wap-new-wranglers-body: ''
+theme_camps-wap-update-collective-subject: ''
+theme_camps-wap-update-collective-body: ''
+theme_camps-wap-update-wranglers-subject: ''
+theme_camps-wap-update-wranglers-body: ''
+submit: 'Save configuration'
+form_build_id: form-t_Y65TULpWLkZbvUgoEaFKoZnK83Lrc8njIZyfG225w
+form_token: nGx6Zh9p6HAgIxmiCxIyFM507GK9wbZRw-VxrBc_LnM
+form_id: afrikaburn_notification_settings
+op: 'Save configuration'
+art: art@afrikaburn.com
+performances: ''
+mutant_vehicles: ''
+theme_camps: ''
+art-wranglers: art@afrikaburn.com
+performances-wranglers: art@afrikaburn.com
+mutant_vehicles-wranglers: dmvreg@afrikaburn.com
+theme_camps-wranglers: tcc@afrikaburn.com

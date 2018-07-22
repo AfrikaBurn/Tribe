@@ -1,7 +1,6 @@
 afrikaburn_shared.settings:
   path: '/admin/config/afrikaburn'
   defaults:
-    _form: '\Drupal\afrikaburn_shared\Forms\SharedSettings'
-    _title: 'Afrikaburn settings'
+    _title: 'AfrikaBurn notification settings'
   requirements:
    _permission: 'administer site configuration'

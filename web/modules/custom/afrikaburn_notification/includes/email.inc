@@ -5,7 +5,7 @@
 
 
 /**
- * Retrieves a list of group member email addresses
+ * Retrieves title and a list of collective member email addresses.
  * @param  [object] $entity       Entity object being operated on
  * @return [array]            Array of email addresses
  */
@@ -46,7 +46,7 @@ function _afrikaburn_notification_collective($entity){
 /**
  * Replace diff mail body.
  */
-function _afrikaburn_notification_entity_diff($node, $bundle, &$body){
+function _afrikaburn_notification_entity_diff($node, &$body){
 
   module_load_include('inc', 'afrikaburn_notification', 'includes/diff');
   $diff = _diff($node);
@@ -65,11 +65,11 @@ function _afrikaburn_notification_entity_diff($node, $bundle, &$body){
 }
 
 // Replace entity rendering in mail body.
-function _afrikaburn_notification_entity_render($node, $bundle, &$body){
+function _afrikaburn_notification_entity_render($node, &$body){
 
   $renderings = [];
 
-  preg_match_all('/\[' . $bundle . ':(?<mode>[^\[]+)\]/', $body, $renderings);
+  preg_match_all('/\[node:(?<mode>[^\[]+)\]/', $body, $renderings);
   foreach ($renderings['mode'] as $index=>$mode){
 
     if (!$rendered[$mode]){

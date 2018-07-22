@@ -16,26 +16,29 @@ function afrikaburn_notification_node_update($entity){
     $mode = $entity->get('field_form_mode')->value;
     $complete = array_column($entity->get('field_prjr_complete')->getValue(), 'value');
     $new = !in_array($mode, $complete);
-    $wranglers = \Drupal::config('afrikaburn_shared.settings')->get($bundle);
+    $wranglers = \Drupal::config('afrikaburn_notification.settings')->get($bundle . '-wranglers');
     $collective = _afrikaburn_notification_collective($entity);
     $label = _project_form_modes()[$bundle]['title'];
 
-    // Message collective
-    $result = \Drupal::service('plugin.manager.mail')->mail(
-      'afrikaburn_notification',
-      'project_registration',
-      $collective['title'] . ' <shared@afrikaburn.com>',
-      \Drupal::currentUser()->getPreferredLangcode(),
-      [
-        'from' => $wranglers,
-        'subject' => $subject,
-        'message' => '[' . $bundle . ':' . $mode . '_mail]',
-        'bcc' => $collective['members'],
-        'node' => $entity,
-      ],
-      $wranglers,
-      TRUE
-    );
+    if ($new) {
+      // Message collective
+      $result = \Drupal::service('plugin.manager.mail')->mail(
+        'afrikaburn_notification',
+        'project_registration',
+        $collective['title'] . ' <shared@afrikaburn.com>',
+        \Drupal::currentUser()->getPreferredLangcode(),
+        [
+          'from' => $wranglers,
+          'subject' => $subject,
+          'message' => '[' . $bundle . ':' . $mode . '_mail]',
+          'bcc' => $collective['members'],
+          'node' => $entity,
+        ],
+        $wranglers,
+        TRUE
+      );
+    }
+
   }
 }
 
@@ -54,8 +57,8 @@ function afrikaburn_notification_mail($key, &$message, $params) {
 
     $body = $params['message'];
 
-    _afrikaburn_notification_entity_render($node, $bundle, $body);
-    _afrikaburn_notification_entity_diff($node, $bundle, $body);
+    _afrikaburn_notification_entity_render($node, $body);
+    _afrikaburn_notification_entity_diff($node, $body);
 
     $body = \Drupal::token()->replace(
       $body,
