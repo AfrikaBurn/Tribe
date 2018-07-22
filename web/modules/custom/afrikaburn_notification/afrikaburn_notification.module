@@ -1,0 +1,75 @@
+<?php
+
+
+/**
+ * Implements hook_ENTITY_TYPE_update.
+ */
+function afrikaburn_notification_node_update($entity){
+
+  module_load_include('inc', 'afrikaburn_registration', 'includes/form');
+  module_load_include('inc', 'afrikaburn_notification', 'includes/email');
+
+  $bundle = $entity->bundle();
+
+  if (in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
+
+    $mode = $entity->get('field_form_mode')->value;
+    $complete = array_column($entity->get('field_prjr_complete')->getValue(), 'value');
+    $new = !in_array($mode, $complete);
+    $wranglers = \Drupal::config('afrikaburn_shared.settings')->get($bundle);
+    $collective = _afrikaburn_notification_collective($entity);
+    $label = _project_form_modes()[$bundle]['title'];
+
+    // Message collective
+    $result = \Drupal::service('plugin.manager.mail')->mail(
+      'afrikaburn_notification',
+      'project_registration',
+      $collective['title'] . '<shared@afrikaburn.com>',
+      \Drupal::currentUser()->getPreferredLangcode(),
+      [
+        'from' => $wranglers,
+        'subject' => $subject,
+        'message' => '[' . $bundle . ':' . $mode . '_mail]',
+        'bcc' => $collective['members'],
+        'node' => $entity,
+      ],
+      $wranglers,
+      TRUE
+    );
+  }
+}
+
+
+/**
+ * Implements hook_mail().
+ */
+function afrikaburn_notification_mail($key, &$message, $params) {
+
+  module_load_include('inc', 'afrikaburn_notification', 'includes/email');
+
+  $node = $params['node'];
+  $bundle = $node ? $node->bundle() : FALSE;
+
+  if (in_array($bundle, ['art', 'mutant_vehicles', 'performances', 'theme_camps'])){
+
+    $body = $params['message'];
+
+    _afrikaburn_notification_entity_render($node, $bundle, $body);
+    _afrikaburn_notification_entity_diff($node, $bundle, $body);
+
+    $body = \Drupal::token()->replace(
+      $body,
+      [
+        'registration' => $node,
+      ],
+      ['clear' => true]
+    );
+
+    $message['from'] = $params['from'];
+    $message['subject'] = $params['subject'];
+    $message['headers']['bcc'] = $params['bcc'];
+    $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+    $message['body'] = [];
+    $message['body'][] = _afrikaburn_notification_email_images($message, $body);
+  }
+}

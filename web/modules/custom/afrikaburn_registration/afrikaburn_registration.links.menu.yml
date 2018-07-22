@@ -1,6 +1,6 @@
 afrikaburn_registration.admin_config:
-  title: 'Open registration forms'
-  description: 'Open project registrations'
+  title: 'Project registration'
+  description: 'Project registration email and form settings.'
   parent: afrikaburn_shared.admin_config
   route_name: afrikaburn_registration.admin
   weight: -100

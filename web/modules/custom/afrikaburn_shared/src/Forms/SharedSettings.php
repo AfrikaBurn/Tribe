@@ -16,6 +16,14 @@ use Drupal\Core\Form\FormStateInterface;
  */
 class SharedSettings extends ConfigFormBase {
 
+  private const ADRESSES = [
+    'art' => 'Art',
+    'performances' => 'Binnekring Events',
+    'mutant_vehivles' => 'Mutant vehicles',
+    'theme_camps' => 'Theme Camps',
+    'archice' => 'Archive',
+  ];
+
   /**
    * {@inheritdoc}
    */
@@ -41,12 +49,19 @@ class SharedSettings extends ConfigFormBase {
     $user = \Drupal::currentUser();
 
     $form = [
-      'new_cycle' => [
-        '#type' => 'date',
-        '#title' => 'Calculate new cycle stats from',
-        '#default_value' => $config->get('new_cycle'),
-      ]
+      'addresses' => [
+        '#type' => 'fieldset',
+        '#title' => 'Notification email addresses',
+      ],
     ];
+
+    foreach($this::ADRESSES as $key=>$title){
+      $form['addresses'][$key] = [
+        '#type' => 'email',
+        '#title' => $title,
+        '#default_value' => $config->get($key),
+      ];
+    }
 
     return parent::buildForm($form, $form_state);
   }
@@ -57,11 +72,13 @@ class SharedSettings extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
     $values = $form_state->getValues();
+    $config = $this->config('afrikaburn_shared.settings');
 
-    $this
-      ->config('afrikaburn_shared.settings')
-      ->set('new_cycle', $values['new_cycle'])->save();
+    foreach($this::ADRESSES as $key=>$title){
+      $config->set($key, $values[$key]);
+    }
 
+    $config->save();
     drupal_set_message('Settings saved');
   }
 

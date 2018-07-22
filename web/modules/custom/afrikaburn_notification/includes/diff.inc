@@ -1,18 +1,11 @@
 <?php
 
 /**
- * Compute and cache an entity diff, or return a cached diff.
+ * Compute an entity diff.
  */
-function afrikaburn_registration_diff($entity){
-
-  static $cache;
-
-  if (is_string($entity)){
-    return $cache[$entity];
-  } else {
-    if ($entity->original) {
-      $cache[$entity->id()] = _entity_compare($entity, $entity->original);
-    }
+function _diff($entity){
+  if ($entity->original) {
+    $cache[$entity->id()] = _entity_compare($entity, $entity->original);
   }
 }
 

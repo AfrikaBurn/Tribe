@@ -26,3 +26,9 @@ form .details-wrapper{
 .field--name-field-prjr-complete{
   float: right;
 }
+
+.field--name-field-prj-grant-expenses iframe{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}

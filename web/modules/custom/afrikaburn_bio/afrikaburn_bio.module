@@ -1,6 +1,7 @@
 <?php
 
 use \Drupal\user\Entity\User;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 
 /* ----- Module Hooks ----- */
@@ -70,6 +71,17 @@ function afrikaburn_bio_form_user_form_alter(&$form, $form_state, $form_id){
 
 /* ---- Account updating  ---- */
 
+
+/**
+ * Implements hook_entity_delete().
+ * Redirect on account deletion.
+ */
+function afrikaburn_bio_entity_delete($entity){
+  if ($entity->getEntityTypeId() == 'user' && \Drupal::currentUser()->id() == $entity->id()){
+    $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
+    $response->send();
+  }
+}
 
 /**
  * Flag accounts edited by their owners as updated.

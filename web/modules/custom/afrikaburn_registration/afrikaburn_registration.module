@@ -40,7 +40,6 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
     $is_wrangler = $user->hasRole($defaults['wrangler']);
     $is_admin = $user->hasRole('administrator');
     $is_complete = array_search($defaults['mode'], $form['field_prjr_complete']['widget']['#default_value']) !== FALSE;
-    $is_new = !isset($registration);
 
     // Naughty naughty users
     if (!$collective) {
@@ -75,7 +74,13 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
     $form['#administrator'] = $is_admin || $is_wrangler;
 
     // Wizard or tabs (cake or death?)
-    $form['#wizard'] = $is_new || $defaults['mode'] != 'edit' && ($incomplete || !$is_wrangler);
+    $is_new = !isset($registration);
+    $errors = count($form_state->getErrors()) > 0;
+    $form['#wizard'] =
+      !$is_wrangler && (
+        $is_new && !$errors ||
+        !$is_complete && !$errors
+      );
 
     // // Add "Save Draft" button.
     // $form['draft'] = [
@@ -137,7 +142,6 @@ function afrikaburn_registration_views_query_alter($view, $query){
         }
       }
     }
-
   }
 }
 
@@ -198,12 +202,6 @@ function afrikaburn_registration_theme(){
     'views_view_fields__wrangle_comments' => [
       'template' => 'views-view-fields--wrangle-comments',
       'base hook' => 'view',
-    ],
-
-    // Email displays
-    'field__mail_display' => [
-      'template' => 'field--mail-display',
-      'base hook' => 'field',
     ],
   ];
 }
@@ -282,10 +280,6 @@ function afrikaburn_registration_node_presave($entity){
 
     // Year cycle
     if (in_array($entity->bundle(), ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
-
-      module_load_include('inc', 'afrikaburn_registration', 'includes/diff');
-      afrikaburn_registration_diff($entity);
-
       if (!count($entity->get('field_year_cycle')->getValue())){
         $entity->set('field_year_cycle', computed_field_field_year_cycle_compute(null, $entity, null, null));
       }
@@ -312,115 +306,4 @@ function afrikaburn_registration_node_presave($entity){
       }
     }
   }
-}
-
-
-/* ----- Emails ----- */
-
-/**
- * Implements hook_mail_alter().
- * Inserts rendered nodes.
- */
-function afrikaburn_registration_mail_alter(&$message){
-
-  $node = \Drupal::routeMatch()->getParameter('node');
-  $bundle = $node ? $node->bundle() : FALSE;
-
-  if (in_array($bundle, ['art', 'mutant_vehicles', 'performances', 'theme_camps'])){
-
-    $body = $message['params']['message'];
-
-    _afrikaburn_registration_entity_render($node, $bundle, $body);
-    _afrikaburn_registration_entity_diff($node, $bundle, $body);
-
-    $body = \Drupal::token()->replace(
-      $body,
-      ['node' => $node],
-      ['clear' => true]
-    );
-
-    $message['body'] = [];
-    $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
-    $message['body'][] = _afrikaburn_registration_email_images($message, $body);
-  }
-}
-
-// Replace diff mail body.
-function _afrikaburn_registration_entity_diff($node, $bundle, &$body){
-
-  module_load_include('inc', 'afrikaburn_registration', 'includes/diff');
-  $diff = afrikaburn_registration_diff($node->id());
-  if ($diff) {
-
-    $rendered = '<table><tr><th>Changed</th><th>From</th><th>To</th></tr>';
-    foreach($diff as $title=>$change){
-      $rendered .= '<tr><td>' . implode('</td><td>', [$title, $change[0], $change[1]]) .'</td></tr>';
-    }
-    $rendered .= '</table>';
-  } else {
-    $rendered = '';
-  }
-
-  $body = str_replace('[diff]', $rendered, $body);
-}
-
-// Replace entity rendering in mail body.
-function _afrikaburn_registration_entity_render($node, $bundle, &$body){
-
-  $renderings = [];
-
-  preg_match_all('/\[' . $bundle . ':(?<mode>[^\[]+)\]/', $body, $renderings);
-  foreach ($renderings['mode'] as $index=>$mode){
-
-    if (!$rendered[$mode]){
-      $rendered[$mode] = render(
-        \Drupal::entityTypeManager()
-          ->getViewBuilder('node')
-          ->view($node, $mode)
-      );
-    }
-
-    $body = str_replace($renderings[0][$index], $rendered[$mode], $body);
-  }
-}
-
-// Replace images in email
-function _afrikaburn_registration_email_images(&$message, $body){
-
-  $patterns = array(
-    '/"(image:[^"]+)"/',
-    '/src="(\/[^"]+\.gif[^"]*)"/',
-    '/src="(\/[^"]+\.jpg[^"]*)"/',
-    '/src="(\/[^"]+\.png[^"]*)"/',
-    '/src="(\/[^"]+\.GIF[^"]*)"/',
-    '/src="(\/[^"]+\.JPG[^"]*)"/',
-    '/src="(\/[^"]+\.PNG[^"]*)"/',
-  );
-
-  $processed_images = array();
-  foreach ($patterns as $pattern) {
-    $embeddable_images = array();
-    preg_match_all($pattern, $body, $embeddable_images);
-    for ($i = 0; $i < count($embeddable_images[1]); $i++) {
-      $raw = $embeddable_images[1][$i];
-      $image_uri = trim(str_replace('/system/files', 'private:/', $raw));
-
-      if (!isset($processed_images[$image_uri])) {
-        $image_path = preg_replace('/^(image:|\/)+/', '', $image_uri);
-        $image_name = basename($image_path);
-
-        $image = new stdClass();
-        $image->uri = $image_path;
-        $image->filename = $image_name;
-        $image->filemime = \Drupal::service('file.mime_type.guesser')->guess($image_path);
-        $image->cid = preg_replace('/[^0-9a-zA-Z]|\?.+$/', '', $raw);
-
-        $message['params']['images'][] = $image;
-        $body = str_replace($raw, 'cid:' . $image->cid, $body);
-        $processed_images[$image_uri] = 1;
-      }
-    }
-  }
-
-  return $body;
 }
