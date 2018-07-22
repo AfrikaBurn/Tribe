@@ -1,44 +1,70 @@
 <?php
 
+/**
+ * @file.
+ */
+
+use \Drupal\user\Entity\User;
+
 
 /**
  * Implements hook_ENTITY_TYPE_update.
  */
 function afrikaburn_notification_node_update($entity){
 
-  module_load_include('inc', 'afrikaburn_registration', 'includes/form');
-  module_load_include('inc', 'afrikaburn_notification', 'includes/email');
-
   $bundle = $entity->bundle();
 
   if (in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
 
-    $mode = $entity->get('field_form_mode')->value;
-    $complete = array_column($entity->get('field_prjr_complete')->getValue(), 'value');
-    $new = !in_array($mode, $complete);
-    $wranglers = \Drupal::config('afrikaburn_notification.settings')->get($bundle . '-wranglers');
-    $collective = _afrikaburn_notification_collective($entity);
-    $label = _project_form_modes()[$bundle]['title'];
+    module_load_include('inc', 'afrikaburn_notification', 'includes/email');
 
-    if ($new) {
-      // Message collective
+    $user = User::load(\Drupal::currentUser()->id());
+    $stage = $entity->get('field_form_mode')->value;
+    $complete = array_column($entity->get('field_prjr_complete')->getValue(), 'value');
+    $state = in_array($stage, $complete) ? 'update' : 'new';
+    $settings = \Drupal::config('afrikaburn_notification.settings');
+    $collective = _afrikaburn_notification_collective($entity);
+
+    $address = [
+      'to' => [
+        'collective' => $collective['title'] . '<shared@afrikaburn.com>',
+        'wranglers' => $settings->get($bundle . '-wranglers'),
+      ],
+      'from' => [
+        'collective' => $settings->get($bundle . '-wranglers'),
+        'wranglers' =>
+          $user->field_first_name->value .
+          '"' . $user->name . '"' .
+          $user->field_last_name->value . ' via AfrikaBurn Tribe' .
+          '<' . $user->field_display_mail->value . '>',
+      ],
+      'bcc' => [
+        'collective' => $collective['members'],
+        'wranglers' => NULL,
+      ],
+    ];
+
+    foreach(['collective', 'wranglers'] as $recipient){
       $result = \Drupal::service('plugin.manager.mail')->mail(
         'afrikaburn_notification',
-        'project_registration',
-        $collective['title'] . ' <shared@afrikaburn.com>',
+        $state . '_project_registration',
+        $address['to'][$recipient],
         \Drupal::currentUser()->getPreferredLangcode(),
         [
-          'from' => $wranglers,
-          'subject' => $subject,
-          'message' => '[' . $bundle . ':' . $mode . '_mail]',
-          'bcc' => $collective['members'],
+          'from' => $address['from'][$recipient],
+          'subject' => $settings->get(
+            implode('-', [$bundle, $stage, $state, $recipient, 'subject'])
+          ),
+          'message' => $settings->get(
+            implode('-', [$bundle, $stage, $state, $recipient, 'body'])
+          ),
+          'bcc' => $address['bcc'][$recipient],
           'node' => $entity,
         ],
-        $wranglers,
+        $address['from'][$recipient],
         TRUE
       );
     }
-
   }
 }
 
@@ -63,7 +89,8 @@ function afrikaburn_notification_mail($key, &$message, $params) {
     $body = \Drupal::token()->replace(
       $body,
       [
-        'registration' => $node,
+        'node' => $node,
+        'node' => $node,
       ],
       ['clear' => true]
     );

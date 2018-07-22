@@ -57,6 +57,12 @@ class NotificationSettings extends ConfigFormBase {
       ],
     ];
 
+    $form['addresses']['archive'] = [
+      '#type' => 'email',
+      '#title' => 'Archive',
+      '#default_value' => $settings->get('archive'),
+    ];
+
     foreach(_project_form_modes() as $key=>$project){
 
       $form['addresses'][$key . '-wranglers'] = [
