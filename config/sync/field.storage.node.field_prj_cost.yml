@@ -1,4 +1,4 @@
-uuid: 0f9a6836-4a6b-42a4-87b0-e2876c7a72ff
+uuid: 1624aa2a-dae0-4c48-b7bd-480095e39b9b
 langcode: en
 status: true
 dependencies:
@@ -11,8 +11,10 @@ third_party_settings:
 id: node.field_prj_cost
 field_name: field_prj_cost
 entity_type: node
-type: float
-settings: {  }
+type: integer
+settings:
+  unsigned: false
+  size: normal
 module: core
 locked: false
 cardinality: 1

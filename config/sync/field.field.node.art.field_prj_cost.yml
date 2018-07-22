@@ -1,4 +1,4 @@
-uuid: 657d0d07-8e19-4d35-b6cb-a0d7940aff34
+uuid: 749fa96e-fb8e-4f01-b1d4-5bac8624d3ce
 langcode: en
 status: true
 dependencies:
@@ -17,13 +17,13 @@ entity_type: node
 bundle: art
 label: 'Total project cost'
 description: ''
-required: true
+required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   min: null
   max: null
-  prefix: R
-  suffix: ''
-field_type: float
+  prefix: 'R '
+  suffix: 'ZAR (South African Rands)'
+field_type: integer

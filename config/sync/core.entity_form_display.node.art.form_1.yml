@@ -66,6 +66,7 @@ dependencies:
     - field.field.node.art.field_prj_gen_location
     - field.field.node.art.field_prj_gen_manager
     - field.field.node.art.field_prj_gen_story
+    - field.field.node.art.field_prj_grant_expenses
     - field.field.node.art.field_prj_lgh_agree
     - field.field.node.art.field_prj_lgh_description
     - field.field.node.art.field_prj_lgh_f1
@@ -116,7 +117,6 @@ dependencies:
     - field.field.node.art.field_prj_sup_details
     - field.field.node.art.field_prj_sup_details_view
     - field.field.node.art.field_prj_sup_h1
-    - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
     - field.field.node.art.field_prj_wtf_image
     - field.field.node.art.field_prj_wtf_long
@@ -1018,7 +1018,6 @@ hidden:
   field_prj_brn_plan: true
   field_prj_brn_time: true
   field_prj_brn_time_adm: true
-  field_prj_cost: true
   field_prj_gen_external: true
   field_prj_grant_expenses: true
   field_prj_lgh_agree: true
@@ -1051,7 +1050,6 @@ hidden:
   field_prj_sup_details: true
   field_prj_sup_details_view: true
   field_prj_sup_h1: true
-  field_prj_total_cost: true
   field_prj_wtf_categories: true
   field_prj_wtf_long: true
   field_prj_wtf_planned: true

@@ -117,7 +117,6 @@ dependencies:
     - field.field.node.art.field_prj_sup_details
     - field.field.node.art.field_prj_sup_details_view
     - field.field.node.art.field_prj_sup_h1
-    - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
     - field.field.node.art.field_prj_wtf_image
     - field.field.node.art.field_prj_wtf_long
@@ -134,7 +133,6 @@ dependencies:
     - node.type.art
   module:
     - ds
-    - file
     - responsive_image
     - user
 third_party_settings:
@@ -150,25 +148,11 @@ third_party_settings:
         - field_prj_gen_concept
       second:
         - field_prj_gen_description
-      top:
-        - field_prj_grant_expenses
-        - field_prj_cost
 id: node.art.default
 targetEntityType: node
 bundle: art
 mode: default
 content:
-  field_prj_cost:
-    weight: 4
-    label: above
-    settings:
-      thousand_separator: ''
-      decimal_separator: .
-      scale: 2
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_decimal
-    region: top
   field_prj_gen_concept:
     type: responsive_image
     weight: 0
@@ -185,14 +169,6 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-  field_prj_grant_expenses:
-    weight: 3
-    label: above
-    settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    type: file_default
-    region: top
   flag_approved:
     weight: 2
     region: content
@@ -247,6 +223,7 @@ hidden:
   field_prj_cll_collaborate: true
   field_prj_cll_contact: true
   field_prj_cll_description: true
+  field_prj_cost: true
   field_prj_gen_bio: true
   field_prj_gen_contact: true
   field_prj_gen_doc: true
@@ -259,6 +236,7 @@ hidden:
   field_prj_gen_location: true
   field_prj_gen_manager: true
   field_prj_gen_story: true
+  field_prj_grant_expenses: true
   field_prj_lgh_agree: true
   field_prj_lgh_description: true
   field_prj_lgh_f1: true
@@ -309,7 +287,6 @@ hidden:
   field_prj_sup_details: true
   field_prj_sup_details_view: true
   field_prj_sup_h1: true
-  field_prj_total_cost: true
   field_prj_wtf_categories: true
   field_prj_wtf_image: true
   field_prj_wtf_long: true

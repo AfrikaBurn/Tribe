@@ -5,6 +5,7 @@ module:
   adminimal_admin_toolbar: 0
   afrikaburn_bio: 0
   afrikaburn_collective: 0
+  afrikaburn_notification: 0
   afrikaburn_registration: 0
   afrikaburn_shared: 0
   allowed_formats: 0
@@ -19,7 +20,6 @@ module:
   breakpoint: 0
   captcha: 0
   checklistapi: 0
-  chosen_lib: 0
   ckeditor: 0
   clientside_validation: 0
   clientside_validation_jquery: 0
@@ -45,7 +45,6 @@ module:
   dbug: 0
   devel: 0
   devel_generate: 0
-  diff: 0
   dynamic_page_cache: 0
   editor: 0
   editor_advanced_link: 0
@@ -109,7 +108,6 @@ module:
   responsive_image: 0
   rest: 0
   restui: 0
-  rules: 0
   search: 0
   serialization: 0
   settings_tray: 0
