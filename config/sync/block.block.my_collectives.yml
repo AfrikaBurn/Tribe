@@ -6,7 +6,6 @@ dependencies:
     - views.view.my_collectives
   module:
     - collapsiblock
-    - ctools
     - php
     - system
     - user
@@ -48,13 +47,3 @@ visibility:
     pages: "/node/add*\r\n/node/*/edit*\r\n*/form_*\r\n*/grant\r\n*/support\r\n*/supplier\r\n*/wap"
     negate: true
     context_mapping: {  }
-  'entity_bundle:node':
-    id: 'entity_bundle:node'
-    bundles:
-      art: art
-      mutant_vehicles: mutant_vehicles
-      performances: performances
-      theme_camps: theme_camps
-    negate: true
-    context_mapping:
-      node: '@node.node_route_context:node'
