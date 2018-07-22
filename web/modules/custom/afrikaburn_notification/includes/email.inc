@@ -64,12 +64,14 @@ function _afrikaburn_notification_entity_diff($node, &$body){
   $body = str_replace('[diff]', $rendered, $body);
 }
 
-// Replace entity rendering in mail body.
+/**
+ *  Replace entity rendering in mail body.
+ */
 function _afrikaburn_notification_entity_render($node, &$body){
 
   $renderings = [];
 
-  preg_match_all('/\[render:(?<mode>[^\[]+)\]/', $body, $renderings);
+  preg_match_all('/\[render (?<mode>[^\[]+)\]/', $body, $renderings);
   foreach ($renderings['mode'] as $index=>$mode){
 
     if (!$rendered[$mode]){
@@ -87,7 +89,7 @@ function _afrikaburn_notification_entity_render($node, &$body){
 /**
  *  Replace images in email
  */
-function _afrikaburn_notification_email_images(&$message, $body){
+function _afrikaburn_notification_email_images(&$message, &$body){
 
   $patterns = array(
     '/"(image:[^"]+)"/',
@@ -123,6 +125,4 @@ function _afrikaburn_notification_email_images(&$message, $body){
       }
     }
   }
-
-  return $body;
 }
