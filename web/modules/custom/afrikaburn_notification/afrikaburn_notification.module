@@ -45,6 +45,14 @@ function afrikaburn_notification_node_update($entity){
     ];
 
     foreach(['collective', 'wranglers'] as $recipient){
+
+      $subject = $settings->get(
+        implode('-', [$bundle, $stage, $state, $recipient, 'subject'])
+      );
+      $message = $settings->get(
+        implode('-', [$bundle, $stage, $state, $recipient, 'body'])
+      );
+
       $result = \Drupal::service('plugin.manager.mail')->mail(
         'afrikaburn_notification',
         $state . '_project_registration',
@@ -52,18 +60,21 @@ function afrikaburn_notification_node_update($entity){
         \Drupal::currentUser()->getPreferredLangcode(),
         [
           'from' => $address['from'][$recipient],
-          'subject' => $settings->get(
-            implode('-', [$bundle, $stage, $state, $recipient, 'subject'])
-          ),
-          'message' => $settings->get(
-            implode('-', [$bundle, $stage, $state, $recipient, 'body'])
-          ),
+          'subject' => $subject,
+          'message' => $message,
           'bcc' => $address['bcc'][$recipient],
           'node' => $entity,
         ],
         $address['from'][$recipient],
         TRUE
       );
+
+      if ($result['result']){
+        \Drupal::logger('mail-log')->notice('Mail sent to ' . $address['to'][$recipient] . "\n" . $subject . "\n:" . $message);
+      } else {
+        \Drupal::logger('mail-log')->notice('Mail send FAILED to ' . $address['to'][$recipient] . "\n" . $subject . "\n:" . $message);
+      }
+
     }
   }
 }
