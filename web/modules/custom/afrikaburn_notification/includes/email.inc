@@ -69,7 +69,7 @@ function _afrikaburn_notification_entity_render($node, &$body){
 
   $renderings = [];
 
-  preg_match_all('/\[node:(?<mode>[^\[]+)\]/', $body, $renderings);
+  preg_match_all('/\[render:(?<mode>[^\[]+)\]/', $body, $renderings);
   foreach ($renderings['mode'] as $index=>$mode){
 
     if (!$rendered[$mode]){
