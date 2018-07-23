@@ -20,7 +20,7 @@ function _entity_compare($entity_new, $entity_old) {
       $new = $entity_new->get($name)->value;
 
       if ($new != $old){
-        $diff[$definition->label] = [$old, $new];
+        $diff[$definition->get('label')] = [$old, $new];
       }
     }
   }
