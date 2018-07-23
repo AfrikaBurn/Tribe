@@ -4,7 +4,19 @@
  * Compute an entity diff.
  */
 function _diff($entity){
-  $entity->original ? _entity_compare($entity, $entity->original) : FALSE;
+
+  static $diff;
+
+  if (is_object($entity)){
+    if (!$diff[$entity->id()]){
+      $diff[$entity->id()] = $entity->original
+        ? _entity_compare($entity, $entity->original)
+        : FALSE;
+    }
+    return $diff[$entity->id()];
+  }
+
+  return $diff[$entity];
 }
 
 // Compute entity diff
