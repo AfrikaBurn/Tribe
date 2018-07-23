@@ -70,7 +70,7 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
     // Set defaults
     $form['field_collective']['widget'][0]['target_id']['#default_value'] = $collective;
     $form['field_form_mode']['widget'][0]['value']['#default_value'] = $defaults['mode'];
-    if (!$is_wrangler) $form['field_prjr_complete']['widget']['#default_value'][] = $defaults['mode'];
+    $form['field_prjr_complete']['widget']['#default_value'][] = $defaults['mode'];
     $form['#administrator'] = $is_admin || $is_wrangler;
 
     // Wizard or tabs (cake or death?)

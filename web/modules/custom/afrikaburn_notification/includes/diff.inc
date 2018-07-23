@@ -28,11 +28,25 @@ function _entity_compare($entity_new, $entity_old) {
 
     if ($name == 'title' || preg_match('/^field_/', $name)){
 
-      $old = $entity_old->get($name)->value;
-      $new = $entity_new->get($name)->value;
+      switch($definition->get('field_type')){
 
-      if ($new != $old){
-        $diff[$definition->get('label')] = [$old, $new];
+        case 'entity_reference':
+        case 'image':
+          $old = array_column($entity_old->get($name)->getValue(), 'target_id');
+          $new = array_column($entity_new->get($name)->getValue(), 'target_id');
+          if ($new != $old) {
+            $diff[$definition->get('label')] = [count($old), count($new)];
+          }
+        break;
+
+        default:
+          $old = $entity_old->get($name)->value;
+          $new = $entity_new->get($name)->value;
+
+          if ($new != $old){
+            $diff[$definition->get('label')] = [$old, $new];
+          }
+
       }
     }
   }
