@@ -22,7 +22,7 @@ function _afrikaburn_notify($from, $to, $bcc, $subject, $message, $node){
       'bcc' => $bcc,
       'subject' => $subject,
       'message' => $message,
-      'node' => $entity,
+      'node' => $node,
     ],
     $from,
     TRUE
