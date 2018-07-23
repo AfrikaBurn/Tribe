@@ -89,8 +89,6 @@ function _afrikaburn_notification_entity_diff($node, &$body){
       $rendered .= '<tr><td>' . implode('</td><td>', [$title, $change[0], $change[1]]) .'</td></tr>';
     }
     $rendered .= '</table>';
-  } else {
-    return FALSE;
   }
 
   $body = str_replace('[diff]', $rendered, $body);
