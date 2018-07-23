@@ -43,7 +43,7 @@ body .horizontal-tabs .horizontal-tabs-list:after{
 }
 
 body .horizontal-tabs .horizontal-tabs-list li{
-  padding: 0 15px;
+  padding: 0 10px;
 }
 
 body .horizontal-tabs .horizontal-tabs-list li.selected{

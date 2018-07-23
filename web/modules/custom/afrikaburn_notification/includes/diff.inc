@@ -4,9 +4,7 @@
  * Compute an entity diff.
  */
 function _diff($entity){
-  if ($entity->original) {
-    $cache[$entity->id()] = _entity_compare($entity, $entity->original);
-  }
+  $entity->original ? _entity_compare($entity, $entity->original) : FALSE;
 }
 
 // Compute entity diff

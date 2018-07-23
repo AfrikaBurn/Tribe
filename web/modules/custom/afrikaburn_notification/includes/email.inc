@@ -90,7 +90,7 @@ function _afrikaburn_notification_entity_diff($node, &$body){
     }
     $rendered .= '</table>';
   } else {
-    $rendered = '';
+    return FALSE;
   }
 
   $body = str_replace('[diff]', $rendered, $body);
