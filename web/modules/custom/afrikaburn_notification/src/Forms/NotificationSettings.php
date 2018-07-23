@@ -16,14 +16,6 @@ use Drupal\Core\Form\FormStateInterface;
  */
 class NotificationSettings extends ConfigFormBase {
 
-  private const ADRESSES = [
-    'art' => 'Art',
-    'performances' => 'Binnekring Events',
-    'mutant_vehivles' => 'Mutant vehicles',
-    'theme_camps' => 'Theme Camps',
-    'archice' => 'Archive',
-  ];
-
   /**
    * {@inheritdoc}
    */
@@ -53,23 +45,16 @@ class NotificationSettings extends ConfigFormBase {
     $form = [
       'addresses' => [
         '#type' => 'fieldset',
-        '#title' => 'Notification email addresses',
+        '#title' => 'Archive address',
       ],
     ];
 
     $form['addresses']['archive'] = [
       '#type' => 'email',
-      '#title' => 'Archive',
       '#default_value' => $settings->get('archive'),
     ];
 
     foreach(_project_form_modes() as $key=>$project){
-
-      $form['addresses'][$key . '-wranglers'] = [
-        '#type' => 'email',
-        '#title' => $project['title'] . ' wranglers',
-        '#default_value' => $settings->get($key . '-wranglers'),
-      ];
 
       $form[$key] = [
         '#type' => 'fieldset',

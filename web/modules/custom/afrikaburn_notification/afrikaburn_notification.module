@@ -18,30 +18,34 @@ function afrikaburn_notification_node_update($entity){
 
     module_load_include('inc', 'afrikaburn_notification', 'includes/email');
 
+    $user = User::load(\Drupal::currentUser()->id());
+    $collective = _afrikaburn_notification_collective($entity);
+    $settings = \Drupal::config('afrikaburn_notification.settings');
+
     $stage = $entity->get('field_form_mode')->value;
     $complete = array_column($entity->get('field_prjr_complete')->getValue(), 'value');
     $state = in_array($stage, $complete) ? 'update' : 'new';
-    $settings = \Drupal::config('afrikaburn_notification.settings');
-    $collective = _afrikaburn_notification_collective($entity);
-    $user = User::load(\Drupal::currentUser()->id());
+
+    $subject = $settings->get(implode('-', [$bundle, $stage, $state, 'wranglers', 'subject']));
+    $message = $settings->get(implode('-', [$bundle, $stage, $state, 'wranglers', 'body']));
 
     // Mail collective
     _afrikaburn_notify(
-      $settings->get($bundle . '-wranglers'),           // From
-      $collective['title'] . '<shared@afrikaburn.com>', // To
-      $collective['members'],                           // BCC
-      $settings->get(implode('-', [$bundle, $stage, $state, 'wranglers', 'subject'])),
-      $settings->get(implode('-', [$bundle, $stage, $state, 'wranglers', 'body'])),
+      'no-reply@afrikaburn.com',
+      $settings->get($bundle . '-label') . '<' . $settings->get($bundle . '-address') . '>',
+      $collective['members'] . ',' . $settings->get('archive'),
+      $subject,
+      $message,
       $entity
     );
 
     // Mail wranglers
     _afrikaburn_notify(
-      $user->field_first_name->value . " '" . $user->name->value . "' " . $user->field_last_name->value . ' via AfrikaBurn Tribe <' . $user->field_display_mail->value . '>',
-      $settings->get($bundle . '-wranglers'),
-      '',
-      $settings->get(implode('-', [$bundle, $stage, $state, 'wranglers', 'subject'])),
-      $settings->get(implode('-', [$bundle, $stage, $state, 'wranglers', 'body'])),
+      $settings->get($bundle . '-address'),
+      $user->field_first_name->value . " '" . $user->name->value . "' " . $user->field_last_name->value . ' via AfrikaBurn Tribe <' . $user->mail->value . '>',
+      $settings->get('archive'),
+      $subject,
+      $message,
       $entity
     );
   }
@@ -75,12 +79,12 @@ function afrikaburn_notification_mail($key, &$message, $params) {
     $body = \Drupal::token()->replace($body, $tokens, ['clear' => true]);
     $subject = \Drupal::token()->replace($subject, $tokens, ['clear' => true]);
 
-    $message['headers']['From'] = 'AfrikaBurn Tribe <no-reply@afrikaburn.com>';
+    $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
     $message['headers']['Reply-To'] = $params['from'];
     $message['headers']['Return-Path'] = $params['from'];
     $message['headers']['bcc'] = $params['bcc'];
-    $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
 
+    $message['from'] = $params['from'];
     $message['subject'] = $subject;
     $message['body'][] = $body;
   }
