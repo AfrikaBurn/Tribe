@@ -82,7 +82,7 @@ class RegistrationController extends ControllerBase {
 
       $target->save();
 
-      return new JsonResponse([], 200);
+      return new \Symfony\Component\HttpFoundation\JsonResponse([], 200);
     }
   }
 }

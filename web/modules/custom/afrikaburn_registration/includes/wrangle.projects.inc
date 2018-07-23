@@ -78,7 +78,7 @@ function _merge(){
 }
 
 function _title($field){
-  return ([
+  return @([
     'field_prj_brn_burning' => FALSE,
     'field_prj_cll_collaborate' => FALSE,
     'field_prjr_complete' => FALSE,
@@ -155,7 +155,7 @@ function ab_prepare_wrangler_view(&$variables){
 
     foreach(_editable($view->id()) as $field){
 
-      $field_form = array_shift(
+      $field_form = @array_shift(
         array_filter(
           [
             $form[$field]['value'],
@@ -216,7 +216,7 @@ function ab_insert_wrangler_view_rows(&$variables){
     foreach (_merge() as $column=>$fields) {
       foreach($fields as $field){
         $row['columns'][$column]['content'][] = [
-          'field_output' => $row['columns'][$field]['content'][0]['field_output']
+          'field_output' => @$row['columns'][$field]['content'][0]['field_output']
         ];
         unset($row['columns'][$field]);
         $row['columns'][$column]['attributes'] =  new \Drupal\Core\Template\Attribute(['class' => 'column-' . $column]);
@@ -225,7 +225,7 @@ function ab_insert_wrangler_view_rows(&$variables){
 
     // Latest comment
     $row['columns']['administrative']['content'][] = [
-      'field_output' => render(views_embed_view('wrangle_comments', 'latest', $nid))
+      'field_output' => @render(views_embed_view('wrangle_comments', 'latest', $nid))
     ];
     // Comment form
     $form = [
