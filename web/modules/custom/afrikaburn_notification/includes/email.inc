@@ -8,7 +8,7 @@
 /**
  * Send an email
  */
-function _afrikaburn_notify($to, $from, $bcc, $subject, $message, $node){
+function _afrikaburn_notify($to, $from_label, $from_address, $bcc, $subject, $message, $node){
   \Drupal::service('plugin.manager.mail')->mail(
 
     'afrikaburn_notification',
@@ -18,13 +18,13 @@ function _afrikaburn_notify($to, $from, $bcc, $subject, $message, $node){
     \Drupal::currentUser()->getPreferredLangcode(),
     [
       'to' => $to,
-      'from' => $from,
+      'from' => $from_label . '<' . $from_address . '>',
       'bcc' => $bcc,
       'subject' => $subject,
       'message' => $message,
       'node' => $node,
     ],
-    $from,
+    $from_address,
 
     TRUE
   )['result']
