@@ -84,7 +84,7 @@ function _afrikaburn_notification_entity_diff($node, &$body){
   $diff = _diff($node);
   if ($diff) {
 
-    $rendered = '<table><tr><th>Changed</th><th>From</th><th>To</th></tr>';
+    $rendered = '<table cellspacing=10 style="text-align: left;"><tr><th>Changed</th><th>From</th><th>To</th></tr>';
     foreach($diff as $title=>$change){
       $rendered .= '<tr><td>' . implode('</td><td>', [$title, $change[0], $change[1]]) .'</td></tr>';
     }

@@ -52,12 +52,17 @@ function afrikaburn_notification_node_insert($entity){
 
 /**
  * Implements hook_ENTITY_TYPE_update.
+ * Notify users on updates.
  */
 function afrikaburn_notification_node_update($entity){
 
-  // Don't mail on no change
   module_load_include('inc', 'afrikaburn_notification', 'includes/diff');
-  if (!_diff($entity)) return;
+
+  $wrangling = preg_match('/^\/registration\//', \Drupal::service('path.current')->getPath());
+  $changed = _diff($entity);
+
+  // Don't mail while wrangling or on no changes
+  if (!$changed || $wrangling) return;
 
   afrikaburn_notification_node_insert($entity);
 }
