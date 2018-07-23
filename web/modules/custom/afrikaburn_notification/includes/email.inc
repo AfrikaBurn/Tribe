@@ -1,5 +1,37 @@
 <?php
 
+/**
+ * @file contains email notification utilities.
+ */
+
+
+/**
+ * Send an email
+ */
+function _afrikaburn_notify($from, $to, $bcc, $subject, $message, $node){
+  \Drupal::service('plugin.manager.mail')->mail(
+
+    'afrikaburn_notification',
+    'project_registration',
+
+    $to,
+    \Drupal::currentUser()->getPreferredLangcode(),
+    [
+      'from' => $from,
+      'to' => $from,
+      'bcc' => $bcc,
+      'subject' => $subject,
+      'message' => $message,
+      'node' => $entity,
+    ],
+    $from,
+    TRUE
+
+  )['result']
+    ? \Drupal::logger('mail-log')->notice('Mail sent to ' . implode(' & ', [$to, $bcc]) . "\n" . $subject . "\n:" . $message)
+    : \Drupal::logger('mail-log')->notice('Mail send FAILED to ' . implode(' & ', [$to, $bcc]) . "\n" . $subject . "\n:" . $message);
+}
+
 
 /* ----- Recipients ----- */
 
