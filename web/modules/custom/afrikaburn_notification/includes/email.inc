@@ -133,11 +133,19 @@ function _afrikaburn_notification_email_images(&$message, &$body){
 
   $processed_images = array();
   foreach ($patterns as $pattern) {
+
     $embeddable_images = array();
     preg_match_all($pattern, $body, $embeddable_images);
+
     for ($i = 0; $i < count($embeddable_images[1]); $i++) {
       $raw = $embeddable_images[1][$i];
-      $image_uri = trim(str_replace('/system/files', 'private:/', $raw));
+      $image_uri = trim(
+        str_replace(
+          ['/system/files', '/sites/default/files', '%20'],
+          ['private:/', 'public:/', ' '],
+          $raw
+        )
+      );
 
       if (!isset($processed_images[$image_uri])) {
         $image_path = preg_replace('/^(image:|\/)+/', '', $image_uri);
