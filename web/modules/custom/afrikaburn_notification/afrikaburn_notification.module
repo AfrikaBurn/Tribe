@@ -57,15 +57,20 @@ function afrikaburn_notification_node_insert($entity){
  */
 function afrikaburn_notification_node_update($entity){
 
-  module_load_include('inc', 'afrikaburn_notification', 'includes/diff');
+  $bundle = $entity->bundle();
 
-  $wrangling = preg_match('/^\/registration\//', \Drupal::service('path.current')->getPath());
-  $changed = _diff($entity);
+  if (in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
 
-  // Don't mail while wrangling or on no changes
-  if (!$changed || $wrangling) return;
+    module_load_include('inc', 'afrikaburn_notification', 'includes/diff');
 
-  afrikaburn_notification_node_insert($entity);
+    $wrangling = preg_match('/^\/registration\//', \Drupal::service('path.current')->getPath());
+    $changed = _diff($entity);
+
+    // Don't mail while wrangling or on no changes
+    if (!$changed || $wrangling) return;
+
+    afrikaburn_notification_node_insert($entity);
+  }
 }
 
 
