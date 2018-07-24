@@ -32,7 +32,6 @@ dependencies:
   module:
     - computed_field
     - datetime
-    - ds
     - empty_fields
     - entity_reference_revisions
     - field_group
@@ -82,7 +81,6 @@ third_party_settings:
       children:
         - field_email
         - field_location
-        - field_newsletter
         - member_for
       parent_name: group_root
       weight: 2
@@ -129,6 +127,7 @@ third_party_settings:
         - field_emr_name
         - field_emr_email
         - field_emr_telephone
+        - field_newsletter
       parent_name: group_root
       weight: 4
       format_type: tab
@@ -181,14 +180,14 @@ content:
     third_party_settings: {  }
   field_emr_email:
     type: basic_string
-    weight: 7
+    weight: 5
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
   field_emr_name:
     type: string
-    weight: 6
+    weight: 4
     region: content
     label: above
     settings:
@@ -196,7 +195,7 @@ content:
     third_party_settings: {  }
   field_emr_telephone:
     type: string
-    weight: 8
+    weight: 6
     region: content
     label: above
     settings:
@@ -242,8 +241,6 @@ content:
     third_party_settings:
       empty_fields:
         handler: ''
-      ds:
-        ds_limit: ''
     region: content
   field_last_name:
     type: string
@@ -285,7 +282,7 @@ content:
     third_party_settings: {  }
   field_newsletter:
     type: boolean
-    weight: 12
+    weight: 7
     region: content
     label: above
     settings:

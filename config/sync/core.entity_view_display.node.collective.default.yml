@@ -3,20 +3,40 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.post.default
     - field.field.node.collective.field_col_admins
     - field.field.node.collective.field_col_description
     - field.field.node.collective.field_col_invitee
     - field.field.node.collective.field_col_members
     - field.field.node.collective.field_col_posts
     - field.field.node.collective.field_picture
-    - image.style.large
     - node.type.collective
   module:
-    - comment
-    - image
+    - colorbox
+    - ds
     - text
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: ds_reset
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          ds_content: div
+        outer_wrapper: ''
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      ds_content:
+        - field_picture
+        - field_col_description
+        - post_something
+        - posts
 id: node.collective.default
 targetEntityType: node
 bundle: collective
@@ -25,30 +45,38 @@ content:
   field_col_description:
     weight: 1
     label: hidden
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
-  field_col_posts:
-    type: comment_default
-    weight: 2
-    region: content
-    label: hidden
     settings:
-      view_mode: default
-      pager_id: 0
+      trim_length: 600
     third_party_settings: {  }
+    type: text_trimmed
+    region: ds_content
   field_picture:
     weight: 0
     label: hidden
     settings:
-      image_style: large
-      image_link: ''
+      colorbox_node_style: ''
+      colorbox_node_style_first: ''
+      colorbox_image_style: ''
+      colorbox_gallery: post
+      colorbox_gallery_custom: ''
+      colorbox_caption: auto
+      colorbox_caption_custom: ''
     third_party_settings: {  }
-    type: image
-    region: content
+    type: colorbox
+    region: ds_content
+  post_something:
+    weight: 2
+    region: ds_content
+    settings: {  }
+    third_party_settings: {  }
+  posts:
+    weight: 3
+    region: ds_content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_col_admins: true
   field_col_invitee: true
   field_col_members: true
+  field_col_posts: true
   links: true

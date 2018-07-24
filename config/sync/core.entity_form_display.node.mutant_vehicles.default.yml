@@ -3,9 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.mutant_vehicles.field_admin_comments
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
-    - field.field.node.mutant_vehicles.field_grt_art_comment
     - field.field.node.mutant_vehicles.field_grt_art_total
     - field.field.node.mutant_vehicles.field_grt_awarded
     - field.field.node.mutant_vehicles.field_grt_contribution
@@ -18,11 +18,6 @@ dependencies:
     - field.field.node.mutant_vehicles.field_grt_total
     - field.field.node.mutant_vehicles.field_grt_transport
     - field.field.node.mutant_vehicles.field_mutant_drivers
-    - field.field.node.mutant_vehicles.field_prj_adm_comms
-    - field.field.node.mutant_vehicles.field_prj_adm_form_grant
-    - field.field.node.mutant_vehicles.field_prj_adm_form_wtf
-    - field.field.node.mutant_vehicles.field_prj_adm_notes
-    - field.field.node.mutant_vehicles.field_prj_adm_ranger_comment
     - field.field.node.mutant_vehicles.field_prj_adm_registration
     - field.field.node.mutant_vehicles.field_prj_adm_review
     - field.field.node.mutant_vehicles.field_prj_adm_wrangler
@@ -34,7 +29,6 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_cll_collaborate
     - field.field.node.mutant_vehicles.field_prj_cll_contact
     - field.field.node.mutant_vehicles.field_prj_cll_description
-    - field.field.node.mutant_vehicles.field_prj_cll_thread
     - field.field.node.mutant_vehicles.field_prj_gen_base
     - field.field.node.mutant_vehicles.field_prj_gen_concept
     - field.field.node.mutant_vehicles.field_prj_gen_contact
@@ -54,12 +48,10 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_lgh_night
     - field.field.node.mutant_vehicles.field_prj_lgh_projection
     - field.field.node.mutant_vehicles.field_prj_lnt_agree
-    - field.field.node.mutant_vehicles.field_prj_lnt_comments
     - field.field.node.mutant_vehicles.field_prj_lnt_f1
     - field.field.node.mutant_vehicles.field_prj_lnt_handled
     - field.field.node.mutant_vehicles.field_prj_lnt_historic
     - field.field.node.mutant_vehicles.field_prj_lnt_images
-    - field.field.node.mutant_vehicles.field_prj_lnt_publish
     - field.field.node.mutant_vehicles.field_prj_lnt_representative
     - field.field.node.mutant_vehicles.field_prj_lnt_score
     - field.field.node.mutant_vehicles.field_prj_lnt_signoff
@@ -70,13 +62,11 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_oth_other
     - field.field.node.mutant_vehicles.field_prj_oth_unregistered
     - field.field.node.mutant_vehicles.field_prj_saf_access
-    - field.field.node.mutant_vehicles.field_prj_saf_comment
     - field.field.node.mutant_vehicles.field_prj_saf_guide
     - field.field.node.mutant_vehicles.field_prj_saf_mark
     - field.field.node.mutant_vehicles.field_prj_saf_other
     - field.field.node.mutant_vehicles.field_prj_saf_passengers
     - field.field.node.mutant_vehicles.field_prj_snd_agree
-    - field.field.node.mutant_vehicles.field_prj_snd_comment
     - field.field.node.mutant_vehicles.field_prj_snd_description
     - field.field.node.mutant_vehicles.field_prj_snd_level
     - field.field.node.mutant_vehicles.field_prj_snd_person
@@ -86,7 +76,6 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_stg_contact
     - field.field.node.mutant_vehicles.field_prj_stg_description
     - field.field.node.mutant_vehicles.field_prj_stg_stage
-    - field.field.node.mutant_vehicles.field_prj_stg_tread
     - field.field.node.mutant_vehicles.field_prj_stg_type
     - field.field.node.mutant_vehicles.field_prj_sup_address
     - field.field.node.mutant_vehicles.field_prj_sup_details
@@ -106,12 +95,15 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_wtf_short
     - field.field.node.mutant_vehicles.field_prj_wtf_short_copy
     - field.field.node.mutant_vehicles.field_prj_wtf_website
-    - field.field.node.mutant_vehicles.field_sup_comment
+    - field.field.node.mutant_vehicles.field_prjr_complete
     - field.field.node.mutant_vehicles.field_sup_review
     - field.field.node.mutant_vehicles.field_vp_ea
+    - field.field.node.mutant_vehicles.field_year_cycle
     - image.style.thumbnail
     - node.type.mutant_vehicles
   module:
+    - comment
+    - computed_field
     - conditional_fields
     - entity_reference_views_select
     - field_group
@@ -121,7 +113,7 @@ dependencies:
     - markup
 third_party_settings:
   field_group:
-    group_registration:
+    group_project_registration:
       children:
         - group_intro
         - group_overview
@@ -134,7 +126,7 @@ third_party_settings:
         - group_wtf_guide
         - group_other
       parent_name: ''
-      weight: 7
+      weight: 2
       format_type: tabs
       format_settings:
         label: Intro
@@ -151,7 +143,7 @@ third_party_settings:
         - field_prj_gen_mutating
         - field_prj_gen_concept
         - field_prj_gen_doc
-      parent_name: group_registration
+      parent_name: group_project_registration
       weight: 4
       format_type: tab
       format_settings:
@@ -169,7 +161,7 @@ third_party_settings:
         - field_prj_saf_access
         - field_prj_saf_other
         - field_prj_saf_mark
-      parent_name: group_registration
+      parent_name: group_project_registration
       weight: 5
       format_type: tab
       format_settings:
@@ -186,7 +178,7 @@ third_party_settings:
         - field_prj_lgh_night
         - field_prj_lgh_description
         - field_prj_lgh_lighter
-      parent_name: group_registration
+      parent_name: group_project_registration
       weight: 6
       format_type: tab
       format_settings:
@@ -207,7 +199,7 @@ third_party_settings:
         - field_prj_snd_soop
         - field_prj_snd_agree
         - field_prj_snd_person
-      parent_name: group_registration
+      parent_name: group_project_registration
       weight: 7
       format_type: tab
       format_settings:
@@ -225,7 +217,7 @@ third_party_settings:
         - field_prj_brn_person
         - field_prj_brn_desc
         - field_prj_brn_agree
-      parent_name: group_registration
+      parent_name: group_project_registration
       weight: 8
       format_type: tab
       format_settings:
@@ -247,7 +239,7 @@ third_party_settings:
         - field_prj_trl_communicate
         - field_prj_trl_markup
         - field_prj_lgh_projection
-      parent_name: group_registration
+      parent_name: group_project_registration
       weight: 9
       format_type: tab
       format_settings:
@@ -264,7 +256,7 @@ third_party_settings:
         - field_prj_lnt_handled
         - field_prj_lnt_representative
         - field_prj_lnt_agree
-      parent_name: group_registration
+      parent_name: group_project_registration
       weight: 10
       format_type: tab
       format_settings:
@@ -284,7 +276,7 @@ third_party_settings:
         - field_prj_cll_collaborate
         - field_prj_cll_description
         - field_prj_cll_contact
-      parent_name: group_registration
+      parent_name: group_project_registration
       weight: 11
       format_type: tab
       format_settings:
@@ -303,7 +295,7 @@ third_party_settings:
         - field_prj_oth_unregistered
         - field_prj_oth_agree
         - field_prj_oth_grant
-      parent_name: group_registration
+      parent_name: group_project_registration
       weight: 12
       format_type: tab
       format_settings:
@@ -322,7 +314,7 @@ third_party_settings:
         - field_prj_gen_lead
         - field_prj_gen_owner
         - field_mutant_drivers
-      parent_name: group_registration
+      parent_name: group_project_registration
       weight: 1
       format_type: tab
       format_settings:
@@ -336,14 +328,16 @@ third_party_settings:
       region: content
     group_administrative:
       children:
-        - field_form_mode
-        - field_prj_adm_notes
-        - field_prj_adm_registration
+        - field_prjr_complete
         - field_prj_adm_review
         - field_prj_adm_wrangler
+        - field_prj_adm_registration
         - field_collective
+        - field_form_mode
+        - field_admin_comments
+        - field_year_cycle
       parent_name: ''
-      weight: 0
+      weight: 1
       format_type: details
       format_settings:
         id: ''
@@ -358,9 +352,15 @@ targetEntityType: node
 bundle: mutant_vehicles
 mode: default
 content:
+  field_admin_comments:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
   field_collective:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 10
     region: content
     settings:
       match_operator: CONTAINS
@@ -369,7 +369,7 @@ content:
     third_party_settings: {  }
   field_form_mode:
     type: string_textfield
-    weight: 1
+    weight: 11
     region: content
     settings:
       size: 60
@@ -390,22 +390,22 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_prj_adm_registration:
-    weight: 3
+    type: string_textfield
+    weight: 9
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_prj_adm_review:
     type: options_select
-    weight: 4
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
   field_prj_adm_wrangler:
     type: erviews_options_select
-    weight: 5
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -863,7 +863,7 @@ content:
     type: string_textarea
     region: content
   field_prj_lnt_agree:
-    weight: 131
+    weight: 130
     settings:
       display_label: true
     third_party_settings: {  }
@@ -884,7 +884,7 @@ content:
     type: string_textarea
     region: content
   field_prj_lnt_representative:
-    weight: 130
+    weight: 129
     settings: {  }
     third_party_settings: {  }
     type: erviews_options_select
@@ -1499,6 +1499,23 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
+  field_prjr_complete:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_year_cycle:
+    weight: 131
+    settings: {  }
+    third_party_settings: {  }
+    type: computed_number_widget
+    region: content
+  flag:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   title:
     type: string_textfield
     weight: 9
@@ -1509,7 +1526,6 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_grt_art_comment: true
   field_grt_art_total: true
   field_grt_awarded: true
   field_grt_contribution: true
@@ -1521,9 +1537,6 @@ hidden:
   field_grt_status: true
   field_grt_total: true
   field_grt_transport: true
-  field_prj_adm_comms: true
-  field_prj_adm_form_grant: true
-  field_prj_adm_form_wtf: true
   field_prj_adm_ranger_comment: true
   field_prj_cll_thread: true
   field_prj_gen_fundraiser: true
@@ -1533,7 +1546,6 @@ hidden:
   field_prj_lnt_comments: true
   field_prj_lnt_historic: true
   field_prj_lnt_images: true
-  field_prj_lnt_publish: true
   field_prj_lnt_score: true
   field_prj_lnt_signoff: true
   field_prj_lnt_type: true
@@ -1550,7 +1562,6 @@ hidden:
   field_prj_sup_h1: true
   field_prj_wtf_categories: true
   field_prj_wtf_short_copy: true
-  field_sup_comment: true
   field_sup_review: true
   field_vp_ea: true
   moderation_state: true

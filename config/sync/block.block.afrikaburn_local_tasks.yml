@@ -6,8 +6,8 @@ dependencies:
     - afrikaburn
 id: afrikaburn_local_tasks
 theme: afrikaburn
-region: tabs
-weight: -15
+region: content
+weight: -19
 provider: null
 plugin: local_tasks_block
 settings:

@@ -9,6 +9,7 @@ dependencies:
     - field.field.user.user.field_date_of_birth
     - field.field.user.user.field_district
     - field.field.user.user.field_email
+    - field.field.user.user.field_email_retype
     - field.field.user.user.field_emr_email
     - field.field.user.user.field_emr_name
     - field.field.user.user.field_emr_telephone
@@ -26,11 +27,11 @@ dependencies:
     - field.field.user.user.field_quicket_code
     - field.field.user.user.field_quicket_id
     - field.field.user.user.field_secondary_mail
+    - field.field.user.user.field_terms_and_conditions
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
     - computed_field
-    - ds
     - empty_fields
     - field_group
     - image
@@ -102,8 +103,6 @@ content:
     third_party_settings:
       empty_fields:
         handler: nbsp
-      ds:
-        ds_limit: ''
   field_country:
     type: string
     weight: 0
@@ -215,6 +214,7 @@ content:
 hidden:
   field_date_of_birth: true
   field_district: true
+  field_email_retype: true
   field_emr_email: true
   field_emr_name: true
   field_gender: true
@@ -225,3 +225,4 @@ hidden:
   field_other_burns: true
   field_participation: true
   field_quicket_id: true
+  field_terms_and_conditions: true

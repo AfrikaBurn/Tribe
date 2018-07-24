@@ -1,3 +1,6 @@
+@charset "utf-8";
+
+
 .js-wizard .horizontal-tabs .horizontal-tabs-list,
 .js-wizard .horizontal-tabs .horizontal-tabs-list li{
   position: relative;
@@ -7,6 +10,7 @@
   display: flex;
   align-items: stretch;
   padding: 20px 0 0;
+  border: none;
 }
 
 body .js-wizard .horizontal-tabs .horizontal-tabs-list li{

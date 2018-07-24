@@ -36,7 +36,6 @@ dependencies:
     - field_group
     - image
     - link
-    - paragraphs
     - telephone
     - user
 third_party_settings:
@@ -97,9 +96,6 @@ third_party_settings:
         - field_links
         - contact
         - field_newsletter
-        - field_emr_name
-        - field_emr_telephone
-        - field_emr_email
       parent_name: group_root
       weight: 10
       format_type: tab
@@ -124,19 +120,6 @@ third_party_settings:
         description: ''
         required_fields: true
       label: History
-    group_kids_and_teens_minors_:
-      children:
-        - field_kids_and_teens
-      parent_name: group_root
-      weight: 11
-      format_type: tab
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-      label: 'Kids and Teens (Minors)'
     group_ts_cs:
       children:
         - field_terms_and_conditions
@@ -173,29 +156,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: datetime_default
-    region: content
-  field_emr_email:
-    weight: 12
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: email_default
-    region: content
-  field_emr_name:
-    weight: 9
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_emr_telephone:
-    weight: 11
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: telephone_default
     region: content
   field_first_name:
     type: string_textfield
@@ -241,23 +201,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
-    region: content
-  field_kids_and_teens:
-    type: paragraphs
-    weight: 0
-    settings:
-      title: Minors
-      title_plural: 'Another Minor'
-      edit_mode: closed
-      closed_mode: summary
-      autocollapse: none
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: minors
-      features:
-        duplicate: duplicate
-        collapse_edit_all: collapse_edit_all
-    third_party_settings: {  }
     region: content
   field_last_name:
     type: string_textfield
@@ -351,6 +294,10 @@ hidden:
   field_district: true
   field_email: true
   field_email_retype: true
+  field_emr_email: true
+  field_emr_name: true
+  field_emr_telephone: true
+  field_kids_and_teens: true
   field_quicket_code: true
   field_quicket_id: true
   google_analytics: true

@@ -3,25 +3,26 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.theme_camps.field_admin_comments
     - field.field.node.theme_camps.field_collective
-    - field.field.node.theme_camps.field_field_prj_adm_form_3
     - field.field.node.theme_camps.field_field_prj_plc_marquis
     - field.field.node.theme_camps.field_field_prj_plc_stretch_m
+    - field.field.node.theme_camps.field_final_placement
     - field.field.node.theme_camps.field_form_mode
-    - field.field.node.theme_camps.field_prj_adm_comms
-    - field.field.node.theme_camps.field_prj_adm_form_2
+    - field.field.node.theme_camps.field_ice_card
+    - field.field.node.theme_camps.field_neighbours
+    - field.field.node.theme_camps.field_placed
+    - field.field.node.theme_camps.field_placement_card
+    - field.field.node.theme_camps.field_placement_letter_sent
+    - field.field.node.theme_camps.field_plot
     - field.field.node.theme_camps.field_prj_adm_form_3
-    - field.field.node.theme_camps.field_prj_adm_form_wtf
     - field.field.node.theme_camps.field_prj_adm_latitude
     - field.field.node.theme_camps.field_prj_adm_longitude
-    - field.field.node.theme_camps.field_prj_adm_notes
-    - field.field.node.theme_camps.field_prj_adm_ranger_comment
     - field.field.node.theme_camps.field_prj_adm_review
     - field.field.node.theme_camps.field_prj_adm_wrangler
     - field.field.node.theme_camps.field_prj_cll_collaborate
     - field.field.node.theme_camps.field_prj_cll_contact
     - field.field.node.theme_camps.field_prj_cll_description
-    - field.field.node.theme_camps.field_prj_cll_thread
     - field.field.node.theme_camps.field_prj_est_camp_population
     - field.field.node.theme_camps.field_prj_gen_bio
     - field.field.node.theme_camps.field_prj_gen_commodification
@@ -41,23 +42,18 @@ dependencies:
     - field.field.node.theme_camps.field_prj_lgh_description
     - field.field.node.theme_camps.field_prj_lgh_policy
     - field.field.node.theme_camps.field_prj_lgh_power
-    - field.field.node.theme_camps.field_prj_lnt_comments
     - field.field.node.theme_camps.field_prj_lnt_handled
     - field.field.node.theme_camps.field_prj_lnt_historic
     - field.field.node.theme_camps.field_prj_lnt_images
-    - field.field.node.theme_camps.field_prj_lnt_publish
     - field.field.node.theme_camps.field_prj_lnt_representative
     - field.field.node.theme_camps.field_prj_lnt_score
     - field.field.node.theme_camps.field_prj_lnt_signoff
     - field.field.node.theme_camps.field_prj_lnt_type
     - field.field.node.theme_camps.field_prj_ons_issues
     - field.field.node.theme_camps.field_prj_ons_monday_b
-    - field.field.node.theme_camps.field_prj_ons_monday_d
     - field.field.node.theme_camps.field_prj_ons_rating
     - field.field.node.theme_camps.field_prj_ons_rest_b
-    - field.field.node.theme_camps.field_prj_ons_rest_d
     - field.field.node.theme_camps.field_prj_ons_tuesday_b
-    - field.field.node.theme_camps.field_prj_ons_tuesday_d
     - field.field.node.theme_camps.field_prj_ons_wednesay_d
     - field.field.node.theme_camps.field_prj_ons_wednesday_b
     - field.field.node.theme_camps.field_prj_oth_associated
@@ -96,7 +92,6 @@ dependencies:
     - field.field.node.theme_camps.field_prj_plc_trailers
     - field.field.node.theme_camps.field_prj_saf_access
     - field.field.node.theme_camps.field_prj_saf_cage
-    - field.field.node.theme_camps.field_prj_saf_comment
     - field.field.node.theme_camps.field_prj_saf_extinguish
     - field.field.node.theme_camps.field_prj_saf_gas
     - field.field.node.theme_camps.field_prj_saf_guide
@@ -104,7 +99,6 @@ dependencies:
     - field.field.node.theme_camps.field_prj_saf_markup
     - field.field.node.theme_camps.field_prj_saf_person
     - field.field.node.theme_camps.field_prj_snd_agree
-    - field.field.node.theme_camps.field_prj_snd_comment
     - field.field.node.theme_camps.field_prj_snd_description
     - field.field.node.theme_camps.field_prj_snd_genre
     - field.field.node.theme_camps.field_prj_snd_level
@@ -114,7 +108,6 @@ dependencies:
     - field.field.node.theme_camps.field_prj_stg_contact
     - field.field.node.theme_camps.field_prj_stg_description
     - field.field.node.theme_camps.field_prj_stg_stage
-    - field.field.node.theme_camps.field_prj_stg_tread
     - field.field.node.theme_camps.field_prj_stg_type
     - field.field.node.theme_camps.field_prj_sup_address
     - field.field.node.theme_camps.field_prj_sup_details
@@ -127,15 +120,17 @@ dependencies:
     - field.field.node.theme_camps.field_prj_wtf_short
     - field.field.node.theme_camps.field_prj_wtf_short_copy
     - field.field.node.theme_camps.field_prj_wtf_website
+    - field.field.node.theme_camps.field_prjr_complete
     - field.field.node.theme_camps.field_stretch_tent_dimen
-    - field.field.node.theme_camps.field_sup_comment
     - field.field.node.theme_camps.field_sup_review
     - field.field.node.theme_camps.field_tc_type
     - field.field.node.theme_camps.field_vp_ea
+    - field.field.node.theme_camps.field_year_cycle
     - image.style.thumbnail
     - node.type.theme_camps
   module:
     - comment
+    - computed_field
     - conditional_fields
     - cshs
     - entity_reference_views_select
@@ -206,7 +201,6 @@ third_party_settings:
         - field_prj_cll_collaborate
         - field_prj_cll_description
         - field_prj_cll_contact
-        - field_prj_cll_thread
         - field_prj_stg_stage
         - field_prj_stg_type
         - field_prj_stg_description
@@ -264,7 +258,7 @@ third_party_settings:
         - group_collaboration
         - group_almost_done_new
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: tabs
       format_settings:
         label: 'Project registration'
@@ -275,11 +269,27 @@ third_party_settings:
       region: content
     group_administrative:
       children:
+        - field_prjr_complete
+        - field_prj_adm_review
         - field_prj_adm_wrangler
-        - field_form_mode
+        - field_prj_plc_location_extra
+        - field_prj_plc_location
+        - field_prj_plc_camp_w
+        - field_prj_plc_camp_d
+        - field_prj_plc_binnekring
+        - field_ice_card
+        - field_placed
+        - field_placement_card
+        - field_plot
+        - field_final_placement
+        - field_placement_letter_sent
         - field_collective
+        - field_form_mode
+        - field_admin_comments
+        - field_neighbours
+        - field_year_cycle
       parent_name: ''
-      weight: 0
+      weight: 1
       format_type: details
       format_settings:
         id: ''
@@ -294,26 +304,90 @@ targetEntityType: node
 bundle: theme_camps
 mode: default
 content:
+  field_admin_comments:
+    weight: 18
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
   field_collective:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 16
     region: content
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_form_mode:
-    weight: 2
+  field_final_placement:
+    weight: 13
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_prj_adm_wrangler:
+  field_form_mode:
+    weight: 17
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_ice_card:
+    weight: 9
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_neighbours:
+    weight: 39
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_placed:
+    weight: 10
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_placement_card:
+    weight: 11
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_placement_letter_sent:
+    weight: 15
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_plot:
+    weight: 12
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_prj_adm_review:
     type: options_select
-    weight: 1
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_prj_adm_wrangler:
+    type: erviews_options_select
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -522,6 +596,41 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
+  field_prj_plc_binnekring:
+    type: boolean_checkbox
+    weight: 8
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_prj_plc_camp_d:
+    type: number
+    weight: 7
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_plc_camp_w:
+    type: number
+    weight: 6
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_plc_location:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_prj_plc_location_extra:
+    type: string_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_snd_level:
     weight: 26
     settings: {  }
@@ -658,6 +767,23 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
+  field_prjr_complete:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_year_cycle:
+    weight: 40
+    settings: {  }
+    third_party_settings: {  }
+    type: computed_number_widget
+    region: content
+  flag:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   moderation_state:
     weight: 38
     settings:
@@ -676,24 +802,19 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_field_prj_adm_form_3: true
   field_field_prj_plc_marquis: true
   field_field_prj_plc_stretch_m: true
   field_prj_adm_comms: true
-  field_prj_adm_form_2: true
   field_prj_adm_form_3: true
-  field_prj_adm_form_wtf: true
   field_prj_adm_latitude: true
   field_prj_adm_longitude: true
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
-  field_prj_adm_review: true
   field_prj_gen_year: true
   field_prj_lgh_agree: true
   field_prj_lgh_description: true
   field_prj_lgh_policy: true
   field_prj_lgh_power: true
-  field_prj_lnt_comments: true
   field_prj_lnt_images: true
   field_prj_lnt_publish: true
   field_prj_lnt_score: true
@@ -704,7 +825,6 @@ hidden:
   field_prj_ons_monday_d: true
   field_prj_ons_rating: true
   field_prj_ons_rest_b: true
-  field_prj_ons_rest_d: true
   field_prj_ons_tuesday_b: true
   field_prj_ons_tuesday_d: true
   field_prj_ons_wednesay_d: true
@@ -715,9 +835,6 @@ hidden:
   field_prj_plc_artwork: true
   field_prj_plc_artwork_d: true
   field_prj_plc_artwork_w: true
-  field_prj_plc_binnekring: true
-  field_prj_plc_camp_d: true
-  field_prj_plc_camp_w: true
   field_prj_plc_caravan: true
   field_prj_plc_cars: true
   field_prj_plc_fire: true
@@ -726,8 +843,6 @@ hidden:
   field_prj_plc_frontage: true
   field_prj_plc_large: true
   field_prj_plc_layout: true
-  field_prj_plc_location: true
-  field_prj_plc_location_extra: true
   field_prj_plc_map: true
   field_prj_plc_motivation: true
   field_prj_plc_people: true
@@ -744,7 +859,6 @@ hidden:
   field_prj_plc_trailers: true
   field_prj_saf_access: true
   field_prj_saf_cage: true
-  field_prj_saf_comment: true
   field_prj_saf_extinguish: true
   field_prj_saf_gas: true
   field_prj_saf_guide: true

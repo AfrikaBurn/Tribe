@@ -45,3 +45,14 @@ better_support_for_screen_readers: false
 use_mobile_message: false
 _core:
   default_config_hash: OlBvbDcm2PUT2i28p3oNpuKaUKbbK4qjfrAyYxvd0B8
+method: default
+disagree_button_label: 'No, thanks'
+disabled_javascripts: ''
+whitelisted_cookies: ''
+consent_storage_method: do_not_store
+withdraw_message:
+  value: '<h2>We use cookies on this site to enhance your user experience</h2><p>You have given your consent for us to set cookies.</p>'
+  format: basic_html
+withdraw_action_button_label: 'Withdraw consent'
+withdraw_tab_button_label: 'Privacy settings'
+withdraw_enabled: false

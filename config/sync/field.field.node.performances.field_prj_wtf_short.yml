@@ -17,7 +17,7 @@ id: node.performances.field_prj_wtf_short
 field_name: field_prj_wtf_short
 entity_type: node
 bundle: performances
-label: 'Short blurb for the WTF Guide (event guide)'
+label: 'Print descriptiom'
 description: "<p>The good citizens of Tankwa Town like to know what's happening in their hometown, so please provide a short blurb about your project. (max 100 words). Think this through, as this is the information about your project that'll appear in our WTF guide.</p>\r\n<p>(Note that our Minister of Info reserves the right to make edits if necessary.)</p>"
 required: false
 translatable: true

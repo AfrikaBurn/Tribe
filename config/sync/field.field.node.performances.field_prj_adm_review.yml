@@ -18,7 +18,7 @@ id: node.performances.field_prj_adm_review
 field_name: field_prj_adm_review
 entity_type: node
 bundle: performances
-label: Review
+label: Status
 description: ''
 required: false
 translatable: true

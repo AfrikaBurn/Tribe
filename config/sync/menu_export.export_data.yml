@@ -1,64 +1,1823 @@
-account:
-  - ''
-footer:
-  - ''
-main:
-  0: ''
-  769f3c17-0324-4fea-8440-50ced4937eb9: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"769f3c17-0324-4fea-8440-50ced4937eb9";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:5:"About";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:32:"https://www.afrikaburn.com/about";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-49";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";b:0;s:7:"changed";a:1:{s:5:"value";s:10:"1503322444";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  59c1cca8-4c53-4949-8bf4-8534a3814fa2: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"59c1cca8-4c53-4949-8bf4-8534a3814fa2";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:18:"What is AfrikAburn";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:51:"https://www.afrikaburn.com/about/what-is-afrikaburn";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-50";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:769f3c17-0324-4fea-8440-50ced4937eb9";}s:7:"changed";a:1:{s:5:"value";s:10:"1503322444";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  dab90f4d-edc6-4bba-a847-eb47b27ec315: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"dab90f4d-edc6-4bba-a847-eb47b27ec315";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:17:"Mission Statement";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:50:"https://www.afrikaburn.com/about/mission-statement";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-49";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:769f3c17-0324-4fea-8440-50ced4937eb9";}s:7:"changed";a:1:{s:5:"value";s:10:"1503322444";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  d5e11ea1-81f9-4477-a125-eb30effbc9f7: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"d5e11ea1-81f9-4477-a125-eb30effbc9f7";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:18:"Guiding Principles";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:51:"https://www.afrikaburn.com/about/guiding-principles";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-48";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:769f3c17-0324-4fea-8440-50ced4937eb9";}s:7:"changed";a:1:{s:5:"value";s:10:"1503322598";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  61ba73b2-8633-47f9-8228-a0c70da940e7: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"61ba73b2-8633-47f9-8228-a0c70da940e7";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:16:"The Organisation";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:49:"https://www.afrikaburn.com/about/the-organisation";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-47";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:769f3c17-0324-4fea-8440-50ced4937eb9";}s:7:"changed";a:1:{s:5:"value";s:10:"1503322598";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  b236b8f7-7a8a-4fb3-8229-748c3f80ccab: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"b236b8f7-7a8a-4fb3-8229-748c3f80ccab";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:9:"The Event";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:36:"https://www.afrikaburn.com/the-event";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-48";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";b:0;s:7:"changed";a:1:{s:5:"value";s:10:"1503325631";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  2bbfcd75-7156-4eea-977a-ac418ed69524: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"2bbfcd75-7156-4eea-977a-ac418ed69524";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:9:"Community";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:36:"https://www.afrikaburn.com/community";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-47";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";b:0;s:7:"changed";a:1:{s:5:"value";s:10:"1503324769";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  83c30bfa-e6ef-47f5-8c1c-c2f4e85fe0b7: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"83c30bfa-e6ef-47f5-8c1c-c2f4e85fe0b7";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:4:"News";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:31:"https://www.afrikaburn.com/news";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-46";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";b:0;s:7:"changed";a:1:{s:5:"value";s:10:"1503324769";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  f8678bba-6ef5-4d07-b7ab-a8ff53d9b674: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"f8678bba-6ef5-4d07-b7ab-a8ff53d9b674";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:7:"Gallery";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:34:"https://www.afrikaburn.com/gallery";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-45";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";b:0;s:7:"changed";a:1:{s:5:"value";s:10:"1503324769";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  f2cc864d-f924-49aa-92ca-88e754b0dec4: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"f2cc864d-f924-49aa-92ca-88e754b0dec4";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:7:"Contact";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:54:"https://www.afrikaburn.com/participation-forms/contact";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-44";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";b:0;s:7:"changed";a:1:{s:5:"value";s:10:"1503324769";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  3de93972-deef-4512-82a9-f5c4b09c22af: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"3de93972-deef-4512-82a9-f5c4b09c22af";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:23:"Governance Transparency";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:55:"http://www.afrikaburn.com/about/governance-transparency";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-46";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:769f3c17-0324-4fea-8440-50ced4937eb9";}s:7:"changed";a:1:{s:5:"value";s:10:"1503325136";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  964afb3c-22be-4787-b8ae-f1751bfb811e: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"964afb3c-22be-4787-b8ae-f1751bfb811e";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:21:"Afrikaburn Financials";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:54:"https://www.afrikaburn.com/about/afrikaburn-financials";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:1:"7";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:769f3c17-0324-4fea-8440-50ced4937eb9";}s:7:"changed";a:1:{s:5:"value";s:10:"1503325191";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  f4f99851-abc9-498e-b1a5-3e4adc406bc2: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"f4f99851-abc9-498e-b1a5-3e4adc406bc2";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:10:"2018 Theme";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:47:"https://www.afrikaburn.com/the-event/2018-theme";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-50";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab";}s:7:"changed";a:1:{s:5:"value";s:10:"1503325345";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  de2380bb-0051-4870-821d-61549c7345ee: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"de2380bb-0051-4870-821d-61549c7345ee";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:7:"Tickets";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:44:"https://www.afrikaburn.com/the-event/tickets";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-49";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab";}s:7:"changed";a:1:{s:5:"value";s:10:"1503325751";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  e12d6840-4ed1-4146-8e11-7cbc3e3362c2: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"e12d6840-4ed1-4146-8e11-7cbc3e3362c2";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:15:"Fundraiser Info";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:52:"https://www.afrikaburn.com/the-event/fundraiser-info";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-46";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab";}s:7:"changed";a:1:{s:5:"value";s:10:"1506944686";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  2d5f6cfb-0d43-4af8-a364-cd1c70277628: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"2d5f6cfb-0d43-4af8-a364-cd1c70277628";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:13:"Getting There";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:50:"https://www.afrikaburn.com/the-event/getting-there";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-43";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab";}s:7:"changed";a:1:{s:5:"value";s:10:"1517312255";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  6d092907-8c92-4a15-bf1e-7533222bd648: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"6d092907-8c92-4a15-bf1e-7533222bd648";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:11:"Tankwa Town";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:48:"https://www.afrikaburn.com/the-event/tankwa-town";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-42";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab";}s:7:"changed";a:1:{s:5:"value";s:10:"1517312255";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  1fafbf7f-1593-4972-b85a-98bc75506015: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"1fafbf7f-1593-4972-b85a-98bc75506015";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:11:"Preparation";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:48:"https://www.afrikaburn.com/the-event/preparation";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-45";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab";}s:7:"changed";a:1:{s:5:"value";s:10:"1506944686";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  d636be48-be54-422a-86a9-5f7620528836: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"d636be48-be54-422a-86a9-5f7620528836";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:13:"Participation";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:50:"https://www.afrikaburn.com/the-event/participation";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-48";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab";}s:7:"changed";a:1:{s:5:"value";s:10:"1506944686";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  6bba2772-8c3e-48f3-bceb-2aa5eed2f5fa: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"6bba2772-8c3e-48f3-bceb-2aa5eed2f5fa";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:3:"FAQ";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:40:"https://www.afrikaburn.com/the-event/faq";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-40";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab";}s:7:"changed";a:1:{s:5:"value";s:10:"1517312255";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  bb107edc-604b-43f2-aacd-e9fd3952dee1: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"bb107edc-604b-43f2-aacd-e9fd3952dee1";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:11:"Past Events";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:48:"https://www.afrikaburn.com/the-event/past-events";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-41";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab";}s:7:"changed";a:1:{s:5:"value";s:10:"1517312255";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  2d82e6c8-352b-4a0a-81ce-3ead2f19a64c: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"2d82e6c8-352b-4a0a-81ce-3ead2f19a64c";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:19:"Press, Film & Photo";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:48:"https://www.afrikaburn.com/the-event/press-media";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-39";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab";}s:7:"changed";a:1:{s:5:"value";s:10:"1517312255";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  22466ca1-8bd4-455d-a606-941261456941: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"22466ca1-8bd4-455d-a606-941261456941";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:12:"Get Involved";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:49:"https://www.afrikaburn.com/community/get-involved";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-50";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:2bbfcd75-7156-4eea-977a-ac418ed69524";}s:7:"changed";a:1:{s:5:"value";s:10:"1503326241";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  f1c7f891-9619-4930-8fc4-e69e90a8e763: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"f1c7f891-9619-4930-8fc4-e69e90a8e763";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:21:"Afrikaburn Year Round";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:58:"https://www.afrikaburn.com/community/afrikaburn-year-round";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-49";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:2bbfcd75-7156-4eea-977a-ac418ed69524";}s:7:"changed";a:1:{s:5:"value";s:10:"1503326402";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  eb9310db-2bbf-467f-b959-ba3c0576f43c: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"eb9310db-2bbf-467f-b959-ba3c0576f43c";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:9:"Rangering";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:60:"https://www.afrikaburn.com/the-event/participation/rangering";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-48";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:2bbfcd75-7156-4eea-977a-ac418ed69524";}s:7:"changed";a:1:{s:5:"value";s:10:"1503326402";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  7a058b90-d512-4d47-bb45-ad65fb39873b: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"7a058b90-d512-4d47-bb45-ad65fb39873b";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:7:"D.E.A.R";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:44:"https://www.afrikaburn.com/community/d-e-a-r";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:1:"4";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:2bbfcd75-7156-4eea-977a-ac418ed69524";}s:7:"changed";a:1:{s:5:"value";s:10:"1503326458";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  3cd4b9fb-58c7-45d0-8c00-96c37ae42a3d: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"3cd4b9fb-58c7-45d0-8c00-96c37ae42a3d";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:3:"DMV";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:66:"https://www.afrikaburn.com/the-event/participation/mutant-vehicles";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:1:"6";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:2bbfcd75-7156-4eea-977a-ac418ed69524";}s:7:"changed";a:1:{s:5:"value";s:10:"1503326591";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  25bad7e9-f8a1-43bb-bfad-6c393bb62b36: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"25bad7e9-f8a1-43bb-bfad-6c393bb62b36";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:3:"DPW";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:54:"https://www.afrikaburn.com/the-event/participation/dpw";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:1:"6";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:2bbfcd75-7156-4eea-977a-ac418ed69524";}s:7:"changed";a:1:{s:5:"value";s:10:"1503326637";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  dca51699-7625-46c8-8e18-71ce935384ad: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"dca51699-7625-46c8-8e18-71ce935384ad";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:8:"Outreach";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:50:"https://www.afrikaburn.com/community/outreach-home";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:1:"8";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:2bbfcd75-7156-4eea-977a-ac418ed69524";}s:7:"changed";a:1:{s:5:"value";s:10:"1503326696";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  651535ca-9ed8-4cc6-b77d-862774350271: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"651535ca-9ed8-4cc6-b77d-862774350271";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:9:"Sanctuary";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:60:"https://www.afrikaburn.com/the-event/participation/sanctuary";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:1:"9";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:2bbfcd75-7156-4eea-977a-ac418ed69524";}s:7:"changed";a:1:{s:5:"value";s:10:"1503326752";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  97288264-b216-4399-ad87-7ba95bf7a7f2: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"97288264-b216-4399-ad87-7ba95bf7a7f2";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:19:"Community Directory";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:47:"http://new.afrikaburn.com/community/joinproject";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:2:"10";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:2bbfcd75-7156-4eea-977a-ac418ed69524";}s:7:"changed";a:1:{s:5:"value";s:10:"1503326817";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  c4298cc0-1fa0-4ff2-a156-acd7345b785f: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"c4298cc0-1fa0-4ff2-a156-acd7345b785f";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:15:"Community Links";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:52:"https://www.afrikaburn.com/community/community-links";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:2:"20";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:2bbfcd75-7156-4eea-977a-ac418ed69524";}s:7:"changed";a:1:{s:5:"value";s:10:"1503330290";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  84bfbe22-c3e4-46ad-b008-bde4b7522926: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"84bfbe22-c3e4-46ad-b008-bde4b7522926";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:15:"Binnekring Blog";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:50:"https://www.afrikaburn.com/category/binnekringblog";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:1:"1";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:83c30bfa-e6ef-47f5-8c1c-c2f4e85fe0b7";}s:7:"changed";a:1:{s:5:"value";s:10:"1503330554";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  bcd89ab1-0f56-480d-953e-af2fa27c6a23: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"bcd89ab1-0f56-480d-953e-af2fa27c6a23";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:11:"Latest News";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:44:"https://www.afrikaburn.com/news/latest-news/";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:1:"2";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:83c30bfa-e6ef-47f5-8c1c-c2f4e85fe0b7";}s:7:"changed";a:1:{s:5:"value";s:10:"1503330635";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  9535650c-fa96-48fe-94e8-e7c378515061: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"9535650c-fa96-48fe-94e8-e7c378515061";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:17:"AfrikaBurn Images";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:58:"https://www.afrikaburn.com/gallery/general-photo-galleries";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:1:"0";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:f8678bba-6ef5-4d07-b7ab-a8ff53d9b674";}s:7:"changed";a:1:{s:5:"value";s:10:"1503330724";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  8c0a89f9-2483-42ac-8263-0e8d4ad8edb2: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"8c0a89f9-2483-42ac-8263-0e8d4ad8edb2";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:17:"AfrikaBurn Videos";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:58:"https://www.afrikaburn.com/gallery/general-video-galleries";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:1:"1";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:f8678bba-6ef5-4d07-b7ab-a8ff53d9b674";}s:7:"changed";a:1:{s:5:"value";s:10:"1503330802";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  5a058249-face-41a6-8395-29d29987abf4: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"5a058249-face-41a6-8395-29d29987abf4";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:13:"link external";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:26:"https://www.afrikaburn.com";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:1:"0";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"0";}s:6:"parent";b:0;s:7:"changed";a:1:{s:5:"value";s:10:"1505394189";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  4f84cb9e-b3bf-4399-9b0d-8ab926aefcfc: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"4f84cb9e-b3bf-4399-9b0d-8ab926aefcfc";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:17:"Art & Performance";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:45:"https://www.afrikaburn.com/the-event/artworks";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-47";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab";}s:7:"changed";a:1:{s:5:"value";s:10:"1506944686";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  5c54c54e-e8c1-4120-9cae-b22a3a8ee372: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"5c54c54e-e8c1-4120-9cae-b22a3a8ee372";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:9:"Suppliers";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:4:"main";}s:4:"link";a:3:{s:3:"uri";s:45:"http://www.afrikaburn.com/the-event/suppliers";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"0";}s:6:"weight";a:1:{s:5:"value";s:3:"-44";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab";}s:7:"changed";a:1:{s:5:"value";s:10:"1517312255";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-publish:
-  0: ''
-  998070a1-4afc-497f-8715-d77f3f8bc456: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"998070a1-4afc-497f-8715-d77f3f8bc456";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:20:"Make an announcement";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:7:"publish";}s:4:"link";a:3:{s:3:"uri";s:31:"internal:/node/add/announcement";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"1";}s:6:"weight";a:1:{s:5:"value";s:1:"0";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";b:0;s:7:"changed";a:1:{s:5:"value";s:10:"1528717767";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  f8b28d4f-39bf-4243-ba2c-5ddf321544a4: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"f8b28d4f-39bf-4243-ba2c-5ddf321544a4";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:20:"Manage announcements";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:7:"publish";}s:4:"link";a:3:{s:3:"uri";s:30:"internal:/manage/announcements";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"1";}s:6:"weight";a:1:{s:5:"value";s:1:"0";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";b:0;s:7:"changed";a:1:{s:5:"value";s:10:"1528718405";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-wrangle:
-  0: ''
-  8ec7ac1d-695c-46e6-bb8e-2b7e183e0417: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"8ec7ac1d-695c-46e6-bb8e-2b7e183e0417";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:18:"Art & Performances";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:7:"wrangle";}s:4:"link";a:3:{s:3:"uri";s:23:"internal:/wranglers/art";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"1";}s:6:"weight";a:1:{s:5:"value";s:3:"-50";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:79d40a9b-d903-44b2-9e61-040a2c95c474";}s:7:"changed";a:1:{s:5:"value";s:10:"1528706722";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  152dd1e5-96b0-466a-91fc-5aecbe5fb20b: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"152dd1e5-96b0-466a-91fc-5aecbe5fb20b";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:11:"Theme Camps";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:7:"wrangle";}s:4:"link";a:3:{s:3:"uri";s:31:"internal:/wranglers/theme_camps";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"1";}s:6:"weight";a:1:{s:5:"value";s:3:"-48";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:79d40a9b-d903-44b2-9e61-040a2c95c474";}s:7:"changed";a:1:{s:5:"value";s:10:"1528706722";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  8982fa40-fe28-45c8-b66a-562ee44bff41: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"8982fa40-fe28-45c8-b66a-562ee44bff41";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:15:"Mutant Vehicles";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:7:"wrangle";}s:4:"link";a:3:{s:3:"uri";s:35:"internal:/wranglers/mutant_vehicles";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"1";}s:6:"weight";a:1:{s:5:"value";s:3:"-49";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:79d40a9b-d903-44b2-9e61-040a2c95c474";}s:7:"changed";a:1:{s:5:"value";s:10:"1528706722";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  79d40a9b-d903-44b2-9e61-040a2c95c474: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"79d40a9b-d903-44b2-9e61-040a2c95c474";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:13:"Registrations";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:7:"wrangle";}s:4:"link";a:3:{s:3:"uri";s:19:"internal:/wranglers";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"1";}s:6:"weight";a:1:{s:5:"value";s:3:"-50";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";b:0;s:7:"changed";a:1:{s:5:"value";s:10:"1528706722";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  191563b2-06ef-471a-94f8-f285e4ff5cf6: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"191563b2-06ef-471a-94f8-f285e4ff5cf6";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:12:"Applications";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:7:"wrangle";}s:4:"link";a:3:{s:3:"uri";s:32:"internal:/wranglers/applications";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"1";}s:6:"weight";a:1:{s:5:"value";s:1:"0";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";b:0;s:7:"changed";a:1:{s:5:"value";s:10:"1528707245";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  347ab0e6-5ca8-47cc-93b4-f8d82ce15a56: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"347ab0e6-5ca8-47cc-93b4-f8d82ce15a56";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:3:"DPW";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:7:"wrangle";}s:4:"link";a:3:{s:3:"uri";s:86:"internal:/admin/structure/webform/manage/dpw_application_form_2018/results/submissions";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"1";}s:6:"weight";a:1:{s:5:"value";s:3:"-49";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:4afee224-50e2-44f0-aa4e-ef41ebcaa361";}s:7:"changed";a:1:{s:5:"value";s:10:"1528707168";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  3189e21c-a0b5-40b7-9008-a4e8c8292042: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"3189e21c-a0b5-40b7-9008-a4e8c8292042";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:7:"Rangers";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:7:"wrangle";}s:4:"link";a:3:{s:3:"uri";s:80:"internal:/admin/structure/webform/manage/ranger_registration/results/submissions";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"1";}s:6:"weight";a:1:{s:5:"value";s:3:"-47";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:4afee224-50e2-44f0-aa4e-ef41ebcaa361";}s:7:"changed";a:1:{s:5:"value";s:10:"1528707168";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  c555cd13-34e4-41d0-9b10-449a99a6a716: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"c555cd13-34e4-41d0-9b10-449a99a6a716";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:9:"Sanctuary";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:7:"wrangle";}s:4:"link";a:3:{s:3:"uri";s:82:"internal:/admin/structure/webform/manage/sanctuary_application/results/submissions";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"1";}s:6:"weight";a:1:{s:5:"value";s:3:"-46";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:4afee224-50e2-44f0-aa4e-ef41ebcaa361";}s:7:"changed";a:1:{s:5:"value";s:10:"1528707168";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  1eb10983-9fe8-4cb1-a8aa-5ed4fa0497b2: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"1eb10983-9fe8-4cb1-a8aa-5ed4fa0497b2";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:7:"Die Hek";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:7:"wrangle";}s:4:"link";a:3:{s:3:"uri";s:73:"internal:/admin/structure/webform/manage/die_hek_2018/results/submissions";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"1";}s:6:"weight";a:1:{s:5:"value";s:3:"-50";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:4afee224-50e2-44f0-aa4e-ef41ebcaa361";}s:7:"changed";a:1:{s:5:"value";s:10:"1528707168";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  3a2f38ea-95fe-4ae4-8ab4-d135e5527ca3: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"3a2f38ea-95fe-4ae4-8ab4-d135e5527ca3";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:10:"Green dots";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:7:"wrangle";}s:4:"link";a:3:{s:3:"uri";s:82:"internal:/admin/structure/webform/manage/green_dot_application/results/submissions";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"1";}s:6:"weight";a:1:{s:5:"value";s:3:"-48";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:4afee224-50e2-44f0-aa4e-ef41ebcaa361";}s:7:"changed";a:1:{s:5:"value";s:10:"1528707168";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  92c5f3d3-4464-4469-b1f9-bd15093b32c1: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"92c5f3d3-4464-4469-b1f9-bd15093b32c1";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:12:"Spark grants";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:7:"wrangle";}s:4:"link";a:3:{s:3:"uri";s:77:"internal:/admin/structure/webform/manage/spark_grant_2018/results/submissions";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"1";}s:6:"weight";a:1:{s:5:"value";s:1:"0";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:191563b2-06ef-471a-94f8-f285e4ff5cf6";}s:7:"changed";a:1:{s:5:"value";s:10:"1528707059";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  8ae91d89-6942-4620-93d2-69c07ebb69d0: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"8ae91d89-6942-4620-93d2-69c07ebb69d0";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:35:"Community tickets and Access grants";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:7:"wrangle";}s:4:"link";a:3:{s:3:"uri";s:83:"internal:/admin/structure/webform/manage/community_access_grant/results/submissions";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"1";}s:6:"weight";a:1:{s:5:"value";s:1:"0";}s:8:"expanded";a:1:{s:5:"value";s:1:"0";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";a:1:{s:5:"value";s:54:"menu_link_content:191563b2-06ef-471a-94f8-f285e4ff5cf6";}s:7:"changed";a:1:{s:5:"value";s:10:"1528707121";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
-  4afee224-50e2-44f0-aa4e-ef41ebcaa361: 'a:15:{s:4:"uuid";a:1:{s:5:"value";s:36:"4afee224-50e2-44f0-aa4e-ef41ebcaa361";}s:8:"langcode";a:1:{s:5:"value";s:2:"en";}s:6:"bundle";a:1:{s:5:"value";s:17:"menu_link_content";}s:5:"title";a:1:{s:5:"value";s:11:"Collectives";}s:11:"description";b:0;s:9:"menu_name";a:1:{s:5:"value";s:7:"wrangle";}s:4:"link";a:3:{s:3:"uri";s:19:"internal:/wranglers";s:5:"title";s:0:"";s:7:"options";a:0:{}}s:8:"external";a:1:{s:5:"value";s:1:"0";}s:10:"rediscover";a:1:{s:5:"value";s:1:"1";}s:6:"weight";a:1:{s:5:"value";s:1:"0";}s:8:"expanded";a:1:{s:5:"value";s:1:"1";}s:7:"enabled";a:1:{s:5:"value";s:1:"1";}s:6:"parent";b:0;s:7:"changed";a:1:{s:5:"value";s:10:"1528711128";}s:16:"default_langcode";a:1:{s:5:"value";s:1:"1";}}'
+1:
+  id:
+    value: '1'
+  uuid:
+    value: 769f3c17-0324-4fea-8440-50ced4937eb9
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: About
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/about'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-49'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent: false
+  changed:
+    value: '1503322444'
+  default_langcode:
+    value: '1'
+2:
+  id:
+    value: '2'
+  uuid:
+    value: 59c1cca8-4c53-4949-8bf4-8534a3814fa2
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'What is AfrikAburn'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/about/what-is-afrikaburn'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-50'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:769f3c17-0324-4fea-8440-50ced4937eb9'
+  changed:
+    value: '1503322444'
+  default_langcode:
+    value: '1'
+3:
+  id:
+    value: '3'
+  uuid:
+    value: dab90f4d-edc6-4bba-a847-eb47b27ec315
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Mission Statement'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/about/mission-statement'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-49'
+  expanded:
+    value: '0'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:769f3c17-0324-4fea-8440-50ced4937eb9'
+  changed:
+    value: '1503322444'
+  default_langcode:
+    value: '1'
+4:
+  id:
+    value: '4'
+  uuid:
+    value: d5e11ea1-81f9-4477-a125-eb30effbc9f7
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Guiding Principles'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/about/guiding-principles'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-48'
+  expanded:
+    value: '0'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:769f3c17-0324-4fea-8440-50ced4937eb9'
+  changed:
+    value: '1503322598'
+  default_langcode:
+    value: '1'
+5:
+  id:
+    value: '5'
+  uuid:
+    value: 61ba73b2-8633-47f9-8228-a0c70da940e7
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'The Organisation'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/about/the-organisation'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-47'
+  expanded:
+    value: '0'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:769f3c17-0324-4fea-8440-50ced4937eb9'
+  changed:
+    value: '1503322598'
+  default_langcode:
+    value: '1'
+6:
+  id:
+    value: '6'
+  uuid:
+    value: b236b8f7-7a8a-4fb3-8229-748c3f80ccab
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'The Event'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/the-event'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-48'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent: false
+  changed:
+    value: '1503325631'
+  default_langcode:
+    value: '1'
+7:
+  id:
+    value: '7'
+  uuid:
+    value: 2bbfcd75-7156-4eea-977a-ac418ed69524
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: Community
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/community'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-47'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent: false
+  changed:
+    value: '1503324769'
+  default_langcode:
+    value: '1'
+8:
+  id:
+    value: '8'
+  uuid:
+    value: 83c30bfa-e6ef-47f5-8c1c-c2f4e85fe0b7
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: News
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/news'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-46'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent: false
+  changed:
+    value: '1503324769'
+  default_langcode:
+    value: '1'
+9:
+  id:
+    value: '9'
+  uuid:
+    value: f8678bba-6ef5-4d07-b7ab-a8ff53d9b674
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: Gallery
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/gallery'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-45'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent: false
+  changed:
+    value: '1503324769'
+  default_langcode:
+    value: '1'
+10:
+  id:
+    value: '10'
+  uuid:
+    value: f2cc864d-f924-49aa-92ca-88e754b0dec4
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: Contact
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/participation-forms/contact'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-44'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent: false
+  changed:
+    value: '1503324769'
+  default_langcode:
+    value: '1'
+11:
+  id:
+    value: '11'
+  uuid:
+    value: 3de93972-deef-4512-82a9-f5c4b09c22af
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Governance Transparency'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'http://www.afrikaburn.com/about/governance-transparency'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-46'
+  expanded:
+    value: '0'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:769f3c17-0324-4fea-8440-50ced4937eb9'
+  changed:
+    value: '1503325136'
+  default_langcode:
+    value: '1'
+12:
+  id:
+    value: '12'
+  uuid:
+    value: 964afb3c-22be-4787-b8ae-f1751bfb811e
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Afrikaburn Financials'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/about/afrikaburn-financials'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '7'
+  expanded:
+    value: '0'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:769f3c17-0324-4fea-8440-50ced4937eb9'
+  changed:
+    value: '1503325191'
+  default_langcode:
+    value: '1'
+13:
+  id:
+    value: '13'
+  uuid:
+    value: f4f99851-abc9-498e-b1a5-3e4adc406bc2
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: '2018 Theme'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/the-event/2018-theme'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-50'
+  expanded:
+    value: '0'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab'
+  changed:
+    value: '1503325345'
+  default_langcode:
+    value: '1'
+14:
+  id:
+    value: '14'
+  uuid:
+    value: de2380bb-0051-4870-821d-61549c7345ee
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: Tickets
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/the-event/tickets'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-49'
+  expanded:
+    value: '0'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab'
+  changed:
+    value: '1503325751'
+  default_langcode:
+    value: '1'
+15:
+  id:
+    value: '15'
+  uuid:
+    value: e12d6840-4ed1-4146-8e11-7cbc3e3362c2
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Fundraiser Info'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/the-event/fundraiser-info'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-46'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab'
+  changed:
+    value: '1506944686'
+  default_langcode:
+    value: '1'
+16:
+  id:
+    value: '16'
+  uuid:
+    value: 2d5f6cfb-0d43-4af8-a364-cd1c70277628
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Getting There'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/the-event/getting-there'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-43'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab'
+  changed:
+    value: '1517312255'
+  default_langcode:
+    value: '1'
+17:
+  id:
+    value: '17'
+  uuid:
+    value: 6d092907-8c92-4a15-bf1e-7533222bd648
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Tankwa Town'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/the-event/tankwa-town'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-42'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab'
+  changed:
+    value: '1517312255'
+  default_langcode:
+    value: '1'
+18:
+  id:
+    value: '18'
+  uuid:
+    value: 1fafbf7f-1593-4972-b85a-98bc75506015
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: Preparation
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/the-event/preparation'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-45'
+  expanded:
+    value: '0'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab'
+  changed:
+    value: '1506944686'
+  default_langcode:
+    value: '1'
+19:
+  id:
+    value: '19'
+  uuid:
+    value: d636be48-be54-422a-86a9-5f7620528836
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: Participation
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/the-event/participation'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-48'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab'
+  changed:
+    value: '1506944686'
+  default_langcode:
+    value: '1'
+20:
+  id:
+    value: '20'
+  uuid:
+    value: 6bba2772-8c3e-48f3-bceb-2aa5eed2f5fa
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: FAQ
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/the-event/faq'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-40'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab'
+  changed:
+    value: '1517312255'
+  default_langcode:
+    value: '1'
+21:
+  id:
+    value: '21'
+  uuid:
+    value: bb107edc-604b-43f2-aacd-e9fd3952dee1
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Past Events'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/the-event/past-events'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-41'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab'
+  changed:
+    value: '1517312255'
+  default_langcode:
+    value: '1'
+22:
+  id:
+    value: '22'
+  uuid:
+    value: 2d82e6c8-352b-4a0a-81ce-3ead2f19a64c
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Press, Film & Photo'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/the-event/press-media'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-39'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab'
+  changed:
+    value: '1517312255'
+  default_langcode:
+    value: '1'
+23:
+  id:
+    value: '23'
+  uuid:
+    value: 22466ca1-8bd4-455d-a606-941261456941
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Get Involved'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/community/get-involved'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-50'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:2bbfcd75-7156-4eea-977a-ac418ed69524'
+  changed:
+    value: '1503326241'
+  default_langcode:
+    value: '1'
+24:
+  id:
+    value: '24'
+  uuid:
+    value: f1c7f891-9619-4930-8fc4-e69e90a8e763
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Afrikaburn Year Round'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/community/afrikaburn-year-round'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-49'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:2bbfcd75-7156-4eea-977a-ac418ed69524'
+  changed:
+    value: '1503326402'
+  default_langcode:
+    value: '1'
+25:
+  id:
+    value: '25'
+  uuid:
+    value: eb9310db-2bbf-467f-b959-ba3c0576f43c
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: Rangering
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/the-event/participation/rangering'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-48'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:2bbfcd75-7156-4eea-977a-ac418ed69524'
+  changed:
+    value: '1503326402'
+  default_langcode:
+    value: '1'
+26:
+  id:
+    value: '26'
+  uuid:
+    value: 7a058b90-d512-4d47-bb45-ad65fb39873b
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: D.E.A.R
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/community/d-e-a-r'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '4'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:2bbfcd75-7156-4eea-977a-ac418ed69524'
+  changed:
+    value: '1503326458'
+  default_langcode:
+    value: '1'
+27:
+  id:
+    value: '27'
+  uuid:
+    value: 3cd4b9fb-58c7-45d0-8c00-96c37ae42a3d
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: DMV
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/the-event/participation/mutant-vehicles'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '6'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:2bbfcd75-7156-4eea-977a-ac418ed69524'
+  changed:
+    value: '1503326591'
+  default_langcode:
+    value: '1'
+28:
+  id:
+    value: '28'
+  uuid:
+    value: 25bad7e9-f8a1-43bb-bfad-6c393bb62b36
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: DPW
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/the-event/participation/dpw'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '6'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:2bbfcd75-7156-4eea-977a-ac418ed69524'
+  changed:
+    value: '1503326637'
+  default_langcode:
+    value: '1'
+29:
+  id:
+    value: '29'
+  uuid:
+    value: dca51699-7625-46c8-8e18-71ce935384ad
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: Outreach
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/community/outreach-home'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '8'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:2bbfcd75-7156-4eea-977a-ac418ed69524'
+  changed:
+    value: '1503326696'
+  default_langcode:
+    value: '1'
+30:
+  id:
+    value: '30'
+  uuid:
+    value: 651535ca-9ed8-4cc6-b77d-862774350271
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: Sanctuary
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/the-event/participation/sanctuary'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '9'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:2bbfcd75-7156-4eea-977a-ac418ed69524'
+  changed:
+    value: '1503326752'
+  default_langcode:
+    value: '1'
+31:
+  id:
+    value: '31'
+  uuid:
+    value: 97288264-b216-4399-ad87-7ba95bf7a7f2
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Community Directory'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'http://new.afrikaburn.com/community/joinproject'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '10'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:2bbfcd75-7156-4eea-977a-ac418ed69524'
+  changed:
+    value: '1503326817'
+  default_langcode:
+    value: '1'
+32:
+  id:
+    value: '32'
+  uuid:
+    value: c4298cc0-1fa0-4ff2-a156-acd7345b785f
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Community Links'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/community/community-links'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '20'
+  expanded:
+    value: '0'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:2bbfcd75-7156-4eea-977a-ac418ed69524'
+  changed:
+    value: '1503330290'
+  default_langcode:
+    value: '1'
+33:
+  id:
+    value: '33'
+  uuid:
+    value: 84bfbe22-c3e4-46ad-b008-bde4b7522926
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Binnekring Blog'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/category/binnekringblog'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '1'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:83c30bfa-e6ef-47f5-8c1c-c2f4e85fe0b7'
+  changed:
+    value: '1503330554'
+  default_langcode:
+    value: '1'
+34:
+  id:
+    value: '34'
+  uuid:
+    value: bcd89ab1-0f56-480d-953e-af2fa27c6a23
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Latest News'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/news/latest-news/'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '2'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:83c30bfa-e6ef-47f5-8c1c-c2f4e85fe0b7'
+  changed:
+    value: '1503330635'
+  default_langcode:
+    value: '1'
+35:
+  id:
+    value: '35'
+  uuid:
+    value: 9535650c-fa96-48fe-94e8-e7c378515061
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'AfrikaBurn Images'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/gallery/general-photo-galleries'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '0'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:f8678bba-6ef5-4d07-b7ab-a8ff53d9b674'
+  changed:
+    value: '1503330724'
+  default_langcode:
+    value: '1'
+36:
+  id:
+    value: '36'
+  uuid:
+    value: 8c0a89f9-2483-42ac-8263-0e8d4ad8edb2
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'AfrikaBurn Videos'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/gallery/general-video-galleries'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '1'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:f8678bba-6ef5-4d07-b7ab-a8ff53d9b674'
+  changed:
+    value: '1503330802'
+  default_langcode:
+    value: '1'
+39:
+  id:
+    value: '39'
+  uuid:
+    value: 5a058249-face-41a6-8395-29d29987abf4
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'link external'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '0'
+  expanded:
+    value: '0'
+  enabled:
+    value: '0'
+  parent: false
+  changed:
+    value: '1505394189'
+  default_langcode:
+    value: '1'
+42:
+  id:
+    value: '42'
+  uuid:
+    value: 4f84cb9e-b3bf-4399-9b0d-8ab926aefcfc
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Art & Performance'
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'https://www.afrikaburn.com/the-event/artworks'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-47'
+  expanded:
+    value: '0'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab'
+  changed:
+    value: '1506944686'
+  default_langcode:
+    value: '1'
+43:
+  id:
+    value: '43'
+  uuid:
+    value: 5c54c54e-e8c1-4120-9cae-b22a3a8ee372
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: Suppliers
+  description: false
+  menu_name:
+    value: main
+  link:
+    uri: 'http://www.afrikaburn.com/the-event/suppliers'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '0'
+  weight:
+    value: '-44'
+  expanded:
+    value: '0'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:b236b8f7-7a8a-4fb3-8229-748c3f80ccab'
+  changed:
+    value: '1517312255'
+  default_langcode:
+    value: '1'
+57:
+  id:
+    value: '57'
+  uuid:
+    value: 998070a1-4afc-497f-8715-d77f3f8bc456
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Make an announcement'
+  description: false
+  menu_name:
+    value: publish
+  link:
+    uri: 'internal:/node/add/announcement'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '1'
+  weight:
+    value: '0'
+  expanded:
+    value: '0'
+  enabled:
+    value: '1'
+  parent: false
+  changed:
+    value: '1528717767'
+  default_langcode:
+    value: '1'
+58:
+  id:
+    value: '58'
+  uuid:
+    value: f8b28d4f-39bf-4243-ba2c-5ddf321544a4
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Manage announcements'
+  description: false
+  menu_name:
+    value: publish
+  link:
+    uri: 'internal:/manage/announcements'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '1'
+  weight:
+    value: '0'
+  expanded:
+    value: '0'
+  enabled:
+    value: '1'
+  parent: false
+  changed:
+    value: '1528718405'
+  default_langcode:
+    value: '1'
+45:
+  id:
+    value: '45'
+  uuid:
+    value: 152dd1e5-96b0-466a-91fc-5aecbe5fb20b
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Theme Camps'
+  description: false
+  menu_name:
+    value: wrangle
+  link:
+    uri: 'internal:/wrangle/projects/theme-camps'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '1'
+  weight:
+    value: '-47'
+  expanded:
+    value: '0'
+  enabled:
+    value: '0'
+  parent:
+    value: 'menu_link_content:79d40a9b-d903-44b2-9e61-040a2c95c474'
+  changed:
+    value: '1530783109'
+  default_langcode:
+    value: '1'
+46:
+  id:
+    value: '46'
+  uuid:
+    value: 8982fa40-fe28-45c8-b66a-562ee44bff41
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Mutant Vehicles'
+  description: false
+  menu_name:
+    value: wrangle
+  link:
+    uri: 'internal:/wrangle/projects/mutant-vehicles'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '1'
+  weight:
+    value: '-48'
+  expanded:
+    value: '0'
+  enabled:
+    value: '0'
+  parent:
+    value: 'menu_link_content:79d40a9b-d903-44b2-9e61-040a2c95c474'
+  changed:
+    value: '1530783102'
+  default_langcode:
+    value: '1'
+47:
+  id:
+    value: '47'
+  uuid:
+    value: 79d40a9b-d903-44b2-9e61-040a2c95c474
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: Projects
+  description: false
+  menu_name:
+    value: wrangle
+  link:
+    uri: 'internal:/wrangle/projects'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '1'
+  weight:
+    value: '-49'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent: false
+  changed:
+    value: '1530305347'
+  default_langcode:
+    value: '1'
+48:
+  id:
+    value: '48'
+  uuid:
+    value: 191563b2-06ef-471a-94f8-f285e4ff5cf6
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Community Grants'
+  description: false
+  menu_name:
+    value: wrangle
+  link:
+    uri: 'internal:/wrangle/community-grants'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '1'
+  weight:
+    value: '-48'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent: false
+  changed:
+    value: '1530305616'
+  default_langcode:
+    value: '1'
+49:
+  id:
+    value: '49'
+  uuid:
+    value: 347ab0e6-5ca8-47cc-93b4-f8d82ce15a56
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: DPW
+  description: false
+  menu_name:
+    value: wrangle
+  link:
+    uri: 'internal:/admin/structure/webform/manage/dpw_application_form_2018/results/submissions'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '1'
+  weight:
+    value: '-49'
+  expanded:
+    value: '0'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:4afee224-50e2-44f0-aa4e-ef41ebcaa361'
+  changed:
+    value: '1528707168'
+  default_langcode:
+    value: '1'
+50:
+  id:
+    value: '50'
+  uuid:
+    value: 3189e21c-a0b5-40b7-9008-a4e8c8292042
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: Rangers
+  description: false
+  menu_name:
+    value: wrangle
+  link:
+    uri: 'internal:/admin/structure/webform/manage/ranger_registration/results/submissions'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '1'
+  weight:
+    value: '-47'
+  expanded:
+    value: '0'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:4afee224-50e2-44f0-aa4e-ef41ebcaa361'
+  changed:
+    value: '1528707168'
+  default_langcode:
+    value: '1'
+51:
+  id:
+    value: '51'
+  uuid:
+    value: c555cd13-34e4-41d0-9b10-449a99a6a716
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: Sanctuary
+  description: false
+  menu_name:
+    value: wrangle
+  link:
+    uri: 'internal:/admin/structure/webform/manage/sanctuary_application/results/submissions'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '1'
+  weight:
+    value: '-46'
+  expanded:
+    value: '0'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:4afee224-50e2-44f0-aa4e-ef41ebcaa361'
+  changed:
+    value: '1528707168'
+  default_langcode:
+    value: '1'
+52:
+  id:
+    value: '52'
+  uuid:
+    value: 1eb10983-9fe8-4cb1-a8aa-5ed4fa0497b2
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Die Hek'
+  description: false
+  menu_name:
+    value: wrangle
+  link:
+    uri: 'internal:/admin/structure/webform/manage/die_hek_2018/results/submissions'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '1'
+  weight:
+    value: '-50'
+  expanded:
+    value: '0'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:4afee224-50e2-44f0-aa4e-ef41ebcaa361'
+  changed:
+    value: '1528707168'
+  default_langcode:
+    value: '1'
+53:
+  id:
+    value: '53'
+  uuid:
+    value: 3a2f38ea-95fe-4ae4-8ab4-d135e5527ca3
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Green dots'
+  description: false
+  menu_name:
+    value: wrangle
+  link:
+    uri: 'internal:/admin/structure/webform/manage/green_dot_application/results/submissions'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '1'
+  weight:
+    value: '-48'
+  expanded:
+    value: '0'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:4afee224-50e2-44f0-aa4e-ef41ebcaa361'
+  changed:
+    value: '1528707168'
+  default_langcode:
+    value: '1'
+54:
+  id:
+    value: '54'
+  uuid:
+    value: 92c5f3d3-4464-4469-b1f9-bd15093b32c1
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Spark grants'
+  description: false
+  menu_name:
+    value: wrangle
+  link:
+    uri: 'internal:/admin/structure/webform/manage/spark_grant_2018/results/submissions'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '1'
+  weight:
+    value: '0'
+  expanded:
+    value: '0'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:191563b2-06ef-471a-94f8-f285e4ff5cf6'
+  changed:
+    value: '1528707059'
+  default_langcode:
+    value: '1'
+55:
+  id:
+    value: '55'
+  uuid:
+    value: 8ae91d89-6942-4620-93d2-69c07ebb69d0
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: 'Community tickets and Access grants'
+  description: false
+  menu_name:
+    value: wrangle
+  link:
+    uri: 'internal:/admin/structure/webform/manage/community_access_grant/results/submissions'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '1'
+  weight:
+    value: '0'
+  expanded:
+    value: '0'
+  enabled:
+    value: '1'
+  parent:
+    value: 'menu_link_content:191563b2-06ef-471a-94f8-f285e4ff5cf6'
+  changed:
+    value: '1528707121'
+  default_langcode:
+    value: '1'
+56:
+  id:
+    value: '56'
+  uuid:
+    value: 4afee224-50e2-44f0-aa4e-ef41ebcaa361
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: Crew
+  description: false
+  menu_name:
+    value: wrangle
+  link:
+    uri: 'internal:/wrangle/crew'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '1'
+  weight:
+    value: '-47'
+  expanded:
+    value: '1'
+  enabled:
+    value: '1'
+  parent: false
+  changed:
+    value: '1530305671'
+  default_langcode:
+    value: '1'
+59:
+  id:
+    value: '59'
+  uuid:
+    value: c50c7b36-d915-4c6b-9604-e8a4c4dc39ab
+  langcode:
+    value: en
+  bundle:
+    value: menu_link_content
+  title:
+    value: Users
+  description: false
+  menu_name:
+    value: wrangle
+  link:
+    uri: 'internal:/wrangle/users'
+    title: ''
+    options: {  }
+  external:
+    value: '0'
+  rediscover:
+    value: '1'
+  weight:
+    value: '-50'
+  expanded:
+    value: '1'
+  enabled:
+    value: '0'
+  parent: false
+  changed:
+    value: '1530783048'
+  default_langcode:
+    value: '1'

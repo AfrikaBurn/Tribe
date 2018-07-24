@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 
-form details{
+form details.field-group-details{
   border: 1px solid #f26c55;
   border-radius: 10px;
   margin: 2em 0;
@@ -21,4 +21,14 @@ form .details-wrapper{
 #edit-field-prj-stg-type .multiple-fields-remove-button,
 #edit-field-mutant-drivers .multiple-fields-remove-button{
   display: none;
+}
+
+.field--name-field-prjr-complete{
+  float: right;
+}
+
+.field--name-field-prj-grant-expenses iframe{
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }

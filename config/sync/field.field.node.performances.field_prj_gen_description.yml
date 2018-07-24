@@ -17,7 +17,7 @@ id: node.performances.field_prj_gen_description
 field_name: field_prj_gen_description
 entity_type: node
 bundle: performances
-label: 'Describe your project'
+label: 'Online description'
 description: "Briefly describe your performance. (We’re not looking for a two page essay, just enough for us to understand what your project is).\r\n"
 required: true
 translatable: true

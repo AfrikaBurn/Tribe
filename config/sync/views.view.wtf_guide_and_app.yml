@@ -1,6 +1,6 @@
 uuid: ca801ddc-ff2e-4564-aa24-40319afe5405
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - field.storage.node.field_collective

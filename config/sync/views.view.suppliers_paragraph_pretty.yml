@@ -1,6 +1,6 @@
 uuid: 69e87dea-39ef-48ba-8763-43f5feb2f171
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - field.storage.paragraph.field_sup_contact

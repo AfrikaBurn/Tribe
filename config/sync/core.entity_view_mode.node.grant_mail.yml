@@ -1,0 +1,10 @@
+uuid: b9fcdbfa-d005-44cd-ba9b-bb019dddec85
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.grant_mail
+label: 'Grant Mail'
+targetEntityType: node
+cache: true

@@ -1,4 +1,4 @@
-uuid: 2a9ff185-cc5b-4c93-91d1-3d7611c811ea
+uuid: aaf7447c-3cfa-4375-af45-1d52191f717b
 langcode: en
 status: true
 dependencies:
@@ -13,21 +13,31 @@ dependencies:
     - afrikaburn
 third_party_settings:
   collapsiblock:
-    collapse_action: '2'
+    collapse_action: '3'
 id: wrangle
 theme: afrikaburn
-region: sidebar
+region: biobar
 weight: -21
 provider: null
 plugin: 'system_menu_block:wrangle'
 settings:
   id: 'system_menu_block:wrangle'
-  label: Wrangling
+  label: Wrangle
   provider: system
   label_display: visible
   level: 1
   depth: 0
 visibility:
+  php:
+    id: php
+    negate: true
+    php: ''
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: "/node/add*\r\n/node/*/edit*\r\n*/form_*\r\n*/grant\r\n*/support\r\n*/supplier\r\n*/wap"
+    negate: true
+    context_mapping: {  }
   user_role:
     id: user_role
     roles:
@@ -35,7 +45,6 @@ visibility:
       art_admin: art_admin
       communications_wrangler: communications_wrangler
       communications_admin: communications_admin
-      leave_no_trace_moop: leave_no_trace_moop
       mutant_vehicle_viewer: mutant_vehicle_viewer
       mutant_vehicle_wrangler: mutant_vehicle_wrangler
       mutant_vehicle_admin: mutant_vehicle_admin
@@ -54,13 +63,3 @@ visibility:
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
-  php:
-    id: php
-    negate: false
-    php: '<?php return true; ?>'
-    context_mapping: {  }
-  request_path:
-    id: request_path
-    pages: "/node/*/edit\r\n/node/add/*"
-    negate: true
-    context_mapping: {  }

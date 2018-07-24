@@ -1,5 +1,8 @@
 <?php
 
+use \Drupal\user\Entity\User;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
 
 /* ----- Module Hooks ----- */
 
@@ -10,7 +13,6 @@
  */
 function afrikaburn_bio_page_attachments(&$page) {
   $page['#attached']['library'][] = 'afrikaburn_bio/bio';
-//  $page['#attached']['library'][] = 'afrikaburn_bio/registration';
 }
 
 
@@ -21,25 +23,23 @@ function afrikaburn_bio_page_attachments(&$page) {
 function afrikaburn_bio_form_user_form_alter(&$form, $form_state, $form_id){
 
   $form['#attached']['library'][] = 'afrikaburn_bio/bio';
+  $target = $form_state->getFormObject()->getEntity();
+  $user = User::load(\Drupal::currentUser()->id());
 
   // Set form title, attach quicket handlers, set redirects
   switch($form_id){
     case 'user_update_form':
       $form['#title'] = 'Updating my Bio';
-      $form['actions']['submit']['#submit'][] = 'afrikaburn_bio_update_quicket';
     break;
     case 'user_form':
       $form['#title'] = 'Editing my Bio';
       if (preg_match('/user\/reset/', \Drupal::request()->server->get('HTTP_REFERER'))) {
         $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
         $response->send();
-      } else {
-        $form['actions']['submit']['#submit'][] = 'afrikaburn_bio_update_quicket';
       }
     break;
     case 'user_register_form':
       $form['#title'] = 'Create a Bio';
-      $form['actions']['submit']['#submit'][] = 'afrikaburn_bio_update_quicket';
       $form['#attached']['library'][] = 'afrikaburn_bio/registration';
       break;
   }
@@ -51,6 +51,9 @@ function afrikaburn_bio_form_user_form_alter(&$form, $form_state, $form_id){
     $keys[0] = '';
     $options = array_combine( $keys, $options);
   }
+
+  // Require picture of users if they are editing themselves
+  $form['user_picture']['widget'][0]['#required'] = $user->id() == 0 || $user->id() == $target->id();
 
   // Hide email retype on user create
   $form['field_email_retype']['#access'] = \Drupal::currentUser()->isAnonymous();
@@ -68,6 +71,17 @@ function afrikaburn_bio_form_user_form_alter(&$form, $form_state, $form_id){
 
 /* ---- Account updating  ---- */
 
+
+/**
+ * Implements hook_entity_delete().
+ * Redirect on account deletion.
+ */
+function afrikaburn_bio_entity_delete($entity){
+  if ($entity->getEntityTypeId() == 'user' && \Drupal::currentUser()->id() == $entity->id()){
+    $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
+    $response->send();
+  }
+}
 
 /**
  * Flag accounts edited by their owners as updated.
@@ -160,62 +174,4 @@ function afrikaburn_bio_mail_validate($form, &$form_state) {
     $form_state->setErrorByName('mail', t('Email address and Retype Email address should match!'));
     $form_state->setErrorByName('field_email_retype', t('Email address and Retype Email address should match!'));
   }
-}
-
-
-/* ---- Quicket handlers ---- */
-
-
-/**
- * User edit submission handler.
- */
-function afrikaburn_bio_update_quicket($form, &$form_state) {
-
-  $values = $form_state->getValues();
-  $user = \Drupal\user\Entity\User::load($form_state->getValues()['uid']);
-  $quicket_id = count($user->get('field_quicket_id')->getValue())
-    ? $user->get('field_quicket_id')->getValue()[0]['value']
-    : null;
-
-  $new = [
-    'id' => isset($values['field_id_number']) ? $values['field_id_number'][0]['value']: 0,
-    'teens' => 0,
-    'kids' => 0,
-  ];
-
-  foreach($values['field_kids_and_teens'] as $minor) {
-    if (isset($minor['subform'])){
-      $date = $minor['subform']['field_minor_date_of_birth'][0]['value'];
-      if (isset($date)){
-        $age = (time() - $date->getTimestamp()) / 31556926;
-        if ($age < 15) {
-          $new['kids']++;
-        } else {
-          $new['teens']++;
-        }
-      }
-    }
-  }
-
-  module_load_include('inc', 'afrikaburn_bio', 'includes/quicket');
-  $quicket = _quicket(
-    'PUT',
-    $new['id'],
-    $new['teens'],
-    $new['kids'],
-    $quicket_id
-  );
-
-  if (!$quicket) {
-    $quicket = _quicket(
-      'POST',
-      $new['id'],
-      $new['teens'],
-      $new['kids']
-    );
-  }
-
-  $user->field_quicket_code = $quicket['code'];
-  $user->field_quicket_id = $quicket['id'];
-  $user->save();
 }

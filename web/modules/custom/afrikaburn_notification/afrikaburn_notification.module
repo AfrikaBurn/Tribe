@@ -1,0 +1,106 @@
+<?php
+
+/**
+ * @file Contains afrikaburn notification module.
+ */
+
+use \Drupal\user\Entity\User;
+
+
+/**
+ * Implements hook_ENTITY_TYPE_insert.
+ */
+function afrikaburn_notification_node_insert($entity){
+
+  $bundle = $entity->bundle();
+
+  if (in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
+
+    module_load_include('inc', 'afrikaburn_notification', 'includes/email');
+
+    $user = User::load(\Drupal::currentUser()->id());
+    $collective = _afrikaburn_notification_collective($entity);
+    $settings = \Drupal::config('afrikaburn_notification.settings');
+    $addresses = \Drupal::config('afrikaburn_addresses.settings');
+
+    $stage = $entity->get('field_form_mode')->value;
+    $complete = array_column($entity->get('field_prjr_complete')->getValue(), 'value');
+    $state = in_array($stage, $complete) ? 'update' : 'new';
+
+    // Mail collective
+    _afrikaburn_notify(
+      'no-reply@afrikaburn.com',
+      $settings->get($bundle . '-label'),
+      $addresses->get($bundle . '-address'),
+      $collective['members'] . ',' . $settings->get('archive'),
+      $settings->get(implode('-', [$bundle, $stage, $state, 'collective', 'subject'])),
+      $settings->get(implode('-', [$bundle, $stage, $state, 'collective', 'body'])),
+      $entity
+    );
+
+    // Mail wranglers
+    _afrikaburn_notify(
+      $addresses->get($bundle . '-address'),
+      $user->field_first_name->value . " '" . $user->name->value . "' " . $user->field_last_name->value . ' via AfrikaBurn Tribe',
+      $user->mail->value,
+      $settings->get('archive'),
+      $settings->get(implode('-', [$bundle, $stage, $state, 'wranglers', 'subject'])),
+      $settings->get(implode('-', [$bundle, $stage, $state, 'wranglers', 'body'])),
+      $entity
+    );
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update.
+ * Notify users on updates.
+ */
+function afrikaburn_notification_node_update($entity){
+
+  module_load_include('inc', 'afrikaburn_notification', 'includes/diff');
+
+  $wrangling = preg_match('/^\/registration\//', \Drupal::service('path.current')->getPath());
+  $changed = _diff($entity);
+
+  // Don't mail while wrangling or on no changes
+  if (!$changed || $wrangling) return;
+
+  afrikaburn_notification_node_insert($entity);
+}
+
+
+/**
+ * Implements hook_mail().
+ * Replaces render, node and user tokens
+ */
+function afrikaburn_notification_mail($key, &$message, $params) {
+
+  module_load_include('inc', 'afrikaburn_notification', 'includes/email');
+
+  $node = $params['node'];
+  $bundle = $node ? $node->bundle() : FALSE;
+
+  if (in_array($bundle, ['art', 'mutant_vehicles', 'performances', 'theme_camps'])){
+
+    $user = User::load(\Drupal::currentUser()->id());
+    $tokens = ['node' => $node, 'user' => $user];
+
+    $subject = $params['subject'];
+    $message['body'] = [];
+    $body = $params['message'];
+
+    _afrikaburn_notification_entity_render($node, $body);
+    _afrikaburn_notification_entity_diff($node, $body);
+    _afrikaburn_notification_email_images($message, $body);
+
+    $body = \Drupal::token()->replace($body, $tokens, ['clear' => true]);
+    $subject = \Drupal::token()->replace($subject, $tokens, ['clear' => true]);
+
+    $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+    $message['headers']['bcc'] = $params['bcc'];
+    $message['from'] = $params['from'];
+
+    $message['subject'] = $subject;
+    $message['body'][] = $body;
+  }
+}

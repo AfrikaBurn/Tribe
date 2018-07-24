@@ -44,13 +44,13 @@ class CollectiveMemberCheck implements AccessInterface {
       $field_collective = $node->get('field_collective');
       if ($field_collective) {
         $collective = $field_collective->first()->get('entity')->getTarget();
-        return AccessResult::allowedIf($this->isMember($collective) || $user->hasRole('administrator') || $user->hasRole($roles[$bundle]));
+        return AccessResult::allowedIf($this::isMember($collective) || $user->hasRole('administrator') || $user->hasRole($roles[$bundle]));
       }
       return AccessResult::allowedIf($user->hasRole('administrator'));
     }
 
     if ($bundle == 'collective') {
-      return AccessResult::allowedIf($this->isMember($node) || $user->hasRole('administrator'));
+      return AccessResult::allowedIf($this::isMember($node) || $user->hasRole('administrator'));
     }
 
     return AccessResult::allowedIf(TRUE);
@@ -59,7 +59,7 @@ class CollectiveMemberCheck implements AccessInterface {
   /**
    * Checks whether the current user is an admin
    */
-  private function isMember($collective){
+  public static function isMember($collective){
     $uid = \Drupal::currentUser()->id();
     $admins = $collective
       ->get('field_col_members')

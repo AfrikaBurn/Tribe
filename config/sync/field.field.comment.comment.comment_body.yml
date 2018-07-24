@@ -6,9 +6,16 @@ dependencies:
     - comment.type.comment
     - field.storage.comment.comment_body
   module:
+    - allowed_formats
     - custom_add_another
     - text
 third_party_settings:
+  allowed_formats:
+    plain_text: plain_text
+    basic_html: '0'
+    restricted_html: '0'
+    full_html: '0'
+    php_code: '0'
   custom_add_another:
     custom_add_another: ''
     custom_remove: ''

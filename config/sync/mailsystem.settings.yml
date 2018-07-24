@@ -1,7 +1,7 @@
-theme: afrikaburn
+theme: default
 defaults:
   sender: swiftmailer
-  formatter: swiftmailer
+  formatter: SMTPMailSystem
 _core:
   default_config_hash: IhwTepsVwtbtbcT5GzQKhCXDCRvbk3MNkWqPiuiZ10s
 modules:

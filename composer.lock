@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "53e0a4ccf63970f82d8a7259e2797b81",
+    "content-hash": "73da670741c4be84dfc010fa76218946",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -358,62 +358,6 @@
                 "oauth2"
             ],
             "time": "2017-11-15T01:41:02+00:00"
-        },
-        {
-            "name": "caxy/php-htmldiff",
-            "version": "v0.1.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/caxy/php-htmldiff.git",
-                "reference": "48c70a963e803b93fe68a191e62d0770b5446f0b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/caxy/php-htmldiff/zipball/48c70a963e803b93fe68a191e62d0770b5446f0b",
-                "reference": "48c70a963e803b93fe68a191e62d0770b5446f0b",
-                "shasum": ""
-            },
-            "require": {
-                "ezyang/htmlpurifier": "^4.7",
-                "php": ">=5.3.3",
-                "sunra/php-simple-html-dom-parser": "^1.5"
-            },
-            "require-dev": {
-                "doctrine/cache": "~1.0",
-                "phpunit/phpunit": "~5.0"
-            },
-            "suggest": {
-                "doctrine/cache": "Used for caching the calculated diffs using a Doctrine Cache Provider"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Caxy\\HtmlDiff": "lib/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GPL-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Josh Schroeder",
-                    "email": "jschroeder@caxy.com",
-                    "homepage": "http://www.caxy.com"
-                }
-            ],
-            "description": "A library for comparing two HTML files/snippets and highlighting the differences using simple HTML.",
-            "homepage": "https://github.com/caxy/php-htmldiff",
-            "keywords": [
-                "diff",
-                "html"
-            ],
-            "time": "2018-03-15T21:23:44+00:00"
         },
         {
             "name": "chi-teck/drupal-code-generator",
@@ -1734,6 +1678,224 @@
             }
         },
         {
+            "name": "drupal/adminimal_admin_toolbar",
+            "version": "1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/adminimal_admin_toolbar",
+                "reference": "8.x-1.7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/adminimal_admin_toolbar-8.x-1.7.zip",
+                "reference": "8.x-1.7",
+                "shasum": "488af30c3a6f44b0db569931926aa4c514fceae7"
+            },
+            "require": {
+                "drupal/admin_toolbar": "*",
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.7",
+                    "datestamp": "1526917680",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Ted Slesinski",
+                    "homepage": "https://www.drupal.org/u/energee"
+                }
+            ],
+            "description": "Adminimal styling brought to admin toolbar.",
+            "homepage": "https://www.drupal.org/project/adminimal_admin_toolbar",
+            "support": {
+                "source": "http://cgit.drupalcode.org/adminimal_admin_toolbar",
+                "issues": "https://www.drupal.org/project/issues/adminimal_admin_toolbar"
+            }
+        },
+        {
+            "name": "drupal/adminimal_theme",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/adminimal_theme",
+                "reference": "8.x-1.3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/adminimal_theme-8.x-1.3.zip",
+                "reference": "8.x-1.3",
+                "shasum": "bb9f280bcdbd7e4d384a925c685a2aa1feed8419"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-theme",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.3",
+                    "datestamp": "1480507083",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "ANDiTKO",
+                    "homepage": "https://www.drupal.org/user/1428124"
+                },
+                {
+                    "name": "realityloop",
+                    "homepage": "https://www.drupal.org/user/139189"
+                }
+            ],
+            "description": "Drupal administration theme with modern minimalist design.",
+            "homepage": "https://www.drupal.org/project/adminimal_theme",
+            "support": {
+                "source": "http://cgit.drupalcode.org/adminimal_theme"
+            }
+        },
+        {
+            "name": "drupal/ajax_comments",
+            "version": "1.0.0-beta1",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/ajax_comments",
+                "reference": "8.x-1.0-beta1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/ajax_comments-8.x-1.0-beta1.zip",
+                "reference": "8.x-1.0-beta1",
+                "shasum": "64961ad6b111fadab39e18a22eee06aba3c8516d"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-beta1",
+                    "datestamp": "1476840839",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "acouch",
+                    "homepage": "https://www.drupal.org/user/151868"
+                },
+                {
+                    "name": "danmuzyka",
+                    "homepage": "https://www.drupal.org/user/48685"
+                },
+                {
+                    "name": "formatC&#039;vt",
+                    "homepage": "https://www.drupal.org/user/1853874"
+                },
+                {
+                    "name": "muschpusch",
+                    "homepage": "https://www.drupal.org/user/257634"
+                },
+                {
+                    "name": "neochief",
+                    "homepage": "https://www.drupal.org/user/233667"
+                },
+                {
+                    "name": "qzmenko",
+                    "homepage": "https://www.drupal.org/user/3220037"
+                },
+                {
+                    "name": "rjbrown99",
+                    "homepage": "https://www.drupal.org/user/367845"
+                }
+            ],
+            "description": "Module makes comments load without a page refresh via AJAX",
+            "homepage": "https://www.drupal.org/project/ajax_comments",
+            "support": {
+                "source": "http://cgit.drupalcode.org/ajax_comments"
+            }
+        },
+        {
+            "name": "drupal/allowed_formats",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/allowed_formats",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/allowed_formats-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "b7bfc78d7e64f1df37ca6cad118a1ff8f7228b64"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1492709942",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "floretan",
+                    "homepage": "https://www.drupal.org/user/66163"
+                }
+            ],
+            "description": "Limit which text formats are available for each field instance.",
+            "homepage": "https://www.drupal.org/project/allowed_formats",
+            "support": {
+                "source": "http://cgit.drupalcode.org/allowed_formats"
+            }
+        },
+        {
             "name": "drupal/amazon_sns",
             "version": "1.0.0",
             "source": {
@@ -2099,17 +2261,17 @@
         },
         {
             "name": "drupal/chosen",
-            "version": "2.5.0",
+            "version": "2.6.0",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/chosen",
-                "reference": "8.x-2.5"
+                "reference": "8.x-2.6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/chosen-8.x-2.5.zip",
-                "reference": "8.x-2.5",
-                "shasum": "62041c004bfe3c406c4a18b5b9d57f1a1812236c"
+                "url": "https://ftp.drupal.org/files/projects/chosen-8.x-2.6.zip",
+                "reference": "8.x-2.6",
+                "shasum": "b43565838274ba8f32fff6df221d16a3f21c0607"
             },
             "require": {
                 "drupal/chosen_lib": "*",
@@ -2121,8 +2283,8 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.5",
-                    "datestamp": "1519034284",
+                    "version": "8.x-2.6",
+                    "datestamp": "1531588121",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2184,7 +2346,7 @@
         },
         {
             "name": "drupal/chosen_lib",
-            "version": "2.5.0",
+            "version": "2.6.0",
             "require": {
                 "drupal/chosen": "self.version",
                 "drupal/core": "~8.0"
@@ -2195,8 +2357,8 @@
                     "dev-2.x": "2.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-2.5",
-                    "datestamp": "1519034284",
+                    "version": "8.x-2.6",
+                    "datestamp": "1531588121",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -2426,6 +2588,70 @@
             "homepage": "https://www.drupal.org/project/collapsiblock",
             "support": {
                 "source": "http://cgit.drupalcode.org/collapsiblock"
+            }
+        },
+        {
+            "name": "drupal/colorbox",
+            "version": "1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/colorbox",
+                "reference": "8.x-1.4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/colorbox-8.x-1.4.zip",
+                "reference": "8.x-1.4",
+                "shasum": "bf163fd2d28450c1324512ad7e6a72fc48d274e3"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.4",
+                    "datestamp": "1493051344",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "RenatoG",
+                    "homepage": "https://www.drupal.org/user/3326031"
+                },
+                {
+                    "name": "Sam152",
+                    "homepage": "https://www.drupal.org/user/1485048"
+                },
+                {
+                    "name": "frjo",
+                    "homepage": "https://www.drupal.org/user/5546"
+                },
+                {
+                    "name": "jdwfly",
+                    "homepage": "https://www.drupal.org/user/298179"
+                },
+                {
+                    "name": "rsmylski",
+                    "homepage": "https://www.drupal.org/user/1324348"
+                }
+            ],
+            "description": "A light-weight, customizable lightbox plugin for jQuery.",
+            "homepage": "https://www.drupal.org/project/colorbox",
+            "support": {
+                "source": "https://cgit.drupalcode.org/colorbox",
+                "issues": "https://www.drupal.org/project/colorbox"
             }
         },
         {
@@ -3676,92 +3902,6 @@
             }
         },
         {
-            "name": "drupal/diff",
-            "version": "1.0.0-rc1",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/diff",
-                "reference": "8.x-1.0-rc1"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/diff-8.x-1.0-rc1.zip",
-                "reference": "8.x-1.0-rc1",
-                "shasum": "4945154c2c07444195a7ae07011a3b3db941c72a"
-            },
-            "require": {
-                "drupal/core": "~8.0",
-                "mkalkbrenner/php-htmldiff-advanced": "~0.0.8"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.0-rc1",
-                    "datestamp": "1484566683",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "RC releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "Miro Dietiker (miro_dietiker)",
-                    "homepage": "https://www.drupal.org/u/miro_dietiker",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Juampy NR (juampynr)",
-                    "homepage": "https://www.drupal.org/u/juampynr",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Lucian Hangea (lhangea)",
-                    "homepage": "https://www.drupal.org/u/lhangea",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Alan D.",
-                    "homepage": "https://www.drupal.org/u/alan-d.",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "Brian Gilbert (realityloop).",
-                    "homepage": "https://www.drupal.org/u/realityloop",
-                    "role": "Maintainer"
-                },
-                {
-                    "name": "miro_dietiker",
-                    "homepage": "https://www.drupal.org/user/227761"
-                },
-                {
-                    "name": "realityloop",
-                    "homepage": "https://www.drupal.org/user/139189"
-                },
-                {
-                    "name": "rötzi",
-                    "homepage": "https://www.drupal.org/user/73064"
-                },
-                {
-                    "name": "yhahn",
-                    "homepage": "https://www.drupal.org/user/264833"
-                }
-            ],
-            "description": "Compares two entity revisions",
-            "homepage": "https://www.drupal.org/project/diff",
-            "support": {
-                "source": "http://cgit.drupalcode.org/diff",
-                "issues": "https://www.drupal.org/project/issues/diff"
-            }
-        },
-        {
             "name": "drupal/drush",
             "version": "6.0.0-rc4",
             "source": {
@@ -4112,18 +4252,18 @@
             }
         },
         {
-            "name": "drupal/eu_cookie_compliance",
-            "version": "1.0.0",
+            "name": "drupal/entity_reference_views_select",
+            "version": "1.3.0",
             "source": {
                 "type": "git",
-                "url": "https://git.drupal.org/project/eu-cookie-compliance",
-                "reference": "8.x-1.0"
+                "url": "https://git.drupal.org/project/entity_reference_views_select",
+                "reference": "8.x-1.3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/eu_cookie_compliance-8.x-1.0.zip",
-                "reference": "8.x-1.0",
-                "shasum": "925f5267fce132e54cfdff58e560cb5fc1656634"
+                "url": "https://ftp.drupal.org/files/projects/entity_reference_views_select-8.x-1.3.zip",
+                "reference": "8.x-1.3",
+                "shasum": "bc8a7d0072a45b096989e30b2f81ec000227404b"
             },
             "require": {
                 "drupal/core": "*"
@@ -4134,8 +4274,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0",
-                    "datestamp": "1522572784",
+                    "version": "8.x-1.3",
+                    "datestamp": "1524751984",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4148,16 +4288,69 @@
             ],
             "authors": [
                 {
+                    "name": "bertrama",
+                    "homepage": "https://www.drupal.org/user/343472"
+                },
+                {
+                    "name": "el1_1el",
+                    "homepage": "https://www.drupal.org/user/1795292"
+                }
+            ],
+            "description": "Entity Reference Views displayed as a select list, checkboxes or radio buttons in forms",
+            "homepage": "https://www.drupal.org/project/entity_reference_views_select",
+            "support": {
+                "source": "http://cgit.drupalcode.org/entity_reference_views_select"
+            }
+        },
+        {
+            "name": "drupal/eu_cookie_compliance",
+            "version": "1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/eu-cookie-compliance",
+                "reference": "8.x-1.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/eu_cookie_compliance-8.x-1.2.zip",
+                "reference": "8.x-1.2",
+                "shasum": "8e9f2a6c2d5abaa02b58b4b48e0626ed7c3518ad"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.2",
+                    "datestamp": "1531429121",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
                     "name": "Marcin Pajdzik",
-                    "homepage": "https://www.drupal.org/user/160555"
+                    "homepage": "https://www.drupal.org/u/marcin-pajdzik",
+                    "role": "Maintainer"
                 },
                 {
-                    "name": "achton",
-                    "homepage": "https://www.drupal.org/user/712454"
+                    "name": "Sven Berg Ryen",
+                    "homepage": "https://www.drupal.org/u/svenryen",
+                    "role": "Maintainer"
                 },
                 {
-                    "name": "blairski",
-                    "homepage": "https://www.drupal.org/user/120835"
+                    "name": "See other contributors",
+                    "homepage": "https://www.drupal.org/node/1538032/committers"
                 },
                 {
                     "name": "dakku",
@@ -4188,10 +4381,20 @@
                     "homepage": "https://www.drupal.org/user/667244"
                 }
             ],
-            "description": "This module aims at making the website compliant with the new EU cookie regulation",
-            "homepage": "https://www.drupal.org/project/eu_cookie_compliance",
+            "description": "This module aims at making the website compliant with the new EU cookie regulation.",
+            "homepage": "https://drupal.org/project/eu_cookie_compliance",
+            "keywords": [
+                "Cookie",
+                "CookieCompliance",
+                "Drupal",
+                "GDPR"
+            ],
             "support": {
-                "source": "http://cgit.drupalcode.org/eu_cookie_compliance"
+                "source": "https://cgit.drupalcode.org/eu-cookie-compliance",
+                "docs": "https://www.drupal.org/project/eu_cookie_compliance",
+                "forum": "https://drupal.stackexchange.com/search?q=eu+cookie+compliance",
+                "issues": "https://www.drupal.org/project/issues/eu_cookie_compliance?version=8.x",
+                "irc": "irc://irc.freenode.org/drupal-contribute"
             }
         },
         {
@@ -4787,6 +4990,53 @@
             "homepage": "https://www.drupal.org/project/formblock",
             "support": {
                 "source": "http://cgit.drupalcode.org/formblock"
+            }
+        },
+        {
+            "name": "drupal/gdoc_field",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/gdoc_field",
+                "reference": "8.x-1.0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/gdoc_field-8.x-1.0.zip",
+                "reference": "8.x-1.0",
+                "shasum": "782bae44401e89643f846e2b970089092142ea4e"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0",
+                    "datestamp": "1447608239",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "jmarkel",
+                    "homepage": "https://www.drupal.org/user/15171"
+                }
+            ],
+            "description": "An embedded Document field using Google Docs",
+            "homepage": "https://www.drupal.org/project/gdoc_field",
+            "support": {
+                "source": "http://cgit.drupalcode.org/gdoc_field"
             }
         },
         {
@@ -6267,6 +6517,52 @@
             }
         },
         {
+            "name": "drupal/pdf_using_mpdf8",
+            "version": "1.0.0-alpha2",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/pdf_using_mpdf8",
+                "reference": "8.x-1.0-alpha2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/pdf_using_mpdf8-8.x-1.0-alpha2.zip",
+                "reference": "8.x-1.0-alpha2",
+                "shasum": "87432c2083282f576fb514c63a1123d2dae5cacb"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha2",
+                    "datestamp": "1511957884",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "gauravjeet",
+                    "homepage": "https://www.drupal.org/user/2248054"
+                }
+            ],
+            "homepage": "https://www.drupal.org/project/pdf_using_mpdf8",
+            "support": {
+                "source": "http://cgit.drupalcode.org/pdf_using_mpdf8"
+            }
+        },
+        {
             "name": "drupal/php",
             "version": "1.0.0",
             "source": {
@@ -6624,63 +6920,6 @@
             "homepage": "https://www.drupal.org/project/restui",
             "support": {
                 "source": "http://cgit.drupalcode.org/restui"
-            }
-        },
-        {
-            "name": "drupal/rules",
-            "version": "3.0.0-alpha4",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/rules",
-                "reference": "8.x-3.0-alpha4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/rules-8.x-3.0-alpha4.zip",
-                "reference": "8.x-3.0-alpha4",
-                "shasum": "d6f11a6bd867b3479504b00278b4465a5b138d3a"
-            },
-            "require": {
-                "drupal/core": "~8.0",
-                "drupal/typed_data": "*"
-            },
-            "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "dev-master",
-                "drupal/coder": "8.2.*",
-                "squizlabs/php_codesniffer": "2.9.*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-3.x": "3.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-3.0-alpha4",
-                    "datestamp": "1526654284",
-                    "security-coverage": {
-                        "status": "not-covered",
-                        "message": "Alpha releases are not covered by Drupal security advisories."
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "authors": [
-                {
-                    "name": "fago",
-                    "homepage": "https://www.drupal.org/user/16747"
-                },
-                {
-                    "name": "klausi",
-                    "homepage": "https://www.drupal.org/user/262198"
-                }
-            ],
-            "description": "React on events and conditionally evaluate actions.",
-            "homepage": "https://www.drupal.org/project/rules",
-            "support": {
-                "source": "http://cgit.drupalcode.org/rules"
             }
         },
         {
@@ -7886,53 +8125,6 @@
             "time": "2017-02-03T22:48:59+00:00"
         },
         {
-            "name": "ezyang/htmlpurifier",
-            "version": "v4.10.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/ezyang/htmlpurifier.git",
-                "reference": "d85d39da4576a6934b72480be6978fb10c860021"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/d85d39da4576a6934b72480be6978fb10c860021",
-                "reference": "d85d39da4576a6934b72480be6978fb10c860021",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.2"
-            },
-            "require-dev": {
-                "simpletest/simpletest": "^1.1"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "HTMLPurifier": "library/"
-                },
-                "files": [
-                    "library/HTMLPurifier.composer.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "LGPL"
-            ],
-            "authors": [
-                {
-                    "name": "Edward Z. Yang",
-                    "email": "admin@htmlpurifier.org",
-                    "homepage": "http://ezyang.com"
-                }
-            ],
-            "description": "Standards compliant HTML filter written in PHP",
-            "homepage": "http://htmlpurifier.org/",
-            "keywords": [
-                "html"
-            ],
-            "time": "2018-02-23T01:58:20+00:00"
-        },
-        {
             "name": "fzaninotto/faker",
             "version": "v1.7.1",
             "source": {
@@ -8568,43 +8760,6 @@
                 "xml"
             ],
             "time": "2017-09-04T12:26:28+00:00"
-        },
-        {
-            "name": "mkalkbrenner/php-htmldiff-advanced",
-            "version": "0.0.8",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/mkalkbrenner/php-htmldiff.git",
-                "reference": "3a714b48c9c3d3730baaf6d3949691e654cd37c9"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/mkalkbrenner/php-htmldiff/zipball/3a714b48c9c3d3730baaf6d3949691e654cd37c9",
-                "reference": "3a714b48c9c3d3730baaf6d3949691e654cd37c9",
-                "shasum": ""
-            },
-            "require": {
-                "caxy/php-htmldiff": ">=0.0.6",
-                "php": ">=5.5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "files": [
-                    "src/HtmlDiffAdvancedInterface.php",
-                    "src/HtmlDiffAdvanced.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "GNU General Public License V2"
-            ],
-            "description": "An add-on for the php-htmldiff library for comparing two HTML files/snippets and highlighting the differences using simple HTML.",
-            "homepage": "https://github.com/mkalkbrenner/php-htmldiff",
-            "keywords": [
-                "diff",
-                "html"
-            ],
-            "time": "2016-07-25T17:07:32+00:00"
         },
         {
             "name": "mtdowling/jmespath.php",
@@ -9307,54 +9462,6 @@
             ],
             "description": "Automatic BASH completion for Symfony Console Component based applications.",
             "time": "2018-02-10T04:28:01+00:00"
-        },
-        {
-            "name": "sunra/php-simple-html-dom-parser",
-            "version": "v1.5.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sunra/php-simple-html-dom-parser.git",
-                "reference": "75b9b1cb64502d8f8c04dc11b5906b969af247c6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sunra/php-simple-html-dom-parser/zipball/75b9b1cb64502d8f8c04dc11b5906b969af247c6",
-                "reference": "75b9b1cb64502d8f8c04dc11b5906b969af247c6",
-                "shasum": ""
-            },
-            "require": {
-                "ext-mbstring": "*",
-                "php": ">=5.3.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Sunra\\PhpSimple\\HtmlDomParser": "Src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Sunra",
-                    "email": "sunra@yandex.ru",
-                    "homepage": "https://github.com/sunra"
-                },
-                {
-                    "name": "S.C. Chen",
-                    "homepage": "http://sourceforge.net/projects/simplehtmldom/"
-                }
-            ],
-            "description": "Composer adaptation of: A HTML DOM parser written in PHP5+ let you manipulate HTML in a very easy way! Require PHP 5+. Supports invalid HTML. Find tags on an HTML page with selectors just like jQuery. Extract contents from HTML in a single line.",
-            "homepage": "https://github.com/sunra/php-simple-html-dom-parser",
-            "keywords": [
-                "dom",
-                "html",
-                "parser"
-            ],
-            "time": "2016-11-22T22:57:47+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -11811,57 +11918,6 @@
             "time": "2017-03-18T10:28:49+00:00"
         },
         {
-            "name": "drupal/entity_reference_views_select",
-            "version": "1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://git.drupal.org/project/entity_reference_views_select",
-                "reference": "8.x-1.3"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/entity_reference_views_select-8.x-1.3.zip",
-                "reference": "8.x-1.3",
-                "shasum": "bc8a7d0072a45b096989e30b2f81ec000227404b"
-            },
-            "require": {
-                "drupal/core": "*"
-            },
-            "type": "drupal-module",
-            "extra": {
-                "branch-alias": {
-                    "dev-1.x": "1.x-dev"
-                },
-                "drupal": {
-                    "version": "8.x-1.3",
-                    "datestamp": "1524751984",
-                    "security-coverage": {
-                        "status": "covered",
-                        "message": "Covered by Drupal's security advisory policy"
-                    }
-                }
-            },
-            "notification-url": "https://packages.drupal.org/8/downloads",
-            "license": [
-                "GPL-2.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "bertrama",
-                    "homepage": "https://www.drupal.org/user/343472"
-                },
-                {
-                    "name": "el1_1el",
-                    "homepage": "https://www.drupal.org/user/1795292"
-                }
-            ],
-            "description": "Entity Reference Views displayed as a select list, checkboxes or radio buttons in forms",
-            "homepage": "https://www.drupal.org/project/entity_reference_views_select",
-            "support": {
-                "source": "http://cgit.drupalcode.org/entity_reference_views_select"
-            }
-        },
-        {
             "name": "fabpot/goutte",
             "version": "v3.2.2",
             "source": {
@@ -13691,6 +13747,7 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
+        "drupal/ajax_comments": 10,
         "drupal/auto_entitylabel": 10,
         "drupal/autocomplete_deluxe": 10,
         "drupal/captcha": 10,
@@ -13699,7 +13756,6 @@
         "drupal/conditional_fields": 15,
         "drupal/cshs": 10,
         "drupal/custom_add_another": 10,
-        "drupal/diff": 5,
         "drupal/drush": 5,
         "drupal/empty_fields": 15,
         "drupal/field_permissions": 5,
@@ -13716,8 +13772,8 @@
         "drupal/oauth2_server": 10,
         "drupal/page_manager": 10,
         "drupal/paragraphs_edit": 15,
+        "drupal/pdf_using_mpdf8": 15,
         "drupal/php": 10,
-        "drupal/rules": 15,
         "drupal/smtp": 10,
         "drupal/swiftmailer": 10,
         "drupal/taxonomy_manager": 15,

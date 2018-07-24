@@ -17,7 +17,7 @@ field_name: field_prj_gen_concept
 entity_type: node
 type: image
 settings:
-  uri_scheme: private
+  uri_scheme: public
   default_image:
     uuid: ''
     alt: ''

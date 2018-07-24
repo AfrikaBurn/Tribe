@@ -31,6 +31,7 @@ dependencies:
     - field.field.user.user.user_picture
   module:
     - computed_field
+    - empty_fields
     - user
 _core:
   default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
@@ -45,10 +46,12 @@ content:
     region: content
     label: hidden
     settings:
-      sanitized: true
-      cache_unit: -1
-      cache_duration: 1
-    third_party_settings: {  }
+      sanitized: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
+    third_party_settings:
+      empty_fields:
+        handler: ''
   field_first_name:
     type: string
     weight: 0
@@ -74,7 +77,7 @@ content:
     third_party_settings: {  }
   field_mobile:
     type: string
-    weight: 3
+    weight: 4
     region: content
     label: hidden
     settings:
@@ -92,7 +95,7 @@ content:
     region: content
   field_secondary_mail:
     type: basic_string
-    weight: 4
+    weight: 3
     region: content
     label: hidden
     settings: {  }

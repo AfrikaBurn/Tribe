@@ -1,0 +1,25 @@
+uuid: 0d4ea99b-1ffe-408c-afbd-d2d384a5f057
+langcode: en
+status: true
+dependencies:
+  module:
+    - computed_field
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_year_cycle
+field_name: field_year_cycle
+entity_type: node
+type: computed_integer
+settings:
+  unsigned: false
+  size: normal
+module: computed_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

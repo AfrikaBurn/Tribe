@@ -1,0 +1,162 @@
+@charset "utf-8";
+
+
+#block-my-collectives{
+  margin-bottom: 0;
+}
+
+#block-my-collectives .view-content div{
+  display: flex;
+  position: relative;
+}
+
+#block-my-collectives .view-content .views-field-field-picture{
+  display: block;
+  border-radius: 12.5px;
+  float: none;
+  height: 25px;
+  margin: 0 5px 0 0;
+  overflow: hidden;
+  padding: 0;
+  width: 25px;
+  min-width: 25px;
+}
+
+#block-my-collectives .view-content .views-field-new-comments{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 25px;
+  min-width: 25px;
+  height: 25px;
+  text-align: center;
+  text-shadow: 0 0 2px #000;
+  font-weight: 900;
+  line-height: 25px;
+}
+
+#block-my-collectives .view-content .views-field-title{
+  padding-top: 2.5px;
+}
+
+#block-my-collectives .button{
+  font-size: 80%;
+  width: 100%;
+  padding: 5px 10px;
+  line-height: 20px;
+  margin: 20px 0 0;
+  height: 30px;
+}
+
+/* Comments */
+
+.view-collective-posts.view-display-id-posts{
+  margin: 2em 0 1em;
+}
+
+.view-collective-posts article.collective-post{
+  margin-bottom: 10px;
+}
+
+.view-collective-posts article.collective-post img{
+  display: block;
+}
+
+.view-collective-posts article.collective-post main{
+  display: flex;
+}
+
+.view-collective-posts article.collective-post main .image{
+  min-width: 30px;
+  flex-basis: 30px;
+  margin-top: 10px;
+}
+
+.view-collective-posts article.collective-post main .image img{
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.view-collective-posts article.collective-post main .comment{
+  background: #761928;
+  border-radius: 10px;
+  flex-grow: 1;
+  padding: 10px;
+}
+
+.view-collective-posts article.collective-post footer main .comment{
+  background: #350b04;
+}
+
+.view-collective-posts article.collective-post footer{
+  text-align: right;
+}
+
+.view-collective-posts article.collective-post footer article{
+  text-align: left;
+}
+
+.view-collective-posts article.collective-post footer a{
+  padding: 0 5px;
+}
+
+.view-collective-posts details{
+  border: none;
+  padding: 0;
+}
+
+.view-collective-posts aside{
+  padding: 0 0 0 30px;
+}
+
+.view-collective-posts aside .form-submit,
+.view-collective-posts aside details summary{
+  font-size: 80% !important;
+  height: 3em !important;
+  line-height: 3em !important;
+}
+
+.view-collective-posts aside .form-submit.active,
+.view-collective-posts aside .form-submit:active,
+.view-collective-posts aside .form-submit:hover{
+  font-size: 80%;
+  height: 3em;
+  line-height: 3em;
+}
+
+.view-collective-posts aside textarea.form-textarea{
+  border-radius: 0;
+  border: none !important;
+}
+
+.view-collective-posts aside details{
+  margin-bottom: 30px;
+}
+
+details.comment-form summary{
+  border-radius: 10px;
+}
+
+details.comment-form[open] summary{
+  border-radius: 10px 10px 0 0;
+}
+
+details.comment-form .form-actions{
+  margin-top: 0;
+}
+
+details.comment-form .form-submit,
+details.comment-form .form-submit:hover,
+details.comment-form .form-submit.active{
+  margin-top: 0;
+  border-radius: 0 0 10px 10px !important;
+}
+
+
+details.comment-form .text-format-wrapper{
+  margin: 0;
+}
+
+details.comment-form .filter-wrapper{
+  display: none;
+}

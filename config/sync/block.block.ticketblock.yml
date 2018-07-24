@@ -12,18 +12,18 @@ dependencies:
     - afrikaburn
 third_party_settings:
   collapsiblock:
-    collapse_action: '2'
+    collapse_action: '1'
 id: ticketblock
 theme: afrikaburn
-region: sidebar
-weight: -16
+region: biobar
+weight: -20
 provider: null
 plugin: ticket_block
 settings:
   id: ticket_block
   label: Tickets
   provider: afrikaburn_bio
-  label_display: visible
+  label_display: '0'
 visibility:
   php:
     id: php
@@ -39,6 +39,6 @@ visibility:
       user: '@user.current_user_context:current_user'
   request_path:
     id: request_path
-    pages: "/node/*/edit\r\n/node/add/*"
+    pages: "/node/add*\r\n/node/*/edit*\r\n*/form_*\r\n*/grant\r\n*/support\r\n*/supplier\r\n*/wap"
     negate: true
     context_mapping: {  }

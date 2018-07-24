@@ -2,10 +2,13 @@ module:
   action: 0
   admin_toolbar: 0
   admin_toolbar_tools: 0
+  adminimal_admin_toolbar: 0
   afrikaburn_bio: 0
   afrikaburn_collective: 0
+  afrikaburn_notification: 0
   afrikaburn_registration: 0
   afrikaburn_shared: 0
+  allowed_formats: 0
   amazon_sns: 0
   anonymizer: 0
   auto_entitylabel: 0
@@ -17,12 +20,12 @@ module:
   breakpoint: 0
   captcha: 0
   checklistapi: 0
-  chosen_lib: 0
   ckeditor: 0
   clientside_validation: 0
   clientside_validation_jquery: 0
   collapsiblock: 0
   color: 0
+  colorbox: 0
   comment: 0
   computed_field: 0
   computed_field_php_formatter: 0
@@ -50,7 +53,6 @@ module:
   entity_reference: 0
   entity_reference_revisions: 0
   entity_reference_views_select: 0
-  eu_cookie_compliance: 0
   features: 0
   features_ui: 0
   field: 0
@@ -64,6 +66,7 @@ module:
   flag: 0
   form_mode_manager: 0
   formblock: 0
+  gdoc_field: 0
   gdpr: 0
   gdpr_fields: 0
   gdpr_tasks: 0
@@ -105,7 +108,6 @@ module:
   responsive_image: 0
   rest: 0
   restui: 0
-  rules: 0
   search: 0
   serialization: 0
   settings_tray: 0
@@ -137,17 +139,16 @@ module:
   xls_serialization: 0
   ds: 1
   menu_link_content: 1
-  ds_extras: 2
   views: 10
   paragraphs: 11
   standard: 1000
+  eu_cookie_compliance: 1001
 theme:
   stable: 0
   classy: 0
   seven: 0
-  stark: 0
   afrikaburn: 0
-  bartik: 0
+  adminimal_theme: 0
 profile: standard
 _core:
   default_config_hash: R4IF-ClDHXxblLcG0L7MgsLvfBIMAvi_skumNFQwkDc
