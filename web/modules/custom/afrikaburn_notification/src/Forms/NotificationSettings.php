@@ -29,6 +29,7 @@ class NotificationSettings extends ConfigFormBase {
   protected function getEditableConfigNames() {
     return [
       'afrikaburn_notification.settings',
+      'afrikaburn_addresses.settings',
     ];
   }
 
@@ -40,6 +41,7 @@ class NotificationSettings extends ConfigFormBase {
     module_load_include('inc', 'afrikaburn_registration', 'includes/form');
 
     $settings = $this->config('afrikaburn_notification.settings');
+    $addresses = $this->config('afrikaburn_addresses.settings');
     $user = \Drupal::currentUser();
 
     $form = [
@@ -51,7 +53,7 @@ class NotificationSettings extends ConfigFormBase {
 
     $form['addresses']['archive'] = [
       '#type' => 'email',
-      '#default_value' => $settings->get('archive'),
+      '#default_value' => $addresses->get('archive'),
     ];
 
     foreach(_project_form_modes() as $key=>$project){
@@ -74,7 +76,7 @@ class NotificationSettings extends ConfigFormBase {
       $form[$key]['from'][$key . '-address'] = [
         '#type' => 'email',
         '#placeholder' => 'Reply to email address',
-        '#default_value' => $settings->get($key . '-address'),
+        '#default_value' => $addresses->get($key . '-address'),
         '#prefix' => '&lt;',
         '#suffix' => '&gt;',
       ];
@@ -129,12 +131,38 @@ class NotificationSettings extends ConfigFormBase {
 
     $values = $form_state->getValues();
     $config = $this->config('afrikaburn_notification.settings');
+    $addresses = $this->config('afrikaburn_addresses.settings');
 
+    // Don't save form metadata
+    foreach([
+      'submit',
+      'form_build_id',
+      'form_token',
+      'form_id',
+      'op',
+    ] as $key) unset($values[$key]);
+
+    // Save addressing seperately - we don't want them to move between environments
+    foreach(
+      [
+        'archive',
+        'art-address',
+        'performances-address',
+        'theme-camps-address',
+        'mutant-vehicles-address',
+      ] as $key
+    ){
+      $addresses->set($key, $values[$key]);
+      unset($values[$key]);
+    }
+
+    // All the other settings we do want to move
     foreach($values as $key=>$value){
       $config->set($key, $value);
     }
 
     $config->save();
+    $addresses->save();
     drupal_set_message('Settings saved');
   }
 

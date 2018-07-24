@@ -53,6 +53,7 @@ dependencies:
     - field.field.node.performances.field_prj_gen_manager
     - field.field.node.performances.field_prj_gen_story
     - field.field.node.performances.field_prj_gen_year
+    - field.field.node.performances.field_prj_grant_expenses
     - field.field.node.performances.field_prj_lgh_agree
     - field.field.node.performances.field_prj_lgh_description
     - field.field.node.performances.field_prj_lgh_f1
@@ -118,6 +119,7 @@ dependencies:
   module:
     - computed_field
     - ds
+    - file
     - responsive_image
     - user
 third_party_settings:
@@ -133,6 +135,9 @@ third_party_settings:
         - field_prj_gen_concept
       second:
         - field_prj_gen_description
+      top:
+        - field_year_cycle
+        - field_prj_grant_expenses
 id: node.performances.default
 targetEntityType: node
 bundle: performances
@@ -154,6 +159,14 @@ content:
     label: above
     settings: {  }
     third_party_settings: {  }
+  field_prj_grant_expenses:
+    weight: 3
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_default
+    region: top
   field_year_cycle:
     weight: 2
     label: above
@@ -164,7 +177,7 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     type: computed_integer
-    region: content
+    region: top
 hidden:
   field_admin_comments: true
   field_bke_day: true

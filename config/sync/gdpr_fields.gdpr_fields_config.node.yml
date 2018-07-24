@@ -393,6 +393,14 @@ bundles:
       notes: ''
       bundle: performances
       name: field_year_cycle
+    field_prj_grant_expenses:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: performances
+      name: field_prj_grant_expenses
   collective:
     field_col_members:
       enabled: false

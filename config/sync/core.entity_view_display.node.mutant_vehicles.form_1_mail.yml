@@ -1,9 +1,9 @@
-uuid: 8f2707be-24f0-4c8c-8b6e-a0ea2cc4f7aa
+uuid: d38a18ad-ec44-43d7-bf7b-55d6e4b96a9e
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.form_1
+    - core.entity_view_mode.node.form_1_mail
     - field.field.node.mutant_vehicles.field_admin_comments
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
@@ -127,12 +127,16 @@ third_party_settings:
         - group_other
       parent_name: ''
       weight: 1
-      format_type: tabs
+      format_type: html_element
       format_settings:
-        label: Intro
-        direction: horizontal
-        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        effect: none
+        speed: fast
+        attributes: ''
         classes: ''
+        id: ''
       label: Intro
       region: content
     group_overview:
@@ -145,11 +149,15 @@ third_party_settings:
         - field_prj_gen_doc
       parent_name: group_project_registration
       weight: 4
-      format_type: tab
+      format_type: html_element
       format_settings:
         label: Overview
-        formatter: closed
-        required_fields: true
+        element: h2
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
         id: ''
         classes: ''
       label: Overview
@@ -163,13 +171,17 @@ third_party_settings:
         - field_prj_saf_mark
       parent_name: group_project_registration
       weight: 5
-      format_type: tab
+      format_type: html_element
       format_settings:
+        label: Safety
+        element: h2
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
         id: ''
         classes: ''
-        formatter: closed
-        required_fields: true
-        description: ''
       label: Safety
       region: content
     group_night:
@@ -180,12 +192,15 @@ third_party_settings:
         - field_prj_lgh_lighter
       parent_name: group_project_registration
       weight: 6
-      format_type: tab
+      format_type: html_element
       format_settings:
         label: 'At night'
-        formatter: closed
-        description: ''
-        required_fields: true
+        element: h2
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
         id: ''
         classes: ''
       label: 'At night'
@@ -201,13 +216,17 @@ third_party_settings:
         - field_prj_snd_person
       parent_name: group_project_registration
       weight: 7
-      format_type: tab
+      format_type: html_element
       format_settings:
+        label: Sound
+        element: h2
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
         id: ''
         classes: ''
-        formatter: closed
-        required_fields: true
-        description: ''
       label: Sound
       region: content
     group_flames:
@@ -219,13 +238,17 @@ third_party_settings:
         - field_prj_brn_agree
       parent_name: group_project_registration
       weight: 8
-      format_type: tab
+      format_type: html_element
       format_settings:
+        label: Flames
+        element: h2
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
         id: ''
         classes: ''
-        formatter: closed
-        required_fields: true
-        description: ''
       label: Flames
       region: content
     group_trailer:
@@ -241,13 +264,17 @@ third_party_settings:
         - field_prj_lgh_projection
       parent_name: group_project_registration
       weight: 9
-      format_type: tab
+      format_type: html_element
       format_settings:
+        label: Trailer
+        element: h2
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
         id: ''
         classes: ''
-        formatter: closed
-        required_fields: true
-        description: ''
       label: Trailer
       region: content
     group_moop:
@@ -258,13 +285,17 @@ third_party_settings:
         - field_prj_lnt_agree
       parent_name: group_project_registration
       weight: 10
-      format_type: tab
+      format_type: html_element
       format_settings:
+        label: Moop
+        element: h2
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
         id: ''
         classes: ''
-        formatter: closed
-        required_fields: true
-        description: ''
       label: Moop
       region: content
     group_wtf_guide:
@@ -278,12 +309,15 @@ third_party_settings:
         - field_prj_cll_contact
       parent_name: group_project_registration
       weight: 11
-      format_type: tab
+      format_type: html_element
       format_settings:
         label: 'WTF Guide'
-        formatter: closed
-        description: ''
-        required_fields: true
+        element: h2
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
         id: ''
         classes: ''
       label: 'WTF Guide'
@@ -297,12 +331,15 @@ third_party_settings:
         - field_prj_oth_grant
       parent_name: group_project_registration
       weight: 12
-      format_type: tab
+      format_type: html_element
       format_settings:
         label: Other
-        formatter: closed
-        description: ''
-        required_fields: true
+        element: h2
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
         id: ''
         classes: ''
       label: Other
@@ -315,12 +352,15 @@ third_party_settings:
         - field_mutant_drivers
       parent_name: group_project_registration
       weight: 1
-      format_type: tab
+      format_type: html_element
       format_settings:
         label: Intro
-        formatter: open
-        description: ''
-        required_fields: true
+        element: h2
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
         id: ''
         classes: ''
       label: Intro
@@ -342,10 +382,10 @@ third_party_settings:
         open: false
         required_fields: true
       label: Administrative
-id: node.mutant_vehicles.form_1
+id: node.mutant_vehicles.form_1_mail
 targetEntityType: node
 bundle: mutant_vehicles
-mode: form_1
+mode: form_1_mail
 content:
   field_collective:
     weight: 12

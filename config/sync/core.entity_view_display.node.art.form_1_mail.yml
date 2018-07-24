@@ -52,6 +52,7 @@ dependencies:
     - field.field.node.art.field_prj_cll_collaborate
     - field.field.node.art.field_prj_cll_contact
     - field.field.node.art.field_prj_cll_description
+    - field.field.node.art.field_prj_cost
     - field.field.node.art.field_prj_gen_bio
     - field.field.node.art.field_prj_gen_concept
     - field.field.node.art.field_prj_gen_contact
@@ -398,12 +399,16 @@ third_party_settings:
         - group_other
       parent_name: ''
       weight: 2
-      format_type: tabs
+      format_type: html_element
       format_settings:
-        label: 'Project Registration'
-        direction: horizontal
-        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        effect: none
+        speed: fast
+        attributes: ''
         classes: ''
+        id: ''
       label: 'Project Registration'
       region: content
     group_collaboration:
@@ -977,6 +982,7 @@ hidden:
   field_prj_brn_plan: true
   field_prj_brn_time: true
   field_prj_brn_time_adm: true
+  field_prj_cost: true
   field_prj_gen_external: true
   field_prj_grant_expenses: true
   field_prj_lgh_agree: true

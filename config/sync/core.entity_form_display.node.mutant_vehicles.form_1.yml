@@ -103,7 +103,6 @@ dependencies:
     - image.style.thumbnail
     - node.type.mutant_vehicles
   module:
-    - comment
     - computed_field
     - conditional_fields
     - entity_reference_views_select
@@ -352,12 +351,6 @@ targetEntityType: node
 bundle: mutant_vehicles
 mode: form_1
 content:
-  field_admin_comments:
-    weight: 131
-    settings: {  }
-    third_party_settings: {  }
-    type: comment_default
-    region: content
   field_collective:
     type: entity_reference_autocomplete
     weight: 12
@@ -1526,6 +1519,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_admin_comments: true
   field_grt_art_total: true
   field_grt_awarded: true
   field_grt_contribution: true

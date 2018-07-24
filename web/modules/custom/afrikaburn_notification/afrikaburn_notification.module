@@ -21,6 +21,7 @@ function afrikaburn_notification_node_insert($entity){
     $user = User::load(\Drupal::currentUser()->id());
     $collective = _afrikaburn_notification_collective($entity);
     $settings = \Drupal::config('afrikaburn_notification.settings');
+    $addresses = \Drupal::config('afrikaburn_addresses.settings');
 
     $stage = $entity->get('field_form_mode')->value;
     $complete = array_column($entity->get('field_prjr_complete')->getValue(), 'value');
@@ -30,7 +31,7 @@ function afrikaburn_notification_node_insert($entity){
     _afrikaburn_notify(
       'no-reply@afrikaburn.com',
       $settings->get($bundle . '-label'),
-      $settings->get($bundle . '-address'),
+      $addresses->get($bundle . '-address'),
       $collective['members'] . ',' . $settings->get('archive'),
       $settings->get(implode('-', [$bundle, $stage, $state, 'collective', 'subject'])),
       $settings->get(implode('-', [$bundle, $stage, $state, 'collective', 'body'])),
@@ -39,7 +40,7 @@ function afrikaburn_notification_node_insert($entity){
 
     // Mail wranglers
     _afrikaburn_notify(
-      $settings->get($bundle . '-address'),
+      $addresses->get($bundle . '-address'),
       $user->field_first_name->value . " '" . $user->name->value . "' " . $user->field_last_name->value . ' via AfrikaBurn Tribe',
       $user->mail->value,
       $settings->get('archive'),

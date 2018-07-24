@@ -1,8 +1,9 @@
-uuid: 429f3a1f-2591-4f80-b227-7b430b05db54
+uuid: 59dc13c8-a9f0-4973-b507-b99881f69a31
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.form_1_mail
     - field.field.node.performances.field_admin_comments
     - field.field.node.performances.field_bke_day
     - field.field.node.performances.field_bke_location
@@ -115,15 +116,15 @@ dependencies:
     - field.field.node.performances.field_this_is_the_amount_of_mone
     - field.field.node.performances.field_vp_ea
     - field.field.node.performances.field_year_cycle
-    - image.style.thumbnail
     - node.type.performances
   module:
-    - computed_field
     - conditional_fields
-    - entity_reference_views_select
     - field_group
-    - image
     - link
+    - options
+    - responsive_image
+    - taxonomy
+    - user
 third_party_settings:
   field_group:
     group_project:
@@ -131,18 +132,21 @@ third_party_settings:
         - group_overview
         - group_wtf
       parent_name: ''
-      weight: 1
-      format_type: accordion
+      weight: 7
+      format_type: html_element
       format_settings:
-        label: 'Project Registration'
+        element: div
+        show_label: false
+        label_element: h3
         effect: none
-        id: ''
+        speed: fast
+        attributes: ''
         classes: ''
+        id: ''
       label: 'Project Registration'
       region: content
     group_overview:
       children:
-        - title
         - field_prj_gen_lead
         - field_prj_gen_description
         - field_prj_wtf_short
@@ -154,13 +158,17 @@ third_party_settings:
         - field_prj_oth_grant
       parent_name: group_project
       weight: 20
-      format_type: accordion_item
+      format_type: html_element
       format_settings:
         label: Overview
-        formatter: open
-        required_fields: true
+        element: h2
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
         id: ''
-        classes: ui-accordion-header
+        classes: ''
       label: Overview
       region: content
     group_wtf:
@@ -171,98 +179,58 @@ third_party_settings:
         - field_prj_wtf_website
       parent_name: group_project
       weight: 27
-      format_type: accordion_item
+      format_type: html_element
       format_settings:
         label: 'Community & Collaboration'
-        formatter: closed
-        required_fields: true
+        element: h2
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
         id: ''
         classes: ''
       label: 'Community & Collaboration'
       region: content
-    group_administrative:
-      children:
-        - field_prjr_complete
-        - field_prj_adm_wrangler
-        - created
-        - field_collective
-        - field_form_mode
-        - field_year_cycle
-      parent_name: ''
-      weight: 0
-      format_type: details
-      format_settings:
-        id: ''
-        classes: ''
-        open: false
-        required_fields: true
-      label: Administrative
-_core:
-  default_config_hash: GszY5o7FPcrv2Z8_LMFChqNpGZCA9kaS3WAz3lVtB0o
-id: node.performances.default
+id: node.performances.form_1_mail
 targetEntityType: node
 bundle: performances
-mode: default
+mode: form_1_mail
 content:
-  created:
-    type: datetime_timestamp
-    weight: 40
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_bke_day:
     weight: 6
     settings: {  }
     third_party_settings: {  }
-    type: options_select
     region: content
+    type: list_key
+    label: above
   field_bke_location:
     weight: 5
     settings:
-      size: 60
-      placeholder: ''
+      link_to_entity: false
     third_party_settings: {  }
-    type: string_textfield
     region: content
+    type: string
+    label: above
   field_bke_time:
     weight: 7
     settings:
-      size: 60
-      placeholder: ''
+      link_to_entity: false
     third_party_settings: {  }
-    type: string_textfield
     region: content
-  field_collective:
-    type: entity_reference_autocomplete
-    weight: 41
-    region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_form_mode:
-    weight: 42
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_prj_adm_wrangler:
-    type: erviews_options_select
-    weight: 39
-    region: content
-    settings: {  }
-    third_party_settings: {  }
+    type: string
+    label: above
   field_prj_cll_collaborate:
     weight: 6
     settings:
-      display_label: true
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings:
       conditional_fields: {  }
-    type: boolean_checkbox
     region: content
+    type: boolean
+    label: above
   field_prj_cll_contact:
     weight: 8
     settings: {  }
@@ -300,13 +268,12 @@ content:
             selector: ''
           entity_type: node
           bundle: performances
-    type: options_select
     region: content
+    type: author
+    label: above
   field_prj_cll_description:
     weight: 7
-    settings:
-      rows: 5
-      placeholder: ''
+    settings: {  }
     third_party_settings:
       conditional_fields:
         7d992704-c12c-47bd-89f2-13bc8402b835:
@@ -341,56 +308,64 @@ content:
             selector: ''
           entity_type: node
           bundle: performances
-    type: string_textarea
     region: content
+    type: basic_string
+    label: above
   field_prj_gen_description:
     weight: 2
-    settings:
-      rows: 5
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: string_textarea
     region: content
+    type: basic_string
+    label: above
   field_prj_gen_lead:
     weight: 1
     settings: {  }
     third_party_settings: {  }
-    type: options_select
     region: content
+    type: author
+    label: above
   field_prj_oth_grant:
-    type: boolean_checkbox
     weight: 9
     region: content
     settings:
-      display_label: true
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
+    type: boolean
+    label: above
   field_prj_wtf_categories:
-    type: options_buttons
     weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
+    type: entity_reference_rss_category
+    label: above
   field_prj_wtf_image:
     weight: 8
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      responsive_image_style: ''
+      image_link: ''
     third_party_settings: {  }
-    type: image_image
     region: content
+    type: responsive_image
+    label: above
   field_prj_wtf_short:
-    type: string_textarea
     weight: 3
     region: content
-    settings:
-      rows: 5
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
+    type: basic_string
+    label: above
   field_prj_wtf_website:
     weight: 9
     settings:
-      placeholder_url: ''
-      placeholder_title: ''
+      trim_length: 80
+      rel: ''
+      target: ''
+      url_only: false
+      url_plain: false
     third_party_settings:
       conditional_fields:
         ec7b9752-a8bc-4b1f-9c43-855ea1539f4f:
@@ -408,20 +383,9 @@ content:
             selector: ''
           entity_type: node
           bundle: performances
-    type: link_default
     region: content
-  field_prjr_complete:
-    type: options_buttons
-    weight: 38
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_year_cycle:
-    weight: 43
-    settings: {  }
-    third_party_settings: {  }
-    type: computed_number_widget
-    region: content
+    type: link_separate
+    label: above
   flag:
     weight: 8
     region: content
@@ -433,18 +397,11 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
     region: content
-  title:
-    type: string_textfield
-    weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
 hidden:
   field_admin_comments: true
+  field_collective: true
+  field_form_mode: true
   field_grt_art_total: true
   field_grt_breakdown: true
   field_grt_contribution: true
@@ -464,6 +421,7 @@ hidden:
   field_muncipal_district: true
   field_prj_adm_notes: true
   field_prj_adm_review: true
+  field_prj_adm_wrangler: true
   field_prj_brn_agree: true
   field_prj_brn_burning: true
   field_prj_brn_f2: true
@@ -535,12 +493,14 @@ hidden:
   field_prj_wtf_planned: true
   field_prj_wtf_scheduled: true
   field_prj_wtf_short_copy: true
+  field_prjr_complete: true
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
+  field_year_cycle: true
+  links: true
   path: true
   promote: true
   status: true
   sticky: true
-  uid: true
   url_redirects: true

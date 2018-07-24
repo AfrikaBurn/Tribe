@@ -54,6 +54,7 @@ dependencies:
     - field.field.node.performances.field_prj_gen_manager
     - field.field.node.performances.field_prj_gen_story
     - field.field.node.performances.field_prj_gen_year
+    - field.field.node.performances.field_prj_grant_expenses
     - field.field.node.performances.field_prj_lgh_agree
     - field.field.node.performances.field_prj_lgh_description
     - field.field.node.performances.field_prj_lgh_f1
@@ -114,6 +115,7 @@ dependencies:
     - field.field.node.performances.field_sup_review
     - field.field.node.performances.field_this_is_the_amount_of_mone
     - field.field.node.performances.field_vp_ea
+    - field.field.node.performances.field_year_cycle
     - node.type.performances
   module:
     - conditional_fields
@@ -130,7 +132,7 @@ third_party_settings:
         - group_overview
         - group_wtf
       parent_name: ''
-      weight: 7
+      weight: 1
       format_type: accordion
       format_settings:
         label: 'Project Registration'
@@ -422,11 +424,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  links:
-    weight: 100
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   moderation_state:
     weight: 69
     settings:
@@ -474,6 +471,7 @@ hidden:
   field_prj_gen_manager: true
   field_prj_gen_story: true
   field_prj_gen_year: true
+  field_prj_grant_expenses: true
   field_prj_lgh_agree: true
   field_prj_lgh_description: true
   field_prj_lgh_f1: true
@@ -528,6 +526,8 @@ hidden:
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
+  field_year_cycle: true
+  links: true
   path: true
   promote: true
   status: true
