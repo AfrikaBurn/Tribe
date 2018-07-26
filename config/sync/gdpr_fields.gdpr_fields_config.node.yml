@@ -320,6 +320,14 @@ bundles:
       notes: ''
       bundle: mutant_vehicles
       name: field_year_cycle
+    field_prj_snd_safety:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: mutant_vehicles
+      name: field_prj_snd_safety
   performances:
     field_prj_gen_description:
       enabled: false

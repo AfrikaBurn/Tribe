@@ -26,7 +26,7 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
 
   // dpm($form_id);
 
-  if (isset($defaults)){
+  if (isset($defaults) && preg_match('/^\/node/', \Drupal::service('path.current')->getPath())) {
 
     $user = User::load(\Drupal::currentUser()->id());
     $registration = array_filter(
