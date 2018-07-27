@@ -29,7 +29,7 @@ class NotificationSettings extends ConfigFormBase {
   protected function getEditableConfigNames() {
     return [
       'afrikaburn_notification.settings',
-      'afrikaburn_addresses.settings',
+      'afrikaburn_notification.address_settings',
     ];
   }
 
@@ -41,7 +41,7 @@ class NotificationSettings extends ConfigFormBase {
     module_load_include('inc', 'afrikaburn_registration', 'includes/form');
 
     $settings = $this->config('afrikaburn_notification.settings');
-    $addresses = $this->config('afrikaburn_addresses.settings');
+    $addresses = $this->config('afrikaburn_notification.address_settings');
     $user = \Drupal::currentUser();
 
     $form = [
@@ -131,7 +131,7 @@ class NotificationSettings extends ConfigFormBase {
 
     $values = $form_state->getValues();
     $config = $this->config('afrikaburn_notification.settings');
-    $addresses = $this->config('afrikaburn_addresses.settings');
+    $addresses = $this->config('afrikaburn_notification.address_settings');
 
     // Don't save form metadata
     foreach([

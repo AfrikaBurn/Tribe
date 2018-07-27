@@ -1,0 +1,13 @@
+--- modules/contrib/entity_reference_views_select/src/Plugin/Field/FieldWidget/EntityReferenceViewsOptionsButtonsWidget.old.php	2018-07-27 12:48:05.847000000 +0200
++++ modules/contrib/entity_reference_views_select/src/Plugin/Field/FieldWidget/EntityReferenceViewsOptionsButtonsWidget.php	2018-07-27 12:48:40.295874252 +0200
+@@ -88,7 +88,9 @@
+       $filter_options = [];
+       foreach ($view->result as $row) {
+         $row_output = $view->style_plugin->view->rowPlugin->render($row);
+-        $filter_options[$row->_entity->id()] = $options[$row->_entity->id()]->create($this->renderer->render($row_output));
++        if ($options[$row->_entity->id()]) {
++          $filter_options[$row->_entity->id()] = $options[$row->_entity->id()]->create($this->renderer->render($row_output));
++        }
+       }
+       $options = $filter_options;
+     }
