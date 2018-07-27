@@ -173,6 +173,7 @@ function ab_prepare_wrangler_view(&$variables){
 
       unset($field_form['#description']);
       $field_form['#attributes']['autocomplete'] = "off";
+      $field_form['#attributes']['class'][] = 'editor-parent';
 
       // Links to completed forms
       if ($field == 'field_prjr_complete'){

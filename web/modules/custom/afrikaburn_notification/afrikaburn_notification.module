@@ -13,8 +13,10 @@ use \Drupal\user\Entity\User;
 function afrikaburn_notification_node_insert($entity){
 
   $bundle = $entity->bundle();
+  $is_project_node = in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps']);
+  $is_published = $entity->isPublished();
 
-  if (in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
+  if ($is_project_node && $is_published){
 
     module_load_include('inc', 'afrikaburn_notification', 'includes/email');
 
