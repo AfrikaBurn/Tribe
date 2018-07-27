@@ -126,7 +126,7 @@ third_party_settings:
         - group_wtf_guide
         - group_other
       parent_name: ''
-      weight: 2
+      weight: 1
       format_type: tabs
       format_settings:
         label: Intro
@@ -199,24 +199,25 @@ third_party_settings:
         - field_prj_snd_soop
         - field_prj_snd_agree
         - field_prj_snd_person
-      parent_name: group_project_registration
-      weight: 7
-      format_type: tab
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        required_fields: true
-        description: ''
-      label: Sound
-      region: content
-    group_flames:
-      children:
         - field_prj_brn_burning
         - field_prj_brn_plan
         - field_prj_brn_person
         - field_prj_brn_desc
         - field_prj_brn_agree
+      parent_name: group_project_registration
+      weight: 7
+      format_type: tab
+      format_settings:
+        label: Effects
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Effects
+      region: content
+    group_flames:
+      children: {  }
       parent_name: group_project_registration
       weight: 8
       format_type: tab
@@ -271,7 +272,6 @@ third_party_settings:
       children:
         - field_prj_wtf_short
         - field_prj_wtf_long
-        - field_prj_wtf_image
         - field_prj_wtf_website
         - field_prj_cll_collaborate
         - field_prj_cll_description
@@ -328,16 +328,16 @@ third_party_settings:
       region: content
     group_administrative:
       children:
+        - field_admin_comments
         - field_prjr_complete
         - field_prj_adm_review
         - field_prj_adm_wrangler
         - field_prj_adm_registration
         - field_collective
         - field_form_mode
-        - field_admin_comments
         - field_year_cycle
       parent_name: ''
-      weight: 1
+      weight: 0
       format_type: details
       format_settings:
         id: ''
@@ -410,7 +410,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_prj_brn_agree:
-    weight: 13
+    weight: 19
     settings:
       display_label: true
     third_party_settings:
@@ -450,14 +450,14 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_brn_burning:
-    weight: 9
+    weight: 15
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_brn_desc:
-    weight: 12
+    weight: 18
     settings:
       rows: 5
       placeholder: ''
@@ -495,10 +495,27 @@ content:
             selector: ''
           entity_type: node
           bundle: mutant_vehicles
+        fc98b972-291c-42f6-94e6-9d9bdd578402:
+          dependee: field_prj_snd_level
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: '407'
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
     type: string_textarea
     region: content
   field_prj_brn_person:
-    weight: 11
+    weight: 17
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -537,7 +554,7 @@ content:
     type: erviews_options_select
     region: content
   field_prj_brn_plan:
-    weight: 10
+    weight: 16
     settings:
       rows: 5
       placeholder: ''
@@ -1468,11 +1485,27 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_wtf_image:
-    weight: 2
+    third_party_settings:
+      conditional_fields:
+        8a9c4164-d607-46fd-8b48-52a413cceac0:
+          dependee: field_prj_cll_collaborate
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    weight: 132
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
     type: image_image
     region: content
   field_prj_wtf_long:

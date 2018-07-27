@@ -148,8 +148,8 @@ class NotificationSettings extends ConfigFormBase {
         'archive',
         'art-address',
         'performances-address',
-        'theme-camps-address',
-        'mutant-vehicles-address',
+        'theme_camps-address',
+        'mutant_vehicles-address',
       ] as $key
     ){
       $addresses->set($key, $values[$key]);

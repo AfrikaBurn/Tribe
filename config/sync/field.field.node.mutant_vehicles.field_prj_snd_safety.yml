@@ -15,7 +15,7 @@ id: node.mutant_vehicles.field_prj_snd_safety
 field_name: field_prj_snd_safety
 entity_type: node
 bundle: mutant_vehicles
-label: 'Describe your safety considerations for the sound effects *'
+label: 'Describe your safety considerations for the sound effects'
 description: 'Please describe how your vehicle/mutant/roving art will be managed in accordance with the AfrikaBurn SOOP policy 2017 and the DMV SOOP Policy.'
 required: false
 translatable: false

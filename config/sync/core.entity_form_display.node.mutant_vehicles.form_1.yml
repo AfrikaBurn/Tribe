@@ -199,24 +199,25 @@ third_party_settings:
         - field_prj_snd_soop
         - field_prj_snd_agree
         - field_prj_snd_person
-      parent_name: group_project_registration
-      weight: 7
-      format_type: tab
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        required_fields: true
-        description: ''
-      label: Sound
-      region: content
-    group_flames:
-      children:
         - field_prj_brn_burning
         - field_prj_brn_plan
         - field_prj_brn_person
         - field_prj_brn_desc
         - field_prj_brn_agree
+      parent_name: group_project_registration
+      weight: 7
+      format_type: tab
+      format_settings:
+        label: Effects
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Effects
+      region: content
+    group_flames:
+      children: {  }
       parent_name: group_project_registration
       weight: 8
       format_type: tab
@@ -271,9 +272,9 @@ third_party_settings:
       children:
         - field_prj_wtf_short
         - field_prj_wtf_long
-        - field_prj_wtf_image
         - field_prj_wtf_website
         - field_prj_cll_collaborate
+        - field_prj_wtf_image
         - field_prj_cll_description
         - field_prj_cll_contact
       parent_name: group_project_registration
@@ -403,7 +404,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_prj_brn_agree:
-    weight: 13
+    weight: 19
     settings:
       display_label: true
     third_party_settings:
@@ -443,14 +444,14 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_brn_burning:
-    weight: 9
+    weight: 15
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_brn_desc:
-    weight: 12
+    weight: 18
     settings:
       rows: 5
       placeholder: ''
@@ -491,7 +492,7 @@ content:
     type: string_textarea
     region: content
   field_prj_brn_person:
-    weight: 11
+    weight: 17
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -530,7 +531,7 @@ content:
     type: erviews_options_select
     region: content
   field_prj_brn_plan:
-    weight: 10
+    weight: 16
     settings:
       rows: 5
       placeholder: ''
@@ -571,14 +572,14 @@ content:
     type: string_textarea
     region: content
   field_prj_cll_collaborate:
-    weight: 5
+    weight: 3
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_cll_contact:
-    weight: 7
+    weight: 6
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -617,7 +618,7 @@ content:
     type: erviews_options_select
     region: content
   field_prj_cll_description:
-    weight: 6
+    weight: 5
     settings:
       rows: 5
       placeholder: ''
@@ -1461,7 +1462,7 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_wtf_image:
-    weight: 2
+    weight: 4
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -1485,7 +1486,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_prj_wtf_website:
-    weight: 4
+    weight: 2
     settings:
       placeholder_url: ''
       placeholder_title: ''
