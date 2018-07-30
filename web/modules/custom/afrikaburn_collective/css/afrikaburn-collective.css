@@ -160,3 +160,7 @@ details.comment-form .text-format-wrapper{
 details.comment-form .filter-wrapper{
   display: none;
 }
+
+#block-inviteblock input.form-text{
+  min-width: 100%;
+}

@@ -1,0 +1,25 @@
+uuid: 3be89163-00b5-4031-8c3f-a38f8454ad21
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_col_invite_token
+    - node.type.collective
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.collective.field_col_invite_token
+field_name: field_col_invite_token
+entity_type: node
+bundle: collective
+label: 'Invite token'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

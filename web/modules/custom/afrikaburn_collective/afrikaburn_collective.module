@@ -166,11 +166,21 @@ function afrikaburn_collective_preprocess_views_view_fields(&$variables) {
   }
 }
 
-
+/**
+ * Implements hook_form_FORM_ID_alter()
+ * Fixes comment form bug
+ */
 function afrikaburn_collective_form_comment_comment_form_alter(&$form, $form_state, $form_id){
   $form['pid'] = [
     '#name' => 'pid',
     '#type' => 'hidden',
   ];
   $form['actions']['submit']['#value'] = t('Say it!');
+}
+
+/**
+ * Implements computed_field_field_col_invite_token_compute()
+ */
+function computed_field_field_col_invite_token_compute($entity_type_manager, $entity, $fields, $delta){
+  return $entity;
 }

@@ -1,4 +1,3 @@
-uuid: 36a8fa52-f1ac-4bb2-a34e-600dfac81076
 langcode: en
 status: open
 dependencies: {  }
@@ -188,3 +187,4 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
+uuid: 36a8fa52-f1ac-4bb2-a34e-600dfac81076

@@ -418,3 +418,11 @@ bundles:
       notes: ''
       bundle: collective
       name: field_col_members
+    field_col_invite_token:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: collective
+      name: field_col_invite_token

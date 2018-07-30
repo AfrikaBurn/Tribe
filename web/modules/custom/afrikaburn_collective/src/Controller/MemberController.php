@@ -17,32 +17,47 @@ class MemberController extends ControllerBase {
   /**
    * Invite a person to the group
    */
-  public static function invite($cid = FALSE) {
+  public function invite($cid = FALSE) {
 
     $emails = \Drupal::request()->request->get('emails');
     $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
-    $emails = explode(',', strstrtolower($emails));
+    $emails = preg_split('/[;, ]+/', strtolower($emails));
 
     if ($collective->bundle() == 'collective'){
-      self::addToInvites($emails, $collective);
+
+      $result = self::addToInvites($emails, $collective);
+      $collective->save();
+
+      if (count($result['invited'])){
+        drupal_set_message(
+          t(
+            'You have invited %emails to join %collective',
+            [
+                '%emails' => implode(', ', $result['invited']),
+                '%collective' => $collective->getTitle(),
+            ]
+          ),
+          'status',
+          TRUE
+        );
+      }
+
+      if (count($result['reminded'])){
+        drupal_set_message(
+          t(
+            'You have reminded %emails to join %collective',
+            [
+                '%emails' => implode(', ', $result['reminded']),
+                '%collective' => $collective->getTitle(),
+            ]
+          ),
+          'status',
+          TRUE
+        );
+      }
     }
-    $collective->save();
 
-    drupal_set_message(
-      t(
-        'You have invited %emails to join %collective',
-        [
-            '%emails' => implode(', ', $emails),
-            '%collective' => $collective->getTitle(),
-        ]
-      ),
-      'status',
-      TRUE
-    );
-
-    $redirect = new RedirectResponse('/node/' . $cid);
-    $redirect->send();
-    return [];
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $cid]));
   }
 
   /**
@@ -79,9 +94,7 @@ class MemberController extends ControllerBase {
       );
     }
 
-    $redirect = new RedirectResponse('/node/' . $cid);
-    $redirect->send();
-    return [];
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $cid]));
   }
 
   /**
@@ -117,9 +130,7 @@ class MemberController extends ControllerBase {
       );
     }
 
-    $redirect = new RedirectResponse('/');
-    $redirect->send();
-    return [];
+    return new RedirectResponse(\Drupal::url('<front>'));
   }
 
   /**
@@ -165,9 +176,7 @@ class MemberController extends ControllerBase {
       );
     }
 
-    $redirect = new RedirectResponse('/node/' . $cid);
-    $redirect->send();
-    return [];
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $cid]));
   }
 
   /**
@@ -195,20 +204,42 @@ class MemberController extends ControllerBase {
       TRUE
     );
 
-    $redirect = new RedirectResponse('/node/' . $cid);
-    $redirect->send();
-    return [];
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $cid]));
   }
+
 
   /* ---- CRUD ---- */
 
+
   // Add email address to invites
   private static function addToInvites($emails, $collective) {
+
+    $result = [
+      'invited' => [],
+      'reminded' => [],
+    ];
+
     foreach($emails as $email){
-      if (!count(self::inviteIndex($email, $collective))){
-        $collective->get('field_col_invitee')->appendItem(trim($email));
+
+      $email = trim($email);
+      $index = self::inviteMailIndex($email, $collective);
+      $token = md5($collective->getTitle() . $email . time());
+
+      if ($index !== FALSE){
+
+        $collective->get('field_col_invite_token')->set($index, $token);
+        $result['reminded'][] = $email;
+
+      } else {
+
+        $collective->get('field_col_invite_mail')->appendItem(trim($email));
+        $collective->get('field_col_invite_token')->appendItem($token);
+        $result['invited'][] = $email;
+
       }
     }
+
+    return $result;
   }
 
   // Remove email address(es) from invites
@@ -249,38 +280,95 @@ class MemberController extends ControllerBase {
   /* ---- Utility ---- */
 
   /**
-   * Returns the index(es) of a users invite.
+   * Returns the index(es) of an email invite.
    */
-  private static function inviteIndex($user, $collective) {
+  private static function inviteMailIndex($mail, $collective) {
 
-    $indexes = [];
-    $field_col_invitee = $collective->get('field_col_invitee');
+    $invited_mails = array_column(
+      $collective->get('field_col_invite_mail')->getValue(),
+      'value'
+    );
 
-    if ($field_col_invitee){
+    return array_search($mail, $invited_mails);
 
-      $invitees = array_column(
-        $field_col_invitee->getValue(),
-        'value'
-      );
 
-      $mails = is_string($user)
-        ? [$user]
-        : [$user->get('mail')->getValue(), $user->get('field_secondary_mail')->getValue()];
-      foreach($mails as $index=>$mail){
-        if ($mail) {
-          $value = array_values(array_column($mail, 'value'))[0];
-          if (in_array(strtolower($value), array_map('strtolower', $invitees))) {
-            $indexes[$index] = $index;
-          }
-        }
-      }
-    }
+    // $user_mails = [
+    //   array_search(
+    //     array_column(
+    //       $user->get('mail')->getValue(),
+    //       'value'
+    //     )[0],
+    //     $invited_mails
+    //   ),
+    //   array_search(
+    //     array_column(
+    //       $user->get('field_secondary_mail')->getValue(),
+    //       'value'
+    //     ),
+    //     $invited_mails
+    //   )
+    // ];
 
-    return $indexes;
+    // $mail_index = array_search()
+
+    // if ($field_col_invitee){
+
+    //   $invitees = array_column(
+    //     $field_col_invitee->getValue(),
+    //     'value'
+    //   );
+
+    //   $mails = is_string($user)
+    //     ? [$user]
+    //     : [$user->get('mail')->getValue(), $user->get('field_secondary_mail')->getValue()];
+    //   foreach($mails as $index=>$mail){
+    //     if ($mail) {
+    //       $value = array_values(array_column($mail, 'value'))[0];
+    //       if (in_array(strtolower($value), array_map('strtolower', $invitees))) {
+    //         $indexes[$index] = $index;
+    //       }
+    //     }
+    //   }
+    // }
   }
 
   /**
    * Returns the index(es) of a users invite.
+   */
+  private static function inviteIndex($user, $collective) {
+
+    // $mails = array_column(
+    //   $collective->get('field_col_invite_email')->getValue(),
+    //   'value'
+    // );
+
+    // $mail_index =
+
+    // if ($field_col_invitee){
+
+    //   $invitees = array_column(
+    //     $field_col_invitee->getValue(),
+    //     'value'
+    //   );
+
+    //   $mails = is_string($user)
+    //     ? [$user]
+    //     : [$user->get('mail')->getValue(), $user->get('field_secondary_mail')->getValue()];
+    //   foreach($mails as $index=>$mail){
+    //     if ($mail) {
+    //       $value = array_values(array_column($mail, 'value'))[0];
+    //       if (in_array(strtolower($value), array_map('strtolower', $invitees))) {
+    //         $indexes[$index] = $index;
+    //       }
+    //     }
+    //   }
+    // }
+
+    // return $indexes;
+  }
+
+  /**
+   * Returns the index of a member or admin.
    */
   private static function memberIndex($uid, $collective, $field) {
 

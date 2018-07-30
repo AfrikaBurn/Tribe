@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.collective.field_col_admins
     - field.field.node.collective.field_col_description
+    - field.field.node.collective.field_col_invite_token
     - field.field.node.collective.field_col_invitee
     - field.field.node.collective.field_col_members
     - field.field.node.collective.field_col_posts
@@ -52,6 +53,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  field_col_invite_token:
+    weight: 123
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_col_invitee:
     weight: 1
