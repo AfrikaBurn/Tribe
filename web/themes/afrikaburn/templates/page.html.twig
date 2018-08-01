@@ -80,8 +80,8 @@
               <span class="user-icon-bar"></span>
             </div>
           </div>
-          <a href="#" class="my-collectives">My Collectives</a>
-          <div id="my-collectives-block">{{ page.collectives }}</div>
+          {# <a href="#" class="my-collectives">My Collectives</a>
+          <div id="my-collectives-block">{{ page.collectives }}</div> #}
         {% endif %}
 
         <div class='social-media-links hide-below-979px'>
@@ -221,7 +221,9 @@
 
           {% if page.biobar %}
           <div class="sidebar-outer biobar">
-            <div class="sidebar">{{ page.biobar }}</div>
+            <div class="sidebar">
+              {{ page.biobar }}
+            </div>
           </div>
           {% endif %}
 

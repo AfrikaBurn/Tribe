@@ -1,4 +1,4 @@
-uuid: fe1d3b07-1683-4d9a-b7c9-219db40c7ef4
+uuid: b111123d-f409-4c7f-a882-77c2194b4d66
 langcode: en
 status: true
 dependencies:
@@ -6,7 +6,6 @@ dependencies:
     - views.view.my_collectives
   module:
     - collapsiblock
-    - php
     - system
     - user
     - views
@@ -15,14 +14,14 @@ dependencies:
 third_party_settings:
   collapsiblock:
     collapse_action: '2'
-id: my_collectives
+id: views_block__my_collectives_joined
 theme: afrikaburn
 region: biobar
-weight: -17
+weight: -16
 provider: null
-plugin: 'views_block:my_collectives-block'
+plugin: 'views_block:my_collectives-joined'
 settings:
-  id: 'views_block:my_collectives-block'
+  id: 'views_block:my_collectives-joined'
   label: ''
   provider: views
   label_display: visible
@@ -30,10 +29,10 @@ settings:
   items_per_page: none
   context_mapping: {  }
 visibility:
-  php:
-    id: php
-    negate: false
-    php: '<?php return true; ?>'
+  request_path:
+    id: request_path
+    pages: "/node/add*\r\n/node/*/edit*\r\n*/form_*\r\n*/grant\r\n*/support\r\n*/supplier\r\n*/wap"
+    negate: true
     context_mapping: {  }
   user_role:
     id: user_role
@@ -42,8 +41,3 @@ visibility:
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
-  request_path:
-    id: request_path
-    pages: "/node/add*\r\n/node/*/edit*\r\n*/form_*\r\n*/grant\r\n*/support\r\n*/supplier\r\n*/wap"
-    negate: true
-    context_mapping: {  }

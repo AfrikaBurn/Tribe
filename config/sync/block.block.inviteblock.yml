@@ -8,6 +8,7 @@ dependencies:
     - ctools
     - node
     - php
+    - system
   theme:
     - afrikaburn
 third_party_settings:
@@ -43,4 +44,9 @@ visibility:
     id: php
     negate: false
     php: '<?php return TRUE; ?>'
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: '/node/add*'
+    negate: true
     context_mapping: {  }

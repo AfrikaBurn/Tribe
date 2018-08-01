@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "73da670741c4be84dfc010fa76218946",
+    "content-hash": "d65f6a1eabc8b8010020995bba72cf8a",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1620,7 +1620,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.24",
-                    "datestamp": "1527522480",
+                    "datestamp": "1527523080",
                     "security-coverage": {
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
@@ -4644,6 +4644,57 @@
             }
         },
         {
+            "name": "drupal/fieldblock",
+            "version": "2.0.0-alpha4",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/fieldblock",
+                "reference": "8.x-2.0-alpha4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/fieldblock-8.x-2.0-alpha4.zip",
+                "reference": "8.x-2.0-alpha4",
+                "shasum": "78af94699e116873fafaf326e805ab73ea51a976"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-2.x": "2.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-2.0-alpha4",
+                    "datestamp": "1525680184",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Alpha releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Sutharsan",
+                    "homepage": "https://www.drupal.org/user/73854"
+                },
+                {
+                    "name": "marcvangend",
+                    "homepage": "https://www.drupal.org/user/158153"
+                }
+            ],
+            "description": "Display fields of the current entity as blocks.",
+            "homepage": "https://www.drupal.org/project/fieldblock",
+            "support": {
+                "source": "http://cgit.drupalcode.org/fieldblock"
+            }
+        },
+        {
             "name": "drupal/filter_perms",
             "version": "dev-1.x",
             "source": {
@@ -7017,7 +7068,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0-beta2",
-                    "datestamp": "1519655285",
+                    "datestamp": "1519655459",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -13760,6 +13811,7 @@
         "drupal/empty_fields": 15,
         "drupal/field_permissions": 5,
         "drupal/field_validation": 15,
+        "drupal/fieldblock": 15,
         "drupal/filter_perms": 20,
         "drupal/flag": 15,
         "drupal/form_mode_control": 5,

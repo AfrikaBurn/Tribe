@@ -1,17 +1,23 @@
 @charset "utf-8";
 
 
-#block-my-collectives{
+.view-my-collectives{
   margin-bottom: 0;
 }
 
-#block-my-collectives .view-content div{
+.view-my-collectives .view-content div{
   display: flex;
+  flex-wrap: wrap;
   position: relative;
 }
 
-#block-my-collectives .view-content .views-field-field-picture{
+.view-my-collectives .view-content .views-row{
+  margin: 10px 0;
+}
+
+.view-my-collectives .view-content .views-field-field-picture{
   display: block;
+  background: #450b14;
   border-radius: 12.5px;
   float: none;
   height: 25px;
@@ -22,7 +28,7 @@
   min-width: 25px;
 }
 
-#block-my-collectives .view-content .views-field-new-comments{
+.view-my-collectives .view-content .views-field-new-comments{
   position: absolute;
   top: 0;
   right: 0;
@@ -35,11 +41,33 @@
   line-height: 25px;
 }
 
-#block-my-collectives .view-content .views-field-title{
+.view-my-collectives .view-content .views-field-title{
   padding-top: 2.5px;
+  width: 110px;
 }
 
-#block-my-collectives .button{
+#block-views-block-my-collectives-invitations .button{
+  font-size: 80%;
+  width: 50%;
+  padding: 5px 10px;
+  line-height: 10px;
+  margin: 5px 0 0;
+  height: 20px;
+  border-color: #000;
+}
+#block-views-block-my-collectives-invitations .button:first-child{
+  border-radius: 15px 0 0 15px;
+}
+#block-views-block-my-collectives-invitations .button:last-child{
+  border-radius: 0 15px 15px 0;
+}
+
+#block-views-block-my-collectives-invitations .views-field-nothing{
+  justify-content: center;
+  width: 100%;
+}
+
+#block-views-block-my-collectives-joined a.button{
   font-size: 80%;
   width: 100%;
   padding: 5px 10px;
@@ -163,4 +191,11 @@ details.comment-form .filter-wrapper{
 
 #block-inviteblock input.form-text{
   min-width: 100%;
+}
+
+form.node-collective-edit-form details summary,
+form.node-collective-form details summary {
+  color: #f26c55;
+  padding: 9px 0 18px;
+  cursor: pointer;
 }

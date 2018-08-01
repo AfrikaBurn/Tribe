@@ -8,7 +8,7 @@
 /**
  * Send an email
  */
-function _afrikaburn_notify($to, $from_label, $from_address, $bcc, $subject, $message, $node){
+function _notify($to, $from_label, $from_address, $bcc, $subject, $message, $node){
   \Drupal::service('plugin.manager.mail')->mail(
 
     'afrikaburn_notification',
@@ -39,30 +39,28 @@ function _afrikaburn_notify($to, $from_label, $from_address, $bcc, $subject, $me
 /**
  * Retrieves title and a list of collective member email addresses.
  * @param  [object] $entity       Entity object being operated on
- * @return [array]            Array of email addresses
+ * @return [array]                title and email addresses
  */
-function _afrikaburn_notification_collective($entity){
+function _meta_collective($entity){
 
   $members = [];
   $addresses = [];
-
-  $field_collective = $entity->get('field_collective');
-  if ($field_collective) {
-    $collective = $field_collective
+  $collective = $entity->bundle() == 'collective'
+    ? $entity
+    : $entity->get('field_collective')
       ->first()
       ->get('entity')
       ->getTarget();
 
-    if ($collective) {
-      $members = $collective
-        ->get('field_col_members')
-        ->referencedEntities();
-      foreach ($members as $member) {
-        $email = $member->getEmail();
-        $addresses[$email] = $email;
-      }
-      $title = $collective->get('title')->value;
+  if ($collective) {
+    $members = $collective
+      ->get('field_col_members')
+      ->referencedEntities();
+    foreach ($members as $member) {
+      $email = $member->getEmail();
+      $addresses[$email] = $email;
     }
+    $title = $collective->get('title')->value;
   }
 
   return [
@@ -78,7 +76,7 @@ function _afrikaburn_notification_collective($entity){
 /**
  * Replace diff mail body.
  */
-function _afrikaburn_notification_entity_diff($node, &$body){
+function _entity_diff($node, &$body){
 
   module_load_include('inc', 'afrikaburn_notification', 'includes/diff');
   $diff = _diff($node);
@@ -97,7 +95,7 @@ function _afrikaburn_notification_entity_diff($node, &$body){
 /**
  *  Replace entity rendering in mail body.
  */
-function _afrikaburn_notification_entity_render($node, &$body){
+function _entity_render($node, &$body){
 
   $renderings = [];
 
@@ -119,7 +117,7 @@ function _afrikaburn_notification_entity_render($node, &$body){
 /**
  *  Replace images in email
  */
-function _afrikaburn_notification_email_images(&$message, &$body){
+function _email_images(&$message, &$body){
 
   $patterns = array(
     '/"(image:[^"]+)"/',
@@ -163,4 +161,62 @@ function _afrikaburn_notification_email_images(&$message, &$body){
       }
     }
   }
+}
+
+
+/* ----- Entity Diff ----- */
+
+
+/**
+ * Compute an entity diff.
+ */
+function _diff($entity){
+
+  static $diff;
+
+  if (is_object($entity)){
+    if (!$diff[$entity->id()]){
+      $diff[$entity->id()] = $entity->original
+        ? _entity_compare($entity, $entity->original)
+        : FALSE;
+    }
+    return $diff[$entity->id()];
+  }
+
+  return $diff[$entity];
+}
+
+// Compute entity diff
+function _entity_compare($entity_new, $entity_old) {
+
+  $bundle_fields = \Drupal::entityManager()->getFieldDefinitions('node', $entity_new->bundle());
+
+  foreach($bundle_fields as $name=>$definition){
+
+    if ($name == 'title' || preg_match('/^field_/', $name)){
+
+      switch($definition->get('field_type')){
+
+        case 'entity_reference':
+        case 'image':
+          $old = array_column($entity_old->get($name)->getValue(), 'target_id');
+          $new = array_column($entity_new->get($name)->getValue(), 'target_id');
+          if ($new != $old) {
+            $diff[$definition->get('label')] = [count($old), count($new)];
+          }
+        break;
+
+        default:
+          $old = array_column($entity_old->get($name)->getValue(), 'value');
+          $new = array_column($entity_new->get($name)->getValue(), 'value');
+
+          if ($new != $old){
+            $diff[$definition->get('label')] = [$old, $new];
+          }
+
+      }
+    }
+  }
+
+  return $diff;
 }

@@ -6,14 +6,18 @@ dependencies:
     - 'block_content:basic:4d7797eb-da58-431e-ba1e-182f7e8faa86'
   module:
     - block_content
+    - collapsiblock
     - php
     - system
   theme:
     - afrikaburn
+third_party_settings:
+  collapsiblock:
+    collapse_action: '0'
 id: upcomingdates
 theme: afrikaburn
 region: biobar
-weight: -18
+weight: -17
 provider: null
 plugin: 'block_content:4d7797eb-da58-431e-ba1e-182f7e8faa86'
 settings:
@@ -27,7 +31,7 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: '/node/add/art/*/grant'
+    pages: "/node/add*\r\n/node/*/edit*\r\n*/form_*\r\n*/grant\r\n*/support\r\n*/supplier\r\n*/wap"
     negate: true
     context_mapping: {  }
   php:

@@ -1,6 +1,6 @@
 uuid: d791df22-5e75-4cfa-b8b9-c538b93ad618
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - node.type.collective

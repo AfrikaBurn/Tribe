@@ -56,7 +56,17 @@ class NotificationSettings extends ConfigFormBase {
       '#default_value' => $addresses->get('archive'),
     ];
 
-    foreach(_project_form_modes() as $key=>$project){
+    $notifications = _project_form_modes() + [
+      'collective' => [
+        'title' => 'Collective',
+        'modes' => [
+          'collective' => 'Collective',
+          'invitation' => 'Invitation',
+        ],
+      ],
+    ];
+
+    foreach($notifications as $key=>$project){
 
       $form[$key] = [
         '#type' => 'fieldset',
@@ -92,26 +102,34 @@ class NotificationSettings extends ConfigFormBase {
           $form[$key][$mode][$cycle] = [
             '#type' => 'fieldset',
             '#title' => $cycle,
-            '#attributes' => ['style' => ['display: inline-block; width: 46%;']],
+            '#attributes' => ['class' => ['settings-column']],
           ];
 
-          foreach(['collective', 'wranglers'] as $recipient){
+          $recipients = ['collective', $mode == 'invitation' ? 'invitees' : 'wranglers'];
+          foreach($recipients as $recipient){
 
             $parentage = implode('-', [$key, $mode, $cycle, $recipient]);
 
+            $form[$key][$mode][$cycle][$recipient][$parentage . '-enabled'] = [
+              '#type' => 'checkbox',
+              '#title' => 'Active',
+              '#default_value' => $settings->get($parentage . '-enabled'),
+              '#rows' => 20,
+            ];
             $form[$key][$mode][$cycle][$recipient][$parentage . '-subject'] = [
               '#type' => 'textfield',
               '#title' => 'To ' . $recipient,
               '#default_value' => $settings->get($parentage . '-subject'),
               '#attributes' => [
-                'style' => ['width: 100%;'],
                 'placeholder' => 'Subject',
               ],
             ];
             $form[$key][$mode][$cycle][$recipient][$parentage . '-body'] = [
-              '#type' => 'textarea',
+              '#type' => 'text_format',
               '#default_value' => $settings->get($parentage . '-body'),
               '#rows' => 20,
+              '#format' => 'full_html',
+              '#base_type' => 'textarea',
               '#attributes' => [
                 'placeholder' => 'Body',
               ],
@@ -120,6 +138,8 @@ class NotificationSettings extends ConfigFormBase {
         }
       }
     }
+
+    $form['#attached']['library'][] = 'afrikaburn_notification/settings';
 
     return parent::buildForm($form, $form_state);
   }
@@ -148,8 +168,9 @@ class NotificationSettings extends ConfigFormBase {
         'archive',
         'art-address',
         'performances-address',
-        'theme_camps-address',
         'mutant_vehicles-address',
+        'theme_camps-address',
+        'collective-address',
       ] as $key
     ){
       $addresses->set($key, $values[$key]);
@@ -158,7 +179,9 @@ class NotificationSettings extends ConfigFormBase {
 
     // All the other settings we do want to move
     foreach($values as $key=>$value){
-      $config->set($key, $value);
+      isset($value['value'])
+        ? $config->set($key, $value['value'])
+        : $config->set($key, $value);
     }
 
     $config->save();

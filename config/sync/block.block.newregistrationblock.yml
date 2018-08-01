@@ -39,6 +39,6 @@ visibility:
     context_mapping: {  }
   request_path:
     id: request_path
-    pages: '/node/edit/*'
+    pages: "/node/edit/*\r\n/node/add*"
     negate: true
     context_mapping: {  }

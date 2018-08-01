@@ -22,13 +22,15 @@ function afrikaburn_collective_page_attachments(&$page) {
 /**
  * Implements hook_form_alter().
  */
-function afrikaburn_collective_form_node_collective_form_alter(&$form, $form_state, $form_id) {
+function afrikaburn_collective_form_alter(&$form, $form_state, $form_id) {
+  if (preg_match('/^node_collective/', $form_id)) {
 
-  $user = isset($user) ? $user : User::load(\Drupal::currentUser()->id());
-
-  if (substr($form_id, 0, strlen('node_collective')) === 'node_collective') {
+    $user = User::load(\Drupal::currentUser()->id());
     $form['field_col_admins']['#access'] = $user->hasRole('administrator');
     $form['field_col_members']['#access'] = $user->hasRole('administrator');
+    $form['field_col_invite_mail']['#access'] = $user->hasRole('administrator');
+    $form['field_col_invite_token']['#access'] = $user->hasRole('administrator');
+
     if ($form_id == 'node_collective_form'){
       $form['field_col_admins']['widget'][0]['target_id']['#default_value'] = $user;
       $form['field_col_members']['widget'][0]['target_id']['#default_value'] = $user;

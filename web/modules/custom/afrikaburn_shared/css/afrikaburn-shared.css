@@ -14,7 +14,7 @@ body .horizontal-tabs ul.horizontal-tabs-list{
 body .horizontal-tabs .horizontal-tabs-list li{
   background: none;
   border: none;
-  margin: 5px 0 -1px;
+  margin: 5px 0 -3px;
 }
 
 body .horizontal-tabs .horizontal-tabs-list li a:hover{

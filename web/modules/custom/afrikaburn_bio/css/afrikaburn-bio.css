@@ -41,3 +41,8 @@
 .path-user article.profile .field--name-user-picture a{
   flex-basis: 100%;
 }
+
+.user-login-form details summary,
+.user-login-form details .details-description{
+  display: none;
+}
