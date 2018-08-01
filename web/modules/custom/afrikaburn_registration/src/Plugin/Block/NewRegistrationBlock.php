@@ -4,6 +4,7 @@ namespace Drupal\afrikaburn_registration\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 
+
 /**
  * Provides a 'Project Registration' Block.
  *
@@ -38,7 +39,7 @@ class NewRegistrationBlock extends BlockBase {
         $project = $map['title'];
         $modes = $map['modes'];
 
-        if ($config->get($key . '/form_1')){
+        if ($config->get($key . '/form_1')['open']){
           $links[] =
             '<a href="/node/add/' . $key . '/form_1?field_collective=' . $cid .
             '" target="_blank">' . $project . '</a>';
@@ -54,7 +55,6 @@ class NewRegistrationBlock extends BlockBase {
         '#cache' => [
           'max-age' => 0,
         ],
-        '#attached' => ['library' => ['afrikaburn_registration/block']],
       ]
 
       : [

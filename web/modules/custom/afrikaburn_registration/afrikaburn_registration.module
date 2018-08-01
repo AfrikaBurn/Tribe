@@ -11,6 +11,14 @@ module_load_include('inc', 'afrikaburn_registration', 'includes/project.wizard')
 // module_load_include('inc', 'afrikaburn_registration', 'includes/project.draft');
 
 
+/**
+ * Attach shared script
+ */
+function afrikaburn_registration_page_attachments(array &$page) {
+  $page['#attached']['library'][] = 'afrikaburn_registration/block';
+}
+
+
 /* ----- Form alters ----- */
 
 
