@@ -1,0 +1,12 @@
+uuid: 363cfda5-0444-479b-bad0-f9924e165fa5
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+_core:
+  default_config_hash: SPfvJQEgz153dm3Nh4NnFQCBflI-AuwdVzB5diCr9DA
+id: user.contact_view
+label: 'Contact View'
+targetEntityType: user
+cache: true

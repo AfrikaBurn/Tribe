@@ -1,0 +1,25 @@
+uuid: 38aac78c-6829-4ba5-85a3-d1a2109a672b
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: BOZTT06bVsQ-JzExf2pWG7goKrEar8GA0u9eGYFPqVM
+id: node.field_prj_gen_bio
+field_name: field_prj_gen_bio
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

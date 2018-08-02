@@ -1,0 +1,117 @@
+uuid: 7c05bcad-27ef-4f13-9fa1-75374181b0ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.outreach_grant_applicant.field_oga_cell
+    - field.field.paragraph.outreach_grant_applicant.field_oga_community_ticket
+    - field.field.paragraph.outreach_grant_applicant.field_oga_email
+    - field.field.paragraph.outreach_grant_applicant.field_oga_id_number
+    - field.field.paragraph.outreach_grant_applicant.field_oga_name
+    - field.field.paragraph.outreach_grant_applicant.field_oga_previous_beneficiary
+    - field.field.paragraph.outreach_grant_applicant.field_oga_previous_participant
+    - field.field.paragraph.outreach_grant_applicant.field_oga_proof_of_income
+    - field.field.paragraph.outreach_grant_applicant.field_oga_ticket_type
+    - field.field.paragraph.outreach_grant_applicant.field_oga_transport
+    - field.field.paragraph.outreach_grant_applicant.field_oga_transport_type
+    - field.field.paragraph.outreach_grant_applicant.field_oga_welfare
+    - paragraphs.paragraphs_type.outreach_grant_applicant
+  module:
+    - file
+id: paragraph.outreach_grant_applicant.default
+targetEntityType: paragraph
+bundle: outreach_grant_applicant
+mode: default
+content:
+  field_oga_cell:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_oga_community_ticket:
+    weight: 5
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_oga_email:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_oga_id_number:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_oga_name:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_oga_previous_beneficiary:
+    weight: 11
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_oga_previous_participant:
+    weight: 10
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_oga_proof_of_income:
+    weight: 4
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  field_oga_ticket_type:
+    weight: 6
+    settings: {  }
+    third_party_settings:
+      conditional_fields: {  }
+    type: options_buttons
+    region: content
+  field_oga_transport:
+    weight: 7
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_oga_transport_type:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_oga_welfare:
+    weight: 9
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+hidden:
+  created: true
+  moderation_state: true
+  status: true
+  uid: true

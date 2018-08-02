@@ -1,0 +1,26 @@
+uuid: 02b09e32-937d-4911-a794-e1ac743c5994
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: kvrhyVawI5Pl_Td6bqd9ocoDp_Tea1JpEppbH4eddWY
+id: node.field_prj_plc_frontage
+field_name: field_prj_plc_frontage
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

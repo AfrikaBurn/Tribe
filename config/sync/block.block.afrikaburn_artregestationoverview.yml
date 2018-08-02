@@ -1,0 +1,25 @@
+uuid: fd8be969-b20e-440f-ad78-0e25710ed8b6
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:6bdc871a-d2f7-49db-bfe9-33334fa63d2a'
+  module:
+    - block_content
+  theme:
+    - afrikaburn
+id: afrikaburn_artregestationoverview
+theme: afrikaburn
+region: status_messages
+weight: -13
+provider: null
+plugin: 'block_content:6bdc871a-d2f7-49db-bfe9-33334fa63d2a'
+settings:
+  id: 'block_content:6bdc871a-d2f7-49db-bfe9-33334fa63d2a'
+  label: 'Art Regestation Overview'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

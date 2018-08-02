@@ -1,0 +1,29 @@
+uuid: 511d423b-92d6-40bf-9f5c-749b1a64e095
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sub_id
+    - node.type.subsidised_ticket
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.subsidised_ticket.field_sub_id
+field_name: field_sub_id
+entity_type: node
+bundle: subsidised_ticket
+label: 'I know that I have to produce photo ID at the gate to gain access to the event with my subsidised ticket.'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

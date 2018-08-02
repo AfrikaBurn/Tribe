@@ -1,0 +1,45 @@
+uuid: 2d948377-bfaf-433e-81fb-c0ba7179eb66
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_concept
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+    - image
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: b49HWUkyv8ttCgSoO_O0KVGuBwr695s5I-WYMDpGz5U
+id: node.theme_camps.field_prj_gen_concept
+field_name: field_prj_gen_concept
+entity_type: node
+bundle: theme_camps
+label: 'Please submit concept images'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: theme-camps/concept
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: '3 MB'
+  max_resolution: ''
+  min_resolution: 250x250
+  alt_field: false
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

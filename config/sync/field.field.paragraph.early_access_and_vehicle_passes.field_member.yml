@@ -1,0 +1,31 @@
+uuid: 78c11548-9fc0-46d3-84ee-4b72f7695803
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_member
+    - paragraphs.paragraphs_type.early_access_and_vehicle_passes
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.early_access_and_vehicle_passes.field_member
+field_name: field_member
+entity_type: paragraph
+bundle: early_access_and_vehicle_passes
+label: Member
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: collective_members
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

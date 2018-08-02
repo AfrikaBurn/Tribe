@@ -1,0 +1,32 @@
+uuid: 238e4e66-2203-44c8-b350-9e0164531104
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_oga_proof_of_income
+    - paragraphs.paragraphs_type.outreach_grant_applicant
+  module:
+    - custom_add_another
+    - file
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.outreach_grant_applicant.field_oga_proof_of_income
+field_name: field_oga_proof_of_income
+entity_type: paragraph
+bundle: outreach_grant_applicant
+label: 'Proof of income'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt png pdf jpg jpeg'
+  max_filesize: '2'
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

@@ -1,0 +1,30 @@
+uuid: 81612ac8-797e-4df0-8513-5a318e115cf1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_trl_markup
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_trl_markup
+field_name: field_prj_trl_markup
+entity_type: node
+bundle: mutant_vehicles
+label: 'Trailers are dangerous'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p>Very few serious incidents have ever happened in Tankwa Town - but they have all involved trailers, as it's impossible for a driver to see what's happening behind them. If your Mutant has a trailer/s, you'll need conductors/walkers and the driver must have radio contact with someone on the trailer.</p>\r\n"
+    format: basic_html
+field_type: markup

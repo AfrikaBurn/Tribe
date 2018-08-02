@@ -1,0 +1,31 @@
+uuid: 39a4bc39-c90a-4cc9-8d92-22e2c8d21541
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_owner
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_gen_owner
+field_name: field_prj_gen_owner
+entity_type: node
+bundle: mutant_vehicles
+label: 'Who is the owner'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: collective_members
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

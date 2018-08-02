@@ -1,0 +1,32 @@
+uuid: 536290b6-80eb-4706-a29d-f391f829758c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_snd_f1
+    - node.type.art
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: tZIPTHEBGa-0m0gNX1GGuKK37cP219T94hInDkD721I
+id: node.art.field_prj_snd_f1
+field_name: field_prj_snd_f1
+entity_type: node
+bundle: art
+label: 'Sound description'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p dir=\"ltr\"><span>Do you intend for your piece to be a party site with permanently installed sound equipment?</span></p>\r\n\r\n<p dir=\"ltr\"><a href=\"https://www.afrikaburn.com/the-event/artworks/afrikaburn-sound-policy\" target=\"_blank\">https://www.afrikaburn.com/the-event/artworks/afrikaburn-sound-policy</a></p>\r\n\r\n<p dir=\"ltr\"><span>Note that in 2018 you will have to motivate to have installed sound (i.e. not from an MV) sound at your artwork as this affects placement.</span></p>\r\n"
+    format: full_html
+field_type: markup

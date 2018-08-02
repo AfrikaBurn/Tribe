@@ -1,0 +1,30 @@
+uuid: dd00356f-a0cb-44bd-9051-644b6eabaca4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_wtf_website
+    - node.type.performances
+  module:
+    - custom_add_another
+    - link
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: ialQAbSxPlmcL_W5RoBg_HdKHSC20juHIrdZMrhyV9s
+id: node.performances.field_prj_wtf_website
+field_name: field_prj_wtf_website
+entity_type: node
+bundle: performances
+label: 'Does your Project have an Online Presence?'
+description: "You don't have to have this, but you project will benefit from it. Think of fundraising campaigns, support from the community, collaboration with other creative teams, etc.\r\n"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

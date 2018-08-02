@@ -1,0 +1,24 @@
+uuid: bdfa383a-27b2-48c9-a128-04160987a2ce
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: ZOBmVbw7So53Q8CvNSco423r_e6vMkUh9Rm4tR0J044
+id: node.field_prj_stc_physical
+field_name: field_prj_stc_physical
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

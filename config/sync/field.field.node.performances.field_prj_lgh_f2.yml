@@ -1,0 +1,30 @@
+uuid: b0cb40f6-b28e-491d-ba74-8530aff99fd4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lgh_f2
+    - node.type.performances
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.performances.field_prj_lgh_f2
+field_name: field_prj_lgh_f2
+entity_type: node
+bundle: performances
+label: prj_lgh_f2
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p>As an aesthetic element, as part of the design of your performance (and for safety reasons), it's mandatory to light your performance if it takes place at night. Lighting protects your performance space from accidental damage, and from accidentally damaging someone or something in the dark. You can go all out with parcans and a generator, or go green with solar power, go low-tech with candles in jars, or anything in between. We do, of course, love renewables more and they are good investments.</p>\r\n\r\n<p>If you have a night time performance, or your structure will remain up over night, you will need to have lighting, to ensure that no people or mutant vehicles accidentally run into it.</p>\r\n"
+    format: basic_html
+field_type: markup

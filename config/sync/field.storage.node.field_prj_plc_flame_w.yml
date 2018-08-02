@@ -1,0 +1,22 @@
+uuid: 654bd52e-33b5-4f0f-8c88-1ae2167a3457
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: q6kXgT0IRb5mz-jzyhCyhHBqNm7JxlE3YTUSnrNjnEE
+id: node.field_prj_plc_flame_w
+field_name: field_prj_plc_flame_w
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

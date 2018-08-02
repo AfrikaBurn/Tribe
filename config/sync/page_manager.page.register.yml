@@ -1,0 +1,12 @@
+uuid: 75721c20-c01a-4fd1-9dd7-f1686530e9a0
+langcode: en
+status: true
+dependencies: {  }
+id: register
+label: register
+description: ''
+use_admin_theme: false
+path: /register
+access_logic: and
+access_conditions: {  }
+parameters: {  }

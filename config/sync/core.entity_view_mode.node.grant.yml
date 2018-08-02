@@ -1,0 +1,10 @@
+uuid: b013d0ea-163e-403f-9ff2-363393b5bd62
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.grant
+label: Grant
+targetEntityType: node
+cache: true

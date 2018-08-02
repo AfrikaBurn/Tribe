@@ -1,0 +1,36 @@
+uuid: 1fa88912-f2f5-40dc-bc55-ffd0c5170d89
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_historic
+    - node.type.performances
+    - taxonomy.vocabulary.moop_score
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: gmg3ks-_gLE7L7dXRAlbMUxXdZAbbrIaTxAbJY1lNEs
+id: node.performances.field_prj_lnt_historic
+field_name: field_prj_lnt_historic
+entity_type: node
+bundle: performances
+label: 'Moop Map score in 2017'
+description: "If you were part of a Creative Project in 2017 what was your MOOP map rating?\r\n"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      moop_score: moop_score
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,33 @@
+uuid: 5a4a8d31-5092-4f79-bf81-852215a129e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_lead
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: tgO_9KgAz6GHYxImp6xyDGhAVgKlLHY_WfjTB4qKmME
+id: node.performances.field_prj_gen_lead
+field_name: field_prj_gen_lead
+entity_type: node
+bundle: performances
+label: 'Creative Lead'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: collective_members
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

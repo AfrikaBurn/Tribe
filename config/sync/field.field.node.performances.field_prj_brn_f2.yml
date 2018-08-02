@@ -1,0 +1,30 @@
+uuid: 94da7782-9c92-4e7c-977f-9b1e7e069215
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_brn_f2
+    - node.type.performances
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.performances.field_prj_brn_f2
+field_name: field_prj_brn_f2
+entity_type: node
+bundle: performances
+label: 'burn description later note'
+description: ''
+required: false
+translatable: true
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p><strong>You'll need to fill out a separate form later on about the fire element in your performance.</strong></p>\r\n"
+    format: basic_html
+field_type: markup

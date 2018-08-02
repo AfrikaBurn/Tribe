@@ -1,0 +1,10 @@
+uuid: 1f02b54b-bdc2-43e8-aa45-b1c29e17d15d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.project_overview
+label: 'Project Overview'
+targetEntityType: node
+cache: true

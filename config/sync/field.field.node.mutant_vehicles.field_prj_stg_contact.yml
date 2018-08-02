@@ -1,0 +1,31 @@
+uuid: 856ccace-06a0-425a-8c7b-62a854a4f532
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_stg_contact
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_stg_contact
+field_name: field_prj_stg_contact
+entity_type: node
+bundle: mutant_vehicles
+label: 'Team contact person to be alerted to performer requests *'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: collective_members
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

@@ -1,0 +1,33 @@
+uuid: 9936e3a0-4f86-4ebd-bce7-0f6a54f62bbc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_representative
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: 76OZQ1LvNIDd2sqwJ2qCspmIgi8693osChhWY3RBK3Y
+id: node.art.field_prj_lnt_representative
+field_name: field_prj_lnt_representative
+entity_type: node
+bundle: art
+label: 'Your LNT (MOOP) Representative'
+description: "<p>Your LNT representative will be requested to read and accept the <a href=\"http://www.afrikaburn.com/wp-content/uploads/2017/08/2018-LNT-Info-for-Artworks.pdf\" target=\"blank\">LNT guidelines</a>, attend to workshops and briefs, fill in the MOOP form, and supply all details requested by our MOOP Squad.</p>\r\n<p>This person plays an active role in the 'education' of the whole team and will be the difference between a Red and a Green MOOP Score.</p>\r\n<p>Remember that the MOOP Score of your project this year will affect every member of the team (eg.: future funding and direct distribution of tickets). Choose wisely!</p>\r\n<p>It is highly recommended that you have a dedicated representative to fulfil this role of handling your artworks waste.</p>\r\n<p>Please select the individual by typing their name into the above field and selecting it once loaded.<br>\r\nThis list will only show people you have already added to your collective.<br>\r\nIf you're unsure of who your representative will be, please select yourself in the meantime, you can change this later.</p>\r\n\r\n"
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: collective_members
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

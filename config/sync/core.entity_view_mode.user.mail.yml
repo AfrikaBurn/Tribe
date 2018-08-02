@@ -1,0 +1,10 @@
+uuid: 5ee66635-7cb8-401b-a752-dd9a275191e1
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.mail
+label: Mail
+targetEntityType: user
+cache: true

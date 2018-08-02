@@ -1,0 +1,9 @@
+form_modes:
+  node:
+    to_exclude: {  }
+  user:
+    to_exclude:
+      register: register
+langcode: fr
+_core:
+  default_config_hash: u6UftcD0QU3TQB7BFNNMEQ-a1GFk-EedQuw8PCl0a68

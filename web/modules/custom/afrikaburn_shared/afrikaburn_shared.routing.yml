@@ -1,0 +1,6 @@
+afrikaburn_shared.settings:
+  path: '/admin/config/afrikaburn'
+  defaults:
+    _title: 'AfrikaBurn notification settings'
+  requirements:
+   _permission: 'administer site configuration'

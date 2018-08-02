@@ -1,0 +1,31 @@
+uuid: d542c088-f310-4738-9b8d-7fa59b41cc66
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_artwork_w
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: TuOlkbLxVcHn3oX6gZ2mT6ThDrlWK2L4j2Y247CZsk8
+id: node.theme_camps.field_prj_plc_artwork_w
+field_name: field_prj_plc_artwork_w
+entity_type: node
+bundle: theme_camps
+label: 'Camp Artwork – Width'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 30
+  prefix: ''
+  suffix: ''
+field_type: integer

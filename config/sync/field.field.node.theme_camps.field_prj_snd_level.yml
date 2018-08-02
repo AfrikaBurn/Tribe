@@ -1,0 +1,36 @@
+uuid: 3625186a-aae4-4675-b3ad-0b5fb43cd4d8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_snd_level
+    - node.type.theme_camps
+    - taxonomy.vocabulary.sound_levels
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: V4dTZJyY_plfE1r9QH5iVBOIhz-0Dp-02OA8l9Q18YI
+id: node.theme_camps.field_prj_snd_level
+field_name: field_prj_snd_level
+entity_type: node
+bundle: theme_camps
+label: 'Please select the level of your sound component'
+description: "<p><b>Level 1</b><br>\r\nWe have a small amplified sound system for background music without sub woofers.</p>\r\n\r\n<p><b>Level 2</b><br>\r\nWe have a small sound rig for our stage/performance space/dance floor and music is one of our gifts.</p>\r\n\r\n<p><b>Level 3</b><br>\r\nMusic is our main gift and we are working in conjunction with the sound committee to make it work. So, large club or stadium size sound.</p>"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sound_levels: sound_levels
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

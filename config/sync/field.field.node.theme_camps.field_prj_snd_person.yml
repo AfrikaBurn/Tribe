@@ -1,0 +1,33 @@
+uuid: 33b48451-bba7-48f3-bed8-d80a13af5fe6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_snd_person
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: TOWDvSI69gyrGQtxc5q7p4Z0zNs-klBxLUUCYAdUm_Y
+id: node.theme_camps.field_prj_snd_person
+field_name: field_prj_snd_person
+entity_type: node
+bundle: theme_camps
+label: 'Who is the sound co-ordinator in your team? (This can be you.)'
+description: "<p>Please select the individual by typing their name into the above field and selecting it once loaded.<br>\r\nThis list will only show people you have already added to your collective.</p>"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: collective_members
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

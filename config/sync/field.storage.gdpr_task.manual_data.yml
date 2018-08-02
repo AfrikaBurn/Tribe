@@ -1,0 +1,21 @@
+uuid: 2ce31c77-b4c0-4e17-a699-8b5e07ade451
+langcode: en
+status: true
+dependencies:
+  module:
+    - gdpr_tasks
+_core:
+  default_config_hash: 1fuRrOP_YhRORaJijOPceKD7jtuUTHeIRQu6nCbpMSs
+id: gdpr_task.manual_data
+field_name: manual_data
+entity_type: gdpr_task
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

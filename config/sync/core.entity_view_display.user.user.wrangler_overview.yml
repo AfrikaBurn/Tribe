@@ -1,0 +1,228 @@
+uuid: 9a7b34d3-26fa-4395-8375-a0b85ad9b247
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.wrangler_overview
+    - field.field.user.user.field_agreements
+    - field.field.user.user.field_country
+    - field.field.user.user.field_date_of_birth
+    - field.field.user.user.field_district
+    - field.field.user.user.field_email
+    - field.field.user.user.field_email_retype
+    - field.field.user.user.field_emr_email
+    - field.field.user.user.field_emr_name
+    - field.field.user.user.field_emr_telephone
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_gender
+    - field.field.user.user.field_id_number
+    - field.field.user.user.field_kids_and_teens
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_links
+    - field.field.user.user.field_location
+    - field.field.user.user.field_mobile
+    - field.field.user.user.field_newsletter
+    - field.field.user.user.field_other_burns
+    - field.field.user.user.field_participation
+    - field.field.user.user.field_quicket_code
+    - field.field.user.user.field_quicket_id
+    - field.field.user.user.field_secondary_mail
+    - field.field.user.user.field_terms_and_conditions
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - computed_field
+    - empty_fields
+    - field_group
+    - image
+    - telephone
+    - user
+third_party_settings:
+  field_group:
+    group_overview:
+      children:
+        - group_contact
+        - group_eme
+      parent_name: ''
+      weight: 13
+      format_type: tabs
+      format_settings:
+        label: Overview
+        direction: horizontal
+        id: ''
+        classes: ''
+      label: Overview
+    group_contact:
+      children:
+        - user_picture
+        - field_first_name
+        - field_last_name
+        - field_email
+        - field_secondary_mail
+        - field_mobile
+        - field_id_number
+        - field_quicket_code
+        - field_agreements
+        - masquerade
+        - member_for
+      parent_name: group_overview
+      weight: 20
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: open
+        description: ''
+      label: Contact
+    group_eme:
+      children:
+        - field_emr_telephone
+      parent_name: group_overview
+      weight: 21
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+      label: 'Emergency contact'
+_core:
+  default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
+id: user.user.wrangler_overview
+targetEntityType: user
+bundle: user
+mode: wrangler_overview
+content:
+  field_agreements:
+    type: entity_reference_label
+    weight: 13
+    region: content
+    label: inline
+    settings:
+      link: false
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
+  field_country:
+    type: string
+    weight: 0
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_email:
+    type: computed_string
+    weight: 8
+    region: content
+    label: inline
+    settings:
+      sanitized: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
+  field_emr_telephone:
+    type: telephone_link
+    weight: 0
+    region: content
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+  field_first_name:
+    type: string
+    weight: 6
+    region: content
+    label: inline
+    settings:
+      link_to_entity: true
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
+  field_id_number:
+    type: string
+    weight: 11
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
+  field_last_name:
+    type: string
+    weight: 7
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
+  field_mobile:
+    type: string
+    weight: 10
+    region: content
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
+  field_quicket_code:
+    weight: 12
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
+    type: string
+    region: content
+  field_secondary_mail:
+    type: basic_string
+    weight: 9
+    region: content
+    label: inline
+    settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: nbsp
+  masquerade:
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  member_for:
+    weight: 15
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  user_picture:
+    type: image
+    weight: 5
+    region: content
+    settings:
+      image_style: thumbnail
+      image_link: content
+    third_party_settings:
+      empty_fields:
+        handler: ''
+    label: hidden
+hidden:
+  field_date_of_birth: true
+  field_district: true
+  field_email_retype: true
+  field_emr_email: true
+  field_emr_name: true
+  field_gender: true
+  field_kids_and_teens: true
+  field_links: true
+  field_location: true
+  field_newsletter: true
+  field_other_burns: true
+  field_participation: true
+  field_quicket_id: true
+  field_terms_and_conditions: true

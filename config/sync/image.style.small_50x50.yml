@@ -1,0 +1,14 @@
+uuid: 38c61f79-7e1c-496f-a2df-942b34fa26a3
+langcode: en
+status: true
+dependencies: {  }
+name: small_50x50
+label: 'Small (50x50)'
+effects:
+  10d85417-f483-4579-ab87-f340eda82b41:
+    uuid: 10d85417-f483-4579-ab87-f340eda82b41
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 50
+      height: 50

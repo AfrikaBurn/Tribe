@@ -1,0 +1,159 @@
+uuid: 9da4a679-936d-4b3e-bae7-2f4c08d33c2a
+langcode: en
+status: true
+dependencies: {  }
+id: user
+bundles:
+  user:
+    field_email_retype:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: user
+      name: field_email_retype
+    field_terms_and_conditions:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: user
+      name: field_terms_and_conditions
+    field_location:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: user
+      name: field_location
+    field_emr_email:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: user
+      name: field_emr_email
+    field_newsletter:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: user
+      name: field_newsletter
+    field_first_name:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: user
+      name: field_first_name
+    field_last_name:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: user
+      name: field_last_name
+    field_gender:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: user
+      name: field_gender
+    field_id_number:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: user
+      name: field_id_number
+    field_date_of_birth:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: user
+      name: field_date_of_birth
+    field_secondary_mail:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: user
+      name: field_secondary_mail
+    field_participation:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: user
+      name: field_participation
+    field_other_burns:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: user
+      name: field_other_burns
+    field_country:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: user
+      name: field_country
+    field_emr_name:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: user
+      name: field_emr_name
+    field_emr_telephone:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: user
+      name: field_emr_telephone
+    field_kids_and_teens:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: user
+      name: field_kids_and_teens
+    field_mobile:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: user
+      name: field_mobile
+    field_district:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: user
+      name: field_district

@@ -1,0 +1,14 @@
+uuid: f656ab01-2ca7-4ca3-860f-48897e98c016
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.outreach_wrangler
+  module:
+    - user
+id: user_add_role_action.outreach_wrangler
+label: 'Add the Outreach Wrangler role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: outreach_wrangler

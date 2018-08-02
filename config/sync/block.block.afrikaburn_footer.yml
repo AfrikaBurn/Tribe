@@ -1,0 +1,30 @@
+uuid: 26d79f73-7feb-4fe0-8581-2211a3e90640
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - php
+    - system
+  theme:
+    - afrikaburn
+id: afrikaburn_footer
+theme: afrikaburn
+region: footer_left
+weight: -16
+provider: null
+plugin: 'system_menu_block:footer'
+settings:
+  id: 'system_menu_block:footer'
+  label: 'Footer menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility:
+  php:
+    id: php
+    negate: false
+    php: '<?php return TRUE; ?>'
+    context_mapping: {  }

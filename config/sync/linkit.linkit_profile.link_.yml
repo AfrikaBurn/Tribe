@@ -1,0 +1,19 @@
+uuid: 281ee596-42cf-40af-b62f-da012c8d184f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 8kxS_saM6uXG51_P-X8WqbFWXDelGO1Yg6wxhj_zGYI
+id: link_
+label: 'Link Managed'
+description: ''
+attributes: {  }
+matchers:
+  47bfc5cb-72ec-4c3e-8dd3-7354673241c0:
+    uuid: 47bfc5cb-72ec-4c3e-8dd3-7354673241c0
+    id: 'entity:block_content'
+    weight: 0
+    settings:
+      result_description: '[current-page:url:args]'
+      bundles: {  }
+      group_by_bundle: true

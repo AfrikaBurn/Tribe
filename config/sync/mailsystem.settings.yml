@@ -1,0 +1,12 @@
+theme: default
+defaults:
+  sender: swiftmailer
+  formatter: SMTPMailSystem
+_core:
+  default_config_hash: IhwTepsVwtbtbcT5GzQKhCXDCRvbk3MNkWqPiuiZ10s
+modules:
+  swiftmailer: {  }
+  afrikaburn_emails:
+    ab_notification:
+      formatter: swiftmailer
+      sender: php_mail

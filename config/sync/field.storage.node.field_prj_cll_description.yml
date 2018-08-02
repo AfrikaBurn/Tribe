@@ -1,0 +1,25 @@
+uuid: 6c4063d1-d619-4bc2-bf7a-fa2a24ebc254
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: QGsz1wUiZb9YyT67rTT_rWZY9Oxon-94-1eR27ArPzs
+id: node.field_prj_cll_description
+field_name: field_prj_cll_description
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

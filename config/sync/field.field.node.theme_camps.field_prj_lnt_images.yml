@@ -1,0 +1,45 @@
+uuid: 03d9690c-9bd1-4e3a-979c-f0bf18bfcf55
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_images
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+    - image
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: Ar5y3tFO_JDyvskNjkeYIndvUZEjrReiIx6dZosS1B8
+id: node.theme_camps.field_prj_lnt_images
+field_name: field_prj_lnt_images
+entity_type: node
+bundle: theme_camps
+label: 'Moop Images'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: lnt/theme_camps
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: '3 MB'
+  max_resolution: ''
+  min_resolution: 250x250
+  alt_field: false
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: 0f61f94c-e9bc-4cb3-bfb5-6d2e18746d6c
+    alt: ''
+    title: ''
+    width: 525
+    height: 350
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

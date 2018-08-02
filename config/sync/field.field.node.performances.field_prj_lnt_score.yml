@@ -1,0 +1,36 @@
+uuid: 4c147c91-a77e-408d-a541-a8fde8fec39c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_score
+    - node.type.performances
+    - taxonomy.vocabulary.moop_score
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: jAzIrXO7jN3X24ruWqGGQjyBKSI04Laotbb9E6av4Rg
+id: node.performances.field_prj_lnt_score
+field_name: field_prj_lnt_score
+entity_type: node
+bundle: performances
+label: 'Moop Map score for 2018'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      moop_score: moop_score
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

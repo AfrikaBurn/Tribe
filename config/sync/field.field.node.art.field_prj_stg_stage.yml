@@ -1,0 +1,31 @@
+uuid: e9e39741-a293-474c-bb38-695fdc05d315
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_stg_stage
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: HYPw_wDGma_-w4E1ubX4mCBDwOvhVpHQEqh6_gQEU9U
+id: node.art.field_prj_stg_stage
+field_name: field_prj_stg_stage
+entity_type: node
+bundle: art
+label: 'Do you have a stage or performance area where you would welcome performers to?'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

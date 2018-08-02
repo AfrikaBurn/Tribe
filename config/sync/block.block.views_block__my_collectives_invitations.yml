@@ -1,0 +1,43 @@
+uuid: 75ff7216-9fe3-489a-8546-e196f5c8ab7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.my_collectives
+  module:
+    - collapsiblock
+    - system
+    - user
+    - views
+  theme:
+    - afrikaburn
+third_party_settings:
+  collapsiblock:
+    collapse_action: '2'
+id: views_block__my_collectives_invitations
+theme: afrikaburn
+region: biobar
+weight: -15
+provider: null
+plugin: 'views_block:my_collectives-invitations'
+settings:
+  id: 'views_block:my_collectives-invitations'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: "/node/add*\r\n/node/*/edit*\r\n*/form_*\r\n*/grant\r\n*/support\r\n*/supplier\r\n*/wap"
+    negate: true
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

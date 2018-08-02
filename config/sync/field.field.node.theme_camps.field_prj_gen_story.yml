@@ -1,0 +1,27 @@
+uuid: be85c09b-e5d0-40ac-beb0-95d7b5673a83
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_story
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: 1cMEg_2mi5r3weuZBipMlwExqAKkj5xEhEfSxYU4zSg
+id: node.theme_camps.field_prj_gen_story
+field_name: field_prj_gen_story
+entity_type: node
+bundle: theme_camps
+label: 'What motivates you to be involved in a Camp?'
+description: 'What makes you want to go through all this trouble and pull this Theme Camp together?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

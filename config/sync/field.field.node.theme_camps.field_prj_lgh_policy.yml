@@ -1,0 +1,32 @@
+uuid: 47277c59-4c0e-4afe-b8eb-a4e677617857
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lgh_policy
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: wgYy7YVy9usYuFc3Ewl9-6PnYG5lbKVAtwyT8t2gsX0
+id: node.theme_camps.field_prj_lgh_policy
+field_name: field_prj_lgh_policy
+entity_type: node
+bundle: theme_camps
+label: 'Guidelines for Generators'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p><strong>Guidelines for Generators</strong></p>\r\n\r\n<p>You’re having the perfect evening, music is not too loud, vibes in the camp site is great, when your neighbour fires up his earth shatteringly noisy generator. Generator noise pollution can be more disturbing and invasive than a loud sound system.</p>\r\n\r\n<p>Let’s all agree to some guidelines to make our camping experience better.</p>\r\n\r\n<p>Guidelines:</p>\r\n\r\n<p>Generator hours for Theme Camps and art works can’t be regulated, but we ask that you be as considerate as possible to your neighbours.</p>\r\n\r\n<p>Build a sound and fire resistant baffle for your generator. Baffles can reduce the noise of your generator tremendously.</p>\r\n\r\n<p>Generator hours for campsites 11am - 4pm.</p>\r\n\r\n<p>If you’re in a campsite and you want to run a sound system it should be battery operated. Sound systems in camping areas&nbsp; should be shut off after 11pm.</p>\r\n"
+    format: basic_html
+field_type: markup

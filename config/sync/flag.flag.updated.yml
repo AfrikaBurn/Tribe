@@ -1,0 +1,30 @@
+uuid: 9c7bdb0b-dd1b-41aa-8186-64585eaf5ffa
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: updated
+label: Updated
+bundles: {  }
+entity_type: user
+global: true
+weight: 0
+flag_short: 'Flag as up to date'
+flag_long: ''
+flag_message: ''
+unflag_short: 'Flag to be updated'
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:user'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: false
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+  show_on_profile: false
+linkTypeConfig: {  }

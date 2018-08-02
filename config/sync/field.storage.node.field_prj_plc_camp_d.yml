@@ -1,0 +1,26 @@
+uuid: c3c83fe8-8600-476c-a9a6-96b3d580437f
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: nDzuC-ND-S3qBSn7qISXaWHukv35USc0u0Jdr55GEKU
+id: node.field_prj_plc_camp_d
+field_name: field_prj_plc_camp_d
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

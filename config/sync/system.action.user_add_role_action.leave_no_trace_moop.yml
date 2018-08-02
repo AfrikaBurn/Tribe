@@ -1,0 +1,14 @@
+uuid: 2e38709d-0e11-43bc-b6ab-b7ee605a13c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.leave_no_trace_moop
+  module:
+    - user
+id: user_add_role_action.leave_no_trace_moop
+label: 'Add the Leave No Trace Moop role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: leave_no_trace_moop

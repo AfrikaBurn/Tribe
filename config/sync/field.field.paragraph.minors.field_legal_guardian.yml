@@ -1,0 +1,29 @@
+uuid: f5b3bb01-e879-42bc-8f11-4586f47eb6c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_legal_guardian
+    - paragraphs.paragraphs_type.minors
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.minors.field_legal_guardian
+field_name: field_legal_guardian
+entity_type: paragraph
+bundle: minors
+label: 'I am the parent and/or legal guardian of this minor'
+description: 'Tickets for minors may only be purchased using the bio of their parent and/or legal guardian.'
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

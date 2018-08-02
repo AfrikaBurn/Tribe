@@ -1,0 +1,14 @@
+uuid: dad96ffc-cffa-4b83-b280-d66d9825240b
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.dpw
+  module:
+    - user
+id: user_remove_role_action.dpw
+label: 'Remove the DPW role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: dpw

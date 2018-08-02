@@ -1,0 +1,31 @@
+uuid: 9249adc0-af51-485b-8e8b-6e0909877ee3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_people
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: ZEU1YizvVRXzo1AyM5kGQxMs2J6AhNeSC1hjComDlyM
+id: node.theme_camps.field_prj_plc_people
+field_name: field_prj_plc_people
+entity_type: node
+bundle: theme_camps
+label: 'How many people are in your camp?'
+description: '(You can edit this again, an estimate will be fine for now)'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: 200
+  prefix: ''
+  suffix: ''
+field_type: integer

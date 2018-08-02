@@ -1,0 +1,77 @@
+uuid: 8eceec20-7299-420a-93e2-c1cb0c72767b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.grant_expences.field_cost_type
+    - field.field.paragraph.grant_expences.field_field_quantity
+    - field.field.paragraph.grant_expences.field_field_specifications
+    - field.field.paragraph.grant_expences.field_grt_brk_description
+    - field.field.paragraph.grant_expences.field_other
+    - field.field.paragraph.grant_expences.field_price_total_
+    - field.field.paragraph.grant_expences.field_type_of_expence
+    - paragraphs.paragraphs_type.grant_expences
+id: paragraph.grant_expences.default
+targetEntityType: paragraph
+bundle: grant_expences
+mode: default
+content:
+  field_cost_type:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_field_quantity:
+    weight: 2
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_field_specifications:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_grt_brk_description:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_other:
+    weight: 6
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_price_total_:
+    weight: 3
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_type_of_expence:
+    weight: 5
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

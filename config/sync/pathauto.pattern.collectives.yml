@@ -1,0 +1,22 @@
+uuid: af50e38b-81fa-4ed0-8b7c-fd9c812f8260
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: collectives
+label: Collectives
+type: 'canonical_entities:node'
+pattern: 'collective/[node:title]'
+selection_criteria:
+  4f86e41e-f93a-40c3-8e7d-202bb34b6fe1:
+    id: node_type
+    bundles:
+      collective: collective
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 4f86e41e-f93a-40c3-8e7d-202bb34b6fe1
+selection_logic: and
+weight: 0
+relationships: {  }

@@ -1,0 +1,31 @@
+uuid: f4a8dc7f-59bb-4f3c-be9c-31bebbb9588d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_fundraiser
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_gen_fundraiser
+field_name: field_prj_gen_fundraiser
+entity_type: node
+bundle: mutant_vehicles
+label: 'Fundraiser Person (this can be you)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: collective_members
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

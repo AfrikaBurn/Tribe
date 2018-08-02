@@ -1,0 +1,40 @@
+uuid: 32a8f52a-8db0-498e-b886-79a4056d8abc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_muncipal_district
+    - node.type.art
+    - taxonomy.vocabulary.location
+  content:
+    - 'taxonomy_term:location:77c8b7e9-2730-443f-a50a-4588a4c21d1b'
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: rPihutZhMVZDWb7-YKs7OUlgVF1AFHRDCdLvnyS0Co0
+id: node.art.field_muncipal_district
+field_name: field_muncipal_district
+entity_type: node
+bundle: art
+label: 'Municipal District'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 77c8b7e9-2730-443f-a50a-4588a4c21d1b
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      location: location
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

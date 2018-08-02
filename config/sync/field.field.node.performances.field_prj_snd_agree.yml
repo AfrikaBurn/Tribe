@@ -1,0 +1,31 @@
+uuid: f47a3a87-b7fe-4db5-8a2d-760124a9970f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_snd_agree
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: gV3I8iBBc7jOaUiJkFNNOAOih1kNEkSqL_k6iXxdRUo
+id: node.performances.field_prj_snd_agree
+field_name: field_prj_snd_agree
+entity_type: node
+bundle: performances
+label: 'I agree to abide by the AfrikaBurn Sound Policies and the basic rules of Civic Responsibility and general common-sense.'
+description: 'Please read our <a href="http://www.afrikaburn.com/wp-content/uploads/2017/08/AfrikaBurn-Sound-Policy-2017.pdf" target="_blank">Sound Policy here</a> so you''re aware of how things work.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

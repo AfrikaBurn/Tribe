@@ -1,0 +1,25 @@
+uuid: 3c3045d9-0060-4b9d-af24-a9e6b5b154a8
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: 8jnzNE63_Pz9DnPW0Z7c8THdoASY2r9dg52sSy42gTM
+id: node.field_prj_plc_motivation
+field_name: field_prj_plc_motivation
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,20 @@
+uuid: 6bba8300-4153-4fc3-915f-24bc4eadc282
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.theme_camps
+_core:
+  default_config_hash: j-5KjxUf5PNZnGtxOg_ImAfZwlezWj0bo0efntyk1x0
+id: node.theme_camps.title
+field_name: title
+entity_type: node
+bundle: theme_camps
+label: 'Camp Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

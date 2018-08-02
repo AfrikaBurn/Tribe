@@ -1,0 +1,45 @@
+uuid: 941d1166-0b7b-4290-bfc8-187c23d5c5a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_layout
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+    - image
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: sfvvIC1vpDT3R5xDNOLsHvZyoKxTNLjUdX9gzS7Befg
+id: node.theme_camps.field_prj_plc_layout
+field_name: field_prj_plc_layout
+entity_type: node
+bundle: theme_camps
+label: 'Camp layout sketch (Technical Layout Drawing)'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: Theme_Camp/Layout
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: '3 MB'
+  max_resolution: ''
+  min_resolution: 250x250
+  alt_field: false
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

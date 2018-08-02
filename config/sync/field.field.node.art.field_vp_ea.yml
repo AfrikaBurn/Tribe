@@ -1,0 +1,51 @@
+uuid: 30c05622-1aa3-4863-81a1-c31e863e60ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vp_ea
+    - node.type.art
+    - paragraphs.paragraphs_type.early_access_and_vehicle_passes
+  module:
+    - custom_add_another
+    - entity_reference_revisions
+third_party_settings:
+  custom_add_another:
+    custom_add_another: 'Add another'
+    custom_remove: ''
+id: node.art.field_vp_ea
+field_name: field_vp_ea
+entity_type: node
+bundle: art
+label: 'Please add one for each participant that requires work access or a vehicle pass'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      early_access_and_vehicle_passes: early_access_and_vehicle_passes
+    target_bundles_drag_drop:
+      early_access_and_vehicle_passes:
+        enabled: true
+        weight: 7
+      grant_expences:
+        weight: 8
+        enabled: false
+      minors:
+        weight: 9
+        enabled: false
+      mutant_grant_expense:
+        weight: 10
+        enabled: false
+      outreach_grant_applicant:
+        weight: 11
+        enabled: false
+      supplier_details:
+        weight: 12
+        enabled: false
+field_type: entity_reference_revisions

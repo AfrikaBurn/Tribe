@@ -1,0 +1,30 @@
+uuid: dbad2546-1882-490f-b8b1-42438221a62a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_brn_f2
+    - node.type.art
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.art.field_prj_brn_f2
+field_name: field_prj_brn_f2
+entity_type: node
+bundle: art
+label: 'burn description'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p><strong>Planning to&nbsp;burn your piece?</strong></p>\r\n\r\n<p><a href=\"https://www.afrikaburn.com/the-event/artworks/artworks/building-art-burn\" target=\"_blank\">https://www.afrikaburn.com/the-event/artworks/artworks/building-art-burn</a></p>\r\n\r\n<p>Here's how it works: your piece&nbsp;doesn't have to be approved -&nbsp;but your burn does. If this is what you've got planned,&nbsp;you'll need&nbsp;to motivate to burn your piece.</p>\r\n\r\n<p>Remember: you don't have to burn your piece. You might think that burning's an easy way to get rid of it (and not transport it back), but it's not: you'd still need&nbsp;to clean up the burn site &amp;&nbsp;remove all the&nbsp;coals, rebar etc.<br />\r\nSo consider carefully whether burning is important to the meaning of your piece.</p>\r\n\r\n<p>We love works that can go on to live&nbsp;beyond the event, whether as ‘permanent’ installations in an urban space or at Decompression, Streetopia, Maker Faire etc. So&nbsp;consider designing your project in&nbsp;a way that it can be dismantled &amp;&nbsp;repurposed. You can donate your good materials to Outreach projects&nbsp;(arrange this&nbsp;in advance before the event).</p>\r\n\r\n<p>If it's really important for your piece&nbsp;to burn, plan for&nbsp;that by bearing in mind that you're building a fire, and that has to be considered in your design.</p>\r\n\r\n<p>Our Art Committee and&nbsp;Pyro Team will assess your request to burn your piece based on your motivation and design.</p>\r\n"
+    format: full_html
+field_type: markup

@@ -1,0 +1,10 @@
+uuid: 880df876-5d0d-442c-8d5a-2edaf455c311
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.supplier
+label: Supplier
+targetEntityType: node
+cache: true

@@ -1,0 +1,31 @@
+uuid: a792a1ce-5ca6-492b-86e4-61c60fd91e60
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_sleep
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: yyKVwcr-suKp0U8SK4Coa5NxaaPVjMY5IHgIDlsq5qw
+id: node.theme_camps.field_prj_plc_sleep
+field_name: field_prj_plc_sleep
+entity_type: node
+bundle: theme_camps
+label: 'Number of cars used for living/sleeping in?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

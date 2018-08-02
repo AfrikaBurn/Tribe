@@ -1,0 +1,10 @@
+uuid: 469cc639-b615-45ff-9ff0-fde59d1f0f6e
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.wrangler_overview
+label: 'Wrangler Overview'
+targetEntityType: paragraph
+cache: true

@@ -1,0 +1,22 @@
+uuid: 003fe5c5-71d0-4c0a-82fa-8becb3dee648
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: vXUCOnwDECPEBZp8Ezo2f9JLNt4DjuIB8hlABWXuv9U
+id: node.field_prj_plc_public_d
+field_name: field_prj_plc_public_d
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

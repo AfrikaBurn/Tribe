@@ -1,0 +1,20 @@
+uuid: e7cc1ff1-7d0d-4db3-803b-a50a20fd585c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.mutant_vehicles
+_core:
+  default_config_hash: k4T_SgjA7y_WQojital66bhdTDQExAmr7dtzjiaAhf4
+id: node.mutant_vehicles.title
+field_name: title
+entity_type: node
+bundle: mutant_vehicles
+label: 'Name of Mutant Vehicle'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

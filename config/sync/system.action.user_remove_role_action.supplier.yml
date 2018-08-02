@@ -1,0 +1,14 @@
+uuid: 20853d1a-fd91-4a47-a750-b654429e1f3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.supplier
+  module:
+    - user
+id: user_remove_role_action.supplier
+label: 'Remove the Supplier role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: supplier

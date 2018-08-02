@@ -1,0 +1,31 @@
+uuid: bf5ca3be-359d-4d47-8af8-e6869d1336db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_snd_sound
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: 5Cc1aSea53hSdSIpJjWsTWvYbBs2u3Ee8wJFD-oVNl8
+id: node.art.field_prj_snd_sound
+field_name: field_prj_snd_sound
+entity_type: node
+bundle: art
+label: 'Does your artwork have a sound component?'
+description: 'Please note that if you are planning a loud party site with permanently installed sound equipment, your sound plan and motivation are assessed by the Art Committee and the Sound Team, and have to be approved. '
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

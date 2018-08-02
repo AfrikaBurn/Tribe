@@ -1,0 +1,142 @@
+@charset "utf-8";
+
+div.body-content .block h3{
+  font-size: 100%;
+}
+
+div.body-content .block table{
+  width: 100%;
+}
+
+div.body-content .block .view-id-collective_projects table ul{
+  margin: 0;
+}
+
+div.body-content .block .view-id-collective_projects table td{
+  padding: 0;
+}
+
+div.body-content .block .view-id-collective_projects table td.image{
+  text-align: center;
+  padding: 15px 5px;
+  width: 27px;
+}
+
+div.body-content .block .view-id-collective_projects table td.image img{
+  display: block;
+  float: left;
+  padding: 2px 0;
+}
+
+div.body-content .block .view-id-collective_projects table td.name{
+  padding: 5px 10px;
+  border-top: 10px solid #350b04;
+}
+
+div.body-content .block .view-id-collective_projects table td.name span{
+  display: block;
+  float: right;
+  background: #d24c35;
+  border-radius: 1px 1px 5px 5px;
+  color: black;
+  padding: 2px 5px;
+  margin-top: -6px;
+}
+
+div.body-content .block .view-id-collective_projects table td.forms{
+  width: 80px;
+}
+
+div.body-content .block .view-id-collective_projects li.messages{
+  background-position: 7px 6px;
+  padding: 0 0 0 30px;
+  border: none;
+  opacity: 0.9;
+}
+
+div.body-content .block .view-id-collective_projects li.messages:hover{
+  opacity: 1;
+}
+
+div.body-content .block .view-id-collective_projects .messages a{
+  display: block;
+  padding: 4px 0;
+}
+
+div.body-content .block .view-id-collective_projects .messages a:hover{
+  color: #000;
+}
+
+div.body-content .block .view-id-collective_projects .messages--lock,
+div.body-content .block .view-id-collective_projects .messages--recycle,
+div.body-content .block .view-id-collective_projects .messages--archive {
+  position: relative;
+}
+
+div.body-content .block .view-id-collective_projects .messages--lock {
+  color: #0000aa;
+  background: #e4f7ff;
+  box-shadow: -8px 0 0 #01b8ff;
+}
+
+div.body-content .block .view-id-collective_projects .messages--recycle {
+  color: #00aa00;
+  background: #e4fff7;
+  box-shadow: -8px 0 0 #00aa00;
+}
+
+div.body-content .block .view-id-collective_projects .messages--archive {
+  color: #aaa;
+  background: #efefef;
+  box-shadow: -8px 0 0 #aaa;
+}
+
+div.body-content .block .view-id-collective_projects .messages--lock a{
+  color: #01b8ff;
+}
+
+div.body-content .block .view-id-collective_projects .messages--recycle a{
+  color: #00aa00;
+}
+
+div.body-content .block .view-id-collective_projects .messages--archive a{
+  color: #aaa;
+}
+
+div.body-content .block .view-id-collective_projects .messages--lock:before,
+div.body-content .block .view-id-collective_projects .messages--recycle:before,
+div.body-content .block .view-id-collective_projects .messages--archive:before{
+  display: block;
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  border-radius: 10px;
+  font: 18px serif;
+  line-height: 20px;
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  margin-top: -9px;
+}
+
+div.body-content .block .view-id-collective_projects .messages--lock:before{
+  content: '\268c';
+  background: #01b8ff;
+  color: #e4f7ff;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+div.body-content .block .view-id-collective_projects .messages--recycle:before{
+  content: '\267b';
+  background: #00aa00;
+  color: #e4fff7;
+}
+
+div.body-content .block .view-id-collective_projects .messages--archive:before{
+  content: '\2263';
+  background: #aaa;
+  color: #fff;
+  line-height: 110%;
+}

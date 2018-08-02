@@ -1,0 +1,346 @@
+//Popout block and home page content
+.view-id-collective_registrations .views-row{
+  padding-left: 10px;
+  display:list-item;
+  list-style: none;
+  display: block;
+}
+
+.view-id-collective_registrations a {
+    line-height: 40px;
+    text-decoration: none;
+  }
+
+//Only styles the images next to the projects.
+.views-field-field-prj-gen-concept img {
+  margin-top: 5px;
+  max-width: 25px;
+  width: auto;
+  display: block;
+  float: left;
+  margin-right: 8px;
+  border: 1px solid #555;
+  .border-radius;
+
+}
+//Only styles the image for the collective as a whole.
+.views-field-field-picture {
+  float: left;
+  margin-right: 15px;
+  max-width: 50px;
+  width: auto;
+}
+
+nav.pager {
+  clear: both;
+  margin: 10px 0 15px;
+  padding: 15px 0;
+  border-top: 1px solid @ab-maroon;
+  border-bottom: 1px solid @ab-maroon;
+}
+
+nav.pager ul {
+  margin: 0;
+}
+
+
+//My Collectives popout only
+#my-collectives-block {
+  display: none;
+  position: absolute;
+  top: 44px;
+  right: 0;
+  padding: 0 20px;
+  z-index: 99999;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  min-width: 120px;
+  box-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+  background: #111;
+  font-size: 1.4em;
+  float: right;
+  right: 0 !important;
+  color: #999;
+  box-sizing: border-box;
+
+  .collectives-container {
+    float: left;
+    width: 100%;
+  }
+  h2, h3 {
+
+    color: #fff;
+    text-align: left;
+    padding: 0;
+    margin: 1em 0 0.5em 0;
+  }
+
+  h2 {
+    font-size: 2.8em/1.4em;
+    margin: 30px 0 0.3em 0;
+  }
+
+  h3.field-content {
+    font-size: 1.8em/1.4em;
+    text-transform: uppercase;
+    border-top: 1px solid #666;
+    border-bottom: 1px solid #666;
+    padding: 15px 0;
+    margin-top: 0;
+  }
+
+  h3 {
+    font-size: 1.8em/1.4em;
+    text-transform: none;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  div.block {
+    margin-bottom: 20px;
+  }
+
+  .collective-row .views-field-view {
+    margin-left: 10px;
+  }
+
+  .views-field-field-picture {
+    float: left;
+    margin-right: 15px;
+  }
+
+  .collective-row {
+    float: left;
+    box-sizing: border-box;
+    padding: 20px;
+  }
+
+  .attachment {
+    padding-top: 20px;
+  }
+
+  .attachment h2 {
+    margin: 0 0 1em 0;
+    font-size: 1.8em/1.4em;
+    text-transform: uppercase;
+  }
+
+  .attachment .view-footer {
+    padding-top: 0;
+  }
+}
+
+#my-collectives-block.show {
+  display: block;
+}
+
+//Arrow for my collectives block
+#my-collectives-block:before,
+#my-collectives-block:after  {
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  bottom: 100%;
+  right: 7px;
+}
+
+#my-collectives-block:after {
+  border-color: transparent;
+  border-width: 8px;
+  border-bottom-color: #111;
+}
+#my-collectives-block:before {
+  border-color: transparent;
+  border-width: 9px;
+  border-bottom-color: inherit;
+  margin-right: -1px;
+}
+
+#my-collectives-block:before,
+#my-collectives-block:after{
+  right: 170px
+}
+
+.collectives-length-0 #my-collectives-block div.view-footer a {
+  margin-top: 20px;
+}
+
+// Set the max-width of the collectives block based on number of collectives
+.collectives-length-0 #my-collectives-block,
+.collectives-length-1 #my-collectives-block {
+  max-width: 400px;
+}
+.collectives-length-2 #my-collectives-block {
+  max-width: 660px;
+}
+// Set the max-width of the collectives block and width of the collectives based on number of collectives and viewport width
+@media (min-width: 980px) {
+  #my-collectives-block {
+      max-width: 100%;
+  }
+
+  #my-collectives-block .collective-row {
+    width: 100%;
+  }
+
+  .collectives-length-2 #my-collectives-block .collective-row {
+    width: 50%;
+  }
+
+  .collectives-length-3x #my-collectives-block .collective-row {
+    width: 33.3%;
+  }
+}
+
+@media (min-width: 667px) and (max-width: 979px) {
+  #my-collectives-block {
+    max-width: 660px;
+  }
+  #my-collectives-block .collective-row {
+    width: 100%;
+  }
+
+  .collectives-length-2 #my-collectives-block .collective-row,
+  .collectives-length-3x #my-collectives-block .collective-row {
+    width: 50%;
+  }
+}
+
+@media (max-width: 666px) {
+  #my-collectives-block {
+    max-width: 400px;
+  }
+
+  #my-collectives-block .collective-row {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/*---------------------------------------------------------------------
+Collectives block in the home page content
+---------------------------------------------------------------------*/
+
+
+.block-views-blockcollectives-my-collectives-block {
+  h2, h3 {
+    color: #fff;
+    text-align: left;
+    padding: 0;
+    margin: 1em 0 0.5em 0;
+  }
+
+  h3.field-content {
+    font-size: 1.8em/1.4em;
+    text-transform: uppercase;
+    border-top: 1px solid @ab-peach;
+    border-bottom: 1px solid @ab-peach;
+    padding: 14px 0;
+    margin-top: 0;
+  }
+
+  h3 {
+    font-size: 1.8em/1.4em;
+    text-transform: none;
+    line-height: 100%;
+  }
+
+  h3 a {
+    text-decoration: none;
+  }
+
+  .collectives-container {
+    float: left;
+    width: 100%;
+    background: @ab-light-maroon;
+    margin-bottom: 20px;
+    .border-radius;
+  }
+
+  .view-id-collectives > .view-content > .views-row {
+    float: left;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0 10px 20px 10px;
+
+  }
+
+  .view-id-collectives > .view-content > .views-row .views-field-view {
+    margin-left: 10px;
+  }
+
+  .views-field-field-picture {
+    float: left;
+    margin-right: 15px;
+  }
+
+  .views-field-field-picture img {
+    max-width: 50px;
+    width: auto;
+  }
+}
+
+.collectives-length-0 .block-views-blockcollectives-my-collectives-block div.view-footer a {
+  margin-top: 20px;
+}
+
+@media (min-width: 980px) {
+  .collectives-length-3x .block-views-blockcollectives-my-collectives-block {
+    width: 940px;
+    margin-left: -120px;
+  }
+  .block-views-blockcollectives-my-collectives-block .view-id-collectives > .view-content > .views-row {
+    width: 100%;
+  }
+
+  .collectives-length-2 .block-views-blockcollectives-my-collectives-block .view-id-collectives > .view-content > .views-row {
+    width: 50%;
+  }
+
+  .collectives-length-3x .block-views-blockcollectives-my-collectives-block .view-id-collectives > .view-content > .views-row {
+    width: 33.3%;
+  }
+}
+
+@media (min-width: 667px) and (max-width: 979px) {
+  .block-views-blockcollectives-my-collectives-block .views-row {
+    width: 100%;
+  }
+
+  .collectives-length-2 .block-views-blockcollectives-my-collectives-block .view-id-collectives > .view-content > .views-row,
+  .collectives-length-3x .block-views-blockcollectives-my-collectives-block .view-id-collectives > .view-content > .views-row {
+    width: 50%;
+  }
+}
+
+@media (max-width: 666px) {
+ .block-views-blockcollectives-my-collectives-block .view-id-collectives > .view-content > .views-row {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+//My Collectives button
+a.my-collectives {
+  float: right;
+  display: block;
+  color: @body-content-link-color;
+  font-size: 1.4em;
+  padding: 14px 10px 12px;
+  text-decoration: none;
+  line-height: 100%;
+}
+a.my-collectives.active,
+a.my-collectives:hover {
+  background-color: #111;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}

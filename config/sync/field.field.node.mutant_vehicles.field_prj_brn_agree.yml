@@ -1,0 +1,29 @@
+uuid: 149c2292-76ba-4248-9d54-1fec6d992fc4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_brn_agree
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_brn_agree
+field_name: field_prj_brn_agree
+entity_type: node
+bundle: mutant_vehicles
+label: 'I have read all information available about fire safety at AfrikaBurn. '
+description: "<a href=\"https://www.afrikaburn.com/wp-content/uploads/2017/12/2018-FLAME-EFFECTS.pdf\">2018 FLAME EFFECTS</a><br>\r\n<a href=\"https://www.afrikaburn.com/wp-content/uploads/2017/12/2018-Flame-Effect-Emergency-Plans.pdf\">2018 Flame Effect Emergency Plans</a>\r\n"
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

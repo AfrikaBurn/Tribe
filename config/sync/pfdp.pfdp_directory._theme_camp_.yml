@@ -1,0 +1,29 @@
+uuid: f1c39db8-7579-4bf7-8d39-dab9604979d2
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Oynh061QxJi23-jv5YujO9zj5xwEwguJFGKf9qDvct4
+id: _theme_camp_
+path: /Theme_Camp
+bypass: false
+grant_file_owners: true
+users: {  }
+roles:
+  authenticated: authenticated
+  art_wrangler: art_wrangler
+  art_admin: art_admin
+  communications_wrangler: communications_wrangler
+  communications_admin: communications_admin
+  leave_no_trace_moop: leave_no_trace_moop
+  mutant_vehicle_viewer: mutant_vehicle_viewer
+  mutant_vehicle_wrangler: mutant_vehicle_wrangler
+  mutant_vehicle_admin: mutant_vehicle_admin
+  outreach_wrangler: outreach_wrangler
+  outreach_admin: outreach_admin
+  support_wrangler: support_wrangler
+  support_admin: support_admin
+  theme_camp_wrangler: theme_camp_wrangler
+  theme: theme
+  administrator: administrator
+  anonymous: '0'

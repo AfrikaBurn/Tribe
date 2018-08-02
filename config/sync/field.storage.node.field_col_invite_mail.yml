@@ -1,0 +1,18 @@
+uuid: 7ecbe94d-d2aa-40bb-a5ac-1dcbb67907db
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_col_invite_mail
+field_name: field_col_invite_mail
+entity_type: node
+type: email
+settings: {  }
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

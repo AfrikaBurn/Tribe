@@ -1,0 +1,38 @@
+uuid: dc2f0f12-1e27-4a92-9d38-62c40ee98eed
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.register
+  module:
+    - panels
+    - user
+id: register-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    9535248c-426e-4987-b1fc-0c42daa26ee0:
+      id: formblock_user_register
+      label: 'User registration form'
+      provider: user
+      label_display: visible
+      region: content
+      weight: 0
+      uuid: 9535248c-426e-4987-b1fc-0c42daa26ee0
+      context_mapping: {  }
+  id: panels_variant
+  uuid: f8dea914-385b-4e6d-9b6d-231db2b3c2d7
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: register-panels_variant-0
+  builder: standard
+page: register
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

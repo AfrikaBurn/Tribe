@@ -1,0 +1,14 @@
+uuid: 6e567ec1-d6ba-4834-8af6-72172de358b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.sanctuary_admin
+  module:
+    - user
+id: user_remove_role_action.sanctuary_admin
+label: 'Remove the Sanctuary Admin role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: sanctuary_admin

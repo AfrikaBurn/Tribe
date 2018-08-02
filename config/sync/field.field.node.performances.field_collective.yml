@@ -1,0 +1,34 @@
+uuid: a81df043-8cb7-4212-a239-1c9c13d53cb5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_collective
+    - node.type.collective
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.performances.field_collective
+field_name: field_collective
+entity_type: node
+bundle: performances
+label: Collective
+description: 'Collective that this Performance is part of'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      collective: collective
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

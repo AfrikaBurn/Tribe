@@ -1,0 +1,36 @@
+uuid: f2c93ce1-64d8-4421-a518-ad48be2699f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_muncipal_district
+    - node.type.performances
+    - taxonomy.vocabulary.location
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: 5IckIgcc5e_vn5pQAaFXs1LFehYYWY4BAfBrkQujUZ8
+id: node.performances.field_muncipal_district
+field_name: field_muncipal_district
+entity_type: node
+bundle: performances
+label: 'Municipal District'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      location: location
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

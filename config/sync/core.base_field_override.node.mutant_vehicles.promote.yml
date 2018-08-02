@@ -1,0 +1,24 @@
+uuid: f6075ea9-4dd4-4ecd-99a6-7517e5630009
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.mutant_vehicles
+_core:
+  default_config_hash: T8kdoYPqNB7LyMYeGfudEVKEixTbPtsAUREFjtyO7EU
+id: node.mutant_vehicles.promote
+field_name: promote
+entity_type: node
+bundle: mutant_vehicles
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

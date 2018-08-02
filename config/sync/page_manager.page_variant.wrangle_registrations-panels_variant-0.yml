@@ -1,0 +1,85 @@
+uuid: 533e8a8b-a9de-4013-8364-d51d0a9b4d6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.wrangle_registrations
+    - views.view.stats_registration
+  module:
+    - panels
+    - views
+id: wrangle_registrations-panels_variant-0
+label: Stats
+variant: panels_variant
+variant_settings:
+  blocks:
+    3aa9f09e-2974-4535-b0d9-38d03ed1feef:
+      id: 'views_block:stats_registration-global'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: -2
+      uuid: 3aa9f09e-2974-4535-b0d9-38d03ed1feef
+      context_mapping: {  }
+    493f7025-1512-44a9-a664-3d0091921e1e:
+      id: 'views_block:stats_registration-type'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 1
+      uuid: 493f7025-1512-44a9-a664-3d0091921e1e
+      context_mapping: {  }
+    f51f9ae9-8b28-4bb0-939c-1309df4b36dd:
+      id: 'views_block:stats_registration-block_2'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 2
+      uuid: f51f9ae9-8b28-4bb0-939c-1309df4b36dd
+      context_mapping: {  }
+    5499bfe2-2fd1-4bea-a16c-49324e69b83e:
+      id: 'views_block:stats_registration-block_1'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: -1
+      uuid: 5499bfe2-2fd1-4bea-a16c-49324e69b83e
+      context_mapping: {  }
+    8b5de604-1913-4afb-842a-213a618327f0:
+      id: 'views_block:stats_registration-block_3'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 0
+      uuid: 8b5de604-1913-4afb-842a-213a618327f0
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 0c7d55db-de73-4f46-b36f-2e62bf81de8d
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: Projects
+  storage_type: page_manager
+  storage_id: wrangle_registrations-panels_variant-0
+  builder: standard
+page: wrangle_registrations
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

@@ -1,0 +1,33 @@
+uuid: 8d48dac2-4f78-4940-bdbe-eed573e26086
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Eye6PUDxCX8k0Kt3y6lbN8ndVS7uzpdaStUJUSoqSqU
+id: anonymous
+label: 'Anonymous user'
+weight: -10
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access site-wide contact form'
+  - 'create field_agreements'
+  - 'create field_consent_form'
+  - 'create field_date_of_birth'
+  - 'create field_emr_email'
+  - 'create field_emr_name'
+  - 'create field_emr_telephone'
+  - 'create field_first_name'
+  - 'create field_gender'
+  - 'create field_id_number'
+  - 'create field_kids_and_teens'
+  - 'create field_last_name'
+  - 'create field_location'
+  - 'create field_mobile'
+  - 'create field_secondary_mail'
+  - 'display eu cookie compliance popup'
+  - 'edit own field_consent_form'
+  - 'flag updated'
+  - 'search content'
+  - 'use user.register form mode'

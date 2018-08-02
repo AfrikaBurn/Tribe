@@ -1,0 +1,10 @@
+uuid: 399673f4-5001-4ea6-8abd-6b87332ab041
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.open_camps
+label: 'Open camps'
+targetEntityType: node
+cache: true

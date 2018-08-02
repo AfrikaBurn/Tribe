@@ -1,0 +1,766 @@
+/*---Fonts---*/
+@font-face {
+    font-family: 'FuturaBook';
+    src: url('../fonts/futura_book_bt-webfont.eot');
+    src: url('../fonts/futura_book_bt-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/futura_book_bt-webfont.woff') format('woff'),
+         url('../fonts/futura_book_bt-webfont.ttf') format('truetype'),
+         url('../fonts/futura_book_bt-webfont.svg#FuturaBook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/*---Change default user agent behaviour---*/
+a:active,
+a:focus {
+    outline: none;
+}
+
+.hidden {
+	display: none;
+}
+
+select:focus {
+	outline:inherit;
+}
+.btn:focus {
+	outline:inherit;
+	outline-offset:inherit;
+	-webkit-transition:inherit;
+	-moz-transition:inherit;
+	-o-transition:inherit;
+	transition:inherit
+}
+
+fieldset {
+	border-width: 0;
+	margin: 0;
+	padding: 0;
+}
+
+form {
+	 margin-bottom: inherit;
+}
+
+ul, ol {
+	margin: 0;
+}
+
+.btn {
+	border-image-width: 0;
+	box-shadow: none;
+}
+.btn:focus,
+.btn:hover {
+	transition: none;
+	-webkit-transition: none;
+	-moz-transition: none;
+}
+
+.row-fluid {
+	width: auto;
+}
+
+.element-invisible {
+	display: none;
+}
+
+/*---ACTUAL STYLES---*/
+
+body {
+	line-height: inherit;
+	font-family: @main-font-family;
+}
+
+br {
+	line-height: 0;
+}
+
+h1, h2, h3, h4 {
+	color: @page-header-color;
+	font-size: @page-header-font-size;
+	text-transform: @page-header-text-transform;
+	text-align: @page-header-text-align;
+	font-family: @page-header-font-family;
+	font-weight: @page-header-font-weight;
+	padding: @page-header-padding-top @pc-body-content-padding-left-right @page-header-padding-bottom;
+	line-height: @page-header-line-height;
+	margin-top: 0;
+	margin-bottom: 0;
+	letter-spacing: 0.5px;
+}
+
+h1.page-title .subtitle{
+  font-size: 60%;
+}
+
+a {
+	color: @body-content-link-color;
+	text-decoration: @body-content-link-text-decoration;
+}
+
+a:visited {
+	color: @body-content-link-visited-color;
+	text-decoration: @body-content-link-visited-text-decoration;
+}
+
+a:hover {
+	color: @body-content-link-hover-color;
+	text-decoration: @body-content-link-hover-text-decoration;
+	cursor: pointer;
+}
+
+a:active {
+	color: @body-content-link-color;
+	text-decoration: @body-content-link-text-decoration;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a {
+	text-decoration: none;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+div.body-content h1,
+div.body-content h2,
+div.body-content h3,
+div.body-content h4 {
+	color: @body-content-header-color;
+	text-transform: @body-content-header-text-transform;
+	text-align: @body-content-header-text-align;
+	font-family: @body-content-header-font-family;
+	font-weight: @body-content-header-font-weight;
+	margin-bottom: @body-content-header-margin-bottom;
+	font-style: @body-content-header-font-style;
+	line-height: 150%;
+	padding: 0;
+}
+div.body-content h1 {
+	font-size: @body-content-header-h1-font-size/@body-content-text-font-size;
+}
+div.body-content h2 {
+	font-size: @body-content-header-h2-font-size/@body-content-text-font-size;
+}
+div.body-content h3 {
+	font-size: @body-content-header-h3-font-size/@body-content-text-font-size;
+}
+div.body-content h4 {
+	font-size: @body-content-header-h4-font-size/@body-content-text-font-size;
+}
+
+div.body-content {
+	line-height: @body-content-text-line-height;
+	color: @body-content-text-color;
+	font-family: @main-font-family;
+	font-style: @body-content-text-font-style;
+	font-size: @body-content-text-font-size;
+	font-weight: @body-content-text-font-weight;
+	text-align: left;
+}
+div.body-content p {
+	text-align: @body-content-paragraph-text-align;
+	line-height: @body-content-paragraph-line-height;
+	margin-bottom: @body-content-paragraph-space-after;
+}
+
+button,
+.button,
+input.button,
+div.body-content a.button,
+div.body-content button,
+div.input-file-wrapper,
+input[type=submit],
+input.button:focus, {
+	.button-styles;
+}
+
+.btn:hover,
+a.btn:hover,
+button:hover,
+input.button:hover,
+input.button:active,
+div.input-file-wrapper:hover,
+input[type=submit]:hover {
+	.button-hover-styles;
+}
+
+a.button,
+a.button:hover {
+	display: inline-block;
+	text-decoration: none !important;
+	color: @button-color;
+}
+
+a.small-button {
+	.button-styles;
+	padding: 5px;
+	color: @button-color;
+}
+
+a.small-button:hover {
+	.button-hover-styles;
+	padding: 5px;
+	color: @button-color;
+}
+
+//Inputs which act as remove buttons.
+input[value=Remove],
+input[value=Remove]:hover {
+	min-width: 0;
+	padding: 0;
+	margin: 0;
+	width: 29px !important;
+	height: 29px !important;
+	border-radius: 30px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  background-image: url("../images/afrikaburn-icons.png");
+  background-position: 7px -62px;
+  background-repeat: no-repeat;
+  background-size: 140px;
+  color: transparent;
+  font-size: 0;
+  border: 1px solid #fff;
+}
+
+div.body-content select {
+	text-transform: @select-text-transform;
+   	color: @select-color;
+	border-radius: @select-border-radius;
+	-moz-border-radius: @select-border-radius;
+	-webkit-border-radius: @select-border-radius;
+	border: 1px solid @select-border-color;
+	width: 220px;
+    display: inline-block;
+    height: @input-height;
+    line-height: 13px !important;
+    margin-bottom: 9px;
+    padding: 4px 6px;
+    vertical-align: middle;
+    font-size: 13px;
+    font-weight: normal;
+    cursor: pointer;
+	background-color: #f5f5f5;
+    background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+	font-family: Arial, Helvetica, sans-serif;
+	display: block;
+	margin-top: 5px;
+}
+
+div.body-content select option {
+	background-color: @option-background-color;
+    border-top-color: @option-border-color;
+   	text-transform: @option-text-transform;
+	font-family: @option-font-family;
+    color: @option-color;
+    font-size: 1em;
+	border-top-width: 1px;
+	border-top-style: solid;
+    padding-top: 4px;
+}
+
+div.body-content img {
+	max-width: 100%;
+	width: auto;
+	height: auto;
+}
+
+//Prefixed with #wrapper to force override of input styling introduced by jQuery UI.
+input,
+textarea {
+	border-radius: @input-border-radius;
+	-moz-border-radius: @input-border-radius;
+	-webkit-border-radius: @input-border-radius;
+	height: @input-height;
+	font-family: @input-font-family;
+	margin-top: @input-margin-top;
+	margin-bottom: @input-margin-bottom;
+	// width: @input-width;
+	padding: @input-top-bottom-padding @input-side-padding;
+	box-sizing: border-box;
+	background-color: @input-background-color;
+	color: @input-color;
+	border: @input-border-width @input-border-style @input-border-color;
+	max-width: 600px;
+}
+
+textarea {
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+input:hover,
+textarea:hover {
+	border-color: @input-hover-border-color;
+}
+
+input:focus,
+textarea:focus {
+	-webkit-transition: inherit;
+    -moz-transition: inherit;
+    -o-transition: inherit;
+    transition: inherit;
+	-webkit-box-shadow: inherit;
+    -moz-box-shadow: inherit;
+    box-shadow: inherit;
+    outline: 0;
+	background-color: @input-focus-background-color;
+	color: @input-color;
+	border: @input-border-width @input-border-style @input-focus-border-color;
+}
+
+textarea,
+textarea:focus {
+	height: 120px;
+}
+
+
+label {
+	font-style: @body-content-text-font-style;
+	color: @body-content-form-label-color;
+	font-weight: @body-content-form-label-font-weight;
+	line-height: 150%;
+	font-family: @main-font-family;
+	text-align: left;
+	display: table;
+}
+
+input[type='radio'],
+div.body-content input[type='radio'],
+input[type='checkbox'],
+div.body-content input[type='checkbox'] {
+	// width: @radio-button-checkbox-width-height !important;
+	// height: @radio-button-checkbox-width-height !important;
+	margin-right: 7px !important;
+	margin-top: @radio-button-checkbox-margin-top !important;
+	margin-bottom: 0;
+	float: left;
+}
+
+/*--Better styling for radio buttons--*/
+
+// div.radio-checkbox-wrapper {
+// 	position: relative;
+// 	float: left;
+// 	margin: @radio-button-checkbox-margin-top 5px 0 0;
+// }
+
+// div.radio-checkbox-wrapper input[type='radio'],
+// div.radio-checkbox-wrapper input[type='checkbox'] {
+// 	width: @radio-button-checkbox-width-height !important;
+// 	height: @radio-button-checkbox-width-height !important;
+// 	float: left;
+// 	opacity: 0;
+// 	position: absolute;
+// 	left: 0;
+// 	top: 0;
+// 	margin-top: 0 !important;
+// 	cursor: pointer;
+// }
+
+// input[type=radio] ~ div.radio-checkbox-dummy,
+// input[type=checkbox] ~ div.radio-checkbox-dummy {
+// 	float: left;
+// 	height: @radio-button-checkbox-width-height;
+// 	width: @radio-button-checkbox-width-height;
+// 	box-sizing: border-box;
+// 	border-radius: @input-border-radius;
+// 	-moz-border-radius: @input-border-radius;
+// 	-webkit-border-radius: @input-border-radius;
+// 	background: @radio-button-checkbox-background-color @radio-buttons-checkbox-background-image no-repeat center -10000000px;
+// 	border: @input-border-width @input-border-style @input-border-color;
+// 	background-size: @icons-sprite-background-size;
+// }
+
+// input[type=radio]:hover ~ div.radio-checkbox-dummy,
+// input[type=checkbox]:hover ~ div.radio-checkbox-dummy {
+// 	border-color: @input-hover-border-color;
+// 	background-color: @radio-button-checkbox-hover-background-color;
+// }
+
+// input[type=radio]:checked ~ div.radio-checkbox-dummy,
+// input[type=checkbox]:checked ~ div.radio-checkbox-dummy {
+// 	background-position: @radio-checkbox-selected-background-position;
+// 	border-color: @input-focus-border-color;
+// 	background-color: @radio-checkbox-selected-background-color;
+// }
+
+input[type=radio],
+input[type=checkbox] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    cursor: pointer;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    background: transparent !important;
+    border-width: 0 !important;
+}
+input[type=radio]:before,
+input[type=checkbox]:before {
+    content: "";
+    border: 2px solid @input-border-color;
+    background: @input-background-color;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+input[type=radio]:after,
+input[type=checkbox]:after {
+  background: transparent @radio-buttons-checkbox-background-image no-repeat center -10000000px;
+  background-size: @icons-sprite-background-size;
+}
+
+input[type=radio]:hover:before,
+input[type=checkbox]:hover:before {
+  border-color: @input-hover-border-color;
+}
+
+input[type=radio]:checked:before,
+input[type=checkbox]:checked:before {
+  border-color: @input-focus-border-color;
+}
+
+input[type=radio]:checked:after,
+input[type=checkbox]:checked:after {
+    content: "";
+    background-color: @input-focus-border-color;
+    background-position: @radio-checkbox-selected-background-position;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+
+}
+
+input[type=radio],
+input[type=radio]:before,
+input[type=radio]:after {
+  -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+input[type=checkbox],
+input[type=checkbox]:before,
+input[type=checkbox]:after {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+input.error[type=radio]:before,
+input.error[type=checkbox]:before {
+  border: 2px solid @error-border-colour;
+  background: @error-bg-colour;
+}
+
+div.body-content table {
+	border: 1px @table-border-style @table-border-color;
+	border-radius: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	margin-bottom: 20px;
+	border-collapse: collapse;
+}
+
+div.body-content table th {
+	color: @table-header-cell-color;
+	background-color: @table-header-cell-background-color;
+	font-size: @table-header-cell-font-size/@body-content-text-font-size;
+	text-transform: @table-header-cell-text-transform;
+	text-align: @table-header-cell-text-align;
+	font-family: @table-header-cell-font-family;
+	font-weight: @table-header-cell-font-weight;
+	padding: @table-cell-padding-top @table-cell-padding-left-right @table-cell-padding-bottom;
+	border: 1px @table-border-style @table-border-color;
+	border-radius: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	font-size: @table-header-cell-font-size/@body-content-text-font-size;
+}
+div.body-content table td {
+	color: @table-cell-color;
+	background-color: @table-cell-background-color;
+	font-family: @table-cell-font-family;
+	line-height: @table-cell-text-line-height;
+	padding: @table-cell-padding-top @table-cell-padding-left-right @table-cell-padding-bottom;
+	font-size: 1em;
+	border: 1px @table-border-style @table-border-color;
+
+}
+
+div.body-content table td input {
+
+}
+
+/*------------------------LINE-HEIGHT------------------------*/
+
+
+div.body-content th,
+div.body-content dd,
+div.body-content dt,
+div.body-content ul li,
+div.body-content ol li  {
+	line-height: @body-content-text-line-height;
+}
+
+div.body-content ul, div.body-content ol {
+	margin-bottom: @body-content-paragraph-space-after;
+	padding: 0px;
+}
+
+div.body-content ul li, div.body-content ol li {
+	margin-left: 1em;
+	padding-left: 0.5em;
+	font-family: @main-font-family;
+}
+
+// div.body-content a {
+// 	color: @body-content-link-color;
+// 	text-decoration: @body-content-link-text-decoration;
+// }
+// div.body-content a.visited {
+// 	color: @body-content-link-visited-color;
+// 	text-decoration: @body-content-link-text-decoration;
+// }
+// div.body-content a:hover {
+// 	color: @body-content-link-hover-color;
+// 	text-decoration: @body-content-link-hover-text-decoration;
+// }
+
+
+/*------------------------BLOCKQUOTES------------------------*/
+
+
+div.body-content blockquote {
+	background: @blockquote-background-color;
+	font-style: @blockquote-font-style;
+	font-weight: @blockquote-font-weight;
+	color: @blockquote-color;
+	font-size: @blockquote-font-size/@body-content-text-font-size;
+	margin:1.5em 0;
+	padding: 0;
+	border-left-width: 0;
+	width: 100%;
+	position: relative;
+
+}
+
+div.body-content blockquote span.blockquote-open {
+	width: 28px;
+	height: 20px;
+	margin-right: 10px;
+	position: absolute;
+	top: 7px;
+	left: 0;
+	background: url("../images/user-links-bg.png") no-repeat left -936px;
+
+}
+
+div.body-content blockquote span.blockquote-closed {
+	width: 28px;
+	margin-left: 10px;
+	position: absolute;
+	bottom: 0px;
+	right: 0;
+	height: 20px;
+	background: url("../images/user-links-bg.png") no-repeat right -936px;
+}
+
+
+
+div.body-content blockquote p {
+	font-size: 1em;
+	padding: 0 45px;
+
+}
+
+
+div.body-content dl.dl-horizontal dt {
+	color: #555;
+}
+
+div.body-content dl.dl-horizontal dd {
+	margin-left: 180px;
+}
+
+div.body-content hr {
+	border-width: 0;
+	border-top: @body-content-hr-border-top-width solid @body-content-hr-border-top-color;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	line-height: @body-content-text-line-height;
+	font-size: @body-content-text-font-size;
+}
+
+.star,
+.asterisk
+span.form-required {
+	/*asterisk*/
+	color: @general-asterisk-color;
+	font-size: @general-asterisk-font-size;
+	font-weight: @general-asterisk-font-weight;
+	line-height: @general-asterisk-font-size;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.transparent {
+	color: transparent;
+}
+
+.max-width-600px {
+	max-width: 600px;
+}
+
+.body-content-header-color {
+	color: @body-content-header-color;
+}
+
+.control-label span.optional {
+	margin-left: 5px;
+	padding-top: 3px;
+	display: block;
+	float: left;
+}
+
+span.empasis {
+	color: #fff;
+	font-size: 1.6em;
+}
+
+/*---------------------------------------------------------------------------
+FOOTER STRIP TEXT STYLE OVERRIDES {CORRESPONDS TO "01-variables-bits-and-pieces.less"}
+---------------------------------------------------------------------------*/
+
+footer ul li {
+	line-height: @body-content-text-line-height;
+}
+
+div.back-to-top-button,
+a.back-to-top-button  {
+	opacity: 0;
+	height: @back-to-top-button-height;
+	width: @back-to-top-button-width;
+	padding: @back-to-top-button-padding;
+	background-color: @back-to-top-button-background-color;
+	position: fixed;
+	bottom: @back-to-top-button-bottom-position;
+	right: @back-to-top-button-right-position;
+	z-index: 9999999999;
+	border: @back-to-top-button-border-width @back-to-top-button-border-style @back-to-top-button-border-color;
+	border-radius: @back-to-top-button-border-radius;
+	-webkit-border-radius: @back-to-top-button-border-radius;
+	-moz-border-radius: @back-to-top-button-border-radius;
+	overflow: hidden;
+	-webkit-transition: all 400ms ease;
+	-moz-transition: all 400ms ease;
+	-ms-transition: all 400ms ease;
+	-o-transition: all 400ms ease;
+	transition: all 400ms ease;
+}
+
+
+a.back-to-top-button.show  {
+	opacity: @back-to-top-button-opacity;
+	-webkit-transition: all 800ms ease;
+	-moz-transition: all 800ms ease;
+	-ms-transition: all 800ms ease;
+	-o-transition: all 800ms ease;
+	transition: all 800ms ease;
+}
+
+a.back-to-top-button span {
+	background: @back-to-top-button-background-image no-repeat @back-to-top-button-background-position;
+	background-size: @back-to-top-button-background-size;
+	height: @back-to-top-button-height;
+	width: @back-to-top-button-width;
+	display: block;
+}
+
+a.back-to-top-button span:hover {
+	cursor: pointer;
+}
+
+.body-content p img {
+	margin-bottom: 0;
+}
+
+div.body-content iframe {
+	border-width: 0;
+}
+
+.page-header {
+	border-width: 0;
+}
+
+div.input-file-wrapper,
+div.input-file-wrapper:hover {
+	position: relative;
+	display: inline-block;
+}
+
+div.input-file-wrapper input {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+
+}
+
+div.input-file-wrapper input:hover {
+	cursor: pointer;
+}
+
+ul.selected-files-list li {
+	list-style: none;
+}
+
+ul.selected-files-list li.header {
+	font-weight: 600;
+}
+
+span.icon {
+	width: 24px;
+	height: 20px;
+	display: block;
+	background-image:  url("../images/afrikaburn-icons.png");
+	background-repeat: no-repeat;
+	background-position: left -40px top -50px;
+	background-size: @icons-sprite-background-size;
+}
+
+//Reusable classes
+
+.no-follow {
+	color: @body-content-text-color;
+	text-decoration: none;
+}
+
+.clear,
+.clr {
+	clear: both;
+	line-height: 0;
+}
+
+.no-display,
+.visually-hidden {
+	display: none;
+}
+.show-below-979px {
+	display: none;
+}
+

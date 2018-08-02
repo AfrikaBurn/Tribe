@@ -1,0 +1,26 @@
+uuid: 9a028c52-cdb2-4be3-9b66-10852373ae07
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_trl_size
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+    - options
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_trl_size
+field_name: field_prj_trl_size
+entity_type: node
+bundle: mutant_vehicles
+label: 'Trailer size *'
+description: "Trailers are dangerous and can cause serious injury and death, as the driver cannot monitor them properly. Please describe the trailer(s) and how you plan to prevent injury. Pay special attention if visibility is inhibited and remember: heavy or dangerous vehicles and trailers must have walkers/conductors. \r\n"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

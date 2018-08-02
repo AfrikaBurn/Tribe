@@ -1,0 +1,148 @@
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+uid: 1
+template: false
+archive: false
+id: supplier_agreement
+title: 'Supplier agreement'
+description: 'Terms and conditions for allowing suppliers on site'
+category: Agreement
+elements: "afrikaburn_2018_supplier_process:\n  '#type': webform_wizard_page\n  '#title': 'AfrikaBurn 2018 Supplier Process'\n  markup:\n    '#type': webform_markup\n    '#markup': \"Nothing about AfrikaBurn is designed to be easy or comfortable &ndash; it&rsquo;s meant to test our abilities and push our limits, relying on our communal effort to make, do and bring our own experience.<br />\\n<br />\\nBut we get that some things just can&rsquo;t be done entirely by ourselves, and that in some instances it&rsquo;s unavoidable to use the supplies or services of an outside provider in the default world. As a Burner you should in all instances practice radical self-reliance, and if you can do it yourself, then rather opt for that option than paying someone else to do it for you.<br />\\n<br />\\nThe thing about suppliers and service providers is that they have a tendency to bring default world thinking into Tankwa Town, and that kinda &ldquo;service mentality&rdquo; has no place in or around our beloved Binnekring.<br />\\n<br />\\nSo, we&rsquo;ve spent some time figuring out how to make this possible in a way that doesn&rsquo;t jeopardize our ethos or rain on anyone&rsquo;s parade, and this be it...\"\n  markup_01:\n    '#type': webform_markup\n    '#markup': \"<h3>The basics</h3>\\nIf you need to outsource an essential technical service, or event legislation requires technical sign off of something (such as large stretch tents over 100m2), you&rsquo;re likely going to need to use professional suppliers.<br />\\n<br />\\nWe understand that in these cases, you need the support of a supplier or service provider. But if you just want to outsource the hard yards of physical labour to someone else, well&hellip; maybe you&rsquo;ve confused AfrikaBurn with another event. We are all invited to play at AfrikaBurn, and we are all expected to work &hellip; and that starts with your home for the week.<br />\\n<br />\\nTo put it simply: essential set up services are OK to outsource, but human effort or paid labour (especially house-keeping, chefs, etc) is not. The rule is, if you can do it yourself, then have the infrastructure dropped off and do it yourself or at the very least get your hands dirty, and get involved setting it up.<br />\\n<br />\\nDon&rsquo;t watch someone else do it. You may be providing a gift to the Burn &ndash; but watching someone else set it up makes you a spectator &ndash; and AfrikaBurn is not a spectator event: the entire event is created by active participation.\"\nsuppliers:\n  '#type': webform_wizard_page\n  '#title': Suppliers\n  markup_02:\n    '#type': webform_markup\n    '#markup': \"Our Supplier Process has been developed to support, regulate, and streamline the work of all suppliers permitted to supply equipment and services to participants at AfrikaBurn. Declaring your supplier is the first step towards helping them get their Supplier Credentials and Tickets which allows them permission to enter and operate in Tankwa Town.<br />\\n<br />\\nThis process is to ensure that they understand and respect AfrikaBurn&rsquo;s core principles and how this affects their service delivery in Tankwa Town, and to better facilitate the safety and experience of you, our community. As our community values self-reliance and communal effort, we do not allow turnkey (Plug &amp; Play) services of any kind. This means you and your camp or project crew MUST be on hand when your supplier delivers their product or service, as you will need to set up and install infrastructure yourself or, where it is a legal requirement that the supplier signs off the installation, assist them in the installation.<br />\\n<br />\\nSpecifically, you must have one of your camp mates or project team present when your supplier arrives, and at least four people from your group on hand to assist, support or help your supplier. Not all suppliers can be assured of getting permission to access the event site. Only those who sign an agreement with AfrikaBurn acknowledging the guiding principles and the supplier guidelines they underpin, will be able to get their Supplier Credentials and Tickets &ndash; provided they follow the supplier process too.<br />\\n<br />\\nThe onus is on you to ensure that your supplier has complied with the AfrikaBurn supplier guidelines and entry procedure. Like any regular Burner, your supplier will not be allowed entry, unless their entire team of merry people have a ticket.\"\n  processed_text_01:\n    '#type': processed_text\n    '#text': '<img alt=\"Map of the festival entrance\" data-align=\"center\" data-entity-type=\"file\" data-entity-uuid=\"90027373-119d-45ee-a182-c6e4963f7c75\" src=\"/sites/default/files/inline-images/Screen%20Shot%202017-11-17%20at%2009_0.png\" />'\n    '#format': full_html\n  markup_03:\n    '#type': webform_markup\n    '#markup': \"<h3><br />\\nSupplier Depot</h3>\\nAs you arrive at the gate, take note of where the Supplier Depot is (to the right as you enter the event) &ndash; if you expect a delivery, this is where you&rsquo;d need to meet the supplier (at a pre- arranged time) to escort them to your camp location. Suppliers are no longer permitted to simply drive into the event to find you at your camp site. It&rsquo;s advisable to set up the date and a specific window of time in which you expect to meet at the Depot. Planning is everything, remember there is no cell phone reception onsite.\\n\\n<h3><br />\\nBuild</h3>\\nYour supplier will not be allowed to access your camp or project site without one of your camp mates or crew present with them. The supplier will remain at the Supplier Depot, awaiting your arrival. There will always be a representative from the company who will remain at the Supplier Depot to arrange a time to meet, in the instance that their team are already onsite assisting another camp site/project.<br />\\n<br />\\nYou must have one of your camp mates/crew present when your supplier builds/offloads, and at least four people from your group on hand to assist, support or help your supplier.<br />\\n<br />\\nStrike Suppliers are only allowed to start striking/collecting goods from 7am on Saturday 28th April. Once you have packed up your home/camp and have completed your MOOP Swoop (to ensure no trace of your stay is left behind), your supplier can then strike or collect the goods that they provided you. You must have one of your camp mates/crew present when your supplier strikes/collects their goods, and at least four people from your group on hand to assist, support or help your supplier.<br />\\n<br />\\nIf you are a Theme Camp, then you need to ensure that AfrikaBurn&rsquo;s designated Leave No Trace team have signed off your camp site before you head home. If you are a personal camp, please be aware that it is NOT OK to leave MOOP or infrastructure up, without helping the supplier strike or cleaning up after yourself.<br />\\n&nbsp;\\n<h3>Suppliers to Register</h3>\\nAny company delivering anything to your camp site or project such as water, tents, wood, power, toilets, sound, other camp infrastructure or transport to and from the event MUST register their services with AfrikaBurn BEFORE arriving in the desert. If they do not, they can be prevented from entering the site, or banned from future events. Again &ndash; the onus is on you to ensure that your supplier has registered his/her company with AfrikaBurn.<br />\\n&nbsp;\\n<h3>How do suppliers register?</h3>\\nSuppliers will be contacted directly by AfrikaBurn once you, the Burner has declared the details of the supplier who will be assisting you with your project and/or Theme Camp. Alternativly suppliers can register themselves directly <a href=\\\"https://goo.gl/forms/oW065itVspmXUd4o2\\\">using this form</a>. The onus however is on you, the Burner to ensure that your supplier has gone through the AfrikaBurn supplier process and has the correct credentials in order to access the event.\"\n  markup_04:\n    '#type': webform_markup\n    '#markup': \"<h3><br />\\nDelivery schedule guidelines</h3>\\nSupplier access can broadly be divided into three groups.\\n\\n<ol>\\n\\t<li>Suppliers supplying goods and services to theme camps or creative projects</li>\\n\\t<li>Suppliers supplying goods or services to personal camps</li>\\n\\t<li>Delivery companies simply dropping off your personal goods or supplies for your project/theme camp or personal camp.</li>\\n</ol>\\nThe crews of registered creative projects will be provided with Work Access Passes. These passes enable the crew members to enter the event site early (before Monday 23rd April) to enable them to complete the set of their projects before the event officially starts. Delivery of goods and services to these projects need to happen before Monday 23rd April. Personal camps do not get Work Access Passes for the purpose of meeting their supplier(s) onsite in order for set up to happen. We do realise though that some personal camp participants will have received Work Access Passes due to their involvement in a project. Suppliers are therefore able to deliver goods/services to some personal camps before the event officially opens on Monday 23rd April.<br />\\n<br />\\nAll delivereies made to personal camps, for individuals who do not have a work access passes will need to be done from Monday 23rd April untill Wednesday 25th April. If you are not in possesion of a Work Access Pass, and do not intend arriving before Wednesday 25th April to meet your supplier onsite, then you&rsquo;ll need to set up your luxuries yourself.<br />\\n<br />\\nAll suppliers are to down tools on Wednesday 25th April at 18h00 and either leave site or join us at the event provided they have the correct supplier passes (Multiple access). The only suppliers that will be permitted to drive their vehicles onsite, will be companies that are servicing or delivering to creative projects (e.g. toilets, water, etc.) and even then these companies will need to have obtained written permission from AfrikaBurn to do so. Times for these companies will also be regulated.<br />\\n<br />\\nPlease note again: The onus is on you to ensure that your Supplier has the correct credentials in order to access the event. Suppliers will not be allowed access to the event unless they have followed the correct procedure, and obtained the correct tickets and credentials prior to arrival in the desert.\"\ncosts:\n  '#type': webform_wizard_page\n  '#title': Costs\n  markup_05:\n    '#type': webform_markup\n    '#markup': \"<h3><br />\\n<br />\\nSupplier Tickets and Credentials</h3>\\nOnce you as either a project/theme camp lead or a personal camp lead have declared your service provider, AfrikaBurn will get in touch with them to complete the registration process. This process includes the following:\\n\\n<ol>\\n\\t<li>Suppliers will need to sign the AfrikaBurn service provider agreement.</li>\\n\\t<li>Suppliers will need to pay a R5000 refundable deposit in order to provide goods and services to AfrikaBurn. The full R5000 will be refunded if the service provider adheres to the service provider process both before the event and whilst onsite.</li>\\n\\t<li>Suppliers will need to provide a list of goods and services that will be provided at the Burn. This inventory will be checked at the gate upon entry and again when they exit the event during strike. This is to mitigate against theft.</li>\\n\\t<li>Suppliers will be charged a 5% surcharge on the net total of the goods and services they are supplying and charging for, to which 14% VAT is applicable (as AfrikaBurn is a registered VAT vendor).</li>\\n\\t<li>Suppliers will need to provide a list of their crew &amp; vehicles, who will be assisting onsite and purchase full price event tickets if they intend staying onsite for longer than one day. The supplier gate is open for deliveries from 07h00 until 19h00 from Monday 16th April until Wednesday 25th April and then again from Saturday 28th April for collections. If the supplier is able to provide their goods or services within a day and before 19h00 that same day, then they do have the option of buying a refundable single-entry pass for their crew, which gets refunded if they leave before 19h00 the same day they entered.</li>\\n</ol>\"\n  processed_text:\n    '#type': processed_text\n    '#text': \"<p>Round up:</p>\\n\\n<table border=\\\"1\\\" cellpadding=\\\"1\\\" cellspacing=\\\"1\\\" style=\\\"width: 671px;\\\">\\n\\t<tbody>\\n\\t\\t<tr>\\n\\t\\t\\t<td style=\\\"width: 438px;\\\">Ticket Type</td>\\n\\t\\t\\t<td style=\\\"width: 220px;\\\">Cost</td>\\n\\t\\t</tr>\\n\\t\\t<tr>\\n\\t\\t\\t<td style=\\\"width: 438px;\\\">Supplier Pass (for suppliers staying onsite for more than 1 day)</td>\\n\\t\\t\\t<td style=\\\"width: 220px;\\\">R1645</td>\\n\\t\\t</tr>\\n\\t\\t<tr>\\n\\t\\t\\t<td style=\\\"width: 438px;\\\">Refundable Single Entry 1 day pass. (Suppliers can arrive from 07h00 – and must exit the event before 19h00 in order to receive their refund – this ticket will only be issued once.)</td>\\n\\t\\t\\t<td style=\\\"width: 220px;\\\">R2300</td>\\n\\t\\t</tr>\\n\\t\\t<tr>\\n\\t\\t\\t<td style=\\\"width: 438px;\\\">Non-refundable Vehicle Pass</td>\\n\\t\\t\\t<td style=\\\"width: 220px;\\\">R300</td>\\n\\t\\t</tr>\\n\\t\\t<tr>\\n\\t\\t\\t<td style=\\\"width: 438px;\\\">Inventory Fee</td>\\n\\t\\t\\t<td style=\\\"width: 220px;\\\">5% surcharge on the net total of the goods and services they are supplying and charging for to which 14% Vat is applicable.</td>\\n\\t\\t</tr>\\n\\t\\t<tr>\\n\\t\\t\\t<td style=\\\"width: 438px;\\\">\\n\\t\\t\\t<p>Refundable Deposit</p>\\n\\n\\t\\t\\t<p>Refundable deposit should the supplier comply with the AfrikaBurn supplier process both before the event and whilst onsite.</p>\\n\\t\\t\\t</td>\\n\\t\\t\\t<td style=\\\"width: 220px;\\\">R5000</td>\\n\\t\\t</tr>\\n\\t</tbody>\\n</table>\\n\\n<p>&nbsp;</p>\\n\"\n    '#format': full_html\n  i_have_read_and_understood_the_above:\n    '#type': checkbox\n    '#title': 'I have read and understood the above'\n    '#required': true\nactions:\n  '#type': webform_actions\n  '#title': 'I Agree'\n  '#submit__label': 'I Agree'\n"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_login: false
+  form_login_message: ''
+  submission_label: ''
+  submission_log: false
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_login: false
+  submission_login_message: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_start_label: ''
+  wizard_confirmation: false
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: page
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers: {  }
+uuid: 3469425d-ac3a-4cb7-a0f4-f0c8975ec83c

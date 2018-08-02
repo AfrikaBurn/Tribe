@@ -1,0 +1,42 @@
+uuid: 5569d681-35ed-4d3f-ad87-6da2aef566d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_sup_details
+    - node.type.theme_camps
+    - paragraphs.paragraphs_type.supplier_details
+  module:
+    - custom_add_another
+    - entity_reference_revisions
+third_party_settings:
+  custom_add_another:
+    custom_add_another: 'Add another supplier'
+    custom_remove: ''
+id: node.theme_camps.field_prj_sup_details
+field_name: field_prj_sup_details
+entity_type: node
+bundle: theme_camps
+label: 'Supplier details'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      supplier_details: supplier_details
+    target_bundles_drag_drop:
+      grant_expences:
+        weight: 4
+        enabled: false
+      mutant_grant_expense:
+        weight: 5
+        enabled: false
+      supplier_details:
+        enabled: true
+        weight: 6
+field_type: entity_reference_revisions

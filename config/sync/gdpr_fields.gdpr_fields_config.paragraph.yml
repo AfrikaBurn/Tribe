@@ -1,0 +1,39 @@
+uuid: e1e2e4bc-769f-4d8a-b281-d33db6a41ffa
+langcode: en
+status: true
+dependencies: {  }
+id: paragraph
+bundles:
+  grant_expences:
+    field_grt_brk_description:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: grant_expences
+      name: field_grt_brk_description
+    field_field_specifications:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: grant_expences
+      name: field_field_specifications
+    field_type_of_expence:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: grant_expences
+      name: field_type_of_expence
+    field_cost_type:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: grant_expences
+      name: field_cost_type

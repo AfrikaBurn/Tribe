@@ -1,0 +1,14 @@
+uuid: 6e569b4b-0dd5-4bf5-9035-a42433c49b48
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.theme_camp_wrangler
+  module:
+    - user
+id: user_remove_role_action.theme_camp_wrangler
+label: 'Remove the Theme Camp Wrangler role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: theme_camp_wrangler

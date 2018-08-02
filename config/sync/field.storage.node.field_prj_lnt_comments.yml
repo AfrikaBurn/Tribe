@@ -1,0 +1,25 @@
+uuid: 9b58fb0d-d0d1-41ee-86d8-c8a3b6e7a4b0
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+_core:
+  default_config_hash: WA-AaAyIThrbPCdfJH8PM965NbRkeVNz7YTDMmkl8qo
+id: node.field_prj_lnt_comments
+field_name: field_prj_lnt_comments
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

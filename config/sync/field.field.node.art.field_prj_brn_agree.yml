@@ -1,0 +1,31 @@
+uuid: f9630b6e-f280-48db-a3a1-68c4fd7795e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_brn_agree
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: 9AhWkk7M15PRe0oQNvJ_gIHoNZNK2Jb06WDlqEDbVCw
+id: node.art.field_prj_brn_agree
+field_name: field_prj_brn_agree
+entity_type: node
+bundle: art
+label: 'I have read all information available about fire art safety at AfrikaBurn. '
+description: 'Read our <a href="https://www.afrikaburn.com/the-event/artworks/fire-art-safety" target="_blank">Fire Art Safety guidelines here</a>'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

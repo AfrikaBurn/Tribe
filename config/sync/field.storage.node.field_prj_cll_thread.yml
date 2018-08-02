@@ -1,0 +1,22 @@
+uuid: c5215983-7614-4b87-84b0-0e2ef99ea013
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - node
+_core:
+  default_config_hash: 305oj5iGE-KBu3jAItCMt2G1Yznu12E2r1bMz5XBD8c
+id: node.field_prj_cll_thread
+field_name: field_prj_cll_thread
+entity_type: node
+type: comment
+settings:
+  comment_type: comment
+module: comment
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

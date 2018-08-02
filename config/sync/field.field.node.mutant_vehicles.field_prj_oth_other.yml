@@ -1,0 +1,25 @@
+uuid: db287ba4-a97b-43d3-87bc-907c4b83be94
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_oth_other
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_oth_other
+field_name: field_prj_oth_other
+entity_type: node
+bundle: mutant_vehicles
+label: 'Any other special effects?'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

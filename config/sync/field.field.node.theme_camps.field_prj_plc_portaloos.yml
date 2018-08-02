@@ -1,0 +1,31 @@
+uuid: 89c1e4ce-93af-4cdd-80bd-41ade553b6f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_portaloos
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: QvdRqrnsGUML4JujvqYfMOlSY1QfyISCoAv04QH0xJg
+id: node.theme_camps.field_prj_plc_portaloos
+field_name: field_prj_plc_portaloos
+entity_type: node
+bundle: theme_camps
+label: Portaloos
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

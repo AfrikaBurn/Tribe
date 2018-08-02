@@ -1,0 +1,27 @@
+uuid: 31d63596-e667-45ee-b9c5-e4c21058189b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_wtf_short_copy
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: 8nhtl5qQgVYG48OYOKACcFeTU5YESk10XXINTB7Wc68
+id: node.art.field_prj_wtf_short_copy
+field_name: field_prj_wtf_short_copy
+entity_type: node
+bundle: art
+label: 'WTF short blurb corrected'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

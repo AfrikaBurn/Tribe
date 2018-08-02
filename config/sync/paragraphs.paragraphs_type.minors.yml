@@ -1,0 +1,9 @@
+uuid: dd88a70d-1202-4a31-83ed-6f8ec32a459a
+langcode: en
+status: true
+dependencies: {  }
+id: minors
+label: 'Underaged participant'
+icon_uuid: null
+description: 'List all children and teenagers coming with you.'
+behavior_plugins: {  }

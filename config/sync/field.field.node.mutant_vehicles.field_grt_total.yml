@@ -1,0 +1,29 @@
+uuid: 187683dd-694d-4489-9366-44e1886f2beb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_grt_total
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_grt_total
+field_name: field_grt_total
+entity_type: node
+bundle: mutant_vehicles
+label: 'This is the total price of your project'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: R
+  suffix: 'ZAR (South African Rands)'
+field_type: integer

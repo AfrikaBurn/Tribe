@@ -1,0 +1,31 @@
+uuid: d1028c29-51cc-4aba-9f84-51a75cc76168
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_commodification
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: pNCOQKyrA-QO0c0DKho_08-A7FJAqXb2Tm38IEbkQzw
+id: node.theme_camps.field_prj_gen_commodification
+field_name: field_prj_gen_commodification
+entity_type: node
+bundle: theme_camps
+label: 'I confirm that my Camp is not an extension of the default world.'
+description: "Decommodification is important,<br>\r\nTankwa Town, as it's a decommodified space.This means that neither your camp, nor any aspect of the gifts your camp gives can be used as a platform for marketing a product or any branding exercise of any kind. Please read up on the guiding principles of Afrikaburn to find out why."
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

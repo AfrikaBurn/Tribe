@@ -1,0 +1,12 @@
+uuid: cd282c81-db97-4d89-a7b7-fdd7890d67c6
+langcode: en
+status: true
+dependencies: {  }
+id: wrangle_registrations
+label: 'Wrangle Registrations'
+description: ''
+use_admin_theme: true
+path: /wrangle/projects
+access_logic: and
+access_conditions: {  }
+parameters: {  }

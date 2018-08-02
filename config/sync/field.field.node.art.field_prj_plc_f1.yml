@@ -1,0 +1,32 @@
+uuid: b18dab5d-56f7-4f00-b908-5028a4944b01
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_f1
+    - node.type.art
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: VO9xyKRF624owuPbNN8dA9g6vGuvyF-ruXW9ZhYHp5Y
+id: node.art.field_prj_plc_f1
+field_name: field_prj_plc_f1
+entity_type: node
+bundle: art
+label: 'Placement top text'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p>Start thinking about the ideal surroundings for your artwork - what type of place would suit your piece? Are you imagining it in a quiet contemplative area, in a place with lots of foot traffic, or anywhere where it doesn’t matter?</p>\r\n"
+    format: basic_html
+field_type: markup

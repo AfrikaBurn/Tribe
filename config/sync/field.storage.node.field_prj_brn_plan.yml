@@ -1,0 +1,25 @@
+uuid: daf0128f-f0e9-44f4-8e69-6c0f922a42ab
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: GJ0oRwZj0VVJaAk_kjJdhg7FHhH8USy_86cb0Da494E
+id: node.field_prj_brn_plan
+field_name: field_prj_brn_plan
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

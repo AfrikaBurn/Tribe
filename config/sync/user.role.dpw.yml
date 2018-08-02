@@ -1,0 +1,45 @@
+uuid: 8a371a68-b839-480b-8c6e-e5b54e5d106f
+langcode: en
+status: true
+dependencies: {  }
+id: dpw
+label: DPW
+weight: 7
+is_admin: null
+permissions:
+  - 'access contextual links'
+  - 'access in-place editing'
+  - 'create field_sup_comment'
+  - 'create field_sup_review'
+  - 'display eu cookie compliance popup'
+  - 'edit field_agreements'
+  - 'edit field_approved'
+  - 'edit field_date_of_birth'
+  - 'edit field_sup_comment'
+  - 'edit field_sup_review'
+  - 'edit field_vp_approved'
+  - 'edit field_wa_approved'
+  - 'edit own field_sup_comment'
+  - 'edit own field_sup_review'
+  - 'edit own field_vp_approved'
+  - 'view field_agreements'
+  - 'view field_approved'
+  - 'view field_date_of_birth'
+  - 'view field_email'
+  - 'view field_emr_email'
+  - 'view field_emr_name'
+  - 'view field_emr_telephone'
+  - 'view field_first_name'
+  - 'view field_gender'
+  - 'view field_kids_and_teens'
+  - 'view field_last_name'
+  - 'view field_location'
+  - 'view field_mobile'
+  - 'view field_secondary_mail'
+  - 'view field_sup_comment'
+  - 'view field_sup_review'
+  - 'view field_vp_approved'
+  - 'view field_wa_approved'
+  - 'view own field_sup_comment'
+  - 'view own field_sup_review'
+  - 'view own field_vp_approved'

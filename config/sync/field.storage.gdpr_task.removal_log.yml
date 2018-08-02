@@ -1,0 +1,20 @@
+uuid: 34c87bf9-cb8a-4547-b1e4-3caec105b264
+langcode: en
+status: true
+dependencies:
+  module:
+    - gdpr_tasks
+_core:
+  default_config_hash: mxSjUehvCu0QTmiZxt7uLbmhRT6UKQfIBKXmnE6e1ko
+id: gdpr_task.removal_log
+field_name: removal_log
+entity_type: gdpr_task
+type: gdpr_task_item
+settings: {  }
+module: gdpr_tasks
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

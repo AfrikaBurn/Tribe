@@ -1,0 +1,19 @@
+uuid: 25af48c4-7901-41e1-b7ca-0a40da4e4875
+langcode: en
+status: true
+dependencies: {  }
+name: user_user
+label: 'user user validation'
+entity_type: user
+bundle: user
+field_validation_rules:
+  4f7ce3a1-3726-4dc5-96b2-9a80ea4f9761:
+    uuid: 4f7ce3a1-3726-4dc5-96b2-9a80ea4f9761
+    id: unique_field_validation_rule
+    title: 'Unique ID or Passport Number'
+    weight: '1'
+    field_name: field_id_number
+    column: value
+    error_message: 'This ID or Passport number is already registered with a Burner Bio, please log in to that one instead. '
+    data:
+      scope: entity

@@ -1,0 +1,31 @@
+uuid: cd9d3fe0-c00a-40d8-8ad2-3084b2500e32
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_prp_duration
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: Igy0V8dREHXo510JsAJ9uKjNO98GoEA7sxCpQyiJDYE
+id: node.performances.field_prj_prp_duration
+field_name: field_prj_prp_duration
+entity_type: node
+bundle: performances
+label: 'How long do you estimate it will take to install your piece on site?'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: Days
+field_type: integer

@@ -1,0 +1,13 @@
+uuid: e07071a5-a922-4296-85b6-cb47fb7ef84a
+langcode: en
+status: false
+dependencies:
+  enforced:
+    module:
+      - book
+  module:
+    - node
+id: node.print
+label: Print
+targetEntityType: node
+cache: true

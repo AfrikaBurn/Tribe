@@ -1,0 +1,26 @@
+uuid: 5e6f3e9f-c224-4987-91af-5fd0c8dcc4f2
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: whav4RUq37umRMWxiFe5EHE6J01kSNyREKDncmENc9A
+id: node.field_prj_lnt_duration
+field_name: field_prj_lnt_duration
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

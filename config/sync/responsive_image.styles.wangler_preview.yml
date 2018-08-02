@@ -1,0 +1,16 @@
+uuid: 5835adb1-9b39-473f-9fd6-824fea4a0bff
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.medium
+id: wangler_preview
+label: 'Wangler Preview'
+image_style_mappings:
+  -
+    breakpoint_id: responsive_image.viewport_sizing
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: medium
+breakpoint_group: responsive_image
+fallback_image_style: medium

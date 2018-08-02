@@ -1,0 +1,11 @@
+--- collapsiblock.module	2018-06-19 13:00:16.322904768 +0200
++++ collapsiblock.fix.module	2018-06-20 10:56:07.562821235 +0200
+@@ -77,7 +77,7 @@
+ function collapsiblock_block_view_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
+ 
+   $block_entity = $build['#block'];
+-  $action = $block_entity->getThirdPartySetting('collapsiblock', 'collapse_action');
++  $action = $block_entity ? $block_entity->getThirdPartySetting('collapsiblock', 'collapse_action') : 0;
+ 
+   // If the block is set to global default, get that default and use it instead
+   // of 0.

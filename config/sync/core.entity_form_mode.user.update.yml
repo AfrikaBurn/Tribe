@@ -1,0 +1,10 @@
+uuid: 785c30cd-8365-443a-8d1c-1577a16d0459
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.update
+label: Update
+targetEntityType: user
+cache: true

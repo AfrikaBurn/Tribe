@@ -1,0 +1,14 @@
+uuid: 6e79cf60-b306-4d5f-bacd-00452a3e708a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.volunteer_admin
+  module:
+    - user
+id: user_add_role_action.volunteer_admin
+label: 'Add the Volunteer admin role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: volunteer_admin

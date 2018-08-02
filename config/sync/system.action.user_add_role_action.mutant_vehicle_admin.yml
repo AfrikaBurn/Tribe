@@ -1,0 +1,14 @@
+uuid: 632eca5c-62c6-4be4-b736-ec0bbb6f4006
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.mutant_vehicle_admin
+  module:
+    - user
+id: user_add_role_action.mutant_vehicle_admin
+label: 'Add the Mutant Vehicle Admin role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: mutant_vehicle_admin

@@ -1,0 +1,14 @@
+uuid: a13e8523-a1b6-4d31-85a6-663eec95f5b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.art_admin
+  module:
+    - user
+id: user_add_role_action.art_admin
+label: 'Add the Art Admin role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: art_admin

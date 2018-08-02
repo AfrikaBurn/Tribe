@@ -1,0 +1,36 @@
+uuid: 640299d6-e9c7-4062-9ded-c023eff4b1e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_wtf_categories
+    - node.type.theme_camps
+    - taxonomy.vocabulary.activity_types
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: MWMS_LCF4quM1sw4Y4mSSmMGHyYNQOCUwKc7ZBs855I
+id: node.theme_camps.field_prj_wtf_categories
+field_name: field_prj_wtf_categories
+entity_type: node
+bundle: theme_camps
+label: 'Activity Categories'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      activity_types: activity_types
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

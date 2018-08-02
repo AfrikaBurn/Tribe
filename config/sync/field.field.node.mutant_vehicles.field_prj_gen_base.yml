@@ -1,0 +1,34 @@
+uuid: fc9895ff-fc1c-443e-b171-886ad62a3de9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_base
+    - node.type.mutant_vehicles
+    - taxonomy.vocabulary.base_vehicle
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_gen_base
+field_name: field_prj_gen_base
+entity_type: node
+bundle: mutant_vehicles
+label: 'What is your Mutant Vehicle based on?'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      base_vehicle: base_vehicle
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

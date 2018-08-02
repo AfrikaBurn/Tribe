@@ -1,0 +1,27 @@
+uuid: ac2b1824-14d2-493d-aa64-0ef187f62939
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_prp_transport
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: 6TtGy7YWuCgzCKFujxXk68zDFt7Q66lp8QrFjJCQ1WU
+id: node.performances.field_prj_prp_transport
+field_name: field_prj_prp_transport
+entity_type: node
+bundle: performances
+label: Transport
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

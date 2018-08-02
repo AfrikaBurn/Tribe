@@ -1,0 +1,31 @@
+uuid: 52338ea5-0512-4bb3-a74e-667153c2ac13
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_year
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_gen_year
+field_name: field_prj_gen_year
+entity_type: node
+bundle: mutant_vehicles
+label: 'Event Year'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 2018
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

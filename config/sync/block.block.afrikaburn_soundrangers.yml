@@ -1,0 +1,25 @@
+uuid: fffec35c-997a-43c1-9c60-73a299340c57
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:dbf2871f-1170-4f06-85de-ba2e720d1132'
+  module:
+    - block_content
+  theme:
+    - afrikaburn
+id: afrikaburn_soundrangers
+theme: afrikaburn
+region: status_messages
+weight: -16
+provider: null
+plugin: 'block_content:dbf2871f-1170-4f06-85de-ba2e720d1132'
+settings:
+  id: 'block_content:dbf2871f-1170-4f06-85de-ba2e720d1132'
+  label: 'Sound Rangers'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

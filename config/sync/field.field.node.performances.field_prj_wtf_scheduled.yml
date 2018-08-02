@@ -1,0 +1,25 @@
+uuid: 0da2f3dd-d52a-432b-bba1-1f689011a790
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_wtf_scheduled
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.performances.field_prj_wtf_scheduled
+field_name: field_prj_wtf_scheduled
+entity_type: node
+bundle: performances
+label: 'Describe your planned activities'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

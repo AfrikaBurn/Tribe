@@ -1,0 +1,31 @@
+uuid: 04efe666-dcfe-4bbb-90d1-15589431a241
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_stc_height
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: G6cD2oeQrnQXMgbb907tk1kY30H6nE58bVNqHu24YFc
+id: node.art.field_prj_stc_height
+field_name: field_prj_stc_height
+entity_type: node
+bundle: art
+label: 'Height in metres'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 100
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,25 @@
+uuid: 84d3db9b-68d5-4e81-9824-c8c7da4c9596
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:basic:63b8ad28-7540-40b9-bb2c-a4bd486b33af'
+  module:
+    - block_content
+  theme:
+    - afrikaburn
+id: afrikaburn_firerangers
+theme: afrikaburn
+region: status_messages
+weight: -11
+provider: null
+plugin: 'block_content:63b8ad28-7540-40b9-bb2c-a4bd486b33af'
+settings:
+  id: 'block_content:63b8ad28-7540-40b9-bb2c-a4bd486b33af'
+  label: 'Fire Rangers'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

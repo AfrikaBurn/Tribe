@@ -1,0 +1,26 @@
+uuid: 2d0855e9-f007-4cd5-88b3-12d42ed6ec76
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - user
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: 2Hun3_j-s9CoQVmwTzKJvskl7hsm-jvnD-an8feg71E
+id: node.field_prj_brn_person
+field_name: field_prj_brn_person
+entity_type: node
+type: entity_reference
+settings:
+  target_type: user
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

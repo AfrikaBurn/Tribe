@@ -1,0 +1,30 @@
+uuid: e3d50ed6-e3d4-4fa4-9ad8-7c9fcddabd9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lgh_f2
+    - node.type.art
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.art.field_prj_lgh_f2
+field_name: field_prj_lgh_f2
+entity_type: node
+bundle: art
+label: 'Light desciption form 2'
+description: ''
+required: false
+translatable: true
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p dir=\"ltr\"><a href=\"https://www.afrikaburn.com/the-event/artworks/artworks/lighting-art-installation\" target=\"_blank\">https://www.afrikaburn.com/the-event/artworks/artworks/lighting-art-installation</a></p>\r\n\r\n<p dir=\"ltr\"><span>As an aesthetic element that's part of the design of your piece as well as for safety reasons, it's mandatory to light your piece. Your project must be lit from the first day of the event until its conclusion - and it's your team’s duty to monitor and maintain the lighting throughout the event. Lighting protects the artwork from accidental damage, and from accidentally damaging someone or something in the dark. You can go all out with parcans and a generator, or go green with solar power, go low-tech with candles in jars, or anything in between. We do, of course, love renewables more and they are good investments. But light and maintain the light of your piece.</span></p>\r\n"
+    format: full_html
+field_type: markup

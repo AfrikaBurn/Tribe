@@ -1,0 +1,31 @@
+uuid: be647e90-18ed-4c00-b449-442c73859f84
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_brn_perimeter
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: lHWALWfpPbvM21SKxyMXf5YzEtu2_nwtxnKHlqrU3rs
+id: node.art.field_prj_brn_perimeter
+field_name: field_prj_brn_perimeter
+entity_type: node
+bundle: art
+label: 'If you burn your piece you''ll need to run your perimeter and harvest Fire Marshalls. How many people do you have that can help?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

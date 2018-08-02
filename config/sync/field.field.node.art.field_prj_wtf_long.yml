@@ -1,0 +1,27 @@
+uuid: e479fb2a-54ee-40e4-9a7a-03dc3d61acde
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_wtf_long
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: Cz_kWP_CPRhuaJ8-XcpGtUyMNPNGHRLiPpXG_MJLK-w
+id: node.art.field_prj_wtf_long
+field_name: field_prj_wtf_long
+entity_type: node
+bundle: art
+label: 'Long Blurb for website / app'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

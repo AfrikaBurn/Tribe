@@ -1,0 +1,29 @@
+uuid: b91d7cb4-fe19-4492-8fb5-7157ba016258
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_terms_and_conditions
+  module:
+    - custom_add_another
+    - user
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: user.user.field_terms_and_conditions
+field_name: field_terms_and_conditions
+entity_type: user
+bundle: user
+label: 'I accept the terms and conditions of using this site'
+description: 'By creating a profile you agree to our [Terms and Conditions of use] and <a href="https://www.afrikaburn.com/wp-content/uploads/2014/02/AfrikaBurn-Privacy-Policy-v1-1.docx" target="_blank">Privacy Policy</a>'
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'yes'
+  off_label: 'no'
+field_type: boolean

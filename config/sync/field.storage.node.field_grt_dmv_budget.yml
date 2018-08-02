@@ -1,0 +1,25 @@
+uuid: e99a6d68-f9db-4967-b72c-66f5109eed19
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - field_permissions
+    - node
+    - paragraphs
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+id: node.field_grt_dmv_budget
+field_name: field_grt_dmv_budget
+entity_type: node
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,14 @@
+uuid: 8d99394b-b944-476c-929a-eba88f5657d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.ranger_admin
+  module:
+    - user
+id: user_remove_role_action.ranger_admin
+label: 'Remove the Ranger Admin role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: ranger_admin

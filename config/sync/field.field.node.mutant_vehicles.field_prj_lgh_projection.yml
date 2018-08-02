@@ -1,0 +1,25 @@
+uuid: 58bb785d-14e5-44d0-8144-53660bf94f3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lgh_projection
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_lgh_projection
+field_name: field_prj_lgh_projection
+entity_type: node
+bundle: mutant_vehicles
+label: 'Describe the lighting of your trailer and A-frame *'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

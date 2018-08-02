@@ -1,0 +1,540 @@
+uuid: 866d306f-f926-49c0-9317-7c57e8e5c86f
+langcode: en
+status: false
+dependencies:
+  config:
+    - field.storage.user.field_email
+    - field.storage.user.field_first_name
+    - field.storage.user.field_last_name
+    - taxonomy.vocabulary.location
+    - user.role.administrator
+  content:
+    - 'taxonomy_term:location:15ca0c22-4511-4d51-bd6d-289abcf878d4'
+    - 'taxonomy_term:location:17733de8-c9a5-49ba-a0b0-d650b8272bf4'
+    - 'taxonomy_term:location:1d8fa22a-44fb-4b78-a0bc-81d90aabda17'
+    - 'taxonomy_term:location:1fea8043-4eff-40ca-b88e-8b64414129c8'
+    - 'taxonomy_term:location:25c42b6a-bb9b-4438-bf87-9b1838052835'
+    - 'taxonomy_term:location:29c2cae0-f046-463c-8ef9-9f111b88b135'
+    - 'taxonomy_term:location:354f1448-c568-4a8d-b72b-6fea2713f748'
+    - 'taxonomy_term:location:50ad91f8-6102-4544-bebd-0ad487798643'
+    - 'taxonomy_term:location:54591180-cf3a-41c0-a424-e32d4bef6a04'
+    - 'taxonomy_term:location:56210a05-833f-48e5-9dbf-5493e2cc8b5d'
+    - 'taxonomy_term:location:68270fa2-ddb8-493f-a64d-b5521966890b'
+    - 'taxonomy_term:location:6d4987d6-5081-49cc-8089-2e694e8bbcfc'
+    - 'taxonomy_term:location:6def594d-8125-49b7-ac1a-bc9b695d05a1'
+    - 'taxonomy_term:location:80ba901c-1e57-450f-855b-bde2aa592129'
+    - 'taxonomy_term:location:97053550-70aa-4eeb-bdc3-6284be6c5206'
+    - 'taxonomy_term:location:98e201f1-4bef-4942-8770-61f61ce8b5e3'
+    - 'taxonomy_term:location:9bb64dfc-8959-473e-b20e-ef2630b422d9'
+    - 'taxonomy_term:location:a1b3ab8b-5cd6-4042-ba69-ea60d06dba03'
+    - 'taxonomy_term:location:b166f125-81af-44ee-a5d6-b8733aa8e72c'
+    - 'taxonomy_term:location:d13cc558-0ea0-4966-9879-a8e39b64f31d'
+    - 'taxonomy_term:location:d33b0930-e685-43b3-b4a3-42cc7db61bce'
+    - 'taxonomy_term:location:d3fe7b14-49eb-41aa-91c3-dbfaf44e40af'
+    - 'taxonomy_term:location:d6363501-2e8b-4144-8a0c-e7de4c0d4787'
+    - 'taxonomy_term:location:e30428ba-3b69-46d4-b48d-8dbfb3a4d710'
+    - 'taxonomy_term:location:e30a3cdd-a5f9-440b-a24b-0a210e5bb34e'
+    - 'taxonomy_term:location:eedf9e44-c97b-4fc7-ba23-cc00b23f87a5'
+    - 'taxonomy_term:location:fd6b78ec-6ee3-4680-96e3-df1ba813b996'
+    - 'taxonomy_term:location:fe972ec8-dff0-427a-b5a8-0203015d47ce'
+  module:
+    - computed_field
+    - csv_serialization
+    - rest
+    - serialization
+    - taxonomy
+    - user
+    - views_data_export
+id: europe_dumb
+label: 'Europe Dumb'
+module: views
+description: ''
+tag: ''
+base_table: users_field_data
+base_field: uid
+core: 8.x
+display:
+  default:
+    display_plugin: default
+    id: default
+    display_title: Master
+    position: 0
+    display_options:
+      access:
+        type: role
+        options:
+          role:
+            administrator: administrator
+      cache:
+        type: tag
+        options: {  }
+      query:
+        type: views_query
+        options:
+          disable_sql_rewrite: false
+          distinct: false
+          replica: false
+          query_comment: ''
+          query_tags: {  }
+      exposed_form:
+        type: basic
+        options:
+          submit_button: Apply
+          reset_button: false
+          reset_button_label: Reset
+          exposed_sorts_label: 'Sort by'
+          expose_sort_order: true
+          sort_asc_label: Asc
+          sort_desc_label: Desc
+      pager:
+        type: mini
+        options:
+          items_per_page: 10
+          offset: 0
+          id: 0
+          total_pages: null
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          tags:
+            previous: ‹‹
+            next: ››
+      style:
+        type: default
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          uses_fields: false
+      row:
+        type: fields
+        options:
+          inline: {  }
+          separator: ''
+          hide_empty: false
+          default_field_elements: true
+      fields:
+        field_email:
+          id: field_email
+          table: user__field_email
+          field: field_email
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Mail
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: computed_string
+          settings:
+            sanitized: 1
+            cache_unit: '-1'
+            cache_duration: '1'
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_first_name:
+          id: field_first_name
+          table: user__field_first_name
+          field: field_first_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'First Name'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_last_name:
+          id: field_last_name
+          table: user__field_last_name
+          field: field_last_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Last Name'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+      filters:
+        status:
+          value: '1'
+          table: users_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: user
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        field_location_target_id:
+          id: field_location_target_id
+          table: user__field_location
+          field: field_location_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: or
+          value:
+            17: 17
+            25: 25
+            38: 38
+            59: 59
+            62: 62
+            63: 63
+            65: 65
+            75: 75
+            80: 80
+            81: 81
+            87: 87
+            90: 90
+            104: 104
+            110: 110
+            113: 113
+            129: 129
+            135: 135
+            136: 136
+            144: 144
+            166: 166
+            189: 189
+            190: 190
+            194: 194
+            217: 217
+            218: 218
+            227: 227
+            233: 233
+            253: 253
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          reduce_duplicates: false
+          type: select
+          limit: true
+          vid: location
+          hierarchy: false
+          error_message: true
+          parent: 0
+          level_labels: ''
+          force_deepest: false
+          plugin_id: taxonomy_index_tid
+      sorts: {  }
+      header:
+        result:
+          id: result
+          table: views
+          field: result
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          content: 'Displaying @start - @end of @total'
+          plugin_id: result
+      footer: {  }
+      empty: {  }
+      relationships: {  }
+      arguments: {  }
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.user.field_email'
+        - 'config:field.storage.user.field_first_name'
+        - 'config:field.storage.user.field_last_name'
+  data_export_1:
+    display_plugin: data_export
+    id: data_export_1
+    display_title: 'Data export'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      style:
+        type: data_export
+        options:
+          formats:
+            csv: csv
+          csv_settings:
+            delimiter: ','
+            enclosure: '"'
+            escape_char: \
+            strip_tags: true
+            trim: true
+            encoding: utf8
+          xls_settings:
+            xls_format: Excel2007
+            metadata:
+              creator: ''
+              last_modified_by: ''
+              title: ''
+              description: ''
+              subject: ''
+              keywords: ''
+              category: ''
+              manager: ''
+              company: ''
+      path: eu-export
+      filename: eu-burners.csv
+      pager:
+        type: some
+        options:
+          items_per_page: 1500
+          offset: 0
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.user.field_email'
+        - 'config:field.storage.user.field_first_name'
+        - 'config:field.storage.user.field_last_name'
+  rest_export_1:
+    display_plugin: rest_export
+    id: rest_export_1
+    display_title: 'REST export'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      style:
+        type: data_export
+        options:
+          uses_fields: false
+          formats:
+            csv: csv
+          csv_settings:
+            delimiter: ','
+            enclosure: '"'
+            escape_char: \
+            strip_tags: true
+            trim: true
+            encoding: utf8
+          xls_settings:
+            xls_format: Excel2007
+            metadata:
+              creator: ''
+              last_modified_by: ''
+              title: ''
+              description: ''
+              subject: ''
+              keywords: ''
+              category: ''
+              manager: ''
+              company: ''
+      path: eu-exportb
+      pager:
+        type: some
+        options:
+          items_per_page: 1500
+          offset: 1499
+      row:
+        type: data_field
+        options:
+          field_options:
+            field_email:
+              alias: ''
+              raw_output: false
+            field_first_name:
+              alias: ''
+              raw_output: false
+            field_last_name:
+              alias: ''
+              raw_output: false
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+        - user
+        - user.roles
+      tags:
+        - 'config:field.storage.user.field_email'
+        - 'config:field.storage.user.field_first_name'
+        - 'config:field.storage.user.field_last_name'

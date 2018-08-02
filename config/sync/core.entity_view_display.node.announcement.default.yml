@@ -1,0 +1,49 @@
+uuid: b228cca6-94a8-4854-a5a2-3e222e6b6cbf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.announcement.field_body
+    - field.field.node.announcement.field_pin_to_top
+    - field.field.node.announcement.field_publish_on
+    - field.field.node.announcement.field_unpublish_on
+    - node.type.announcement
+  module:
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - node_title
+        - field_body
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+id: node.announcement.default
+targetEntityType: node
+bundle: announcement
+mode: default
+content:
+  field_body:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden:
+  field_pin_to_top: true
+  field_publish_on: true
+  field_unpublish_on: true
+  flag_archived: true
+  links: true

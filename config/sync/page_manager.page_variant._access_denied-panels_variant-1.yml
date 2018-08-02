@@ -1,0 +1,51 @@
+uuid: 80221c11-840c-4d1f-9c42-84cfdc8ff9ae
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page._access_denied
+  content:
+    - 'block_content:basic:fd18d3d2-1803-4bb0-b68c-c91761b20f65'
+  module:
+    - block_content
+    - panels
+    - user
+id: _access_denied-panels_variant-1
+label: 'Access denied'
+variant: panels_variant
+variant_settings:
+  blocks:
+    4db8b5e5-9c40-47c8-aec4-2d61b2a0a878:
+      id: 'block_content:fd18d3d2-1803-4bb0-b68c-c91761b20f65'
+      label: 'You do not have permission to access this page'
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      region: content
+      weight: 0
+      uuid: 4db8b5e5-9c40-47c8-aec4-2d61b2a0a878
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 701ea868-064c-4c45-83fc-374552b3de9b
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: 'You do not have permission to access this page'
+  storage_type: page_manager
+  storage_id: _access_denied-panels_variant-1
+  builder: standard
+page: _access_denied
+weight: 0
+selection_criteria:
+  -
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: true
+    context_mapping:
+      user: current_user
+selection_logic: and
+static_context: {  }

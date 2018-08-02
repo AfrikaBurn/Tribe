@@ -1,0 +1,131 @@
+/form_1: null
+/form_2: null
+/form_3: null
+/grant: null
+/support: null
+/wap: null
+art/form_1:
+  open: open
+  editable: editable
+  visible: visible
+art/form_2:
+  open: 0
+  editable: 0
+  visible: 0
+art/form_3:
+  open: 0
+  editable: 0
+  visible: 0
+art/grant:
+  open: open
+  editable: editable
+  visible: visible
+art/support:
+  open: 0
+  editable: 0
+  visible: 0
+art/wap:
+  open: 0
+  editable: 0
+  visible: 0
+mutant_vehicles/form_1:
+  open: open
+  editable: editable
+  visible: visible
+mutant_vehicles/grant:
+  open: 0
+  editable: 0
+  visible: 0
+mutant_vehicles/support:
+  open: 0
+  editable: 0
+  visible: 0
+mutant_vehicles/wap:
+  open: 0
+  editable: 0
+  visible: 0
+performances/form_1:
+  open: open
+  editable: editable
+  visible: visible
+performances/form_2:
+  visible: visible
+  open: 0
+  editable: 0
+performances/form_3:
+  visible: visible
+  open: 0
+  editable: 0
+performances/grant:
+  open: 0
+  editable: 0
+  visible: 0
+performances/support:
+  open: 0
+  editable: 0
+  visible: 0
+performances/wap:
+  open: 0
+  editable: 0
+  visible: 0
+theme_camps/form_1:
+  open: open
+  editable: editable
+  visible: visible
+theme_camps/form_2:
+  open: 0
+  editable: 0
+  visible: 0
+theme_camps/form_3:
+  open: 0
+  editable: 0
+  visible: 0
+theme_camps/grant:
+  open: 0
+  editable: 0
+  visible: 0
+theme_camps/wap:
+  open: 0
+  editable: 0
+  visible: 0
+art/supplier:
+  open: 0
+  editable: 0
+  visible: 0
+mutant_vehicles/supplier:
+  open: 0
+  editable: 0
+  visible: 0
+performances/supplier:
+  open: 0
+  editable: 0
+  visible: 0
+theme_camps/supplier:
+  open: 0
+  editable: 0
+  visible: 0
+art/form_1-visible: 1
+art/form_2-visible: 1
+art/form_3-visible: 0
+art/grant-visible: 0
+art/support-visible: 0
+art/supplier-visible: 0
+art/wap-visible: 0
+mutant_vehicles/form_1-visible: 0
+mutant_vehicles/grant-visible: 0
+mutant_vehicles/support-visible: 0
+mutant_vehicles/supplier-visible: 0
+mutant_vehicles/wap-visible: 0
+performances/form_1-visible: 0
+performances/form_2-visible: 0
+performances/form_3-visible: 0
+performances/grant-visible: 0
+performances/support-visible: 0
+performances/supplier-visible: 0
+performances/wap-visible: 0
+theme_camps/form_1-visible: 0
+theme_camps/form_2-visible: 0
+theme_camps/form_3-visible: 0
+theme_camps/grant-visible: 0
+theme_camps/supplier-visible: 0
+theme_camps/wap-visible: 0

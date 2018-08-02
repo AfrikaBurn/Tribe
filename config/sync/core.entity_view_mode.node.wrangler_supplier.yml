@@ -1,0 +1,10 @@
+uuid: 45b161d8-4cab-4593-ac4d-68eac47886da
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.wrangler_supplier
+label: 'Wrangler Supplier'
+targetEntityType: node
+cache: true

@@ -1,0 +1,23 @@
+uuid: b00793ed-aa01-4e05-b048-a2086acaa054
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: Cy_EPTfdq6P73VtsGiFYSjcjZuhJ815SHho4LVZFCYQ
+id: node.field_prj_snd_genre
+field_name: field_prj_snd_genre
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

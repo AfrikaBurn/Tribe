@@ -1,0 +1,25 @@
+uuid: 27ff4166-c15c-4214-83fb-516a7d03fe37
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sub_gift
+    - node.type.subsidised_ticket
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.subsidised_ticket.field_sub_gift
+field_name: field_sub_gift
+entity_type: node
+bundle: subsidised_ticket
+label: 'Contribution to AfrikaBurn 2018 - “Working Title______________” (or choose your own theme)'
+description: 'Are you part of a collective crew, do you plan to volunteer? If so where and how? Do you have a creative project. What is your planned contribution to the AfrikaBurn community in 2017. Please be specific.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,34 @@
+uuid: ebc2015a-2d46-45a3-906f-fc5131035201
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_doc
+    - node.type.art
+  module:
+    - custom_add_another
+    - file
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: U_y4S80FHX2FVMbrY3H1_5lxQzwNI4n2nm0HcUlThxU
+id: node.art.field_prj_gen_doc
+field_name: field_prj_gen_doc
+entity_type: node
+bundle: art
+label: 'Got additional docs or PDF''s? Add them here.'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: artwork/docs
+  file_extensions: 'txt pdf doc docx odt'
+  max_filesize: '3 MB'
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

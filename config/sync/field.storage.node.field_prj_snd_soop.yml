@@ -1,0 +1,25 @@
+uuid: ea1ecb88-c80c-486f-a55f-c3d78658389b
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - markup
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: pmT8VdLSrhr_ZBmH_3Vi7vczyPc3GF48fTo_23MtNJg
+id: node.field_prj_snd_soop
+field_name: field_prj_snd_soop
+entity_type: node
+type: markup
+settings: {  }
+module: markup
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,29 @@
+uuid: 567a67fa-f78c-4c9c-bce7-e1648b63c482
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sup_cost
+    - paragraphs.paragraphs_type.supplier_details
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.supplier_details.field_sup_cost
+field_name: field_sup_cost
+entity_type: paragraph
+bundle: supplier_details
+label: 'Please state how much your Supplier is charging you in total.'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: !!float 0
+  max: null
+  prefix: R
+  suffix: 'ZAR (South African Rands)'
+field_type: decimal

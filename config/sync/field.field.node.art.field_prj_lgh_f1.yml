@@ -1,0 +1,32 @@
+uuid: e4be0e56-6deb-4128-be3f-bc95b2155e0c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lgh_f1
+    - node.type.art
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: NjMabtpxCpPaPhK3DFW68dmi8tVEIkquWYkWPqjK8VQ
+id: node.art.field_prj_lgh_f1
+field_name: field_prj_lgh_f1
+entity_type: node
+bundle: art
+label: 'Lighting description'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p dir=\"ltr\"><span>We will be asking you for your project detailed lighting plan in a second form closer to the event.<br />\r\nIn the meantime, keep in mind that your artwork MUST BE LIT.</span></p>\r\n"
+    format: basic_html
+field_type: markup

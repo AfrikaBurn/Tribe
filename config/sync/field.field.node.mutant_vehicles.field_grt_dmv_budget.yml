@@ -1,0 +1,42 @@
+uuid: ec8a7a05-fb30-4c0f-bc51-78da7245945a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_grt_dmv_budget
+    - node.type.mutant_vehicles
+    - paragraphs.paragraphs_type.mutant_grant_expense
+  module:
+    - custom_add_another
+    - entity_reference_revisions
+third_party_settings:
+  custom_add_another:
+    custom_add_another: 'Add another line item'
+    custom_remove: ''
+id: node.mutant_vehicles.field_grt_dmv_budget
+field_name: field_grt_dmv_budget
+entity_type: node
+bundle: mutant_vehicles
+label: Budget
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      mutant_grant_expense: mutant_grant_expense
+    target_bundles_drag_drop:
+      grant_expences:
+        weight: 3
+        enabled: false
+      mutant_grant_expense:
+        enabled: true
+        weight: 4
+      supplier_details:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

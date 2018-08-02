@@ -1,0 +1,20 @@
+uuid: 04cc9e25-40dc-4e62-a495-30841255508a
+langcode: en
+status: true
+dependencies: {  }
+name: node_mutant_vehicles
+label: 'node mutant_vehicles validation'
+entity_type: node
+bundle: mutant_vehicles
+field_validation_rules:
+  c6c31997-88d4-4b33-98a1-6ba38806f41e:
+    uuid: c6c31997-88d4-4b33-98a1-6ba38806f41e
+    id: words_field_validation_rule
+    title: 'Word limit'
+    weight: 1
+    field_name: field_prj_wtf_short
+    column: value
+    error_message: 'Short blurb must be between 10 and 100 words'
+    data:
+      min: '10'
+      max: '100'

@@ -1,0 +1,32 @@
+uuid: 37d67184-7943-4ce6-bbef-2048276a3af7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_doc
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+    - file
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_gen_doc
+field_name: field_prj_gen_doc
+entity_type: node
+bundle: mutant_vehicles
+label: 'Got additional documentation or PDF''s? Add them here.'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: mutant_vehicles
+  file_extensions: 'doc docx pdf odt xls xlsx ods'
+  max_filesize: '3 MB'
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

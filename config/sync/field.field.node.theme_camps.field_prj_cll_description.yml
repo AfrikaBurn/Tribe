@@ -1,0 +1,27 @@
+uuid: f1572c47-e6c6-48c2-ae19-e2d48760cdb2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_cll_description
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: On2AnHymO6WouVGT7QpT2GzzcwJZhWAfSZIpIBedXsw
+id: node.theme_camps.field_prj_cll_description
+field_name: field_prj_cll_description
+entity_type: node
+bundle: theme_camps
+label: 'Tell our community about your project'
+description: 'Who are you as a collective, and what’s your camp about? What kind of collaboration are you looking for? Add anything here that you feel is relevant and will help you get the participation that you need (and try to be brief).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,49 @@
+uuid: 0a1abd4f-3fb7-4352-810e-f94c7802953a
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.home_page_logged_in
+    - views.view.anouncements
+  module:
+    - panels
+    - user
+    - views
+id: home_page_logged_in-panels_variant-0
+label: Home
+variant: panels_variant
+variant_settings:
+  blocks:
+    d6d09bb2-57c6-41e7-8a8a-c35afac03463:
+      id: 'views_block:anouncements-block_1'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 0
+      uuid: d6d09bb2-57c6-41e7-8a8a-c35afac03463
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 0675148d-30b7-4c21-9732-04195a991461
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: home_page_logged_in-panels_variant-0
+  builder: standard
+page: home_page_logged_in
+weight: -9
+selection_criteria:
+  -
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: true
+    context_mapping:
+      user: current_user
+selection_logic: and
+static_context: {  }

@@ -1,0 +1,15 @@
+
+body.user-logged-in .tabs.secondary {
+    display: none;
+}
+
+/* skp 18/9/2017 */
+/* RHS button and table width */
+#block-projectblock .button,
+#block-views-block-collective-members-members table,
+#block-views-block-collectives-my-collectives .button{
+  width: 100%;
+}
+
+
+

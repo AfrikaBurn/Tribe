@@ -1,0 +1,31 @@
+uuid: 7cc86e95-388e-493b-a29d-6685d46be41b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_artwork_d
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: EzlNt8Vyv-Oe4S04UpTYG95zwS-EueL0sumKN6714_k
+id: node.theme_camps.field_prj_plc_artwork_d
+field_name: field_prj_plc_artwork_d
+entity_type: node
+bundle: theme_camps
+label: 'Camp Artwork – Depth'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: 30
+  prefix: ''
+  suffix: ''
+field_type: integer

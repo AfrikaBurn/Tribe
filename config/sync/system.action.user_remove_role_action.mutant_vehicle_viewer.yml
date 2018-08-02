@@ -1,0 +1,14 @@
+uuid: 2424817d-f9a6-4625-8a42-7045d328b483
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.mutant_vehicle_viewer
+  module:
+    - user
+id: user_remove_role_action.mutant_vehicle_viewer
+label: 'Remove the Mutant Vehicle Viewer role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: mutant_vehicle_viewer

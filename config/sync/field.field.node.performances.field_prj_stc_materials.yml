@@ -1,0 +1,27 @@
+uuid: 7a17d3b9-6c11-4569-8864-45ddf6e0b447
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_stc_materials
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: wQYp6WANtJC_tzkxSRfVvKUbEu4OB-2oMwsA5Vtutjs
+id: node.performances.field_prj_stc_materials
+field_name: field_prj_stc_materials
+entity_type: node
+bundle: performances
+label: Materials
+description: "Please list all materials to be used in your project - and remember: we encourage the use of waste, salvage, recyclable, environmentally friendly and reusable materials. If you're considering burning your piece please read up about this on our website, and check what materials are acceptable to use.\r\n"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

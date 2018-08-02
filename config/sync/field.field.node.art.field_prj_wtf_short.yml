@@ -1,0 +1,27 @@
+uuid: 1499a08d-fdf8-4561-99e1-8d91bf0a2691
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_wtf_short
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: _xpLSyPXSSFeTnDMw-mAQEI6t-uFRS61wNGudoHAXD0
+id: node.art.field_prj_wtf_short
+field_name: field_prj_wtf_short
+entity_type: node
+bundle: art
+label: 'Short blurb for the WTF Guide (event guide)'
+description: "<p>The good citizens of Tankwa Town like to know what's happening in their hometown, so please provide a short blurb about your project. (max 100 words). Think this through, as this is the information about your project that'll appear in our WTF guide.</p>\r\n<p>(Note that our Minister of Info reserves the right to make edits if necessary.)</p>\r\n"
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

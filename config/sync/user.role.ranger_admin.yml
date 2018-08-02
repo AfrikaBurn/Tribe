@@ -1,0 +1,20 @@
+uuid: e67bd3b8-cbd6-4611-902f-22cb7262ba5e
+langcode: en
+status: true
+dependencies: {  }
+id: ranger_admin
+label: 'Ranger Admin'
+weight: 9
+is_admin: null
+permissions:
+  - 'access in-place editing'
+  - 'display eu cookie compliance popup'
+  - 'edit field_approved'
+  - 'edit field_vp_approved'
+  - 'edit field_wa_approved'
+  - 'edit own field_vp_approved'
+  - 'view field_approved'
+  - 'view field_email'
+  - 'view field_vp_approved'
+  - 'view field_wa_approved'
+  - 'view own field_vp_approved'

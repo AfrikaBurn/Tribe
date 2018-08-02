@@ -1,0 +1,31 @@
+uuid: 00bc425f-0d3f-489e-968b-ec7d1c7b95b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_field_quantity
+    - paragraphs.paragraphs_type.grant_expences
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.grant_expences.field_field_quantity
+field_name: field_field_quantity
+entity_type: paragraph
+bundle: grant_expences
+label: Quantity
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  min: 1
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

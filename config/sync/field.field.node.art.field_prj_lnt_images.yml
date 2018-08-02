@@ -1,0 +1,45 @@
+uuid: 422d479d-7406-4c2f-be03-6bd9731c038d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_images
+    - node.type.art
+  module:
+    - custom_add_another
+    - image
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: Y8GDJYlHjN35YVrpHA1audl1OTGEvqOpNY2gkJWD3hQ
+id: node.art.field_prj_lnt_images
+field_name: field_prj_lnt_images
+entity_type: node
+bundle: art
+label: 'Moop Images'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: lnt/art
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: '3 MB'
+  max_resolution: ''
+  min_resolution: 250x250
+  alt_field: false
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: 8a4a5b00-e016-4afa-bba5-2c2b3f81704e
+    alt: ''
+    title: ''
+    width: 525
+    height: 350
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

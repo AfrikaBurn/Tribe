@@ -1,0 +1,22 @@
+uuid: 81cdd3cd-ed8f-4775-8440-a57059a36ea3
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: EJgxbR5FphdWjkSWkdHykN3DtKaXN66BO7369t1ZdV4
+id: node.field_prj_saf_extinguish
+field_name: field_prj_saf_extinguish
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

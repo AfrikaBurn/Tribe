@@ -1,0 +1,82 @@
+uuid: 647f2820-c216-4ffc-9ac1-25ceaa0855bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_sup_details_view
+    - node.type.theme_camps
+    - views.view.suppliers_paragraph_pretty
+  module:
+    - custom_add_another
+    - viewfield
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.theme_camps.field_prj_sup_details_view
+field_name: field_prj_sup_details_view
+entity_type: node
+bundle: theme_camps
+label: 'Supplier details view'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    token_help: ''
+    display_id: block_1
+    arguments: '[node:nid]'
+    target_uuid: 69e87dea-39ef-48ba-8763-43f5feb2f171
+default_value_callback: ''
+settings:
+  force_default: 1
+  allowed_views:
+    wrangler_supplier: wrangler_supplier
+    collective_members: 0
+    collective_registrations: 0
+    collectives: 0
+    collectives_wrangler_views: 0
+    collective_stats: 0
+    comment: 0
+    community_projects: 0
+    content: 0
+    block_content: 0
+    dpw_submissions: 0
+    files: 0
+    frontpage: 0
+    grant_xls_: 0
+    log_messages: 0
+    my_collectives: 0
+    user_admin_people: 0
+    people_region: 0
+    print: 0
+    comments_recent: 0
+    content_recent: 0
+    redirect: 0
+    subsidised_ticket_wrangler: 0
+    suppliers: 0
+    suppliers_paragraph_pretty: 0
+    support: 0
+    taxonomy_term: 0
+    temp: 0
+    user_image_for_skin: 0
+    user_lookup: 0
+    user_select: 0
+    watchdog: 0
+    who_s_new: 0
+    who_s_online: 0
+    wrangler_members: 0
+    wrangler_registrations: 0
+  allowed_display_types:
+    block: block
+    default: default
+    attachment: 0
+    data_export: 0
+    embed: 0
+    entity_reference: 0
+    feed: 0
+    page: 0
+    rest_export: 0
+  handler: 'default:view'
+  handler_settings: {  }
+field_type: viewfield

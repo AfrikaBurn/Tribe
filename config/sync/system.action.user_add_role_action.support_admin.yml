@@ -1,0 +1,14 @@
+uuid: b43c7797-3c06-41ef-9320-5d7f1d2949a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.support_admin
+  module:
+    - user
+id: user_add_role_action.support_admin
+label: 'Add the Support Admin role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: support_admin

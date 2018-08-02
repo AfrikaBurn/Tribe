@@ -1,0 +1,31 @@
+uuid: f870a848-f146-4896-a7ee-2de1ef78bdbf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_cll_collaborate
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: FwyIKL4N7BjNl56yarCMxeVDDawsB020eSqncHrrfjA
+id: node.art.field_prj_cll_collaborate
+field_name: field_prj_cll_collaborate
+entity_type: node
+bundle: art
+label: 'Are you interested in collaborating with other artists and/or working with volunteers?'
+description: 'The <a href="/community/joinproject" target="_blank">Community Directory</a> enables participants and volunteers to choose the project(s) that they feel they can contribute to.<br>Listing your project on the Community Directory means you''re open to being contacted by people interested in collaboration. You can choose to be removed from the Community Directory at any time.  '
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

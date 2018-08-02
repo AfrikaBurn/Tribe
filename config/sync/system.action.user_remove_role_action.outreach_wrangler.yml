@@ -1,0 +1,14 @@
+uuid: 50b4ffeb-580a-40b3-8877-6f8db24ece6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.outreach_wrangler
+  module:
+    - user
+id: user_remove_role_action.outreach_wrangler
+label: 'Remove the Outreach Wrangler role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: outreach_wrangler

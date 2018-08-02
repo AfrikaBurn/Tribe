@@ -1,0 +1,286 @@
+{#
+/**
+ * @file
+ * afrikaburn's theme implementation to display a single page.
+ *
+ * The doctype, html, head and body tags are not in this template. Instead they
+ * can be found in the html.html.twig template normally located in the
+ * core/modules/system directory.
+ *
+ * Available variables:
+ *
+ * General utility variables:
+ * - base_path: The base URL path of the Drupal installation. Will usually be
+ *   "/" unless you have installed Drupal in a sub-directory.
+ * - is_front: A flag indicating if the current page is the front page.
+ * - logged_in: A flag indicating if the user is registered and signed in.
+ * - is_admin: A flag indicating if the user has permission to access
+ *   administration pages.
+ *
+ * Site identity:
+ * - front_page: The URL of the front page. Use this instead of base_path when
+ *   linking to the front page. This includes the language domain or prefix.
+ *
+ * Page content (in order of occurrence in the default page.html.twig):
+ * - node: Fully loaded node, if there is an automatically-loaded node
+ *   associated with the page and the node ID is the second argument in the
+ *   page's path (e.g. node/12345 and node/12345/revisions, but not
+ *   comment/reply/12345).
+ *
+ * Regions:
+ * - page.header: Items for the header region.
+ * - page.highlighted: Items for the highlighted region.
+ * - page.primary_menu: Items for the primary menu region.
+ * - page.secondary_menu: Items for the secondary menu region.
+ * - page.featured_top: Items for the featured top region.
+ * - page.content: The main content of the current page.
+ * - page.sidebar_first: Items for the first sidebar.
+ * - page.sidebar_second: Items for the second sidebar.
+ * - page.featured_bottom_first: Items for the first featured bottom region.
+ * - page.featured_bottom_second: Items for the second featured bottom region.
+ * - page.featured_bottom_third: Items for the third featured bottom region.
+ * - page.footer_first: Items for the first footer column.
+ * - page.footer_second: Items for the second footer column.
+ * - page.footer_third: Items for the third footer column.
+ * - page.footer_fourth: Items for the fourth footer column.
+ * - page.footer_fifth: Items for the fifth footer column.
+ * - page.breadcrumb: Items for the breadcrumb region.
+ *
+ * @see template_preprocess_page()
+ * @see html.html.twig
+ */
+#}
+{# <div id="fb-root"></div> #}
+{# <script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10&appId=218398015032600";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script> #}
+<div id="wrapper">
+  <div id="top-bar">
+    <div class="container-2">
+      <div class="container-1">
+        <div class='logo-container'>
+          <a href="http://www.afrikaburn.com">
+          <img src="{{ base_path ~ directory }}/assets/images/date-badge-2019.png" />
+          </a>
+        </div>
+        {{ page.create_tickets }}
+        <div class='user-menu'>
+          {{ page.user_menu }}
+        </div>
+        {% if logged_in %}
+          <div class='user-greeting'>
+            {{ page.user_greeting }}
+            <div class="user-menu-icon">
+              <span class="user-icon-bar"></span>
+              <span class="user-icon-bar"></span>
+              <span class="user-icon-bar"></span>
+            </div>
+          </div>
+          {# <a href="#" class="my-collectives">My Collectives</a>
+          <div id="my-collectives-block">{{ page.collectives }}</div> #}
+        {% endif %}
+
+        <div class='social-media-links hide-below-979px'>
+          <div class='sm-link twitter'>
+            <a href='https://www.twitter.com/afrikaburn' title='Afrikaburn on Twitter' target='_blank'></a>
+          </div>
+          <div class='sm-link facebook'>
+            <a href='https://www.facebook.com/afrikaburn' title='Afrikaburn on Facebook' target='_blank'></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-3 show-below-979px" id="mobile-menu-bar">
+    <div class="container-2">
+      <div class="container-1">
+        <div class= "row-fluid navbar-outer">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="container-fluid">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target="#main-nav">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                </a>
+                <div class="nav-collapse collapse" id="main-nav">
+                  {{ page.main_menu }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class= "clear"></div>
+      </div>
+    </div>
+  </div>
+  <div id="header">
+    <div class="container-2">
+      <div class="container-1">
+        <div class="banners">
+          {% if logged_in %}
+            <div class="dummy">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/dummy.png" />
+            </div>
+            <div class="slide current first">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2008-Jonx-Pillemer-2.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2008-Jonx-Pillemer.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2010-Cameron-Richards.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2016-Raul-Aragao.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2017-Duncan-Rawlinson-2.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2017-Duncan-Rawlinson-3.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2017-Duncan-Rawlinson-4.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2017-Duncan-Rawlinson.jpg" />
+            </div>
+          {% else %}
+            <div class="dummy">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/public/dummy.png" />
+            </div>
+            <div class="slide current first">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/public/2011-Cameron-Richards-Home-3.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/public/2014-Jonx-Pillemer-Home-4.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/public/2015-Mia-Dyason-Home-1.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/public/2016-Raul-Aragao-Home-2.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/public/2016-Steven-Morrow-Home-6.jpg" />
+            </div>
+            <div class="slide">
+              <img src="{{ base_path ~ directory }}/assets/images/banners/public/2017-Steven-Morrow-Home-5.jpg" />
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class= "clear"></div>
+  <div class="container-3 hide-below-979px" id="menu-bar">
+    <div class="container-2">
+      <div class="container-1">
+        <div class= "row-fluid navbar-outer">
+          <div class="navbar">
+            <div class="navbar-inner">
+              <div class="container-fluid">
+                <div class="nav-collapse collapse" id="main-nav">
+                  {{ page.main_menu }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class= "clear"></div>
+      </div>
+    </div>
+  </div>
+  <div class="container-3 show-below-979px" id="social-media-links-bar">
+    <div class="container-2">
+      <div class="container-1">
+        <div class='social-media-links'>
+          <div class='sm-link twitter'>
+            <a href='https://www.twitter.com/afrikaburn' title='Afrikaburn on Twitter' target='_blank'></a>
+          </div>
+          <div class='sm-link facebook'>
+            <a href='https://www.facebook.com/afrikaburn' title='Afrikaburn on Facebook' target='_blank'></a>
+          </div>
+        </div>
+      </div>
+      <div class='clr'></div>
+    </div>
+  </div>
+  <section id="main-content-strip" class="container-3">
+    <div class='container-2'>
+      <div class='container-1'>
+        {{ page.page_title }}
+        <div class="body-content">
+          {{ page.status_messages }}
+          {{ page.featured }}
+
+          {% if page.biobar %}
+          <div class="sidebar-outer biobar">
+            <div class="sidebar">
+              {{ page.biobar }}
+            </div>
+          </div>
+          {% endif %}
+
+          <div class='main-block'>
+            <div class='clr'></div>
+            {{ page.content }}
+          </div>
+
+          {% if page.sidebar %}
+          <div class="sidebar-outer">
+            <div class="sidebar">
+              {{ page.sidebar }}
+            </div>
+          </div>
+          {% endif %}
+
+          <div class='clr'></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="social-icons">
+    <div class='container-2'>
+      {{ page.social }}
+    </div>
+  </section>
+  <section id="footer">
+    <div class='container-2'>
+      <div class='container-1'>
+        <div class='body-content'>
+          <div class="blocks-container footer three-column">
+            <div class='block-outer'>
+              <div class='block-inner'>
+                {{ page.footer_left }}
+              </div>
+            </div>
+            <div class='block-outer'>
+              <div class='block-inner'>
+                {{ page.footer_centre }}
+              </div>
+            </div>
+            <div class='block-outer'>
+              <div class='block-inner'>
+                {# <div class="fb-page" data-href="https://www.facebook.com/afrikaburn/" data-tabs="timeline" data-height="322" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/afrikaburn/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/afrikaburn/">AfrikaBurn</a></blockquote></div> #}
+              </div>
+            </div>
+          </div>
+          <div class='clr'></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="copyright">
+    <div class="copyright-inner">
+      {{ page.copyright }}
+    </div>
+  </section>
+  <a class="back-to-top-button"href="#"><span></span></a>
+  <div class="clr"></div>
+</div>

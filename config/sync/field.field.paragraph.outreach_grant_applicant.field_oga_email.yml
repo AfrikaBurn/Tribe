@@ -1,0 +1,25 @@
+uuid: 629772a1-7070-4e82-a6cc-e4c8e628590c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_oga_email
+    - paragraphs.paragraphs_type.outreach_grant_applicant
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.outreach_grant_applicant.field_oga_email
+field_name: field_oga_email
+entity_type: paragraph
+bundle: outreach_grant_applicant
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

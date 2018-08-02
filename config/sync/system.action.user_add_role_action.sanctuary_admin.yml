@@ -1,0 +1,14 @@
+uuid: b7ac2aec-f45b-4aec-a790-64430e6a9a8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.sanctuary_admin
+  module:
+    - user
+id: user_add_role_action.sanctuary_admin
+label: 'Add the Sanctuary Admin role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: sanctuary_admin

@@ -1,0 +1,22 @@
+uuid: 506e1737-f7fa-4943-81e2-acd5910d053a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: V4U4s4G4GCcMzKsO4InV3vmzfVJch22x1Av4cV1L1qY
+id: node.field_prj_plc_trailers
+field_name: field_prj_plc_trailers
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

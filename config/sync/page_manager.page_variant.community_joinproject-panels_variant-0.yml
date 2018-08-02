@@ -1,0 +1,43 @@
+uuid: 18c92be7-7b7b-4ebb-b851-b8678ab77dae
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.community_joinproject
+  content:
+    - 'block_content:basic:d8fa3860-31f9-49b2-975d-62c400afc4b3'
+  module:
+    - block_content
+    - panels
+id: community_joinproject-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    d4275fc4-1348-405d-8f4a-e3728c335487:
+      id: 'block_content:d8fa3860-31f9-49b2-975d-62c400afc4b3'
+      label: 'Join a project - Coming soon'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: content
+      weight: 0
+      uuid: d4275fc4-1348-405d-8f4a-e3728c335487
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 5942e84e-326f-4b63-8efd-a7426fe17f4a
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: 'Join a project - Coming soon'
+  storage_type: page_manager
+  storage_id: community_joinproject-panels_variant-0
+  builder: standard
+page: community_joinproject
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

@@ -1,0 +1,25 @@
+uuid: d8ea1114-c492-4335-a8c0-4762fa96433b
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: _9mWXsZaMbRjG_4F7kuOLj0aBxx2NOZEtHQ1KsUX_ws
+id: node.field_prj_gen_immortal
+field_name: field_prj_gen_immortal
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

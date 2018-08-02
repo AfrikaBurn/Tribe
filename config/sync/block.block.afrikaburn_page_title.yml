@@ -1,0 +1,18 @@
+uuid: 3c257f2c-5725-448f-9ffe-f22fc9528176
+langcode: en
+status: true
+dependencies:
+  theme:
+    - afrikaburn
+id: afrikaburn_page_title
+theme: afrikaburn
+region: content
+weight: -20
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

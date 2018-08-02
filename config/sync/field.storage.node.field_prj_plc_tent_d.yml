@@ -1,0 +1,26 @@
+uuid: f7158fad-e3fa-4a9c-b672-dabdf9a86b60
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: i9AiGw8Rob59ePi3MYTl7foMMgzyQdR5yYrowKMjCnM
+id: node.field_prj_plc_tent_d
+field_name: field_prj_plc_tent_d
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

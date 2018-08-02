@@ -1,0 +1,29 @@
+uuid: f198c5a8-00f0-49fa-9d70-7d06dce4c16b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sub_transferable
+    - node.type.subsidised_ticket
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.subsidised_ticket.field_sub_transferable
+field_name: field_sub_transferable
+entity_type: node
+bundle: subsidised_ticket
+label: 'I know that my Subsidised ticket is not transferable, and awarded to me based on my motivation.'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

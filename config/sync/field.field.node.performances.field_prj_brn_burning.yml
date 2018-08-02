@@ -1,0 +1,31 @@
+uuid: c65f3ecb-eb24-4b52-9313-24c9516d16db
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_brn_burning
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: luO8p8dUhpQjMtxuAF2CrJ5xJI7K0qdJrZFp6Bmolas
+id: node.performances.field_prj_brn_burning
+field_name: field_prj_brn_burning
+entity_type: node
+bundle: performances
+label: 'Is there a fire aspect to your performance?'
+description: "<p>Note that this year burning artworks need to be approved by the Art Committee and the Pyro Team, based on your motivation, design and burn plan.</p> \r\n<p>Remember that you don't have to burn your piece. We love works that can be used outside of the event, in public spaces and at other events (Decompression, Streetopia, Maker-Faire, etc.); or which materials can be re-purposed (Outreach Projects, other artworks, etc)</p>\r\n<p>Please consider carefully whether burning is important to the meaning of your piece.</p>"
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

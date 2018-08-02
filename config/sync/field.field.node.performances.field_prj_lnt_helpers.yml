@@ -1,0 +1,31 @@
+uuid: 43857ce5-6492-4e91-99a9-a2f97d96256c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_helpers
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: 9DQu6QIcbCuSW1XG3BemnIP6bp3u5eIYgGlMIcr_O7U
+id: node.performances.field_prj_lnt_helpers
+field_name: field_prj_lnt_helpers
+entity_type: node
+bundle: performances
+label: 'How many people do you have to help you clean up your site after removal or burn of the performance'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: people
+field_type: integer

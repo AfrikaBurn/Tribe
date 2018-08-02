@@ -1,0 +1,25 @@
+uuid: 777022cf-2e26-4987-9397-0f95b0ff9e68
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_brn_motivation
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.performances.field_prj_brn_motivation
+field_name: field_prj_brn_motivation
+entity_type: node
+bundle: performances
+label: '​What is your m​otivation to burn your piece?'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

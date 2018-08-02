@@ -1,0 +1,12 @@
+uuid: 06c094a3-00ce-496b-a65d-9f644c584ecb
+langcode: en
+status: true
+dependencies: {  }
+id: home_page_logged_in
+label: 'Home Page Logged in'
+description: ''
+use_admin_theme: false
+path: /home
+access_logic: and
+access_conditions: {  }
+parameters: {  }

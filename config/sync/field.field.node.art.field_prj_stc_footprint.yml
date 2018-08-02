@@ -1,0 +1,31 @@
+uuid: adfd6052-29fe-4ff5-a717-a05404887c92
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_stc_footprint
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: DMc1gExLeTgTMtYdJ5i_3Sq1I2RZJAR7Mz2toqz_Qf0
+id: node.art.field_prj_stc_footprint
+field_name: field_prj_stc_footprint
+entity_type: node
+bundle: art
+label: 'Footprint Area'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: m²
+field_type: integer

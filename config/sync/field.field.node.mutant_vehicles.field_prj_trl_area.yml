@@ -1,0 +1,29 @@
+uuid: eace483b-2143-419f-bf9f-654a4916ff11
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_trl_area
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_trl_area
+field_name: field_prj_trl_area
+entity_type: node
+bundle: mutant_vehicles
+label: 'Does it have a trailer(s)?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

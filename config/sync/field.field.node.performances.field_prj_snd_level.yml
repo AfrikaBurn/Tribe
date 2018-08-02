@@ -1,0 +1,36 @@
+uuid: 5fe0c5ea-8a3f-4023-a379-a4e7d2e00677
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_snd_level
+    - node.type.performances
+    - taxonomy.vocabulary.sound_levels
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: HiuX2BxEXlhKuFU1gl_GZ8ObU2-kvEF0EVK3Pl68Yr0
+id: node.performances.field_prj_snd_level
+field_name: field_prj_snd_level
+entity_type: node
+bundle: performances
+label: 'Please select the level of your sound component'
+description: "<p><b>Level 1</b> non-amplified sound: it includes instrumental music, as well as sound at the level of a normal (domestic hi-fi) stereo without sub woofers etc. This level permits you to play sound in most areas during the day unless it's a silent zone near the temple or other artworks.</p>\r\n<p><b>Level 2</b> amplified sound: system with sub woofers. This can only be played in specified areas within the Binnekring during the day, and in Sound Zones at night. Please be very aware of Quiet Zones and where artworks require low sound in their surrounds, as well as which way your speakers point..</p>\r\n<p><b>Level 3</b> very large club or stadium-size sound. These systems can only be played at full volume in Sound Zones with speakers orientated away from the Binnekring and camping areas. </p>\r\n"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      sound_levels: sound_levels
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

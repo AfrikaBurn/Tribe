@@ -1,0 +1,31 @@
+uuid: 13782228-5380-4390-84ff-b23a0177ef3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_fire
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: Fcbw4n90aez39RcYo0Jo1OMgUdK4WvT9j5JNNaYn4Wg
+id: node.theme_camps.field_prj_plc_fire
+field_name: field_prj_plc_fire
+entity_type: node
+bundle: theme_camps
+label: 'Number of Small Fires on Frontage'
+description: "<b>Number of public fires.</b><br>\r\nSafe Area is 7m.<br>\r\nNo ground fires."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 0
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

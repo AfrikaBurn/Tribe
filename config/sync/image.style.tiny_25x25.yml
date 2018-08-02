@@ -1,0 +1,14 @@
+uuid: 71b71f13-1a45-40b1-a7a3-7ad51bee840e
+langcode: en
+status: true
+dependencies: {  }
+name: tiny_25x25
+label: 'Tiny (25x25)'
+effects:
+  cf93f6ea-2306-4c48-8d0b-8ee648e57de5:
+    uuid: cf93f6ea-2306-4c48-8d0b-8ee648e57de5
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 25
+      height: 25

@@ -1,0 +1,28 @@
+uuid: 7927422b-c2d8-443e-b57c-48e8d9e93761
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_prp_start
+    - node.type.performances
+  module:
+    - custom_add_another
+    - datetime
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: DnANeX7yDsa3aTBAugwBdJjMYTjev9labI3uxKiYWN0
+id: node.performances.field_prj_prp_start
+field_name: field_prj_prp_start
+entity_type: node
+bundle: performances
+label: 'When are you planning to start building offsite?'
+description: "Date E.g., 2017-06-14<br>\r\nGates open 23 April 2018"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

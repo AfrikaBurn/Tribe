@@ -1,0 +1,27 @@
+uuid: 4db9548c-373b-443e-be52-0dcb970e287f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_stc_attributes
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: X-4ylFAjXT164epqe_iR92lQG8ggzg_msCPkg-YTlww
+id: node.performances.field_prj_stc_attributes
+field_name: field_prj_stc_attributes
+entity_type: node
+bundle: performances
+label: 'Other Relevant Physical Attributes'
+description: "Is it round? A string of balloons? A tree? Tall and thin, wide and low/spread out. Anything that doesn’t fit into the above categories.\r\n"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

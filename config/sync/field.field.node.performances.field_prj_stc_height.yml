@@ -1,0 +1,31 @@
+uuid: 5e6612d4-fdf1-4d4b-9d6f-7f528eb0070c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_stc_height
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: cqZm23runrXYF8647cRX1c6x0fDHHq4shQPEwXEycj4
+id: node.performances.field_prj_stc_height
+field_name: field_prj_stc_height
+entity_type: node
+bundle: performances
+label: 'Height in metres'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

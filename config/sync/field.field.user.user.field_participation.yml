@@ -1,0 +1,25 @@
+uuid: d1bac7aa-5ba9-48a3-9143-d403d9443e21
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_participation
+  module:
+    - custom_add_another
+    - user
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: user.user.field_participation
+field_name: field_participation
+entity_type: user
+bundle: user
+label: 'Previous AfrikBurn participation'
+description: "<p>How did you participate? Did you volunteer, and if so, how?<br>\r\nRemember to list if you've been part of a Theme Camp, Artwork, Performance or Mutant crew? Or if you volunteered.</p>\r\n<p><i>Please type it in one year per line, with a description of what you did e.g. <br>\r\n2010 - Volunteered at Greeters and performed with my band.</i></p>\r\n"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,48 @@
+
+.path-user article.profile .field{
+  align-items: top;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 300px;
+  padding-bottom: 2em;
+  position: relative;
+}
+
+.path-user article.profile .field *{
+  flex-basis: 45%;
+}
+
+.path-user article.profile .field__item .field_label{
+  display: block;
+  flex-basis: 100%;
+}
+
+.user-form .form-item .select-wrapper,
+.user-form .form-item.form-type-checkbox *,
+.user-form .form-item.form-type-radio *{
+  min-width: auto;
+  flex-basis: auto;
+}
+
+@media (min-width: 600px) {
+
+  .path-user article.profile .field--name-user-picture{
+    float: right;
+    width: 50%;
+  }
+
+}
+
+.path-user article.profile .field--name-user-picture{
+  text-align: center;
+}
+
+.path-user article.profile .field--name-user-picture a{
+  flex-basis: 100%;
+}
+
+.user-login-form details summary,
+.user-login-form details .details-description{
+  display: none;
+}

@@ -1,0 +1,43 @@
+uuid: 0be10e2c-333b-4342-892d-c7dc33e71e10
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_picture
+    - node.type.collective
+  module:
+    - custom_add_another
+    - image
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.collective.field_picture
+field_name: field_picture
+entity_type: node
+bundle: collective
+label: Picture
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'collective/picture/[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: false
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: 0658493b-b854-4ebb-bdf3-4eff2249fccd
+    alt: ''
+    title: ''
+    width: 200
+    height: 208
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

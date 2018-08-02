@@ -1,0 +1,31 @@
+uuid: 89b35947-c52f-4703-888c-e204e310888a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_snd_agree
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: soPn2K6FHMLup2eg4xd9Ary4LbjsOnOPOjJqbSQZZwM
+id: node.art.field_prj_snd_agree
+field_name: field_prj_snd_agree
+entity_type: node
+bundle: art
+label: 'I agree to abide by the AfrikaBurn Sound Policies and the basic rules of Civic Responsibility and general common-sense.'
+description: 'Please read our <a href="https://www.afrikaburn.com/the-event/artworks/afrikaburn-sound-policy" target="_blank">Sound Policy here</a> so you''re aware of how things work.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

@@ -1,0 +1,34 @@
+uuid: c94046ca-0d4d-4a4b-b358-9a7fec763717
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_collective
+    - node.type.collective
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_collective
+field_name: field_collective
+entity_type: node
+bundle: mutant_vehicles
+label: Collective
+description: 'Collective that this Mutant Vehicle is part of'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      collective: collective
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

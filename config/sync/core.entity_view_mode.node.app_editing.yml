@@ -1,0 +1,10 @@
+uuid: 10c5df2e-3025-4359-8cf6-dccf26cf5a59
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.app_editing
+label: 'App editing'
+targetEntityType: node
+cache: true

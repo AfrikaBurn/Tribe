@@ -1,0 +1,30 @@
+uuid: cbe8ca38-af67-4931-a163-e93ccde4e615
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_snd_soop
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_snd_soop
+field_name: field_prj_snd_soop
+entity_type: node
+bundle: mutant_vehicles
+label: 'SOOP Map'
+description: ''
+required: false
+translatable: true
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p><img alt=\"Sound area map\" data-entity-type=\"file\" data-entity-uuid=\"e58c2f2d-95c0-4fa2-8e68-76f2c7bb5665\" src=\"/sites/default/files/inline-images/Screen%20Shot%202016-10-06%20at%201.23.09%20PMb.jpg\" /></p>\r\n"
+    format: full_html
+field_type: markup

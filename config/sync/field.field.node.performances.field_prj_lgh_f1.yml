@@ -1,0 +1,32 @@
+uuid: 680c0bb6-2d36-4c21-a594-ddb6d6e9cabf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lgh_f1
+    - node.type.performances
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: SE4zg3kP_u8vLk4DdzVqgQZAro5r07eKiKLIwUAcEYo
+id: node.performances.field_prj_lgh_f1
+field_name: field_prj_lgh_f1
+entity_type: node
+bundle: performances
+label: 'Lighting description'
+description: ''
+required: false
+translatable: true
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p><strong>This will be part of Form 2 that we will send you later to complete</strong></p>\r\n"
+    format: basic_html
+field_type: markup

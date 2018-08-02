@@ -1,0 +1,24 @@
+uuid: 16ef1c15-0ee4-43af-a6b3-1d874a83a4b6
+langcode: en
+status: false
+dependencies:
+  config:
+    - system.menu.tools
+  module:
+    - system
+  theme:
+    - afrikaburn
+id: afrikaburn_tools
+theme: afrikaburn
+region: status_messages
+weight: -6
+provider: null
+plugin: 'system_menu_block:tools'
+settings:
+  id: 'system_menu_block:tools'
+  label: Tools
+  provider: system
+  label_display: visible
+  level: 1
+  depth: 0
+visibility: {  }

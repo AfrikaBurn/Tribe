@@ -1,0 +1,30 @@
+uuid: cee6bb4e-ab7a-4d36-a2c5-86541a3e4d06
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_artwork
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.theme_camps.field_prj_plc_artwork
+field_name: field_prj_plc_artwork
+entity_type: node
+bundle: theme_camps
+label: 'Artwork Description'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<p>If you have an artwork associated with your camp that will be in your camp, please add the dimensions here. Remember this will form part of your overall camp size.<br />\r\nIf the art work is not in your camp area, please register it separately.</p>\r\n"
+    format: basic_html
+field_type: markup

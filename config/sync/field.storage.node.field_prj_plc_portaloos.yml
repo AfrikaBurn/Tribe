@@ -1,0 +1,22 @@
+uuid: 4ecd9f01-4a37-4560-ba1f-47e50ed5a220
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: ou2Ya89ts7nopScxBRmrGmvcaQYqz7Co_F1dArvrd7c
+id: node.field_prj_plc_portaloos
+field_name: field_prj_plc_portaloos
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

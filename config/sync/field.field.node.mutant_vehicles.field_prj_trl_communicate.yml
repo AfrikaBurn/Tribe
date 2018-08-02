@@ -1,0 +1,25 @@
+uuid: 53bee186-dd4b-4ce0-a892-00d458ffb29b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_trl_communicate
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_trl_communicate
+field_name: field_prj_trl_communicate
+entity_type: node
+bundle: mutant_vehicles
+label: 'How will your conductor and/or walkers communicate with the driver? *'
+description: "<p>Radio is not the best example: Whistles, flag signalling systems in the day time and light signal systems at night are better examples, but radios are sure better than shouting.</p>\r\n<p>If using Radio to communicate between the driver and walkers and/or conductors, it will be best for the driver to have a Radio with an ear piece.</p>\r\n<p><b>REMEMBER</b> It's loud and dark out there with many distractions</p>"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

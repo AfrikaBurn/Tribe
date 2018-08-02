@@ -1,0 +1,54 @@
+uuid: f7cf114d-b5d9-46a8-8972-e31843276772
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_adm_wrangler
+    - node.type.performances
+  content:
+    - 'user:user:89dcd4de-d42c-4e3c-becc-16eccf2f39e9'
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.performances.field_prj_adm_wrangler
+field_name: field_prj_adm_wrangler
+entity_type: node
+bundle: performances
+label: Wrangler
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    target_uuid: 89dcd4de-d42c-4e3c-becc-16eccf2f39e9
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    include_anonymous: true
+    filter:
+      type: role
+      role:
+        art_wrangler: art_wrangler
+        art_admin: art_admin
+        communications_wrangler: '0'
+        communications_admin: '0'
+        leave_no_trace_moop: '0'
+        mutant_vehicle_viewer: '0'
+        mutant_vehicle_wrangler: '0'
+        mutant_vehicle_admin: '0'
+        outreach_wrangler: '0'
+        outreach_admin: '0'
+        administrator: '0'
+        support_wrangler: '0'
+        support_admin: '0'
+        theme_camp_wrangler: '0'
+        theme: '0'
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+field_type: entity_reference

@@ -1,0 +1,40 @@
+uuid: 14cf0e85-eeb7-485f-a8ac-9620e7e4d6b0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: archived
+label: Archived
+bundles:
+  - art
+  - mutant_vehicles
+  - performances
+  - theme_camps
+entity_type: node
+global: true
+weight: 0
+flag_short: 'Archive this item'
+flag_long: ''
+flag_message: ''
+unflag_short: 'Unarchive this item'
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: reload
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: false
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+linkTypeConfig:
+  flag_confirmation: 'Enter flagging details'
+  unflag_confirmation: 'Unflag this content?'
+  flag_create_button: 'Create flagging'
+  flag_delete_button: 'Delete flagging'
+  form_behavior: default
+  edit_flagging: 'Edit flagging details'
+  flag_update_button: 'Update flagging'

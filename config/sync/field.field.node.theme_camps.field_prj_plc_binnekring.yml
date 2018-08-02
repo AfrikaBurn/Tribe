@@ -1,0 +1,31 @@
+uuid: a9c2d937-a6f9-43de-b584-803f15574021
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_plc_binnekring
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: 2oAeNlXDy5z5pbDZnxtB58gAWNEKYjbnWxgmS91PaWQ
+id: node.theme_camps.field_prj_plc_binnekring
+field_name: field_prj_plc_binnekring
+entity_type: node
+bundle: theme_camps
+label: 'Are you requesting placement on the Binnekring or 10ish Boulevarde?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

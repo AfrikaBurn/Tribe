@@ -1,0 +1,140 @@
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+uid: 1
+template: false
+archive: false
+id: introduction
+title: Introduction
+description: 'Introduction and gauntlet questionaire to be completed by virgins.'
+category: Agreement
+elements: "welcome_page:\n  '#type': webform_wizard_page\n  '#title': CULTURE\n  welcome:\n    '#type': webform_markup\n    '#markup': \"<strong>Welcome!</strong><br />\\n<br />\\nAs this is your first time registering a Burner Bio, you&rsquo;ll need fill out this questionnaire. It&rsquo;s designed to put you in the picture about what AfrikaBurn is, and is not.<br />\\n<br />\\nYou won&rsquo;t be scored on your answers &ndash; but you do need to go through with it, in order to register your Burner Bio so you can buy tickets. Ready? Hit it.<br />\\n<br />\\nOne last thing: please don&rsquo;t get someone else to create your Bio &ndash; there&rsquo;s important info you need to read that&rsquo;s really helpful in preparing you for the experience.<br />\\n<br />\\nIt&rsquo;s your journey: nobody else can walk it for you.<br />\\n&nbsp;\"\n  did_you_know_that_afrikaburn_s_not_a_party_or_music_festival___y:\n    '#type': radios\n    '#title': 'Did you know that AfrikaBurn''s not a party or music festival?'\n    '#options':\n      'Yes': 'Yes'\n      'I do now': 'I do now'\n    '#options_randomize': true\n    '#required': true\n  afrikaburn_s_history_is_rooted_in_:\n    '#type': radios\n    '#title': 'And that AfrikaBurn''s history is rooted in:'\n    '#description': \"<p class=\\\"western\\\" lang=\\\"en-GB\\\" style=\\\"margin-bottom: 0cm; line-height: 100%\\\">(Tip: see <a href=\\\"https://afrikaburn.com/binnekringblog/roots-fruits-and-offshoots\\\" target=\\\"_blank\\\">this page</a> for more info on the historical roots of AfrikaBurn)</p>\\n<a href=\\\"https://en.wikipedia.org/wiki/Temporary_Autonomous_Zone\\\" target=\\\"_blank\\\">Find out more about a Temporary Autonomous Zone</a><br />\\n<a href=\\\"http://www.suicideclub.com/\\\" target=\\\"_blank\\\">Find out about Suicide Club</a>\"\n    '#options':\n      taz: 'The concept of the Temporary Autonomous Zone'\n      cssc: 'Cacophony Society & Suicide Club'\n      counterculture: Counterculture\n      anarchism: Anarchism\n      all: 'All of the above - with an African twist'\n    '#required': true\n  headed_for_experiment:\n    '#type': radios\n    '#title': 'Are you aware that by participating, you''re headed into a radical experiment in community and creativity?'\n    '#options':\n      '?': 'Say what? I thought it was just a party in the desert?'\n      '!': 'Radical''s my middle name. Bring it!'\n    '#required': true\n  did_you_know_afrikaburn_s_informed_by_a_set_of_guidelines_known_:\n    '#type': radios\n    '#title': 'Did you know AfrikaBurn’s informed by a set of guidelines known as the 11 Principles?'\n    '#description': '(Tip: They aren&#39;t rules, or commandments. <a href=\"http://www.afrikaburn.com/about/guiding-principles\" target=\"_blank\">Read all about the 11 Principles here</a>).'\n    '#options':\n      '?': 'The 11 what?'\n      10: 'I thought it was 10?'\n      yep: 'Yep, I know all about them.'\n    '#required': true\n  dressed_head:\n    '#type': webform_markup\n    '#markup': 'Are you aware that in Tankwa Town it&rsquo;s entirely normal to see people dressed as'\n  unicorns_superheroes_fairytale_characters_or_even_undressed_:\n    '#type': radios\n    '#title': 'unicorns, superheroes, fairytale characters (or even undressed)?'\n    '#options':\n      'OK, whoa – this is all getting a bit weird. Seriously?': 'OK, whoa – this is all getting a bit weird. Seriously?'\n      'Hell, yes – I’m one of the unicorns!': 'Hell, yes – I’m one of the unicorns!'\n      'So, normal is out? Hallelujah, I’ve found my people!': 'So, normal is out? Hallelujah, I’ve found my people!'\n    '#required': true\npage_1:\n  '#type': webform_wizard_page\n  '#title': PREPPING\n  the_theme_for_afrikaburn_2018_is_:\n    '#type': radios\n    '#title': 'The theme for AfrikaBurn 2018 is...?'\n    '#description': '(Tip: head to <a href=\"https://www.afrikaburn.com/the-event/2018-theme\" target=\"_blank\">this page</a> to find out)'\n    '#options':\n      0: 'Bonfire of the Majesties'\n      1: 'Make The Circle Bigger'\n      2: '‘Working Title____________________’'\n      all: 'All of the above, and whatever you want it to be.'\n    '#required': true\n  jol_header:\n    '#type': webform_markup\n    '#display_on': both\n    '#markup': '<p class=\"western\" lang=\"en-GB\" style=\"margin-bottom: 0cm; line-height: 100%\">This ain&#39;t no party, and it ain&#39;t no disco - it&#39;s an experiment in community, and a blank canvas where you&rsquo;re free to express your creativity.</p>'\n  this_ain_t_no_party_and_it_ain_t_no_disco_it_s_an_experiment_in_:\n    '#type': radios\n    '#title': 'So...are you expecting a jol?'\n    '#options':\n      'Hell no. There’s music, but it’s so much more than just a jol.': 'Hell no. There’s music, but it’s so much more than just a jol.'\n      'Damn, so it''s not a music festival? Looks like I need to do more reading.': 'Damn, so it''s not a music festival? Looks like I need to do more reading.'\n      'So...it’s not actually a party? Screw this, I’m outta here.': 'So...it’s not actually a party? Screw this, I’m outta here.'\n    '#required': true\n  have_you_read_the_survival_guide_:\n    '#type': radios\n    '#title': 'Have you read the Survival Guide?'\n    '#description': 'No? Seriously, read our <a href=\"http://www.afrikaburn.com/the-event/preparation/survival-guide\">Survival Guide</a> before you hit the road.'\n    '#options':\n      'no': 'No. What the hell''s a Survival Guide?'\n      'yes': 'Yep, and it''s pretty damn helpful.'\n      'You need a SURVIVAL GUIDE?!? I want my mummy.': 'You need a SURVIVAL GUIDE?!? I want my mummy.'\n    '#required': true\n  haul_head:\n    '#type': webform_markup\n    '#markup': '<p class=\"western\" lang=\"en-GB\" style=\"margin-bottom: 0cm; line-height: 100%\">Ready to haul your entire camp into a remote and hostile environment?</p>'\n  where_you_re_expected_to_rely_on_your_own_abilities_to_survive_f:\n    '#type': radios\n    '#title': 'Where you’re expected to rely on your own abilities to survive for the entire time?'\n    '#options':\n      'Pfff. Do it in my sleep.': 'Pfff. Do it in my sleep.'\n      'Absolutely, I love this kind of thing.': 'Absolutely, I love this kind of thing.'\n      'Wait, what? I’m not ready for this.': 'Wait, what? I’m not ready for this.'\n    '#required': true\n  partisipate_header:\n    '#type': webform_markup\n    '#markup': '<p class=\"western\" lang=\"en-GB\" style=\"margin-bottom: 0cm; line-height: 100%\">Are you planning to party up a storm, develop an evil hangover and then hightail it home, leaving a pile of MOOP* behind?</p>'\n  or_do_you_have_a_plan_to_set_up_an_amazing_camp_and_proceed_to_b:\n    '#type': radios\n    '#title': 'Or do you have a plan to set up an amazing camp and proceed to become part of the community by participating?'\n    '#description': '(Tip: Don&#39;t know what MOOP is? Find out more <a href=\"https://www.afrikaburn.com/the-event/participation/leave-no-trace\">about it here</a>.'\n    '#options':\n      'I thought I was going to do the party thing, but by the sounds of it that’s not really what this is about.': 'I thought I was going to do the party thing, but by the sounds of it that’s not really what this is about.'\n      'Community, participation, gifting - bring it on!': 'Community, participation, gifting - bring it on!'\n    '#required': true\n  insert_your_madly_creative_project_and_or_gifting_idea_here_:\n    '#type': text_format\n    '#title': 'Insert your madly creative project and / or gifting idea here:'\n    '#description': '<p class=\"western\" lang=\"en-GB\" style=\"margin-bottom: 0cm; line-height: 100%\">(it&#39;s OK to just describe it briefly - save the long version for your Art, Mutant Vehicle, Theme Camp or Performance registration)</p>'\n    '#allowed_formats':\n      plain_text: plain_text\n    '#required': true\npage_2:\n  '#type': webform_wizard_page\n  '#title': 'AT THE EVENT'\n  are_you_aware_that_there_s_nothing_sold_on_site_at_all_except_ic:\n    '#type': radios\n    '#title': 'Are you aware that there’s nothing sold on site at all except ice?'\n    '#options':\n      'Of course, yes. It’s a Burn, after all.': 'Of course, yes. It’s a Burn, after all.'\n      'I didn’t know that.': 'I didn’t know that.'\n      'OMG this is a hardcore event. Hell, no – I don’t think I can do this.': 'OMG this is a hardcore event. Hell, no – I don’t think I can do this.'\n    '#required': true\n  tankwa_town_is_built_on_the_spirit_of_volunteering_have_you_chec:\n    '#type': radios\n    '#title': 'Tankwa Town is built on the spirit of volunteering. Have you checked out the volunteer options?'\n    '#description': 'Check out the <a href=\"https://www.afrikaburn.com/the-event/participation\">range of volunteer options here</a>.'\n    '#options':\n      'Say what? So I actually have to do stuff?': 'Say what? So I actually have to do stuff?'\n      'I know all about them, and will be signing up for shifts': 'I know all about them, and will be signing up for shifts'\n      'I didn''t know that, but thanks - I''ll see where I can help out.': 'I didn''t know that, but thanks - I''ll see where I can help out.'\n    '#required': true\n  moop_is_an_abbreviation_for_:\n    '#type': radios\n    '#title': 'MOOP is an abbreviation for:'\n    '#options':\n      'Medical Out Of Pocket': 'Medical Out Of Pocket'\n      'Manual Of Operations & Procedures': 'Manual Of Operations & Procedures'\n      'Matter Out Of Place': 'Matter Out Of Place'\n      'Memory Of Our Participation': 'Memory Of Our Participation'\n    '#required': true\n  dustbin_header:\n    '#type': webform_markup\n    '#display_on': both\n    '#markup': '<p class=\"western\" lang=\"en-GB\" style=\"margin-bottom: 0cm; line-height: 100%\">Do you understand that there are no dustbins, trashcans or dumps at AfrikaBurn?</p>'\n  because_you_re_expected_to_bring_everything_in_and_take_it_all_a:\n    '#type': radios\n    '#title': 'Because you’re expected to bring everything in, and take it all away again?'\n    '#options':\n      'Yep, I’m all sorted and will remove & recycle everything I brought with me.': 'Yep, I’m all sorted and will remove & recycle everything I brought with me.'\n      'Seriously? I dunno about this anymore; I’d rather go to a music festival.': 'Seriously? I dunno about this anymore; I’d rather go to a music festival.'\n    '#required': true\npage_3:\n  '#type': webform_wizard_page\n  '#title': 'RULES? THEY SUCK, BUT…'\n  drone_header:\n    '#type': webform_markup\n    '#markup': 'If you have a drone, heads up: only licensed drone operators can fly at our event. If you&rsquo;re licensed, you can apply <a href=\"https://www.afrikaburn.com/the-event/getting-there/other-aircraft\">here</a>.'\n  if_not_leave_it_at_home_thanks_:\n    '#type': radios\n    '#title': 'If not, leave it at home, thanks.'\n    '#options':\n      'Damn. Guess I’m leaving my drone at home.': 'Damn. Guess I’m leaving my drone at home.'\n      'I didn’t know that, but thanks for filling me in.': 'I didn’t know that, but thanks for filling me in.'\n    '#required': true\n  mutant_header:\n    '#type': webform_markup\n    '#display_on': both\n    '#markup': 'Tankwa Town is a pedestrian and cycle zone: the only vehicles that can roll are Mutant Vehicles and crew &amp; emergency vehicles. Personal vehicles, scooters, land boards and quads are not Mutants: mutate it - <a href=\"https://www.afrikaburn.com/the-event/participation/mutant-vehicles\">and register it</a>'\n  or_park_it_:\n    '#type': radios\n    '#title': 'or park it.'\n    '#options':\n      'Huh. I get it; it''s a safety issue. I’ll park and walk / cycle.': 'Huh. I get it; it''s a safety issue. I’ll park and walk / cycle.'\n      'Thanks, I''ll register my mutant.': 'Thanks, I''ll register my mutant.'\n    '#required': true\n  18_header:\n    '#type': webform_markup\n    '#display_on': both\n    '#markup': '<p class=\"western\" lang=\"en-GB\" style=\"margin-bottom: 0cm; line-height: 100%\">If you&rsquo;re gifting booze, are you aware that anyone 18 or under wears a different coloured wristband?</p>'\n  this_is_to_identify_who_s_ok_and_not_ok_to_gift_your_drink_to_:\n    '#type': radios\n    '#title': 'This is to identify who’s OK (and not OK) to gift your drink to.'\n    '#options':\n      'Hell, that’s organised, thanks for letting me know.': 'Hell, that’s organised, thanks for letting me know.'\n      'I’d never gift booze to anyone that looks underage: I need it all for myself!': 'I’d never gift booze to anyone that looks underage: I need it all for myself!'\n      'All good: I''m not bringing any booze and plan on having a clean burn.': 'All good: I''m not bringing any booze and plan on having a clean burn.'\n    '#required': true\n  employ_head:\n    '#type': webform_markup\n    '#display_on': both\n    '#markup': 'In Tankwa Town you can&#39;t employ anyone to build your camp, clean it, cook for you - or take your camp down.'\n  in_other_words_plug_play_camps_are_not_permitted_at_afrikaburn_c:\n    '#type': radios\n    '#title': 'In other words, Plug & Play camps are not permitted at AfrikaBurn. Capiche?'\n    '#options':\n      'Hell. There goes my luxury experience.': 'Hell. There goes my luxury experience.'\n      'Thank you - Plug & Play camps have no place in a radically self-reliant community!': 'Thank you - Plug & Play camps have no place in a radically self-reliant community!'\n      'So I''m going to actually have to do work in my camp? Eek! OK, time to suck it up...': 'So I''m going to actually have to do work in my camp? Eek! OK, time to suck it up...'\n    '#required': true\n"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_login: false
+  form_login_message: ''
+  submission_label: ''
+  submission_log: false
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_login: false
+  submission_login_message: ''
+  submission_exception_message: ''
+  submission_locked_message: ''
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_start_label: ''
+  wizard_confirmation: true
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: url_message
+  confirmation_title: ''
+  confirmation_message: 'Great stuff! You&#39;ve completed the first part of your journey! Go create a collective, or join one on your <a href="/">home page</a>'
+  confirmation_url: /home
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: 'WTF did I agree to?'
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+access:
+  create:
+    roles:
+      - anonymous
+      - authenticated
+    users: {  }
+  view_any:
+    roles: {  }
+    users: {  }
+  update_any:
+    roles: {  }
+    users: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers: {  }
+uuid: 80e88679-4d8f-456e-a57c-01138979c9be

@@ -1,0 +1,16 @@
+diff --git a/core/modules/rdf/rdf.module b/core/modules/rdf/rdf.module
+index 0afcb09..31fb2e7 100644
+--- a/core/modules/rdf/rdf.module
++++ b/core/modules/rdf/rdf.module
+@@ -236,6 +236,11 @@ function rdf_comment_storage_load($comments) {
+     /** @var \Drupal\comment\CommentInterface $comment*/
+     $comment->rdf_data['date'] = rdf_rdfa_attributes($created_mapping, $comment->get('created')->first()->toArray());
+     $entity = $comment->getCommentedEntity();
++
++    if (!$entity instanceof \Drupal\Core\Entity\Entity) {
++      return;
++    }
++
+     // The current function is a storage level hook, so avoid to bubble
+     // bubbleable metadata, because it can be outside of a render context.
+     $comment->rdf_data['entity_uri'] = $entity->toUrl()->toString(TRUE)->getGeneratedUrl();

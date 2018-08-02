@@ -1,0 +1,31 @@
+uuid: 65b7ffe0-baf0-4edc-ae75-d1e960bff7ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.mutant_grant_expense.field_grt_brk_description
+    - field.field.paragraph.mutant_grant_expense.field_price_total_
+    - paragraphs.paragraphs_type.mutant_grant_expense
+id: paragraph.mutant_grant_expense.default
+targetEntityType: paragraph
+bundle: mutant_grant_expense
+mode: default
+content:
+  field_grt_brk_description:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_price_total_:
+    weight: 1
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+hidden: {  }

@@ -1,0 +1,14 @@
+uuid: 76b047db-e90b-425c-8d11-41584f0bacc2
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.art_wrangler
+  module:
+    - user
+id: user_remove_role_action.art_wrangler
+label: 'Remove the Art Wrangler role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: art_wrangler

@@ -1,0 +1,32 @@
+uuid: b23eeb29-04d7-49dd-a360-a13b77af0091
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_grant_expenses
+    - node.type.art
+  module:
+    - custom_add_another
+    - file
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.art.field_prj_grant_expenses
+field_name: field_prj_grant_expenses
+entity_type: node
+bundle: art
+label: 'Grant expenses'
+description: 'Please complete and upload <a href="/modules/custom/afrikaburn_registration/files/art-expenses-2019.xls" target="_blank">this spreadsheet</a> detailing your expenses.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: 'expenses/[date:custom:Y]-[date:custom:m]'
+  file_extensions: xls
+  max_filesize: ''
+  description_field: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

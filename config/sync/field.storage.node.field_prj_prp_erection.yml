@@ -1,0 +1,26 @@
+uuid: b23240c7-4a78-4535-8fd4-9540c8c9d1b2
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: INfBj9deRA_ij7t5qtOwdsoRpx8TRDMXEJT2acHRtms
+id: node.field_prj_prp_erection
+field_name: field_prj_prp_erection
+entity_type: node
+type: datetime
+settings:
+  datetime_type: date
+module: datetime
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

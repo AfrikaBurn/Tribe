@@ -1,0 +1,25 @@
+uuid: 36f9c9cc-c42f-4bcd-ba73-36efd603d008
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - viewfield
+    - views
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_prj_sup_details_view
+field_name: field_prj_sup_details_view
+entity_type: node
+type: viewfield
+settings:
+  target_type: view
+module: viewfield
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

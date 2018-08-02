@@ -1,0 +1,25 @@
+uuid: fe91194e-7930-45a4-be85-2d70289b990b
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.admin_comments
+    - field.storage.comment.field_body
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: comment.admin_comments.field_body
+field_name: field_body
+entity_type: comment
+bundle: admin_comments
+label: Comment
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

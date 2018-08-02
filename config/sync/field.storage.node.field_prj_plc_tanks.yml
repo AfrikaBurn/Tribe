@@ -1,0 +1,26 @@
+uuid: b490773e-ee9a-4cfa-8db0-bda72bb3b0a2
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+_core:
+  default_config_hash: K22c1kxQjTE9q_5otH7sI0UbIwWahgX00d7v56GipWw
+id: node.field_prj_plc_tanks
+field_name: field_prj_plc_tanks
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

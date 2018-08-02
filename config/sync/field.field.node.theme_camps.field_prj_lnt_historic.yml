@@ -1,0 +1,36 @@
+uuid: 69a9dab6-6425-4a12-b58e-511c6c53f3c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lnt_historic
+    - node.type.theme_camps
+    - taxonomy.vocabulary.moop_score
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: '-RLrxzu2AlPHTraQxPJHkmM8seY1ZtEWpTnkF-xxaD4'
+id: node.theme_camps.field_prj_lnt_historic
+field_name: field_prj_lnt_historic
+entity_type: node
+bundle: theme_camps
+label: 'What was your moop map score in 2017'
+description: "If you were part of a Theme Camp in 2016 what was your MOOP map rating?<br>\r\nRed, Yellow, Green"
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      moop_score: moop_score
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,28 @@
+uuid: 0451aa95-2c82-4048-b390-e26860781686
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_prp_erection
+    - node.type.performances
+  module:
+    - custom_add_another
+    - datetime
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: KDPBxnlgmq_3we9NxszwFNbWETlr3fiDOBKwljLC7O0
+id: node.performances.field_prj_prp_erection
+field_name: field_prj_prp_erection
+entity_type: node
+bundle: performances
+label: 'When are you planning to start building on site?'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

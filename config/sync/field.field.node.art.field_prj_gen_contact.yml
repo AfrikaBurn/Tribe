@@ -1,0 +1,33 @@
+uuid: ab2f0623-5bea-4141-b169-63bb9d264fc1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_gen_contact
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: THv8oiDUCkLa-O_YVojvbmtDSI8JFYzWYOkKyBMcvKw
+id: node.art.field_prj_gen_contact
+field_name: field_prj_gen_contact
+entity_type: node
+bundle: art
+label: 'Contact Person'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: collective_members
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

@@ -1,0 +1,14 @@
+uuid: f31687a9-0589-48c2-94e5-6f39dea3ffe3
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.support_wrangler
+  module:
+    - user
+id: user_remove_role_action.support_wrangler
+label: 'Remove the Support Wrangler role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: support_wrangler

@@ -1,0 +1,14 @@
+uuid: 8f510751-1ce5-421d-8f49-7b314314638e
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.supplier
+  module:
+    - user
+id: user_add_role_action.supplier
+label: 'Add the Supplier role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: supplier

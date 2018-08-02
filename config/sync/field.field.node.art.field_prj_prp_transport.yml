@@ -1,0 +1,27 @@
+uuid: e9dc7f5b-d975-4739-9024-b19f13254b4b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_prp_transport
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: lYGXg74JDyAKlgoenScEQF5asKMTZhTYHGTYFux-1ec
+id: node.art.field_prj_prp_transport
+field_name: field_prj_prp_transport
+entity_type: node
+bundle: art
+label: Transport
+description: 'How are you planning to transport your artwork to Tankwa Town? Think about weight, size, and a suitable vehicle. Remember the weighbridges and don’t forget the dirt roads.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

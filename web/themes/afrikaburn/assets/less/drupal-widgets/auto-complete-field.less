@@ -1,0 +1,36 @@
+.js input.form-autocomplete {
+  background-image: url("../images/loading.gif");
+  background-size: 0 0;
+}
+
+.js input.form-autocomplete.ui-autocomplete-loading {
+  background-image: url("../images/loading.gif");
+  background-size: 24px 24px;
+}
+
+ul.ui-autocomplete {
+  border-width: 0;
+  .border-radius(@radiusSize: 5px);
+  overflow: hidden;
+}
+
+ul.ui-autocomplete li {
+  background-color: @ab-light-maroon;
+}
+
+ul.ui-autocomplete li:hover {
+  background: darken(@ab-light-maroon, 20%);
+  border-width: 0;
+}
+
+ul.ui-autocomplete li a {
+  font-size: 1.5em;
+  text-decoration: none;
+  color: #fff;
+  display: block;
+  padding: 5px 10px;
+}
+
+ul.ui-autocomplete li a:hover {
+  color: @body-content-link-color;
+}

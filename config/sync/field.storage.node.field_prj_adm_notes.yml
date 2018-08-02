@@ -1,0 +1,25 @@
+uuid: 41c690e2-94e5-4c09-81ec-9be41b734291
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: custom
+_core:
+  default_config_hash: rSRK2_0rWDvWqKWAQ__KdFs-160BOf643GzQYQQIahw
+id: node.field_prj_adm_notes
+field_name: field_prj_adm_notes
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

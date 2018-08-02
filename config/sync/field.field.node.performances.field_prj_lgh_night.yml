@@ -1,0 +1,31 @@
+uuid: 0b0673a5-8ff9-4e08-8a6c-8cb1d1697c88
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_lgh_night
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+_core:
+  default_config_hash: cfLjgGd8x9xFYpti0Tst7tOzYZbIylxZmz-IiT_7Rq4
+id: node.performances.field_prj_lgh_night
+field_name: field_prj_lgh_night
+entity_type: node
+bundle: performances
+label: 'Will your artwork have any lighting component?'
+description: 'If you have a night time performance, or your structure will remain up over night, you will need to have lighting, to ensure that no people or mutant vehicles accidentally run into it.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean
