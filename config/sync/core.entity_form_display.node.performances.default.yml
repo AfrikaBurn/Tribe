@@ -132,10 +132,10 @@ third_party_settings:
         - group_wtf
       parent_name: ''
       weight: 1
-      format_type: tab
+      format_type: tabs
       format_settings:
         label: 'Project Registration'
-        effect: none
+        direction: horizontal
         id: ''
         classes: ''
       label: 'Project Registration'

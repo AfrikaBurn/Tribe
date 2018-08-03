@@ -54,6 +54,7 @@ dependencies:
     - field.field.node.performances.field_prj_gen_manager
     - field.field.node.performances.field_prj_gen_story
     - field.field.node.performances.field_prj_gen_year
+    - field.field.node.performances.field_prj_grant_expenses
     - field.field.node.performances.field_prj_lgh_agree
     - field.field.node.performances.field_prj_lgh_description
     - field.field.node.performances.field_prj_lgh_f1
@@ -134,7 +135,7 @@ third_party_settings:
       format_type: tabs
       format_settings:
         label: 'Project Registration'
-        effect: none
+        direction: horizontal
         id: ''
         classes: ''
       label: 'Project Registration'
@@ -485,6 +486,7 @@ hidden:
   field_prj_gen_manager: true
   field_prj_gen_story: true
   field_prj_gen_year: true
+  field_prj_grant_expenses: true
   field_prj_lgh_agree: true
   field_prj_lgh_description: true
   field_prj_lgh_f1: true

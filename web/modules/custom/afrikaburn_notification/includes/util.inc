@@ -84,7 +84,7 @@ function _entity_diff($node, &$body){
 
     $rendered = '<table cellspacing=10 style="text-align: left;"><tr><th>Changed</th><th>From</th><th>To</th></tr>';
     foreach($diff as $title=>$change){
-      $rendered .= '<tr><td>' . implode('</td><td>', [$title, $change[0], $change[1]]) .'</td></tr>';
+      $rendered .= '<tr><td>' . implode('</td><td>', [$title, implode(',', $change[0]), implode(',', $change[1])]) .'</td></tr>';
     }
     $rendered .= '</table>';
   }
