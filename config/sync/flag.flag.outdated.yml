@@ -1,20 +1,20 @@
-uuid: 9c7bdb0b-dd1b-41aa-8186-64585eaf5ffa
+uuid: fe1eef7f-4a4f-44f4-8a83-60f9aac7112d
 langcode: en
 status: true
 dependencies:
   module:
     - user
-id: updated
-label: Updated
+id: outdated
+label: Outdated
 bundles: {  }
 entity_type: user
 global: true
 weight: 0
-flag_short: 'Flag as up to date'
-flag_long: ''
+flag_short: 'Up to date'
+flag_long: 'This bio is up to date. Click to force the user to update their bio.'
 flag_message: ''
-unflag_short: 'Flag to be updated'
-unflag_long: ''
+unflag_short: Outdated
+unflag_long: 'This bio is outdated. They will be forced to update their bio. Click to change.'
 unflag_message: ''
 unflag_denied_text: ''
 flag_type: 'entity:user'

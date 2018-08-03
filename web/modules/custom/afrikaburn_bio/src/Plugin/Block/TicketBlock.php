@@ -25,17 +25,14 @@ class TicketBlock extends BlockBase {
     $settings = Settings::get('afrikaburn.quicket');
     $account = \Drupal\user\Entity\User::load($uid);
     $flag_service = \Drupal::service('flag');
-    $flag = $flag_service->getFlagById('updated');
-    $updated = $flag_service->getFlagging($flag, $account);
+    $flag = $flag_service->getFlagById('outdated');
+    $outdated = $flag_service->getFlagging($flag, $account);
 
-    if ($updated){
-      $links[] = '<a class="button" target="_blank" href="https://www.quicket.co.za/events/'.$settings['event_id'].'-#' . md5($uid) . '">Buy tickets</a><br/>';
-    } else {
-      $links = [
-        'To be eligible for ticket sales, please<br />',
-        '<a class="button" href="/user/'.$uid.'/edit/update"><strong>Update your Bio</strong></a>',
-      ];
+    if ($outdated){
+      $links = ['<a class="button bio-update" href="/user/'.$uid.'/edit/update"><strong>Update your Bio</strong></a>'];
     }
+
+    $links[] = '<a class="button bio-tickets" target="_blank" href="https://www.quicket.co.za/events/' . $settings['event_id'] . 'h=' . md5($uid) . '">Buy tickets</a><br/>';
 
     return [
       '#type' => 'markup',

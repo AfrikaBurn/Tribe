@@ -33,15 +33,15 @@ class BioBlock extends BlockBase {
     $uid = \Drupal::currentUser()->id();
     $account = \Drupal\user\Entity\User::load($uid);
     $flag_service = \Drupal::service('flag');
-    $flag = $flag_service->getFlagById('updated');
-    $updated = $flag_service->getFlagging($flag, $account);
+    $flag = $flag_service->getFlagById('outdated');
+    $outdated = $flag_service->getFlagging($flag, $account);
     $quicket_code = $account->get('field_quicket_code');
 
     $items = [
       $this::l('View my Bio', 'user'),
-      $updated
-        ? $this::l('Edit my Bio', 'user/'.$uid.'/edit')
-        : $this::l('Update my Bio', 'user/'.$uid.'/edit/update'),
+      $outdated
+        ? $this::l('Update my Bio', 'user/'.$uid.'/edit/update')
+        : $this::l('Edit my Bio', 'user/'.$uid.'/edit'),
       $this::l('Log out', 'user/logout'),
       '<ul><li></li><li>'.$this::l('Delete my Bio', 'user/'.$uid.'/cancel').'</li></ul>'
     ];

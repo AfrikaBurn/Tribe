@@ -16,7 +16,7 @@ field_name: field_terms_and_conditions
 entity_type: user
 bundle: user
 label: 'I accept the terms and conditions of using this site'
-description: 'By creating a profile you agree to our [Terms and Conditions of use] and <a href="https://www.afrikaburn.com/wp-content/uploads/2014/02/AfrikaBurn-Privacy-Policy-v1-1.docx" target="_blank">Privacy Policy</a>'
+description: 'By creating a profile you agree to our <a href="https://www.afrikaburn.com/website-terms-of-use" target="_blank">Terms and Conditions of use</a> and <a href="https://www.afrikaburn.com/wp-content/uploads/2014/02/AfrikaBurn-Privacy-Policy-v1-1.docx" target="_blank">Privacy Policy</a>'
 required: true
 translatable: false
 default_value:

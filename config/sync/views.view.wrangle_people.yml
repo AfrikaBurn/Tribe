@@ -1,4 +1,4 @@
-uuid: dc175636-a403-467d-8570-e1f2030dc838
+uuid: af0b6f3c-f334-4536-9660-090513cdfdfd
 langcode: en
 status: true
 dependencies:
@@ -7,10 +7,14 @@ dependencies:
     - field.storage.user.field_id_number
     - field.storage.user.field_last_name
     - field.storage.user.field_mobile
+    - field.storage.user.field_newsletter
     - field.storage.user.field_secondary_mail
     - field.storage.user.user_picture
-    - flag.flag.updated
+    - flag.flag.outdated
     - image.style.medium
+    - system.menu.wrangle
+    - user.role.administrator
+    - user.role.support_wrangler
   module:
     - csv_serialization
     - flag
@@ -21,11 +25,11 @@ dependencies:
     - views_data_export
 _core:
   default_config_hash: wTJRNzsLVTenCALONNlVfgm_pBOlqucSPuVFLOD56ck
-id: user_admin_people
-label: People
+id: wrangle_people
+label: 'Wrangle: People'
 module: user
 description: 'Find and manage people interacting with your site.'
-tag: default
+tag: ''
 base_table: users_field_data
 base_field: uid
 core: 8.x
@@ -37,9 +41,11 @@ display:
     position: 0
     display_options:
       access:
-        type: perm
+        type: role
         options:
-          perm: 'administer users'
+          role:
+            administrator: administrator
+            support_wrangler: support_wrangler
       cache:
         type: tag
       query:
@@ -77,21 +83,28 @@ display:
           summary: ''
           description: ''
           columns:
-            user_picture: user_picture
             user_bulk_form: user_bulk_form
+            user_picture: user_picture
             name: name
             field_first_name: field_first_name
             field_last_name: field_last_name
+            nothing: nothing
             mail: mail
-            field_secondary_mail: mail
+            field_secondary_mail: field_secondary_mail
             field_mobile: field_mobile
-            field_id_number: field_id_number
-            status: status
-            roles_target_id: roles_target_id
+            field_id_number: nothing
+            status: nothing
+            link_flag: nothing
             created: created
             access: access
+            field_newsletter: field_newsletter
             operations: operations
           info:
+            user_bulk_form:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             user_picture:
               sortable: false
               default_sort_order: asc
@@ -99,37 +112,39 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            user_bulk_form:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             name:
-              sortable: true
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             field_first_name:
-              sortable: true
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
             field_last_name:
-              sortable: true
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            mail:
+            nothing:
               sortable: true
               default_sort_order: asc
               align: ''
-              separator: '<br>'
+              separator: '<br />'
+              empty_column: false
+              responsive: ''
+            mail:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: '<br />'
               empty_column: false
               responsive: ''
             field_secondary_mail:
@@ -160,8 +175,8 @@ display:
               separator: ''
               empty_column: false
               responsive: priority-low
-            roles_target_id:
-              sortable: true
+            link_flag:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -181,6 +196,13 @@ display:
               separator: ''
               empty_column: false
               responsive: priority-low
+            field_newsletter:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             operations:
               align: ''
               separator: ''
@@ -239,6 +261,14 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          action_title: Action
+          include_exclude: include
+          selected_actions:
+            - flag_action.updated.flag
+            - flag_action.updated.unflag
+            - user_block_user_action
+            - user_cancel_user_action
+            - user_unblock_user_action
           plugin_id: user_bulk_form
           entity_type: user
         user_picture:
@@ -312,8 +342,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Username
-          exclude: false
+          label: ''
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -341,20 +371,33 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: '0'
           element_class: ''
-          element_label_type: ''
+          element_label_type: '0'
           element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
+          element_label_colon: false
+          element_wrapper_type: '0'
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          plugin_id: field
+          click_sort_column: value
           type: user_name
+          settings:
+            link_to_entity: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
           entity_type: user
           entity_field: name
         field_first_name:
@@ -364,8 +407,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'First Name:'
-          exclude: false
+          label: ''
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -427,8 +470,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Last Name:'
-          exclude: false
+          label: ''
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -483,6 +526,55 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        nothing:
+          id: nothing
+          table: views
+          field: nothing
+          relationship: none
+          group_type: group
+          admin_label: Name
+          label: About
+          exclude: false
+          alter:
+            alter_text: true
+            text: '{{ field_first_name }} "{{ name }} " {{ field_last_name }}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: false
+          plugin_id: custom
         mail:
           id: mail
           table: users_field_data
@@ -791,14 +883,14 @@ display:
             format_custom_false: Blocked
           entity_type: user
           entity_field: status
-        roles_target_id:
-          id: roles_target_id
-          table: user__roles
-          field: roles_target_id
-          relationship: none
+        link_flag:
+          id: link_flag
+          table: flagging
+          field: link_flag
+          relationship: flag_relationship
           group_type: group
           admin_label: ''
-          label: Roles
+          label: ' '
           exclude: false
           alter:
             alter_text: false
@@ -839,9 +931,8 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          type: ul
-          separator: ', '
-          plugin_id: user_roles
+          entity_type: flagging
+          plugin_id: flag_link
         created:
           id: created
           table: users_field_data
@@ -954,14 +1045,14 @@ display:
           plugin_id: field
           entity_type: user
           entity_field: access
-        flagged:
-          id: flagged
-          table: flagging
-          field: flagged
-          relationship: flag_relationship
+        field_newsletter:
+          id: field_newsletter
+          table: user__field_newsletter
+          field: field_newsletter
+          relationship: none
           group_type: group
           admin_label: ''
-          label: Updated
+          label: Newsletter
           exclude: false
           alter:
             alter_text: false
@@ -994,7 +1085,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -1002,12 +1093,23 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          type: yes-no
-          type_custom_true: ''
-          type_custom_false: ''
-          not: 0
-          entity_type: flagging
-          plugin_id: flag_flagged
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: default
+            format_custom_true: ''
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         operations:
           id: operations
           table: users
@@ -1073,7 +1175,7 @@ display:
           exposed: true
           expose:
             operator_id: combine_op
-            label: 'Name or email contains'
+            label: ''
             description: ''
             use_operator: false
             operator: combine_op
@@ -1139,7 +1241,7 @@ display:
           exposed: true
           expose:
             operator_id: field_id_number_value_op
-            label: 'SA ID or Passport Number:'
+            label: ''
             description: ''
             use_operator: false
             operator: field_id_number_value_op
@@ -1165,6 +1267,11 @@ display:
               support_admin: '0'
               theme_camp_wrangler: '0'
               theme: '0'
+              supplier: '0'
+              dpw: '0'
+              volunteer_admin: '0'
+              ranger_admin: '0'
+              sanctuary_admin: '0'
             placeholder: ''
           is_grouped: false
           group_info:
@@ -1206,7 +1313,7 @@ display:
               administrator: '0'
           is_grouped: true
           group_info:
-            label: Status
+            label: ''
             description: ''
             identifier: status
             optional: true
@@ -1227,46 +1334,6 @@ display:
           plugin_id: boolean
           entity_type: user
           entity_field: status
-        roles_target_id:
-          id: roles_target_id
-          table: user__roles
-          field: roles_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: roles_target_id_op
-            label: Role
-            description: ''
-            use_operator: false
-            operator: roles_target_id_op
-            identifier: role
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              administrator: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          plugin_id: user_roles
         default_langcode:
           id: default_langcode
           table: users_field_data
@@ -1375,7 +1442,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: 'No people available.'
+          content: "<div class=\"messages messages--warning\">\nOh no! No matching People found!<br />Have you tried switching it off and on again?\n</div>"
           plugin_id: text_custom
       use_more: false
       use_more_always: false
@@ -1402,7 +1469,7 @@ display:
           group_type: group
           admin_label: Flags
           required: false
-          flag: updated
+          flag: outdated
           user_scope: any
           entity_type: user
           plugin_id: flag_relationship
@@ -1412,13 +1479,14 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user.permissions
+        - user.roles
       max-age: 0
       tags:
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_id_number'
         - 'config:field.storage.user.field_last_name'
         - 'config:field.storage.user.field_mobile'
+        - 'config:field.storage.user.field_newsletter'
         - 'config:field.storage.user.field_secondary_mail'
         - 'config:field.storage.user.user_picture'
   data_export:
@@ -1859,7 +1927,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - request_format
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_id_number'
@@ -1871,15 +1939,17 @@ display:
     display_title: Page
     position: 1
     display_options:
-      path: admin/people/list
+      path: wrangle/people
       show_admin_links: false
       menu:
-        type: 'default tab'
-        title: List
+        type: normal
+        title: People
         description: 'Find and manage people interacting with your site.'
-        menu_name: admin
+        expanded: false
+        parent: ''
         weight: -10
-        context: ''
+        context: '0'
+        menu_name: wrangle
       tab_options:
         type: normal
         title: People
@@ -1897,12 +1967,13 @@ display:
         - 'languages:language_interface'
         - url
         - url.query_args
-        - user.permissions
+        - user.roles
       max-age: 0
       tags:
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_id_number'
         - 'config:field.storage.user.field_last_name'
         - 'config:field.storage.user.field_mobile'
+        - 'config:field.storage.user.field_newsletter'
         - 'config:field.storage.user.field_secondary_mail'
         - 'config:field.storage.user.user_picture'
