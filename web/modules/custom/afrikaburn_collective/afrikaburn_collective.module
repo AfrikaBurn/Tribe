@@ -39,21 +39,6 @@ function afrikaburn_collective_form_alter(&$form, $form_state, $form_id) {
 }
 
 /**
- * Implements hook_views_pre_view().
- * Hooked to set collective on drop down view selects
- */
-function afrikaburn_collective_views_pre_view($view, $display_id, &$args){
-  if ($view->id() == 'collective_members' && $display_id == 'entity_reference_1'){
-    $node = \Drupal::routeMatch()->getParameter('node');
-    if ($node && $node->field_collective){
-      $args[0] = $node->field_collective->first()->getValue()['target_id'];
-    } else if ($cid = \Drupal::request()->query->get('field_collective')) {
-      $args[0] = $cid;
-    }
-  }
-}
-
-/**
  * Implements hook_entity_extra_field_info().
  */
 function afrikaburn_collective_entity_extra_field_info() {
