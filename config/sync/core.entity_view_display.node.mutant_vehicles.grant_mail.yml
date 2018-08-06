@@ -1,9 +1,9 @@
-uuid: f43ef372-8295-4645-8817-edcf3dea3eef
+uuid: 50613ec0-1f2c-4749-a74d-2af00e3c0712
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.node.grant
+    - core.entity_view_mode.node.grant_mail
     - field.field.node.mutant_vehicles.field_admin_comments
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
@@ -104,6 +104,7 @@ dependencies:
   module:
     - field_group
     - paragraphs
+    - user
 third_party_settings:
   field_group:
     group_project_registration:
@@ -113,17 +114,20 @@ third_party_settings:
         - group_other_funding
       parent_name: ''
       weight: 3
-      format_type: tabs
+      format_type: html_element
       format_settings:
-        label: Intro
-        direction: horizontal
-        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        effect: none
+        speed: fast
+        attributes: ''
         classes: ''
+        id: ''
       label: Intro
       region: content
     group_overview:
       children:
-        - title
         - field_grt_materials
         - field_grt_transport
         - field_grt_services
@@ -132,11 +136,15 @@ third_party_settings:
         - field_grt_art_total
       parent_name: group_project_registration
       weight: 11
-      format_type: tab
+      format_type: html_element
       format_settings:
         label: Overview
-        formatter: closed
-        required_fields: true
+        element: h2
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
         id: ''
         classes: ''
       label: Overview
@@ -146,13 +154,17 @@ third_party_settings:
         - field_grt_dmv_budget
       parent_name: group_project_registration
       weight: 12
-      format_type: tab
+      format_type: html_element
       format_settings:
+        label: Budget
+        element: h2
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
         id: ''
         classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
       label: Budget
     group_other_funding:
       children:
@@ -160,106 +172,100 @@ third_party_settings:
         - field_grt_other_description
       parent_name: group_project_registration
       weight: 13
-      format_type: tab
+      format_type: html_element
       format_settings:
+        label: 'Other funding'
+        element: h2
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
         id: ''
         classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
       label: 'Other funding'
-_core:
-  default_config_hash: FHLYUGK-mQGVYzvIKsUSwq4IdPmIgOzk9wE9K3NHGck
-id: node.mutant_vehicles.grant
+id: node.mutant_vehicles.grant_mail
 targetEntityType: node
 bundle: mutant_vehicles
-mode: grant
+mode: grant_mail
 content:
   field_grt_art_total:
-    type: number
     weight: 16
     region: content
-    settings:
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
+    type: number_unformatted
+    label: above
   field_grt_contribution:
-    type: number
     weight: 15
     region: content
-    settings:
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
+    type: number_unformatted
+    label: above
   field_grt_dmv_budget:
-    type: entity_reference_paragraphs
     weight: 0
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
+    settings: {  }
     third_party_settings: {  }
     region: content
+    type: paragraph_summary
+    label: above
   field_grt_materials:
-    type: number
     weight: 11
     region: content
-    settings:
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
+    type: number_unformatted
+    label: above
   field_grt_other:
-    type: boolean_checkbox
     weight: 8
     region: content
     settings:
-      display_label: true
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
+    type: boolean
+    label: above
   field_grt_other_description:
-    type: string_textarea
     weight: 9
     region: content
-    settings:
-      rows: 5
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
+    type: basic_string
+    label: above
   field_grt_services:
-    type: number
     weight: 13
     region: content
-    settings:
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
+    type: number_unformatted
+    label: above
   field_grt_total:
-    type: number
     weight: 14
     region: content
-    settings:
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
+    type: number_unformatted
+    label: above
   field_grt_transport:
-    type: number
     weight: 12
     region: content
-    settings:
-      placeholder: ''
+    settings: {  }
+    third_party_settings: {  }
+    type: number_unformatted
+    label: above
+  links:
+    weight: 100
+    region: content
+    settings: {  }
     third_party_settings: {  }
   moderation_state:
-    type: moderation_state_default
     weight: 15
     settings: {  }
     region: content
     third_party_settings: {  }
-  title:
-    type: string_textfield
-    weight: 10
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
 hidden:
-  created: true
   field_admin_comments: true
   field_collective: true
   field_form_mode: true
@@ -351,5 +357,4 @@ hidden:
   promote: true
   status: true
   sticky: true
-  uid: true
   url_redirects: true

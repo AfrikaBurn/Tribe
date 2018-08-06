@@ -117,9 +117,7 @@ dependencies:
     - field.field.node.performances.field_year_cycle
     - node.type.performances
   module:
-    - computed_field
     - ds
-    - file
     - responsive_image
     - user
 third_party_settings:
@@ -135,9 +133,6 @@ third_party_settings:
         - field_prj_gen_concept
       second:
         - field_prj_gen_description
-      top:
-        - field_year_cycle
-        - field_prj_grant_expenses
 id: node.performances.default
 targetEntityType: node
 bundle: performances
@@ -147,7 +142,7 @@ content:
     type: responsive_image
     weight: 0
     region: first
-    label: above
+    label: hidden
     settings:
       responsive_image_style: ''
       image_link: ''
@@ -156,28 +151,9 @@ content:
     type: basic_string
     weight: 1
     region: second
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-  field_prj_grant_expenses:
-    weight: 3
-    label: above
-    settings:
-      use_description_as_link_text: true
-    third_party_settings: {  }
-    type: file_default
-    region: top
-  field_year_cycle:
-    weight: 2
-    label: above
-    settings:
-      cache_unit: -1
-      cache_duration: 1
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: computed_integer
-    region: top
 hidden:
   field_admin_comments: true
   field_bke_day: true
@@ -227,6 +203,7 @@ hidden:
   field_prj_gen_manager: true
   field_prj_gen_story: true
   field_prj_gen_year: true
+  field_prj_grant_expenses: true
   field_prj_lgh_agree: true
   field_prj_lgh_description: true
   field_prj_lgh_f1: true
@@ -287,4 +264,5 @@ hidden:
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
+  field_year_cycle: true
   links: true

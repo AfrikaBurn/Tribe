@@ -133,10 +133,10 @@ third_party_settings:
         - group_wtf
       parent_name: ''
       weight: 1
-      format_type: accordion
+      format_type: tabs
       format_settings:
         label: 'Project Registration'
-        effect: none
+        direction: horizontal
         id: ''
         classes: ''
       label: 'Project Registration'
@@ -154,13 +154,12 @@ third_party_settings:
         - field_prj_oth_grant
       parent_name: group_project
       weight: 20
-      format_type: accordion_item
+      format_type: tab
       format_settings:
-        label: Overview
-        formatter: open
-        required_fields: true
+        formatter: closed
+        description: ''
+        classes: ''
         id: ''
-        classes: ui-accordion-header
       label: Overview
       region: content
     group_wtf:
@@ -171,13 +170,12 @@ third_party_settings:
         - field_prj_wtf_website
       parent_name: group_project
       weight: 27
-      format_type: accordion_item
+      format_type: tab
       format_settings:
-        label: 'Community & Collaboration'
         formatter: closed
-        required_fields: true
-        id: ''
+        description: ''
         classes: ''
+        id: ''
       label: 'Community & Collaboration'
       region: content
     group_administrative:

@@ -1,4 +1,4 @@
-uuid: f43ef372-8295-4645-8817-edcf3dea3eef
+uuid: 4ad36c7f-2c7d-4f16-adb1-ab80aba123a1
 langcode: en
 status: true
 dependencies:
@@ -168,29 +168,24 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Other funding'
-_core:
-  default_config_hash: FHLYUGK-mQGVYzvIKsUSwq4IdPmIgOzk9wE9K3NHGck
 id: node.mutant_vehicles.grant
 targetEntityType: node
 bundle: mutant_vehicles
 mode: grant
 content:
   field_grt_art_total:
-    type: number
     weight: 16
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_grt_contribution:
-    type: number
     weight: 15
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_grt_dmv_budget:
-    type: entity_reference_paragraphs
     weight: 0
     settings:
       title: Paragraph
@@ -202,21 +197,18 @@ content:
     third_party_settings: {  }
     region: content
   field_grt_materials:
-    type: number
     weight: 11
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_grt_other:
-    type: boolean_checkbox
     weight: 8
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_grt_other_description:
-    type: string_textarea
     weight: 9
     region: content
     settings:
@@ -224,42 +216,32 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_grt_services:
-    type: number
     weight: 13
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_grt_total:
-    type: number
     weight: 14
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_grt_transport:
-    type: number
     weight: 12
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
+  links:
+    weight: 100
+    region: content
   moderation_state:
-    type: moderation_state_default
     weight: 15
     settings: {  }
     region: content
     third_party_settings: {  }
-  title:
-    type: string_textfield
-    weight: 10
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
 hidden:
-  created: true
   field_admin_comments: true
   field_collective: true
   field_form_mode: true
@@ -351,5 +333,4 @@ hidden:
   promote: true
   status: true
   sticky: true
-  uid: true
   url_redirects: true

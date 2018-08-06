@@ -1,9 +1,9 @@
-uuid: 716c4745-c5e6-4434-99e7-98745063e44d
+uuid: 83ccb7ce-edf8-4da7-99d3-301b27af34bb
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.form_1
+    - core.entity_view_mode.node.form_1_mail
     - field.field.node.theme_camps.field_admin_comments
     - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_field_prj_plc_marquis
@@ -152,11 +152,15 @@ third_party_settings:
         - field_prj_gen_fundraiser
       parent_name: group_project_registration
       weight: 1
-      format_type: tab
+      format_type: html_element
       format_settings:
         label: Intro
-        formatter: open
-        required_fields: true
+        element: h2
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
         id: ''
         classes: ''
       label: Intro
@@ -167,11 +171,15 @@ third_party_settings:
         - field_prj_snd_level
       parent_name: group_project_registration
       weight: 3
-      format_type: tab
+      format_type: html_element
       format_settings:
         label: Sound
-        formatter: closed
-        required_fields: true
+        element: h2
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
         id: ''
         classes: ''
       label: Sound
@@ -183,11 +191,15 @@ third_party_settings:
         - field_prj_lnt_historic
       parent_name: group_project_registration
       weight: 4
-      format_type: tab
+      format_type: html_element
       format_settings:
         label: LNT
-        formatter: closed
-        required_fields: true
+        element: h2
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
         id: ''
         classes: ''
       label: LNT
@@ -205,11 +217,15 @@ third_party_settings:
         - field_prj_stg_contact
       parent_name: group_project_registration
       weight: 5
-      format_type: tab
+      format_type: html_element
       format_settings:
-        label: Collaboration
-        formatter: closed
-        required_fields: true
+        label: 'WTF Guide and Community'
+        element: h2
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
         id: ''
         classes: ''
       label: 'WTF Guide and Community'
@@ -219,12 +235,15 @@ third_party_settings:
         - field_prj_oth_associated
       parent_name: group_project_registration
       weight: 6
-      format_type: tab
+      format_type: html_element
       format_settings:
         label: Other
-        formatter: closed
-        description: ''
-        required_fields: true
+        element: h2
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
         id: ''
         classes: ''
       label: Other
@@ -238,11 +257,15 @@ third_party_settings:
         - field_prj_est_camp_population
       parent_name: group_project_registration
       weight: 2
-      format_type: tab
+      format_type: html_element
       format_settings:
         label: Overview
-        formatter: closed
-        required_fields: true
+        element: h2
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
         id: ''
         classes: ''
       label: Overview
@@ -257,12 +280,16 @@ third_party_settings:
         - group_almost_done_new
       parent_name: ''
       weight: 1
-      format_type: tabs
+      format_type: html_element
       format_settings:
-        label: 'Project registration'
-        direction: horizontal
-        id: ''
+        element: div
+        show_label: false
+        label_element: h3
+        effect: none
+        speed: fast
+        attributes: ''
         classes: ''
+        id: ''
       label: 'Project registration'
       region: content
     group_administrative:
@@ -281,10 +308,10 @@ third_party_settings:
         open: false
         required_fields: true
       label: Administrative
-id: node.theme_camps.form_1
+id: node.theme_camps.form_1_mail
 targetEntityType: node
 bundle: theme_camps
-mode: form_1
+mode: form_1_mail
 content:
   field_collective:
     weight: 6

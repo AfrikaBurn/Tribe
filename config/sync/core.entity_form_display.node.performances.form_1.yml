@@ -156,9 +156,10 @@ third_party_settings:
       format_settings:
         label: Overview
         formatter: open
+        description: ''
         required_fields: true
         id: ''
-        classes: ui-accordion-header
+        classes: ''
       label: Overview
       region: content
     group_wtf:
@@ -206,11 +207,12 @@ third_party_settings:
       weight: 20
       format_type: tab
       format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
+        label: Introduction
+        formatter: open
         description: ''
         required_fields: true
+        id: ''
+        classes: ''
       label: Introduction
 _core:
   default_config_hash: GszY5o7FPcrv2Z8_LMFChqNpGZCA9kaS3WAz3lVtB0o
