@@ -47,7 +47,7 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
 
     $is_wrangler = $user->hasRole($defaults['wrangler']);
     $is_admin = $user->hasRole('administrator');
-    $is_complete = array_search($defaults['mode'], $form['field_prjr_complete']['widget']['#default_value']) !== FALSE;
+    $incomplete = array_search($defaults['mode'], $form['field_prjr_complete']['widget']['#default_value']) === FALSE;
 
     // Naughty naughty users
     if (!$collective) {
@@ -87,7 +87,7 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
     $form['#wizard'] =
       !$is_wrangler && (
         $is_new && !$errors ||
-        !$is_complete && !$errors
+        $incomplete && !$errors
       );
 
     // // Add "Save Draft" button.

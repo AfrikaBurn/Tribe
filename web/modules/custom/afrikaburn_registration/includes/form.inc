@@ -23,8 +23,8 @@ function _project_form_modes(){
       ],
     ],
 
-    'performances' => [
-      'title' => 'Binnekring event',
+    'mutant_vehicles' => [
+      'title' => 'Mutant Vehicle',
       'modes' => [
         'form_1' => 'Registration form',
         'grant' => 'Grant application',
@@ -34,8 +34,8 @@ function _project_form_modes(){
       ],
     ],
 
-    'mutant_vehicles' => [
-      'title' => 'Mutant Vehicle',
+    'performances' => [
+      'title' => 'Binnekring event',
       'modes' => [
         'form_1' => 'Registration form',
         'grant' => 'Grant application',
@@ -123,13 +123,30 @@ function _project_form_config() {
 
     /* ---- Performance ---- */
 
-    //TODO: Edit
-    //TODO: Form 1
-    //TODO: Form 2
-    //TODO: Form 3
-    //TODO: Grant
-    //TODO: Suppliers
-    //TODO: WAP
+    'node_performances_form' => [
+      'mode' => 'new',
+      'title' => 'Register',
+      'type' => 'a Binnekring event',
+      'wrangler' => 'art_wrangler'
+    ],
+    'node_performances_edit_form' => [
+      'mode' => 'edit',
+      'title' => 'Updating: %title',
+      'type' => 'a Binnekring event',
+      'wrangler' => 'art_wrangler'
+    ],
+    'node_performances_form_1_form' => [
+      'mode' => 'form_1',
+      'title' => 'Registering: %title',
+      'type' => 'a Binnekring event',
+      'wrangler' => 'art_wrangler'
+    ],
+    'node_performances_grant_form' => [
+      'mode' => 'grant',
+      'title' => 'Grant application for: %title',
+      'type' => 'a Binnekring event',
+      'wrangler' => 'art_wrangler'
+    ],
 
     /* ---- Theme Camps ---- */
 

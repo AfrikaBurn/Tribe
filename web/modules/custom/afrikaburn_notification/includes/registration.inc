@@ -22,7 +22,9 @@ function _notify_registration($entity){
 
   $stage = $entity->get('field_form_mode')->value;
   $complete = array_column($entity->get('field_prjr_complete')->getValue(), 'value');
-  $state = in_array($stage, $complete) ? 'update' : 'new';
+  $state = $entity->original
+    ? (in_array($stage, $complete) ? 'update' : 'new')
+    : 'new';
 
   // Mail collective
   if ($settings->get("$bundle-$stage-$state-collective-enabled")) {
