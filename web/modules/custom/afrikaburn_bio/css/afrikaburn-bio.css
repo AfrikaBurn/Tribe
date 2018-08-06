@@ -47,20 +47,16 @@
   display: none;
 }
 
-#block-ticketblock .button.bio-update{
-  background: #C3D898;
-  color: red;
+#block-ticketblock .button.bio-update,
+#block-ticketblock .button.bio-tickets{
+  background: #88BA1D;
+  color: #fff;
   font-weight: bold;
-  border-color: darkorange;
+  border-color: #e3f8b8;
   border-width: 2px;
-  margin-bottom: 5px;
-  font-size: 90%;
 }
 
-#block-ticketblock .button.bio-tickets{
-  background: #C3D898;
-  color: darkslategray;
-  font-weight: bold;
-  border-color: cornsilk;
-  border-width: 2px;
+#block-ticketblock .button.bio-update{
+  margin-bottom: 5px;
+  font-size: 90%;
 }
