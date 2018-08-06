@@ -46,7 +46,6 @@ third_party_settings:
         - group_account
         - group_history
         - group_contact
-        - group_kids_and_teens_minors_
         - group_ts_cs
       parent_name: ''
       weight: 0
@@ -153,9 +152,12 @@ content:
     third_party_settings: {  }
   field_date_of_birth:
     weight: 6
-    settings: {  }
+    settings:
+      date_order: DMY
+      time_type: none
+      increment: 15
     third_party_settings: {  }
-    type: datetime_default
+    type: datetime_datelist
     region: content
   field_first_name:
     type: string_textfield

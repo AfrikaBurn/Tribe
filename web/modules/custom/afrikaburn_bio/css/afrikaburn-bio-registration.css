@@ -142,3 +142,24 @@ body .paragraphs-tabs-wrapper .form-item .description{
   }
 
 }
+
+.user-form .field--name-field-date-of-birth .container-inline{
+  display: flex;
+  align-content: flex-start;
+}
+
+.user-form .field--name-field-date-of-birth .fieldset-wrapper{
+  margin: 0;
+}
+
+.user-form .field--name-field-date-of-birth .container-inline .form-item,
+.user-form .field--name-field-date-of-birth .container-inline .form-item *{
+  min-width: auto;
+  display: inline-block;
+  width: auto;
+  flex-basis: auto;
+}
+
+.user-form .container-inline label:after {
+  content: '';
+}
