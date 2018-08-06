@@ -59,8 +59,8 @@
 
 #block-ticketblock .button.bio-tickets{
   background: #C3D898;
-  color: red;
+  color: darkslategray;
   font-weight: bold;
-  border-color: darkorange;
+  border-color: cornsilk;
   border-width: 2px;
 }
