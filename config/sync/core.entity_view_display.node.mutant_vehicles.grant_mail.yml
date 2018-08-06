@@ -118,7 +118,7 @@ third_party_settings:
       format_settings:
         element: div
         show_label: false
-        label_element: h3
+        label_element: h2
         effect: none
         speed: fast
         attributes: ''
@@ -139,9 +139,9 @@ third_party_settings:
       format_type: html_element
       format_settings:
         label: Overview
-        element: h2
-        show_label: false
-        label_element: h3
+        element: section
+        show_label: true
+        label_element: h2
         attributes: ''
         effect: none
         speed: fast
@@ -157,9 +157,9 @@ third_party_settings:
       format_type: html_element
       format_settings:
         label: Budget
-        element: h2
-        show_label: false
-        label_element: h3
+        element: section
+        show_label: true
+        label_element: h2
         attributes: ''
         effect: none
         speed: fast
@@ -175,9 +175,9 @@ third_party_settings:
       format_type: html_element
       format_settings:
         label: 'Other funding'
-        element: h2
-        show_label: false
-        label_element: h3
+        element: section
+        show_label: true
+        label_element: h2
         attributes: ''
         effect: none
         speed: fast

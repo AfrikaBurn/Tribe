@@ -295,6 +295,14 @@ bundles:
       notes: ''
       bundle: theme_camps
       name: field_year_cycle
+    field_prj_gen_header3:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: theme_camps
+      name: field_prj_gen_header3
   mutant_vehicles:
     field_mutant_drivers:
       enabled: false
