@@ -23,9 +23,9 @@ function _notify_collective($entity){
   $notify_collective = count(
     array_diff(
       array_keys($diff),
-      ['Invite Token', 'Invite Mail']
+      ['Invite Token', 'Invite Mail', 'Members', 'Admins']
     )
-  );
+  ) > 0;
   $notify_invitees = isset($diff['Invite Token']);
 
   if ($notify_collective) _notify_collective_changes($entity, $state, $meta_collective, $settings, $address_settings);

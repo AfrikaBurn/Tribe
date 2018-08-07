@@ -1,4 +1,4 @@
-uuid: 08ecf6ef-6fbc-43b9-bb90-ee0648df3762
+uuid: 16a3dee8-9eb8-4ded-9842-4af8b857c4ad
 langcode: en
 status: true
 dependencies:
@@ -29,10 +29,140 @@ dependencies:
     - field.field.user.user.field_secondary_mail
     - field.field.user.user.field_terms_and_conditions
     - field.field.user.user.user_picture
+    - image.style.thumbnail
   module:
     - computed_field
+    - datetime
     - empty_fields
+    - field_group
+    - image
+    - link
+    - options
     - user
+third_party_settings:
+  field_group:
+    group_root:
+      children:
+        - group_identity
+        - group_account
+        - group_history
+        - group_contact
+        - group_location
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        element: div
+        show_label: false
+        label_element: h3
+        effect: none
+        speed: fast
+        attributes: ''
+        classes: ''
+        id: ''
+      label: Root
+      region: content
+    group_identity:
+      children:
+        - user_picture
+        - field_first_name
+        - field_last_name
+        - field_gender
+        - field_id_number
+        - field_date_of_birth
+      parent_name: group_root
+      weight: 1
+      format_type: html_element
+      format_settings:
+        label: Identity
+        element: div
+        show_label: true
+        label_element: h2
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: ''
+      label: Identity
+      region: content
+    group_account:
+      children:
+        - field_email
+        - field_location
+        - member_for
+      parent_name: group_root
+      weight: 2
+      format_type: html_element
+      format_settings:
+        label: Account
+        element: div
+        show_label: true
+        label_element: h2
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: ''
+      label: Account
+      region: content
+    group_location:
+      children:
+        - field_terms_and_conditions
+      parent_name: group_root
+      weight: 6
+      format_type: html_element
+      format_settings:
+        label: 'Terms of use'
+        element: div
+        show_label: true
+        label_element: h2
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: ''
+      label: 'Terms of use'
+      region: content
+    group_history:
+      children:
+        - field_participation
+        - field_other_burns
+      parent_name: group_root
+      weight: 3
+      format_type: html_element
+      format_settings:
+        label: History
+        element: div
+        show_label: true
+        label_element: h2
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: ''
+      label: History
+      region: content
+    group_contact:
+      children:
+        - field_mobile
+        - field_secondary_mail
+        - field_links
+        - field_newsletter
+      parent_name: group_root
+      weight: 4
+      format_type: html_element
+      format_settings:
+        label: Contact
+        element: div
+        show_label: true
+        label_element: h2
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: ''
+      label: Contact
+      region: content
 _core:
   default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
 id: user.user.mail
@@ -40,25 +170,39 @@ targetEntityType: user
 bundle: user
 mode: mail
 content:
+  field_date_of_birth:
+    type: datetime_custom
+    weight: 7
+    region: content
+    label: above
+    settings:
+      date_format: 'Y-m-d\TH:i:s'
+      timezone_override: ''
+    third_party_settings: {  }
   field_email:
     type: computed_string
-    weight: 2
+    weight: 10
     region: content
-    label: hidden
+    label: above
     settings:
-      sanitized: '1'
-      cache_unit: '-1'
-      cache_duration: '1'
-    third_party_settings:
-      empty_fields:
-        handler: ''
+      sanitized: true
+      cache_unit: -1
+      cache_duration: 1
+    third_party_settings: {  }
   field_first_name:
     type: string
-    weight: 0
+    weight: 3
     region: content
-    label: hidden
+    label: above
     settings:
       link_to_entity: false
+    third_party_settings: {  }
+  field_gender:
+    type: list_default
+    weight: 5
+    region: content
+    label: above
+    settings: {  }
     third_party_settings: {  }
   field_guardian_doc:
     weight: 10
@@ -67,21 +211,68 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
-  field_last_name:
+  field_id_number:
     type: string
-    weight: 1
+    weight: 6
     region: content
-    label: hidden
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
-  field_mobile:
+  field_last_name:
     type: string
     weight: 4
     region: content
-    label: hidden
+    label: above
     settings:
       link_to_entity: false
+    third_party_settings: {  }
+  field_links:
+    type: link
+    weight: 3
+    region: content
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_location:
+    type: entity_reference_label
+    weight: 11
+    region: content
+    label: above
+    settings:
+      link: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+  field_mobile:
+    type: string
+    weight: 1
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_newsletter:
+    type: boolean
+    weight: 7
+    region: content
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+  field_other_burns:
+    type: basic_string
+    weight: 2
+    region: content
+    label: above
+    settings: {  }
     third_party_settings: {  }
   field_parent:
     weight: 7
@@ -93,33 +284,57 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
-  field_secondary_mail:
+  field_participation:
     type: basic_string
-    weight: 3
+    weight: 1
     region: content
-    label: hidden
+    label: above
     settings: {  }
     third_party_settings: {  }
+  field_secondary_mail:
+    type: basic_string
+    weight: 2
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_terms_and_conditions:
+    weight: 2
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  masquerade:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  member_for:
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  user_picture:
+    type: image
+    weight: 2
+    region: content
+    settings:
+      image_style: thumbnail
+      image_link: content
+    third_party_settings: {  }
+    label: hidden
 hidden:
   field_agreements: true
   field_country: true
-  field_date_of_birth: true
   field_district: true
   field_email_retype: true
   field_emr_email: true
   field_emr_name: true
   field_emr_telephone: true
-  field_gender: true
-  field_id_number: true
   field_kids_and_teens: true
-  field_links: true
-  field_location: true
-  field_newsletter: true
-  field_other_burns: true
-  field_participation: true
   field_quicket_code: true
   field_quicket_id: true
-  field_terms_and_conditions: true
-  masquerade: true
-  member_for: true
-  user_picture: true

@@ -26,6 +26,14 @@ function afrikaburn_notification_node_insert($entity){
 }
 
 /**
+ * Implements hook_ENTITY_TYPE_insert.
+ */
+function afrikaburn_notification_user_insert($entity){
+  module_load_include('inc', 'afrikaburn_notification', 'includes/user');
+  _notify_account($entity);
+}
+
+/**
  * Implements hook_ENTITY_TYPE_update.
  * Notify users on updates.
  */
@@ -76,7 +84,6 @@ function afrikaburn_notification_mail($key, &$message, $params) {
     $message['headers']['bcc'] = $params['bcc'];
     $message['headers']['Reply-To'] = $params['from'];
 
-    $message['from'] = 'no-reply@afrikaburn.com';
     $message['subject'] = $subject;
     $message['body'][] = $body;
 

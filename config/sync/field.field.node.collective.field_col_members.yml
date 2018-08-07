@@ -22,10 +22,13 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: views
+  handler: 'default:user'
   handler_settings:
-    view:
-      view_name: collective_new_members
-      display_name: burner_select
-      arguments: {  }
+    include_anonymous: false
+    filter:
+      type: _none
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
 field_type: entity_reference

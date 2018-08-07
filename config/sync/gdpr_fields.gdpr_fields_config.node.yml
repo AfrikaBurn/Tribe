@@ -442,3 +442,11 @@ bundles:
       notes: ''
       bundle: collective
       name: field_col_invite_email
+    field_col_admins:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: collective
+      name: field_col_admins
