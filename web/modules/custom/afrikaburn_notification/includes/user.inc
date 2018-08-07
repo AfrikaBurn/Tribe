@@ -20,7 +20,7 @@ function _notify_account($entity){
     'no-reply@afrikaburn.com',
     '',
     'New user account created: ' . $entity->get('field_first_name')->value . ' "' . $entity->get('name')->value . '" ' . $entity->get('field_last_name')->value,
-    render(
+    @render(
       \Drupal::entityTypeManager()
         ->getViewBuilder('user')
         ->view($entity, 'mail')
