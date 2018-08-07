@@ -42,9 +42,9 @@ function _notify_registration($entity){
   // Mail wranglers
   if ($settings->get("$bundle-$stage-$state-wranglers-enabled")) {
     _notify(
-      'no-reply@afrikaburn.com',
+      $address_settings->get($bundle . '-address'),
       $user->field_first_name->value . " '" . $user->name->value . "' " . $user->field_last_name->value . ' via AfrikaBurn Tribe',
-      $user->mail->value,
+      'no-reply@afrikaburn.com',
       $settings->get('archive'),
       $settings->get("$bundle-$stage-$state-wranglers-subject"),
       $settings->get("$bundle-$stage-$state-wranglers-body"),

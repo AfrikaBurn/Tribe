@@ -58,7 +58,7 @@ function _notify_collective_changes($entity, $state, $meta_collective, $settings
     _notify(
       $address_settings->get('collective-address'),
       $user->field_first_name->value . " '" . $user->name->value . "' " . $user->field_last_name->value . ' via AfrikaBurn Tribe',
-      $user->mail->value,
+      'no-reply@afrikaburn.com',
       $address_settings->get('archive'),
       $settings->get("collective-collective-$state-wranglers-subject"),
       $settings->get("collective-collective-$state-wranglers-body"),
