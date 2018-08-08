@@ -34,6 +34,14 @@ function afrikaburn_notification_user_insert($entity){
 }
 
 /**
+ * Implements hook_ENTITY_TYPE_insert.
+ */
+function afrikaburn_notification_user_delete($entity){
+  module_load_include('inc', 'afrikaburn_notification', 'includes/account');
+  _notify_delete($entity);
+}
+
+/**
  * Implements hook_ENTITY_TYPE_update.
  * Notify users on updates.
  */
