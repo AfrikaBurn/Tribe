@@ -19,8 +19,9 @@ function _notify_account($entity){
 
   _notify(
     $address_settings->get('archive'),
-    'Afrikaburn Tribe', 'no-reply@afrikaburn.com',
-    '',
+    'Afrikaburn Tribe',
+    'no-reply@afrikaburn.com',
+    FALSE,
     'New user account created: ' . $entity->get('field_first_name')->value . ' "' . $entity->get('name')->value . '" ' . $entity->get('field_last_name')->value,
     render($account),
     $entity

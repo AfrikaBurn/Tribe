@@ -29,7 +29,7 @@ function afrikaburn_notification_node_insert($entity){
  * Implements hook_ENTITY_TYPE_insert.
  */
 function afrikaburn_notification_user_insert($entity){
-  module_load_include('inc', 'afrikaburn_notification', 'includes/user');
+  module_load_include('inc', 'afrikaburn_notification', 'includes/account');
   _notify_account($entity);
 }
 

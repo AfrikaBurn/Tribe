@@ -41,8 +41,7 @@ function _notify_collective_changes($entity, $state, $meta_collective, $settings
   if ($settings->get("collective-collective-$state-collective-enabled")) {
     _notify(
       'no-reply@afrikaburn.com',
-      $settings->get('collective-label'),
-      $address_settings->get('collective-address'),
+      $settings->get('collective-label'), $address_settings->get('collective-address'),
       $meta_collective['members'] . ',' . $address_settings->get('archive'),
       $settings->get("collective-collective-$state-collective-subject"),
       $settings->get("collective-collective-$state-collective-body"),
@@ -57,8 +56,7 @@ function _notify_collective_changes($entity, $state, $meta_collective, $settings
 
     _notify(
       $address_settings->get('collective-address'),
-      $user->field_first_name->value . " '" . $user->name->value . "' " . $user->field_last_name->value . ' via AfrikaBurn Tribe',
-      'no-reply@afrikaburn.com',
+      $user->field_first_name->value . " '" . $user->name->value . "' " . $user->field_last_name->value . ' via AfrikaBurn Tribe', 'no-reply@afrikaburn.com',
       $address_settings->get('archive'),
       $settings->get("collective-collective-$state-wranglers-subject"),
       $settings->get("collective-collective-$state-wranglers-body"),
@@ -93,8 +91,7 @@ function _notify_collective_invites($entity, $diff, $settings, $address_settings
   if (count($invite) && $settings->get('collective-invitation-new-invitees-enabled')) {
     _notify(
       'no-reply@afrikaburn.com',
-      $settings->get('collective-label'),
-      $address_settings->get('collective-address'),
+      $settings->get('collective-label'), $address_settings->get('collective-address'),
       implode(',', $invite) . ', ' . $address_settings->get('archive'),
       $settings->get("collective-invitation-new-invitees-subject"),
       $settings->get("collective-invitation-new-invitees-body"),
@@ -106,8 +103,7 @@ function _notify_collective_invites($entity, $diff, $settings, $address_settings
   if (count($remind) && $settings->get('collective-invitation-update-invitees-enabled')) {
     _notify(
       'no-reply@afrikaburn.com',
-      $settings->get('collective-label'),
-      $address_settings->get('collective-address'),
+      $settings->get('collective-label'), $address_settings->get('collective-address'),
       implode(',', $invite) . ', ' . $address_settings->get('archive'),
       $settings->get("collective-invitation-update-invitees-subject"),
       $settings->get("collective-invitation-update-invitees-body"),

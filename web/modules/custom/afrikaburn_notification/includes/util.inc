@@ -28,7 +28,7 @@ function _notify($to, $from_label, $from_address, $bcc, $subject, $message, $nod
 
     TRUE
   )['result']
-    ? \Drupal::logger('mail-log')->notice('Mail sent to ' . implode(' & ', [$to, $bcc]) . "\n" . $subject . "\n:" . $message)
+    ? \Drupal::logger('mail-log')->notice('Mail sent to ' . implode(' & ', array_filter([$to, $bcc])) . "\n" . $subject . "\n:" . $message)
     : \Drupal::logger('mail-log')->notice('Mail send FAILED to ' . implode(' & ', [$to, $bcc]) . "\n" . $subject . "\n:" . $message);
 }
 
