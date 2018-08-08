@@ -62,9 +62,8 @@ function afrikaburn_notification_node_update($entity){
 function afrikaburn_notification_mail($key, &$message, $params) {
 
   $node = $params['node'];
-  $bundle = $node ? $node->bundle() : FALSE;
 
-  if (in_array($bundle, ['art', 'mutant_vehicles', 'performances', 'theme_camps', 'collective'])){
+  if ($key == 'afrikaburn_notification'){
 
     $user = User::load(\Drupal::currentUser()->id());
     $tokens = ['node' => $node, 'user' => $user];

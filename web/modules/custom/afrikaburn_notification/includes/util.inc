@@ -12,7 +12,7 @@ function _notify($to, $from_label, $from_address, $bcc, $subject, $message, $nod
   \Drupal::service('plugin.manager.mail')->mail(
 
     'afrikaburn_notification',
-    'project_registration',
+    'afrikaburn_notification',
 
     $to,
     \Drupal::currentUser()->getPreferredLangcode(),
