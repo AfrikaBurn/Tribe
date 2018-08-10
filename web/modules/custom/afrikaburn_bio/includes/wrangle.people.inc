@@ -10,6 +10,7 @@ function _editable($id){
     [
       'wrangle_people' => [
         'mail',
+        'status',
         'field_secondary_mail',
         'field_mobile',
         'field_newsletter',
@@ -32,6 +33,7 @@ function _merge(){
 function _title($field){
   return @([
     'mail' => FALSE,
+    'status' => FALSE,
     'field_secondary_mail' => FALSE,
     'field_mobile' => FALSE,
     'field_newsletter' => FALSE,
@@ -99,9 +101,11 @@ function _insert_wrangler_view_rows(&$variables){
   $view = $variables['view'];
 
   // Insert forms
-  foreach($variables['rows'] as $index=>&$row){
+  // foreach($variables['rows'] as $index=>&$row){
+  foreach($view->result as $index=>$result){
 
-    $uid = $view->result[$index]->_entity->id();
+    $row = &$variables['rows'][$index];
+    $uid = $result->_entity->id();
     $row['uid'] = $uid;
 
     // Move form
@@ -113,9 +117,9 @@ function _insert_wrangler_view_rows(&$variables){
     foreach (_merge() as $column=>$fields) {
 
       $row['columns'] =
-        array_slice($row['columns'], 0, 8, TRUE) +
+        array_slice($row['columns'], 0, 7, TRUE) +
         [$column => ['attributes' => new \Drupal\Core\Template\Attribute(['class' => 'column-' . $column])]] +
-        array_slice($row['columns'], 8, NULL, TRUE);
+        array_slice($row['columns'], 7, NULL, TRUE);
 
       foreach($fields as $field){
         $row['columns'][$column]['content'][] = [
@@ -144,7 +148,7 @@ function _insert_wrangler_view_rows(&$variables){
     $label = $column;
     $label[0] = strtoupper($label[0]);
     $variables['header'] =
-      array_slice($variables['header'], 0, 5, TRUE) +
+      array_slice($variables['header'], 0, 4, TRUE) +
       [
         $column => [
           'content' => t($label),
@@ -152,7 +156,7 @@ function _insert_wrangler_view_rows(&$variables){
           'attributes' => new \Drupal\Core\Template\Attribute(['class' => 'column-' . $column]),
         ]
       ] +
-      array_slice($variables['header'], 5, NULL, TRUE);
+      array_slice($variables['header'], 4, NULL, TRUE);
   }
 }
 

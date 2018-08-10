@@ -54,6 +54,7 @@ function afrikaburn_bio_form_user_form_alter(&$form, $form_state, $form_id){
         $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
         $response->send();
       }
+      $form['account']['status']['#type'] = 'checkbox';
     break;
     case 'user_register_form':
       $form['#title'] = 'Create a Bio';

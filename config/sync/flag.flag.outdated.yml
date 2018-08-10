@@ -11,10 +11,10 @@ entity_type: user
 global: true
 weight: 0
 flag_short: 'Up to date'
-flag_long: 'This bio is up to date. Click to force the user to update their bio.'
+flag_long: 'This bio is up to date. Click to encourage the user to update their bio.'
 flag_message: ''
 unflag_short: Outdated
-unflag_long: 'This bio is outdated. They will be forced to update their bio. Click to change.'
+unflag_long: 'This bio is outdated. User will be encouraged to update their bio. Click to disable encouragement.'
 unflag_message: ''
 unflag_denied_text: ''
 flag_type: 'entity:user'

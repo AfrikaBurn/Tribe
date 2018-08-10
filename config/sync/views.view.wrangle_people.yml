@@ -83,7 +83,6 @@ display:
           summary: ''
           description: ''
           columns:
-            user_bulk_form: user_bulk_form
             user_picture: user_picture
             name: name
             field_first_name: field_first_name
@@ -93,18 +92,13 @@ display:
             field_secondary_mail: field_secondary_mail
             field_mobile: field_mobile
             field_id_number: nothing
-            status: nothing
+            status: status
             link_flag: nothing
             created: created
             access: access
             field_newsletter: field_newsletter
             operations: operations
           info:
-            user_bulk_form:
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             user_picture:
               sortable: false
               default_sort_order: asc
@@ -213,64 +207,6 @@ display:
       row:
         type: fields
       fields:
-        user_bulk_form:
-          id: user_bulk_form
-          table: users
-          field: user_bulk_form
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Bulk update'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          action_title: Action
-          include_exclude: include
-          selected_actions:
-            - flag_action.updated.flag
-            - flag_action.updated.unflag
-            - user_block_user_action
-            - user_cancel_user_action
-            - user_unblock_user_action
-          plugin_id: user_bulk_form
-          entity_type: user
         user_picture:
           id: user_picture
           table: user__user_picture
@@ -827,62 +763,6 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        status:
-          id: status
-          table: users_field_data
-          field: status
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Status
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          plugin_id: field
-          type: boolean
-          settings:
-            format: custom
-            format_custom_true: Active
-            format_custom_false: Blocked
-          entity_type: user
-          entity_field: status
         link_flag:
           id: link_flag
           table: flagging
@@ -1110,6 +990,73 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        status:
+          id: status
+          table: users_field_data
+          field: status
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Login allowed'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: custom
+            format_custom_true: Active
+            format_custom_false: Blocked
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+          entity_type: user
+          entity_field: status
         operations:
           id: operations
           table: users
@@ -1480,7 +1427,7 @@ display:
         - url
         - url.query_args
         - user.roles
-      max-age: 0
+      max-age: -1
       tags:
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_id_number'
@@ -1968,7 +1915,7 @@ display:
         - url
         - url.query_args
         - user.roles
-      max-age: 0
+      max-age: -1
       tags:
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_id_number'
