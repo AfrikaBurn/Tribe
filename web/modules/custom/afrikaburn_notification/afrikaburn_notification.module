@@ -49,7 +49,7 @@ function afrikaburn_notification_node_update($entity){
 
   $bundle = $entity->bundle();
 
-  if (in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps', 'collective'])){
+  if ($entity->isPublished() && in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps', 'collective'])){
 
     module_load_include('inc', 'afrikaburn_notification', 'includes/util');
 

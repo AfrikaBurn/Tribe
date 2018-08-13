@@ -96,7 +96,9 @@ function ar_prepare_project_links(&$variables) {
     } else {
 
       foreach($view->form_modes[$type] as $mode){
-        $links[] = '<li class="messages messages--archive"><a href="/node/' . $nid . '/' . $mode['name'] . '" target="_blank" title="ARCHIVED: Read only.">' . $mode['title'] . '</a></li>';
+        if (@$mode['state']['visible']) {
+          $links[] = '<li class="messages messages--archive"><a href="/node/' . $nid . '/' . $mode['name'] . '" target="_blank" title="ARCHIVED: Read only.">' . $mode['title'] . '</a></li>';
+        }
       }
 
       if (@$view->form_modes[$type]['form_1']['state']['open']){
