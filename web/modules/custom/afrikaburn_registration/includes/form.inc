@@ -91,7 +91,6 @@ function _project_form_config() {
     ],
     //TODO: Form 2
     //TODO: Form 3
-    //TODO: Grant
     //TODO: Suppliers
     //TODO: WAP
 
@@ -121,7 +120,6 @@ function _project_form_config() {
       'type' => 'a Binnekring event',
       'wrangler' => 'art_wrangler'
     ],
-    //TODO: Grant
     //TODO: Suppliers
     //TODO: WAP
 
@@ -145,9 +143,14 @@ function _project_form_config() {
       'type' => 'a Mutant Vehicle',
       'wrangler' => 'mutant_vehicles_wrangler'
     ],
+    'node_mutant_vehicles_grant_form' => [
+      'mode' => 'form_1',
+      'title' => 'Grant application for: %title',
+      'type' => 'a Mutant Vehicle',
+      'wrangler' => 'mutant_vehicles_wrangler'
+    ],
     //TODO: Form 2
     //TODO: Form 3
-    //TODO: Grant
     //TODO: Suppliers
     //TODO: WAP
 
