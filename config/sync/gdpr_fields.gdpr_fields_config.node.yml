@@ -336,6 +336,14 @@ bundles:
       notes: ''
       bundle: mutant_vehicles
       name: field_prj_snd_safety
+    field_prj_saf_mark:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: mutant_vehicles
+      name: field_prj_saf_mark
   performances:
     field_prj_gen_description:
       enabled: false
