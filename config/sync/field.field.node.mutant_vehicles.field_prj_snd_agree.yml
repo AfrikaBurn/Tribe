@@ -16,7 +16,7 @@ field_name: field_prj_snd_agree
 entity_type: node
 bundle: mutant_vehicles
 label: 'I agree to abide by SOOP policies of DMV and AB'
-description: 'AfrikaBurn mutant vehicle Sound Policy 2018 is <a href="https://www.afrikaburn.com/wp-content/uploads/2017/12/AfrikaBurn-mutant-vehicle-Sound-Policy-2018.pdf">available here.</a>'
+description: 'The latest AfrikaBurn mutant vehicle Sound Policy is <a href="https://www.afrikaburn.com/wp-content/uploads/2017/12/AfrikaBurn-mutant-vehicle-Sound-Policy-2018.pdf" target="_blank">available here.</a>'
 required: false
 translatable: true
 default_value:

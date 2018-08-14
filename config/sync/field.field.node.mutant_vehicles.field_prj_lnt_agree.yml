@@ -16,7 +16,7 @@ field_name: field_prj_lnt_agree
 entity_type: node
 bundle: mutant_vehicles
 label: 'I have read the Leave No Trace documents and briefed my collective.'
-description: 'Leave no trace guidelines a available <a href="https://www.afrikaburn.com/wp-content/uploads/2017/12/MOOP-for-mutants-vehicles-2018.pdf">here</a>. '
+description: 'Leave no trace guidelines a available <a href="https://www.afrikaburn.com/wp-content/uploads/2017/12/MOOP-for-mutants-vehicles-2018.pdf" target="_blank">here</a>. '
 required: true
 translatable: false
 default_value:

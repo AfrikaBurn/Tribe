@@ -16,7 +16,7 @@ field_name: field_prj_brn_agree
 entity_type: node
 bundle: mutant_vehicles
 label: 'I have read all information available about fire safety at AfrikaBurn. '
-description: "<a href=\"https://www.afrikaburn.com/wp-content/uploads/2017/12/2018-FLAME-EFFECTS.pdf\">2018 FLAME EFFECTS</a><br>\r\n<a href=\"https://www.afrikaburn.com/wp-content/uploads/2017/12/2018-Flame-Effect-Emergency-Plans.pdf\">2018 Flame Effect Emergency Plans</a>\r\n"
+description: "<a href=\"https://www.afrikaburn.com/wp-content/uploads/2017/12/2018-FLAME-EFFECTS.pdf\" target=\"_blank\">LATEST FLAME EFFECTS</a><br>\r\n<a href=\"https://www.afrikaburn.com/wp-content/uploads/2017/12/2018-Flame-Effect-Emergency-Plans.pdf\" target=\"_blank\">Latest Flame Effect Emergency Plans</a>\r\n"
 required: false
 translatable: true
 default_value:
