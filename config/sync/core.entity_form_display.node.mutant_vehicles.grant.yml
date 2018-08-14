@@ -168,6 +168,24 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'Other funding'
+    group_administrative:
+      children:
+        - field_prjr_complete
+        - field_prj_adm_review
+        - field_prj_adm_wrangler
+        - field_collective
+        - field_form_mode
+        - field_prj_adm_registration
+        - field_year_cycle
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: Administrative
 _core:
   default_config_hash: FHLYUGK-mQGVYzvIKsUSwq4IdPmIgOzk9wE9K3NHGck
 id: node.mutant_vehicles.grant
@@ -175,6 +193,23 @@ targetEntityType: node
 bundle: mutant_vehicles
 mode: grant
 content:
+  field_collective:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_form_mode:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_grt_art_total:
     type: number
     weight: 16
@@ -244,6 +279,30 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_prj_adm_review:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_adm_wrangler:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_prjr_complete:
+    type: options_buttons
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
     weight: 15
@@ -261,14 +320,10 @@ content:
 hidden:
   created: true
   field_admin_comments: true
-  field_collective: true
-  field_form_mode: true
   field_grt_awarded: true
   field_grt_status: true
   field_mutant_drivers: true
   field_prj_adm_registration: true
-  field_prj_adm_review: true
-  field_prj_adm_wrangler: true
   field_prj_brn_agree: true
   field_prj_brn_burning: true
   field_prj_brn_desc: true
@@ -343,7 +398,6 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
-  field_prjr_complete: true
   field_sup_review: true
   field_vp_ea: true
   field_year_cycle: true

@@ -167,9 +167,9 @@ handlers:
       cc_options: {  }
       bcc_mail: shared@afrikaburn.com
       bcc_options: {  }
-      from_mail: default
+      from_mail: _default
       from_options: {  }
-      from_name: default
+      from_name: _default
       subject: 'Thank you for submitting your Voluntary Medical Information'
       body: "Dear {{ webform_token('[webform_submission:user]', webform_submission) }}\n\nThank you, we have received your Voluntary Medical Information.\nIt will only be used in case of emergency.\n\nAfrikaBurn Medical"
       excluded_elements: {  }

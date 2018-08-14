@@ -165,11 +165,11 @@ handlers:
       cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
-      from_mail: default
+      from_mail: _default
       from_options: {  }
       from_name: '[webform_submission:values:email:raw]'
       subject: 'Community Access Grant Application'
-      body: default
+      body: _default
       excluded_elements: {  }
       ignore_access: true
       exclude_empty: true

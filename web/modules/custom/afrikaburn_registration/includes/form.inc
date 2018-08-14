@@ -144,7 +144,7 @@ function _project_form_config() {
       'wrangler' => 'mutant_vehicles_wrangler'
     ],
     'node_mutant_vehicles_grant_form' => [
-      'mode' => 'form_1',
+      'mode' => 'grant',
       'title' => 'Grant application for: %title',
       'type' => 'a Mutant Vehicle',
       'wrangler' => 'mutant_vehicles_wrangler'

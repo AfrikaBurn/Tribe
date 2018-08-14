@@ -162,11 +162,11 @@ handlers:
       cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
-      from_mail: default
+      from_mail: _default
       from_options: {  }
-      from_name: default
-      subject: default
-      body: default
+      from_name: _default
+      subject: _default
+      body: _default
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
@@ -195,9 +195,9 @@ handlers:
       cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
-      from_mail: default
+      from_mail: _default
       from_options: {  }
-      from_name: default
+      from_name: _default
       subject: 'Thanks for signing up!'
       body: "Hi [webform_submission:user]\n\nThanks for signing up as a volunteer! Our wranglers will be in contact soon.\n\nAfrikaBurn Volunteers,\nvolcore@afrikaburn.com"
       excluded_elements: {  }

@@ -167,9 +167,9 @@ handlers:
       cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
-      from_mail: default
+      from_mail: _default
       from_options: {  }
-      from_name: default
+      from_name: _default
       subject: 'Sanctuary application received'
       body: "Hi {{ webform_token('[webform_submission:user]', webform_submission) }}\n\nThank you for your Sanctuary application, our wranglers will be in contact soon.\n\nSanctuary Crew"
       excluded_elements: {  }
@@ -200,10 +200,10 @@ handlers:
       cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
-      from_mail: default
+      from_mail: _default
       from_options: {  }
-      from_name: default
-      subject: default
+      from_name: _default
+      subject: _default
       body: "\n{{ webform_token('[webform_submission:values]', webform_submission) }}\n"
       excluded_elements: {  }
       ignore_access: false

@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.node.grant
+    - core.entity_view_mode.node.grant
     - field.field.node.mutant_vehicles.field_admin_comments
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
@@ -104,6 +104,7 @@ dependencies:
   module:
     - field_group
     - paragraphs
+    - user
 third_party_settings:
   field_group:
     group_project_registration:
@@ -112,7 +113,7 @@ third_party_settings:
         - group_budget
         - group_other_funding
       parent_name: ''
-      weight: 3
+      weight: 0
       format_type: tabs
       format_settings:
         label: Intro
@@ -123,7 +124,6 @@ third_party_settings:
       region: content
     group_overview:
       children:
-        - title
         - field_grt_materials
         - field_grt_transport
         - field_grt_services
@@ -176,66 +176,69 @@ content:
   field_grt_art_total:
     weight: 16
     region: content
-    settings:
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
+    type: number_unformatted
+    label: above
   field_grt_contribution:
     weight: 15
     region: content
-    settings:
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
+    type: number_unformatted
+    label: above
   field_grt_dmv_budget:
     weight: 0
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
+    settings: {  }
     third_party_settings: {  }
     region: content
+    type: paragraph_summary
+    label: above
   field_grt_materials:
     weight: 11
     region: content
-    settings:
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
+    type: number_unformatted
+    label: above
   field_grt_other:
     weight: 8
     region: content
     settings:
-      display_label: true
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
     third_party_settings: {  }
+    type: boolean
+    label: above
   field_grt_other_description:
     weight: 9
     region: content
-    settings:
-      rows: 5
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
+    type: basic_string
+    label: above
   field_grt_services:
     weight: 13
     region: content
-    settings:
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
+    type: number_unformatted
+    label: above
   field_grt_total:
     weight: 14
     region: content
-    settings:
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
+    type: number_unformatted
+    label: above
   field_grt_transport:
     weight: 12
     region: content
-    settings:
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-  links:
-    weight: 100
-    region: content
+    type: number_unformatted
+    label: above
   moderation_state:
     weight: 15
     settings: {  }
@@ -329,6 +332,7 @@ hidden:
   field_sup_review: true
   field_vp_ea: true
   field_year_cycle: true
+  links: true
   path: true
   promote: true
   status: true
