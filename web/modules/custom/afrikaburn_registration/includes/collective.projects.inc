@@ -101,7 +101,7 @@ function ar_prepare_project_links(&$variables) {
         }
       }
 
-      if (@$view->form_modes[$type]['form_1']['state']['open']){
+      if (@$view->form_modes[$type]['form_1']['state']['open'] && $view->group_admin){
         $links[] = '<li class="messages messages--recycle"><a href="/registration/' . $nid . '/reuse" target="_blank" title="Copy the information in this registration into a new submission.">Reuse this registration</a></li>';
       }
     }
