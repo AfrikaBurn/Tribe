@@ -17,7 +17,7 @@ third_party_settings:
 id: views_block__my_collectives_joined
 theme: afrikaburn
 region: biobar
-weight: -16
+weight: -17
 provider: null
 plugin: 'views_block:my_collectives-joined'
 settings:
