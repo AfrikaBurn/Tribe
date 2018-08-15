@@ -17,7 +17,7 @@ third_party_settings:
 id: views_block__my_collectives_invitations
 theme: afrikaburn
 region: biobar
-weight: -15
+weight: -16
 provider: null
 plugin: 'views_block:my_collectives-invitations'
 settings:
