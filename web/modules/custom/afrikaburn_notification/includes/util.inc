@@ -80,11 +80,19 @@ function _entity_diff($node, &$body){
 
   module_load_include('inc', 'afrikaburn_notification', 'includes/diff');
   $diff = _diff($node);
-  if ($diff) {
+  $exclude = [
+    'Invite Token',
+    'Invite Mail',
+    'Members',
+    'Admins',
+    'form_mode',
+    'Complete'
+  ];
 
+  if ($diff) {
     $rendered = '<table cellspacing=10 style="text-align: left;"><tr><th>Changed</th><th>From</th><th>To</th></tr>';
     foreach($diff as $title=>$change){
-      if (!in_array($title, ['Invite Token', 'Invite Mail', 'Members', 'Admins'])){
+      if (!in_array($title, $exclude)){
         $rendered .= '<tr><td>' . implode('</td><td>', [$title, implode(',', $change[0]), implode(',', $change[1])]) .'</td></tr>';
       }
     }
