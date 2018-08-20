@@ -22,7 +22,7 @@ function _notify_registration($entity){
 
   $stage = $entity->get('field_form_mode')->value;
   $complete = array_column($entity->get('field_prjr_complete')->getValue(), 'value');
-  $state = $entity->original
+  $state = $entity->original && $entity->original->isPublished()
     ? (in_array($stage, $complete) ? 'update' : 'new')
     : 'new';
 
