@@ -164,11 +164,11 @@ handlers:
       cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
-      from_mail: default
+      from_mail: _default
       from_options: {  }
-      from_name: default
+      from_name: _default
       subject: 'New Spark Grant application received '
-      body: default
+      body: _default
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
@@ -197,9 +197,9 @@ handlers:
       cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
-      from_mail: default
+      from_mail: _default
       from_options: {  }
-      from_name: default
+      from_name: _default
       subject: 'Spark grant application received!'
       body: "Thank you! \nWe have received your Spark grant application and will be in contact shortly.\nAfrikBurn Outreach"
       excluded_elements: {  }

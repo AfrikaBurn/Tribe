@@ -295,6 +295,30 @@ bundles:
       notes: ''
       bundle: theme_camps
       name: field_year_cycle
+    field_prj_gen_header3:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: theme_camps
+      name: field_prj_gen_header3
+    field_prj_lnt_handled:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: theme_camps
+      name: field_prj_lnt_handled
+    field_prj_cll_collaborate:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: theme_camps
+      name: field_prj_cll_collaborate
   mutant_vehicles:
     field_mutant_drivers:
       enabled: false
@@ -328,6 +352,46 @@ bundles:
       notes: ''
       bundle: mutant_vehicles
       name: field_prj_snd_safety
+    field_prj_saf_mark:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: mutant_vehicles
+      name: field_prj_saf_mark
+    field_prj_snd_agree:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: mutant_vehicles
+      name: field_prj_snd_agree
+    field_prj_brn_agree:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: mutant_vehicles
+      name: field_prj_brn_agree
+    field_prj_oth_agree:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: mutant_vehicles
+      name: field_prj_oth_agree
+    field_prj_lnt_agree:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: mutant_vehicles
+      name: field_prj_lnt_agree
   performances:
     field_prj_gen_description:
       enabled: false
@@ -434,3 +498,11 @@ bundles:
       notes: ''
       bundle: collective
       name: field_col_invite_email
+    field_col_admins:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: collective
+      name: field_col_admins

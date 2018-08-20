@@ -3,13 +3,19 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.admin_comments.default
     - core.entity_view_mode.node.form_1
     - field.field.node.theme_camps.field_admin_comments
     - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_field_prj_plc_marquis
     - field.field.node.theme_camps.field_field_prj_plc_stretch_m
+    - field.field.node.theme_camps.field_final_placement
     - field.field.node.theme_camps.field_form_mode
+    - field.field.node.theme_camps.field_ice_card
+    - field.field.node.theme_camps.field_neighbours
+    - field.field.node.theme_camps.field_placed
+    - field.field.node.theme_camps.field_placement_card
+    - field.field.node.theme_camps.field_placement_letter_sent
+    - field.field.node.theme_camps.field_plot
     - field.field.node.theme_camps.field_prj_adm_form_3
     - field.field.node.theme_camps.field_prj_adm_latitude
     - field.field.node.theme_camps.field_prj_adm_longitude
@@ -120,9 +126,9 @@ dependencies:
     - field.field.node.theme_camps.field_sup_review
     - field.field.node.theme_camps.field_tc_type
     - field.field.node.theme_camps.field_vp_ea
+    - field.field.node.theme_camps.field_year_cycle
     - node.type.theme_camps
   module:
-    - comment
     - conditional_fields
     - field_group
     - link
@@ -250,7 +256,7 @@ third_party_settings:
         - group_collaboration
         - group_almost_done_new
       parent_name: ''
-      weight: 2
+      weight: 1
       format_type: tabs
       format_settings:
         label: 'Project registration'
@@ -267,7 +273,7 @@ third_party_settings:
         - field_collective
         - field_form_mode
       parent_name: ''
-      weight: 1
+      weight: 0
       format_type: details
       format_settings:
         id: ''
@@ -280,15 +286,6 @@ targetEntityType: node
 bundle: theme_camps
 mode: form_1
 content:
-  field_admin_comments:
-    weight: 39
-    settings:
-      view_mode: default
-      pager_id: 0
-    third_party_settings: {  }
-    region: content
-    type: comment_default
-    label: above
   field_collective:
     weight: 6
     region: content
@@ -696,7 +693,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   links:
-    weight: 100
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -708,8 +705,16 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_admin_comments: true
   field_field_prj_plc_marquis: true
   field_field_prj_plc_stretch_m: true
+  field_final_placement: true
+  field_ice_card: true
+  field_neighbours: true
+  field_placed: true
+  field_placement_card: true
+  field_placement_letter_sent: true
+  field_plot: true
   field_prj_adm_comms: true
   field_prj_adm_form_3: true
   field_prj_adm_latitude: true
@@ -797,6 +802,7 @@ hidden:
   field_sup_review: true
   field_tc_type: true
   field_vp_ea: true
+  field_year_cycle: true
   path: true
   promote: true
   status: true

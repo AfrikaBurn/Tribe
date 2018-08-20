@@ -21,13 +21,13 @@ dependencies:
     - field.storage.node.field_prjr_complete
     - field.storage.user.field_first_name
     - field.storage.user.field_last_name
+    - flag.flag.archived
     - image.style.small_50x50
     - image.style.thumbnail
     - node.type.art
     - system.menu.wrangle
     - taxonomy.vocabulary.artwork_size
     - taxonomy.vocabulary.location
-    - taxonomy.vocabulary.sound_levels
     - taxonomy.vocabulary.wrangler_review
     - user.role.administrator
     - user.role.art_admin
@@ -36,6 +36,7 @@ dependencies:
     - user.role.support_wrangler
   module:
     - colorbox
+    - flag
     - node
     - options
     - taxonomy
@@ -3115,50 +3116,29 @@ display:
           level_labels: ''
           force_deepest: false
           plugin_id: taxonomy_index_tid
-        field_prj_cll_collaborate_value:
-          id: field_prj_cll_collaborate_value
-          table: node__field_prj_cll_collaborate
-          field: field_prj_cll_collaborate_value
-          relationship: none
+        flagged:
+          id: flagged
+          table: flagging
+          field: flagged
+          relationship: flag_relationship
           group_type: group
           admin_label: ''
           operator: '='
-          value: All
+          value: '0'
           group: 1
-          exposed: true
+          exposed: false
           expose:
             operator_id: ''
-            label: Collaboration
+            label: ''
             description: ''
             use_operator: false
-            operator: field_prj_cll_collaborate_value_op
-            identifier: collaborate
+            operator: ''
+            identifier: ''
             required: false
             remember: false
             multiple: false
             remember_roles:
               authenticated: authenticated
-              anonymous: '0'
-              art_wrangler: '0'
-              art_admin: '0'
-              communications_wrangler: '0'
-              communications_admin: '0'
-              leave_no_trace_moop: '0'
-              mutant_vehicle_viewer: '0'
-              mutant_vehicle_wrangler: '0'
-              mutant_vehicle_admin: '0'
-              outreach_wrangler: '0'
-              outreach_admin: '0'
-              administrator: '0'
-              support_wrangler: '0'
-              support_admin: '0'
-              theme_camp_wrangler: '0'
-              theme: '0'
-              supplier: '0'
-              dpw: '0'
-              volunteer_admin: '0'
-              ranger_admin: '0'
-              sanctuary_admin: '0'
           is_grouped: false
           group_info:
             label: ''
@@ -3171,247 +3151,8 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
-          plugin_id: boolean
-        field_prj_brn_burning_value:
-          id: field_prj_brn_burning_value
-          table: node__field_prj_brn_burning
-          field: field_prj_brn_burning_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: All
-          group: 1
-          exposed: true
-          expose:
-            operator_id: ''
-            label: Burning
-            description: ''
-            use_operator: false
-            operator: field_prj_brn_burning_value_op
-            identifier: burning
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              art_wrangler: '0'
-              art_admin: '0'
-              communications_wrangler: '0'
-              communications_admin: '0'
-              leave_no_trace_moop: '0'
-              mutant_vehicle_viewer: '0'
-              mutant_vehicle_wrangler: '0'
-              mutant_vehicle_admin: '0'
-              outreach_wrangler: '0'
-              outreach_admin: '0'
-              administrator: '0'
-              support_wrangler: '0'
-              support_admin: '0'
-              theme_camp_wrangler: '0'
-              theme: '0'
-              supplier: '0'
-              dpw: '0'
-              volunteer_admin: '0'
-              ranger_admin: '0'
-              sanctuary_admin: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: boolean
-        field_prjr_complete_value:
-          id: field_prjr_complete_value
-          table: node__field_prjr_complete
-          field: field_prjr_complete_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: completed_op
-            label: 'Complete (field_prjr_complete)'
-            description: ''
-            use_operator: true
-            operator: field_prjr_complete_value_op
-            identifier: completed
-            required: false
-            remember: false
-            multiple: true
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              art_wrangler: '0'
-              art_admin: '0'
-              communications_wrangler: '0'
-              communications_admin: '0'
-              leave_no_trace_moop: '0'
-              mutant_vehicle_viewer: '0'
-              mutant_vehicle_wrangler: '0'
-              mutant_vehicle_admin: '0'
-              outreach_wrangler: '0'
-              outreach_admin: '0'
-              administrator: '0'
-              support_wrangler: '0'
-              support_admin: '0'
-              theme_camp_wrangler: '0'
-              theme: '0'
-              supplier: '0'
-              dpw: '0'
-              volunteer_admin: '0'
-              ranger_admin: '0'
-              sanctuary_admin: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          plugin_id: list_field
-        field_prj_snd_sound_value:
-          id: field_prj_snd_sound_value
-          table: node__field_prj_snd_sound
-          field: field_prj_snd_sound_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: '='
-          value: ''
-          group: 1
-          exposed: true
-          expose:
-            operator_id: ''
-            label: Sound
-            description: ''
-            use_operator: false
-            operator: field_prj_snd_sound_value_op
-            identifier: sound
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              art_wrangler: '0'
-              art_admin: '0'
-              communications_wrangler: '0'
-              communications_admin: '0'
-              leave_no_trace_moop: '0'
-              mutant_vehicle_viewer: '0'
-              mutant_vehicle_wrangler: '0'
-              mutant_vehicle_admin: '0'
-              outreach_wrangler: '0'
-              outreach_admin: '0'
-              administrator: '0'
-              support_wrangler: '0'
-              support_admin: '0'
-              theme_camp_wrangler: '0'
-              theme: '0'
-              supplier: '0'
-              dpw: '0'
-              volunteer_admin: '0'
-              ranger_admin: '0'
-              sanctuary_admin: '0'
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          plugin_id: boolean
-        field_prj_snd_level_target_id:
-          id: field_prj_snd_level_target_id
-          table: node__field_prj_snd_level
-          field: field_prj_snd_level_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value: {  }
-          group: 1
-          exposed: true
-          expose:
-            operator_id: field_prj_snd_level_target_id_op
-            label: 'Sound level'
-            description: ''
-            use_operator: false
-            operator: field_prj_snd_level_target_id_op
-            identifier: sound-level
-            required: false
-            remember: false
-            multiple: true
-            remember_roles:
-              authenticated: authenticated
-              anonymous: '0'
-              art_wrangler: '0'
-              art_admin: '0'
-              communications_wrangler: '0'
-              communications_admin: '0'
-              leave_no_trace_moop: '0'
-              mutant_vehicle_viewer: '0'
-              mutant_vehicle_wrangler: '0'
-              mutant_vehicle_admin: '0'
-              outreach_wrangler: '0'
-              outreach_admin: '0'
-              administrator: '0'
-              support_wrangler: '0'
-              support_admin: '0'
-              theme_camp_wrangler: '0'
-              theme: '0'
-              supplier: '0'
-              dpw: '0'
-              volunteer_admin: '0'
-              ranger_admin: '0'
-              sanctuary_admin: '0'
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          type: select
-          limit: true
-          vid: sound_levels
-          hierarchy: false
-          error_message: false
-          parent: 0
-          level_labels: ''
-          force_deepest: false
-          plugin_id: taxonomy_index_tid
+          entity_type: flagging
+          plugin_id: flag_filter
       sorts:
         created:
           id: created
@@ -3489,6 +3230,18 @@ display:
           admin_label: Manager
           required: false
           plugin_id: standard
+        flag_relationship:
+          id: flag_relationship
+          table: node_field_data
+          field: flag_relationship
+          relationship: none
+          group_type: group
+          admin_label: Flags
+          required: false
+          flag: archived
+          user_scope: any
+          entity_type: node
+          plugin_id: flag_relationship
       arguments: {  }
       display_extenders: {  }
       filter_groups:

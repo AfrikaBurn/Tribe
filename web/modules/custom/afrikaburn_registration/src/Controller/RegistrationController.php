@@ -27,9 +27,11 @@ class RegistrationController extends ControllerBase {
       $destination->set('created', time());
       $destination->set('changed', time());
       $destination->set('field_prjr_complete', []);
+      $destination->set('field_form_mode', NULL);
+      $destination->set('field_prj_adm_review', NULL);
       $destination->save();
 
-      drupal_set_message('"' . $destination->get('title')->value . '" registration has been created as a draft. Please review the information and click "Save" when you are ready to submit the registration.');
+      drupal_set_message('"' . $destination->get('title')->value . '" registration has been created as a draft. Please review the information and click "Submit" when you are ready to submit the registration.');
 
       $redirect = new RedirectResponse('/node/' . $destination->id() .'/edit/form_1');
       $redirect->send();

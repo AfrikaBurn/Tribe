@@ -33,7 +33,6 @@ dependencies:
     - computed_field
     - datetime
     - empty_fields
-    - entity_reference_revisions
     - field_group
     - image
     - link
@@ -47,7 +46,6 @@ third_party_settings:
         - group_account
         - group_history
         - group_contact
-        - group_er_med
         - group_location
       parent_name: ''
       weight: 0
@@ -124,9 +122,6 @@ third_party_settings:
         - field_mobile
         - field_secondary_mail
         - field_links
-        - field_emr_name
-        - field_emr_email
-        - field_emr_telephone
         - field_newsletter
       parent_name: group_root
       weight: 4
@@ -137,20 +132,6 @@ third_party_settings:
         classes: ''
         id: ''
       label: Contact
-      region: content
-    group_er_med:
-      children:
-        - field_kids_and_teens
-      parent_name: group_root
-      weight: 5
-      format_type: tab
-      format_settings:
-        label: 'Kids and Teens (Minors)'
-        formatter: closed
-        description: ''
-        id: ''
-        classes: ''
-      label: 'Kids and Teens (Minors)'
       region: content
 _core:
   default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
@@ -177,29 +158,6 @@ content:
       sanitized: true
       cache_unit: -1
       cache_duration: 1
-    third_party_settings: {  }
-  field_emr_email:
-    type: basic_string
-    weight: 5
-    region: content
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-  field_emr_name:
-    type: string
-    weight: 4
-    region: content
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-  field_emr_telephone:
-    type: string
-    weight: 6
-    region: content
-    label: above
-    settings:
-      link_to_entity: false
     third_party_settings: {  }
   field_first_name:
     type: string
@@ -231,17 +189,6 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-  field_kids_and_teens:
-    type: entity_reference_revisions_entity_view
-    weight: 2
-    label: hidden
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings:
-      empty_fields:
-        handler: ''
-    region: content
   field_last_name:
     type: string
     weight: 4
@@ -355,5 +302,9 @@ hidden:
   field_country: true
   field_district: true
   field_email_retype: true
+  field_emr_email: true
+  field_emr_name: true
+  field_emr_telephone: true
+  field_kids_and_teens: true
   field_quicket_code: true
   field_quicket_id: true

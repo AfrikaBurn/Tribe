@@ -1240,7 +1240,7 @@ display:
         style: false
         row: false
       block_category: Stats
-      title: 'Projects per year'
+      title: 'Type per year'
       relationships:
         flag_relationship:
           id: flag_relationship

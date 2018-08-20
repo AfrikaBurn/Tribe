@@ -54,6 +54,10 @@ div.body-content .block .view-id-collective_projects li.messages{
   opacity: 0.9;
 }
 
+div.body-content .block .view-id-collective_projects li.messages{
+  background-color: #550000;
+}
+
 div.body-content .block .view-id-collective_projects li.messages:hover{
   opacity: 1;
 }
@@ -61,10 +65,6 @@ div.body-content .block .view-id-collective_projects li.messages:hover{
 div.body-content .block .view-id-collective_projects .messages a{
   display: block;
   padding: 4px 0;
-}
-
-div.body-content .block .view-id-collective_projects .messages a:hover{
-  color: #000;
 }
 
 div.body-content .block .view-id-collective_projects .messages--lock,
@@ -75,19 +75,16 @@ div.body-content .block .view-id-collective_projects .messages--archive {
 
 div.body-content .block .view-id-collective_projects .messages--lock {
   color: #0000aa;
-  background: #e4f7ff;
   box-shadow: -8px 0 0 #01b8ff;
 }
 
 div.body-content .block .view-id-collective_projects .messages--recycle {
-  color: #00aa00;
-  background: #e4fff7;
-  box-shadow: -8px 0 0 #00aa00;
+  color: #99aa00;
+  box-shadow: -8px 0 0 #99aa00;
 }
 
 div.body-content .block .view-id-collective_projects .messages--archive {
   color: #aaa;
-  background: #efefef;
   box-shadow: -8px 0 0 #aaa;
 }
 
@@ -96,7 +93,7 @@ div.body-content .block .view-id-collective_projects .messages--lock a{
 }
 
 div.body-content .block .view-id-collective_projects .messages--recycle a{
-  color: #00aa00;
+  color: #99aa00;
 }
 
 div.body-content .block .view-id-collective_projects .messages--archive a{
@@ -130,7 +127,7 @@ div.body-content .block .view-id-collective_projects .messages--lock:before{
 
 div.body-content .block .view-id-collective_projects .messages--recycle:before{
   content: '\267b';
-  background: #00aa00;
+  background: #99aa00;
   color: #e4fff7;
 }
 

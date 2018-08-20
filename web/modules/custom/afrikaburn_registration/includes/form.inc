@@ -91,7 +91,35 @@ function _project_form_config() {
     ],
     //TODO: Form 2
     //TODO: Form 3
-    //TODO: Grant
+    //TODO: Suppliers
+    //TODO: WAP
+
+    /* ---- Performance ---- */
+
+    'node_performances_form' => [
+      'mode' => 'new',
+      'title' => 'Register',
+      'type' => 'a Binnekring event',
+      'wrangler' => 'art_wrangler'
+    ],
+    'node_performances_edit_form' => [
+      'mode' => 'edit',
+      'title' => 'Updating: %title',
+      'type' => 'a Binnekring event',
+      'wrangler' => 'art_wrangler'
+    ],
+    'node_performances_form_1_form' => [
+      'mode' => 'form_1',
+      'title' => 'Registering: %title',
+      'type' => 'a Binnekring event',
+      'wrangler' => 'art_wrangler'
+    ],
+    'node_performances_grant_form' => [
+      'mode' => 'grant',
+      'title' => 'Grant application for: %title',
+      'type' => 'a Binnekring event',
+      'wrangler' => 'art_wrangler'
+    ],
     //TODO: Suppliers
     //TODO: WAP
 
@@ -115,19 +143,14 @@ function _project_form_config() {
       'type' => 'a Mutant Vehicle',
       'wrangler' => 'mutant_vehicles_wrangler'
     ],
+    'node_mutant_vehicles_grant_form' => [
+      'mode' => 'grant',
+      'title' => 'Grant application for: %title',
+      'type' => 'a Mutant Vehicle',
+      'wrangler' => 'mutant_vehicles_wrangler'
+    ],
     //TODO: Form 2
     //TODO: Form 3
-    //TODO: Grant
-    //TODO: Suppliers
-    //TODO: WAP
-
-    /* ---- Performance ---- */
-
-    //TODO: Edit
-    //TODO: Form 1
-    //TODO: Form 2
-    //TODO: Form 3
-    //TODO: Grant
     //TODO: Suppliers
     //TODO: WAP
 

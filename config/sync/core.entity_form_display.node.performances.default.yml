@@ -126,35 +126,32 @@ dependencies:
     - link
 third_party_settings:
   field_group:
-    group_project:
+    group_project_registration:
       children:
+        - group_introduction
         - group_overview
         - group_wtf
       parent_name: ''
       weight: 1
-      format_type: accordion
+      format_type: tabs
       format_settings:
         label: 'Project Registration'
-        effect: none
+        direction: horizontal
         id: ''
         classes: ''
       label: 'Project Registration'
       region: content
     group_overview:
       children:
-        - title
         - field_prj_gen_lead
-        - field_prj_gen_description
-        - field_prj_wtf_short
         - field_prj_wtf_categories
         - field_bke_location
         - field_bke_day
         - field_bke_time
-        - field_prj_wtf_image
         - field_prj_oth_grant
-      parent_name: group_project
-      weight: 20
-      format_type: accordion_item
+      parent_name: group_project_registration
+      weight: 21
+      format_type: tab
       format_settings:
         label: Overview
         formatter: open
@@ -169,16 +166,17 @@ third_party_settings:
         - field_prj_cll_description
         - field_prj_cll_contact
         - field_prj_wtf_website
-      parent_name: group_project
-      weight: 27
-      format_type: accordion_item
+      parent_name: group_project_registration
+      weight: 22
+      format_type: tab
       format_settings:
-        label: 'Community & Collaboration'
+        label: 'Community and Collaboration'
         formatter: closed
+        description: ''
         required_fields: true
         id: ''
         classes: ''
-      label: 'Community & Collaboration'
+      label: 'Community and Collaboration'
       region: content
     group_administrative:
       children:
@@ -197,6 +195,22 @@ third_party_settings:
         open: false
         required_fields: true
       label: Administrative
+    group_introduction:
+      children:
+        - title
+        - field_prj_gen_description
+        - field_prj_wtf_short
+        - field_prj_wtf_image
+      parent_name: group_project_registration
+      weight: 20
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Introduction
 _core:
   default_config_hash: GszY5o7FPcrv2Z8_LMFChqNpGZCA9kaS3WAz3lVtB0o
 id: node.performances.default
@@ -214,7 +228,7 @@ content:
     weight: 6
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: options_buttons
     region: content
   field_bke_location:
     weight: 5
@@ -300,7 +314,7 @@ content:
             selector: ''
           entity_type: node
           bundle: performances
-    type: options_select
+    type: erviews_options_select
     region: content
   field_prj_cll_description:
     weight: 7
@@ -344,7 +358,7 @@ content:
     type: string_textarea
     region: content
   field_prj_gen_description:
-    weight: 2
+    weight: 1
     settings:
       rows: 5
       placeholder: ''
@@ -355,7 +369,7 @@ content:
     weight: 1
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: erviews_options_select
     region: content
   field_prj_oth_grant:
     type: boolean_checkbox
@@ -371,7 +385,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_prj_wtf_image:
-    weight: 8
+    weight: 3
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -380,7 +394,7 @@ content:
     region: content
   field_prj_wtf_short:
     type: string_textarea
-    weight: 3
+    weight: 2
     region: content
     settings:
       rows: 5

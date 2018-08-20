@@ -91,15 +91,19 @@ function ar_prepare_project_links(&$variables) {
       }
 
       $collective = \Drupal::routeMatch()->getParameter('node');
-      $links[] = '<li class="messages messages--error"><a href="/node/' . $nid . '/delete?destination=/node/' . $collective->id() . '" title="Delete this registration. This cannot be undone!">Delete registration</a></li>';
+      if ($view->group_admin){
+        $links[] = '<li class="messages messages--error"><a href="/node/' . $nid . '/delete?destination=/node/' . $collective->id() . '" title="Delete this registration. This cannot be undone!">Delete registration</a></li>';
+      }
 
     } else {
 
       foreach($view->form_modes[$type] as $mode){
-        $links[] = '<li class="messages messages--archive"><a href="/node/' . $nid . '/' . $mode['name'] . '" target="_blank" title="ARCHIVED: Read only.">' . $mode['title'] . '</a></li>';
+        if (@$mode['state']['visible']) {
+          $links[] = '<li class="messages messages--archive"><a href="/node/' . $nid . '/' . $mode['name'] . '" target="_blank" title="ARCHIVED: Read only.">' . $mode['title'] . '</a></li>';
+        }
       }
 
-      if (@$view->form_modes[$type]['form_1']['state']['open']){
+      if (@$view->form_modes[$type]['form_1']['state']['open'] && $view->group_admin){
         $links[] = '<li class="messages messages--recycle"><a href="/registration/' . $nid . '/reuse" target="_blank" title="Copy the information in this registration into a new submission.">Reuse this registration</a></li>';
       }
     }

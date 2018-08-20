@@ -102,7 +102,90 @@ dependencies:
     - field.field.node.mutant_vehicles.field_year_cycle
     - node.type.mutant_vehicles
   module:
+    - field_group
     - paragraphs
+third_party_settings:
+  field_group:
+    group_project_registration:
+      children:
+        - group_overview
+        - group_budget
+        - group_other_funding
+      parent_name: ''
+      weight: 3
+      format_type: tabs
+      format_settings:
+        label: Intro
+        direction: horizontal
+        id: ''
+        classes: ''
+      label: Intro
+      region: content
+    group_overview:
+      children:
+        - title
+        - field_grt_materials
+        - field_grt_transport
+        - field_grt_services
+        - field_grt_total
+        - field_grt_contribution
+        - field_grt_art_total
+      parent_name: group_project_registration
+      weight: 11
+      format_type: tab
+      format_settings:
+        label: Overview
+        formatter: closed
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Overview
+      region: content
+    group_budget:
+      children:
+        - field_grt_dmv_budget
+      parent_name: group_project_registration
+      weight: 12
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Budget
+    group_other_funding:
+      children:
+        - field_grt_other
+        - field_grt_other_description
+      parent_name: group_project_registration
+      weight: 13
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: 'Other funding'
+    group_administrative:
+      children:
+        - field_prjr_complete
+        - field_prj_adm_review
+        - field_prj_adm_wrangler
+        - field_collective
+        - field_form_mode
+        - field_prj_adm_registration
+        - field_year_cycle
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: Administrative
 _core:
   default_config_hash: FHLYUGK-mQGVYzvIKsUSwq4IdPmIgOzk9wE9K3NHGck
 id: node.mutant_vehicles.grant
@@ -110,29 +193,40 @@ targetEntityType: node
 bundle: mutant_vehicles
 mode: grant
 content:
-  created:
-    type: datetime_timestamp
-    weight: 11
+  field_collective:
+    type: entity_reference_autocomplete
+    weight: 3
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_form_mode:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_grt_art_total:
     type: number
-    weight: 5
+    weight: 16
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_grt_contribution:
     type: number
-    weight: 0
+    weight: 15
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_grt_dmv_budget:
     type: entity_reference_paragraphs
-    weight: -1
+    weight: 0
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -144,21 +238,21 @@ content:
     region: content
   field_grt_materials:
     type: number
-    weight: 2
+    weight: 11
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_grt_other:
     type: boolean_checkbox
-    weight: 7
+    weight: 8
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_grt_other_description:
     type: string_textarea
-    weight: 8
+    weight: 9
     region: content
     settings:
       rows: 5
@@ -166,24 +260,48 @@ content:
     third_party_settings: {  }
   field_grt_services:
     type: number
-    weight: 1
+    weight: 13
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_grt_total:
     type: number
-    weight: 4
+    weight: 14
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_grt_transport:
     type: number
-    weight: 3
+    weight: 12
     region: content
     settings:
       placeholder: ''
+    third_party_settings: {  }
+  field_prj_adm_review:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_adm_wrangler:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_prjr_complete:
+    type: options_buttons
+    weight: 0
+    region: content
+    settings: {  }
     third_party_settings: {  }
   moderation_state:
     type: moderation_state_default
@@ -191,59 +309,21 @@ content:
     settings: {  }
     region: content
     third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 12
-    region: content
-    third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 16
-    third_party_settings: {  }
-    region: content
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 13
-    region: content
-    third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 9
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
     weight: 10
+    region: content
     settings:
-      match_operator: CONTAINS
       size: 60
       placeholder: ''
-    region: content
-    third_party_settings: {  }
-  url_redirects:
-    weight: 14
-    region: content
-    settings: {  }
     third_party_settings: {  }
 hidden:
+  created: true
   field_admin_comments: true
-  field_collective: true
-  field_form_mode: true
   field_grt_awarded: true
   field_grt_status: true
   field_mutant_drivers: true
   field_prj_adm_registration: true
-  field_prj_adm_review: true
-  field_prj_adm_wrangler: true
   field_prj_brn_agree: true
   field_prj_brn_burning: true
   field_prj_brn_desc: true
@@ -318,8 +398,12 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
-  field_prjr_complete: true
   field_sup_review: true
   field_vp_ea: true
   field_year_cycle: true
   path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true
+  url_redirects: true

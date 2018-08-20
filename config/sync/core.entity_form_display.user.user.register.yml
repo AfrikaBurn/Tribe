@@ -151,9 +151,12 @@ content:
     third_party_settings: {  }
   field_date_of_birth:
     weight: 6
-    settings: {  }
+    settings:
+      date_order: DMY
+      time_type: none
+      increment: 15
     third_party_settings: {  }
-    type: datetime_default
+    type: datetime_datelist
     region: content
   field_email_retype:
     weight: 8

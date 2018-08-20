@@ -65,6 +65,7 @@ assets:
 handler:
   excluded_handlers: {  }
 export:
+  temp_directory: ''
   exporter: delimited
   multiple_delimiter: ;
   header_format: label
@@ -111,7 +112,8 @@ element:
     password_confirm: password_confirm
 html_editor:
   disabled: false
-  format: ''
+  element_format: ''
+  mail_format: ''
   tidy: true
 file:
   file_public: false
@@ -154,6 +156,7 @@ ui:
 libraries:
   excluded_libraries:
     - jquery.chosen
+    - jquery.toggles
 requirements:
   cdn: true
   bootstrap: true

@@ -33,19 +33,42 @@
       this.tabs = $('.vertical-tabs__menu, .horizontal-tabs-list', this.root).children()
       this.panels = $('.field-group-tab > .details-wrapper', this.root)
 
-      this.root.parents('form').find('.captcha').appendTo(this.panels.last())
-      this.panels.append('<div class="wizard-actions"></div>')
-
-      this.root.parents('form').find('.form-actions').appendTo(this.panels.last().find('.wizard-actions'))
-
       this.alter()
       this.attachPrevious()
       this.attachNext()
       this.attachSubmit()
+      this.switchOnErrorClick()
     }
 
-    // Add step count
+    // Hop to error clicked on in messages
+    switchOnErrorClick(){
+      $('.messages--error:not(.messages--error-processed)').each(
+        (index, messages) => {
+          $('a', messages).each(
+            (index, link) => {
+              $(link).click(
+                (event) => {
+                  var
+                    id = $(event.target).attr('href').match(/#.*/)[0],
+                    element = $(id + ',' + id + '-wrapper'),
+                    parentPanel = element.parents('.field-group-tab').children('.details-wrapper'),
+                    parentTab = $(this.tabs[this.panels.index(parentPanel)])
+                  parentTab.find('a').click()
+                }
+              )
+            }
+          )
+        }
+      )
+    }
+
+    // Move elements, Add step count
     alter(){
+
+      this.root.parents('form').find('.captcha').appendTo(this.panels.last())
+      this.panels.append('<div class="wizard-actions"></div>')
+      this.root.parents('form').find('.form-actions').appendTo(this.panels.last().find('.wizard-actions'))
+
       this.panels.each(
         (index, panel) => {
           $(panel).prepend(

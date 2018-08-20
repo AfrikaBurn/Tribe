@@ -36,18 +36,19 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
 
   if (isset($defaults) && preg_match('/^\/node/', \Drupal::service('path.current')->getPath())) {
 
+    $entity = $form_state->getFormObject()->getEntity();
     $user = User::load(\Drupal::currentUser()->id());
     $registration = array_filter(
       [
-        $form_state->getFormObject()->getEntity(),
+        $entity,
         \Drupal::routeMatch()->getParameter('node'),
       ]
     )[0];
     $collective = _get_collective($registration);
-
     $is_wrangler = $user->hasRole($defaults['wrangler']);
     $is_admin = $user->hasRole('administrator');
-    $is_complete = array_search($defaults['mode'], $form['field_prjr_complete']['widget']['#default_value']) !== FALSE;
+    $incomplete = array_search($defaults['mode'], $form['field_prjr_complete']['widget']['#default_value']) === FALSE;
+    $bundle = $entity->bundle();
 
     // Naughty naughty users
     if (!$collective) {
@@ -56,24 +57,15 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
       $response->send();
     }
 
-    // The little things
+    // Form title, Submit title, Submit handler
     $form['#title'] = [
       '#type' => 'markup',
       '#markup' => _get_title($defaults, $collective, $registration),
     ];
     $form['actions']['submit']['#value'] = 'Submit';
+    array_unshift($form['actions']['submit']['#submit'], 'afrikaburn_registration_publish');
+    $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_redirect';
     $form['#attached']['library'][] = 'afrikaburn_registration/registration';
-
-    // Hide fields and inappropriate complete options per type
-    $form['revision_log']['#access'] = $is_admin;
-    $form['field_form_mode']['#type'] = 'hidden';
-    $form['field_collective']['#access'] = $is_admin;
-    if (!($is_wrangler || $is_admin)) $form['field_prjr_complete']['widget']['#type'] = 'hidden';
-    $bundle = $form_state->getFormObject()->getEntity()->bundle();
-    $form['field_prjr_complete']['widget']['#options'] = array_intersect_key(
-      $form['field_prjr_complete']['widget']['#options'],
-      _project_form_modes()[$bundle]['modes']
-    );
 
     // Set defaults
     $form['field_collective']['widget'][0]['target_id']['#default_value'] = $collective;
@@ -81,13 +73,23 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
     $form['field_prjr_complete']['widget']['#default_value'][] = $defaults['mode'];
     $form['#administrator'] = $is_admin || $is_wrangler;
 
+    // Hide fields and inappropriate complete options per type
+    $form['revision_log']['#access'] = $is_admin;
+    $form['field_form_mode']['#type'] = 'hidden';
+    $form['field_collective']['#access'] = $is_admin;
+    $form['field_prjr_complete']['widget']['#options'] = array_intersect_key(
+      $form['field_prjr_complete']['widget']['#options'],
+      _project_form_modes()[$bundle]['modes']
+    );
+    if (!($is_wrangler || $is_admin)) $form['field_prjr_complete']['widget']['#type'] = 'value';
+
     // Wizard or tabs (cake or death?)
     $is_new = !isset($registration);
     $errors = count($form_state->getErrors()) > 0;
     $form['#wizard'] =
       !$is_wrangler && (
         $is_new && !$errors ||
-        !$is_complete && !$errors
+        $incomplete && !$errors
       );
 
     // // Add "Save Draft" button.
@@ -266,6 +268,27 @@ function afrikaburn_registration_preprocess_views_view_table(&$variables) {
     break;
 
   }
+}
+
+
+/* ----- Form submit handlers ----- */
+
+
+/**
+ * Redirects after saving entity.
+ */
+function afrikaburn_registration_redirect($form, $form_state){
+  $entity = $form_state->getFormObject()->getEntity();
+  $mode = $form_state->getValue('field_form_mode')[0]['value'];
+  $url = \Drupal\Core\Url::fromUri('internal:/node/' . $entity->id() . '/' . $mode);
+  $form_state->setRedirectUrl($url);
+}
+
+/**
+ * Publishes an entity.
+ */
+function afrikaburn_registration_publish($form, $form_state){
+  $form_state->getFormObject()->getEntity()->setPublished(TRUE);
 }
 
 

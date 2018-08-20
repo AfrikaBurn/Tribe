@@ -18,6 +18,7 @@ dependencies:
     - field.storage.node.field_prjr_complete
     - field.storage.user.field_first_name
     - field.storage.user.field_last_name
+    - flag.flag.archived
     - image.style.small_50x50
     - image.style.thumbnail
     - node.type.performances
@@ -31,6 +32,7 @@ dependencies:
     - user.role.support_wrangler
   module:
     - colorbox
+    - flag
     - node
     - options
     - taxonomy
@@ -2881,6 +2883,43 @@ display:
           level_labels: ''
           force_deepest: false
           plugin_id: taxonomy_index_tid
+        flagged:
+          id: flagged
+          table: flagging
+          field: flagged
+          relationship: flag_relationship
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: '0'
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: flagging
+          plugin_id: flag_filter
       sorts:
         created:
           id: created
@@ -2958,6 +2997,18 @@ display:
           admin_label: Manager
           required: false
           plugin_id: standard
+        flag_relationship:
+          id: flag_relationship
+          table: node_field_data
+          field: flag_relationship
+          relationship: none
+          group_type: group
+          admin_label: Flags
+          required: false
+          flag: archived
+          user_scope: any
+          entity_type: node
+          plugin_id: flag_relationship
       arguments: {  }
       display_extenders: {  }
       filter_groups:

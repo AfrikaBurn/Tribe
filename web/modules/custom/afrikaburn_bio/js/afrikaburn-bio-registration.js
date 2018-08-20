@@ -23,17 +23,24 @@
         () => {
 
           // Validate retype
-          $('#edit-group-account .js-next').click(
+          $('#edit-field-email-retype-0-value').blur(
             function(){
 
               var
-                retype = $('#edit-field-email-retype-0-value:visible'),
+                field = $('#edit-field-email-retype-0-value'),
+                error = $('.user-register-form .retype-error'),
                 email = $('#edit-mail')
 
-              if (retype.length && retype.val() != email.val()){
-                email.add(retype)
-                  .addClass('error')
-                  .after('<label class="error retype-error">Email address and Retype Email address should match!</label>')
+              if (field.val() != email.val()){
+                if (error.length == 0) {
+                  email.add(field)
+                    .addClass('error')
+                    .after('<label class="error retype-error">Email address and Retype Email address should match!</label>')
+                } else {
+                  error.show()
+                }
+              } else {
+                error.hide()
               }
             }
           )

@@ -21,6 +21,34 @@
         function(){
           var element = $(this)
           element.valid && !element.hasClass('editor-processed') ? element.valid() : false
+          if (element.hasClass('valid')) element.siblings('.form-item--error-message').remove()
+          if ($('.form-item--error-message').length==0) $('.messages--error').remove()
+        }
+      )
+
+      // Scroll to error linked to in messages
+      $('.messages--error').each(
+        (index, messages) => {
+          $('a', messages).each(
+            (index, link) => {
+              $(link).click(
+                (event) => {
+
+                  event.preventDefault()
+
+                  var
+                    id = $(event.target).attr('href').match(/#.*/)[0],
+                    element = $(id + ',' + id + '-wrapper')
+                  setTimeout(
+                    () => {
+                      $('html, body').animate({
+                        scrollTop: element.offset().top - 30
+                      }, 1000)
+                    }, 100);
+                }
+              )
+            }
+          )
         }
       )
 
@@ -50,7 +78,9 @@
 
       // Show first tab error
       $('.horizontal-tabs', context).parents('form').submit(
-        (event) => showFirstError(event.target)
+        (event) => {
+          showFirstError(event.target)
+        }
       )
       showFirstError($('.horizontal-tabs', context).parents('form'))
 

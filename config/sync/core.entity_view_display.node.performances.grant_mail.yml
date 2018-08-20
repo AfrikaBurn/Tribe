@@ -135,9 +135,9 @@ third_party_settings:
       weight: 0
       format_type: html_element
       format_settings:
-        element: div
+        element: section
         show_label: false
-        label_element: h3
+        label_element: h2
         effect: none
         speed: fast
         attributes: ''
@@ -152,9 +152,9 @@ third_party_settings:
       format_type: html_element
       format_settings:
         label: Intro
-        element: h2
-        show_label: false
-        label_element: h3
+        element: section
+        show_label: true
+        label_element: h2
         attributes: ''
         effect: none
         speed: fast
@@ -169,9 +169,9 @@ third_party_settings:
       format_type: html_element
       format_settings:
         label: Expenses
-        element: h2
-        show_label: false
-        label_element: h3
+        element: section
+        show_label: true
+        label_element: h2
         attributes: ''
         effect: none
         speed: fast
@@ -188,9 +188,9 @@ third_party_settings:
       format_type: html_element
       format_settings:
         label: Shortfall
-        element: h2
-        show_label: false
-        label_element: h3
+        element: section
+        show_label: true
+        label_element: h2
         attributes: ''
         effect: none
         speed: fast
@@ -205,9 +205,9 @@ third_party_settings:
       format_type: html_element
       format_settings:
         label: Other
-        element: h2
-        show_label: false
-        label_element: h3
+        element: section
+        show_label: true
+        label_element: h2
         attributes: ''
         effect: none
         speed: fast
@@ -222,9 +222,9 @@ third_party_settings:
       format_type: html_element
       format_settings:
         label: Summary
-        element: h2
-        show_label: false
-        label_element: h3
+        element: section
+        show_label: true
+        label_element: h2
         attributes: ''
         effect: none
         speed: fast

@@ -1,0 +1,270 @@
+@charset "utf-8";
+
+
+/* Columns */
+
+.view-wrangle-people table td{
+  vertical-align: top;
+}
+
+.view-wrangle-people table .views-field-title{
+  width: 200px;
+}
+
+.view-wrangle-people table td.views-field-title{
+  padding-top: 20px;
+}
+
+
+.view-wrangle-people table .views-field-operations .dropbutton-wrapper,
+.view-wrangle-people table .views-field-operations .dropbutton-widget,
+.view-wrangle-people table .views-field-operations .button{
+  margin: 0;
+  width: 100%;
+}
+
+.view-wrangle-people table th{
+  position: relative;
+  height: 128px;
+  padding: 0 0 0 5px;
+  vertical-align: bottom;
+  border: none !important;
+  background: #fafafa !important;
+}
+
+.view-wrangle-people table th span.label{
+  position: absolute;
+  transform: rotate(-45deg);
+  transform-origin: top left;
+  z-index: 1;
+  white-space: nowrap;
+  height: 20px;
+  border-top: 1px solid;
+  padding-left: 2em;
+  width: 150px;
+  left: 0;
+}
+
+.view-wrangle-people table th:first-child span{
+  display: none;
+}
+
+.view-wrangle-people table .tablesort{
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  right: 50%;
+  margin-right: -7.5px;
+  top: -9px;
+}
+
+.view-wrangle-people table th{
+  border-left: 1px solid transparent;
+}
+.view-wrangle-people table td{
+  border-left: 1px solid #efefef;
+}
+
+/* Misc */
+
+.view-wrangle-people details summary{
+  padding: 0;
+}
+
+.view-wrangle-people .details-wrapper{
+  padding: 0;
+  margin: 0;
+}
+
+/* No results */
+
+.view-wrangle-people .messages{
+  clear: both;
+}
+
+
+/* Images */
+
+.view-wrangle-people table td.views-field-field-prj-gen-concept img{
+  display: block;
+  float: left;
+  margin: 1px 0;
+}
+
+
+/* Mass mailing */
+
+ul.mass-mail{
+  float: right;
+  margin: 30px 10px;
+}
+
+/* Filter form */
+
+.view-wrangle-people .form--inline{
+  float: left;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 45px 0;
+}
+.view-wrangle-people .view-filters:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.view-wrangle-people .form--inline .form-item{
+  margin: 0;
+  padding: 0;
+  float: none;
+  width: 140px;
+}
+
+.view-wrangle-people .form--inline .form-item-wrangler,
+.view-wrangle-people .form--inline .form-item.form-type-textfield{
+  width: 200px;
+}
+
+.view-wrangle-people .form--inline .form-actions *,
+.view-wrangle-people .form--inline .form-item *{
+  display: inline-block;
+  box-sizing: border-box;
+  height: 32px;
+  padding: 6px;
+  font-size: 90%;
+  margin-right: 20px;
+}
+
+.view-wrangle-people .form--inline .form-item *{
+  width: 90%;
+}
+
+
+.view-wrangle-people .form--inline .form-actions{
+  clear: none;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.view-wrangle-people .form--inline .form-text{
+  padding: 6px;
+}
+
+/* Editor fields */
+
+.editor-parent {
+  position: relative;
+}
+
+.editor-parent input{
+  min-width: 15px;
+}
+
+.editor-parent label{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.editor-parent div.description{
+  position: absolute;
+  top: 0;
+  right: 0;
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.editor-parent div.description a{
+  padding: 0 5px;
+  background: #fff;
+  border: 1px solid #888;
+  border-radius: 10px;
+  padding: 0 5px;
+}
+
+.editor-parent:hover div.description{
+  visibility: visible;
+}
+
+.editor-busy:before {
+  background-image: url(/core/modules/quickedit/images/icon-throbber.gif);
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  content: '';
+  z-index: 1;
+  background-size: cover;
+  top: 50%;
+  right: -10px;
+  margin: -10px 0 0 -10px;
+}
+
+.editor-error{
+  background-color: #e85157;
+  border: 2px solid #802727;
+}
+
+.editor-parent.form-item-field-prj-snd-level label{
+  content: 'Sound level';
+}
+
+
+.editor-parent.form-item-field-prj-adm-wrangler,
+.editor-parent.form-item-field-prj-adm-review{
+  margin: 0 0 1em 0;
+}
+.editor-parent.form-item-field-prj-adm-wrangler select,
+.editor-parent.form-item-field-prj-adm-review select,
+.editor-parent.form-type-textfield input,
+{
+  width: 100%;
+}
+
+
+/* Comments */
+
+.view-wrangle-people .view-wrangle-comments{
+  margin: 2em 0 1em;
+}
+
+.view-wrangle-people article.admin-comment{
+  margin-bottom: 10px;
+}
+
+.view-wrangle-people article.admin-comment main{
+  display: flex;
+}
+
+.view-wrangle-people article.admin-comment main .image{
+  min-width: 30px;
+  flex-basis: 30px;
+  margin-top: 10px;
+}
+
+.view-wrangle-people article.admin-comment main .image img{
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.view-wrangle-people article.admin-comment main .comment{
+  background: #fafaff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  flex-grow: 1;
+  padding: 10px;
+}
+
+.view-wrangle-people article.admin-comment footer{
+  text-align: right;
+}
+
+.view-wrangle-people article.admin-comment footer a{
+  padding: 0 5px;
+}
+
+.view-wrangle-people details{
+  border: none;
+  padding: 0;
+}

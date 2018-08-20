@@ -12,7 +12,7 @@ function _notify($to, $from_label, $from_address, $bcc, $subject, $message, $nod
   \Drupal::service('plugin.manager.mail')->mail(
 
     'afrikaburn_notification',
-    'project_registration',
+    'afrikaburn_notification',
 
     $to,
     \Drupal::currentUser()->getPreferredLangcode(),
@@ -28,8 +28,8 @@ function _notify($to, $from_label, $from_address, $bcc, $subject, $message, $nod
 
     TRUE
   )['result']
-    ? \Drupal::logger('mail-log')->notice('Mail sent to ' . implode(' & ', [$to, $bcc]) . "\n" . $subject . "\n:" . $message)
-    : \Drupal::logger('mail-log')->notice('Mail send FAILED to ' . implode(' & ', [$to, $bcc]) . "\n" . $subject . "\n:" . $message);
+    ? \Drupal::logger('mail-log')->notice('Mail sent to ' . implode(' & ', array_filter([$to, $bcc])) . "<br />" . $subject . "<hr />" . $message)
+    : \Drupal::logger('mail-log')->notice('Mail send FAILED to ' . implode(' & ', [$to, $bcc]) . "<br />" . $subject . "<hr />" . $message);
 }
 
 
@@ -80,11 +80,21 @@ function _entity_diff($node, &$body){
 
   module_load_include('inc', 'afrikaburn_notification', 'includes/diff');
   $diff = _diff($node);
-  if ($diff) {
+  $exclude = [
+    'Invite Token',
+    'Invite Mail',
+    'Members',
+    'Admins',
+    'form_mode',
+    'Complete'
+  ];
 
+  if ($diff) {
     $rendered = '<table cellspacing=10 style="text-align: left;"><tr><th>Changed</th><th>From</th><th>To</th></tr>';
     foreach($diff as $title=>$change){
-      $rendered .= '<tr><td>' . implode('</td><td>', [$title, $change[0], $change[1]]) .'</td></tr>';
+      if (!in_array($title, $exclude)){
+        $rendered .= '<tr><td>' . implode('</td><td>', [$title, implode(',', $change[0]), implode(',', $change[1])]) .'</td></tr>';
+      }
     }
     $rendered .= '</table>';
   }

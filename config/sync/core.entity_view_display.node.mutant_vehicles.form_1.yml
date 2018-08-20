@@ -129,11 +129,11 @@ third_party_settings:
       weight: 1
       format_type: tabs
       format_settings:
-        label: Intro
+        label: 'Project Registration'
         direction: horizontal
         id: ''
         classes: ''
-      label: Intro
+      label: 'Project Registration'
       region: content
     group_overview:
       children:

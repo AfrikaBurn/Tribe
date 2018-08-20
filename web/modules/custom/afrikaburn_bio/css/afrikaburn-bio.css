@@ -46,3 +46,17 @@
 .user-login-form details .details-description{
   display: none;
 }
+
+#block-ticketblock .button.bio-update,
+#block-ticketblock .button.bio-tickets{
+  background: #88BA1D;
+  color: #fff;
+  font-weight: bold;
+  border-color: #e3f8b8;
+  border-width: 2px;
+}
+
+#block-ticketblock .button.bio-update{
+  margin-bottom: 5px;
+  font-size: 90%;
+}

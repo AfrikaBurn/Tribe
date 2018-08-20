@@ -127,7 +127,7 @@ dependencies:
     - user
 third_party_settings:
   field_group:
-    group_project:
+    group_project_registration:
       children:
         - group_overview
         - group_wtf
@@ -137,7 +137,7 @@ third_party_settings:
       format_settings:
         element: div
         show_label: false
-        label_element: h3
+        label_element: h2
         effect: none
         speed: fast
         attributes: ''
@@ -161,9 +161,9 @@ third_party_settings:
       format_type: html_element
       format_settings:
         label: Overview
-        element: h2
-        show_label: false
-        label_element: h3
+        element: section
+        show_label: true
+        label_element: h2
         attributes: ''
         effect: none
         speed: fast
@@ -182,9 +182,9 @@ third_party_settings:
       format_type: html_element
       format_settings:
         label: 'Community & Collaboration'
-        element: h2
-        show_label: false
-        label_element: h3
+        element: section
+        show_label: true
+        label_element: h2
         attributes: ''
         effect: none
         speed: fast

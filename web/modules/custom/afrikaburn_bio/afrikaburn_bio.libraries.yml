@@ -12,3 +12,10 @@ registration:
   css:
     theme:
       css/afrikaburn-bio-registration.css: {}
+wrangle:
+  version: 0.0
+  css:
+    theme:
+      css/afrikaburn-people-wrangle.css: {}
+  js:
+    js/afrikaburn-people-wrangle.js: {}
