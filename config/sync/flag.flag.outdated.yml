@@ -1,0 +1,30 @@
+uuid: fe1eef7f-4a4f-44f4-8a83-60f9aac7112d
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: outdated
+label: Outdated
+bundles: {  }
+entity_type: user
+global: true
+weight: 0
+flag_short: 'Up to date'
+flag_long: 'This bio is up to date. Click to encourage the user to update their bio.'
+flag_message: ''
+unflag_short: Outdated
+unflag_long: 'This bio is outdated. User will be encouraged to update their bio. Click to disable encouragement.'
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:user'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: false
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+  show_on_profile: false
+linkTypeConfig: {  }
