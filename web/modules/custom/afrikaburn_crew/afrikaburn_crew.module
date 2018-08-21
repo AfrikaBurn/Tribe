@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Contains Afrikaburn Crew module.
+ */
+
+function afrikaburn_crew_theme(){
+  return [
+    'views_view__wrangle_dpw_applications' => [
+      'template' => 'views-view--wrangle',
+      'base hook' => 'view',
+    ],
+    'views_view_table__wrangle_dpw_applications' => [
+      'template' => 'views-view-table--wrangle-projects',
+      'base hook' => 'view',
+    ],
+  ];
+}

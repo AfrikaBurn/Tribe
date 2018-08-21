@@ -5,6 +5,7 @@ module:
   adminimal_admin_toolbar: 0
   afrikaburn_bio: 0
   afrikaburn_collective: 0
+  afrikaburn_crew: 0
   afrikaburn_notification: 0
   afrikaburn_registration: 0
   afrikaburn_shared: 0
@@ -136,6 +137,7 @@ module:
   views_ui: 0
   webform: 0
   webform_ui: 0
+  webform_views: 0
   xls_serialization: 0
   ds: 1
   menu_link_content: 1
