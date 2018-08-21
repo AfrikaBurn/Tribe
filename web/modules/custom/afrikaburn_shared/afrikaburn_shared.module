@@ -26,3 +26,17 @@ function afrikaburn_shared_page_attachments(array &$page) {
   $page['#attached']['library'][] = 'afrikaburn_shared/wrangle';
   $page['#attached']['drupalSettings']['widthBreakpoint'] = 1;
 }
+
+
+function afrikaburn_shared_theme(){
+  return [
+    'views_view__wrangle_dpw_applications' => [
+      'template' => 'views-view--wrangle',
+      'base hook' => 'view',
+    ],
+    'views_view_table__wrangle_dpw_applications' => [
+      'template' => 'views-view-table--wrangle-projects',
+      'base hook' => 'view',
+    ],
+  ];
+}
