@@ -4,11 +4,3 @@ afrikaburn_shared.settings:
     _title: 'AfrikaBurn notification settings'
   requirements:
    _permission: 'administer site configuration'
-afrikaburn_shared.wrangle-dpw:
-  path: '/wrangle/crew/dpw'
-  options:
-    _admin_route: TRUE
-afrikaburn_shared.wrangle-dpw-2018:
-  path: '/wrangle/crew/dpw/2018'
-  options:
-    _admin_route: TRUE
