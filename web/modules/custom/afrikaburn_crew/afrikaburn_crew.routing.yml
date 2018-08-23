@@ -1,12 +1,14 @@
-afrikaburn_crew.wrangle-sanctuary:
+afrikaburn_crew.wrangle.sanctuary:
   path: '/wrangle/crew/sanctuary'
   options:
     _admin_route: TRUE
-afrikaburn_crew.wrangle-sanctuary-stats:
-  path: '/wrangle/crew/sanctuary/stats'
+
+afrikaburn_crew.wrangle.sanctuary-2019:
+  path: '/wrangle/crew/sanctuary/2019'
   options:
     _admin_route: TRUE
-afrikaburn_crew.wrangle-sanctuary-year:
-  path: '/wrangle/crew/sanctuary/2019'
+
+afrikaburn_crew.wrangle.sanctuary-2018:
+  path: '/wrangle/crew/sanctuary/2018'
   options:
     _admin_route: TRUE

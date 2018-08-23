@@ -70,15 +70,18 @@ function _notify_collective_changes($entity, $state, $meta_collective, $settings
  */
 function _notify_collective_invites($entity, $diff, $settings, $address_settings){
 
-  $latest = array_column($entity->get('field_col_invite_mail')->getValue(), 'value');
+  $tokens = array_column($entity->get('field_col_invite_token')->getValue(), 'value');
+  $mails = array_column($entity->get('field_col_invite_mail')->getValue(), 'value');
+  $token_map = array_combine($mails, $tokens);
+
   $invite = array_diff(
-    $latest,
+    $mails,
     array_column($entity->original->get('field_col_invite_mail')->getValue(), 'value')
   );
   $remind = [];
   $changed = array_diff($diff['Invite Token'][1], $diff['Invite Token'][0]);
   foreach($changed as $token){
-    $remind[] = $latest[
+    $remind[] = $mails[
       \Drupal\afrikaburn_collective\Controller\MemberController::inviteTokenIndex(
         $token,
         $entity
@@ -89,25 +92,47 @@ function _notify_collective_invites($entity, $diff, $settings, $address_settings
 
   // Send new invitations
   if (count($invite) && $settings->get('collective-invitation-new-invitees-enabled')) {
-    _notify(
-      'no-reply@afrikaburn.com',
-      $settings->get('collective-label'), $address_settings->get('collective-address'),
-      implode(',', $invite) . ', ' . $address_settings->get('archive'),
-      $settings->get("collective-invitation-new-invitees-subject"),
-      $settings->get("collective-invitation-new-invitees-body"),
-      $entity
-    );
+    foreach($invite as $invitee){
+
+      $accept = \Drupal::request()->getSchemeAndHttpHost() . '/collective/' . $entity->id() . '/accept?token=' . $token_map[$invitee];
+      $ignore = \Drupal::request()->getSchemeAndHttpHost() . '/collective/' . $entity->id() . '/ignore?token=' . $token_map[$invitee];
+      $body = str_replace(
+        ['[accept]', '[ignore]'],
+        [$accept, $ignore],
+        $settings->get("collective-invitation-new-invitees-body")
+      );
+
+      _notify(
+        'no-reply@afrikaburn.com',
+        $settings->get('collective-label'), $address_settings->get('collective-address'),
+        $invitee . ', ' . $address_settings->get('archive'),
+        $settings->get("collective-invitation-new-invitees-subject"),
+        $body,
+        $entity
+      );
+    }
   }
 
   // Send reminders
   if (count($remind) && $settings->get('collective-invitation-update-invitees-enabled')) {
-    _notify(
-      'no-reply@afrikaburn.com',
-      $settings->get('collective-label'), $address_settings->get('collective-address'),
-      implode(',', $invite) . ', ' . $address_settings->get('archive'),
-      $settings->get("collective-invitation-update-invitees-subject"),
-      $settings->get("collective-invitation-update-invitees-body"),
-      $entity
-    );
+    foreach($remind as $remindee){
+
+      $accept = \Drupal::request()->getSchemeAndHttpHost() . '/collective/' . $entity->id() . '/accept?token=' . $token_map[$remindee];
+      $ignore = \Drupal::request()->getSchemeAndHttpHost() . '/collective/' . $entity->id() . '/ignore?token=' . $token_map[$remindee];
+      $body = str_replace(
+        ['[accept]', '[ignore]'],
+        [$accept, $ignore],
+        $settings->get("collective-invitation-update-invitees-body")
+      );
+
+      _notify(
+        'no-reply@afrikaburn.com',
+        $settings->get('collective-label'), $address_settings->get('collective-address'),
+        $remindee . ', ' . $address_settings->get('archive'),
+        $settings->get("collective-invitation-update-invitees-subject"),
+        $body,
+        $entity
+      );
+    }
   }
 }
