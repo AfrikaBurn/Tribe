@@ -315,23 +315,17 @@ class MemberController extends ControllerBase {
       ),
       'value'
     );
-    $mail_index = array_filter(
-      [
-        array_search($user_mails[0], $mail_invites),
-        array_search($user_mails[1], $mail_invites),
-
-      ],
-      'is_int'
-    );
-
     $token_invites = array_column(
       $collective->get('field_col_invite_token')->getValue(),
       'value'
     );
-    $token_index = array_search(\Drupal::request()->get('token'), $token_invites);
 
     return array_filter(
-      array_merge($mail_index, [$token_index]),
+      [
+        array_search($user_mails[0], $mail_invites),
+        isset($user_mails[1]) ? array_search($user_mails[1], $mail_invites) : FALSE,
+        array_search(\Drupal::request()->get('token'), $token_invites)
+      ],
       'is_int'
     );
   }
