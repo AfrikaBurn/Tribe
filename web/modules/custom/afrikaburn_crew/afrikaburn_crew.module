@@ -1,0 +1,56 @@
+<?php
+
+/**
+ * @file
+ * Contains Afrikaburn Crew module.
+ */
+
+
+/* ----- Theme hooks ----- */
+
+
+/**
+ * Implements hook_theme().
+ * Views Customizaton.
+ */
+function afrikaburn_crew_theme(){
+  return [
+    'views_view__wrangle_sanctuary' => [
+      'template' => 'views-view--wrangle',
+      'base hook' => 'view',
+    ],
+    'views_view_table__wrangle_sanctuary' => [
+      'template' => 'views-view-table--wrangle-projects',
+      'base hook' => 'view',
+    ],
+  ];
+}
+
+
+/* ----- Preprocessing hooks ----- */
+
+
+/**
+ * Implements hook_preprocess_views_view().
+ */
+function afrikaburn_crew_preprocess_views_view(&$variables){
+  switch ($variables['id']){
+    case 'wrangle_sanctuary':
+      $variables['#attached']['library'][] = 'afrikaburn_crew/wrangle';
+      module_load_include('inc', 'afrikaburn_crew', 'includes/wrangle.crew');
+      _prepare_wrangler_view($variables);
+    break;
+  }
+}
+
+/**
+ * Implements hook_preprocess_views_view_table().
+ */
+function afrikaburn_crew_preprocess_views_view_table(&$variables) {
+  switch ($variables['view']->id()){
+    case 'wrangle_sanctuary':
+      module_load_include('inc', 'afrikaburn_crew', 'includes/wrangle.crew');
+      _insert_wrangler_view_rows($variables);
+    break;
+  }
+}

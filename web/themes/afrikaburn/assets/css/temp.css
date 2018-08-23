@@ -1,6 +1,4 @@
-/* OVERRIDES */
-
-button,
+/*button,
 .button,
 input.button,
 div.body-content a.button,
@@ -9,7 +7,7 @@ div.input-file-wrapper,
 input[type=submit],
 input.button:focus {
   background: #596F62;
-}
+}*/
 
 div.body-content input[value=Delete]{
   background: #ff6F62;
@@ -31,21 +29,11 @@ a:hover {
 
 /* column layout */
 
-.sidebar-outer.biobar{
-  float: left;
-  max-width: 155px;
-  font-size: 85%;
-}
+
 
 #block-ticketblock .button{
   padding: 0;
   width: 100%;
-}
-
-body.layout-biobar .main-block{
-  width: 75%;
-  margin: 0 0 0 5%;
-  max-width: none;
 }
 
 body.layout-both-bars .main-block{

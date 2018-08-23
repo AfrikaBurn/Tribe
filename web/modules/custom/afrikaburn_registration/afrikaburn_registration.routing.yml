@@ -39,8 +39,3 @@ afrikaburn_registration.wrangle_theme_camps:
   path: '/wrangle/projects/theme_camps'
   options:
     _admin_route: TRUE
-
-afrikaburn_registration.devel:
-  path: '/devel*'
-  options:
-    _admin_route: TRUE
