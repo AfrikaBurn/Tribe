@@ -1,3 +1,11 @@
+afrikaburn_crew.update:
+  path: '/application/update/{wid}/{sid}'
+  defaults:
+    _controller: '\Drupal\afrikaburn_crew\Controller\CrewController::update'
+  requirements:
+    cid: '^[0-9]+'
+    _role: sanctuary_wrangler + dpw
+
 afrikaburn_crew.wrangle.sanctuary:
   path: '/wrangle/crew/sanctuary'
   options:

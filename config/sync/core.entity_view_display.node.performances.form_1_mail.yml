@@ -119,6 +119,7 @@ dependencies:
     - node.type.performances
   module:
     - conditional_fields
+    - empty_fields
     - field_group
     - link
     - options
@@ -132,7 +133,7 @@ third_party_settings:
         - group_overview
         - group_wtf
       parent_name: ''
-      weight: 7
+      weight: 0
       format_type: html_element
       format_settings:
         element: div
@@ -156,7 +157,7 @@ third_party_settings:
         - field_bke_time
         - field_prj_wtf_image
         - field_prj_oth_grant
-      parent_name: group_project
+      parent_name: group_project_registration
       weight: 20
       format_type: html_element
       format_settings:
@@ -174,10 +175,10 @@ third_party_settings:
     group_wtf:
       children:
         - field_prj_cll_collaborate
+        - field_prj_gen_contact
         - field_prj_cll_description
-        - field_prj_cll_contact
         - field_prj_wtf_website
-      parent_name: group_project
+      parent_name: group_project_registration
       weight: 27
       format_type: html_element
       format_settings:
@@ -221,7 +222,7 @@ content:
     type: string
     label: above
   field_prj_cll_collaborate:
-    weight: 6
+    weight: 96
     settings:
       format: default
       format_custom_false: ''
@@ -232,47 +233,15 @@ content:
     type: boolean
     label: above
   field_prj_cll_contact:
-    weight: 8
-    settings: {  }
-    third_party_settings:
-      conditional_fields:
-        93f251f7-a85d-4f1c-8277-0a6de1a67e0a:
-          dependee: field_prj_cll_collaborate
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              value: false
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: performances
-        5b0c8416-6ae7-4c66-bbee-b4f2f3131469:
-          dependee: field_prj_cll_collaborate
-          settings:
-            state: required
-            condition: value
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              value: 1
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: performances
+    type: entity_reference_label
+    weight: 1
     region: content
-    type: author
     label: above
+    settings:
+      link: true
+    third_party_settings: {  }
   field_prj_cll_description:
-    weight: 7
+    weight: 98
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -311,6 +280,16 @@ content:
     region: content
     type: basic_string
     label: above
+  field_prj_gen_contact:
+    type: entity_reference_label
+    weight: 97
+    region: content
+    label: above
+    settings:
+      link: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
   field_prj_gen_description:
     weight: 2
     settings: {  }
@@ -359,7 +338,7 @@ content:
     type: basic_string
     label: above
   field_prj_wtf_website:
-    weight: 9
+    weight: 99
     settings:
       trim_length: 80
       rel: ''
@@ -431,7 +410,6 @@ hidden:
   field_prj_cll_thread: true
   field_prj_gen_bio: true
   field_prj_gen_concept: true
-  field_prj_gen_contact: true
   field_prj_gen_doc: true
   field_prj_gen_external: true
   field_prj_gen_fundraiser: true

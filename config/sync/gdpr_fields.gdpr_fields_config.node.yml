@@ -506,12 +506,3 @@ bundles:
       notes: ''
       bundle: collective
       name: field_col_admins
-  subsidised_ticket:
-    field_sub_gift:
-      enabled: false
-      rta: 'no'
-      rtf: 'no'
-      anonymizer: ''
-      notes: ''
-      bundle: subsidised_ticket
-      name: field_sub_gift

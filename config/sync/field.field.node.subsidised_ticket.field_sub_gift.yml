@@ -15,8 +15,8 @@ id: node.subsidised_ticket.field_sub_gift
 field_name: field_sub_gift
 entity_type: node
 bundle: subsidised_ticket
-label: 'Contribution to AfrikaBurn 2019 - “Ephemeropolis”'
-description: 'Are you part of a collective crew, do you plan to volunteer? If so where and how? Do you have a creative project. What is your planned contribution to the AfrikaBurn community in 2019. Please be specific.'
+label: 'Contribution to AfrikaBurn 2018 - “Working Title______________” (or choose your own theme)'
+description: 'Are you part of a collective crew, do you plan to volunteer? If so where and how? Do you have a creative project. What is your planned contribution to the AfrikaBurn community in 2017. Please be specific.'
 required: true
 translatable: false
 default_value: {  }

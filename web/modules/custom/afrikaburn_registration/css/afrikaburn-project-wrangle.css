@@ -52,9 +52,15 @@
 
 /* Mass mailing */
 
-ul.mass-mail{
+.mass-mail{
   float: right;
   margin: 30px 10px;
+}
+
+.adminimal .mass-mail > *{
+  display: block;
+  float: left;
+  margin: 0 20px 0 0;
 }
 
 
