@@ -75,14 +75,14 @@ display:
             webform_submission_value_2: webform_submission_value_2
             webform_submission_value: webform_submission_value_2
             webform_submission_value_3: webform_submission_value_2
-            webform_submission_value_7: webform_submission_value_7
             webform_submission_value_9: webform_submission_value_9
-            webform_submission_value_6: webform_submission_value_6
+            webform_submission_value_7: webform_submission_value_9
             webform_submission_value_1: webform_submission_value_1
+            webform_submission_value_6: webform_submission_value_1
             webform_submission_value_5: webform_submission_value_5
             webform_submission_value_8: webform_submission_value_8
-            webform_submission_value_10: webform_submission_value_10
             webform_submission_value_12: webform_submission_value_12
+            webform_submission_value_10: webform_submission_value_12
             operations: operations
           info:
             webform_submission_value_11:
@@ -120,6 +120,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            webform_submission_value_9:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: '<hr />'
+              empty_column: false
+              responsive: ''
             webform_submission_value_7:
               sortable: true
               default_sort_order: asc
@@ -127,21 +134,14 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            webform_submission_value_9:
+            webform_submission_value_1:
               sortable: true
               default_sort_order: asc
               align: ''
-              separator: ''
+              separator: '<hr />'
               empty_column: false
               responsive: ''
             webform_submission_value_6:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            webform_submission_value_1:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -160,14 +160,14 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            webform_submission_value_10:
+            webform_submission_value_12:
+              sortable: true
+              default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            webform_submission_value_12:
-              sortable: true
-              default_sort_order: asc
+            webform_submission_value_10:
               align: ''
               separator: ''
               empty_column: false
@@ -1346,7 +1346,8 @@ display:
           group_type: group
           admin_label: ''
           operator: in
-          value: {  }
+          value:
+            all: all
           group: 1
           exposed: true
           expose:
@@ -1406,6 +1407,70 @@ display:
         groups:
           1: AND
       fields:
+        sid:
+          id: sid
+          table: webform_submission
+          field: sid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_unformatted
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: webform_submission
+          entity_field: sid
+          plugin_id: field
         webform_submission_value_11:
           id: webform_submission_value_11
           table: webform_submission_field_sanctuary_application_2019_recurrance
@@ -1517,7 +1582,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: Email
+          label: Contact
           exclude: false
           alter:
             alter_text: true
@@ -1666,6 +1731,58 @@ display:
           webform_multiple_value: true
           webform_multiple_delta: 0
           plugin_id: webform_submission_field
+        webform_submission_value_9:
+          id: webform_submission_value_9
+          table: webform_submission_field_sanctuary_application_2019_recommended_by
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Reference
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          webform_element_format: value
+          webform_multiple_value: true
+          webform_multiple_delta: 0
+          plugin_id: webform_submission_field
         webform_submission_value_7:
           id: webform_submission_value_7
           table: webform_submission_field_sanctuary_application_2019_which_harm_reduction_organisation
@@ -1718,14 +1835,14 @@ display:
           webform_multiple_value: true
           webform_multiple_delta: 0
           plugin_id: webform_submission_field
-        webform_submission_value_9:
-          id: webform_submission_value_9
-          table: webform_submission_field_sanctuary_application_2019_recommended_by
+        webform_submission_value_1:
+          id: webform_submission_value_1
+          table: webform_submission_field_sanctuary_application_2019_country
           field: webform_submission_value
           relationship: none
           group_type: group
           admin_label: ''
-          label: Reference
+          label: Country
           exclude: false
           alter:
             alter_text: false
@@ -1819,58 +1936,6 @@ display:
           empty_zero: false
           hide_alter_empty: true
           webform_element_format: raw
-          webform_multiple_value: true
-          webform_multiple_delta: 0
-          plugin_id: webform_submission_field
-        webform_submission_value_1:
-          id: webform_submission_value_1
-          table: webform_submission_field_sanctuary_application_2019_country
-          field: webform_submission_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Country
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          webform_element_format: value
           webform_multiple_value: true
           webform_multiple_delta: 0
           plugin_id: webform_submission_field
@@ -1978,14 +2043,14 @@ display:
           webform_multiple_value: true
           webform_multiple_delta: 0
           plugin_id: webform_submission_field
-        webform_submission_value_10:
-          id: webform_submission_value_10
-          table: webform_submission_field_sanctuary_application_2019_approved_roles
+        webform_submission_value_12:
+          id: webform_submission_value_12
+          table: webform_submission_field_sanctuary_application_2019_status
           field: webform_submission_value
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Approved roles'
+          label: Status
           exclude: false
           alter:
             alter_text: false
@@ -2030,14 +2095,14 @@ display:
           webform_multiple_value: true
           webform_multiple_delta: 0
           plugin_id: webform_submission_field
-        webform_submission_value_12:
-          id: webform_submission_value_12
-          table: webform_submission_field_sanctuary_application_2019_status
+        webform_submission_value_10:
+          id: webform_submission_value_10
+          table: webform_submission_field_sanctuary_application_2019_approved_roles
           field: webform_submission_value
           relationship: none
           group_type: group
           admin_label: ''
-          label: Status
+          label: 'Approved roles'
           exclude: false
           alter:
             alter_text: false
@@ -2151,6 +2216,7 @@ display:
     cache_metadata:
       max-age: -1
       contexts:
+        - 'languages:language_content'
         - 'languages:language_interface'
         - url
         - url.query_args
