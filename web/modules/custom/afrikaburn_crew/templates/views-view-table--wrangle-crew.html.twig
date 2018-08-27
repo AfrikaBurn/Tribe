@@ -39,11 +39,14 @@
     sticky ? 'sticky-enabled'
   ]
 %}
-<ul class="mass-mail">
-{% for person, addresses in mails %}
-  <li><a href="mailto:{{ addresses }}">Mail all matching project {{ person }}s</a></li>
-{% endfor %}
-</ul>
+{% if mails is not empty %}
+<div class="mass-mail">
+  <details>
+    <summary>All Email addresses on this page</summary>
+    <textarea>{{ mails }}</textarea>
+  </details>
+</div>
+{% endif %}
 <table{{ attributes.addClass(classes) }}>
   {% if caption_needed %}
     <caption>
@@ -99,7 +102,7 @@
   {% endif %}
   <tbody>
     {% for row in rows %}
-      <tr{{ row.attributes }} data-nid="{{ row.nid }}">
+      <tr{{ row.attributes }} data-sid="{{ row.sid }}">
         {% for key, column in row.columns %}
           {% if column.default_classes %}
             {%

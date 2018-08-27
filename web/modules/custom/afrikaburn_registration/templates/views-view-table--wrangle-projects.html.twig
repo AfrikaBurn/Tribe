@@ -39,11 +39,15 @@
     sticky ? 'sticky-enabled'
   ]
 %}
-<ul class="mass-mail">
+<div class="mass-mail">
+  <label>On this page:</label>
 {% for person, addresses in mails %}
-  <li><a href="mailto:{{ addresses }}">Mail all matching project {{ person }}s</a></li>
+  <details>
+    <summary>{{ person }} Mails</summary>
+    <textarea>{{ addresses }}</textarea>
+  </details>
 {% endfor %}
-</ul>
+</div>
 <table{{ attributes.addClass(classes) }}>
   {% if caption_needed %}
     <caption>

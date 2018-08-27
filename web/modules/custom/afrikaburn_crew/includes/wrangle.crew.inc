@@ -9,8 +9,8 @@ function _editable($id){
   return (
     [
       'wrangle_sanctuary' => [
-        'approved_roles' => 'webform_submission_value_10',
         'status' => 'webform_submission_value_12',
+        'approved_roles' => 'webform_submission_value_10',
       ],
     ]
   )[$id];
@@ -58,13 +58,19 @@ function _prepare_wrangler_view(&$variables){
  * Inserts wrangle view fields
  */
 function _insert_wrangler_view_rows(&$variables){
+
   $view = $variables['view'];
   $view_id = $view->id();
+  $mails = [];
+
   foreach($variables['rows'] as $index=>&$row){
 
     $sid = trim(strip_tags($row['columns']['sid']['content'][0]['field_output']['#markup']));
     $submission = \Drupal\webform\Entity\WebformSubmission::load($sid);
-    $form = $view->webform->getSubmissionForm(['data' => $submission->getData()]);
+    $data = $submission->getData();
+    $form = $view->webform->getSubmissionForm(['data' => $data]);
+    $variables['rows'][$index]['sid'] = $view->webform->id() . '/' . $sid;
+    $mails[] = $data['email'];
 
     // Set form
     foreach(_editable($view_id) as $field=>$alias){
@@ -106,6 +112,8 @@ function _insert_wrangler_view_rows(&$variables){
     }
   }
 
+  unset($variables['header']['sid']);
+
   // Set merged column headings
   foreach (_merge() as $column=>$field) {
     $label = $column;
@@ -116,4 +124,6 @@ function _insert_wrangler_view_rows(&$variables){
       'attributes' => new \Drupal\Core\Template\Attribute(['class' => 'column-' . $column]),
     ];
   }
+
+  $variables['mails'] = implode(', ', $mails);
 }
