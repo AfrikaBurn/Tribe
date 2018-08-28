@@ -6,6 +6,7 @@ dependencies:
     - views.view.my_collectives
   module:
     - collapsiblock
+    - php
     - system
     - user
     - views
@@ -41,3 +42,8 @@ visibility:
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'
+  php:
+    id: php
+    php: "<?php\r\nmodule_load_include('inc', 'afrikaburn_registration', 'includes/collective.projects');\r\nreturn  !ab_is_project_page();\r\n?>"
+    negate: false
+    context_mapping: {  }
