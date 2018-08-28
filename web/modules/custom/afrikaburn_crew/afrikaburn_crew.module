@@ -23,6 +23,15 @@ function afrikaburn_crew_theme(){
       'template' => 'views-view-table--wrangle-crew',
       'base hook' => 'view',
     ],
+
+    'views_view__wrangle_dpw' => [
+      'template' => 'views-view--wrangle',
+      'base hook' => 'view',
+    ],
+    'views_view_table__wrangle_dpw' => [
+      'template' => 'views-view-table--wrangle-crew',
+      'base hook' => 'view',
+    ],
   ];
 }
 
@@ -38,6 +47,7 @@ function afrikaburn_crew_preprocess_views_view(&$variables){
   $year = (int)$variables['display_id'];
 
   switch ($variables['id']){
+    case 'wrangle_dpw':
     case 'wrangle_sanctuary':
       if ($year >= 2019) {
         $variables['#attached']['library'][] = 'afrikaburn_crew/wrangle';
@@ -56,6 +66,7 @@ function afrikaburn_crew_preprocess_views_view_table(&$variables) {
   $year = (int)$variables['view']->current_display;
 
   switch ($variables['view']->id()){
+    case 'wrangle_dpw':
     case 'wrangle_sanctuary':
       if ($year >= 2019) {
         module_load_include('inc', 'afrikaburn_crew', 'includes/wrangle.crew');

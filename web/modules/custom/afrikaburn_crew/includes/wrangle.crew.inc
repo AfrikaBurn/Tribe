@@ -12,6 +12,8 @@ function _editable($id){
         'status' => 'webform_submission_value_12',
         'approved_roles' => 'webform_submission_value_10',
       ],
+
+      'wrangle_dpw' => [],
     ]
   )[$id];
 }
@@ -22,16 +24,21 @@ function _title($id){
       'wrangle_sanctuary' => [
         'status' => FALSE,
       ],
+      'wrangle_dpw' => [
+        'status' => FALSE,
+      ],
     ]
   )[$id];
 }
 
 function _merge(){
   return [
-    'administrative' => [
-      'webform_submission_value_10',
-      'webform_submission_value_12',
-      'operations'
+    'wrangle_sanctuary' => [
+      'administrative' => [
+        'webform_submission_value_10',
+        'webform_submission_value_12',
+        'operations'
+      ],
     ],
   ];
 }
@@ -92,7 +99,7 @@ function _insert_wrangler_view_rows(&$variables){
     }
 
     // Merge admin columns
-    foreach (_merge() as $column=>$fields) {
+    foreach (_merge()[$view_id] as $column=>$fields) {
       foreach($fields as $field){
         $row['columns'][$column]['content'][] = [
           'field_output' => @$row['columns'][$field]['content'][0]['field_output']
@@ -106,7 +113,7 @@ function _insert_wrangler_view_rows(&$variables){
   }
 
   // Unset admin column headers
-  foreach (_merge() as $index=>$fields) {
+  foreach (_merge()[$view_id] as $index=>$fields) {
     foreach($fields as $field){
       unset($variables['header'][$field]);
     }
@@ -115,7 +122,7 @@ function _insert_wrangler_view_rows(&$variables){
   unset($variables['header']['sid']);
 
   // Set merged column headings
-  foreach (_merge() as $column=>$field) {
+  foreach (_merge()[$view_id] as $column=>$field) {
     $label = $column;
     $label[0] = strtoupper($label[0]);
     $variables['header'][$column] = [

@@ -415,7 +415,7 @@ display:
     display_plugin: page
     id: stats
     display_title: Stats
-    position: 1
+    position: 2
     display_options:
       display_extenders: {  }
       display_description: ''
@@ -448,11 +448,35 @@ display:
         - user
         - user.roles
       tags: {  }
+  stats_block:
+    display_plugin: block
+    id: stats_block
+    display_title: 'Stats Block'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      group_by: true
+      defaults:
+        group_by: false
+        style: true
+        row: true
+      block_category: Stats
+      block_description: 'Sanctuary stats'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url.query_args
+        - user
+        - user.roles
+      tags: {  }
   2018:
     display_plugin: page
     id: '2018'
     display_title: '2018'
-    position: 2
+    position: 3
     display_options:
       display_extenders: {  }
       path: wrangle/crew/sanctuary/2018
@@ -1230,7 +1254,7 @@ display:
     display_plugin: page
     id: '2019'
     display_title: '2019'
-    position: 2
+    position: 4
     display_options:
       display_extenders: {  }
       path: wrangle/crew/sanctuary/2019
