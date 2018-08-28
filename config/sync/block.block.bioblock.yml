@@ -28,7 +28,7 @@ visibility:
   php:
     id: php
     negate: false
-    php: '<?php return TRUE; ?>'
+    php: "<?php\r\nmodule_load_include('inc', 'afrikaburn_registration', 'includes/collective.projects');\r\nreturn  !ab_is_project_page();\r\n?>"
     context_mapping: {  }
   user_role:
     id: user_role

@@ -7,7 +7,7 @@
 
   'use strict';
 
-  Drupal.behaviors.afrikaburnRegistration = {
+  Drupal.behaviors.afrikaburnRegistrationWrangle = {
     attach: function (context, settings) {
       $('.form-checkbox, .form-select, .form-text', context).not('.editor-processed').each(
         (i, element) => new editor(element)

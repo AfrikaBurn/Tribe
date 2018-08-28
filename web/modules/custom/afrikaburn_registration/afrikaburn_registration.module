@@ -129,6 +129,28 @@ function afrikaburn_registration_form_views_exposed_form_alter(&$form, $form_sta
 }
 
 
+/* ---- Locat task alter ----- */
+
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ * Hooked to hide edit button.
+ */
+function afrikaburn_registration_menu_local_tasks_alter(&$data, $route_name){
+
+  module_load_include('inc', 'afrikaburn_registration', 'includes/form');
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if ($node) {
+    $bundle = $node->bundle();
+
+    if (@_project_form_modes()[$bundle]){
+      unset($data['tabs'][0]['entity.node.edit_form']);
+    }
+  }
+}
+
+
 /* ---- View alters ----- */
 
 
@@ -337,4 +359,12 @@ function afrikaburn_registration_node_presave($entity){
       }
     }
   }
+}
+
+
+/* ---- Utility ---- */
+
+
+function afrikaburn_registration_page(){
+
 }

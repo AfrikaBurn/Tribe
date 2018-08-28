@@ -3,6 +3,8 @@ registration:
   css:
     theme:
       css/afrikaburn-project-registration.css: {}
+  js:
+    js/afrikaburn-project-registration.js: {}
 block:
   version: 0.0
   css:
@@ -19,4 +21,4 @@ wrangle:
     theme:
       css/afrikaburn-project-wrangle.css: {}
   js:
-    js/afrikaburn-project-wrangle.js: {}
+    js/afrikaburn-project-registration-wrangle.js: {}

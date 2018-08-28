@@ -30,8 +30,8 @@ settings:
 visibility:
   php:
     id: php
-    negate: true
-    php: ''
+    negate: false
+    php: "<?php\r\nmodule_load_include('inc', 'afrikaburn_registration', 'includes/collective.projects');\r\nreturn  !ab_is_project_page();\r\n?>"
     context_mapping: {  }
   request_path:
     id: request_path

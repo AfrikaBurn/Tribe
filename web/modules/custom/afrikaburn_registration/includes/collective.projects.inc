@@ -113,3 +113,18 @@ function ar_prepare_project_links(&$variables) {
   }
 
 }
+
+
+function ab_is_project_page(){
+
+  module_load_include('inc', 'afrikaburn_registration', 'includes/form');
+
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if ($node) {
+    $bundle = $node->bundle();
+    $modes = @_project_form_modes()[$bundle];
+  }
+
+  return isset($modes);
+}
