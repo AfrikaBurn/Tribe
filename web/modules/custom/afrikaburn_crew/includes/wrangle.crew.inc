@@ -65,7 +65,7 @@ function _insert_wrangler_view_rows(&$variables){
 
   foreach($variables['rows'] as $index=>&$row){
 
-    $sid = trim(strip_tags($row['columns']['sid']['content'][0]['field_output']['#markup']));
+    $sid = $view->result[$index]->sid;
     $submission = \Drupal\webform\Entity\WebformSubmission::load($sid);
     $data = $submission->getData();
     $form = $view->webform->getSubmissionForm(['data' => $data]);
