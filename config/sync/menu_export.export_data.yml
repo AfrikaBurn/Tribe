@@ -1059,12 +1059,11 @@
     value: menu_link_content
   title:
     value: 'Community Directory'
-  description:
-    value: ''
+  description: false
   menu_name:
     value: main
   link:
-    uri: 'http://new.afrikaburn.com/community/joinproject'
+    uri: 'https://tribe.afrikaburn.com/community/joinproject'
     title: ''
     options: {  }
   external:
@@ -1080,7 +1079,7 @@
   parent:
     value: 'menu_link_content:2bbfcd75-7156-4eea-977a-ac418ed69524'
   changed:
-    value: '1530793097'
+    value: '1535461767'
   default_langcode:
     value: '1'
 32:
