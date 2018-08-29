@@ -1,0 +1,8 @@
+theme_camps.bench:
+  route_name: afrikaburn_registration.wrangle_theme_camps
+  title: Workbench
+  base_route: afrikaburn_registration.wrangle_theme_camps
+theme_camps.tasks:
+  route_name: afrikaburn_registration.wrangle_theme_camps-tasks
+  title: Tasks
+  base_route: afrikaburn_registration.wrangle_theme_camps
