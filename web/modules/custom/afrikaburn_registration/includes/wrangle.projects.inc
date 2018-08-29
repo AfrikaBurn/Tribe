@@ -102,7 +102,15 @@ function ar_prepare_wrangler_filter(&$form, $type){
 
   if (is_object($view)) {
 
-    $view->setArguments([$type . '_wrangler']);
+    // ARGH! consistent naming so desperately needed!
+    $type = [
+      'art' => 'art_wrangler',
+      'mutant_vehicles' => 'mutant_vehicle_wrangler',
+      'performances' => 'art_wrangler',
+      'theme_camps' => 'theme_camp_wrangler'
+    ][$type];
+
+    $view->setArguments([$type]);
     $view->setDisplay('wrangler_select');
     $view->preExecute();
     $view->execute();
