@@ -5,7 +5,7 @@ dependencies:
   config:
     - system.menu.wrangle
     - user.role.administrator
-    - user.role.sanctuary_admin
+    - user.role.dpw
     - webform.webform.dpw_application_form_2018
     - webform.webform.dpw_application_form_2019
   module:
@@ -32,7 +32,7 @@ display:
         options:
           role:
             administrator: administrator
-            sanctuary_admin: sanctuary_admin
+            dpw: dpw
       cache:
         type: tag
         options: {  }
