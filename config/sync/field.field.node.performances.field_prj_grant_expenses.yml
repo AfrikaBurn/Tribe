@@ -17,7 +17,7 @@ field_name: field_prj_grant_expenses
 entity_type: node
 bundle: performances
 label: 'Grant expenses'
-description: 'Please complete and upload <a href="/modules/custom/afrikaburn_registration/files/art-expenses-2019.xls" target="_blank">this spreadsheet</a> detailing your expenses.'
+description: 'Please complete and upload <a href="/modules/custom/afrikaburn_registration/files/project-expenses.xlsx" target="_blank">this spreadsheet</a> detailing your expenses.'
 required: false
 translatable: true
 default_value: {  }
