@@ -9,7 +9,6 @@ dependencies:
     - flag.flag.archived
     - image.style.large
     - node.type.art
-    - node.type.collective
     - node.type.mutant_vehicles
     - node.type.performances
     - node.type.theme_camps
@@ -86,7 +85,6 @@ display:
         options:
           default_field_elements: true
           inline:
-            field_prj_wtf_image: field_prj_wtf_image
             field_prj_cll_description: field_prj_cll_description
           separator: ''
           hide_empty: false
@@ -351,7 +349,7 @@ display:
             external: false
             replace_spaces: false
             path_case: none
-            trim_whitespace: false
+            trim_whitespace: true
             alt: ''
             rel: ''
             link_class: ''
@@ -384,7 +382,7 @@ display:
           click_sort_column: target_id
           type: entity_reference_label
           settings:
-            link: true
+            link: false
           group_column: target_id
           group_columns: {  }
           group_rows: true
@@ -418,9 +416,8 @@ display:
           operator: in
           value:
             art: art
-            collective: collective
-            mutant_vehicles: mutant_vehicles
             performances: performances
+            mutant_vehicles: mutant_vehicles
             theme_camps: theme_camps
           group: 1
           exposed: true
@@ -453,6 +450,10 @@ display:
               theme_camp_wrangler: '0'
               theme: '0'
               supplier: '0'
+              dpw: '0'
+              volunteer_admin: '0'
+              ranger_admin: '0'
+              sanctuary_admin: '0'
             reduce: true
           is_grouped: false
           group_info:
