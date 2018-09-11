@@ -1,8 +1,10 @@
+uuid: 3469425d-ac3a-4cb7-a0f4-f0c8975ec83c
 langcode: en
 status: open
 dependencies: {  }
 open: null
 close: null
+weight: 0
 uid: 1
 template: false
 archive: false
@@ -145,4 +147,3 @@ access:
     users: {  }
     permissions: {  }
 handlers: {  }
-uuid: 3469425d-ac3a-4cb7-a0f4-f0c8975ec83c

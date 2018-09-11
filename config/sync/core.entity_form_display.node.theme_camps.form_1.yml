@@ -689,6 +689,13 @@ hidden:
   created: true
   field_field_prj_plc_marquis: true
   field_field_prj_plc_stretch_m: true
+  field_final_placement: true
+  field_ice_card: true
+  field_neighbours: true
+  field_placed: true
+  field_placement_card: true
+  field_placement_letter_sent: true
+  field_plot: true
   field_prj_adm_comms: true
   field_prj_adm_form_3: true
   field_prj_adm_latitude: true
@@ -776,6 +783,7 @@ hidden:
   field_sup_review: true
   field_tc_type: true
   field_vp_ea: true
+  field_year_cycle: true
   path: true
   promote: true
   status: true

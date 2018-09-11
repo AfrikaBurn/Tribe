@@ -69,6 +69,8 @@ content:
     third_party_settings: {  }
 hidden:
   field_col_admins: true
+  field_col_invite_mail: true
+  field_col_invite_token: true
   field_col_invitee: true
   field_col_members: true
   field_col_posts: true
