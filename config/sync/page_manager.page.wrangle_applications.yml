@@ -1,0 +1,22 @@
+uuid: a6fef131-e170-4f9d-9edf-3db152558b63
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: wrangle_applications
+label: 'Wrangle: Applications'
+description: ''
+use_admin_theme: true
+path: /wrangle/applications
+access_logic: and
+access_conditions:
+  -
+    id: user_role
+    roles:
+      administrator: administrator
+      supplier: supplier
+    negate: false
+    context_mapping:
+      user: current_user
+parameters: {  }

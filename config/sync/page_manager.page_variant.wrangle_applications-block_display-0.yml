@@ -1,0 +1,35 @@
+uuid: 4d8f7b5e-9060-4d41-9f9c-6599ab681551
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.wrangle_applications
+    - views.view.wrangle_subsidised
+  module:
+    - views
+id: wrangle_applications-block_display-0
+label: 'Block page'
+variant: block_display
+variant_settings:
+  blocks:
+    a1b6ed56-d913-4a76-9c34-a5421cda666e:
+      id: 'views_block:wrangle_subsidised-stats_block'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: top
+      weight: 0
+      uuid: a1b6ed56-d913-4a76-9c34-a5421cda666e
+      context_mapping: {  }
+  id: block_display
+  uuid: f71ef229-4787-4500-a5ad-82036a0b904f
+  label: null
+  weight: 0
+  page_title: Applications
+page: wrangle_applications
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }
