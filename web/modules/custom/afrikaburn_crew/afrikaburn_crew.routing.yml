@@ -1,5 +1,5 @@
 afrikaburn_crew.update:
-  path: '/application/update/{wid}/{sid}'
+  path: '/crew-application/update/{wid}/{sid}'
   defaults:
     _controller: '\Drupal\afrikaburn_crew\Controller\CrewController::update'
   requirements:
