@@ -1,0 +1,66 @@
+<?php
+
+/**
+ * @file
+ * Contains Afrikaburn Crew module.
+ */
+
+
+/* ----- Theme hooks ----- */
+
+
+/**
+ * Implements hook_theme().
+ * Views Customizaton.
+ */
+function afrikaburn_application_theme(){
+  return [
+    'views_view__wrangle_subsidised' => [
+      'template' => 'views-view--wrangle',
+      'base hook' => 'view',
+    ],
+    'views_view_table__wrangle_subsidised' => [
+      'template' => 'views-view-table--wrangle-application',
+      'base hook' => 'view',
+    ],
+  ];
+}
+
+
+/* ----- Preprocessing hooks ----- */
+
+
+/**
+ * Implements hook_preprocess_views_view().
+ */
+function afrikaburn_application_preprocess_views_view(&$variables){
+
+  $year = (int)$variables['display_id'];
+
+  switch ($variables['id']){
+    case 'wrangle_subsidised':
+      if ($year >= 2019) {
+        $variables['#attached']['library'][] = 'afrikaburn_application/wrangle';
+        module_load_include('inc', 'afrikaburn_application', 'includes/wrangle.application');
+        _prepare_wrangler_view($variables);
+      }
+    break;
+  }
+}
+
+/**
+ * Implements hook_preprocess_views_view_table().
+ */
+function afrikaburn_application_preprocess_views_view_table(&$variables) {
+
+  $year = (int)$variables['view']->current_display;
+
+  switch ($variables['view']->id()){
+    case 'wrangle_subsidised':
+      if ($year >= 2019) {
+        module_load_include('inc', 'afrikaburn_application', 'includes/wrangle.application');
+        _insert_wrangler_view_rows($variables);
+      }
+    break;
+  }
+}
