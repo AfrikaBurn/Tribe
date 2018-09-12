@@ -214,6 +214,14 @@ bundles:
       notes: ''
       bundle: art
       name: field_prj_cost
+    field_prj_snd_f1:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: art
+      name: field_prj_snd_f1
   theme_camps:
     field_prj_est_camp_population:
       enabled: false
