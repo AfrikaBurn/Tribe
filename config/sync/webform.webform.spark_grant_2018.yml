@@ -1,8 +1,10 @@
+uuid: 13c99781-f971-4f1c-922a-7e1773e39555
 langcode: en
 status: open
 dependencies: {  }
 open: null
 close: null
+weight: 0
 uid: 1
 template: false
 archive: false
@@ -214,4 +216,3 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
-uuid: 13c99781-f971-4f1c-922a-7e1773e39555
