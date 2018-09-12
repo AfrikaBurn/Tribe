@@ -319,6 +319,14 @@ bundles:
       notes: ''
       bundle: theme_camps
       name: field_prj_cll_collaborate
+    field_prj_lnt_historic:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: theme_camps
+      name: field_prj_lnt_historic
   mutant_vehicles:
     field_mutant_drivers:
       enabled: false
