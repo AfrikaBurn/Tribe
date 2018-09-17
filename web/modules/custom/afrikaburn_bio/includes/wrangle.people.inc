@@ -14,6 +14,7 @@ function _editable($id){
         'field_secondary_mail',
         'field_mobile',
         'field_newsletter',
+        'field_id_number',
       ],
 
     ]
@@ -26,17 +27,19 @@ function _merge(){
       'mail',
       'field_secondary_mail',
       'field_mobile',
+      'field_id_number',
     ],
   ];
 }
 
 function _title($field){
   return @([
-    'mail' => FALSE,
+    'mail' => 'Mail',
     'status' => FALSE,
     'field_secondary_mail' => FALSE,
-    'field_mobile' => FALSE,
+    'field_mobile' => 'Mobile',
     'field_newsletter' => FALSE,
+    'field_id_number' => 'ID',
   ])[$field];
 }
 
