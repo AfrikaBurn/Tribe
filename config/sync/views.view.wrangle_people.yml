@@ -67,10 +67,26 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: some
+        type: full
         options:
           items_per_page: 30
           offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
       style:
         type: table
         options:
@@ -91,12 +107,12 @@ display:
             mail: mail
             field_secondary_mail: field_secondary_mail
             field_mobile: field_mobile
-            field_id_number: nothing
-            status: status
+            field_id_number: field_id_number
             link_flag: nothing
             created: created
-            access: access
+            access: created
             field_newsletter: field_newsletter
+            status: status
             operations: operations
           info:
             user_picture:
@@ -162,13 +178,6 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            status:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: priority-low
             link_flag:
               sortable: false
               default_sort_order: asc
@@ -180,7 +189,7 @@ display:
               sortable: true
               default_sort_order: desc
               align: ''
-              separator: ''
+              separator: ',<br />'
               empty_column: false
               responsive: priority-low
             access:
@@ -197,6 +206,13 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
+            status:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: priority-low
             operations:
               align: ''
               separator: ''
@@ -879,8 +895,8 @@ display:
           label: 'Last access'
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: 'last access: {{ access }}'
             make_link: false
             path: ''
             absolute: false
@@ -917,11 +933,20 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          click_sort_column: value
           type: timestamp_ago
           settings:
-            future_format: '@interval hence'
-            past_format: '@interval ago'
             granularity: 2
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
           plugin_id: field
           entity_type: user
           entity_field: access
@@ -1116,7 +1141,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: word
+          operator: allwords
           value: ''
           group: 1
           exposed: true
