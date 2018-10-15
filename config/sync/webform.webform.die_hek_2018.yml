@@ -1,8 +1,10 @@
+uuid: fcf25997-f9c9-4918-9b98-e937d8443b4a
 langcode: en
 status: open
 dependencies: {  }
 open: null
 close: null
+weight: 0
 uid: 1
 template: false
 archive: false
@@ -183,4 +185,4 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
-uuid: fcf25997-f9c9-4918-9b98-e937d8443b4a
+      theme_name: ''

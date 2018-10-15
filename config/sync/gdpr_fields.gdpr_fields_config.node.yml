@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies: {  }
 id: node
+filenames:
+  theme_camps: ''
 bundles:
   announcement:
     body:

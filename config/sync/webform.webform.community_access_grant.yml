@@ -103,12 +103,9 @@ settings:
   results_disabled: false
   results_disabled_ignore: false
   token_update: false
-  wizard_progress_link: false
-  wizard_preview_link: false
 access:
   create:
-    roles:
-      - authenticated
+    roles: {  }
     users: {  }
     permissions: {  }
   view_any:
@@ -187,3 +184,4 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
+      theme_name: ''

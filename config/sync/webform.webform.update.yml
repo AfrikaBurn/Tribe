@@ -1,8 +1,10 @@
+uuid: 832f9d95-b713-4663-912c-c15b5923946d
 langcode: en
 status: open
 dependencies: {  }
 open: null
 close: null
+weight: 0
 uid: 1
 template: false
 archive: false
@@ -144,4 +146,3 @@ access:
     users: {  }
     permissions: {  }
 handlers: {  }
-uuid: 832f9d95-b713-4663-912c-c15b5923946d

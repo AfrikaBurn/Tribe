@@ -1,8 +1,10 @@
+uuid: 46e99a79-5d02-4dba-b58a-52d286cfe72c
 langcode: en
 status: open
 dependencies: {  }
 open: null
 close: null
+weight: 0
 uid: 1
 template: false
 archive: false
@@ -149,4 +151,3 @@ access:
     users: {  }
     permissions: {  }
 handlers: {  }
-uuid: 46e99a79-5d02-4dba-b58a-52d286cfe72c
