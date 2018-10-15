@@ -215,21 +215,29 @@ class MemberController extends ControllerBase {
 
     foreach($emails as $email){
 
-      $email = trim($email);
-      $index = self::inviteMailIndex($email, $collective);
-      $token = md5($collective->getTitle() . $email . time());
+      if (preg_match('/[^@]+@[^\.]+\..+/', $email)){
 
-      if ($index !== FALSE){
+        $email = trim($email);
+        $index = self::inviteMailIndex($email, $collective);
+        $token = md5($collective->getTitle() . $email . time());
 
-        $collective->get('field_col_invite_token')->set($index, $token);
-        $result['reminded'][] = $email;
+        if ($index !== FALSE){
 
+          $collective->get('field_col_invite_token')->set($index, $token);
+          $result['reminded'][] = $email;
+
+        } else {
+
+          $collective->get('field_col_invite_mail')->appendItem(trim($email));
+          $collective->get('field_col_invite_token')->appendItem($token);
+          $result['invited'][] = $email;
+
+        }
       } else {
-
-        $collective->get('field_col_invite_mail')->appendItem(trim($email));
-        $collective->get('field_col_invite_token')->appendItem($token);
-        $result['invited'][] = $email;
-
+        drupal_set_message(
+          $email .
+          t(' does not seem to be a valid email address, please check it and try inviting it again.'), 'warning', TRUE
+        );
       }
     }
 

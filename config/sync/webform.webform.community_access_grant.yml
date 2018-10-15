@@ -1,8 +1,10 @@
+uuid: 6c16ba80-7182-4561-8524-1bfc9b1082d6
 langcode: en
 status: closed
 dependencies: {  }
 open: null
 close: null
+weight: 0
 uid: 1
 template: false
 archive: false
@@ -101,9 +103,12 @@ settings:
   results_disabled: false
   results_disabled_ignore: false
   token_update: false
+  wizard_progress_link: false
+  wizard_preview_link: false
 access:
   create:
-    roles: {  }
+    roles:
+      - authenticated
     users: {  }
     permissions: {  }
   view_any:
@@ -182,4 +187,3 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
-uuid: 6c16ba80-7182-4561-8524-1bfc9b1082d6
