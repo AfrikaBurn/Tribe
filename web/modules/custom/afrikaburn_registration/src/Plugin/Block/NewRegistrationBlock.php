@@ -26,13 +26,13 @@ class NewRegistrationBlock extends BlockBase {
     $cid = $collective && $collective->bundle() == 'collective'
       ? $collective->id()
       : FALSE;
+    $links = [];
 
     if ($cid && \Drupal::service('access_manager')->checkNamedRoute('afrikaburn_collective.admin', ['cid' => $cid], $user)){
 
       module_load_include('inc', 'afrikaburn_registration', 'includes/form');
 
       $config = \Drupal::config('afrikaburn_registration.settings');
-      $links = [];
 
       foreach(_project_form_modes() as $key=>$map){
 

@@ -103,9 +103,12 @@ settings:
   results_disabled: false
   results_disabled_ignore: false
   token_update: false
+  wizard_progress_link: false
+  wizard_preview_link: false
 access:
   create:
-    roles: {  }
+    roles:
+      - authenticated
     users: {  }
     permissions: {  }
   view_any:
