@@ -58,20 +58,20 @@ function afrikaburn_crew_preprocess_views_view(&$variables){
   }
 }
 
-/**
- * Implements hook_preprocess_views_view_table().
- */
-function afrikaburn_crew_preprocess_views_view_table(&$variables) {
+// /**
+//  * Implements hook_preprocess_views_view_table().
+//  */
+// function afrikaburn_crew_preprocess_views_view_table(&$variables) {
 
-  $year = (int)$variables['view']->current_display;
+//   $year = (int)$variables['view']->current_display;
 
-  switch ($variables['view']->id()){
-    case 'wrangle_dpw':
-    case 'wrangle_sanctuary':
-      if ($year >= 2019) {
-        module_load_include('inc', 'afrikaburn_crew', 'includes/wrangle.crew');
-        _insert_wrangler_view_rows($variables);
-      }
-    break;
-  }
-}
+//   switch ($variables['view']->id()){
+//     case 'wrangle_dpw':
+//     case 'wrangle_sanctuary':
+//       if ($year >= 2019) {
+//         module_load_include('inc', 'afrikaburn_crew', 'includes/wrangle.crew');
+//         _insert_wrangler_view_rows($variables);
+//       }
+//     break;
+//   }
+// }

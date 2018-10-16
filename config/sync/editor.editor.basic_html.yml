@@ -43,10 +43,10 @@ settings:
           items:
             - Source
   plugins:
-    language:
-      language_list: un
     stylescombo:
       styles: ''
+    language:
+      language_list: un
     linkit:
       linkit_profile: ''
 image_upload:

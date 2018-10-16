@@ -9,6 +9,7 @@ function _editable($id){
   return (
     [
       'wrangle_subsidised' => [
+        'wrangler' => 'webform_submission_value_4',
         'comment' => 'webform_submission_value_1',
         'review' => 'webform_submission_value_15',
       ],
@@ -33,6 +34,7 @@ function _merge(){
   return [
     'wrangle_subsidised' => [
       'administrative' => [
+        'webform_submission_value_4',
         'webform_submission_value_15',
         'webform_submission_value_1',
         'operations'
@@ -66,7 +68,6 @@ function _insert_wrangler_view_rows(&$variables){
 
   $view = $variables['view'];
   $view_id = $view->id();
-  $mails = [];
 
   foreach($variables['rows'] as $index=>&$row){
 
@@ -75,12 +76,11 @@ function _insert_wrangler_view_rows(&$variables){
     $data = $submission->getData();
     $form = $view->webform->getSubmissionForm(['data' => $data]);
     $variables['rows'][$index]['sid'] = $view->webform->id() . '/' . $sid;
-    $mails[] = $data['email'];
 
     // Set form
     foreach(_editable($view_id) as $field=>$alias){
 
-      $field_form = $form['elements'][$field];
+      $field_form = $form['elements']['administrative'][$field];
       $title = isset(_title($view_id)[$field]) ? _title($view_id)[$field] : NULL;
 
       if ($title != NULL){
@@ -129,6 +129,4 @@ function _insert_wrangler_view_rows(&$variables){
       'attributes' => new \Drupal\Core\Template\Attribute(['class' => 'column-' . $column]),
     ];
   }
-
-  $variables['mails'] = implode(', ', $mails);
 }

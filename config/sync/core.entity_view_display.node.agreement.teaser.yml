@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.agreement.field_agreement_introduction
+    - field.field.node.agreement.field_agreement_terms
     - node.type.agreement
   module:
     - user
@@ -16,5 +17,8 @@ content:
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_agreement_introduction: true
+  field_agreement_terms: true

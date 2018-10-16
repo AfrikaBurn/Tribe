@@ -25,6 +25,7 @@ module:
   ckeditor: 0
   clientside_validation: 0
   clientside_validation_jquery: 0
+  cloudflare: 0
   collapsiblock: 0
   color: 0
   colorbox: 0
@@ -115,7 +116,9 @@ module:
   settings_tray: 0
   shortcut: 0
   smtp: 0
+  statistics: 0
   swiftmailer: 0
+  syslog: 0
   system: 0
   taxonomy: 0
   taxonomy_manager: 0
