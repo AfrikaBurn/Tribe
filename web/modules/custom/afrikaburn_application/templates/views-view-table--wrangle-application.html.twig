@@ -39,14 +39,6 @@
     sticky ? 'sticky-enabled'
   ]
 %}
-{% if mails is not empty %}
-<div class="mass-mail">
-  <details>
-    <summary>All Email addresses on this page</summary>
-    <textarea>{{ mails }}</textarea>
-  </details>
-</div>
-{% endif %}
 <table{{ attributes.addClass(classes) }}>
   {% if caption_needed %}
     <caption>
