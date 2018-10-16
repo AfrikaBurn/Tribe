@@ -38,7 +38,7 @@
 
       $.ajax(
         {
-          url: '/crew-application/update/' + sid,
+          url: '/application/update/' + sid,
           data: {
             field: field,
             value: value
