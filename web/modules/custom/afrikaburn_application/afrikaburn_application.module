@@ -64,3 +64,27 @@ function afrikaburn_application_preprocess_views_view_table(&$variables) {
     break;
   }
 }
+
+// /**
+//  * Implements hook_form_FORM_ID_alter().
+//  * Alters dashboard filter form.
+//  */
+// function afrikaburn_application_form_views_exposed_form_alter(&$form, $form_state, $form_id) {
+//   $form['#after_build'][] = 'afrikaburn_application_after_build';
+// }
+
+
+// /**
+//  * Adds filter options
+//  */
+// function afrikaburn_application_after_build(&$form, $form_state) {
+//   $view = $form_state->getStorage('view')['view'];
+//   if ($view->storage->get('id') == 'wrangle_subsidised'){
+//     $form['status']['#options'] =
+//       [
+//         'All' => t('- any review state -'),
+//         '_empty' => t('New')
+//       ] + $form['status']['#options'];
+//   }
+//   return $form;
+// }

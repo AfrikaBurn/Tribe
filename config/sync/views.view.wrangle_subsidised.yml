@@ -1610,8 +1610,7 @@ display:
           entity_type: webform_submission
           entity_field: sid
           plugin_id: standard
-      footer: {  }
-      header:
+      footer:
         area_text_custom:
           id: area_text_custom
           table: views
@@ -1623,6 +1622,7 @@ display:
           tokenize: false
           content: '<a href="/admin/structure/webform/manage/subsidised_ticket_2019/results/download">Download</a>'
           plugin_id: text_custom
+      header: {  }
     cache_metadata:
       max-age: -1
       contexts:
