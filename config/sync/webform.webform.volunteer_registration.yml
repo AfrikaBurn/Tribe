@@ -181,6 +181,7 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
+      theme_name: ''
   volunteer:
     id: email
     label: volunteer
@@ -214,3 +215,4 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
+      theme_name: ''

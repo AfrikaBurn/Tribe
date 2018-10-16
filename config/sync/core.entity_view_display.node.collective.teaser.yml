@@ -6,6 +6,8 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.collective.field_col_admins
     - field.field.node.collective.field_col_description
+    - field.field.node.collective.field_col_invite_mail
+    - field.field.node.collective.field_col_invite_token
     - field.field.node.collective.field_col_invitee
     - field.field.node.collective.field_col_members
     - field.field.node.collective.field_col_posts
@@ -21,11 +23,17 @@ content:
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
   post_something:
     weight: 100
+    settings: {  }
+    third_party_settings: {  }
     region: content
   posts:
     weight: 100
+    settings: {  }
+    third_party_settings: {  }
     region: content
 hidden:
   field_col_admins: true
