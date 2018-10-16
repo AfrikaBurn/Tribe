@@ -16,6 +16,7 @@ access_conditions:
     roles:
       administrator: administrator
       supplier: supplier
+      sanctuary_admin: sanctuary_admin
     negate: false
     context_mapping:
       user: current_user

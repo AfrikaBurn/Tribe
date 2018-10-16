@@ -5,7 +5,7 @@ dependencies:
   config:
     - system.menu.wrangle
     - user.role.administrator
-    - user.role.sanctuary_admin
+    - user.role.supplier
     - webform.webform.subsidised_ticket_2019
   module:
     - user
@@ -31,7 +31,7 @@ display:
         options:
           role:
             administrator: administrator
-            sanctuary_admin: sanctuary_admin
+            supplier: supplier
       cache:
         type: tag
         options: {  }
@@ -47,7 +47,7 @@ display:
         type: basic
         options:
           submit_button: Search
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -392,7 +392,12 @@ display:
           entity_field: webform_id
           plugin_id: standard
       header: {  }
-      footer: {  }
+      footer:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          plugin_id: text_custom
       empty:
         area_text_custom:
           id: area_text_custom
@@ -646,11 +651,11 @@ display:
               ranger_admin: '0'
               sanctuary_admin: '0'
             placeholder: ''
-          is_grouped: false
+          is_grouped: true
           group_info:
-            label: Review
-            description: null
-            identifier: webform_submission_value
+            label: ''
+            description: ''
+            identifier: status
             optional: true
             widget: select
             multiple: false
@@ -658,15 +663,38 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items:
-              1: {  }
-              2: {  }
-              3: {  }
+              1:
+                title: New
+                operator: shorterthan
+                value: '1'
+              2:
+                title: 'Bank Statment Required'
+                operator: '='
+                value: '531'
+              3:
+                title: 'Follow up'
+                operator: '='
+                value: '532'
+              4:
+                title: 'Further Review'
+                operator: '='
+                value: '533'
+              5:
+                title: Granted
+                operator: '='
+                value: '534'
+              6:
+                title: Rejected
+                operator: '='
+                value: '535'
           plugin_id: webform_submission_field_filter
       defaults:
         filters: false
         filter_groups: false
         fields: false
         sorts: false
+        footer: false
+        header: false
       filter_groups:
         operator: AND
         groups:
@@ -1582,6 +1610,19 @@ display:
           entity_type: webform_submission
           entity_field: sid
           plugin_id: standard
+      footer: {  }
+      header:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: '<a href="/admin/structure/webform/manage/subsidised_ticket_2019/results/download">Download</a>'
+          plugin_id: text_custom
     cache_metadata:
       max-age: -1
       contexts:
