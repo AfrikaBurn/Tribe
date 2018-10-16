@@ -1,6 +1,6 @@
 uuid: 80e88679-4d8f-456e-a57c-01138979c9be
 langcode: en
-status: open
+status: closed
 dependencies: {  }
 open: null
 close: null
@@ -103,6 +103,8 @@ settings:
   results_disabled: false
   results_disabled_ignore: false
   token_update: false
+  wizard_progress_link: false
+  wizard_preview_link: false
 access:
   create:
     roles:
