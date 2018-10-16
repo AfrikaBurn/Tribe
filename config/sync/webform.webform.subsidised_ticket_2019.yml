@@ -150,7 +150,9 @@ access:
     users: {  }
     permissions: {  }
   administer:
-    roles: {  }
+    roles:
+      - administrator
+      - supplier
     users: {  }
     permissions: {  }
   test:

@@ -4,7 +4,7 @@ afrikaburn_application.update:
     _controller: '\Drupal\afrikaburn_application\Controller\ApplicationController::update'
   requirements:
     cid: '^[0-9]+'
-    _role: gate + outreach_wrangler
+    _role: supplier + outreach_wrangler
 
 afrikaburn_application.wrangle.subsidised:
   path: '/wrangle/applications/subsidised'
