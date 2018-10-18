@@ -230,6 +230,22 @@ bundles:
       notes: ''
       bundle: art
       name: field_prj_snd_more_later
+    field_prj_prp_start:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: art
+      name: field_prj_prp_start
+    field_prj_prp_erection:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: art
+      name: field_prj_prp_erection
   theme_camps:
     field_prj_est_camp_population:
       enabled: false
