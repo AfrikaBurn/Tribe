@@ -222,6 +222,14 @@ bundles:
       notes: ''
       bundle: art
       name: field_prj_snd_f1
+    field_prj_snd_more_later:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: art
+      name: field_prj_snd_more_later
   theme_camps:
     field_prj_est_camp_population:
       enabled: false
