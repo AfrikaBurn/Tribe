@@ -99,6 +99,7 @@ dependencies:
     - field.field.node.art.field_prj_snd_description
     - field.field.node.art.field_prj_snd_f1
     - field.field.node.art.field_prj_snd_level
+    - field.field.node.art.field_prj_snd_more_later
     - field.field.node.art.field_prj_snd_person
     - field.field.node.art.field_prj_snd_sound
     - field.field.node.art.field_prj_stc_attributes
@@ -136,6 +137,7 @@ dependencies:
     - colorbox
     - ds
     - empty_fields
+    - markup
     - user
 third_party_settings:
   ds:
@@ -181,6 +183,13 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+  field_prj_snd_more_later:
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
   field_prj_wtf_image:
     type: colorbox
     weight: 1
