@@ -1,20 +1,18 @@
+uuid: b66591f8-87f7-44d0-ae95-9d8fc5747162
 langcode: en
 status: open
-dependencies:
-  enforced:
-    module:
-      - webform
+dependencies: {  }
 open: null
 close: null
 weight: 0
-uid: null
+uid: 1
 template: false
 archive: false
-id: contact
-title: Contact
-description: 'Basic email contact webform.'
-category: ''
-elements: "name:\n  '#title': 'Your Name'\n  '#type': textfield\n  '#required': true\n  '#default_value': '[current-user:display-name]'\nemail:\n  '#title': 'Your Email'\n  '#type': email\n  '#required': true\n  '#default_value': '[current-user:mail]'\nsubject:\n  '#title': Subject\n  '#type': textfield\n  '#required': true\n  '#test': 'Testing contact webform from [site:name]'\nmessage:\n  '#title': Message\n  '#type': textarea\n  '#required': true\n  '#test': 'Please ignore this email.'\nactions:\n  '#type': webform_actions\n  '#title': 'Submit button(s)'\n  '#submit__label': 'Send message'\n"
+id: dpw_registration_2019
+title: 'DPW registration 2019'
+description: ''
+category: Registration
+elements: "about_you:\n  '#type': webform_wizard_page\n  '#title': 'About you'\n  intro:\n    '#type': webform_markup\n    '#markup': '<em>Some of the information here is populated from your <a href=\"/user\" target=\"_blank\">Burner Bio</a>. If any information is incorrect please update your Bio and refresh this page.</em>'\n  name:\n    '#type': webform_computed_token\n    '#title': Name\n    '#title_display': inline\n    '#value': '[webform_submission:user:field_first_name] \"[webform_submission:user:name]\" [webform_submission:user:field_last_name]'\n    '#store': true\n  email:\n    '#type': webform_computed_token\n    '#title': Email\n    '#title_display': inline\n    '#value': '[webform_submission:user:field_email]'\n    '#store': true\n  which_crew_have_you_been_allocated_to:\n    '#type': webform_select_other\n    '#title': 'Which crew have you been allocated to'\n    '#options':\n      WASH: WASH\n      Metal: Metal\n      Carpentry: Carpentry\n      HEat: HEat\n      Rigging: Rigging\n      'Kitchen setup': 'Kitchen setup'\n      Kitchen: Kitchen\n      Power: Power\n      Demarcation: Demarcation\n      Signage: Signage\n      'H&S / Fluffers': 'H&S / Fluffers'\n      Logistics: Logistics\n      'I don''t know yet': 'I don''t know yet'\n    '#required': true\n    '#required_error': 'This field is required!'\nyour_kit:\n  '#type': webform_wizard_page\n  '#title': 'Your kit'\n  i_need_cheap_safety_boots_in_uk_size_:\n    '#type': number\n    '#title': 'I need cheap safety boots in UK size:'\n    '#min': '1'\n  shirt_size:\n    '#type': radios\n    '#title': 'Shirt size'\n    '#options':\n      XS: XS\n      S: S\n      M: M\n      L: L\n      XL: XL\n      XXL: XXL\n      XXXL: XXXL\ndiet:\n  '#type': webform_wizard_page\n  '#title': 'Your diet'\n  dietary_restrictions:\n    '#type': textfield\n    '#title': 'Dietary restrictions'\n  crew_drink_of_choice:\n    '#type': radios\n    '#title': 'Crew drink of choice'\n    '#options':\n      Beer: Beer!\n      Cider: Cider\n      Non-alcoholic: Non-alcoholic\nlogistics:\n  '#type': webform_wizard_page\n  '#title': Logistics\n  i_need_a_ride_to_site:\n    '#type': checkbox\n    '#title': 'I need  a ride to site'\n  when_do_you_need_a_ride:\n    '#type': date\n    '#title': 'When do you need a ride'\n    '#states':\n      visible:\n        ':input[name=\"i_need_a_ride_to_site\"]':\n          checked: true\n      required:\n        ':input[name=\"i_need_a_ride_to_site\"]':\n          checked: true\n    '#datepicker': true\n    '#date_date_format': j/M/Y\n  available_until:\n    '#type': date\n    '#title': 'I am available to DPW until'\n    '#required': true\n    '#datepicker': true\n    '#date_date_format': j/M/Y"
 css: ''
 javascript: ''
 settings:
@@ -23,7 +21,7 @@ settings:
   page: true
   page_submit_path: ''
   page_confirm_path: ''
-  form_submit_once: false
+  form_submit_once: true
   form_exception_message: ''
   form_open_message: ''
   form_close_message: ''
@@ -73,7 +71,7 @@ settings:
   wizard_progress_link: false
   wizard_start_label: ''
   wizard_preview_link: false
-  wizard_confirmation: true
+  wizard_confirmation: false
   wizard_confirmation_label: ''
   wizard_track: ''
   preview: 0
@@ -89,10 +87,10 @@ settings:
   draft_auto_save: false
   draft_saved_message: ''
   draft_loaded_message: ''
-  confirmation_type: url_message
+  confirmation_type: page
   confirmation_title: ''
-  confirmation_message: 'Your message has been sent.'
-  confirmation_url: '<front>'
+  confirmation_message: ''
+  confirmation_url: ''
   confirmation_attributes: {  }
   confirmation_back: true
   confirmation_back_label: ''
@@ -158,27 +156,61 @@ access:
     users: {  }
     permissions: {  }
 handlers:
-  email_confirmation:
+  email:
     id: email
-    label: 'Email confirmation'
-    handler_id: email_confirmation
+    label: Email
+    handler_id: email
     status: true
     conditions: {  }
-    weight: 1
+    weight: 0
     settings:
       states:
         - completed
-      to_mail: '[webform_submission:values:email:raw]'
+      to_mail: '[webform:author:mail]'
       to_options: {  }
       cc_mail: ''
       cc_options: {  }
-      bcc_mail: ''
+      bcc_mail: shared@afrikaburn.com
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: 'AfrikaBurn Tribe'
+      subject: 'DPW registration received'
+      body: "<p>Hi {{ webform_token('[webform_submission:user]', webform_submission) }}!</p>\r\nWe've received your DPW registration deets:\r\n<p>\r\n{{ webform_token('[webform_submission:values]', webform_submission) }}</p>\r\n"
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: true
+      attachments: false
+      twig: true
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
+  email_1:
+    id: email
+    label: Email
+    handler_id: email_1
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: dpw@afrikaburn.com
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: shared@afrikaburn.com
       bcc_options: {  }
       from_mail: _default
       from_options: {  }
       from_name: _default
-      subject: '[webform_submission:values:subject:raw]'
-      body: '[webform_submission:values:message:value]'
+      subject: 'DPW Crew registration received'
+      body: _default
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
@@ -192,40 +224,3 @@ handlers:
       sender_mail: ''
       sender_name: ''
       theme_name: ''
-  email_notification:
-    id: email
-    label: 'Email notification'
-    handler_id: email_notification
-    status: true
-    conditions: {  }
-    weight: 1
-    settings:
-      states:
-        - completed
-      to_mail: _default
-      to_options: {  }
-      cc_mail: ''
-      cc_options: {  }
-      bcc_mail: ''
-      bcc_options: {  }
-      from_mail: '[webform_submission:values:email:raw]'
-      from_options: {  }
-      from_name: '[webform_submission:values:name:raw]'
-      subject: '[webform_submission:values:subject:raw]'
-      body: '[webform_submission:values:message:value]'
-      excluded_elements: {  }
-      ignore_access: false
-      exclude_empty: true
-      exclude_empty_checkbox: false
-      html: true
-      attachments: false
-      twig: false
-      debug: false
-      reply_to: ''
-      return_path: ''
-      sender_mail: ''
-      sender_name: ''
-      theme_name: ''
-uuid: 35e321ce-b80c-4f0e-9ac2-3f7a7c92fb64
-_core:
-  default_config_hash: s9QwNFnXhcTFmBZLjD5-7dOwcHv3Bh2dfsGN-cR7TgY
