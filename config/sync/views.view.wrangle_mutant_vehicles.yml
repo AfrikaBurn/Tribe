@@ -46,7 +46,7 @@ id: wrangle_mutant_vehicles
 label: 'Wrangle: Mutant Vehicles'
 module: views
 description: ''
-tag: 'wrangle, art'
+tag: 'wrangle, mutant_vehicles'
 base_table: node_field_data
 base_field: nid
 core: 8.x
@@ -2831,15 +2831,15 @@ display:
             remember: false
             multiple: false
             remember_roles:
-              authenticated: authenticated
+              mutant_vehicle_wrangler: mutant_vehicle_wrangler
               anonymous: '0'
+              authenticated: '0'
               art_wrangler: '0'
               art_admin: '0'
               communications_wrangler: '0'
               communications_admin: '0'
               leave_no_trace_moop: '0'
               mutant_vehicle_viewer: '0'
-              mutant_vehicle_wrangler: '0'
               mutant_vehicle_admin: '0'
               outreach_wrangler: '0'
               outreach_admin: '0'
