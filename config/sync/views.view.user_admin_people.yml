@@ -83,24 +83,42 @@ display:
           default_row_class: true
           override: true
           sticky: false
+          caption: ''
           summary: ''
+          description: ''
           columns:
             user_bulk_form: user_bulk_form
-            name: name
+            field_first_name: field_first_name
+            name: field_first_name
+            field_last_name: field_first_name
             status: status
-            rid: rid
+            roles_target_id: roles_target_id
             created: created
             access: access
-            edit_node: edit_node
-            dropbutton: dropbutton
+            operations: operations
+            mail: mail
           info:
             user_bulk_form:
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
+            field_first_name:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ' '
+              empty_column: false
+              responsive: ''
             name:
               sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_last_name:
+              sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
@@ -113,13 +131,13 @@ display:
               separator: ''
               empty_column: false
               responsive: priority-low
-            rid:
+            roles_target_id:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
-              responsive: priority-low
+              responsive: ''
             created:
               sortable: true
               default_sort_order: desc
@@ -134,12 +152,12 @@ display:
               separator: ''
               empty_column: false
               responsive: priority-low
-            edit_node:
+            operations:
               align: ''
               separator: ''
               empty_column: false
-              responsive: priority-low
-            dropbutton:
+              responsive: ''
+            mail:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -201,6 +219,69 @@ display:
           hide_alter_empty: true
           plugin_id: user_bulk_form
           entity_type: user
+        field_first_name:
+          id: field_first_name
+          table: user__field_first_name
+          field: field_first_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Name
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         name:
           id: name
           table: users_field_data
@@ -253,6 +334,69 @@ display:
           type: user_name
           entity_type: user
           entity_field: name
+        field_last_name:
+          id: field_last_name
+          table: user__field_last_name
+          field: field_last_name
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Last name'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         status:
           id: status
           table: users_field_data
@@ -612,7 +756,27 @@ display:
             remember_roles:
               authenticated: authenticated
               anonymous: '0'
+              art_wrangler: '0'
+              art_admin: '0'
+              communications_wrangler: '0'
+              communications_admin: '0'
+              leave_no_trace_moop: '0'
+              mutant_vehicle_viewer: '0'
+              mutant_vehicle_wrangler: '0'
+              mutant_vehicle_admin: '0'
+              outreach_wrangler: '0'
+              outreach_admin: '0'
               administrator: '0'
+              support_wrangler: '0'
+              support_admin: '0'
+              theme_camp_wrangler: '0'
+              theme: '0'
+              supplier: '0'
+              dpw: '0'
+              volunteer_admin: '0'
+              ranger_admin: '0'
+              sanctuary_admin: '0'
+            placeholder: ''
           is_grouped: false
           group_info:
             label: ''
@@ -626,7 +790,9 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           fields:
+            field_first_name: field_first_name
             name: name
+            field_last_name: field_last_name
             mail: mail
           plugin_id: combine
         field_id_number_value:
@@ -900,7 +1066,9 @@ display:
         - url.query_args
         - user.permissions
       max-age: 0
-      tags: {  }
+      tags:
+        - 'config:field.storage.user.field_first_name'
+        - 'config:field.storage.user.field_last_name'
   data_export:
     display_plugin: data_export
     id: data_export
@@ -1376,4 +1544,6 @@ display:
         - url.query_args
         - user.permissions
       max-age: 0
-      tags: {  }
+      tags:
+        - 'config:field.storage.user.field_first_name'
+        - 'config:field.storage.user.field_last_name'
