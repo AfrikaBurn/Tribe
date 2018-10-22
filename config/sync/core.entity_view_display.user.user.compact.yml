@@ -53,6 +53,10 @@ third_party_settings:
         weight: 0
         label: hidden
         formatter: default
+        settings:
+          link: true
+          wrapper: ''
+          class: ''
 _core:
   default_config_hash: '-cLsS3M3JycipXQt9rEb81_HxKneReoGuRh8ijcOPXs'
 id: user.user.compact
