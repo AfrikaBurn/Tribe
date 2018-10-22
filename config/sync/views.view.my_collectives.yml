@@ -405,7 +405,7 @@ display:
           title: ''
           default_argument_type: php
           default_argument_options:
-            code: "$user = \\Drupal\\user\\Entity\\User::load(\\Drupal::currentUser()->id());\r\nreturn = $user->get('field_secondary_mail')->value;"
+            code: "$user = \\Drupal\\user\\Entity\\User::load(\\Drupal::currentUser()->id());\r\nreturn $user->get('field_secondary_mail')->value;"
           default_argument_skip_url: false
           summary_options:
             base_path: ''
@@ -700,6 +700,7 @@ display:
       displays:
         invitations: invitations
       attachment_position: after
+      inherit_arguments: false
     cache_metadata:
       max-age: -1
       contexts:

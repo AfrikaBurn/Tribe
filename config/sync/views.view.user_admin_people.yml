@@ -104,7 +104,7 @@ display:
               empty_column: false
               responsive: ''
             field_first_name:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ' '
@@ -132,7 +132,7 @@ display:
               empty_column: false
               responsive: priority-low
             roles_target_id:
-              sortable: false
+              sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
@@ -739,7 +739,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: contains
+          operator: allwords
           value: ''
           group: 1
           exposed: true

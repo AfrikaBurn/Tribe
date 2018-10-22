@@ -177,16 +177,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.69.9",
+            "version": "3.69.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "1a7baa9aea970b103a7651a3898002e1a9f0eef1"
+                "reference": "c8796a6cc29018d0c96a501010f22e99bf31814b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/1a7baa9aea970b103a7651a3898002e1a9f0eef1",
-                "reference": "1a7baa9aea970b103a7651a3898002e1a9f0eef1",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/c8796a6cc29018d0c96a501010f22e99bf31814b",
+                "reference": "c8796a6cc29018d0c96a501010f22e99bf31814b",
                 "shasum": ""
             },
             "require": {
@@ -194,7 +194,7 @@
                 "ext-pcre": "*",
                 "ext-simplexml": "*",
                 "ext-spl": "*",
-                "guzzlehttp/guzzle": "^5.3.1|^6.2.1",
+                "guzzlehttp/guzzle": "^5.3.3|^6.2.1",
                 "guzzlehttp/promises": "~1.0",
                 "guzzlehttp/psr7": "^1.4.1",
                 "mtdowling/jmespath.php": "~2.2",
@@ -256,7 +256,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2018-10-17T20:39:50+00:00"
+            "time": "2018-10-19T20:47:57+00:00"
         },
         {
             "name": "bshaffer/oauth2-server-httpfoundation-bridge",
@@ -746,16 +746,16 @@
         },
         {
             "name": "consolidation/output-formatters",
-            "version": "3.3.1",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/output-formatters.git",
-                "reference": "853d2d462a191d44a25a5593d8fe2c4a1e59e382"
+                "reference": "a942680232094c4a5b21c0b7e54c20cce623ae19"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/output-formatters/zipball/853d2d462a191d44a25a5593d8fe2c4a1e59e382",
-                "reference": "853d2d462a191d44a25a5593d8fe2c4a1e59e382",
+                "url": "https://api.github.com/repos/consolidation/output-formatters/zipball/a942680232094c4a5b21c0b7e54c20cce623ae19",
+                "reference": "a942680232094c4a5b21c0b7e54c20cce623ae19",
                 "shasum": ""
             },
             "require": {
@@ -798,7 +798,7 @@
                 }
             ],
             "description": "Format text by applying transformations provided by plug-in formatters.",
-            "time": "2018-10-16T01:14:51+00:00"
+            "time": "2018-10-19T22:35:38+00:00"
         },
         {
             "name": "consolidation/robo",
@@ -883,16 +883,16 @@
         },
         {
             "name": "consolidation/self-update",
-            "version": "1.1.3",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/consolidation/self-update.git",
-                "reference": "de33822f907e0beb0ffad24cf4b1b4fae5ada318"
+                "reference": "4422e52d3fabeca9129ecb1780f198f202debdce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation/self-update/zipball/de33822f907e0beb0ffad24cf4b1b4fae5ada318",
-                "reference": "de33822f907e0beb0ffad24cf4b1b4fae5ada318",
+                "url": "https://api.github.com/repos/consolidation/self-update/zipball/4422e52d3fabeca9129ecb1780f198f202debdce",
+                "reference": "4422e52d3fabeca9129ecb1780f198f202debdce",
                 "shasum": ""
             },
             "require": {
@@ -929,7 +929,7 @@
                 }
             ],
             "description": "Provides a self:update command for Symfony Console applications.",
-            "time": "2018-08-24T17:01:46+00:00"
+            "time": "2018-10-21T20:17:55+00:00"
         },
         {
             "name": "consolidation/site-alias",
@@ -8365,17 +8365,17 @@
         },
         {
             "name": "drupal/webform",
-            "version": "5.0.0-rc22",
+            "version": "5.0.0-rc23",
             "source": {
                 "type": "git",
                 "url": "https://git.drupal.org/project/webform",
-                "reference": "8.x-5.0-rc22"
+                "reference": "8.x-5.0-rc23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.0-rc22.zip",
-                "reference": "8.x-5.0-rc22",
-                "shasum": "1027a7444bafc779b6b8a114915ccb4403db51b0"
+                "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.0-rc23.zip",
+                "reference": "8.x-5.0-rc23",
+                "shasum": "b14ad683985a28c5d216364a2c4d361e2d247db9"
             },
             "require": {
                 "drupal/core": "*"
@@ -8395,8 +8395,8 @@
                     "dev-5.x": "5.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-5.0-rc22",
-                    "datestamp": "1538482685",
+                    "version": "8.x-5.0-rc23",
+                    "datestamp": "1540052580",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "RC releases are not covered by Drupal security advisories."
@@ -9713,16 +9713,16 @@
         },
         {
             "name": "phpoffice/phpspreadsheet",
-            "version": "1.4.1",
+            "version": "1.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPOffice/PhpSpreadsheet.git",
-                "reference": "57404f43742a8164b5eac3ab03b962d8740885c1"
+                "reference": "2dfd06c59825914a1a325f2a2ed13634b9d8c411"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/57404f43742a8164b5eac3ab03b962d8740885c1",
-                "reference": "57404f43742a8164b5eac3ab03b962d8740885c1",
+                "url": "https://api.github.com/repos/PHPOffice/PhpSpreadsheet/zipball/2dfd06c59825914a1a325f2a2ed13634b9d8c411",
+                "reference": "2dfd06c59825914a1a325f2a2ed13634b9d8c411",
                 "shasum": ""
             },
             "require": {
@@ -9796,7 +9796,7 @@
                 "xls",
                 "xlsx"
             ],
-            "time": "2018-09-30T03:57:24+00:00"
+            "time": "2018-10-21T10:04:54+00:00"
         },
         {
             "name": "psr/container",
