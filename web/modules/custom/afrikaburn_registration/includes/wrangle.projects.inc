@@ -128,6 +128,7 @@ function ar_prepare_wrangler_filter(&$form, $type){
     $form['size']['#options']['All'] = t('- any size -');
     $form['status']['#options']['All'] = t('- any state -');
     $form['location']['#options']['All'] = t('- anywhere -');
+    $form['completed']['#options']['All'] = t('- any form -');
 
   }
 }
@@ -227,8 +228,8 @@ function ab_insert_wrangler_view_rows(&$variables){
     if ($view->current_display == 'bench'){
       // Merge admin columns
       foreach (_merge() as $column=>$fields) {
-        if ($view->field[$field]){
-          foreach($fields as $field){
+        foreach($fields as $field){
+          if ($view->field[$field]){
             $row['columns'][$column]['content'][] = [
               'field_output' => @$row['columns'][$field]['content'][0]['field_output']
             ];

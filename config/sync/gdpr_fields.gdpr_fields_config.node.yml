@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies: {  }
 id: node
-filenames: {  }
 bundles:
   announcement:
     body:
