@@ -273,3 +273,8 @@ body.path-frontpage .main-block{
     padding-left: 0;
     overflow-wrap: break-word;
 }
+
+
+#edit-field-date-of-birth-0 select {
+    max-width: 150px;
+}
