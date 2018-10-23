@@ -128,6 +128,7 @@ function ar_prepare_wrangler_filter(&$form, $type){
     $form['size']['#options']['All'] = t('- any size -');
     $form['status']['#options']['All'] = t('- any state -');
     $form['location']['#options']['All'] = t('- anywhere -');
+    $form['completed']['#options']['All'] = t('- any form -');
 
   }
 }
