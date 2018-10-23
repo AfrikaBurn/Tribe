@@ -3336,10 +3336,10 @@ display:
         - 'config:field.storage.node.field_prjr_complete'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
-  page:
+  bench:
     display_plugin: page
-    id: page
-    display_title: Page
+    id: bench
+    display_title: Bench
     position: 1
     display_options:
       display_extenders: {  }
@@ -3355,6 +3355,7 @@ display:
         menu_name: wrangle
       defaults:
         fields: true
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:
