@@ -60,3 +60,15 @@
   margin-bottom: 5px;
   font-size: 90%;
 }
+
+#block-entityviewuser img{
+  width: 25px;
+  display: block;
+  margin: 5px 5px 0 0;
+}
+
+#block-entityviewuser .layout__region{
+  display: flex;
+  height: 35px;
+  align-items: center;
+}
