@@ -248,7 +248,7 @@ display:
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
+            strip_tags: true
             trim: false
             preserve_tags: ''
             html: false
@@ -438,7 +438,7 @@ display:
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
+            strip_tags: true
             trim: false
             preserve_tags: ''
             html: false
@@ -563,7 +563,7 @@ display:
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
+            strip_tags: true
             trim: false
             preserve_tags: ''
             html: false
@@ -751,7 +751,7 @@ display:
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
+            strip_tags: true
             trim: false
             preserve_tags: ''
             html: false
@@ -813,7 +813,7 @@ display:
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
+            strip_tags: true
             trim: false
             preserve_tags: ''
             html: false
@@ -833,8 +833,8 @@ display:
           type: link
           settings:
             trim_length: 80
-            url_only: true
-            url_plain: false
+            url_only: false
+            url_plain: true
             rel: '0'
             target: '0'
           group_column: ''
@@ -880,7 +880,7 @@ display:
             more_link: false
             more_link_text: ''
             more_link_path: ''
-            strip_tags: false
+            strip_tags: true
             trim: false
             preserve_tags: ''
             html: false
@@ -1409,8 +1409,6 @@ display:
           entity_type: node
           entity_field: type
           plugin_id: bundle
-<<<<<<< HEAD
-=======
         created:
           id: created
           table: node_field_data
@@ -1456,7 +1454,6 @@ display:
           entity_type: node
           entity_field: created
           plugin_id: date
->>>>>>> 5c323cc0b2fd53e0ad2f8f73591f8e7afe81baa7
       sorts:
         created:
           id: created
@@ -2949,8 +2946,6 @@ display:
         - 'config:field.storage.node.field_prj_wtf_scheduled'
         - 'config:field.storage.node.field_prj_wtf_short_copy'
         - 'config:field.storage.node.field_prj_wtf_website'
-<<<<<<< HEAD
-=======
   rest_export_2:
     display_plugin: rest_export
     id: rest_export_2
@@ -3160,4 +3155,3 @@ display:
         - 'config:field.storage.node.field_prj_wtf_scheduled'
         - 'config:field.storage.node.field_prj_wtf_short_copy'
         - 'config:field.storage.node.field_prj_wtf_website'
->>>>>>> 5c323cc0b2fd53e0ad2f8f73591f8e7afe81baa7
