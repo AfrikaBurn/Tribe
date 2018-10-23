@@ -228,8 +228,8 @@ function ab_insert_wrangler_view_rows(&$variables){
     if ($view->current_display == 'bench'){
       // Merge admin columns
       foreach (_merge() as $column=>$fields) {
-        if ($view->field[$field]){
-          foreach($fields as $field){
+        foreach($fields as $field){
+          if ($view->field[$field]){
             $row['columns'][$column]['content'][] = [
               'field_output' => @$row['columns'][$field]['content'][0]['field_output']
             ];
