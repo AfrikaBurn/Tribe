@@ -1416,7 +1416,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '>='
+          operator: '<'
           value:
             min: ''
             max: ''
@@ -3033,6 +3033,104 @@ display:
         operator: AND
         groups:
           1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+        - 'user.node_grants:view'
+      tags:
+        - 'config:field.storage.node.field_collective'
+        - 'config:field.storage.node.field_prj_adm_latitude'
+        - 'config:field.storage.node.field_prj_adm_longitude'
+        - 'config:field.storage.node.field_prj_brn_burning'
+        - 'config:field.storage.node.field_prj_brn_time_adm'
+        - 'config:field.storage.node.field_prj_gen_history'
+        - 'config:field.storage.node.field_prj_oth_associated'
+        - 'config:field.storage.node.field_prj_oth_relationship'
+        - 'config:field.storage.node.field_prj_snd_level'
+        - 'config:field.storage.node.field_prj_snd_sound'
+        - 'config:field.storage.node.field_prj_wtf_image'
+        - 'config:field.storage.node.field_prj_wtf_long'
+        - 'config:field.storage.node.field_prj_wtf_planned'
+        - 'config:field.storage.node.field_prj_wtf_scheduled'
+        - 'config:field.storage.node.field_prj_wtf_short_copy'
+        - 'config:field.storage.node.field_prj_wtf_website'
+  rest_export_3:
+    display_plugin: rest_export
+    id: rest_export_3
+    display_title: 'JSON REST Develop'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: develop/json
+      pager:
+        type: none
+        options:
+          offset: 0
+      style:
+        type: serializer
+        options:
+          formats:
+            json: json
+      row:
+        type: data_field
+        options:
+          field_options:
+            title:
+              alias: ''
+              raw_output: false
+      display_description: ''
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - request_format
+        - 'user.node_grants:view'
+      tags:
+        - 'config:field.storage.node.field_collective'
+        - 'config:field.storage.node.field_prj_adm_latitude'
+        - 'config:field.storage.node.field_prj_adm_longitude'
+        - 'config:field.storage.node.field_prj_brn_burning'
+        - 'config:field.storage.node.field_prj_brn_time_adm'
+        - 'config:field.storage.node.field_prj_gen_history'
+        - 'config:field.storage.node.field_prj_oth_associated'
+        - 'config:field.storage.node.field_prj_oth_relationship'
+        - 'config:field.storage.node.field_prj_snd_level'
+        - 'config:field.storage.node.field_prj_snd_sound'
+        - 'config:field.storage.node.field_prj_wtf_image'
+        - 'config:field.storage.node.field_prj_wtf_long'
+        - 'config:field.storage.node.field_prj_wtf_planned'
+        - 'config:field.storage.node.field_prj_wtf_scheduled'
+        - 'config:field.storage.node.field_prj_wtf_short_copy'
+        - 'config:field.storage.node.field_prj_wtf_website'
+  rest_export_4:
+    display_plugin: rest_export
+    id: rest_export_4
+    display_title: 'JSON REST Develop All'
+    position: 1
+    display_options:
+      display_extenders: {  }
+      path: develop/json/all
+      pager:
+        type: none
+        options:
+          offset: 0
+      style:
+        type: serializer
+        options:
+          formats:
+            json: json
+      row:
+        type: data_field
+        options:
+          field_options:
+            title:
+              alias: ''
+              raw_output: false
+      display_description: ''
     cache_metadata:
       max-age: -1
       contexts:
