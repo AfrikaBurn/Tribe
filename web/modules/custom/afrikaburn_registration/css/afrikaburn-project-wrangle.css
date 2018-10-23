@@ -21,6 +21,9 @@
   padding-top: 20px;
 }
 
+.wrangler-view table td.views-field-field-prj-plc-location{
+  max-width: 200px;
+}
 
 .wrangler-view table .column-administrative,
 .wrangler-view table .column-process{
