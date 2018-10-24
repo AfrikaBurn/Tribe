@@ -1,8 +1,9 @@
-uuid: 3de18989-f226-4884-a9a5-d9ea6c3afd57
+uuid: 319db872-8e79-4c80-9b27-a1ee4f3b6b19
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.form_2_mail
     - field.field.node.art.field_admin_comments
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
@@ -155,10 +156,10 @@ third_party_settings:
         - field_prj_gen_description
       top:
         - field_prj_snd_more_later
-id: node.art.default
+id: node.art.form_2_mail
 targetEntityType: node
 bundle: art
-mode: default
+mode: form_2_mail
 content:
   field_prj_gen_concept:
     type: colorbox

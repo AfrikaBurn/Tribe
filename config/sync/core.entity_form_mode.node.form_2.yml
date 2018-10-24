@@ -1,0 +1,10 @@
+uuid: 151a4951-73bc-4282-884b-7a7e850ca215
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.form_2
+label: 'Form 2'
+targetEntityType: node
+cache: true
