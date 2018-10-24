@@ -8,7 +8,14 @@ dependencies:
     - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_field_prj_plc_marquis
     - field.field.node.theme_camps.field_field_prj_plc_stretch_m
+    - field.field.node.theme_camps.field_final_placement
     - field.field.node.theme_camps.field_form_mode
+    - field.field.node.theme_camps.field_ice_card
+    - field.field.node.theme_camps.field_neighbours
+    - field.field.node.theme_camps.field_placed
+    - field.field.node.theme_camps.field_placement_card
+    - field.field.node.theme_camps.field_placement_letter_sent
+    - field.field.node.theme_camps.field_plot
     - field.field.node.theme_camps.field_prj_adm_form_3
     - field.field.node.theme_camps.field_prj_adm_latitude
     - field.field.node.theme_camps.field_prj_adm_longitude
@@ -119,10 +126,12 @@ dependencies:
     - field.field.node.theme_camps.field_sup_review
     - field.field.node.theme_camps.field_tc_type
     - field.field.node.theme_camps.field_vp_ea
+    - field.field.node.theme_camps.field_year_cycle
     - image.style.thumbnail
     - node.type.theme_camps
   module:
     - comment
+    - computed_field
     - conditional_fields
     - cshs
     - entity_reference_views_select
@@ -261,11 +270,13 @@ third_party_settings:
       region: content
     group_administrative:
       children:
+        - field_year_cycle
         - field_prjr_complete
         - field_prj_adm_review
         - field_prj_adm_wrangler
         - field_collective
         - field_form_mode
+        - field_admin_comments
       parent_name: ''
       weight: 1
       format_type: details
@@ -664,6 +675,12 @@ content:
     third_party_settings: {  }
     type: options_buttons
     region: content
+  field_year_cycle:
+    type: computed_number_widget
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   flag:
     weight: 4
     region: content
@@ -689,6 +706,13 @@ hidden:
   created: true
   field_field_prj_plc_marquis: true
   field_field_prj_plc_stretch_m: true
+  field_final_placement: true
+  field_ice_card: true
+  field_neighbours: true
+  field_placed: true
+  field_placement_card: true
+  field_placement_letter_sent: true
+  field_plot: true
   field_prj_adm_comms: true
   field_prj_adm_form_3: true
   field_prj_adm_latitude: true
