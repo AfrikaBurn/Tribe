@@ -145,6 +145,7 @@ permissions:
   - 'use  The form mode wtf_guide_and_app linked to  node entity( theme_camps )'
   - 'use node.default form mode'
   - 'use node.form_1 form mode'
+  - 'use node.form_2 form mode'
   - 'use node.grant form mode'
   - 'use node.open_camps form mode'
   - 'use node.project_overview form mode'

@@ -145,10 +145,10 @@ third_party_settings:
       children:
         - field_collective
         - field_form_mode
-        - field_prjr_complete
         - field_prj_adm_review
         - field_prj_adm_wrangler
         - field_prj_stc_size
+        - field_prjr_complete
         - field_year_cycle
       parent_name: ''
       weight: 1
@@ -172,9 +172,9 @@ third_party_settings:
       format_type: tabs
       format_settings:
         label: 'Project Registration'
-        direction: vertical
+        direction: horizontal
         id: ''
-        classes: js-wizard
+        classes: ''
       label: 'Project Registration'
     group_lighting:
       children:
