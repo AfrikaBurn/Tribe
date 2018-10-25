@@ -1,6 +1,6 @@
 uuid: 7a02d799-5642-42d9-adbc-7a2b360c5508
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_form_mode.node.form_2
