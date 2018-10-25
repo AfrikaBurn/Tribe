@@ -5,17 +5,17 @@ art-form_1-new-collective-body: "<p>Well done!</p>\r\n\r\n<p>We've received form
 art-form_1-new-wranglers-subject: 'New artwork registration: [node:title]'
 art-form_1-new-wranglers-body: "<p>Submitted by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>[render form_1_mail]</p>\r\n"
 art-form_1-update-collective-subject: '[node:title] artwork registration updated'
-art-form_1-update-collective-body: "<p>Excellent!</p>\r\n\r\n<p>Form 1 of your artwork registration has been updated by [user:name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
+art-form_1-update-collective-body: "<p>Excellent!</p>\r\n\r\n<p>Your artwork registration has been updated by [user:name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
 art-form_1-update-wranglers-subject: 'Artwork registration updated: [node:title]'
 art-form_1-update-wranglers-body: "<p>Updated by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
-art-form_2-new-collective-subject: ''
-art-form_2-new-collective-body: ''
-art-form_2-new-wranglers-subject: ''
-art-form_2-new-wranglers-body: ''
-art-form_2-update-collective-subject: ''
-art-form_2-update-collective-body: ''
-art-form_2-update-wranglers-subject: ''
-art-form_2-update-wranglers-body: ''
+art-form_2-new-collective-subject: '[node:title] artwork registration continued'
+art-form_2-new-collective-body: "<p>Well done!</p>\r\n\r\n<p>We've received form 2 of your artwork registration submitted by [user:name]:</p>\r\n\r\n<hr />\r\n<p>(Display to be updated once form is finalised)</p>\r\n\r\n<p>[render form_1_mail]</p>\r\n"
+art-form_2-new-wranglers-subject: 'Artwork registration form 2: [node:title]'
+art-form_2-new-wranglers-body: "<p>Submitted by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>(Display to be updated once form is finalised)</p>\r\n\r\n<p>[render form_1_mail]</p>\r\n"
+art-form_2-update-collective-subject: '[node:title] artwork registration updated'
+art-form_2-update-collective-body: "<p>Excellent!</p>\r\n\r\n<p>Your artwork registration has been updated by [user:name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
+art-form_2-update-wranglers-subject: 'Artwork registration updated: [node:title]'
+art-form_2-update-wranglers-body: "<p>Updated by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
 art-form_3-new-collective-subject: ''
 art-form_3-new-collective-body: ''
 art-form_3-new-wranglers-subject: ''
@@ -150,14 +150,14 @@ theme_camps-form_1-update-collective-subject: '[node:title] theme camp registrat
 theme_camps-form_1-update-collective-body: "<p>Excellent!</p>\r\n\r\n<p>Your theme camp registration has been updated by [user:name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
 theme_camps-form_1-update-wranglers-subject: 'theme camp registration updated: [node:title]'
 theme_camps-form_1-update-wranglers-body: "<p>Updated by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
-theme_camps-form_2-new-collective-subject: ''
-theme_camps-form_2-new-collective-body: ''
-theme_camps-form_2-new-wranglers-subject: ''
-theme_camps-form_2-new-wranglers-body: ''
-theme_camps-form_2-update-collective-subject: ''
-theme_camps-form_2-update-collective-body: ''
-theme_camps-form_2-update-wranglers-subject: ''
-theme_camps-form_2-update-wranglers-body: ''
+theme_camps-form_2-new-collective-subject: '[node:title] theme camp registration continued'
+theme_camps-form_2-new-collective-body: "<p>Well done!</p>\r\n\r\n<p>We've received your theme camp registration form 2 submitted by [user:name]:</p>\r\n\r\n<hr />\r\n<p>(Display to be updated once form is finalised)</p>\r\n\r\n<p>[render form_1_mail]</p>\r\n"
+theme_camps-form_2-new-wranglers-subject: 'New theme camp registration form 2: [node:title]'
+theme_camps-form_2-new-wranglers-body: "<p>Submitted by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>(Display to be updated once form is finalised)</p>\r\n\r\n<p>[render form_1_mail]</p>\r\n"
+theme_camps-form_2-update-collective-subject: '[node:title] theme camp registration updated'
+theme_camps-form_2-update-collective-body: "<p>Excellent!</p>\r\n\r\n<p>Your theme camp registration has been updated by [user:name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
+theme_camps-form_2-update-wranglers-subject: 'theme camp registration updated: [node:title]'
+theme_camps-form_2-update-wranglers-body: "<p>Updated by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
 theme_camps-form_3-new-collective-subject: ''
 theme_camps-form_3-new-collective-body: ''
 theme_camps-form_3-new-wranglers-subject: ''
