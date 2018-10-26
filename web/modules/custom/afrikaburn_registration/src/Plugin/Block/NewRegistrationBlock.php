@@ -54,7 +54,7 @@ class NewRegistrationBlock extends BlockBase {
         '#markup' => '<ul><li>' . implode('</li><li>', $links) . '</li></ul>',
         '#cache' => [
           'max-age' => 0,
-        ],
+        ]
       ]
 
       : [

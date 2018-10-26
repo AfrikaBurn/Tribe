@@ -65,7 +65,6 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
     $form['actions']['submit']['#value'] = 'Submit';
     array_unshift($form['actions']['submit']['#submit'], 'afrikaburn_registration_publish');
     $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_redirect';
-    $form['#attached']['library'][] = 'afrikaburn_registration/registration';
 
     // Set defaults
     $form['field_collective']['widget'][0]['target_id']['#default_value'] = $collective;
@@ -303,6 +302,18 @@ function afrikaburn_registration_redirect($form, $form_state){
   $entity = $form_state->getFormObject()->getEntity();
   $mode = $form_state->getValue('field_form_mode')[0]['value'];
   $url = \Drupal\Core\Url::fromUri('internal:/node/' . $entity->id() . '/' . $mode);
+  drupal_set_message(
+    \Drupal\Core\Render\Markup::create('Well done!
+      you may now <a href="javascript:if (window.opener) window.opener.location.href = window.opener.location.href; window.close()">Close this window</a>
+      to return to your collective and
+      <ul>
+        <li>Apply for a grant</li>
+        <li>Register another project</li>
+      </ul>
+      <strong>Check under the "CURRENT PROJECTS" section to manage your project registrations.</strong>'
+    ),
+    'status'
+  );
   $form_state->setRedirectUrl($url);
 }
 

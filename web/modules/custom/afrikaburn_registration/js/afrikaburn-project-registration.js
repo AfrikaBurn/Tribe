@@ -1,7 +1,7 @@
 
 /**
  * @file
- * AfrikaBurn wrangler form behaviors.
+ * AfrikaBurn registration window behaviors.
  */
 
 (function ($) {
@@ -10,9 +10,6 @@
 
   Drupal.behaviors.afrikaburnRegistration = {
     attach: function (context, settings) {
-      $( window ).unload(function() {
-        window.opener.reload();
-      });
     }
   }
 
