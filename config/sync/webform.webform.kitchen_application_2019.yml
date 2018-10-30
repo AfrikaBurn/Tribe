@@ -19,7 +19,7 @@ settings:
   ajax: false
   ajax_scroll_top: form
   page: true
-  page_submit_path: ''
+  page_submit_path: /apply/kitchen
   page_confirm_path: ''
   form_title: source_entity_webform
   form_submit_once: false
