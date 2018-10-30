@@ -1,0 +1,8 @@
+incidents.view:
+  title: "View incidents"
+  route_name: afrikaburn_incident.view
+  base_route: afrikaburn_incident.view
+incidents.log:
+  title: "Log incident"
+  route_name: afrikaburn_incident.log
+  base_route: afrikaburn_incident.view

@@ -1,0 +1,162 @@
+diff --git a/page_manager.links.task.yml b/page_manager.links.task.yml
+new file mode 100644
+index 0000000..ba77c7f
+--- /dev/null
++++ b/page_manager.links.task.yml
+@@ -0,0 +1,3 @@
++page_manager.local_tasks:
++  deriver: 'Drupal\page_manager\Plugin\Derivative\PageManagerLocalTasks'
++  weight: 100
+diff --git a/page_manager.module b/page_manager.module
+new file mode 100644
+index 0000000..62ae4a6
+--- /dev/null
++++ b/page_manager.module
+@@ -0,0 +1,40 @@
++<?php
++
++/**
++ * @file
++ * Functions for the Page Manager module.
++ */
++
++/**
++ * Implements hook_local_tasks_alter().
++ */
++function page_manager_local_tasks_alter(&$local_tasks) {
++  // Loop through local page manager variant local tasks definitions and delete
++  // any where the base route does not have defined local tasks.
++  foreach ($local_tasks as $plugin_id => $task) {
++    if ($task['title'] !== '_page_manager_variant') {
++      continue;
++    }
++
++    // If a task's base_route task doesn't exist, remove it.
++    if (!isset($local_tasks[$task['base_route']])) {
++      unset($local_tasks[$plugin_id]);
++    }
++  }
++}
++
++/**
++ * Implements hook_menu_local_tasks_alter().
++ */
++function page_manager_menu_local_tasks_alter(&$data, $route_name) {
++  // Remove all the Page Manager variant local task links.
++  if (!isset($data['tabs']) || !is_array($data['tabs'])) {
++    return;
++  }
++  foreach ($data['tabs'] as $key => $tab_links) {
++    $data['tabs'][$key] = array_filter($tab_links, function ($link) {
++      return !isset($link['#link']['title']) || ($link['#link']['title'] !== '_page_manager_variant');
++    });
++  }
++
++}
+diff --git a/src/Plugin/Derivative/PageManagerLocalTasks.php b/src/Plugin/Derivative/PageManagerLocalTasks.php
+new file mode 100644
+index 0000000..7148a94
+--- /dev/null
++++ b/src/Plugin/Derivative/PageManagerLocalTasks.php
+@@ -0,0 +1,101 @@
++<?php
++
++namespace Drupal\page_manager\Plugin\Derivative;
++
++use Drupal\Component\Plugin\Derivative\DeriverBase;
++use Drupal\Core\Entity\EntityStorageInterface;
++use Drupal\Core\Plugin\Discovery\ContainerDeriverInterface;
++use Drupal\Core\Routing\RouteProviderInterface;
++use Symfony\Component\DependencyInjection\ContainerInterface;
++
++/**
++ * Create local tasks for page manager variant routes.
++ */
++class PageManagerLocalTasks extends DeriverBase implements ContainerDeriverInterface {
++
++  /**
++   * The base plugin ID.
++   *
++   * @var string
++   */
++  protected $basePluginId;
++
++  /**
++   * Route Provider service.
++   *
++   * @var \Drupal\Core\Routing\RouteProvider
++   */
++  protected $routeProvider;
++
++  /**
++   * The entity storage.
++   *
++   * @var \Drupal\Core\Entity\EntityStorageInterface
++   */
++  protected $entityStorage;
++
++  /**
++   * Constructs a new ConfigTranslationLocalTasks.
++   *
++   * @param string $base_plugin_id
++   *   The base plugin ID.
++   * @param \Drupal\Core\Routing\RouteFilterInterface $variant_route_filter
++   *   The page manager variant route filter service.
++   */
++  public function __construct($base_plugin_id,  RouteProviderInterface $route_provider, EntityStorageInterface $entity_storage) {
++    $this->basePluginId = $base_plugin_id;
++    $this->routeProvider = $route_provider;
++    $this->entityStorage = $entity_storage;
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public static function create(ContainerInterface $container, $base_plugin_id) {
++    return new static(
++      $base_plugin_id,
++      $container->get('router.route_provider'),
++      $container->get('entity_type.manager')->getStorage('page')
++    );
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function getDerivativeDefinitions($base_plugin_definition) {
++    // Loop through all page manager pages and find variant routes.
++    foreach ($this->entityStorage->loadMultiple() as $entity_id => $entity) {
++      /** @var \Drupal\page_manager\PageInterface $entity */
++
++      // Not concerned with disabled pages or pages without variants.
++      if (!$entity->status() || !$entity->getVariants()) {
++        continue;
++      }
++
++      // Get the routes associated with this page's path.
++      /** @var \Symfony\Component\Routing\RouteCollection $routes */
++      $routes = $this->routeProvider->getRoutesByPattern($entity->getPath());
++
++      foreach ($routes->all() as $name => $route) {
++        if (!$route->hasDefault('page_manager_page_variant')) {
++          continue;
++        }
++
++        // Add task definition for the Page Manager variant if its route is
++        // different from its 'base_route_name', because otherwise the default
++        // local tasks for the base route will not appear. Delete the link
++        // created from this local task in hook_menu_local_tasks_alter().
++        // @todo What if local tasks are added specifically to the variant?
++        if (($base_route_name = $route->getDefault('base_route_name')) && $base_route_name != $name) {
++          $this->derivatives[$name] = $base_plugin_definition;
++          $this->derivatives[$name]['route_name'] = $name;
++          $this->derivatives[$name]['base_route'] = $base_route_name;
++          // Give this a identifiable title that can be used as flag for delete.
++          $this->derivatives[$name]['title'] = '_page_manager_variant';
++        }
++      }
++    }
++    return parent::getDerivativeDefinitions($base_plugin_definition);
++  }
++
++}

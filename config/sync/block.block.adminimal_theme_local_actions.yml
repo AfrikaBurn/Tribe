@@ -9,7 +9,7 @@ _core:
 id: adminimal_theme_local_actions
 theme: adminimal_theme
 region: content
-weight: -10
+weight: -6
 provider: null
 plugin: local_actions_block
 settings:

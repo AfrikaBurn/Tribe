@@ -1,0 +1,9 @@
+uuid: c76659aa-5b78-4b8d-953e-c4e4f17945b2
+langcode: en
+status: true
+dependencies: {  }
+name: 'Incident type'
+vid: incident_type
+description: 'Type of a reported incident'
+hierarchy: 1
+weight: 0

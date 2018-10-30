@@ -1,8 +1,16 @@
 theme_camps.bench:
-  route_name: afrikaburn_registration.wrangle_theme_camps
   title: Workbench
+  route_name: afrikaburn_registration.wrangle_theme_camps
   base_route: afrikaburn_registration.wrangle_theme_camps
 theme_camps.tasks:
-  route_name: afrikaburn_registration.wrangle_theme_camps-tasks
   title: Tasks
+  route_name: afrikaburn_registration.wrangle_theme_camps-tasks
   base_route: afrikaburn_registration.wrangle_theme_camps
+mutant_vehicles.bench:
+  title: Workbench
+  route_name: afrikaburn_registration.wrangle_mutant_vehicles
+  base_route: afrikaburn_registration.wrangle_mutant_vehicles
+mutant_vehicles.tasks:
+  title: Grants
+  route_name: afrikaburn_registration.wrangle_mutant_vehicles-grants
+  base_route: afrikaburn_registration.wrangle_mutant_vehicles
