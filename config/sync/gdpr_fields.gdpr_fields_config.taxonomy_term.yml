@@ -1,0 +1,20 @@
+uuid: 71d1ba26-f638-4e4a-be7f-1c340b9ea034
+langcode: en
+status: true
+dependencies: {  }
+id: taxonomy_term
+filenames:
+  incident_type: ''
+bundles:
+  incident_type:
+    field_icon:
+      bundle: incident_type
+      name: field_icon
+      entity_type_id: taxonomy_term
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''

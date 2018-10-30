@@ -1,0 +1,24 @@
+uuid: 805cedc2-fb18-4e1b-81b0-67ecbc642254
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.incident.field_date_and_time
+    - field.field.node.incident.field_incident_type
+    - node.type.incident
+  module:
+    - user
+id: node.incident.teaser
+targetEntityType: node
+bundle: incident
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_date_and_time: true
+  field_incident_type: true

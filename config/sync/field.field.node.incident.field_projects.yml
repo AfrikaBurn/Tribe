@@ -1,0 +1,31 @@
+uuid: d0bdd91d-9b86-4e64-8802-d9921ce0f161
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_projects
+    - node.type.incident
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: 'Add another project'
+    custom_remove: ''
+id: node.incident.field_projects
+field_name: field_projects
+entity_type: node
+bundle: incident
+label: Projects
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: project_registration_select
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

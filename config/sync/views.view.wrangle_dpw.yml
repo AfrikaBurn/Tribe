@@ -2256,7 +2256,9 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           fields:
-            sid: sid
+            webform_submission_value_8: webform_submission_value_8
+            webform_submission_value_19: webform_submission_value_19
+            webform_submission_value_7: webform_submission_value_7
           plugin_id: combine
       defaults:
         filters: false

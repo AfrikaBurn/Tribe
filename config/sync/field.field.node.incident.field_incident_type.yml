@@ -1,0 +1,31 @@
+uuid: 7687d7c5-06a3-4940-86d0-e945e8d81b7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_incident_type
+    - node.type.incident
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: 'Add another type'
+    custom_remove: ''
+id: node.incident.field_incident_type
+field_name: field_incident_type
+entity_type: node
+bundle: incident
+label: 'Incident type'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: incident_type
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

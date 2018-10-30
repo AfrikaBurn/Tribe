@@ -1,0 +1,14 @@
+uuid: b2957470-6554-4fd0-a012-0ca26efeeb3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.logger
+  module:
+    - user
+id: user_add_role_action.logger
+label: 'Add the Logger role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: logger

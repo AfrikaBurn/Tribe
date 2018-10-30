@@ -3,7 +3,8 @@ langcode: en
 status: true
 dependencies: {  }
 id: node
-filenames: {  }
+filenames:
+  incident: ''
 bundles:
   announcement:
     body:
@@ -547,3 +548,103 @@ bundles:
       notes: ''
       bundle: collective
       name: field_col_admins
+  incident:
+    field_incident_type:
+      bundle: incident
+      name: field_incident_type
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    body:
+      bundle: incident
+      name: body
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_date_and_time:
+      bundle: incident
+      name: field_date_and_time
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_incident_reporter:
+      bundle: incident
+      name: field_incident_reporter
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_people:
+      bundle: incident
+      name: field_people
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_projects:
+      bundle: incident
+      name: field_projects
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_incident_status:
+      bundle: incident
+      name: field_incident_status
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_comments:
+      bundle: incident
+      name: field_comments
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_related_incident:
+      bundle: incident
+      name: field_related_incident
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
