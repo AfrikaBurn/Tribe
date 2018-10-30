@@ -1,0 +1,80 @@
+<?php
+
+/**
+ * @file Contains afrikaburn incident module.
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter()
+ * Prepopulates type from URL
+ */
+function afrikaburn_incident_form_node_incident_form_alter(&$form, &$form_state){
+  $types = explode(',', \Drupal::request()->get('types'));
+  foreach($types as $index=>$type){
+    $form['field_incident_type']['widget'][$index] = $form['field_incident_type']['widget'][0];
+    $form['field_incident_type']['widget'][$index]['target_id']['#default_value'] = \Drupal\taxonomy\Entity\Term::load($type);
+  }
+
+  $form['actions'][] = [
+    '#type' => 'markup',
+    '#markup' => '<a class="button" href="/wrangle/incidents">Cancel</a>',
+    '#weight' => 100,
+  ];
+
+  $form['advanced']['#access'] = FALSE;
+  $form['actions']['submit']['#submit'][] = '';
+}
+
+/**
+ * Implements hook_theme().
+ * Views Customizaton.
+ */
+function afrikaburn_incident_theme(){
+  return [
+    // Collective projects
+    'views_view__wrangle_incidents' => [
+      'template' => 'views-view--wrangle',
+      'base hook' => 'view',
+    ],
+    'views_view_table__wrangle_incidents' => [
+      'template' => 'views-view-table--wrangle-incidents',
+      'base hook' => 'view',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_views_view().
+ */
+function afrikaburn_incident_preprocess_views_view(&$variables){
+  switch ($variables['id']){
+    case 'wrangle_incidents':
+      $variables['#attached']['library'][] = 'afrikaburn_incident/log';
+      $variables['#attached']['library'][] = 'afrikaburn_shared/log';
+      module_load_include('inc', 'afrikaburn_incident', 'includes/wrangle.incidents');
+      ab_prepare_incident_view($variables);
+    break;
+
+  }
+}
+
+/**
+ * Implements hook_preprocess_views_view_table().
+ */
+function afrikaburn_incident_preprocess_views_view_table(&$variables) {
+  switch ($variables['view']->id()){
+    case 'wrangle_incidents':
+      module_load_include('inc', 'afrikaburn_incident', 'includes/wrangle.incidents');
+      ab_insert_wrangler_view_rows($variables);
+    break;
+
+  }
+}
+
+/**
+ * Redirect incident submit to incident view
+ */
+function afrikaburn_incident_submit($form, $form_state){
+  $url = \Drupal\Core\Url::fromUri('internal:/wrangle/incidents');
+  $form_state->setRedirectUrl($url);
+}

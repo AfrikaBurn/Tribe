@@ -120,10 +120,21 @@ function afrikaburn_registration_form_views_exposed_form_alter(&$form, $form_sta
   if ($view->storage->get('tag')) list($purpose, $type) = array_map('trim', explode(',', $view->storage->get('tag')));
 
   if (isset($purpose) && $purpose == 'wrangle') {
-    $form['search']['#placeholder'] = 'project, person or collective';
-    $form['status']['#options']['All'] = t('- any review state -');
-    module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
-    ar_prepare_wrangler_filter($form, $type);
+
+    switch($type){
+
+      // TODO: needs to move to incident module
+      case 'logger':
+        $form['status']['#options']['All'] = t('- any state -');
+        $form['type']['#options']['All'] = t('- any type -');
+      break;
+
+      default:
+        $form['search']['#placeholder'] = 'project, person or collective';
+        $form['status']['#options']['All'] = t('- any review state -');
+        module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
+        ar_prepare_wrangler_filter($form, $type);
+    }
   }
 }
 

@@ -1,0 +1,105 @@
+uuid: 06afa5a3-12a8-4edb-b548-1d48ce447d44
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.incident_comment.default
+    - field.field.node.incident.field_comments
+    - field.field.node.incident.field_date_and_time
+    - field.field.node.incident.field_description
+    - field.field.node.incident.field_incident_reporter
+    - field.field.node.incident.field_incident_status
+    - field.field.node.incident.field_incident_type
+    - field.field.node.incident.field_people
+    - field.field.node.incident.field_projects
+    - field.field.node.incident.field_related_incident
+    - node.type.incident
+  module:
+    - comment
+    - datetime
+    - options
+    - user
+id: node.incident.default
+targetEntityType: node
+bundle: incident
+mode: default
+content:
+  field_comments:
+    weight: 109
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  field_date_and_time:
+    weight: 103
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_description:
+    weight: 104
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_incident_reporter:
+    weight: 105
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_incident_status:
+    weight: 108
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_incident_type:
+    weight: 102
+    label: above
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_people:
+    weight: 106
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_projects:
+    weight: 107
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_related_incident:
+    weight: 111
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

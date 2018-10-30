@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies: {  }
 id: paragraph
+filenames:
+  mutant_grant_expense: ''
 bundles:
   grant_expences:
     field_grt_brk_description:
@@ -37,3 +39,15 @@ bundles:
       notes: ''
       bundle: grant_expences
       name: field_cost_type
+  mutant_grant_expense:
+    field_price_total_:
+      bundle: mutant_grant_expense
+      name: field_price_total_
+      entity_type_id: paragraph
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''

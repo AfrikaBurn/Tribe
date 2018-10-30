@@ -1,0 +1,12 @@
+uuid: c0a599a0-c2bb-4d1a-ab77-d092d92de101
+langcode: en
+status: true
+dependencies: {  }
+id: logger
+label: Logger
+weight: 11
+is_admin: null
+permissions:
+  - 'create incident content'
+  - 'edit any incident content'
+  - 'view incident revisions'

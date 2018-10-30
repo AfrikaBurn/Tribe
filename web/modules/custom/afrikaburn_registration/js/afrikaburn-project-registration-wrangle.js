@@ -9,7 +9,7 @@
 
   Drupal.behaviors.afrikaburnRegistrationWrangle = {
     attach: function (context, settings) {
-      $('.form-checkbox, .form-select, .form-text', context).not('.editor-processed').each(
+      $('tbody .form-checkbox, tbody .form-select, tbody .form-text, tbody .form-number', context).not('.editor-processed').each(
         (i, element) => new editor(element)
       )
     }
