@@ -193,14 +193,14 @@ handlers:
         - completed
       to_mail: '[current-user:field_email]'
       to_options: {  }
-      cc_mail: dpw@afrikaburn.com
+      cc_mail: kitchen@afrikaburn.com
       cc_options: {  }
       bcc_mail: shared@afrikaburn.com
       bcc_options: {  }
       from_mail: _default
       from_options: {  }
       from_name: 'AfrikaBurn DPW Submission for [current-user:field_first_name] [current-user:field_last_name]'
-      subject: _default
+      subject: 'AfrikaBurn Kitchen application for 2019'
       body: _default
       excluded_elements: {  }
       ignore_access: false
