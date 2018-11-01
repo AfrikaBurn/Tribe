@@ -1,6 +1,6 @@
 uuid: 9d1b3e1b-6ae5-4c7f-a34a-eb4986828ffb
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - collapsiblock
@@ -15,7 +15,7 @@ third_party_settings:
 id: contentform
 theme: adminimal_theme
 region: content
-weight: -5
+weight: -2
 provider: null
 plugin: formblock_node
 settings:
