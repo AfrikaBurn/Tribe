@@ -17,10 +17,10 @@ settings:
   allowed_values:
     -
       value: f
-      label: Female
+      label: Woman
     -
       value: m
-      label: Male
+      label: Man
     -
       value: 'n'
       label: Non-binary

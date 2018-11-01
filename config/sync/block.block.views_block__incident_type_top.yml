@@ -1,6 +1,6 @@
 uuid: fb2e8d6f-e394-4b90-80c3-e28c529a0bdf
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - views.view.incident_type
@@ -17,7 +17,7 @@ third_party_settings:
 id: views_block__incident_type_top
 theme: adminimal_theme
 region: content
-weight: -4
+weight: -1
 provider: null
 plugin: 'views_block:incident_type-top'
 settings:
