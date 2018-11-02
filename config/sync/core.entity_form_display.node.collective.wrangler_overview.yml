@@ -1,0 +1,122 @@
+uuid: b3670bb1-d18d-48aa-89b8-50e1ca93b22d
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.wrangler_overview
+    - field.field.node.collective.field_col_admins
+    - field.field.node.collective.field_col_description
+    - field.field.node.collective.field_col_invite_mail
+    - field.field.node.collective.field_col_invite_token
+    - field.field.node.collective.field_col_invitee
+    - field.field.node.collective.field_col_members
+    - field.field.node.collective.field_col_posts
+    - field.field.node.collective.field_picture
+    - image.style.thumbnail
+    - node.type.collective
+  module:
+    - field_group
+    - image
+    - text
+third_party_settings:
+  field_group:
+    group_optional:
+      children:
+        - field_col_description
+        - field_picture
+      parent_name: ''
+      weight: 4
+      format_type: details
+      format_settings:
+        label: 'Click to add a description and picture (You can do this later, too)'
+        id: ''
+        classes: ''
+        open: false
+        required_fields: false
+      label: 'Click to add a description and picture (You can do this later, too)'
+id: node.collective.wrangler_overview
+targetEntityType: node
+bundle: collective
+mode: wrangler_overview
+content:
+  created:
+    type: datetime_timestamp
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_col_admins:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_col_description:
+    weight: 4
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_col_members:
+    type: entity_reference_autocomplete
+    weight: 6
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_picture:
+    weight: 5
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  moderation_state:
+    weight: 122
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  status:
+    type: boolean_checkbox
+    weight: 0
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  field_col_invite_mail: true
+  field_col_invite_token: true
+  field_col_invitee: true
+  field_col_posts: true
+  path: true
+  promote: true
+  sticky: true
+  url_redirects: true

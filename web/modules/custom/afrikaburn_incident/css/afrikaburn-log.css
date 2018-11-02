@@ -5,6 +5,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .view-id-incident_type.view-display-id-top > .view-content > .views-row{
@@ -17,7 +18,7 @@
   text-align: left;
   border: 1px solid;
   border-radius: 20px;
-  margin: 0 20px;
+  margin: 0 10px;
 }
 
 .view-id-incident_type.view-display-id-top .views-row details .view{
@@ -29,19 +30,19 @@
   cursor: pointer;
 }
 
-#block-views-block-incident-type-top{
+#block-loganincident{
   border: 1px solid #E6E4DF;
   border-radius: 20px;
   background: #f5f5f2;
   margin: 50px 0;
+  padding: 20px;
 }
 
-#block-views-block-incident-type-top a{
-  display: block;
-  padding: 0 20px;
+#block-loganincident > details > summary{
+  cursor: pointer;
 }
 
-#block-contentform .layout-region-node-main{
+#block-loganincident .layout-region-node-main{
   width: auto;
   float: none;
 }

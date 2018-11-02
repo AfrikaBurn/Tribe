@@ -1,0 +1,10 @@
+uuid: 566fd071-1b75-4911-bae1-aa2ad2aa0e7a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.wrangler_overview
+label: 'Wrangler Overview'
+targetEntityType: node
+cache: true
