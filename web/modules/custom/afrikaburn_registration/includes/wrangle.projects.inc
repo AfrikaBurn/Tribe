@@ -190,6 +190,8 @@ function ab_prepare_wrangler_view(&$variables){
             $field_form[$option]['#description'] =
               '<a target="_blank" href="/node/'.$nid.'/' . $option . '">view</a> ' .
               '<a target="_blank" href="/node/'.$nid.'/edit/' . $option . '">edit</a>';
+            if ($option == 'grant')
+            $field_form[$option]['#description'] .= '<a target="_blank" href="/node/'.$nid.'/' . $option . '_print">print</a>';
           }
         }
 

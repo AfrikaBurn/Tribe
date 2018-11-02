@@ -116,11 +116,14 @@ dependencies:
     - field.field.node.performances.field_this_is_the_amount_of_mone
     - field.field.node.performances.field_vp_ea
     - field.field.node.performances.field_year_cycle
+    - image.style.max_325x325
     - node.type.performances
   module:
     - computed_field
     - conditional_fields
+    - empty_fields
     - field_group
+    - image
     - taxonomy
     - user
 third_party_settings:
@@ -167,6 +170,7 @@ third_party_settings:
     group_overview:
       children:
         - field_prj_wtf_short
+        - field_prj_wtf_image
         - field_prj_wtf_categories
       parent_name: group_project_registration
       weight: 2
@@ -228,9 +232,11 @@ content:
     region: content
     label: above
     settings:
-      thousand_separator: ''
+      thousand_separator: ' '
       prefix_suffix: true
-    third_party_settings: {  }
+    third_party_settings:
+      empty_fields:
+        handler: ''
   field_grt_more:
     type: basic_string
     weight: 3
@@ -312,18 +318,31 @@ content:
     region: content
     label: above
     settings:
-      cache_unit: -1
-      cache_duration: 1
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
+      thousand_separator: ' '
+      prefix_suffix: '1'
+      cache_unit: '-1'
+      cache_duration: '1'
+    third_party_settings:
+      empty_fields:
+        handler: ''
   field_prj_wtf_categories:
-    weight: 22
+    weight: 23
     region: content
     settings: {  }
     third_party_settings: {  }
     type: entity_reference_rss_category
     label: above
+  field_prj_wtf_image:
+    type: image
+    weight: 22
+    region: content
+    label: above
+    settings:
+      image_style: max_325x325
+      image_link: ''
+    third_party_settings:
+      empty_fields:
+        handler: ''
   field_prj_wtf_short:
     weight: 21
     region: content
@@ -442,7 +461,6 @@ hidden:
   field_prj_sup_details: true
   field_prj_sup_details_view: true
   field_prj_sup_h1: true
-  field_prj_wtf_image: true
   field_prj_wtf_long: true
   field_prj_wtf_plan: true
   field_prj_wtf_planned: true
