@@ -23,9 +23,9 @@ class NewIncidentBlock extends BlockBase {
 
     if(\Drupal::request()->get('types') == null) {
       return [
-        '#prefix' => '<div >',
+        '#prefix' => '<details>',
         'title' => [
-          '#markup' => '<h2 class="collapsiblock" data-collapsiblock-action="3"><span>Log an incident</span></h2>',
+          '#markup' => '<summary>Log an incident</summary>',
         ],
         'body' => [
           '#type' => 'view',
@@ -35,7 +35,7 @@ class NewIncidentBlock extends BlockBase {
             'max-age' => 0,
           ],
         ],
-        '#suffix' => '</div>',
+        '#suffix' => '</details>',
       ];
     }
 
@@ -50,7 +50,7 @@ class NewIncidentBlock extends BlockBase {
 
     return [
       'title' => [
-        '#markup' => '<h2 class="collapsiblock" data-collapsiblock-action="2"><span>Log an incident</span></h2>',
+        '#markup' => '<h2><span>Log an incident</span></h2>',
       ],
       'body' => [
         '#markup' => render(
@@ -62,10 +62,6 @@ class NewIncidentBlock extends BlockBase {
         ),
         '#cache' => [
           'max-age' => 0,
-        ],
-        '#attributes' => [
-          'class' => ['collapsiblock'],
-          'data-collapsiblock-action' => 1,
         ],
       ]
     ];
