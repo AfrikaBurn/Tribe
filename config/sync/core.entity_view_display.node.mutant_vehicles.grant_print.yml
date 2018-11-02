@@ -1,0 +1,1627 @@
+uuid: 89c1cf8c-6215-4984-9781-f8c14fc99e60
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.grant_print
+    - field.field.node.mutant_vehicles.field_admin_comments
+    - field.field.node.mutant_vehicles.field_collective
+    - field.field.node.mutant_vehicles.field_form_mode
+    - field.field.node.mutant_vehicles.field_grt_art_total
+    - field.field.node.mutant_vehicles.field_grt_awarded
+    - field.field.node.mutant_vehicles.field_grt_contribution
+    - field.field.node.mutant_vehicles.field_grt_dmv_budget
+    - field.field.node.mutant_vehicles.field_grt_materials
+    - field.field.node.mutant_vehicles.field_grt_other
+    - field.field.node.mutant_vehicles.field_grt_other_description
+    - field.field.node.mutant_vehicles.field_grt_services
+    - field.field.node.mutant_vehicles.field_grt_status
+    - field.field.node.mutant_vehicles.field_grt_total
+    - field.field.node.mutant_vehicles.field_grt_transport
+    - field.field.node.mutant_vehicles.field_mutant_drivers
+    - field.field.node.mutant_vehicles.field_prj_adm_registration
+    - field.field.node.mutant_vehicles.field_prj_adm_review
+    - field.field.node.mutant_vehicles.field_prj_adm_wrangler
+    - field.field.node.mutant_vehicles.field_prj_brn_agree
+    - field.field.node.mutant_vehicles.field_prj_brn_burning
+    - field.field.node.mutant_vehicles.field_prj_brn_desc
+    - field.field.node.mutant_vehicles.field_prj_brn_person
+    - field.field.node.mutant_vehicles.field_prj_brn_plan
+    - field.field.node.mutant_vehicles.field_prj_cll_collaborate
+    - field.field.node.mutant_vehicles.field_prj_cll_contact
+    - field.field.node.mutant_vehicles.field_prj_cll_description
+    - field.field.node.mutant_vehicles.field_prj_gen_base
+    - field.field.node.mutant_vehicles.field_prj_gen_concept
+    - field.field.node.mutant_vehicles.field_prj_gen_contact
+    - field.field.node.mutant_vehicles.field_prj_gen_description
+    - field.field.node.mutant_vehicles.field_prj_gen_doc
+    - field.field.node.mutant_vehicles.field_prj_gen_fundraiser
+    - field.field.node.mutant_vehicles.field_prj_gen_fundraising
+    - field.field.node.mutant_vehicles.field_prj_gen_lead
+    - field.field.node.mutant_vehicles.field_prj_gen_location
+    - field.field.node.mutant_vehicles.field_prj_gen_mutating
+    - field.field.node.mutant_vehicles.field_prj_gen_owner
+    - field.field.node.mutant_vehicles.field_prj_gen_story
+    - field.field.node.mutant_vehicles.field_prj_gen_year
+    - field.field.node.mutant_vehicles.field_prj_lgh_description
+    - field.field.node.mutant_vehicles.field_prj_lgh_f1
+    - field.field.node.mutant_vehicles.field_prj_lgh_lighter
+    - field.field.node.mutant_vehicles.field_prj_lgh_night
+    - field.field.node.mutant_vehicles.field_prj_lgh_projection
+    - field.field.node.mutant_vehicles.field_prj_lnt_agree
+    - field.field.node.mutant_vehicles.field_prj_lnt_f1
+    - field.field.node.mutant_vehicles.field_prj_lnt_handled
+    - field.field.node.mutant_vehicles.field_prj_lnt_historic
+    - field.field.node.mutant_vehicles.field_prj_lnt_images
+    - field.field.node.mutant_vehicles.field_prj_lnt_representative
+    - field.field.node.mutant_vehicles.field_prj_lnt_score
+    - field.field.node.mutant_vehicles.field_prj_lnt_signoff
+    - field.field.node.mutant_vehicles.field_prj_lnt_type
+    - field.field.node.mutant_vehicles.field_prj_oth_agree
+    - field.field.node.mutant_vehicles.field_prj_oth_associated
+    - field.field.node.mutant_vehicles.field_prj_oth_grant
+    - field.field.node.mutant_vehicles.field_prj_oth_other
+    - field.field.node.mutant_vehicles.field_prj_oth_unregistered
+    - field.field.node.mutant_vehicles.field_prj_saf_access
+    - field.field.node.mutant_vehicles.field_prj_saf_guide
+    - field.field.node.mutant_vehicles.field_prj_saf_mark
+    - field.field.node.mutant_vehicles.field_prj_saf_other
+    - field.field.node.mutant_vehicles.field_prj_saf_passengers
+    - field.field.node.mutant_vehicles.field_prj_snd_agree
+    - field.field.node.mutant_vehicles.field_prj_snd_description
+    - field.field.node.mutant_vehicles.field_prj_snd_level
+    - field.field.node.mutant_vehicles.field_prj_snd_person
+    - field.field.node.mutant_vehicles.field_prj_snd_safety
+    - field.field.node.mutant_vehicles.field_prj_snd_soop
+    - field.field.node.mutant_vehicles.field_prj_snd_sound
+    - field.field.node.mutant_vehicles.field_prj_stg_contact
+    - field.field.node.mutant_vehicles.field_prj_stg_description
+    - field.field.node.mutant_vehicles.field_prj_stg_stage
+    - field.field.node.mutant_vehicles.field_prj_stg_type
+    - field.field.node.mutant_vehicles.field_prj_sup_address
+    - field.field.node.mutant_vehicles.field_prj_sup_details
+    - field.field.node.mutant_vehicles.field_prj_sup_details_view
+    - field.field.node.mutant_vehicles.field_prj_sup_h1
+    - field.field.node.mutant_vehicles.field_prj_trl_area
+    - field.field.node.mutant_vehicles.field_prj_trl_capasity
+    - field.field.node.mutant_vehicles.field_prj_trl_communicate
+    - field.field.node.mutant_vehicles.field_prj_trl_describe
+    - field.field.node.mutant_vehicles.field_prj_trl_markup
+    - field.field.node.mutant_vehicles.field_prj_trl_passengers
+    - field.field.node.mutant_vehicles.field_prj_trl_size
+    - field.field.node.mutant_vehicles.field_prj_trl_walkers
+    - field.field.node.mutant_vehicles.field_prj_wtf_categories
+    - field.field.node.mutant_vehicles.field_prj_wtf_image
+    - field.field.node.mutant_vehicles.field_prj_wtf_long
+    - field.field.node.mutant_vehicles.field_prj_wtf_short
+    - field.field.node.mutant_vehicles.field_prj_wtf_short_copy
+    - field.field.node.mutant_vehicles.field_prj_wtf_website
+    - field.field.node.mutant_vehicles.field_prjr_complete
+    - field.field.node.mutant_vehicles.field_sup_review
+    - field.field.node.mutant_vehicles.field_vp_ea
+    - field.field.node.mutant_vehicles.field_year_cycle
+    - node.type.mutant_vehicles
+  module:
+    - conditional_fields
+    - field_group
+    - file
+    - link
+    - markup
+    - options
+    - responsive_image
+    - taxonomy
+    - user
+third_party_settings:
+  field_group:
+    group_project_registration:
+      children:
+        - group_intro
+        - group_overview
+        - group_safety
+        - group_night
+        - group_sound
+        - group_flames
+        - group_trailer
+        - group_moop
+        - group_wtf_guide
+        - group_other
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        element: section
+        show_label: false
+        label_element: h2
+        effect: none
+        speed: fast
+        attributes: ''
+        classes: ''
+        id: ''
+      label: Intro
+      region: content
+    group_overview:
+      children:
+        - field_prj_gen_description
+        - field_prj_gen_story
+        - field_prj_gen_base
+        - field_prj_gen_mutating
+        - field_prj_gen_concept
+        - field_prj_gen_doc
+      parent_name: group_project_registration
+      weight: 4
+      format_type: html_element
+      format_settings:
+        label: Overview
+        element: section
+        show_label: true
+        label_element: h2
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: ''
+      label: Overview
+      region: content
+    group_safety:
+      children:
+        - field_prj_saf_guide
+        - field_prj_saf_passengers
+        - field_prj_saf_access
+        - field_prj_saf_other
+        - field_prj_saf_mark
+      parent_name: group_project_registration
+      weight: 5
+      format_type: html_element
+      format_settings:
+        label: Safety
+        element: section
+        show_label: true
+        label_element: h2
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: ''
+      label: Safety
+      region: content
+    group_night:
+      children:
+        - field_prj_lgh_f1
+        - field_prj_lgh_night
+        - field_prj_lgh_description
+        - field_prj_lgh_lighter
+      parent_name: group_project_registration
+      weight: 6
+      format_type: html_element
+      format_settings:
+        label: 'At night'
+        element: section
+        show_label: true
+        label_element: h2
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: ''
+      label: 'At night'
+      region: content
+    group_sound:
+      children:
+        - field_prj_snd_sound
+        - field_prj_snd_level
+        - field_prj_snd_description
+        - field_prj_snd_safety
+        - field_prj_snd_soop
+        - field_prj_snd_agree
+        - field_prj_snd_person
+      parent_name: group_project_registration
+      weight: 7
+      format_type: html_element
+      format_settings:
+        label: Sound
+        element: section
+        show_label: true
+        label_element: h2
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: ''
+      label: Sound
+      region: content
+    group_flames:
+      children:
+        - field_prj_brn_burning
+        - field_prj_brn_plan
+        - field_prj_brn_person
+        - field_prj_brn_desc
+        - field_prj_brn_agree
+      parent_name: group_project_registration
+      weight: 8
+      format_type: html_element
+      format_settings:
+        label: Flames
+        element: section
+        show_label: true
+        label_element: h2
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: ''
+      label: Flames
+      region: content
+    group_trailer:
+      children:
+        - field_prj_trl_area
+        - field_prj_trl_describe
+        - field_prj_trl_size
+        - field_prj_trl_walkers
+        - field_prj_trl_passengers
+        - field_prj_trl_capasity
+        - field_prj_trl_communicate
+        - field_prj_trl_markup
+        - field_prj_lgh_projection
+      parent_name: group_project_registration
+      weight: 9
+      format_type: html_element
+      format_settings:
+        label: Trailer
+        element: section
+        show_label: true
+        label_element: h2
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: ''
+      label: Trailer
+      region: content
+    group_moop:
+      children:
+        - field_prj_lnt_f1
+        - field_prj_lnt_handled
+        - field_prj_lnt_representative
+        - field_prj_lnt_agree
+      parent_name: group_project_registration
+      weight: 10
+      format_type: html_element
+      format_settings:
+        label: Moop
+        element: section
+        show_label: true
+        label_element: h2
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: ''
+      label: Moop
+      region: content
+    group_wtf_guide:
+      children:
+        - field_prj_wtf_short
+        - field_prj_wtf_long
+        - field_prj_wtf_image
+        - field_prj_wtf_website
+        - field_prj_cll_collaborate
+        - field_prj_cll_description
+        - field_prj_cll_contact
+      parent_name: group_project_registration
+      weight: 11
+      format_type: html_element
+      format_settings:
+        label: 'WTF Guide'
+        element: section
+        show_label: true
+        label_element: h2
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: ''
+      label: 'WTF Guide'
+      region: content
+    group_other:
+      children:
+        - field_prj_oth_other
+        - field_prj_oth_associated
+        - field_prj_oth_unregistered
+        - field_prj_oth_agree
+        - field_prj_oth_grant
+      parent_name: group_project_registration
+      weight: 12
+      format_type: html_element
+      format_settings:
+        label: Other
+        element: section
+        show_label: true
+        label_element: h2
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: ''
+      label: Other
+      region: content
+    group_intro:
+      children:
+        - field_prj_gen_contact
+        - field_prj_gen_lead
+        - field_prj_gen_owner
+        - field_mutant_drivers
+      parent_name: group_project_registration
+      weight: 1
+      format_type: html_element
+      format_settings:
+        label: Intro
+        element: section
+        show_label: true
+        label_element: h2
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: ''
+      label: Intro
+      region: content
+    group_administrative:
+      children:
+        - field_prjr_complete
+        - field_prj_adm_review
+        - field_prj_adm_wrangler
+        - field_prj_adm_registration
+        - field_collective
+        - field_form_mode
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: Administrative
+id: node.mutant_vehicles.grant_print
+targetEntityType: node
+bundle: mutant_vehicles
+mode: grant_print
+content:
+  field_collective:
+    weight: 12
+    region: content
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    label: above
+  field_form_mode:
+    weight: 13
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    label: above
+  field_mutant_drivers:
+    weight: 18
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: author
+    label: above
+  field_prj_adm_notes:
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_adm_registration:
+    weight: 9
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+    type: string
+    label: above
+  field_prj_adm_review:
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+    type: entity_reference_rss_category
+    label: above
+  field_prj_adm_wrangler:
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+    type: author
+    label: above
+  field_prj_brn_agree:
+    weight: 13
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings:
+      conditional_fields:
+        afd92654-5901-49f0-8e37-9f19689a07e0:
+          dependee: field_prj_brn_burning
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        ad114d60-3041-4ac8-8646-37cd839ee4a4:
+          dependee: field_prj_brn_burning
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: boolean
+    label: above
+  field_prj_brn_burning:
+    weight: 9
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    region: content
+    type: boolean
+    label: above
+  field_prj_brn_desc:
+    weight: 12
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        aa58d5b9-5088-428f-a86f-9ec2952a111a:
+          dependee: field_prj_brn_burning
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        cdac4e3e-95f6-4b3f-bf87-5ddcfbec01a8:
+          dependee: field_prj_brn_burning
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: basic_string
+    label: above
+  field_prj_brn_person:
+    weight: 11
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        3ef596ce-785d-4e6b-8627-d123b60b258e:
+          dependee: field_prj_brn_burning
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        a6dc0114-0107-451d-ac92-96eb5ffbd175:
+          dependee: field_prj_brn_burning
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: author
+    label: above
+  field_prj_brn_plan:
+    weight: 10
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        5f4a3013-a68d-4b87-a5c3-c7ec4e79a973:
+          dependee: field_prj_brn_burning
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        5be2911b-ea1b-461a-a723-6e18a79aa73a:
+          dependee: field_prj_brn_burning
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: basic_string
+    label: above
+  field_prj_cll_collaborate:
+    weight: 5
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    region: content
+    type: boolean
+    label: above
+  field_prj_cll_contact:
+    weight: 7
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        79cc92f8-276b-445f-b905-ed21b4bc3e6f:
+          dependee: field_prj_cll_collaborate
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        49f4142d-151a-4e36-b293-4fb496aca995:
+          dependee: field_prj_cll_collaborate
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: author
+    label: above
+  field_prj_cll_description:
+    weight: 6
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        55c6ad3a-dd86-41bf-a697-42bd7a674962:
+          dependee: field_prj_cll_collaborate
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        0283bd01-7cf4-4646-963a-fb28a212fde2:
+          dependee: field_prj_cll_collaborate
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: basic_string
+    label: above
+  field_prj_gen_base:
+    weight: 29
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: entity_reference_rss_category
+    label: above
+  field_prj_gen_concept:
+    weight: 31
+    settings:
+      responsive_image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    region: content
+    type: responsive_image
+    label: above
+  field_prj_gen_contact:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: author
+    label: above
+  field_prj_gen_description:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: basic_string
+    label: above
+  field_prj_gen_doc:
+    weight: 32
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    region: content
+    type: file_table
+    label: above
+  field_prj_gen_lead:
+    weight: 12
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: author
+    label: above
+  field_prj_gen_mutating:
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: basic_string
+    label: above
+  field_prj_gen_owner:
+    weight: 14
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: author
+    label: above
+  field_prj_gen_story:
+    weight: 28
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: basic_string
+    label: above
+  field_prj_lgh_description:
+    weight: 124
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        bb722fc3-519a-4ecc-978a-ca4d55fe8c9b:
+          dependee: field_prj_lgh_night
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        f16c421c-e5e4-4894-9a1b-e04d40df4971:
+          dependee: field_prj_lgh_night
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: basic_string
+    label: above
+  field_prj_lgh_f1:
+    weight: 122
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: markup
+    label: above
+  field_prj_lgh_lighter:
+    weight: 126
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        ad42da77-40cc-438a-9729-1443c2992cea:
+          dependee: field_prj_lgh_night
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        2d9271a4-7d98-4e56-ab84-ca0caa6eb95d:
+          dependee: field_prj_lgh_night
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: author
+    label: above
+  field_prj_lgh_night:
+    weight: 123
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings:
+      conditional_fields: {  }
+    region: content
+    type: boolean
+    label: above
+  field_prj_lgh_projection:
+    weight: 14
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        4dd3f2fb-cdd2-47a6-b4cf-3257abd29880:
+          dependee: field_prj_trl_area
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: true
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        c900a5b8-2963-46f9-982d-9bfe180e2fa3:
+          dependee: field_prj_trl_area
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: basic_string
+    label: above
+  field_prj_lnt_agree:
+    weight: 130
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    region: content
+    type: boolean
+    label: above
+  field_prj_lnt_f1:
+    weight: 127
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: markup
+    label: above
+  field_prj_lnt_handled:
+    weight: 128
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: basic_string
+    label: above
+  field_prj_lnt_representative:
+    weight: 129
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: author
+    label: above
+  field_prj_oth_agree:
+    weight: 25
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    region: content
+    type: boolean
+    label: above
+  field_prj_oth_associated:
+    weight: 23
+    settings:
+      link: true
+    third_party_settings: {  }
+    region: content
+    type: entity_reference_label
+    label: above
+  field_prj_oth_grant:
+    weight: 26
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    region: content
+    type: boolean
+    label: above
+  field_prj_oth_other:
+    weight: 22
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: basic_string
+    label: above
+  field_prj_oth_unregistered:
+    weight: 24
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+    type: string
+    label: above
+  field_prj_saf_access:
+    weight: 65
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: basic_string
+    label: above
+  field_prj_saf_guide:
+    weight: 63
+    settings: {  }
+    third_party_settings:
+      conditional_fields: {  }
+    region: content
+    type: basic_string
+    label: above
+  field_prj_saf_mark:
+    weight: 67
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: markup
+    label: above
+  field_prj_saf_other:
+    weight: 66
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: basic_string
+    label: above
+  field_prj_saf_passengers:
+    weight: 64
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: list_key
+    label: above
+  field_prj_snd_agree:
+    weight: 13
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings:
+      conditional_fields:
+        8bcd4d55-d03d-4d23-8210-9d5c3b3b7094:
+          dependee: field_prj_snd_sound
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        b2e4952b-ff56-4750-99b7-0469dbb0dde6:
+          dependee: field_prj_snd_sound
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: boolean
+    label: above
+  field_prj_snd_description:
+    weight: 10
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        26af4107-dab8-491a-a595-70e84b786251:
+          dependee: field_prj_snd_sound
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        502cfa33-07f7-484f-9e85-426712b1c122:
+          dependee: field_prj_snd_sound
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: basic_string
+    label: above
+  field_prj_snd_level:
+    weight: 9
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        79859b09-2123-4952-924c-1a23315d88de:
+          dependee: field_prj_snd_sound
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        ae7109cd-142b-42c7-8a11-f11ce702ce68:
+          dependee: field_prj_snd_sound
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: entity_reference_rss_category
+    label: above
+  field_prj_snd_person:
+    weight: 14
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        106daeb2-ff06-41c4-b4f2-aa8256bfec74:
+          dependee: field_prj_snd_sound
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        87c052f4-f14b-4472-99b6-82e91357a29f:
+          dependee: field_prj_snd_sound
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: author
+    label: above
+  field_prj_snd_safety:
+    weight: 11
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        73d359cf-83a7-4efd-bb67-8024d66ba91e:
+          dependee: field_prj_snd_sound
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        1afdb66d-9827-432f-af91-d256a835e789:
+          dependee: field_prj_snd_sound
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: basic_string
+    label: above
+  field_prj_snd_soop:
+    weight: 12
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        2d36d103-8e93-44b2-8115-8c327926c9ec:
+          dependee: field_prj_snd_sound
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: markup
+    label: above
+  field_prj_snd_sound:
+    weight: 8
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    region: content
+    type: boolean
+    label: above
+  field_prj_trl_area:
+    weight: 6
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    region: content
+    type: boolean
+    label: above
+  field_prj_trl_capasity:
+    weight: 11
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        c94c7bc3-7c21-46c2-ab8c-412fcf83d781:
+          dependee: field_prj_trl_area
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: basic_string
+    label: above
+  field_prj_trl_communicate:
+    weight: 12
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        0a67eab0-8283-4409-8046-c10f9e3c92da:
+          dependee: field_prj_trl_area
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        81258cb7-2b87-411d-a3e7-6f24135f2007:
+          dependee: field_prj_trl_area
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: basic_string
+    label: above
+  field_prj_trl_describe:
+    weight: 7
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        9f02578b-de25-4cf5-86d9-44f9d87bdd63:
+          dependee: field_prj_trl_area
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        32e086ec-76df-4d7e-9d4c-0db886e7545d:
+          dependee: field_prj_trl_area
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: basic_string
+    label: above
+  field_prj_trl_markup:
+    weight: 13
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        e977aec6-64b8-428b-93aa-d2d4948fb344:
+          dependee: field_prj_trl_area
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: markup
+    label: above
+  field_prj_trl_passengers:
+    weight: 10
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        6996b1c8-8867-434e-a5b4-a7f3dfd83110:
+          dependee: field_prj_trl_area
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        fa2cf39a-945c-4ed6-a02e-66d422579f70:
+          dependee: field_prj_trl_area
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        d40dc745-8510-413f-a1c8-60094eeee59d:
+          dependee: field_prj_trl_area
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: number_unformatted
+    label: above
+  field_prj_trl_size:
+    weight: 8
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        0c22bfb9-9b97-4b52-a6e0-59a43960729d:
+          dependee: field_prj_trl_area
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        123c83b4-32ab-4f6a-a108-1a84e4c0d2e1:
+          dependee: field_prj_trl_area
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: list_key
+    label: above
+  field_prj_trl_walkers:
+    weight: 9
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings:
+      conditional_fields:
+        f4f50779-1bf0-46be-98c4-f09ca51bb7b0:
+          dependee: field_prj_trl_area
+          settings:
+            state: '!visible'
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+        1ced94b7-cf29-4c94-b32c-6db8fae3107d:
+          dependee: field_prj_trl_area
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: 1
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    region: content
+    type: boolean
+    label: above
+  field_prj_wtf_image:
+    weight: 2
+    settings:
+      responsive_image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    region: content
+    type: responsive_image
+    label: above
+  field_prj_wtf_long:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    label: above
+  field_prj_wtf_short:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    label: above
+  field_prj_wtf_website:
+    weight: 4
+    settings:
+      trim_length: 80
+      rel: ''
+      target: ''
+      url_only: false
+      url_plain: false
+    third_party_settings: {  }
+    region: content
+    type: link_separate
+    label: above
+  field_prjr_complete:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: list_key
+    label: above
+  flag:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_admin_comments: true
+  field_grt_art_total: true
+  field_grt_awarded: true
+  field_grt_contribution: true
+  field_grt_dmv_budget: true
+  field_grt_materials: true
+  field_grt_other: true
+  field_grt_other_description: true
+  field_grt_services: true
+  field_grt_status: true
+  field_grt_total: true
+  field_grt_transport: true
+  field_prj_adm_ranger_comment: true
+  field_prj_cll_thread: true
+  field_prj_gen_fundraiser: true
+  field_prj_gen_fundraising: true
+  field_prj_gen_location: true
+  field_prj_gen_year: true
+  field_prj_lnt_comments: true
+  field_prj_lnt_historic: true
+  field_prj_lnt_images: true
+  field_prj_lnt_score: true
+  field_prj_lnt_signoff: true
+  field_prj_lnt_type: true
+  field_prj_saf_comment: true
+  field_prj_snd_comment: true
+  field_prj_stg_contact: true
+  field_prj_stg_description: true
+  field_prj_stg_stage: true
+  field_prj_stg_tread: true
+  field_prj_stg_type: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_details_view: true
+  field_prj_sup_h1: true
+  field_prj_wtf_categories: true
+  field_prj_wtf_short_copy: true
+  field_sup_review: true
+  field_vp_ea: true
+  field_year_cycle: true
+  links: true
+  moderation_state: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  url_redirects: true
