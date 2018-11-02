@@ -21,8 +21,10 @@ function afrikaburn_incident_form_node_incident_form_alter(&$form, &$form_state)
     '#weight' => 100,
   ];
 
+  $form['#action'] == '/node/add/incident';
+
   $form['advanced']['#access'] = FALSE;
-  $form['actions']['submit']['#submit'][] = '';
+  $form['actions']['submit']['#submit'][] = 'afrikaburn_incident_submit';
 }
 
 /**

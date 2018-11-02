@@ -5,6 +5,7 @@ dependencies: {  }
 id: node
 filenames:
   incident: ''
+  performances: ''
 bundles:
   announcement:
     body:
@@ -511,10 +512,13 @@ bundles:
       enabled: false
       rta: 'no'
       rtf: 'no'
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       bundle: performances
       name: field_prj_grant_expenses
+      entity_type_id: node
+      relationship: 0
+      sars_filename: ''
   collective:
     field_col_members:
       enabled: false
