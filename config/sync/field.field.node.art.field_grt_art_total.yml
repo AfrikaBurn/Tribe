@@ -24,6 +24,6 @@ default_value_callback: ''
 settings:
   min: 0
   max: null
-  prefix: R
-  suffix: 'ZAR (South African Rands)'
+  prefix: 'R '
+  suffix: ' ZAR (South African Rands)'
 field_type: integer

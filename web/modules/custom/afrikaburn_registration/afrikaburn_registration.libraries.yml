@@ -10,6 +10,11 @@ block:
   css:
     theme:
       css/afrikaburn-project-block.css: {}
+print:
+  version: 0.0
+  css:
+    theme:
+      css/afrikaburn-project-print.css: {}
 settings:
   version: 0.0
   css:
