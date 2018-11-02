@@ -132,12 +132,14 @@ dependencies:
     - field.field.node.art.field_this_is_the_amount_of_mone
     - field.field.node.art.field_vp_ea
     - field.field.node.art.field_year_cycle
+    - image.style.max_325x325
     - node.type.art
   module:
     - conditional_fields
+    - ds
+    - empty_fields
     - field_group
-    - markup
-    - responsive_image
+    - image
     - taxonomy
     - user
 third_party_settings:
@@ -232,23 +234,6 @@ third_party_settings:
         id: ''
         classes: ''
       label: Dimensions
-      region: content
-    group_lighting:
-      children:
-        - field_prj_lgh_f1
-      parent_name: group_project_registration
-      weight: 10
-      format_type: html_element
-      format_settings:
-        element: div
-        show_label: false
-        label_element: h3
-        effect: none
-        speed: fast
-        attributes: ''
-        classes: ''
-        id: ''
-      label: Lighting
       region: content
     group_sound:
       children:
@@ -380,12 +365,16 @@ bundle: art
 mode: grant_print
 content:
   field_grt_art_total:
-    type: number_unformatted
+    type: number_integer
     weight: 1
     region: content
     label: above
-    settings: {  }
-    third_party_settings: {  }
+    settings:
+      thousand_separator: ' '
+      prefix_suffix: true
+    third_party_settings:
+      empty_fields:
+        handler: ''
   field_grt_more:
     type: basic_string
     weight: 0
@@ -489,20 +478,28 @@ content:
     type: basic_string
     label: above
   field_prj_cost:
-    type: number_unformatted
+    type: number_integer
     weight: 0
     region: content
     label: above
-    settings: {  }
-    third_party_settings: {  }
+    settings:
+      thousand_separator: ' '
+      prefix_suffix: true
+    third_party_settings:
+      empty_fields:
+        handler: ''
   field_prj_gen_concept:
     weight: 2
     region: content
     settings:
-      responsive_image_style: ''
+      image_style: max_325x325
       image_link: ''
-    third_party_settings: {  }
-    type: responsive_image
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ds_limit: ''
+    type: image
     label: above
   field_prj_gen_description:
     weight: 0
@@ -535,13 +532,6 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_prj_lgh_f1:
-    type: markup
-    weight: 0
-    region: content
-    label: above
-    settings: {  }
-    third_party_settings: {  }
   field_prj_lnt_area:
     weight: 57
     settings: {  }
@@ -753,6 +743,7 @@ hidden:
   field_prj_grant_expenses: true
   field_prj_lgh_agree: true
   field_prj_lgh_description: true
+  field_prj_lgh_f1: true
   field_prj_lgh_f2: true
   field_prj_lgh_lighter: true
   field_prj_lgh_policy: true
