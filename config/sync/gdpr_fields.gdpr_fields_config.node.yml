@@ -7,6 +7,7 @@ filenames:
   incident: ''
   performances: ''
   art: ''
+  notification: ''
 bundles:
   announcement:
     body:
@@ -681,6 +682,51 @@ bundles:
     field_related_incident:
       bundle: incident
       name: field_related_incident
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+  notification:
+    field_actor:
+      bundle: notification
+      name: field_actor
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_notification_type:
+      bundle: notification
+      name: field_notification_type
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_notification_subject:
+      bundle: notification
+      name: field_notification_subject
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_notification_collective:
+      bundle: notification
+      name: field_notification_collective
       entity_type_id: node
       rtf: 'no'
       rta: 'no'
