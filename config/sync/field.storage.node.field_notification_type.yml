@@ -1,0 +1,43 @@
+uuid: 04b6f4cb-a6a6-4482-9856-9c49d700761c
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_notification_type
+field_name: field_notification_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: post
+      label: post
+    -
+      value: comment
+      label: comment
+    -
+      value: reply
+      label: reply
+    -
+      value: invited
+      label: invited
+    -
+      value: created
+      label: created
+    -
+      value: updated
+      label: updated
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
