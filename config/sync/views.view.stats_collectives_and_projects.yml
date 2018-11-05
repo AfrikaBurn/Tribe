@@ -12,6 +12,7 @@ dependencies:
     - rest
     - serialization
     - user
+    - xls_serialization
 id: stats_collectives_and_projects
 label: 'Stats collectives and projects'
 module: views
@@ -57,7 +58,78 @@ display:
         options:
           offset: 0
       style:
-        type: serializer
+        type: table
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          override: true
+          sticky: false
+          caption: ''
+          summary: ''
+          description: ''
+          columns:
+            title: title
+            created: created
+            changed: changed
+            field_collective: field_collective
+            type: type
+            field_col_members: field_col_members
+            field_col_invite_mail: field_col_invite_mail
+            field_col_invitee: field_col_invitee
+          info:
+            title:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            created:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            changed:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_collective:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            type:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_col_members:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_col_invite_mail:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_col_invitee:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+          default: '-1'
+          empty_table: false
       row:
         type: fields
         options:
@@ -601,7 +673,25 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - request_format
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_col_invite_mail'
+        - 'config:field.storage.node.field_col_invitee'
+        - 'config:field.storage.node.field_col_members'
+        - 'config:field.storage.node.field_collective'
+  block_1:
+    display_plugin: block
+    id: block_1
+    display_title: Block
+    position: 2
+    display_options:
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -618,19 +708,37 @@ display:
       display_extenders: {  }
       path: stats/collectives
       pager:
-        type: some
+        type: none
         options:
-          items_per_page: 10
           offset: 0
+      defaults:
+        style: false
+        row: false
       style:
-        type: serializer
+        type: excel_export
         options:
-          grouping: {  }
-          uses_fields: false
-          formats: {  }
+          formats:
+            xlsx: xlsx
+          xls_settings:
+            xls_format: Excel2007
+            metadata:
+              creator: ''
+              last_modified_by: ''
+              title: ''
+              description: ''
+              subject: ''
+              keywords: ''
+              category: ''
+              manager: ''
+              company: ''
       row:
-        type: data_entity
-        options: {  }
+        type: fields
+        options:
+          default_field_elements: true
+          inline:
+            title: title
+          separator: ''
+          hide_empty: false
     cache_metadata:
       max-age: -1
       contexts:
