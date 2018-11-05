@@ -1,3 +1,4 @@
+uuid: f2772f8e-fcde-4adc-9e15-a6967e1e4501
 langcode: en
 status: open
 dependencies: {  }
@@ -103,11 +104,9 @@ settings:
   limit_total: null
   limit_total_interval: null
   limit_total_message: ''
-  limit_total_unique: false
   limit_user: null
   limit_user_interval: null
   limit_user_message: ''
-  limit_user_unique: false
   entity_limit_total: null
   entity_limit_total_interval: null
   entity_limit_user: null
@@ -216,4 +215,3 @@ handlers:
       sender_mail: ''
       sender_name: ''
       theme_name: ''
-uuid: f2772f8e-fcde-4adc-9e15-a6967e1e4501
