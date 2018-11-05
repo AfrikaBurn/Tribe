@@ -7,7 +7,6 @@ dependencies:
     - image.style.small_50x50
     - image.style.thumbnail
     - taxonomy.vocabulary.incident_type
-    - user.role.logger
   module:
     - image
     - taxonomy
@@ -30,10 +29,9 @@ display:
     position: 0
     display_options:
       access:
-        type: role
+        type: perm
         options:
-          role:
-            logger: logger
+          perm: 'access content'
       cache:
         type: tag
         options: {  }
@@ -304,7 +302,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user.roles
+        - user.permissions
       tags:
         - 'config:field.storage.taxonomy_term.field_icon'
   children:
@@ -743,7 +741,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user.roles
+        - user.permissions
       tags:
         - 'config:field.storage.taxonomy_term.field_icon'
     deleted: false
@@ -777,7 +775,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user.roles
+        - user.permissions
       tags:
         - 'config:field.storage.taxonomy_term.field_icon'
   top:
@@ -1177,7 +1175,7 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - user.roles
+        - user.permissions
       tags:
         - 'config:field.storage.taxonomy_term.field_icon'
     deleted: false

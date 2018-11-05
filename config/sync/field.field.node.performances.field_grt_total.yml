@@ -19,13 +19,11 @@ label: 'This is the total price of your project'
 description: ''
 required: false
 translatable: true
-default_value:
-  -
-    value: 1
+default_value: {  }
 default_value_callback: ''
 settings:
   min: null
   max: null
-  prefix: 'R '
-  suffix: ' ZAR (South African Rands)'
+  prefix: R
+  suffix: 'ZAR (South African Rands)'
 field_type: integer

@@ -12,7 +12,6 @@ dependencies:
     - field.storage.node.field_projects
     - node.type.incident
     - taxonomy.vocabulary.incident_type
-    - user.role.logger
   module:
     - datetime
     - entity_reference_revisions
@@ -37,10 +36,9 @@ display:
     position: 0
     display_options:
       access:
-        type: role
+        type: perm
         options:
-          role:
-            logger: logger
+          perm: 'access content'
       cache:
         type: tag
         options: {  }
@@ -587,6 +585,17 @@ display:
           field_api_classes: false
           plugin_id: field
       filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
         type:
           id: type
           table: node_field_data
@@ -831,7 +840,7 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags:
         - 'config:field.storage.node.field_date_and_time'
         - 'config:field.storage.node.field_description'
@@ -1063,7 +1072,7 @@ display:
         - url
         - user
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags:
         - 'config:field.storage.node.field_date_and_time'
         - 'config:field.storage.node.field_description'
@@ -1086,7 +1095,7 @@ display:
         - url.query_args
         - user
         - 'user.node_grants:view'
-        - user.roles
+        - user.permissions
       tags:
         - 'config:field.storage.node.field_date_and_time'
         - 'config:field.storage.node.field_description'

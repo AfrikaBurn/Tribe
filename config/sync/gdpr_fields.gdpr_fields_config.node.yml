@@ -5,8 +5,6 @@ dependencies: {  }
 id: node
 filenames:
   incident: ''
-  performances: ''
-  art: ''
 bundles:
   announcement:
     body:
@@ -214,13 +212,10 @@ bundles:
       enabled: false
       rta: 'no'
       rtf: 'no'
-      anonymizer: random_text_anonymizer
+      anonymizer: ''
       notes: ''
       bundle: art
       name: field_prj_cost
-      entity_type_id: node
-      relationship: 0
-      sars_filename: ''
     field_prj_snd_f1:
       enabled: false
       rta: 'no'
@@ -253,17 +248,6 @@ bundles:
       notes: ''
       bundle: art
       name: field_prj_prp_erection
-    field_grt_art_total:
-      bundle: art
-      name: field_grt_art_total
-      entity_type_id: node
-      rtf: 'no'
-      rta: 'no'
-      enabled: false
-      anonymizer: ''
-      notes: ''
-      relationship: 0
-      sars_filename: ''
   theme_camps:
     field_prj_est_camp_population:
       enabled: false
@@ -527,35 +511,10 @@ bundles:
       enabled: false
       rta: 'no'
       rtf: 'no'
-      anonymizer: random_text_anonymizer
+      anonymizer: ''
       notes: ''
       bundle: performances
       name: field_prj_grant_expenses
-      entity_type_id: node
-      relationship: 0
-      sars_filename: ''
-    field_grt_art_total:
-      bundle: performances
-      name: field_grt_art_total
-      entity_type_id: node
-      rtf: 'no'
-      rta: 'no'
-      enabled: false
-      anonymizer: ''
-      notes: ''
-      relationship: 0
-      sars_filename: ''
-    field_grt_total:
-      bundle: performances
-      name: field_grt_total
-      entity_type_id: node
-      rtf: 'no'
-      rta: 'no'
-      enabled: false
-      anonymizer: ''
-      notes: ''
-      relationship: 0
-      sars_filename: ''
   collective:
     field_col_members:
       enabled: false
