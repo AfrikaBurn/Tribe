@@ -16,6 +16,7 @@ module_load_include('inc', 'afrikaburn_registration', 'includes/project.wizard')
  */
 function afrikaburn_registration_page_attachments(array &$page) {
   $page['#attached']['library'][] = 'afrikaburn_registration/block';
+  $page['#attached']['library'][] = 'afrikaburn_registration/print';
 }
 
 
