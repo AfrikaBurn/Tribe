@@ -20,12 +20,5 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
-  field_comments: true
   field_date_and_time: true
-  field_description: true
-  field_incident_reporter: true
-  field_incident_status: true
   field_incident_type: true
-  field_people: true
-  field_projects: true
-  field_related_incident: true

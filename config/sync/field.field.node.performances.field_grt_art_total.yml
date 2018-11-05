@@ -21,11 +21,11 @@ required: false
 translatable: true
 default_value:
   -
-    value: 0
+    value: 1
 default_value_callback: ''
 settings:
   min: 1
   max: null
-  prefix: R
-  suffix: 'ZAR (South African Rands)'
+  prefix: 'R '
+  suffix: ' ZAR (South African Rands)'
 field_type: integer

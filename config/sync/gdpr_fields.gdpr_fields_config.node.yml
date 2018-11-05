@@ -5,6 +5,9 @@ dependencies: {  }
 id: node
 filenames:
   incident: ''
+  performances: ''
+  art: ''
+  notification: ''
 bundles:
   announcement:
     body:
@@ -212,10 +215,13 @@ bundles:
       enabled: false
       rta: 'no'
       rtf: 'no'
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       bundle: art
       name: field_prj_cost
+      entity_type_id: node
+      relationship: 0
+      sars_filename: ''
     field_prj_snd_f1:
       enabled: false
       rta: 'no'
@@ -248,6 +254,17 @@ bundles:
       notes: ''
       bundle: art
       name: field_prj_prp_erection
+    field_grt_art_total:
+      bundle: art
+      name: field_grt_art_total
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   theme_camps:
     field_prj_est_camp_population:
       enabled: false
@@ -511,10 +528,35 @@ bundles:
       enabled: false
       rta: 'no'
       rtf: 'no'
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       bundle: performances
       name: field_prj_grant_expenses
+      entity_type_id: node
+      relationship: 0
+      sars_filename: ''
+    field_grt_art_total:
+      bundle: performances
+      name: field_grt_art_total
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_grt_total:
+      bundle: performances
+      name: field_grt_total
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   collective:
     field_col_members:
       enabled: false
@@ -640,6 +682,51 @@ bundles:
     field_related_incident:
       bundle: incident
       name: field_related_incident
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+  notification:
+    field_actor:
+      bundle: notification
+      name: field_actor
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_notification_type:
+      bundle: notification
+      name: field_notification_type
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_notification_subject:
+      bundle: notification
+      name: field_notification_subject
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_notification_collective:
+      bundle: notification
+      name: field_notification_collective
       entity_type_id: node
       rtf: 'no'
       rta: 'no'

@@ -9,6 +9,7 @@
  * Prepopulates type from URL
  */
 function afrikaburn_incident_form_node_incident_form_alter(&$form, &$form_state){
+
   $types = explode(',', \Drupal::request()->get('types'));
   foreach($types as $index=>$type){
     $form['field_incident_type']['widget'][$index] = $form['field_incident_type']['widget'][0];
