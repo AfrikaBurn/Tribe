@@ -73,8 +73,12 @@ function afrikaburn_alert_node_update($entity){
 
   $bundle = $entity->bundle();
 
-  if ($entity->isPublished() && in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
-    if (!$entity->nid) _alert('update', $entity, $entity->field_collective);
+  if (in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
+    _alert(
+      'update',
+      $entity->field_collective,
+      $entity
+    );
   }
 }
 
