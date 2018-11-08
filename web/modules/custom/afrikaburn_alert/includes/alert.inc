@@ -36,6 +36,8 @@ function _alert($action, $collective, $subject){
           $source['field_alert_project'] = $subject;
       }
 
+      _flush_alerts($source);
+
       $alert = \Drupal::entityTypeManager()
         ->getStorage('node')
         ->create($source);
@@ -44,7 +46,9 @@ function _alert($action, $collective, $subject){
       $flag = \Drupal::service('flag');
       $unread = $flag->getFlagById('unread');
       foreach($users as $user){
-        $flag->flag($unread, $alert, $user);
+        if (!$flag->getFlagging($unread, $alert, $user)) {
+          $flag->flag($unread, $alert, $user);
+        }
       }
     }
   }
@@ -52,6 +56,42 @@ function _alert($action, $collective, $subject){
 
 
 /* ----- Utility functions ----- */
+
+/**
+ * Find an existing, matching alert to reuse or create one if none found.
+ */
+function _flush_alerts($source){
+
+  $existing = \Drupal::entityQuery('node');
+  foreach($source as $field=>$field_value) {
+    $value = array_shift(
+      array_filter(
+        [
+          (is_string($field_value) ? $field_value : 0),
+          (is_array($field_value) ? $field_value[0] : 0),
+        ]
+      )
+    );
+    $value = is_string($value)
+      ? $value
+      : array_shift(
+          array_filter(
+            [
+              @$value->nid->value,
+              @$value->cid->value,
+            ]
+          )
+        );
+
+    if ($value != NULL) $existing->condition($field, $value);
+  }
+  $alerts = \Drupal::entityTypeManager()
+    ->getStorage('node')
+    ->loadMultiple($existing->execute());
+  \Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->delete($alerts);
+}
 
 
 /**

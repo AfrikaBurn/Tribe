@@ -3,18 +3,25 @@
     {{ fields.user_picture.content }}
     <div>
       {{ fields.uid.content }}
-      {{ fields.field_alert_action.content }}
+      {% if fields.field_alert_action.content|striptags|trim == "posted" %}
+        {{ fields.field_alert_post.content }}
+      {% else %}
+        {{ fields.field_alert_action.content }}
+      {% endif %}
       {{ fields.field_alert_project.content }}
       {% if fields.field_alert_action.content|striptags|trim == "commented on" %}
-        {{ fields.name.content }}'s post
+        {{ fields.name.content }}'s {{ fields.field_alert_post.content }}
       {% endif %}
-      {{ fields.field_alert_post.content }}
       in
       {{ fields.field_alert_collective.content }}
     </div>
   </header>
   <main>
-    {{ fields.field_prj_gen_concept.content }}
+    {% if fields.field_prj_gen_concept %}
+      <div class="images">
+      {{ fields.field_prj_gen_concept.content }}
+      </div>
+    {% endif %}
     {{ fields.field_prj_gen_description.content }}
     {% if fields.field_alert_action.content|striptags|trim == "posted" %}
       {{ fields.comment_body.content }}

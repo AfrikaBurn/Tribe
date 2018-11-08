@@ -30,15 +30,22 @@
 
 .view-my-collectives .view-content .views-field-new-comments{
   position: absolute;
-  top: 0;
+  top: -5px;
   right: 0;
   width: 25px;
   min-width: 25px;
-  height: 25px;
   text-align: center;
   text-shadow: 0 0 2px #000;
   font-weight: 900;
-  line-height: 25px;
+}
+
+.view-my-collectives .view-content .views-field-new-comments a{
+  display: block;
+  height: 15px;
+  line-height: 15px;
+  background: #961116;
+  border-radius: 10px;
+  font-size: 80%;
 }
 
 .view-my-collectives .view-content .views-field-title{

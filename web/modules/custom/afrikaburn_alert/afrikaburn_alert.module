@@ -43,7 +43,7 @@ function afrikaburn_alert_node_insert($entity){
   if (in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
     _alert(
       'create',
-      $entity->field_collective,
+      $entity->field_collective->entity,
       $entity
     );
   }
@@ -70,13 +70,14 @@ function afrikaburn_alert_comment_insert($entity){
  * Implements hook_ENTITY_TYPE_update.
  */
 function afrikaburn_alert_node_update($entity){
+  module_load_include('inc', 'afrikaburn_alert', 'includes/alert');
 
   $bundle = $entity->bundle();
 
   if (in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
     _alert(
       'update',
-      $entity->field_collective,
+      $entity->field_collective->entity,
       $entity
     );
   }

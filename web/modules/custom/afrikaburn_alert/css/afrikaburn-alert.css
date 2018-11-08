@@ -26,9 +26,28 @@
 }
 
 .alert main{
-  margin: 0 0 20px 75px;
+  margin: 0 0 20px 55px;
+}
+
+.alert div.images::after,
+.alert main::after{
+  display: block;
+  content: ".";
+  height: 0;
+  clear: both;
+  color: transparent;
 }
 
 .alert footer{
   text-align: right;
+}
+
+.alert div.images{
+  width: 100px;
+  float: left;
+  margin-right: 10px;
+}
+
+.alert div.images img{
+  float: left;
 }

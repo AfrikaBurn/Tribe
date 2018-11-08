@@ -9,12 +9,15 @@ dependencies:
     - field.storage.node.field_alert_post
     - field.storage.node.field_alert_project
     - field.storage.node.field_prj_gen_concept
+    - field.storage.node.field_prj_gen_description
     - field.storage.user.user_picture
     - flag.flag.unread
+    - image.style.max_650x650
     - image.style.small_50x50
     - image.style.thumbnail
     - node.type.alert
   module:
+    - colorbox
     - comment
     - flag
     - image
@@ -484,8 +487,8 @@ display:
           label: ''
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '{% if field_alert_action == ''posted'' %}posted{% else %}post{% endif %}'
             make_link: true
             path: '/node/{{ field_alert_collective_1 }}?post={{ field_alert_post__target_id }}'
             absolute: false
@@ -669,7 +672,7 @@ display:
           id: field_prj_gen_concept
           table: node__field_prj_gen_concept
           field: field_prj_gen_concept
-          relationship: none
+          relationship: field_alert_project
           group_type: group
           admin_label: ''
           label: ''
@@ -714,10 +717,15 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: target_id
-          type: image
+          type: colorbox
           settings:
-            image_style: thumbnail
-            image_link: content
+            colorbox_node_style: small_50x50
+            colorbox_node_style_first: thumbnail
+            colorbox_image_style: max_650x650
+            colorbox_gallery: post
+            colorbox_gallery_custom: ''
+            colorbox_caption: auto
+            colorbox_caption_custom: ''
           group_column: ''
           group_columns: {  }
           group_rows: true
@@ -726,7 +734,7 @@ display:
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
+          separator: ''
           field_api_classes: false
           plugin_id: field
         comment_body:
@@ -764,7 +772,7 @@ display:
             strip_tags: false
             trim: false
             preserve_tags: ''
-            html: false
+            html: true
           element_type: ''
           element_class: ''
           element_label_type: ''
@@ -826,7 +834,7 @@ display:
             strip_tags: false
             trim: false
             preserve_tags: ''
-            html: false
+            html: true
           element_type: ''
           element_class: ''
           element_label_type: ''
@@ -841,6 +849,68 @@ display:
           hide_alter_empty: true
           click_sort_column: value
           type: text_default
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_prj_gen_description:
+          id: field_prj_gen_description
+          table: node__field_prj_gen_description
+          field: field_prj_gen_description
+          relationship: field_alert_project
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: true
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: true
+            max_length: 600
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: true
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: basic_string
           settings: {  }
           group_column: value
           group_columns: {  }
@@ -962,6 +1032,7 @@ display:
         - 'config:field.storage.node.field_alert_post'
         - 'config:field.storage.node.field_alert_project'
         - 'config:field.storage.node.field_prj_gen_concept'
+        - 'config:field.storage.node.field_prj_gen_description'
         - 'config:field.storage.user.user_picture'
   block:
     display_plugin: block
@@ -986,4 +1057,5 @@ display:
         - 'config:field.storage.node.field_alert_post'
         - 'config:field.storage.node.field_alert_project'
         - 'config:field.storage.node.field_prj_gen_concept'
+        - 'config:field.storage.node.field_prj_gen_description'
         - 'config:field.storage.user.user_picture'
