@@ -1,13 +1,13 @@
-uuid: 91fb60fd-88d1-43ed-99b6-908c064a0ffe
+uuid: 5ddb345a-abbf-4c6b-afce-1b8da81e8efe
 langcode: en
 status: true
 dependencies:
   config:
-    - node.type.notification
-id: node.notification.promote
+    - node.type.alert
+id: node.alert.promote
 field_name: promote
 entity_type: node
-bundle: notification
+bundle: alert
 label: 'Promoted to front page'
 description: ''
 required: false

@@ -1,19 +1,20 @@
-uuid: bf9db744-64f4-41db-b23f-63cc5f6550b4
+uuid: a0d35d5f-2557-441c-84b9-b19b5937c65d
 langcode: en
 status: true
 dependencies:
   module:
+    - comment
     - field_permissions
     - node
 third_party_settings:
   field_permissions:
     permission_type: public
-id: node.field_notification_collective
-field_name: field_notification_collective
+id: node.field_alert_post
+field_name: field_alert_post
 entity_type: node
 type: entity_reference
 settings:
-  target_type: node
+  target_type: comment
 module: core
 locked: false
 cardinality: 1

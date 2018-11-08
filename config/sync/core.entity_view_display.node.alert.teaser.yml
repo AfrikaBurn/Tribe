@@ -1,15 +1,15 @@
-uuid: f7a52c70-6a63-402b-9af8-e8dc36a86a7f
+uuid: 598741bf-c0fe-4fb4-9bf0-fda7c8114e97
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - node.type.notification
+    - node.type.alert
   module:
     - user
-id: node.notification.teaser
+id: node.alert.teaser
 targetEntityType: node
-bundle: notification
+bundle: alert
 mode: teaser
 content:
   links:
@@ -18,6 +18,7 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
-  field_notification_collective: true
-  field_notification_subject: true
-  field_notification_type: true
+  field_alert_action: true
+  field_alert_collective: true
+  field_alert_post: true
+  field_alert_project: true

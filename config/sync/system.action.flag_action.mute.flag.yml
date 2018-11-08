@@ -1,0 +1,13 @@
+uuid: d986b829-c47a-48de-9f85-4b12798e0f1c
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.mute.flag
+label: Mute
+type: node
+plugin: 'flag_action:mute.flag'
+configuration:
+  flag_id: mute
+  flag_action: flag

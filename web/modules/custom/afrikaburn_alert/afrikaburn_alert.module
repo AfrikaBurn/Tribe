@@ -1,0 +1,80 @@
+<?php
+
+/**
+ * @file
+ * Contains Afrikaburn alert module.
+ */
+
+
+/* ----- Module Hooks ----- */
+
+
+/**
+ * Implements hook_page_attachments().
+ * Attach bio libraries.
+ */
+function afrikaburn_alert_page_attachments(&$page) {
+  $page['#attached']['library'][] = 'afrikaburn_alert/alert';
+}
+
+/**
+ * Implements hook_theme().
+ */
+function afrikaburn_alert_theme() {
+  return [
+    'views_view_fields__alerts' => [
+      'template' => 'views-view-fields--alerts',
+      'base hook' => 'view',
+    ],
+  ];
+}
+
+
+/* ----- Entity Hooks ----- */
+
+
+/**
+ * Implements hook_ENTITY_TYPE_insert.
+ */
+function afrikaburn_alert_node_insert($entity){
+
+  $entity->bundle();
+
+  if (in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
+    _alert(
+      'create',
+      $entity->field_collective,
+      $entity
+    );
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert.
+ */
+function afrikaburn_alert_comment_insert($entity){
+  module_load_include('inc', 'afrikaburn_alert', 'includes/alert');
+
+  $bundle = $entity->bundle();
+
+  if (in_array($bundle, ['post', 'comment'])){
+    _alert(
+      $bundle,
+      $entity->getCommentedEntity(),
+      $entity
+    );
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update.
+ */
+function afrikaburn_alert_node_update($entity){
+
+  $bundle = $entity->bundle();
+
+  if ($entity->isPublished() && in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
+    if (!$entity->nid) _alert('update', $entity, $entity->field_collective);
+  }
+}
+

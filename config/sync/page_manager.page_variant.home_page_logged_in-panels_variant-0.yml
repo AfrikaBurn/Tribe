@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - page_manager.page.home_page_logged_in
+    - views.view.alerts
     - views.view.anouncements
   module:
     - panels
@@ -24,6 +25,17 @@ variant_settings:
       region: content
       weight: 0
       uuid: d6d09bb2-57c6-41e7-8a8a-c35afac03463
+      context_mapping: {  }
+    279f82ef-54c2-4d93-98ce-534fac51404b:
+      id: 'views_block:alerts-block'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 0
+      uuid: 279f82ef-54c2-4d93-98ce-534fac51404b
       context_mapping: {  }
   id: panels_variant
   uuid: 0675148d-30b7-4c21-9732-04195a991461

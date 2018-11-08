@@ -1,13 +1,12 @@
-uuid: 226a8242-9d8f-452e-af38-65a0609fe361
+uuid: 4d50330f-0eae-47a7-9c1c-50120bc0ea65
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_notification_subject
+    - field.storage.node.field_alert_project
+    - node.type.alert
     - node.type.art
-    - node.type.collective
     - node.type.mutant_vehicles
-    - node.type.notification
     - node.type.performances
     - node.type.theme_camps
   module:
@@ -16,11 +15,11 @@ third_party_settings:
   custom_add_another:
     custom_add_another: ''
     custom_remove: ''
-id: node.notification.field_notification_subject
-field_name: field_notification_subject
+id: node.alert.field_alert_project
+field_name: field_alert_project
 entity_type: node
-bundle: notification
-label: Subject
+bundle: alert
+label: Project
 description: ''
 required: false
 translatable: false
@@ -32,7 +31,6 @@ settings:
     target_bundles:
       art: art
       performances: performances
-      collective: collective
       mutant_vehicles: mutant_vehicles
       theme_camps: theme_camps
     sort:
