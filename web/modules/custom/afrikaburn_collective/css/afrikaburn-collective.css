@@ -124,10 +124,6 @@
   text-align: left;
 }
 
-.view-collective-posts article.collective-post footer a{
-  padding: 0 5px;
-}
-
 .view-collective-posts details{
   border: none;
   padding: 0;
@@ -212,6 +208,10 @@ form.node-collective-edit-form details{
   position: absolute;
   right: 0px;
   visibility: hidden;
+}
+
+article.collective-post header a{
+  padding: 0 5px;
 }
 
 .view-collective-posts article.collective-post footer details{

@@ -7,7 +7,7 @@ dependencies:
 id: unread
 label: Unread
 bundles:
-  - notification
+  - alert
 entity_type: node
 global: false
 weight: 0

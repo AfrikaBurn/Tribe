@@ -18,8 +18,6 @@ function _alert($action, $collective, $subject){
 
     if (count($users)){
 
-      $flag = \Drupal::service('flag');
-      $unread = $flag->getFlagById('unread');
       $source = [
         'type' => 'alert',
         'field_alert_action' => [$action],
@@ -27,16 +25,13 @@ function _alert($action, $collective, $subject){
       ];
 
       switch($action){
-
         case 'post':
           $source['field_alert_post'] = $subject;
         break;
-
         case 'comment':
           $source['field_alert_comment'] = $subject;
           $source['field_alert_post'] = $subject->getParentComment();
         break;
-
         default:
           $source['field_alert_project'] = $subject;
       }
@@ -44,9 +39,10 @@ function _alert($action, $collective, $subject){
       $alert = \Drupal::entityTypeManager()
         ->getStorage('node')
         ->create($source);
-
       $alert->save();
 
+      $flag = \Drupal::service('flag');
+      $unread = $flag->getFlagById('unread');
       foreach($users as $user){
         $flag->flag($unread, $alert, $user);
       }

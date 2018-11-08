@@ -33,7 +33,9 @@
 #}
 
 <article class="collective-post">
+  <a name="comment-{{ fields.cid.content|striptags|trim }}"></a>
   <header>
+    {{ fields.view_comment.content }}
     {{ fields.edit_comment.content }}
     {{ fields.delete_comment.content }}
   </header>

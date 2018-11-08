@@ -11,54 +11,15 @@ use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use \Drupal\user\Entity\User;
 
 
+/* ----- Module hooks ----- */
+
+
 /**
  * Implements hook_page_attachments().
  * Attach collective libraries.
  */
 function afrikaburn_collective_page_attachments(&$page) {
   $page['#attached']['library'][] = 'afrikaburn_collective/main';
-}
-
-/**
- * Implements hook_form_alter().
- */
-function afrikaburn_collective_form_alter(&$form, $form_state, $form_id) {
-  if (preg_match('/^node_collective/', $form_id)) {
-
-    $user = User::load(\Drupal::currentUser()->id());
-    $form['field_col_admins']['#access'] = $user->hasRole('administrator');
-    $form['field_col_members']['#access'] = $user->hasRole('administrator');
-    $form['field_col_invite_mail']['#access'] = $user->hasRole('administrator');
-    $form['field_col_invite_token']['#access'] = $user->hasRole('administrator');
-
-    if ($form_id == 'node_collective_form'){
-      $form['field_col_admins']['widget'][0]['target_id']['#default_value'] = $user;
-      $form['field_col_members']['widget'][0]['target_id']['#default_value'] = $user;
-    }
-  }
-}
-
-/**
- * Implements hook_entity_extra_field_info().
- */
-function afrikaburn_collective_entity_extra_field_info() {
-  $extra = array();
-
-  $extra['node']['collective']['display']['posts'] = array(
-    'label' => t('Posts'),
-    'description' => t('View of the latest posts'),
-    'weight' => 100,
-    'visible' => TRUE,
-  );
-
-  $extra['node']['collective']['display']['post_something'] = array(
-    'label' => t('Post form'),
-    'description' => t('Form to create a post'),
-    'weight' => 100,
-    'visible' => TRUE,
-  );
-
-  return $extra;
 }
 
 /**
@@ -97,6 +58,77 @@ function afrikaburn_collective_node_view(&$build, $entity, $display, $view_mode)
       '#suffix' => '</details>',
     ];
   }
+}
+
+
+/* ----- Form Alters ----- */
+
+
+/**
+ * Implements hook_form_alter().
+ */
+function afrikaburn_collective_form_alter(&$form, $form_state, $form_id) {
+  if (preg_match('/^node_collective/', $form_id)) {
+
+    $user = User::load(\Drupal::currentUser()->id());
+    $form['field_col_admins']['#access'] = $user->hasRole('administrator');
+    $form['field_col_members']['#access'] = $user->hasRole('administrator');
+    $form['field_col_invite_mail']['#access'] = $user->hasRole('administrator');
+    $form['field_col_invite_token']['#access'] = $user->hasRole('administrator');
+
+    if ($form_id == 'node_collective_form'){
+      $form['field_col_admins']['widget'][0]['target_id']['#default_value'] = $user;
+      $form['field_col_members']['widget'][0]['target_id']['#default_value'] = $user;
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter()
+ * Fixes comment form bug
+ */
+function afrikaburn_collective_form_comment_comment_form_alter(&$form, $form_state, $form_id){
+  $form['pid'] = [
+    '#name' => 'pid',
+    '#type' => 'hidden',
+  ];
+  $form['actions']['submit']['#value'] = t('Say it!');
+  $form['actions']['submit']['#submit'][] = 'afrikaburn_collective_comment_redirect';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter()
+ * Fixes comment form bug
+ */
+function afrikaburn_collective_form_comment_post_form_alter(&$form, $form_state, $form_id){
+  $form['actions']['submit']['#submit'][] = 'afrikaburn_collective_post_redirect';
+}
+
+
+/* ----- Field hooks ----- */
+
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function afrikaburn_collective_entity_extra_field_info() {
+  $extra = array();
+
+  $extra['node']['collective']['display']['posts'] = array(
+    'label' => t('Posts'),
+    'description' => t('View of the latest posts'),
+    'weight' => 100,
+    'visible' => TRUE,
+  );
+
+  $extra['node']['collective']['display']['post_something'] = array(
+    'label' => t('Post form'),
+    'description' => t('Form to create a post'),
+    'weight' => 100,
+    'visible' => TRUE,
+  );
+
+  return $extra;
 }
 
 
@@ -154,20 +186,59 @@ function afrikaburn_collective_preprocess_views_view_fields(&$variables) {
 }
 
 /**
- * Implements hook_form_FORM_ID_alter()
- * Fixes comment form bug
- */
-function afrikaburn_collective_form_comment_comment_form_alter(&$form, $form_state, $form_id){
-  $form['pid'] = [
-    '#name' => 'pid',
-    '#type' => 'hidden',
-  ];
-  $form['actions']['submit']['#value'] = t('Say it!');
-}
-
-/**
  * Implements computed_field_field_col_invite_token_compute()
  */
 function computed_field_field_col_invite_token_compute($entity_type_manager, $entity, $fields, $delta){
   return $entity;
+}
+
+/**
+ * Redirects after posting
+ */
+function afrikaburn_collective_post_redirect(&$form, $form_state){
+
+  $path = [];
+  preg_match(
+    '/node\/([0-9]+)/',
+    \Drupal::service('path.current')->getPath(),
+    $path
+  );
+  if (count($path)){
+    \Drupal::request()->query->remove('destination');
+    $form_state->setRedirect(
+      'entity.node.canonical',
+      ['node' => $path[1]],
+      []
+    );
+  }
+}
+
+/**
+ * Redirects after commenting
+ */
+function afrikaburn_collective_comment_redirect(&$form, $form_state){
+
+  $path = [];
+  preg_match(
+    '/node\/([0-9]+)/',
+    \Drupal::service('path.current')->getPath(),
+    $path
+  );
+
+  $post = \Drupal::request()->query->get('post');
+  $comment = $form_state->getFormObject()->getEntity();
+
+  if (count($path)){
+    \Drupal::request()->query->remove('destination');
+    $form_state->setRedirect(
+      'entity.node.canonical',
+      ['node' => $path[1]],
+      [
+        'query' => [
+          'post' => $post ? $post : 'all'
+        ],
+        'fragment' => 'comment-' . $comment->cid->value,
+      ]
+    );
+  }
 }

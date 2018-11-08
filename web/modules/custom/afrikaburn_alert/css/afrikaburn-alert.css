@@ -12,17 +12,17 @@
   margin: 1em 0;
   background: #370c13;
   border-radius: 10px;
-  padding: 15px 10px 15px 0;
+  padding: 10px;
 }
 
 .alert header {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
 }
 
-.alert header *{
-  margin: 0 0.5em;
+.alert header img,
+.alert header div{
+  margin: 0 0.5em 0 0;
 }
 
 .alert main{

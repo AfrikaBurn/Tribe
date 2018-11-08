@@ -1,15 +1,17 @@
 <article class="alert">
   <header>
     {{ fields.user_picture.content }}
-    {{ fields.uid.content }}
-    {{ fields.field_alert_action.content }}
-    {{ fields.field_alert_project.content }}
-    {% if fields.field_alert_action.content|striptags|trim == "commented on" %}
-      {{ fields.name.content }}'s post
-    {% endif %}
-    {{ fields.field_alert_post.content }}
-    in
-    {{ fields.field_alert_collective.content }}
+    <div>
+      {{ fields.uid.content }}
+      {{ fields.field_alert_action.content }}
+      {{ fields.field_alert_project.content }}
+      {% if fields.field_alert_action.content|striptags|trim == "commented on" %}
+        {{ fields.name.content }}'s post
+      {% endif %}
+      {{ fields.field_alert_post.content }}
+      in
+      {{ fields.field_alert_collective.content }}
+    </div>
   </header>
   <main>
     {{ fields.field_prj_gen_concept.content }}
