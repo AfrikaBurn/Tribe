@@ -15,10 +15,10 @@ bundles:
 entity_type: node
 global: false
 weight: 0
-flag_short: 'Mute alerts'
+flag_short: Mute
 flag_long: 'Stop receiving alert notifications about this.'
 flag_message: ''
-unflag_short: 'Unmute alerts'
+unflag_short: Unmute
 unflag_long: 'You have muted this and will not receive alerts. Click to receive notifications again.'
 unflag_message: ''
 unflag_denied_text: ''

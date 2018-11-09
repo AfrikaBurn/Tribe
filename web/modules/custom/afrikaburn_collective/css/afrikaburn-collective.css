@@ -15,6 +15,10 @@
   margin: 10px 0;
 }
 
+.view-my-collectives .view-content .views-row a{
+  display: block;
+}
+
 .view-my-collectives .view-content .views-field-field-picture{
   display: block;
   background: #450b14;
@@ -51,6 +55,9 @@
 .view-my-collectives .view-content .views-field-title{
   padding-top: 2.5px;
   width: 110px;
+}
+.view-my-collectives .view-content .views-row:hover{
+  background-color: #370c13;
 }
 
 #block-views-block-my-collectives-invitations .button{

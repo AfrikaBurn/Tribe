@@ -72,3 +72,10 @@
   height: 35px;
   align-items: center;
 }
+
+#block-bioblock .content a{
+  display: block;
+}
+#block-bioblock .content a:hover{
+  background-color: #370c13;
+}

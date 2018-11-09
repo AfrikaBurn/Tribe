@@ -23,13 +23,13 @@ settings:
       label: 'commented on'
     -
       value: create
-      label: created
+      label: 'created the'
     -
       value: update
-      label: updated
+      label: 'updated the'
     -
       value: delete
-      label: deleted
+      label: 'deleted the'
   allowed_values_function: ''
 module: options
 locked: false

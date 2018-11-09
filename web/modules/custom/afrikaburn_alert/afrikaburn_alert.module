@@ -37,8 +37,9 @@ function afrikaburn_alert_theme() {
  * Implements hook_ENTITY_TYPE_insert.
  */
 function afrikaburn_alert_node_insert($entity){
+  module_load_include('inc', 'afrikaburn_alert', 'includes/alert');
 
-  $entity->bundle();
+  $bundle = $entity->bundle();
 
   if (in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
     _alert(

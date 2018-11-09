@@ -8,6 +8,7 @@
       {% else %}
         {{ fields.field_alert_action.content }}
       {% endif %}
+      {{ fields.type.content }}
       {{ fields.field_alert_project.content }}
       {% if fields.field_alert_action.content|striptags|trim == "commented on" %}
         {{ fields.name.content }}'s {{ fields.field_alert_post.content }}
@@ -15,10 +16,12 @@
       in
       {{ fields.field_alert_collective.content }}
     </div>
+    {{ fields.link_flag.content }}
   </header>
   <main>
-    {% if fields.field_prj_gen_concept %}
+    {% if fields.field_prj_gen_concept or fields.field_prj_wtf_image %}
       <div class="images">
+      {{ fields.field_prj_wtf_image.content }}
       {{ fields.field_prj_gen_concept.content }}
       </div>
     {% endif %}
