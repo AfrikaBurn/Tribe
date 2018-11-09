@@ -15,16 +15,30 @@ function _alert($action, $collective, $subject){
   if (function_exists($user_func)){
 
     // Users to notify (minus current user)
-    $users = array_diff(
-      $user_func($action, $collective, $subject),
-      [\Drupal\user\Entity\User::load(\Drupal::currentUser()->id())]
+    $users = user_load_multiple(
+      array_diff(
+        $user_func($action, $collective, $subject),
+        [\Drupal::currentUser()->id()]
+      )
     );
 
     if (count($users)){
 
       $source = [
         'type' => 'alert',
-        'field_alert_action' => [$action],
+        'field_alert_action' => [
+          array_search(
+            $action,
+            [
+              'post',
+              'comment',
+              'create',
+              'update',
+              'delete',
+              'complete',
+            ]
+          )
+        ],
         'field_alert_collective' => [$collective],
       ];
 
@@ -78,9 +92,7 @@ function _muted($entity){
  */
 function _post_users($type, $collective, $subject){
   return array_diff(
-    $collective
-      ->get('field_col_members')
-      ->referencedEntities(),
+    array_column($collective->field_col_members->getValue(), 'target_id'),
     _muted($collective)
   );
 }
@@ -93,8 +105,7 @@ function _comment_users($type, $collective, $subject){
   $comments = \Drupal::database()->select('comment_field_data', 'c');
   $comments->condition('c.pid', $subject->getParentComment()->cid->value);
   $comments->fields('c', ['uid']);
-  $uids = array_unique($comments->execute()->fetchCol());
-  $users = user_load_multiple($uids);
+  $users = array_unique($comments->execute()->fetchCol());
 
   return array_diff(
     $users,
@@ -107,9 +118,7 @@ function _comment_users($type, $collective, $subject){
  */
 function _create_users($type, $collective, $subject){
   return array_diff(
-    $collective
-      ->get('field_col_members')
-      ->referencedEntities(),
+    array_column($collective->field_col_members->getValue(), 'target_id'),
     _muted($collective),
     _muted($subject)
   );
@@ -120,9 +129,7 @@ function _create_users($type, $collective, $subject){
  */
 function _update_users($type, $collective, $subject){
   return array_diff(
-    $collective
-      ->get('field_col_members')
-      ->referencedEntities(),
+    array_column($collective->field_col_members->getValue(), 'target_id'),
     _muted($collective),
     _muted($subject)
   );
@@ -134,9 +141,7 @@ function _update_users($type, $collective, $subject){
  */
 function _delete_users($type, $collective, $subject){
   return array_diff(
-    $collective
-      ->get('field_col_members')
-      ->referencedEntities(),
+    array_column($collective->field_col_members->getValue(), 'target_id'),
     _muted($collective),
     _muted($subject)
   );

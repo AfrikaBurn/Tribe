@@ -1184,7 +1184,7 @@ display:
           relationship: none
           group_type: group
           admin_label: Flags
-          required: true
+          required: false
           flag: unread
           user_scope: current
           entity_type: node
@@ -1271,6 +1271,7 @@ display:
         filters: true
         filter_groups: true
         arguments: false
+        relationships: false
       arguments:
         uid:
           id: uid
@@ -1308,6 +1309,68 @@ display:
           entity_type: node
           entity_field: uid
           plugin_id: numeric
+      relationships:
+        uid:
+          id: uid
+          table: node_field_data
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: author
+          required: false
+          entity_type: node
+          entity_field: uid
+          plugin_id: standard
+        field_alert_project:
+          id: field_alert_project
+          table: node__field_alert_project
+          field: field_alert_project
+          relationship: none
+          group_type: group
+          admin_label: 'field_alert_project: Content'
+          required: false
+          plugin_id: standard
+        field_alert_post:
+          id: field_alert_post
+          table: node__field_alert_post
+          field: field_alert_post
+          relationship: none
+          group_type: group
+          admin_label: 'field_alert_post: Comment'
+          required: false
+          plugin_id: standard
+        field_alert_comment:
+          id: field_alert_comment
+          table: node__field_alert_comment
+          field: field_alert_comment
+          relationship: none
+          group_type: group
+          admin_label: 'field_alert_comment: Comment'
+          required: false
+          plugin_id: standard
+        flag_relationship:
+          id: flag_relationship
+          table: node_field_data
+          field: flag_relationship
+          relationship: none
+          group_type: group
+          admin_label: Flags
+          required: true
+          flag: unread
+          user_scope: current
+          entity_type: node
+          plugin_id: flag_relationship
+        uid_1:
+          id: uid_1
+          table: comment_field_data
+          field: uid
+          relationship: field_alert_post
+          group_type: group
+          admin_label: poster
+          required: false
+          entity_type: comment
+          entity_field: uid
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:
@@ -1331,7 +1394,7 @@ display:
   page_1:
     display_plugin: page
     id: page_1
-    display_title: Page
+    display_title: Activity
     position: 1
     display_options:
       display_extenders: {  }
@@ -1341,6 +1404,7 @@ display:
       defaults:
         title: false
         fields: false
+        empty: false
       fields:
         user_picture:
           id: user_picture
@@ -2303,6 +2367,20 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+      empty:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: 'Nope, Nothing yet!'
+            format: basic_html
+          plugin_id: text
     cache_metadata:
       max-age: -1
       contexts:

@@ -12,24 +12,27 @@ third_party_settings:
 id: node.field_alert_action
 field_name: field_alert_action
 entity_type: node
-type: list_string
+type: list_integer
 settings:
   allowed_values:
     -
-      value: post
+      value: 0
       label: posted
     -
-      value: comment
+      value: 1
       label: 'commented on'
     -
-      value: create
+      value: 2
       label: 'created the'
     -
-      value: update
+      value: 3
       label: 'updated the'
     -
-      value: delete
+      value: 4
       label: 'deleted the'
+    -
+      value: 5
+      label: 'completed the'
   allowed_values_function: ''
 module: options
 locked: false
