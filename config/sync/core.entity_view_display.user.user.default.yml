@@ -77,6 +77,7 @@ third_party_settings:
       region: content
     group_account:
       children:
+        - username
         - field_email
         - field_location
         - member_for
@@ -142,7 +143,7 @@ mode: default
 content:
   field_date_of_birth:
     type: datetime_custom
-    weight: 7
+    weight: 106
     region: content
     label: above
     settings:
@@ -151,7 +152,7 @@ content:
     third_party_settings: {  }
   field_email:
     type: computed_string
-    weight: 10
+    weight: 6
     region: content
     label: above
     settings:
@@ -161,7 +162,7 @@ content:
     third_party_settings: {  }
   field_first_name:
     type: string
-    weight: 3
+    weight: 102
     region: content
     label: above
     settings:
@@ -169,7 +170,7 @@ content:
     third_party_settings: {  }
   field_gender:
     type: list_default
-    weight: 5
+    weight: 104
     region: content
     label: above
     settings: {  }
@@ -183,7 +184,7 @@ content:
     region: content
   field_id_number:
     type: string
-    weight: 6
+    weight: 105
     region: content
     label: above
     settings:
@@ -191,7 +192,7 @@ content:
     third_party_settings: {  }
   field_last_name:
     type: string
-    weight: 4
+    weight: 103
     region: content
     label: above
     settings:
@@ -211,7 +212,7 @@ content:
     third_party_settings: {  }
   field_location:
     type: entity_reference_label
-    weight: 11
+    weight: 7
     region: content
     label: above
     settings:
@@ -284,19 +285,24 @@ content:
     settings: {  }
     third_party_settings: {  }
   member_for:
-    weight: 13
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
   user_picture:
     type: image
-    weight: 2
+    weight: 101
     region: content
     settings:
       image_style: thumbnail
       image_link: content
     third_party_settings: {  }
     label: hidden
+  username:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_agreements: true
   field_country: true

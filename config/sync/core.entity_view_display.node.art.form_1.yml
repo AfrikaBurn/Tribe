@@ -52,6 +52,7 @@ dependencies:
     - field.field.node.art.field_prj_cll_collaborate
     - field.field.node.art.field_prj_cll_contact
     - field.field.node.art.field_prj_cll_description
+    - field.field.node.art.field_prj_cost
     - field.field.node.art.field_prj_gen_bio
     - field.field.node.art.field_prj_gen_concept
     - field.field.node.art.field_prj_gen_contact
@@ -99,6 +100,7 @@ dependencies:
     - field.field.node.art.field_prj_snd_description
     - field.field.node.art.field_prj_snd_f1
     - field.field.node.art.field_prj_snd_level
+    - field.field.node.art.field_prj_snd_more_later
     - field.field.node.art.field_prj_snd_person
     - field.field.node.art.field_prj_snd_sound
     - field.field.node.art.field_prj_stc_attributes
@@ -993,6 +995,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  flag_mute:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_admin_comments: true
   field_col_members: true
@@ -1054,6 +1061,7 @@ hidden:
   field_prj_snd_agree: true
   field_prj_snd_comment: true
   field_prj_snd_description: true
+  field_prj_snd_more_later: true
   field_prj_snd_person: true
   field_prj_stg_contact: true
   field_prj_stg_description: true
