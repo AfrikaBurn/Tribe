@@ -58,6 +58,7 @@
 }
 .view-my-collectives .view-content .views-row:hover{
   background-color: #370c13;
+  border-radius: 15px 0 0 15px;
 }
 
 #block-views-block-my-collectives-invitations .button{
