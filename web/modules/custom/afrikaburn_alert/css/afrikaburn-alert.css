@@ -74,3 +74,26 @@
 .alert div.images img{
   float: left;
 }
+
+.flag-mute{
+  text-align: right;
+}
+
+.flag-mute a{
+  display: inline-block;
+  height: 25px;
+  background-position: right center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 5px 33px 0 0;
+  margin-bottom: 10px;
+  color: transparent;
+}
+.flag-mute.action-unflag a:hover,
+.flag-mute.action-flag a{
+  background-image: url('../images/mute.svg');
+}
+.flag-mute.action-flag a:hover,
+.flag-mute.action-unflag a{
+  background-image: url('../images/unmute.svg');
+}

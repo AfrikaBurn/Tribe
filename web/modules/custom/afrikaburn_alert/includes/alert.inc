@@ -119,8 +119,7 @@ function _comment_users($type, $collective, $subject){
 function _create_users($type, $collective, $subject){
   return array_diff(
     array_column($collective->field_col_members->getValue(), 'target_id'),
-    _muted($collective),
-    _muted($subject)
+    _muted($collective)
   );
 }
 

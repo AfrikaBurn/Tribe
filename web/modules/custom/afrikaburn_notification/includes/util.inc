@@ -43,6 +43,8 @@ function _notify($to, $from_label, $from_address, $bcc, $subject, $message, $nod
  */
 function _meta_collective($entity){
 
+  module_load_include('inc', 'afrikaburn_alert', 'includes/alert');
+
   $members = [];
   $addresses = [];
   $collective = $entity->bundle() == 'collective'
@@ -65,7 +67,7 @@ function _meta_collective($entity){
 
   return [
     'title' => $title,
-    'members' => implode(',' ,$addresses),
+    'members' => implode(',', array_diff($addresses, _muted($collective))),
   ];
 }
 
