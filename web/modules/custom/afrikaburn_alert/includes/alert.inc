@@ -22,49 +22,47 @@ function _alert($action, $collective, $subject){
       )
     );
 
-    if (count($users)){
 
-      $source = [
-        'type' => 'alert',
-        'field_alert_action' => [
-          array_search(
-            $action,
-            [
-              'post',
-              'comment',
-              'create',
-              'update',
-              'delete',
-              'complete',
-            ]
-          )
-        ],
-        'field_alert_collective' => [$collective],
-      ];
+    $source = [
+      'type' => 'alert',
+      'field_alert_action' => [
+        array_search(
+          $action,
+          [
+            'post',
+            'comment',
+            'create',
+            'update',
+            'delete',
+            'complete',
+          ]
+        )
+      ],
+      'field_alert_collective' => [$collective],
+    ];
 
-      switch($action){
-        case 'post':
-          $source['field_alert_post'] = $subject;
-        break;
-        case 'comment':
-          $source['field_alert_comment'] = $subject;
-          $source['field_alert_post'] = $subject->getParentComment();
-        break;
-        default:
-          $source['field_alert_project'] = $subject;
-      }
+    switch($action){
+      case 'post':
+        $source['field_alert_post'] = $subject;
+      break;
+      case 'comment':
+        $source['field_alert_comment'] = $subject;
+        $source['field_alert_post'] = $subject->getParentComment();
+      break;
+      default:
+        $source['field_alert_project'] = $subject;
+    }
 
-      $alert = \Drupal::entityTypeManager()
-        ->getStorage('node')
-        ->create($source);
-      $alert->save();
+    $alert = \Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->create($source);
+    $alert->save();
 
-      $flag = \Drupal::service('flag');
-      $unread = $flag->getFlagById('unread');
-      foreach($users as $user){
-        if (!$flag->getFlagging($unread, $alert, $user)) {
-          $flag->flag($unread, $alert, $user);
-        }
+    $flag = \Drupal::service('flag');
+    $unread = $flag->getFlagById('unread');
+    foreach($users as $user){
+      if (!$flag->getFlagging($unread, $alert, $user)) {
+        $flag->flag($unread, $alert, $user);
       }
     }
   }
