@@ -35,9 +35,9 @@ third_party_settings:
           layout_class: {  }
     regions:
       ds_content:
-        - flag_mute
         - field_picture
         - field_col_description
+        - flag_mute
         - post_something
         - posts
 id: node.collective.default
@@ -46,7 +46,7 @@ bundle: collective
 mode: default
 content:
   field_col_description:
-    weight: 2
+    weight: 1
     label: hidden
     settings:
       trim_length: 600
@@ -54,7 +54,7 @@ content:
     type: text_trimmed
     region: ds_content
   field_picture:
-    weight: 1
+    weight: 0
     label: hidden
     settings:
       colorbox_node_style: ''
@@ -68,7 +68,7 @@ content:
     type: colorbox
     region: ds_content
   flag_mute:
-    weight: 0
+    weight: 2
     region: ds_content
     settings: {  }
     third_party_settings: {  }
