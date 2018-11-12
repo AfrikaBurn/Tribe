@@ -84,3 +84,20 @@ function afrikaburn_alert_node_update($entity){
   }
 }
 
+/**
+ * Implements hook_ENTITY_TYPE_predelete.
+ */
+function afrikaburn_alert_node_predelete($entity){
+  module_load_include('inc', 'afrikaburn_alert', 'includes/alert');
+
+  $bundle = $entity->bundle();
+
+  if (in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
+    _alert(
+      'delete',
+      $entity->field_collective->entity,
+      $entity
+    );
+  }
+}
+
