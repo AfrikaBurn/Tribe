@@ -1,17 +1,19 @@
-uuid: 2b05e025-6608-4a38-8389-0f3543e7acd9
+uuid: 2c065d91-bcde-4eb5-ae4d-dfa29cc9482d
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.notification.field_notification_collective
-    - field.field.node.notification.field_notification_subject
-    - field.field.node.notification.field_notification_type
-    - node.type.notification
+    - field.field.node.alert.field_alert_action
+    - field.field.node.alert.field_alert_collective
+    - field.field.node.alert.field_alert_comment
+    - field.field.node.alert.field_alert_post
+    - field.field.node.alert.field_alert_project
+    - node.type.alert
   module:
     - path
-id: node.notification.default
+id: node.alert.default
 targetEntityType: node
-bundle: notification
+bundle: alert
 mode: default
 content:
   created:
@@ -20,7 +22,31 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_notification_collective:
+  field_alert_action:
+    weight: 123
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_alert_collective:
+    weight: 121
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_alert_comment:
+    weight: 126
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_alert_post:
     weight: 124
     settings:
       match_operator: CONTAINS
@@ -29,20 +55,14 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_notification_subject:
-    weight: 123
+  field_alert_project:
+    weight: 125
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: entity_reference_autocomplete
-    region: content
-  field_notification_type:
-    weight: 122
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
     region: content
   path:
     type: path

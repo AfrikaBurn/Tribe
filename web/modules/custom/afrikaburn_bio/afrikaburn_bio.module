@@ -33,6 +33,9 @@ function afrikaburn_bio_page_attachments(&$page) {
 }
 
 
+/* ----- Form Hooks ----- */
+
+
 /**
  * Implements hook_form_FOMR_ID_alter().
  * Sets form titles, Add validation, Add submission handlers
@@ -219,10 +222,79 @@ function afrikaburn_bio_mail_validate($form, &$form_state) {
  */
 function afrikaburn_bio_theme(){
   return [
+
     'views_view_table__wrangle_people' => [
       'base hook' => 'view',
     ],
+
+    'user__full_name' => [
+      'template' => 'user--full-name',
+      'base hook' => 'user',
+    ],
+    'field__full_name' => [
+      'template' => 'field--user',
+      'base hook' => 'field',
+    ],
+
+    'user__web_view' => [
+      'template' => 'user--web-view',
+      'base hook' => 'user',
+    ],
+    'field__web_view' => [
+      'template' => 'field--user',
+      'base hook' => 'field',
+    ],
+
   ];
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter
+ */
+function afrikaburn_bio_theme_suggestions_user_alter(array &$suggestions, array $variables, $hook) {
+  $suggestions[] = $variables['theme_hook_original'] . '__' . str_replace('-', '_', $variables['elements']['#view_mode']);
+  return $suggestions;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter
+ */
+function afrikaburn_bio_theme_suggestions_field_alter(&$suggestions, $variables) {
+  $suggestions[] =
+    'field__' .
+    $variables['element']['#view_mode'];
+}
+
+
+/* ----- Field Hooks ----- */
+
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function afrikaburn_bio_entity_extra_field_info() {
+  $extra = [];
+
+  $extra['user']['user']['display']['username'] =[
+    'label' => t('Username'),
+    'description' => t('The users chosen username'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
+  return $extra;
+}
+
+/**
+ * Implements hook_user_view().
+ */
+function afrikaburn_bio_user_view(&$build, $user, $display, $mode) {
+  if ($display->getComponent('username')) {
+    $build['username'] = [
+      '#type' => 'markup',
+      '#markup' => $user->link($user->name->value),
+    ];
+  }
 }
 
 

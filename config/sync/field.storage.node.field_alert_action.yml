@@ -1,4 +1,4 @@
-uuid: 04b6f4cb-a6a6-4482-9856-9c49d700761c
+uuid: 9538f393-03a4-42ff-a154-7cb90419a8bb
 langcode: en
 status: true
 dependencies:
@@ -9,30 +9,30 @@ dependencies:
 third_party_settings:
   field_permissions:
     permission_type: public
-id: node.field_notification_type
-field_name: field_notification_type
+id: node.field_alert_action
+field_name: field_alert_action
 entity_type: node
-type: list_string
+type: list_integer
 settings:
   allowed_values:
     -
-      value: post
-      label: post
+      value: 0
+      label: posted
     -
-      value: comment
-      label: comment
+      value: 1
+      label: 'commented on'
     -
-      value: reply
-      label: reply
+      value: 2
+      label: 'created the'
     -
-      value: invited
-      label: invited
+      value: 3
+      label: 'updated the'
     -
-      value: created
-      label: created
+      value: 4
+      label: 'deleted the'
     -
-      value: updated
-      label: updated
+      value: 5
+      label: 'completed the'
   allowed_values_function: ''
 module: options
 locked: false

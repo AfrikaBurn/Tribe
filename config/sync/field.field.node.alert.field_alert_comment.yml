@@ -1,32 +1,32 @@
-uuid: 0ede0246-8b96-4092-aba1-eed92f2c0237
+uuid: bb45b1e9-55f6-49dc-a340-53e325ab1434
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_notification_collective
-    - node.type.collective
-    - node.type.notification
+    - comment.type.comment
+    - field.storage.node.field_alert_comment
+    - node.type.alert
   module:
     - custom_add_another
 third_party_settings:
   custom_add_another:
     custom_add_another: ''
     custom_remove: ''
-id: node.notification.field_notification_collective
-field_name: field_notification_collective
+id: node.alert.field_alert_comment
+field_name: field_alert_comment
 entity_type: node
-bundle: notification
-label: Collective
+bundle: alert
+label: Comment
 description: ''
 required: false
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  handler: 'default:node'
+  handler: 'default:comment'
   handler_settings:
     target_bundles:
-      collective: collective
+      comment: comment
     sort:
       field: _none
     auto_create: false

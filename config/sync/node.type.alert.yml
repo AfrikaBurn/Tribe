@@ -1,4 +1,4 @@
-uuid: 124cef56-3715-47d8-aca4-1e658b040916
+uuid: e81488f4-fa48-410d-b4d7-72f104e77216
 langcode: en
 status: true
 dependencies:
@@ -6,13 +6,12 @@ dependencies:
     - menu_ui
 third_party_settings:
   menu_ui:
-    available_menus:
-      - main
-    parent: 'main:'
-name: Notification
-type: notification
+    available_menus: {  }
+    parent: ''
+name: Alert
+type: alert
 description: ''
 help: ''
 new_revision: false
-preview_mode: 1
+preview_mode: 0
 display_submitted: false

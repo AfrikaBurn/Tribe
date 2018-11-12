@@ -21,7 +21,7 @@ settings:
   label: 'Entity view (User)'
   provider: ctools
   label_display: '0'
-  view_mode: compact
+  view_mode: web_view
   context_mapping:
     entity: '@user.current_user_context:current_user'
 visibility: {  }

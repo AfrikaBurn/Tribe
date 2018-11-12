@@ -7,11 +7,11 @@ dependencies:
 id: unread
 label: Unread
 bundles:
-  - notification
+  - alert
 entity_type: node
 global: false
 weight: 0
-flag_short: Flag
+flag_short: 'Oops, Undo!'
 flag_long: ''
 flag_message: ''
 unflag_short: Dismiss
@@ -19,10 +19,10 @@ unflag_long: ''
 unflag_message: ''
 unflag_denied_text: ''
 flag_type: 'entity:node'
-link_type: reload
+link_type: ajax_link
 flagTypeConfig:
   show_in_links: {  }
-  show_as_field: false
+  show_as_field: true
   show_on_form: false
   show_contextual_link: false
   extra_permissions:

@@ -33,6 +33,12 @@
 #}
 
 <article class="collective-post">
+  <a name="comment-{{ fields.cid.content|striptags|trim }}"></a>
+  <header>
+    {{ fields.view_comment.content }}
+    {{ fields.edit_comment.content }}
+    {{ fields.delete_comment.content }}
+  </header>
   <main>
     <div class="image">{{ fields.user_picture.content }}</div>
     <div class="comment">
@@ -42,8 +48,6 @@
   </main>
   <footer>
     {{ fields.created.content }}
-    {{ fields.edit_comment.content }}
-    {{ fields.delete_comment.content }}
     <aside>
       {{ fields.view.content }}
       {% if fields.replyto_comment.content %}
