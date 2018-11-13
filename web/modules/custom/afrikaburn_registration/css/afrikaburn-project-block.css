@@ -37,7 +37,7 @@ div.body-content .block .view-id-collective_projects table td.name > a{
 }
 div.body-content .block .view-id-collective_projects table td.name .flag-mute a{
   height: 15px;
-  padding: 0 15px;
+  width: 15px;
   font-size: 80%;
   margin: 0;
 }

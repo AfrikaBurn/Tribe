@@ -1,28 +1,28 @@
-uuid: 7026f7d8-83ee-4bbf-abaf-f9ca315deee7
+uuid: d2ffc9c4-2125-4970-8005-2072bee4e0eb
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: unread
-label: Unread
+id: bookmark
+label: Bookmark
 bundles:
   - alert
 entity_type: node
 global: false
 weight: 0
-flag_short: 'Oops, Undo!'
-flag_long: 'Oops, Undo!'
+flag_short: Bookmark
+flag_long: 'Bookmark this'
 flag_message: ''
-unflag_short: Dismiss
-unflag_long: 'Dismiss this'
+unflag_short: Forget
+unflag_long: 'Forget this'
 unflag_message: ''
 unflag_denied_text: ''
 flag_type: 'entity:node'
 link_type: ajax_link
 flagTypeConfig:
   show_in_links: {  }
-  show_as_field: true
+  show_as_field: false
   show_on_form: false
   show_contextual_link: false
   extra_permissions:

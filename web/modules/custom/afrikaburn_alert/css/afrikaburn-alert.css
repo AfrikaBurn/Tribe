@@ -26,12 +26,6 @@
   align-items: center;
 }
 
-.alert header div.flag{
-  position: absolute;
-  top: 5px;
-  right: 10px;
-}
-
 .alert header img{
   margin: 0 5px 0 0;
 }
@@ -40,7 +34,7 @@
   margin: 0 0 0 5px;
 }
 
-.alert .flag-unread.action-unflag{
+.alert .action-unflag{
   visibility: hidden;
 }
 
@@ -75,19 +69,42 @@
   float: left;
 }
 
+
+
+.flag a{
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: transparent !important;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+}
+
+.flag .ajax-progress{
+  display: none;
+}
+
+.alert .flags{
+  display: flex;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.alert .flag,
+.alert .flag-waiting{
+  visibility: hidden;
+}
+.alert .flag:hover{
+  visibility: visible;
+}
+
 .flag-mute{
   text-align: right;
 }
-
 .flag-mute a{
-  display: inline-block;
-  height: 25px;
-  background-position: right center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  padding: 5px 33px 0 0;
   margin-bottom: 10px;
-  color: transparent;
 }
 .flag-mute.action-unflag a:hover,
 .flag-mute.action-flag a{
@@ -96,4 +113,24 @@
 .flag-mute.action-flag a:hover,
 .flag-mute.action-unflag a{
   background-image: url('../images/unmute.svg');
+}
+
+.alert .flag-unread a{
+  background-image: url('../images/close.svg');
+}
+.flag-unread.action-flag a{
+  background-image: url('../images/undo.svg');
+}
+
+.alert .flag-bookmark a{
+  background-image: url('../images/unbookmark.svg');
+}
+.alert .flag-bookmark.action-unflag{
+  visibility: visible;
+}
+.alert .flag-bookmark.action-unflag a{
+  background-image: url('../images/bookmark.svg');
+}
+.alert .flag-bookmark.action-unflag a:hover{
+  background-image: url('../images/unbookmark.svg');
 }

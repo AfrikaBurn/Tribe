@@ -1,22 +1,26 @@
+{% set action = fields.field_alert_action.content|striptags|trim %}
 <article class="alert">
   <header>
     {{ fields.user_picture.content }}
     <div>
       {{ fields.uid.content }}
-      {% if fields.field_alert_action.content|striptags|trim == "posted" %}
+      {% if action == "posted" %}
         {{ fields.field_alert_post.content }}
       {% else %}
         {{ fields.field_alert_action.content }}
       {% endif %}
       {{ fields.type.content }}
       {{ fields.field_alert_project.content }}
-      {% if fields.field_alert_action.content|striptags|trim == "commented on" %}
+      {% if action == "commented on" %}
         {{ fields.name.content }}'s {{ fields.field_alert_post.content }}
       {% endif %}
       in
       {{ fields.field_alert_collective.content }}
     </div>
-    {{ fields.link_flag.content }}
+    <div class="flags">
+      {{ fields.link_flag.content }}
+      {{ fields.link_flag_1.content }}
+    </div>
   </header>
   <main>
     {% if fields.field_prj_gen_concept or fields.field_prj_wtf_image %}
@@ -26,7 +30,8 @@
       </div>
     {% endif %}
     {{ fields.field_prj_gen_description.content }}
-    {% if fields.field_alert_action.content|striptags|trim == "posted" %}
+    {{ changes }}
+    {% if action == "posted" %}
       {{ fields.comment_body.content }}
     {% else %}
       {{ fields.comment_body_2.content }}

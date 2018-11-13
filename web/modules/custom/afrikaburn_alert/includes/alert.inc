@@ -22,7 +22,6 @@ function _alert($action, $collective, $subject){
       )
     );
 
-
     $source = [
       'type' => 'alert',
       'field_alert_action' => [
@@ -34,7 +33,7 @@ function _alert($action, $collective, $subject){
             'create',
             'update',
             'delete',
-            'complete',
+            // 'complete',
           ]
         )
       ],
@@ -49,7 +48,9 @@ function _alert($action, $collective, $subject){
         $source['field_alert_comment'] = $subject;
         $source['field_alert_post'] = $subject->getParentComment();
       break;
-      default:
+      case 'update':
+      case 'create':
+      case 'delete':
         $source['field_alert_project'] = $subject;
     }
 
@@ -78,7 +79,17 @@ function _alert($action, $collective, $subject){
 function _muted($entity){
   $flag = \Drupal::service('flag');
   $mute = $flag->getFlagById('mute');
-  return $flag->getFlaggingUsers($entity, $mute);
+  return array_map(
+    '_uid',
+    $flag->getFlaggingUsers($entity, $mute)
+  );
+}
+
+/**
+ * Reduce user to uid
+ */
+function _uid($user){
+  return $user->uid->value;
 }
 
 

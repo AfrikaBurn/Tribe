@@ -12,8 +12,8 @@
       $(
         () => {
 
-          $(context).find('.action-unflag:not(.flag-processed)').add(
-            $(context).filter('.action-unflag:not(.flag-processed)')
+          $(context).find('.flag-unread.action-unflag:not(.flag-processed)').add(
+            $(context).filter('.flag-unread.action-unflag:not(.flag-processed)')
           ).each(
             (index, element) => {
               $(element).addClass('flag-processed').find('a.use-ajax').click(
@@ -22,7 +22,7 @@
             }
           )
 
-          $(context).parent().find('.action-flag:not(.flag-processed)').each(
+          $(context).parent().find('.flag-unread.action-flag:not(.flag-processed)').each(
             (index, element) => {
               $(element).addClass('flag-processed').find('a.use-ajax').click(
                 (event) => $(event.target).parents('article.alert').stop().animate( { height: 'toggle', opacity: 1}, 1000)
