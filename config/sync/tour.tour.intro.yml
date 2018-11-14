@@ -16,9 +16,10 @@ tips:
     plugin: text
     label: 'Bio Bar'
     weight: -100
-    attributes: {  }
+    attributes:
+      data-id: block-bioblock
     body: 'Check out your Bio, Newsfeed, Activity and Bookmarks here.'
-    location: top
+    location: right
   collectives:
     id: collectives
     plugin: text

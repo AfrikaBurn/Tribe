@@ -613,8 +613,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value: ''
+          operator: in
+          value: {  }
           group: 1
           exposed: true
           expose:
@@ -650,8 +650,10 @@ display:
               volunteer_admin: '0'
               ranger_admin: '0'
               sanctuary_admin: '0'
+              logger: '0'
+            reduce: 0
             placeholder: ''
-          is_grouped: true
+          is_grouped: false
           group_info:
             label: ''
             description: ''
@@ -695,8 +697,8 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: '='
-          value: ''
+          operator: in
+          value: {  }
           group: 1
           exposed: true
           expose:
@@ -732,6 +734,8 @@ display:
               volunteer_admin: '0'
               ranger_admin: '0'
               sanctuary_admin: '0'
+              logger: '0'
+            reduce: 0
             placeholder: ''
           is_grouped: false
           group_info:
