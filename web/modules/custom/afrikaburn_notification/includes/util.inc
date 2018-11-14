@@ -43,6 +43,8 @@ function _notify($to, $from_label, $from_address, $bcc, $subject, $message, $nod
  */
 function _meta_collective($entity){
 
+  module_load_include('inc', 'afrikaburn_alert', 'includes/alert');
+
   $members = [];
   $addresses = [];
   $collective = $entity->bundle() == 'collective'
@@ -53,9 +55,12 @@ function _meta_collective($entity){
       ->getTarget();
 
   if ($collective) {
-    $members = $collective
-      ->get('field_col_members')
-      ->referencedEntities();
+    $member_uids = array_diff(
+      array_column($collective->get('field_col_members')->getValue(), 'target_id'),
+      _muted($collective)
+    );
+    $members = user_load_multiple($member_uids);
+
     foreach ($members as $member) {
       $email = $member->getEmail();
       $addresses[$email] = $email;
@@ -65,7 +70,7 @@ function _meta_collective($entity){
 
   return [
     'title' => $title,
-    'members' => implode(',' ,$addresses),
+    'members' => implode(',', $addresses),
   ];
 }
 

@@ -1,0 +1,117 @@
+uuid: b1c695d5-86d4-46df-a493-ef622e11a000
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.full_name
+    - field.field.user.user.field_agreements
+    - field.field.user.user.field_country
+    - field.field.user.user.field_date_of_birth
+    - field.field.user.user.field_district
+    - field.field.user.user.field_email
+    - field.field.user.user.field_email_retype
+    - field.field.user.user.field_emr_email
+    - field.field.user.user.field_emr_name
+    - field.field.user.user.field_emr_telephone
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_gender
+    - field.field.user.user.field_id_number
+    - field.field.user.user.field_kids_and_teens
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_links
+    - field.field.user.user.field_location
+    - field.field.user.user.field_mobile
+    - field.field.user.user.field_newsletter
+    - field.field.user.user.field_other_burns
+    - field.field.user.user.field_participation
+    - field.field.user.user.field_quicket_code
+    - field.field.user.user.field_quicket_id
+    - field.field.user.user.field_secondary_mail
+    - field.field.user.user.field_terms_and_conditions
+    - field.field.user.user.user_picture
+    - image.style.small_50x50
+  module:
+    - empty_fields
+    - image
+    - user
+_core:
+  default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
+id: user.user.full_name
+targetEntityType: user
+bundle: user
+mode: full_name
+content:
+  field_first_name:
+    type: string
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_guardian_doc:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_last_name:
+    type: string
+    weight: 3
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_parent:
+    weight: 7
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  user_picture:
+    type: image
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      image_style: small_50x50
+      image_link: ''
+    third_party_settings:
+      empty_fields:
+        handler: ''
+  username:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_agreements: true
+  field_country: true
+  field_date_of_birth: true
+  field_district: true
+  field_email: true
+  field_email_retype: true
+  field_emr_email: true
+  field_emr_name: true
+  field_emr_telephone: true
+  field_gender: true
+  field_id_number: true
+  field_kids_and_teens: true
+  field_links: true
+  field_location: true
+  field_mobile: true
+  field_newsletter: true
+  field_other_burns: true
+  field_participation: true
+  field_quicket_code: true
+  field_quicket_id: true
+  field_secondary_mail: true
+  field_terms_and_conditions: true
+  masquerade: true
+  member_for: true

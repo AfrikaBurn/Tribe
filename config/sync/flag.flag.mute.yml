@@ -1,0 +1,34 @@
+uuid: edc0c07f-ce60-40dc-9f03-25fa5b7ef0bd
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: mute
+label: Mute
+bundles:
+  - art
+  - collective
+  - mutant_vehicles
+  - performances
+  - theme_camps
+entity_type: node
+global: false
+weight: 0
+flag_short: Mute
+flag_long: 'Stop receiving alert notifications about this.'
+flag_message: ''
+unflag_short: Unmute
+unflag_long: 'You have muted this and will not receive alerts. Click to receive notifications again.'
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+linkTypeConfig: {  }

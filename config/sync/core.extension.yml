@@ -3,6 +3,7 @@ module:
   admin_toolbar: 0
   admin_toolbar_tools: 0
   adminimal_admin_toolbar: 0
+  afrikaburn_alert: 0
   afrikaburn_application: 0
   afrikaburn_bio: 0
   afrikaburn_collective: 0
@@ -105,7 +106,6 @@ module:
   pfdp: 0
   php: 0
   prlp: 0
-  quickedit: 0
   rdf: 0
   recaptcha: 0
   redirect: 0
@@ -130,6 +130,7 @@ module:
   token_filter: 0
   toolbar: 0
   tour: 0
+  tour_ui: 0
   tracker: 0
   typed_data: 0
   update: 0

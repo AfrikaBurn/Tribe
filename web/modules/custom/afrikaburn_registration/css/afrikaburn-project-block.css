@@ -32,6 +32,15 @@ div.body-content .block .view-id-collective_projects table td.name{
   padding: 5px 10px;
   border-top: 10px solid #350b04;
 }
+div.body-content .block .view-id-collective_projects table td.name > a{
+  float: left;
+}
+div.body-content .block .view-id-collective_projects table td.name .flag-mute a{
+  height: 15px;
+  width: 15px;
+  font-size: 80%;
+  margin: 0;
+}
 
 div.body-content .block .view-id-collective_projects table td.name span{
   display: block;
@@ -137,3 +146,4 @@ div.body-content .block .view-id-collective_projects .messages--archive:before{
   color: #fff;
   line-height: 110%;
 }
+

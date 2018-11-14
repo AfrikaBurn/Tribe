@@ -126,7 +126,7 @@ third_party_settings:
         - group_wtf_guide
         - group_other
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: tabs
       format_settings:
         label: 'Project Registration'
@@ -334,7 +334,7 @@ third_party_settings:
         - field_collective
         - field_form_mode
       parent_name: ''
-      weight: 0
+      weight: 1
       format_type: details
       format_settings:
         id: ''
@@ -1534,6 +1534,11 @@ content:
     label: above
   flag:
     weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  flag_mute:
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -692,11 +692,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  links:
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   moderation_state:
     weight: 38
     settings:
@@ -803,6 +798,8 @@ hidden:
   field_tc_type: true
   field_vp_ea: true
   field_year_cycle: true
+  flag_mute: true
+  links: true
   path: true
   promote: true
   status: true

@@ -20,7 +20,7 @@ class BioBlock extends BlockBase {
       t($text),
       \Drupal\Core\Url::fromUri(
         'internal:/'.$uri,
-	['set_active_class' => TRUE]
+	      ['set_active_class' => TRUE]
       )
     );
   }
@@ -38,17 +38,19 @@ class BioBlock extends BlockBase {
     $quicket_code = $account->get('field_quicket_code');
 
     $items = [
-      $this::l('View my Bio', 'user'),
       $outdated
-        ? $this::l('Update my Bio', 'user/'.$uid.'/edit/update')
-        : $this::l('Edit my Bio', 'user/'.$uid.'/edit'),
+      ? $this::l('Update my details', 'user/'.$uid.'/edit/update')
+      : $this::l('My details', 'user'),
+      $this::l('News feed', ''),
+      $this::l('Activity', 'my/activity'),
+      $this::l('Bookmarks', 'my/bookmarks'),
+      '<ul><li></li><li>'.$this::l('Delete my Bio', 'user/'.$uid.'/cancel').'</li></ul>',
       $this::l('Log out', 'user/logout'),
-      '<ul><li></li><li>'.$this::l('Delete my Bio', 'user/'.$uid.'/cancel').'</li></ul>'
     ];
 
     return [
       '#type' => 'markup',
-      '#markup' => implode($items, '<br />'),
+      '#markup' => implode($items),
       '#cache' => [
         'max-age' => 0,
       ]

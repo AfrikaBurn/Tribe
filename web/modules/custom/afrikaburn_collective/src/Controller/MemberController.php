@@ -328,13 +328,15 @@ class MemberController extends ControllerBase {
       'value'
     );
 
-    return array_filter(
-      [
-        array_search($user_mails[0], $mail_invites),
-        isset($user_mails[1]) ? array_search($user_mails[1], $mail_invites) : FALSE,
-        array_search(\Drupal::request()->get('token'), $token_invites)
-      ],
-      'is_int'
+    return array_unique(
+      array_filter(
+        [
+          array_search($user_mails[0], $mail_invites),
+          isset($user_mails[1]) ? array_search($user_mails[1], $mail_invites) : FALSE,
+          array_search(\Drupal::request()->get('token'), $token_invites)
+        ],
+        'is_int'
+      )
     );
   }
 

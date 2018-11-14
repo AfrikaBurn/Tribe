@@ -37,6 +37,7 @@ third_party_settings:
       ds_content:
         - field_picture
         - field_col_description
+        - flag_mute
         - post_something
         - posts
 id: node.collective.default
@@ -66,13 +67,18 @@ content:
     third_party_settings: {  }
     type: colorbox
     region: ds_content
-  post_something:
+  flag_mute:
     weight: 2
     region: ds_content
     settings: {  }
     third_party_settings: {  }
-  posts:
+  post_something:
     weight: 3
+    region: ds_content
+    settings: {  }
+    third_party_settings: {  }
+  posts:
+    weight: 4
     region: ds_content
     settings: {  }
     third_party_settings: {  }

@@ -30,20 +30,31 @@
 
 .view-my-collectives .view-content .views-field-new-comments{
   position: absolute;
-  top: 0;
+  top: -5px;
   right: 0;
   width: 25px;
   min-width: 25px;
-  height: 25px;
   text-align: center;
   text-shadow: 0 0 2px #000;
   font-weight: 900;
-  line-height: 25px;
+}
+
+.view-my-collectives .view-content .views-field-new-comments a{
+  display: block;
+  height: 15px;
+  line-height: 15px;
+  background: #961116;
+  border-radius: 10px;
+  font-size: 80%;
 }
 
 .view-my-collectives .view-content .views-field-title{
   padding-top: 2.5px;
   width: 110px;
+}
+.view-my-collectives .view-content .views-row:hover{
+  background-color: #370c13;
+  border-radius: 15px 0 0 15px;
 }
 
 #block-views-block-my-collectives-invitations .button{
@@ -124,10 +135,6 @@
   text-align: left;
 }
 
-.view-collective-posts article.collective-post footer a{
-  padding: 0 5px;
-}
-
 .view-collective-posts details{
   border: none;
   padding: 0;
@@ -198,4 +205,32 @@ form.node-collective-form details summary {
   color: #f26c55;
   padding: 9px 0 18px;
   cursor: pointer;
+}
+
+form.node-collective-edit-form details{
+  display: none;
+}
+
+.view-collective-posts article.collective-post{
+  position: relative;
+}
+
+.view-collective-posts article.collective-post header{
+  position: absolute;
+  right: 0px;
+  visibility: hidden;
+}
+
+article.collective-post header a{
+  padding: 0 5px;
+}
+
+.view-collective-posts article.collective-post footer details{
+  visibility: hidden;
+}
+
+.view-collective-posts article.collective-post:hover > header,
+.view-collective-posts article.collective-post footer details[open],
+.view-collective-posts article.collective-post:hover footer details{
+  visibility: visible;
 }
