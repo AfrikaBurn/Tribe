@@ -57,7 +57,7 @@ function _meta_collective($entity){
   if ($collective) {
     $member_uids = array_diff(
       array_column($collective->get('field_col_members')->getValue(), 'target_id'),
-      _muted($collective->getValue())
+      _muted($collective)
     );
     $members = user_load_multiple($member_uids);
 
