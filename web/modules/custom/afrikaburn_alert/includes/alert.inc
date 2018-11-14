@@ -115,6 +115,7 @@ function _comment_users($type, $collective, $subject){
   $comments->condition('c.pid', $subject->getParentComment()->cid->value);
   $comments->fields('c', ['uid']);
   $users = array_unique($comments->execute()->fetchCol());
+  $users[] = array_column($subject->getParentComment()->uid->getValue(), 'target_id')[0];
 
   return array_diff(
     $users,
