@@ -2508,7 +2508,7 @@ display:
           empty: true
           tokenize: false
           content:
-            value: 'Nope, Nothing yet!'
+            value: "This shows posts or comments you've made in a collective, projects you start, update or remove...\r\n\r\nAlas, no activity yet!"
             format: basic_html
           plugin_id: text
       relationships:

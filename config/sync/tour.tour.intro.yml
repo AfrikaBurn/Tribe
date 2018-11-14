@@ -1,0 +1,29 @@
+uuid: cea68b40-6dde-418e-8ff9-9900990c33bf
+langcode: en
+status: true
+dependencies:
+  module:
+    - tour_ui
+id: intro
+label: Intro
+module: tour_ui
+routes:
+  -
+    route_name: /
+tips:
+  bio-bar:
+    id: bio-bar
+    plugin: text
+    label: 'Bio Bar'
+    weight: -100
+    attributes: {  }
+    body: 'Check out your Bio, Newsfeed, Activity and Bookmarks here.'
+    location: top
+  collectives:
+    id: collectives
+    plugin: text
+    label: Collectives
+    weight: -100
+    attributes: null
+    body: 'Use collectives to group your people so you can collaborate and register projects'
+    location: right
