@@ -1,9 +1,9 @@
-uuid: 0350050e-7c81-447c-85ab-8e141c570f9a
+uuid: 381f16ff-0fc5-470e-8b27-936c48c1b200
 langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_grt_awarded
+    - field.storage.node.field_mv_amount_worthy
     - node.type.mutant_vehicles
   module:
     - custom_add_another
@@ -11,11 +11,11 @@ third_party_settings:
   custom_add_another:
     custom_add_another: ''
     custom_remove: ''
-id: node.mutant_vehicles.field_grt_awarded
-field_name: field_grt_awarded
+id: node.mutant_vehicles.field_mv_amount_worthy
+field_name: field_mv_amount_worthy
 entity_type: node
 bundle: mutant_vehicles
-label: 'Amount awarded'
+label: 'Amount worthy'
 description: ''
 required: false
 translatable: false

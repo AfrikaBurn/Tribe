@@ -36,6 +36,8 @@ function _editable($id){
         'field_prj_adm_registration',
         'field_prj_snd_sound',
         'field_prj_snd_level',
+        'field_grt_awarded',
+        'field_mv_amount_worthy',
       ],
 
       'wrangle_theme_camps' => [
@@ -73,6 +75,8 @@ function _merge(){
       'field_prj_adm_wrangler',
       'field_prj_adm_review',
       'field_prjr_complete',
+      'field_grt_awarded',
+      'field_mv_amount_worthy',
     ],
   ];
 }
@@ -89,6 +93,8 @@ function _title($field){
     'field_placement_card' => FALSE,
     'field_placement_letter_sent' => FALSE,
     'field_prj_snd_level' => 'Sound level',
+    'field_grt_awarded' => false,
+    'field_mv_amount_worthy' => false,
   ])[$field];
 }
 

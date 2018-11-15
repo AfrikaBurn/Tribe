@@ -76,8 +76,13 @@ class RegistrationController extends ControllerBase {
           $target->set($field_name, $value);
         break;
 
+        // Integer
+        case 'integer':
+          $target->set($field_name, $value);
+        break;
+
         // Other
-        case count($parts) == 0:
+        default:
           if ($value == '_none') $value = NULL;
           $target->set($field, $value);
         break;

@@ -19,6 +19,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_grt_total
     - field.field.node.mutant_vehicles.field_grt_transport
     - field.field.node.mutant_vehicles.field_mutant_drivers
+    - field.field.node.mutant_vehicles.field_mv_amount_worthy
     - field.field.node.mutant_vehicles.field_prj_adm_registration
     - field.field.node.mutant_vehicles.field_prj_adm_review
     - field.field.node.mutant_vehicles.field_prj_adm_wrangler
@@ -175,6 +176,8 @@ third_party_settings:
         - field_prj_adm_wrangler
         - field_collective
         - field_form_mode
+        - field_mv_amount_worthy
+        - field_grt_awarded
         - field_prj_adm_registration
         - field_year_cycle
       parent_name: ''
@@ -213,6 +216,13 @@ content:
   field_grt_art_total:
     type: number
     weight: 16
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_grt_awarded:
+    type: number
+    weight: 6
     region: content
     settings:
       placeholder: ''
@@ -279,6 +289,13 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_mv_amount_worthy:
+    type: number
+    weight: 5
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_adm_review:
     type: entity_reference_autocomplete
     weight: 1
@@ -320,7 +337,6 @@ content:
 hidden:
   created: true
   field_admin_comments: true
-  field_grt_awarded: true
   field_grt_status: true
   field_mutant_drivers: true
   field_prj_adm_registration: true
