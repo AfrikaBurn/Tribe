@@ -8,6 +8,7 @@ filenames:
   performances: ''
   art: ''
   notification: ''
+  mutant_vehicles: ''
 bundles:
   announcement:
     body:
@@ -451,6 +452,28 @@ bundles:
       notes: ''
       bundle: mutant_vehicles
       name: field_prj_lnt_agree
+    field_mv_amount_worthy:
+      bundle: mutant_vehicles
+      name: field_mv_amount_worthy
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_grt_awarded:
+      bundle: mutant_vehicles
+      name: field_grt_awarded
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   performances:
     field_prj_gen_description:
       enabled: false
