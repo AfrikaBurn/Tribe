@@ -149,7 +149,6 @@ third_party_settings:
         - field_bke_location
         - field_bke_day
         - field_bke_time
-        - field_prj_oth_grant
       parent_name: group_project_registration
       weight: 21
       format_type: tab
@@ -344,13 +343,6 @@ content:
     third_party_settings: {  }
     type: erviews_options_select
     region: content
-  field_prj_oth_grant:
-    type: boolean_checkbox
-    weight: 9
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   field_prj_wtf_categories:
     type: options_buttons
     weight: 4
@@ -489,6 +481,7 @@ hidden:
   field_prj_lnt_signoff: true
   field_prj_lnt_type: true
   field_prj_oth_associated: true
+  field_prj_oth_grant: true
   field_prj_oth_mv: true
   field_prj_oth_other: true
   field_prj_oth_relationship: true

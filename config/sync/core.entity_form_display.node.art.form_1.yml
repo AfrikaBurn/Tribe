@@ -319,7 +319,6 @@ third_party_settings:
       children:
         - field_prj_oth_relationship
         - field_prj_oth_other
-        - field_prj_oth_grant
       parent_name: group_project_registration
       weight: 15
       format_type: tab
@@ -360,7 +359,7 @@ third_party_settings:
         - group_collaboration
         - group_other
       parent_name: ''
-      weight: 2
+      weight: 1
       format_type: tabs
       format_settings:
         label: 'Project Registration'
@@ -396,7 +395,7 @@ third_party_settings:
         - field_collective
         - field_form_mode
       parent_name: ''
-      weight: 1
+      weight: 0
       format_type: details
       format_settings:
         id: ''
@@ -725,13 +724,6 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_oth_grant:
-    type: boolean_checkbox
-    weight: 2
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   field_prj_oth_other:
     type: string_textarea
     weight: 1
@@ -1044,6 +1036,7 @@ hidden:
   field_prj_lnt_signoff: true
   field_prj_lnt_type: true
   field_prj_oth_associated: true
+  field_prj_oth_grant: true
   field_prj_oth_unregistered: true
   field_prj_plc_f1: true
   field_prj_plc_location_extra: true

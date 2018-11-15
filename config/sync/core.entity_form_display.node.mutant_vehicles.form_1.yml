@@ -19,6 +19,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_grt_total
     - field.field.node.mutant_vehicles.field_grt_transport
     - field.field.node.mutant_vehicles.field_mutant_drivers
+    - field.field.node.mutant_vehicles.field_mv_amount_worthy
     - field.field.node.mutant_vehicles.field_prj_adm_registration
     - field.field.node.mutant_vehicles.field_prj_adm_review
     - field.field.node.mutant_vehicles.field_prj_adm_wrangler
@@ -336,6 +337,8 @@ third_party_settings:
         - field_collective
         - field_form_mode
         - field_year_cycle
+        - field_mv_amount_worthy
+        - field_grt_awarded
       parent_name: ''
       weight: 0
       format_type: details
@@ -354,7 +357,7 @@ mode: form_1
 content:
   field_collective:
     type: entity_reference_autocomplete
-    weight: 12
+    weight: 10
     region: content
     settings:
       match_operator: CONTAINS
@@ -363,10 +366,17 @@ content:
     third_party_settings: {  }
   field_form_mode:
     type: string_textfield
-    weight: 13
+    weight: 11
     region: content
     settings:
       size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_grt_awarded:
+    type: number
+    weight: 14
+    region: content
+    settings:
       placeholder: ''
     third_party_settings: {  }
   field_mutant_drivers:
@@ -375,6 +385,13 @@ content:
     third_party_settings: {  }
     type: erviews_options_buttons
     region: content
+  field_mv_amount_worthy:
+    type: number
+    weight: 13
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_adm_notes:
     type: string_textarea
     weight: 2
@@ -404,7 +421,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_prj_brn_agree:
-    weight: 19
+    weight: 20
     settings:
       display_label: true
     third_party_settings:
@@ -444,14 +461,14 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_brn_burning:
-    weight: 15
+    weight: 16
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_brn_desc:
-    weight: 18
+    weight: 19
     settings:
       rows: 5
       placeholder: ''
@@ -492,7 +509,7 @@ content:
     type: string_textarea
     region: content
   field_prj_brn_person:
-    weight: 17
+    weight: 18
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -531,7 +548,7 @@ content:
     type: erviews_options_select
     region: content
   field_prj_brn_plan:
-    weight: 16
+    weight: 17
     settings:
       rows: 5
       placeholder: ''
@@ -659,13 +676,13 @@ content:
     type: string_textarea
     region: content
   field_prj_gen_base:
-    weight: 29
+    weight: 30
     settings: {  }
     third_party_settings: {  }
     type: options_select
     region: content
   field_prj_gen_concept:
-    weight: 31
+    weight: 32
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -687,7 +704,7 @@ content:
     type: string_textarea
     region: content
   field_prj_gen_doc:
-    weight: 32
+    weight: 33
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
@@ -700,7 +717,7 @@ content:
     type: erviews_options_select
     region: content
   field_prj_gen_mutating:
-    weight: 30
+    weight: 31
     settings:
       rows: 5
       placeholder: ''
@@ -714,7 +731,7 @@ content:
     type: erviews_options_select
     region: content
   field_prj_gen_story:
-    weight: 28
+    weight: 29
     settings:
       rows: 5
       placeholder: ''
@@ -940,7 +957,7 @@ content:
     type: string_textarea
     region: content
   field_prj_saf_mark:
-    weight: 67
+    weight: 68
     settings: {  }
     third_party_settings: {  }
     type: markup
@@ -960,7 +977,7 @@ content:
     type: options_buttons
     region: content
   field_prj_snd_agree:
-    weight: 13
+    weight: 14
     settings:
       display_label: true
     third_party_settings:
@@ -1080,7 +1097,7 @@ content:
     type: options_select
     region: content
   field_prj_snd_person:
-    weight: 14
+    weight: 15
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -1501,7 +1518,7 @@ content:
     region: content
   field_year_cycle:
     type: computed_number_widget
-    weight: 14
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -1522,7 +1539,6 @@ hidden:
   created: true
   field_admin_comments: true
   field_grt_art_total: true
-  field_grt_awarded: true
   field_grt_contribution: true
   field_grt_dmv_budget: true
   field_grt_materials: true

@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_grt_total
     - field.field.node.mutant_vehicles.field_grt_transport
     - field.field.node.mutant_vehicles.field_mutant_drivers
+    - field.field.node.mutant_vehicles.field_mv_amount_worthy
     - field.field.node.mutant_vehicles.field_prj_adm_registration
     - field.field.node.mutant_vehicles.field_prj_adm_review
     - field.field.node.mutant_vehicles.field_prj_adm_wrangler
@@ -125,6 +126,15 @@ targetEntityType: node
 bundle: mutant_vehicles
 mode: default
 content:
+  field_mv_amount_worthy:
+    weight: 11
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
   field_prj_gen_concept:
     type: colorbox
     weight: 0
@@ -171,6 +181,11 @@ content:
     region: content
   flag_archived:
     weight: 10
+    region: content
+  flag_mute:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
     region: content
 hidden:
   field_admin_comments: true
