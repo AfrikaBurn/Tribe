@@ -337,7 +337,9 @@ class MemberController extends ControllerBase {
         [
           array_search(\Drupal::request()->get('token'), $token_invites),
           array_search(
-            strtolower($user->mail->value), array_map('strtolower', $mail_invites))
+            strtolower($user->mail->value),
+            array_map('strtolower', $mail_invites)
+          )
         ],
         'is_int'
       )
