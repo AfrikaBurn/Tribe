@@ -86,18 +86,20 @@ class MemberController extends ControllerBase {
 
         return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $cid]));
 
-      } else drupal_set_message(
-        t('Oh no! Something went wrong! Please contact !admin',
-          ['!admin' => drupal_render(
-              [
-                '#markup' => '<a href="mailto:ict@afrikaburn.com?subject=Lost invitation to ' . $collective->getTitle()  . '">Sanghoma</a>'
-              ]
-            )
-          ]
-        ),
-        'warning',
-        TRUE
+      } else {
+        $error = [
+          '#markup' => '<a href="mailto:ict@afrikaburn.com?subject=Lost invitation to ' . $collective->getTitle()  . '">Sanghoma</a>'
+        ];
+
+        drupal_set_message(
+          t(
+            'Oh no! Something went wrong! Please contact !admin',
+            ['!admin' => drupal_render($error)]
+          ),
+          'warning',
+          TRUE
       );
+    }
 
     } else {
       drupal_set_message(
@@ -334,7 +336,8 @@ class MemberController extends ControllerBase {
       array_filter(
         [
           array_search(\Drupal::request()->get('token'), $token_invites),
-          array_search($user_mail = $user->mail->value, $mail_invites)
+          array_search(
+            strtolower($user->mail->value), array_map('strtolower', $mail_invites))
         ],
         'is_int'
       )
