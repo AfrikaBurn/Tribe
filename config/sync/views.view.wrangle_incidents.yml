@@ -938,7 +938,6 @@ display:
           search_fields:
             field_incident_type: field_incident_type
             field_description: field_description
-            term_node_tid: term_node_tid
             field_date_and_time: '0'
       defaults:
         fields: false
@@ -1144,81 +1143,6 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        term_node_tid:
-          id: term_node_tid
-          table: node_field_data
-          field: term_node_tid
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: true
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          type: separator
-          separator: ', '
-          link_to_taxonomy: false
-          limit: false
-          vids:
-            activity_types: '0'
-            artwork_size: '0'
-            base_vehicle: '0'
-            cost_type: '0'
-            departments: '0'
-            grant_review: '0'
-            incident_type: '0'
-            location: '0'
-            moop_score: '0'
-            moop_type: '0'
-            performer_types: '0'
-            planned_activities: '0'
-            sound_levels: '0'
-            subsidised_tickets_status: '0'
-            tags: '0'
-            theme_camp_location: '0'
-            type_of_expence: '0'
-            volunteer_roles: '0'
-            volunteer_skills: '0'
-            wrangler_review: '0'
-          entity_type: node
-          plugin_id: taxonomy_index_tid
       filters:
         type:
           id: type
