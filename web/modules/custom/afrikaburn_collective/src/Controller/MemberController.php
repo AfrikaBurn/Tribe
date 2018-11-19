@@ -87,7 +87,14 @@ class MemberController extends ControllerBase {
         return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $cid]));
 
       } else drupal_set_message(
-        t('Oh no! Something went wrong! Please contact !admin', ['!admin' => '<a href="mailto:ict@afrikaburn.com?subject=Lost invitation to ' . $collective->getTitle()  . '">Sanghoma</a>']),
+        t('Oh no! Something went wrong! Please contact !admin',
+          ['!admin' => drupal_render(
+              [
+                '#markup' => '<a href="mailto:ict@afrikaburn.com?subject=Lost invitation to ' . $collective->getTitle()  . '">Sanghoma</a>'
+              ]
+            )
+          ]
+        ),
         'warning',
         TRUE
       );
@@ -317,12 +324,7 @@ class MemberController extends ControllerBase {
       $collective->get('field_col_invite_mail')->getValue(),
       'value'
     );
-    $user_mails = array_column(
-      array_merge(
-        $user->get('mail')->getValue(), $user->get('field_secondary_mail')->getValue()
-      ),
-      'value'
-    );
+
     $token_invites = array_column(
       $collective->get('field_col_invite_token')->getValue(),
       'value'
@@ -331,9 +333,8 @@ class MemberController extends ControllerBase {
     return array_unique(
       array_filter(
         [
-          array_search($user_mails[0], $mail_invites),
-          isset($user_mails[1]) ? array_search($user_mails[1], $mail_invites) : FALSE,
-          array_search(\Drupal::request()->get('token'), $token_invites)
+          array_search(\Drupal::request()->get('token'), $token_invites),
+          array_search($user_mail = $user->mail->value, $mail_invites)
         ],
         'is_int'
       )
