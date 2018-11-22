@@ -11,15 +11,15 @@ subsidised.2018:
   title: "2018"
   base_route: afrikaburn_application.wrangle.subsidised
 
-community.stats:
-  route_name: afrikaburn_application.wrangle.community
+anathi.stats:
+  route_name: afrikaburn_application.wrangle.anathi
   title: Stats
-  base_route: afrikaburn_application.wrangle.community
-community.2019:
-  route_name: afrikaburn_application.wrangle.community-2019
+  base_route: afrikaburn_application.wrangle.anathi
+anathi.2019:
+  route_name: afrikaburn_application.wrangle.anathi-2019
   title: "2019"
-  base_route: afrikaburn_application.wrangle.community
-community.2018:
-  route_name: afrikaburn_application.wrangle.community-2018
+  base_route: afrikaburn_application.wrangle.anathi
+anathi.2018:
+  route_name: afrikaburn_application.wrangle.anathi-2018
   title: "2018"
-  base_route: afrikaburn_application.wrangle.community
+  base_route: afrikaburn_application.wrangle.anathi
