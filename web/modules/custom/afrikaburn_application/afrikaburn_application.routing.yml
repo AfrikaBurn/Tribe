@@ -18,15 +18,15 @@ afrikaburn_application.wrangle.subsidised-2018:
   path: '/wrangle/applications/subsidised/2018'
   options:
     _admin_route: TRUE
-afrikaburn_application.wrangle.community:
-  path: '/wrangle/applications/community-tickets-and-access-grants'
+afrikaburn_application.wrangle.anathi:
+  path: '/wrangle/applications/anathi-tickets-and-access-grants'
   options:
     _admin_route: TRUE
-afrikaburn_application.wrangle.community-2019:
-  path: '/wrangle/applications/community-tickets-and-access-grants/2019'
+afrikaburn_application.wrangle.anathi-2019:
+  path: '/wrangle/applications/anathi-tickets-and-access-grants/2019'
   options:
     _admin_route: TRUE
-afrikaburn_application.wrangle.community-2018:
-  path: '/wrangle/applications/community-tickets-and-access-grants/2018'
+afrikaburn_application.wrangle.anathi-2018:
+  path: '/wrangle/applications/anathi-tickets-and-access-grants/2018'
   options:
     _admin_route: TRUE
