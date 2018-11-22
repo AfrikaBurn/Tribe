@@ -19,7 +19,7 @@ settings:
   ajax: false
   ajax_scroll_top: form
   page: true
-  page_submit_path: /apply/community-tickets-and-access-grants
+  page_submit_path: /apply/anathi
   page_confirm_path: ''
   form_title: both
   form_submit_once: true
