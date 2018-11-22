@@ -1,0 +1,224 @@
+uuid: 9d95ae67-88d7-4bf1-b903-6099c633bc42
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: community_tna_2019
+title: 'Community Tickets and Access grants 2019'
+description: ''
+category: Application
+elements: "applicant_details:\n  '#type': webform_wizard_page\n  '#title': 'My details'\n  accessible_tickets:\n    '#type': webform_markup\n    '#markup': |\n      <p>These tickets are offered in acknowledgement of the disparity within South Africa and recognition that many economically marginalized individuals do not have the means to partake in AfrikaBurn. Because they are awarded to individuals on a case-by-case basis, Community tickets cannot be transferred, sold or refunded.<br />\n      <br />\n      In order to apply, each applicant will need to supply: a bank statement, pay slip or affidavit for each individual.<br />\n      <br />\n      Anyone can apply for an Access Grant - welfare and transport - on this form. If the applicant is awarded an Access Grant, they will be required to purchase your Community ticket and sign an agreement before funds or resources are released.</p>\n      \n  applicant_name:\n    '#type': textfield\n    '#title': 'Applicant name'\n    '#default_value': '[webform_submission:user:field_first_name] [webform_submission:user:field_last_name]'\n  applicant_email:\n    '#type': textfield\n    '#title': 'Applicant email'\n    '#default_value': '[webform_submission:user:field_email]'\n  applicant_id:\n    '#type': textfield\n    '#title': 'Applicant ID'\n    '#value': '[webform_submission:user:field_id_number]'\n  applicant_mobile:\n    '#type': textfield\n    '#title': 'Applicant Mobile'\n    '#value': '[webform_submission:user:field_mobile]'\napplication_details:\n  '#type': webform_wizard_page\n  '#title': 'Application details'\n  markup:\n    '#type': webform_markup\n    '#markup': '<h3>What is being applied for?</h3>'\n  tickets:\n    '#type': checkbox\n    '#title': 'Community ticket/s '\n    '#description': 'Community ticket sales open on 1 March&nbsp;@ 12h00 and close on 21 March&nbsp;@ 12h00'\n  method_of_purchase:\n    '#type': radios\n    '#title': 'Please confirm:'\n    '#title_display': before\n    '#options':\n      electronic: 'I am able to purchase tickets via Quicket (debit/credit card or EFT)'\n      paper: 'I will come to AfrikaBurn to purchase a Paper Ticket using cash'\n    '#states':\n      visible:\n        ':input[name=\"tickets\"]':\n          checked: true\n      required:\n        ':input[name=\"tickets\"]':\n          checked: true\n  transport:\n    '#type': checkbox\n    '#title': Transport\n    '#description': 'Transport provision is either a contribution towards fuel, or a seat on an overland truck departing from Cape Town on Monday 23 April and returning on Monday 30 April. Overland trucks are very limited but also come with two man tents, mattresses and cooking equipment.'\n  transport_type:\n    '#type': radios\n    '#title': 'Is the applicant requesting:'\n    '#options':\n      fuel: 'A contribution towards fuel costs?'\n      seats: 'Seat/s on an overland truck (departing from Cape Town)?'\n    '#states':\n      visible:\n        ':input[name=\"transport\"]':\n          checked: true\n      required:\n        ':input[name=\"transport\"]':\n          checked: true\n  travelling_from:\n    '#type': textfield\n    '#title': 'From where are is the applicant travelling? '\n    '#states':\n      visible:\n        ':input[name=\"transport_type\"]':\n          value: fuel\n      required:\n        ':input[name=\"transport_type\"]':\n          value: fuel\n  vehicles:\n    '#type': number\n    '#title': 'In how many vehicles? '\n    '#states':\n      visible:\n        ':input[name=\"transport_type\"]':\n          value: fuel\n      required:\n        ':input[name=\"transport_type\"]':\n          value: fuel\n    '#min': '1'\n    '#step': '1'\n  contribution:\n    '#type': checkboxes\n    '#title': 'What can the applicant contribute to the arrival, set up and running and departure of your camp? '\n    '#options':\n      'organizing the pick up and drop offs of a truck': 'organizing the pick up and drop offs of a truck'\n      'liaising with Die Hek and Outreach on arrival and departure': 'liaising with Die Hek and Outreach on arrival and departure'\n      'set up and strike of camp': 'set up and strike of camp'\n      'shop and cook for the driver (food costs will be covered)': 'shop and cook for the driver (food costs will be covered)'\n    '#states':\n      visible:\n        ':input[name=\"transport_type\"]':\n          value: seats\n  welfare:\n    '#type': checkbox\n    '#title': Welfare\n    '#description': 'Provision for food and basics (e.g. first aid supplies) is offered a standard rate per person.'\n  previous_participant:\n    '#type': checkbox\n    '#title': 'The applicant has participated in AfrikaBurn before'\n  previous_beneficiary:\n    '#type': checkbox\n    '#title': 'The applicant has previously benefitted from a community ticket and/or access grant'\nmotivation:\n  '#type': webform_wizard_page\n  '#title': Motivation\n  circumstances:\n    '#type': textarea\n    '#title': 'Motivate why circumstances warrant the application for support'\n    '#required': true\n  covering_additional_costs:\n    '#type': textarea\n    '#title': 'How the applicant cover the additional cost of participation'\n    '#required': true\n  group_contribution:\n    '#type': textarea\n    '#title': 'What is the applicant contributing to AfrikaBurn this year? If they have registered a project, please insert the name of the project only.'\n    '#required': true\n  open_to_collaborate:\n    '#type': checkbox\n    '#title': 'Seeking collaboration or pooling of resources'\n  collaboration_details:\n    '#type': textarea\n    '#title': 'Please give details'\n    '#states':\n      visible:\n        ':input[name=\"open_to_collaborate\"]':\n          checked: true\n      required:\n        ':input[name=\"open_to_collaborate\"]':\n          checked: true\n  proof_of_income:\n    '#type': managed_file\n    '#title': 'Please upload proof of income for the applicant'\n    '#multiple': 1\n    '#required': true\n    '#file_extensions': 'jpg png odf pdf doc docx xls xlsx'\n    '#sanitize': true\nadministrative:\n  '#type': details\n  '#title': Administrative\n  transport_allocated:\n    '#type': checkbox\n    '#title': 'Transport allocated'\n    '#private': true\n  welfare_allocated:\n    '#type': checkbox\n    '#title': 'Welfare Allocated'\n    '#private': true\n  ticket_allocated:\n    '#type': checkbox\n    '#title': 'Ticket Allocated'\n    '#private': true"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: /apply/community-tickets-and-access-grants
+  page_confirm_path: ''
+  form_title: both
+  form_submit_once: true
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: true
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: true
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace:
+    webform_routes: {  }
+    node_routes: {  }
+  submission_user_columns:
+    - element__tickets
+    - element__method_of_purchase
+    - element__transport
+    - element__transport_type
+    - element__travelling_from
+    - element__vehicles
+    - element__contribution
+    - element__previous_participant
+    - element__previous_beneficiary
+    - element__circumstances
+    - element__covering_additional_costs
+    - element__group_contribution
+    - element__open_to_collaborate
+    - element__collaboration_details
+  submission_user_duplicate: true
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: false
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: true
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: page
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+  limit_total_unique: false
+  limit_user_unique: false
+access:
+  create:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles:
+      - outreach_wrangler
+      - outreach_admin
+      - administrator
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles:
+      - outreach_wrangler
+      - outreach_admin
+      - administrator
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles:
+      - outreach_wrangler
+      - outreach_admin
+      - administrator
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  community_access_grant_application:
+    id: email
+    label: 'Community Access Grant application'
+    handler_id: community_access_grant_application
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: outreach@afrikaburn.com
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: '[webform_submission:values:email:raw]'
+      subject: 'Community Access Grant Application'
+      body: _default
+      excluded_elements: {  }
+      ignore_access: true
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: false
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''

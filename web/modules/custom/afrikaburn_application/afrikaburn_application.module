@@ -23,6 +23,14 @@ function afrikaburn_application_theme(){
       'template' => 'views-view-table--wrangle-application',
       'base hook' => 'view',
     ],
+    'views_view__wrangle_community_tna' => [
+      'template' => 'views-view--wrangle',
+      'base hook' => 'view',
+    ],
+    'views_view_table__wrangle_community_tna' => [
+      'template' => 'views-view-table--wrangle-application',
+      'base hook' => 'view',
+    ],
   ];
 }
 
@@ -38,6 +46,7 @@ function afrikaburn_application_preprocess_views_view(&$variables){
   $year = (int)$variables['display_id'];
 
   switch ($variables['id']){
+    case 'wrangle_community_tna':
     case 'wrangle_subsidised':
       if ($year >= 2019) {
         $variables['#attached']['library'][] = 'afrikaburn_application/wrangle';
@@ -56,6 +65,7 @@ function afrikaburn_application_preprocess_views_view_table(&$variables) {
   $year = (int)$variables['view']->current_display;
 
   switch ($variables['view']->id()){
+    case 'wrangle_community_tna':
     case 'wrangle_subsidised':
       if ($year >= 2019) {
         module_load_include('inc', 'afrikaburn_application', 'includes/wrangle.application');
