@@ -506,7 +506,7 @@ display:
     display_options:
       display_extenders: {  }
       display_description: ''
-      path: wrangle/applications/community-tickets-and-access-grants
+      path: wrangle/applications/anathi-tickets-and-access-grants
       menu:
         type: normal
         title: 'Community tickets and Access grants'
@@ -566,7 +566,7 @@ display:
     position: 4
     display_options:
       display_extenders: {  }
-      path: wrangle/applications/community-tickets-and-access-grants/2019
+      path: wrangle/applications/anathi-tickets-and-access-grants/2019
       menu:
         type: none
         title: '2019'
