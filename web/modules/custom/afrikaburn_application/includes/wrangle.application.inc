@@ -13,6 +13,11 @@ function _editable($id){
         'comment' => 'webform_submission_value_1',
         'review' => 'webform_submission_value_15',
       ],
+      'wrangle_community_tna' => [
+        'ticket_allocated' => 'webform_submission_value_16',
+        'welfare_allocated' => 'webform_submission_value_20',
+        'transport_allocated' => 'webform_submission_value_18',
+      ],
     ]
   )[$id];
 }
@@ -25,6 +30,11 @@ function _title($id){
       ],
       'wrangle_dpw' => [
         'status' => FALSE,
+      ],
+      'wrangle_community_tna' => [
+        'ticket_allocated' => false,
+        'welfare_allocated' => false,
+        'transport_allocated' => false,
       ],
     ]
   )[$id];
@@ -40,6 +50,7 @@ function _merge(){
         'operations'
       ],
     ],
+    'wrangle_community_tna' => [],
   ];
 }
 
@@ -83,7 +94,7 @@ function _insert_wrangler_view_rows(&$variables){
       $field_form = $form['elements']['administrative'][$field];
       $title = isset(_title($view_id)[$field]) ? _title($view_id)[$field] : NULL;
 
-      if ($title != NULL){
+      if ($title !== NULL){
         if ($title) {
           $field_form['#title'] = $title;
           $field_form['#admin_title'] = $title;
