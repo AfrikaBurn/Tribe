@@ -7,21 +7,23 @@ dependencies:
     - field.field.node.incident.field_date_and_time
     - field.field.node.incident.field_description
     - field.field.node.incident.field_incident_reporter
-    - field.field.node.incident.field_incident_status
+    - field.field.node.incident.field_incident_state
     - field.field.node.incident.field_incident_type
     - field.field.node.incident.field_people
     - field.field.node.incident.field_projects
     - field.field.node.incident.field_related_incident
+    - field.field.node.incident.field_related_incidents
+    - field.field.node.incident.field_relates_to_view
     - node.type.incident
   module:
-    - comment
     - datetime
+    - entity_reference_views_select
     - field_group
 third_party_settings:
   field_group:
     group_classification:
       children:
-        - field_incident_status
+        - field_incident_state
         - field_incident_type
       parent_name: ''
       weight: 3
@@ -36,7 +38,6 @@ third_party_settings:
       children:
         - field_people
         - field_projects
-        - field_incident
         - field_related_incident
       parent_name: ''
       weight: 4
@@ -52,12 +53,6 @@ targetEntityType: node
 bundle: incident
 mode: default
 content:
-  field_comments:
-    weight: 5
-    settings: {  }
-    third_party_settings: {  }
-    type: comment_default
-    region: content
   field_date_and_time:
     weight: 0
     settings: {  }
@@ -81,14 +76,14 @@ content:
     third_party_settings: {  }
     type: entity_reference_autocomplete
     region: content
-  field_incident_status:
-    weight: 1
+  field_incident_state:
+    weight: 5
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: erviews_options_select
     region: content
   field_incident_type:
-    weight: 2
+    weight: 6
     settings:
       match_operator: CONTAINS
       size: 60
@@ -125,6 +120,9 @@ content:
     region: content
 hidden:
   created: true
+  field_comments: true
+  field_related_incidents: true
+  field_relates_to_view: true
   path: true
   promote: true
   status: true

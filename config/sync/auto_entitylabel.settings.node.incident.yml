@@ -1,5 +1,5 @@
 status: '1'
-pattern: '[node:field_incident_type]'
+pattern: '[node:field_incident_state] [node:field_incident_type]'
 php: 0
 escape: 0
 dependencies:

@@ -1,0 +1,85 @@
+uuid: a19ee90e-e07a-495c-940c-11a14f17d0ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_relates_to_view
+    - node.type.incident
+    - views.view.wrangle_incidents
+  module:
+    - custom_add_another
+    - viewfield
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.incident.field_relates_to_view
+field_name: field_relates_to_view
+entity_type: node
+bundle: incident
+label: 'Relates to View'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    token_help: ''
+    display_id: embed_2
+    arguments: '[node:id]'
+    target_uuid: 7fe57f22-f311-495e-bdec-f50102d39c79
+default_value_callback: ''
+settings:
+  force_default: 0
+  allowed_views:
+    wrangle_incidents: wrangle_incidents
+    alerts: 0
+    anouncements: 0
+    api: 0
+    collective_members: 0
+    collective_new_members: 0
+    collective_posts: 0
+    collective_projects: 0
+    comment: 0
+    community_projects: 0
+    community_projects_stats: 0
+    content: 0
+    block_content: 0
+    files: 0
+    gdpr_tasks_my_data_requests: 0
+    incident_type: 0
+    incident_user: 0
+    log_messages: 0
+    my_collectives: 0
+    user_admin_people: 0
+    project_registration_select: 0
+    project_registration_view: 0
+    redirect: 0
+    stats_registration: 0
+    stats_collectives_and_projects: 0
+    watchdog: 0
+    webform_submissions: 0
+    wrangle_art: 0
+    wrangle_binnekring_events: 0
+    wrangle_comments: 0
+    wrangle_community_tna: 0
+    wrangle_dpw: 0
+    wrangle_mutant_vehicles: 0
+    wrangle_people: 0
+    wrangle_project_contacts: 0
+    wrangle_sanctuary: 0
+    wrangle_subsidised: 0
+    wrangle_subsidised_history: 0
+    wrangle_theme_camps: 0
+    wranglers: 0
+  allowed_display_types:
+    embed: embed
+    attachment: 0
+    block: 0
+    data_export: 0
+    entity_reference: 0
+    default: 0
+    page: 0
+    rest_export: 0
+  handler: 'default:view'
+  handler_settings: {  }
+field_type: viewfield

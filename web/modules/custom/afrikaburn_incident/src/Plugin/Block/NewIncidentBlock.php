@@ -44,9 +44,10 @@ class NewIncidentBlock extends BlockBase {
       ->create(
         ['type' => 'incident']
       );
-    $node->save();
-
-    drupal_set_message($node->title->value . ' has been created. Please furnish the incident details:');
+    $node->set('field_incident_type', explode(',', \Drupal::request()->get('types')));
+    if (\Drupal::request()->get('related')){
+      $node->set('field_related_incident', explode(',', \Drupal::request()->get('related')));
+    }
 
     return [
       'title' => [
