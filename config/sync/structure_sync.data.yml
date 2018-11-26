@@ -1,0 +1,392 @@
+taxonomies:
+  incident_type:
+    -
+      vid: incident_type
+      tid: '733'
+      langcode: und
+      name: ' Border dispute'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '732'
+      uuid: a0e69ee8-c6cf-4f01-912c-7f7f321adeba
+    -
+      vid: incident_type
+      tid: '707'
+      langcode: und
+      name: ' Lost child'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '706'
+      uuid: 954d5a29-f713-4e6d-a1e5-edf7419a0149
+    -
+      vid: incident_type
+      tid: '708'
+      langcode: und
+      name: ' Lost parents'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '706'
+      uuid: 10cf18cc-b2ca-44f0-988e-3305793eb93c
+    -
+      vid: incident_type
+      tid: '709'
+      langcode: und
+      name: ' Lost property'
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '706'
+      uuid: 9999dd2a-8ef0-4812-beb2-80c855971c52
+    -
+      vid: incident_type
+      tid: '735'
+      langcode: und
+      name: ' Participant dispute'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '732'
+      uuid: 337d2cb9-0530-4f2b-91c5-0b467af5259d
+    -
+      vid: incident_type
+      tid: '734'
+      langcode: und
+      name: ' Sound dispute'
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '732'
+      uuid: 2b08a54e-092f-4528-bd25-bc216c33cb8e
+    -
+      vid: incident_type
+      tid: '736'
+      langcode: en
+      name: Administrative
+      description__value: "<p>Some kind of admin task</p>\r\n"
+      description__format: basic_html
+      weight: '36'
+      parent: '0'
+      uuid: a912118e-274e-46db-80eb-df90c4f68e3c
+    -
+      vid: incident_type
+      tid: '726'
+      langcode: en
+      name: Broken
+      description__value: null
+      description__format: null
+      weight: '34'
+      parent: '0'
+      uuid: 27e7f77e-f4d9-4056-9218-5c5726a23d4f
+    -
+      vid: incident_type
+      tid: '727'
+      langcode: en
+      name: 'Broken infrastructure'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '726'
+      uuid: b136a6f4-c570-4d67-b11c-4846cfb77f4e
+    -
+      vid: incident_type
+      tid: '729'
+      langcode: en
+      name: 'Broken participant'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '726'
+      uuid: 66ebbf54-24c0-470c-89ba-414b056cd0f8
+    -
+      vid: incident_type
+      tid: '728'
+      langcode: en
+      name: 'Broken vehicle'
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '726'
+      uuid: f04a9386-52f5-4036-9653-9b73c3191e37
+    -
+      vid: incident_type
+      tid: '739'
+      langcode: en
+      name: 'Coming on shift'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '736'
+      uuid: a6cbbcdb-7389-4886-a1b6-2033a003bcdb
+    -
+      vid: incident_type
+      tid: '737'
+      langcode: en
+      name: 'Coming onto comms'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '736'
+      uuid: d183a019-5ad3-4b3a-8834-8403b38f9c2e
+    -
+      vid: incident_type
+      tid: '732'
+      langcode: und
+      name: Dispute
+      description__value: null
+      description__format: null
+      weight: '30'
+      parent: '0'
+      uuid: 5c59b991-ad5e-4084-af44-3fc3014192cf
+    -
+      vid: incident_type
+      tid: '702'
+      langcode: und
+      name: Emergency
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '0'
+      uuid: 58eefb69-c7d7-43d0-9599-c6bd985e9b4b
+    -
+      vid: incident_type
+      tid: '748'
+      langcode: en
+      name: Escalated
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '746'
+      uuid: 142dd983-cb3a-4903-8c85-e91ac8977b64
+    -
+      vid: incident_type
+      tid: '704'
+      langcode: und
+      name: 'Fire emergency'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '702'
+      uuid: e2b324d0-5916-48ca-af5e-01b6041a4dc3
+    -
+      vid: incident_type
+      tid: '738'
+      langcode: en
+      name: 'Going off comms'
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '736'
+      uuid: c0354ad3-ded9-4caa-988f-efb64f7af49a
+    -
+      vid: incident_type
+      tid: '740'
+      langcode: en
+      name: 'Going off shift'
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '736'
+      uuid: b31a53e2-7912-4ea5-b428-9cdd388ff145
+    -
+      vid: incident_type
+      tid: '744'
+      langcode: en
+      name: 'Going to sleep channel'
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '736'
+      uuid: 5a49a096-9e21-4381-9c41-85fee3969160
+    -
+      vid: incident_type
+      tid: '720'
+      langcode: und
+      name: Hazard
+      description__value: null
+      description__format: null
+      weight: '17'
+      parent: '0'
+      uuid: 85a3e158-9fbf-485b-8cec-305157f9099e
+    -
+      vid: incident_type
+      tid: '721'
+      langcode: und
+      name: 'Hazardous camp'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '720'
+      uuid: 6b71d43d-a4b0-4e69-88f9-0544a0580dba
+    -
+      vid: incident_type
+      tid: '745'
+      langcode: en
+      name: 'Hazardous object'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '720'
+      uuid: 10088782-3229-43ed-aa1a-29662f9413c7
+    -
+      vid: incident_type
+      tid: '743'
+      langcode: en
+      name: 'Hazardous participant'
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '720'
+      uuid: cb304d4b-653d-46bc-ad56-bac442081bfe
+    -
+      vid: incident_type
+      tid: '722'
+      langcode: und
+      name: 'Hazardous structure'
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '720'
+      uuid: 4a81c3b3-f852-4a6e-a05b-a666c66ca3a7
+    -
+      vid: incident_type
+      tid: '723'
+      langcode: und
+      name: 'Hazardous vehicle'
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '720'
+      uuid: 4ab23421-a337-417d-93bc-f31d3cab2a90
+    -
+      vid: incident_type
+      tid: '725'
+      langcode: en
+      name: 'Hazardous weather'
+      description__value: null
+      description__format: null
+      weight: '5'
+      parent: '720'
+      uuid: 187b9c74-22c9-433a-b7d2-8a8e2af638d3
+    -
+      vid: incident_type
+      tid: '741'
+      langcode: en
+      name: 'Location check in'
+      description__value: null
+      description__format: null
+      weight: '5'
+      parent: '736'
+      uuid: 84fff4e7-ae87-4334-a7ef-682b75b1beef
+    -
+      vid: incident_type
+      tid: '706'
+      langcode: und
+      name: Lost
+      description__value: null
+      description__format: null
+      weight: '35'
+      parent: '0'
+      uuid: d1e8d3e8-82f2-4be7-b40b-3da9e4bf7a69
+    -
+      vid: incident_type
+      tid: '731'
+      langcode: und
+      name: 'Lost participant'
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '706'
+      uuid: 407c01d3-6ef2-4ef3-b341-e415571c22b6
+    -
+      vid: incident_type
+      tid: '703'
+      langcode: und
+      name: 'Medical emergecy'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '702'
+      uuid: 19e48b01-340c-467a-a8f2-5ba2dce84498
+    -
+      vid: incident_type
+      tid: '750'
+      langcode: en
+      name: New
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '746'
+      uuid: 004bc089-936f-4215-ac7b-4e92430cfa07
+    -
+      vid: incident_type
+      tid: '747'
+      langcode: en
+      name: Ongoing
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '746'
+      uuid: 63dcad5b-c508-46c3-aa49-679392146d59
+    -
+      vid: incident_type
+      tid: '742'
+      langcode: en
+      name: Other
+      description__value: null
+      description__format: null
+      weight: '38'
+      parent: '0'
+      uuid: e84a40cf-548d-4062-abe3-f1f8035b3681
+    -
+      vid: incident_type
+      tid: '719'
+      langcode: und
+      name: 'Police emergency'
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '702'
+      uuid: 36161e4e-625f-4514-b8ba-2391eee83508
+    -
+      vid: incident_type
+      tid: '730'
+      langcode: und
+      name: 'Psycological emergency'
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '702'
+      uuid: 0456aa4c-4ffc-414e-a554-47074917876d
+    -
+      vid: incident_type
+      tid: '749'
+      langcode: en
+      name: Resolved
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '746'
+      uuid: c66c22fb-e3a3-4f08-bb75-7bd314f69f4f
+    -
+      vid: incident_type
+      tid: '705'
+      langcode: und
+      name: 'Security emergency'
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '702'
+      uuid: cf95ac0b-ae18-4bff-9b26-33389273034a
+    -
+      vid: incident_type
+      tid: '746'
+      langcode: en
+      name: 'State change'
+      description__value: null
+      description__format: null
+      weight: '37'
+      parent: '0'
+      uuid: 2daf3bbf-e3be-4383-b94d-1202c2127925
