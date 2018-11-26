@@ -54,3 +54,12 @@
 .views-field-field-incident-status{
   width: 105px;
 }
+
+.wrangler-view table th span.label{
+  white-space: pre-wrap;
+}
+
+.wrangler-view details summary{
+  cursor: pointer;
+}
+

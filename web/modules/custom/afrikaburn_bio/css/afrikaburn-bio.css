@@ -84,6 +84,7 @@ article.user{
   display: flex;
   align-items: center;
   flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 article.user div{
