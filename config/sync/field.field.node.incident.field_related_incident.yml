@@ -27,5 +27,6 @@ settings:
     view:
       view_name: wrangle_incidents
       display_name: entity_reference_1
-      arguments: {  }
+      arguments:
+        - '[node:nid]'
 field_type: entity_reference
