@@ -45,6 +45,7 @@ visibility:
       art_admin: art_admin
       communications_wrangler: communications_wrangler
       communications_admin: communications_admin
+      leave_no_trace_moop: leave_no_trace_moop
       mutant_vehicle_viewer: mutant_vehicle_viewer
       mutant_vehicle_wrangler: mutant_vehicle_wrangler
       mutant_vehicle_admin: mutant_vehicle_admin
@@ -60,6 +61,8 @@ visibility:
       volunteer_admin: volunteer_admin
       ranger_admin: ranger_admin
       sanctuary_admin: sanctuary_admin
+      logger: logger
+      anathi: anathi
     negate: false
     context_mapping:
       user: '@user.current_user_context:current_user'

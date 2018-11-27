@@ -6,4 +6,5 @@ id: anathi
 label: Anathi
 weight: 12
 is_admin: null
-permissions: {  }
+permissions:
+  - 'view the administration theme'
