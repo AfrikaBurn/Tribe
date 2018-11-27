@@ -142,16 +142,14 @@ access:
     permissions: {  }
   view_any:
     roles:
-      - outreach_wrangler
-      - outreach_admin
       - administrator
+      - anathi
     users: {  }
     permissions: {  }
   update_any:
     roles:
-      - outreach_wrangler
-      - outreach_admin
       - administrator
+      - anathi
     users: {  }
     permissions: {  }
   delete_any:
@@ -178,9 +176,8 @@ access:
     permissions: {  }
   administer:
     roles:
-      - outreach_wrangler
-      - outreach_admin
       - administrator
+      - anathi
     users: {  }
     permissions: {  }
   test:
