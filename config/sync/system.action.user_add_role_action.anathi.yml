@@ -1,0 +1,14 @@
+uuid: b7363c22-7405-40ae-8535-5fd5ceeb10b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.anathi
+  module:
+    - user
+id: user_add_role_action.anathi
+label: 'Add the Anathi role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: anathi

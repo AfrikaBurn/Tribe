@@ -5,8 +5,7 @@ dependencies:
   config:
     - system.menu.wrangle
     - user.role.administrator
-    - user.role.outreach_admin
-    - user.role.outreach_wrangler
+    - user.role.anathi
     - webform.webform.community_access_grant
     - webform.webform.community_tna_2019
   module:
@@ -14,7 +13,7 @@ dependencies:
     - webform
     - webform_views
 id: wrangle_community_tna
-label: 'Wrangle: Community tickets & Access grants'
+label: 'Wrangle: Anathi tickets & Access grants'
 module: views
 description: ''
 tag: ''
@@ -32,9 +31,8 @@ display:
         type: role
         options:
           role:
-            outreach_wrangler: outreach_wrangler
-            outreach_admin: outreach_admin
             administrator: administrator
+            anathi: anathi
       cache:
         type: none
         options: {  }
@@ -63,7 +61,11 @@ display:
       style:
         type: table
         options:
-          grouping: {  }
+          grouping:
+            -
+              field: uid
+              rendered: true
+              rendered_strip: false
           row_class: ''
           default_row_class: true
           override: true
@@ -83,8 +85,8 @@ display:
             webform_submission_value_8: webform_submission_value_8
             webform_submission_value_9: webform_submission_value_9
             webform_submission_value_10: webform_submission_value_10
-            webform_submission_value_11: webform_submission_value_13
-            webform_submission_value_12: webform_submission_value_12
+            webform_submission_value_11: webform_submission_value_11
+            webform_submission_value_12: webform_submission_value_9
             webform_submission_value_13: webform_submission_value_13
             webform_submission_value_14: webform_submission_value_14
             webform_submission_value_15: webform_submission_value_15
@@ -97,6 +99,7 @@ display:
             webform_submission_value_21: webform_submission_value_9
             webform_submission_value_22: webform_submission_value_9
             operations: operations
+            uid: uid
           info:
             sid:
               sortable: false
@@ -172,7 +175,7 @@ display:
               sortable: false
               default_sort_order: asc
               align: ''
-              separator: '<hr />'
+              separator: ''
               empty_column: false
               responsive: ''
             webform_submission_value_11:
@@ -191,7 +194,7 @@ display:
               sortable: true
               default_sort_order: asc
               align: ''
-              separator: '<br />'
+              separator: ''
               empty_column: false
               responsive: ''
             webform_submission_value_14:
@@ -263,6 +266,13 @@ display:
               empty_column: false
               responsive: ''
             operations:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            uid:
+              sortable: false
+              default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
@@ -488,7 +498,7 @@ display:
       arguments: {  }
       display_extenders: {  }
       group_by: false
-      title: 'Community Tickets & Access grants'
+      title: 'Anathi Tickets & Access grants'
     cache_metadata:
       max-age: -1
       contexts:
@@ -509,7 +519,7 @@ display:
       path: wrangle/applications/anathi-tickets-and-access-grants
       menu:
         type: normal
-        title: 'Community tickets and Access grants'
+        title: 'Anathi tickets and Access grants'
         description: ''
         expanded: false
         parent: 'menu_link_content:191563b2-06ef-471a-94f8-f285e4ff5cf6'
@@ -1167,7 +1177,7 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          webform_element_format: value
+          webform_element_format: raw
           webform_multiple_value: true
           webform_multiple_delta: 0
           plugin_id: webform_submission_field
@@ -1223,14 +1233,14 @@ display:
           webform_multiple_value: true
           webform_multiple_delta: 0
           plugin_id: webform_submission_field
-        webform_submission_value_10:
-          id: webform_submission_value_10
-          table: webform_submission_field_community_tna_2019_method_of_purchase
+        webform_submission_value_21:
+          id: webform_submission_value_21
+          table: webform_submission_field_community_tna_2019_contribution
           field: webform_submission_value
           relationship: none
           group_type: group
           admin_label: ''
-          label: Purchasing
+          label: 'Camp contribution'
           exclude: false
           alter:
             alter_text: false
@@ -1275,14 +1285,14 @@ display:
           webform_multiple_value: true
           webform_multiple_delta: 0
           plugin_id: webform_submission_field
-        webform_submission_value_11:
-          id: webform_submission_value_11
-          table: webform_submission_field_community_tna_2019_collaboration_details
+        webform_submission_value_22:
+          id: webform_submission_value_22
+          table: webform_submission_field_community_tna_2019_group_contribution
           field: webform_submission_value
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Please give details'
+          label: 'AfrikaBurn contribution'
           exclude: false
           alter:
             alter_text: false
@@ -1376,6 +1386,110 @@ display:
           empty_zero: false
           hide_alter_empty: true
           webform_element_format: file
+          webform_multiple_value: true
+          webform_multiple_delta: 0
+          plugin_id: webform_submission_field
+        webform_submission_value_10:
+          id: webform_submission_value_10
+          table: webform_submission_field_community_tna_2019_method_of_purchase
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Purchasing
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          webform_element_format: raw
+          webform_multiple_value: true
+          webform_multiple_delta: 0
+          plugin_id: webform_submission_field
+        webform_submission_value_11:
+          id: webform_submission_value_11
+          table: webform_submission_field_community_tna_2019_collaboration_details
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Please give details'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          webform_element_format: value
           webform_multiple_value: true
           webform_multiple_delta: 0
           plugin_id: webform_submission_field
@@ -1847,110 +1961,6 @@ display:
           webform_multiple_value: true
           webform_multiple_delta: 0
           plugin_id: webform_submission_field
-        webform_submission_value_21:
-          id: webform_submission_value_21
-          table: webform_submission_field_community_tna_2019_contribution
-          field: webform_submission_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Camp contribution'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          webform_element_format: value
-          webform_multiple_value: true
-          webform_multiple_delta: 0
-          plugin_id: webform_submission_field
-        webform_submission_value_22:
-          id: webform_submission_value_22
-          table: webform_submission_field_community_tna_2019_group_contribution
-          field: webform_submission_value
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'AfrikaBurn contribution'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          webform_element_format: value
-          webform_multiple_value: true
-          webform_multiple_delta: 0
-          plugin_id: webform_submission_field
         operations:
           id: operations
           table: webform_submission
@@ -2002,6 +2012,71 @@ display:
           destination: false
           entity_type: webform_submission
           plugin_id: entity_operations
+        uid:
+          id: uid
+          table: webform_submission
+          field: uid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_entity_view
+          settings:
+            view_mode: full_name
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: webform_submission
+          entity_field: uid
+          plugin_id: field
       sorts:
         sid:
           id: sid
