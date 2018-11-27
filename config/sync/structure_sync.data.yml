@@ -1,4 +1,360 @@
 taxonomies:
+  activity_types:
+    -
+      vid: activity_types
+      tid: '480'
+      langcode: en
+      name: Adult
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: ac39854f-d40c-42f7-96e8-9c00b911f91d
+    -
+      vid: activity_types
+      tid: '481'
+      langcode: en
+      name: 'Care and Support'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: bd98140a-3839-48ff-b7e3-1fe54c2a083e
+    -
+      vid: activity_types
+      tid: '482'
+      langcode: en
+      name: 'Family Friendly'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 6adf3a07-6df4-49de-be37-49e0f34443f0
+    -
+      vid: activity_types
+      tid: '697'
+      langcode: en
+      name: Fire
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 40a78369-c92b-44a6-9b5d-2ecd09188d5b
+    -
+      vid: activity_types
+      tid: '483'
+      langcode: en
+      name: 'Food / Drink'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 808d78c6-9640-441d-bf63-d7d24221dddd
+    -
+      vid: activity_types
+      tid: '484'
+      langcode: en
+      name: 'For the Kids'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 8e17a4e1-d1e9-40c0-a72a-fc1bdcc169e3
+    -
+      vid: activity_types
+      tid: '485'
+      langcode: en
+      name: 'Game / Sport'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: a11d145b-ec7f-424c-b0b0-58ea4aee1057
+    -
+      vid: activity_types
+      tid: '486'
+      langcode: en
+      name: 'Musical Collaboration'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 88f80082-b06b-41a1-9729-934c56c46023
+    -
+      vid: activity_types
+      tid: '699'
+      langcode: en
+      name: Other
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 3beb7d72-c403-49ae-b85c-b75ff52360f5
+    -
+      vid: activity_types
+      tid: '701'
+      langcode: en
+      name: Parade
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 05fb069a-0270-40f0-b6ec-ca7521a404d4
+    -
+      vid: activity_types
+      tid: '487'
+      langcode: en
+      name: 'Party / Gathering'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: f5313363-a23d-485e-9416-d5fb3946ac44
+    -
+      vid: activity_types
+      tid: '700'
+      langcode: en
+      name: Performance
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 9b7387be-f51d-4f3a-b55c-b5a6c04a252f
+    -
+      vid: activity_types
+      tid: '488'
+      langcode: en
+      name: 'Ritual / Ceremony'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: a0e27b68-d7b2-4247-9af7-a23674261888
+    -
+      vid: activity_types
+      tid: '489'
+      langcode: en
+      name: 'Workshop / Class'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 28e37f59-50c9-4082-9bb6-5d93e68e10dd
+  artwork_size:
+    -
+      vid: artwork_size
+      tid: '433'
+      langcode: en
+      name: 'Large: 3 - 6m'
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '0'
+      uuid: 486bfe5c-34b6-4146-b267-27b520fd96d6
+    -
+      vid: artwork_size
+      tid: '432'
+      langcode: en
+      name: 'Medium: 1.5 - 3m'
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '0'
+      uuid: dae80499-e2ba-4ab9-a112-20f852f9f46c
+    -
+      vid: artwork_size
+      tid: '431'
+      langcode: en
+      name: 'Small: 0- 1.5m'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '0'
+      uuid: 73531f9f-ba28-4a0e-a56d-b3697b81ea55
+    -
+      vid: artwork_size
+      tid: '434'
+      langcode: en
+      name: 'Very Large: > 6m'
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '0'
+      uuid: 706c09ef-5413-410c-822d-4c3434baa314
+  base_vehicle:
+    -
+      vid: base_vehicle
+      tid: '525'
+      langcode: en
+      name: Bakkie/SUV/Hearse/Jeep
+      description__value: null
+      description__format: null
+      weight: '5'
+      parent: '0'
+      uuid: 6864d234-b94d-42cc-8ccd-80c498f64dd5
+    -
+      vid: base_vehicle
+      tid: '523'
+      langcode: en
+      name: Buggy/Cart/Tuk-Tuk
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '0'
+      uuid: f16fcc02-79b0-4f6c-8a10-9ebda901b18e
+    -
+      vid: base_vehicle
+      tid: '530'
+      langcode: en
+      name: Bus
+      description__value: null
+      description__format: null
+      weight: '10'
+      parent: '0'
+      uuid: 8769173e-c7c6-4402-a4bb-5e12288ce515
+    -
+      vid: base_vehicle
+      tid: '524'
+      langcode: en
+      name: 'Golf Cart'
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '0'
+      uuid: ff7e3d5c-1be4-407a-921b-9369261f36f6
+    -
+      vid: base_vehicle
+      tid: '521'
+      langcode: en
+      name: Motorcycle/Scooter
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '0'
+      uuid: fe68734f-4b84-4666-84d2-66b5b7e263cf
+    -
+      vid: base_vehicle
+      tid: '522'
+      langcode: en
+      name: Quad
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '0'
+      uuid: 57cd7c1d-c834-4620-8d55-f323426e55e5
+    -
+      vid: base_vehicle
+      tid: '526'
+      langcode: en
+      name: 'Sedan/Passenger Car'
+      description__value: null
+      description__format: null
+      weight: '6'
+      parent: '0'
+      uuid: 38b18805-7c72-4f10-b798-f62a02dd6734
+    -
+      vid: base_vehicle
+      tid: '527'
+      langcode: en
+      name: Tractor
+      description__value: null
+      description__format: null
+      weight: '7'
+      parent: '0'
+      uuid: 0ac0462d-574e-4151-8aa1-3a9c20cc7ee8
+    -
+      vid: base_vehicle
+      tid: '529'
+      langcode: en
+      name: Truck
+      description__value: null
+      description__format: null
+      weight: '9'
+      parent: '0'
+      uuid: 1407caf1-4d9c-4e44-a797-6b486deaf030
+    -
+      vid: base_vehicle
+      tid: '528'
+      langcode: en
+      name: Van/Kombi/RV
+      description__value: null
+      description__format: null
+      weight: '8'
+      parent: '0'
+      uuid: b76a569f-db89-48f9-87f7-165118b23f16
+  cost_type:
+    -
+      vid: cost_type
+      tid: '509'
+      langcode: en
+      name: 'actual price'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 76e723dd-5a87-4c81-9cff-5efd6c8acb68
+    -
+      vid: cost_type
+      tid: '510'
+      langcode: en
+      name: 'estimated price'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 49f8c499-f2be-49ee-bed6-6a246beb64d1
+    -
+      vid: cost_type
+      tid: '511'
+      langcode: en
+      name: owned
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: ce3f81ad-50b8-4563-aed2-eaad00b06248
+  departments:
+    -
+      vid: departments
+      tid: '475'
+      langcode: en
+      name: 'Art Committee'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 493f6b6f-dd1e-4329-936b-4244184cf761
+    -
+      vid: departments
+      tid: '476'
+      langcode: en
+      name: 'Department of Mutant Vehicles'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: c91de282-6410-4389-b393-8922dea66403
+    -
+      vid: departments
+      tid: '477'
+      langcode: en
+      name: 'Theme Camp Committee'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 94c918c1-415f-46b2-894d-ab442956fa14
+    -
+      vid: departments
+      tid: '478'
+      langcode: en
+      name: Unassigned
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 0c2b6598-b9fb-46ee-bc18-d6cfad4f510b
+  grant_review: {  }
   incident_type:
     -
       vid: incident_type
@@ -390,3 +746,5146 @@ taxonomies:
       weight: '37'
       parent: '0'
       uuid: 2daf3bbf-e3be-4383-b94d-1202c2127925
+  location:
+    -
+      vid: location
+      tid: '1'
+      langcode: en
+      name: Abkhazia
+      description__value: Country
+      description__format: ''
+      weight: '0'
+      parent: '0'
+      uuid: e2c25b59-ab4c-4a0f-b34b-06ae6e1ec307
+    -
+      vid: location
+      tid: '2'
+      langcode: en
+      name: Afghanistan
+      description__value: Country
+      description__format: ''
+      weight: '1'
+      parent: '0'
+      uuid: 38ad5a6f-e056-4dfb-ac3b-0188a040ce18
+    -
+      vid: location
+      tid: '3'
+      langcode: en
+      name: 'Akrotiri and Dhekelia'
+      description__value: Country
+      description__format: ''
+      weight: '2'
+      parent: '0'
+      uuid: 3befa4a8-80d1-4ed0-a62f-7a2f0501dc4e
+    -
+      vid: location
+      tid: '4'
+      langcode: en
+      name: 'Åland Islands'
+      description__value: Country
+      description__format: ''
+      weight: '3'
+      parent: '0'
+      uuid: 2efa3db8-eb00-4888-8944-8e3940a0fded
+    -
+      vid: location
+      tid: '5'
+      langcode: en
+      name: Albania
+      description__value: Country
+      description__format: ''
+      weight: '4'
+      parent: '0'
+      uuid: 64461f72-f9ea-4fb9-8b46-56ecdb715a66
+    -
+      vid: location
+      tid: '276'
+      langcode: en
+      name: 'Alfred Nzo District Municipality ⟶ Mount Ayliff'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '0'
+      parent: '267'
+      uuid: 35808ae1-0591-4e2b-89be-42352c51f25b
+    -
+      vid: location
+      tid: '6'
+      langcode: en
+      name: Algeria
+      description__value: Country
+      description__format: ''
+      weight: '5'
+      parent: '0'
+      uuid: 3821e61c-aa88-4439-92b3-362466f2be4b
+    -
+      vid: location
+      tid: '294'
+      langcode: en
+      name: 'Amajuba District Municipality ⟶ Newcastle'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '0'
+      parent: '270'
+      uuid: 3c8d5210-ce42-48d6-af77-91dbb108a87d
+    -
+      vid: location
+      tid: '277'
+      langcode: en
+      name: 'Amathole District Municipality ⟶ East London'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '1'
+      parent: '267'
+      uuid: 36d40a42-3009-4361-b9f6-5376eab5e66e
+    -
+      vid: location
+      tid: '7'
+      langcode: en
+      name: 'American Samoa'
+      description__value: Country
+      description__format: ''
+      weight: '6'
+      parent: '0'
+      uuid: b08fec69-07ef-4d90-9eb8-078c7260c532
+    -
+      vid: location
+      tid: '8'
+      langcode: en
+      name: Andorra
+      description__value: Country
+      description__format: ''
+      weight: '7'
+      parent: '0'
+      uuid: 56c5e982-4379-4959-a4d4-579bbc2639ee
+    -
+      vid: location
+      tid: '9'
+      langcode: en
+      name: Angola
+      description__value: Country
+      description__format: ''
+      weight: '8'
+      parent: '0'
+      uuid: 2078b9fd-2975-4906-b934-bb5afcf43acd
+    -
+      vid: location
+      tid: '10'
+      langcode: en
+      name: Anguilla
+      description__value: Country
+      description__format: ''
+      weight: '9'
+      parent: '0'
+      uuid: 2cf03a16-2c1c-4038-90c3-36df06bf1103
+    -
+      vid: location
+      tid: '11'
+      langcode: en
+      name: 'Antigua and Barbuda'
+      description__value: Country
+      description__format: ''
+      weight: '10'
+      parent: '0'
+      uuid: dbcb7fe2-476e-475d-a758-32cbf3fc67ba
+    -
+      vid: location
+      tid: '12'
+      langcode: en
+      name: Argentina
+      description__value: Country
+      description__format: ''
+      weight: '11'
+      parent: '0'
+      uuid: 7f07a195-3692-4e71-9ae5-417772383642
+    -
+      vid: location
+      tid: '13'
+      langcode: en
+      name: Armenia
+      description__value: Country
+      description__format: ''
+      weight: '12'
+      parent: '0'
+      uuid: 5e7d062d-9c1a-4220-86bb-34f5b6b3162d
+    -
+      vid: location
+      tid: '14'
+      langcode: en
+      name: Aruba
+      description__value: Country
+      description__format: ''
+      weight: '13'
+      parent: '0'
+      uuid: f45799b3-051c-4b20-8174-56583ef68fd7
+    -
+      vid: location
+      tid: '15'
+      langcode: en
+      name: 'Ashmore and Cartier Islands'
+      description__value: Country
+      description__format: ''
+      weight: '14'
+      parent: '0'
+      uuid: 5d66c90a-aa2c-44e3-b510-48da3a6885fc
+    -
+      vid: location
+      tid: '16'
+      langcode: en
+      name: Australia
+      description__value: Country
+      description__format: ''
+      weight: '15'
+      parent: '0'
+      uuid: 648cede3-66af-451f-a219-e02ba5f91fc1
+    -
+      vid: location
+      tid: '17'
+      langcode: en
+      name: Austria
+      description__value: Country
+      description__format: ''
+      weight: '16'
+      parent: '0'
+      uuid: d6363501-2e8b-4144-8a0c-e7de4c0d4787
+    -
+      vid: location
+      tid: '18'
+      langcode: en
+      name: Azerbaijan
+      description__value: Country
+      description__format: ''
+      weight: '17'
+      parent: '0'
+      uuid: a2e84d14-43f7-49ea-8589-edee755c27ac
+    -
+      vid: location
+      tid: '19'
+      langcode: en
+      name: Bahamas
+      description__value: Country
+      description__format: ''
+      weight: '18'
+      parent: '0'
+      uuid: c9c65ac6-4e98-49e3-bd97-f45125e1b1e1
+    -
+      vid: location
+      tid: '20'
+      langcode: en
+      name: Bahrain
+      description__value: Country
+      description__format: ''
+      weight: '19'
+      parent: '0'
+      uuid: 737db08d-2459-4341-b101-9c212db76e66
+    -
+      vid: location
+      tid: '21'
+      langcode: en
+      name: 'Baker Island'
+      description__value: Country
+      description__format: ''
+      weight: '20'
+      parent: '0'
+      uuid: f6da132d-3c11-4b0c-a12c-3170137e1048
+    -
+      vid: location
+      tid: '22'
+      langcode: en
+      name: Bangladesh
+      description__value: Country
+      description__format: ''
+      weight: '21'
+      parent: '0'
+      uuid: 1f350644-2e3c-4e30-a54c-52641c15a4e5
+    -
+      vid: location
+      tid: '23'
+      langcode: en
+      name: Barbados
+      description__value: Country
+      description__format: ''
+      weight: '22'
+      parent: '0'
+      uuid: efaa9d7a-36a7-4d8f-9a50-904d69d878c9
+    -
+      vid: location
+      tid: '24'
+      langcode: en
+      name: Belarus
+      description__value: Country
+      description__format: ''
+      weight: '23'
+      parent: '0'
+      uuid: 391a29ce-2591-4f88-b18f-d6a248e483bf
+    -
+      vid: location
+      tid: '25'
+      langcode: en
+      name: Belgium
+      description__value: Country
+      description__format: ''
+      weight: '24'
+      parent: '0'
+      uuid: 29c2cae0-f046-463c-8ef9-9f111b88b135
+    -
+      vid: location
+      tid: '26'
+      langcode: en
+      name: Belize
+      description__value: Country
+      description__format: ''
+      weight: '25'
+      parent: '0'
+      uuid: 822807bb-74e7-44d5-9c97-b8e44816edd8
+    -
+      vid: location
+      tid: '27'
+      langcode: en
+      name: Benin
+      description__value: Country
+      description__format: ''
+      weight: '26'
+      parent: '0'
+      uuid: c28101be-5394-4c6d-8fb6-6744b8d05ddd
+    -
+      vid: location
+      tid: '28'
+      langcode: en
+      name: Bermuda
+      description__value: Country
+      description__format: ''
+      weight: '27'
+      parent: '0'
+      uuid: 01dd980b-f895-4712-bd17-dd8c8ec73689
+    -
+      vid: location
+      tid: '29'
+      langcode: en
+      name: Bhutan
+      description__value: Country
+      description__format: ''
+      weight: '28'
+      parent: '0'
+      uuid: 9181b431-22e2-4259-8a3c-ea0fdb27798a
+    -
+      vid: location
+      tid: '313'
+      langcode: en
+      name: 'Bojanala District Municipality ⟶ Rustenburg'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '0'
+      parent: '273'
+      uuid: 4b679980-bc73-4cff-8ebd-a1d9ec29d416
+    -
+      vid: location
+      tid: '30'
+      langcode: en
+      name: Bolivia
+      description__value: Country
+      description__format: ''
+      weight: '29'
+      parent: '0'
+      uuid: 70d91c96-e4d1-42c3-8571-f33bb8ca29ee
+    -
+      vid: location
+      tid: '31'
+      langcode: en
+      name: Bonaire
+      description__value: Country
+      description__format: ''
+      weight: '30'
+      parent: '0'
+      uuid: 7ba21490-87b1-4239-bdd4-ddfa8d2c8009
+    -
+      vid: location
+      tid: '32'
+      langcode: en
+      name: 'Bosnia and Herzegovina'
+      description__value: Country
+      description__format: ''
+      weight: '31'
+      parent: '0'
+      uuid: 3a7f00f3-2a23-44e2-9bb3-1416d2ee6718
+    -
+      vid: location
+      tid: '33'
+      langcode: en
+      name: Botswana
+      description__value: Country
+      description__format: ''
+      weight: '32'
+      parent: '0'
+      uuid: 564fb3db-efed-4508-a057-7fca7cc0d81e
+    -
+      vid: location
+      tid: '34'
+      langcode: en
+      name: Brazil
+      description__value: Country
+      description__format: ''
+      weight: '33'
+      parent: '0'
+      uuid: 8ed2bb11-47dc-4d9e-878d-6c11423c4109
+    -
+      vid: location
+      tid: '35'
+      langcode: en
+      name: 'British Indian Ocean Territory'
+      description__value: Country
+      description__format: ''
+      weight: '34'
+      parent: '0'
+      uuid: 2abff904-1b20-44b6-8e9a-08289efc9170
+    -
+      vid: location
+      tid: '36'
+      langcode: en
+      name: 'British Virgin Islands'
+      description__value: Country
+      description__format: ''
+      weight: '35'
+      parent: '0'
+      uuid: 15423be0-a58c-427e-bac3-3a868a2745e4
+    -
+      vid: location
+      tid: '37'
+      langcode: en
+      name: Brunei
+      description__value: Country
+      description__format: ''
+      weight: '36'
+      parent: '0'
+      uuid: c677ee5c-a2df-4578-9ac9-a6993d546cde
+    -
+      vid: location
+      tid: '278'
+      langcode: en
+      name: 'Buffalo City Metropolitan Municipality ⟶ East London'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '2'
+      parent: '267'
+      uuid: fb7aa016-9eb3-46ac-bb1b-b71788a8ea67
+    -
+      vid: location
+      tid: '38'
+      langcode: en
+      name: Bulgaria
+      description__value: Country
+      description__format: ''
+      weight: '37'
+      parent: '0'
+      uuid: 80ba901c-1e57-450f-855b-bde2aa592129
+    -
+      vid: location
+      tid: '39'
+      langcode: en
+      name: 'Burkina Faso'
+      description__value: Country
+      description__format: ''
+      weight: '38'
+      parent: '0'
+      uuid: acf127a1-0f81-4236-b395-bd388717ce44
+    -
+      vid: location
+      tid: '40'
+      langcode: en
+      name: Burundi
+      description__value: Country
+      description__format: ''
+      weight: '39'
+      parent: '0'
+      uuid: d79734d6-88c2-49b1-86ff-906f4e47eeec
+    -
+      vid: location
+      tid: '41'
+      langcode: en
+      name: Cambodia
+      description__value: Country
+      description__format: ''
+      weight: '40'
+      parent: '0'
+      uuid: 72fe7e81-4d5c-4085-a7fd-a124894b47c5
+    -
+      vid: location
+      tid: '42'
+      langcode: en
+      name: Cameroon
+      description__value: Country
+      description__format: ''
+      weight: '41'
+      parent: '0'
+      uuid: 7d844e24-682b-427e-9a95-9b10b4c53e3c
+    -
+      vid: location
+      tid: '43'
+      langcode: en
+      name: Canada
+      description__value: Country
+      description__format: ''
+      weight: '42'
+      parent: '0'
+      uuid: cae08d88-ebcf-4cc7-a87a-ed6660301c8f
+    -
+      vid: location
+      tid: '44'
+      langcode: en
+      name: 'Cape Verde'
+      description__value: Country
+      description__format: ''
+      weight: '43'
+      parent: '0'
+      uuid: 1ec0167e-d9b8-4517-a554-3d3f68fb36c8
+    -
+      vid: location
+      tid: '322'
+      langcode: en
+      name: 'Cape Winelands District Municipality ⟶ Worcester'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '0'
+      parent: '275'
+      uuid: 5902f675-0ab5-4c28-a692-2fd1bdee4ff4
+    -
+      vid: location
+      tid: '305'
+      langcode: en
+      name: 'Capricorn District Municipality ⟶ Polokwane'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '0'
+      parent: '271'
+      uuid: 4fbc4b46-1eaa-46ed-8bb1-7c41d564f983
+    -
+      vid: location
+      tid: '45'
+      langcode: en
+      name: 'Cayman Islands'
+      description__value: Country
+      description__format: ''
+      weight: '44'
+      parent: '0'
+      uuid: ffc51385-31e1-4e23-afce-3a301cfa9633
+    -
+      vid: location
+      tid: '46'
+      langcode: en
+      name: 'Central African Republic'
+      description__value: Country
+      description__format: ''
+      weight: '45'
+      parent: '0'
+      uuid: 6a9873be-0b06-4a80-abf2-c1deecb205fa
+    -
+      vid: location
+      tid: '323'
+      langcode: en
+      name: 'Central Karoo District Municipality ⟶ Beaufort West'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '1'
+      parent: '275'
+      uuid: 378dce3e-0f41-4209-8beb-d63852a7ae6c
+    -
+      vid: location
+      tid: '47'
+      langcode: en
+      name: Chad
+      description__value: Country
+      description__format: ''
+      weight: '46'
+      parent: '0'
+      uuid: 0b61c9be-ee26-4d8f-b884-8cf5241fedca
+    -
+      vid: location
+      tid: '48'
+      langcode: en
+      name: Chile
+      description__value: Country
+      description__format: ''
+      weight: '47'
+      parent: '0'
+      uuid: 6a8233af-8d59-48cb-866c-883f051433a9
+    -
+      vid: location
+      tid: '49'
+      langcode: en
+      name: China
+      description__value: Country
+      description__format: ''
+      weight: '48'
+      parent: '0'
+      uuid: 65663e0f-18a7-499d-a2d1-520b690a0bfd
+    -
+      vid: location
+      tid: '279'
+      langcode: en
+      name: 'Chris Hani District Municipality ⟶ Queenstown'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '3'
+      parent: '267'
+      uuid: 0023a9fa-6332-4679-bb4d-f0ffe1a0c90e
+    -
+      vid: location
+      tid: '50'
+      langcode: en
+      name: 'Christmas Island'
+      description__value: Country
+      description__format: ''
+      weight: '49'
+      parent: '0'
+      uuid: 7ce98478-0f1e-46b3-891c-f420e79603aa
+    -
+      vid: location
+      tid: '324'
+      langcode: en
+      name: 'City of Cape Town Metropolitan Municipality ⟶ Cape Town'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '2'
+      parent: '275'
+      uuid: d9d6b519-140d-4591-a4c7-1f38fb3daea2
+    -
+      vid: location
+      tid: '289'
+      langcode: en
+      name: 'City of Johannesburg Metropolitan Municipality ⟶ Johannesburg'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '0'
+      parent: '269'
+      uuid: 6ef00373-3af5-4f03-aa1f-328545a16241
+    -
+      vid: location
+      tid: '290'
+      langcode: en
+      name: 'City of Tshwane Metropolitan Municipality ⟶ Pretoria'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '1'
+      parent: '269'
+      uuid: ee00d1ea-6b51-47e6-b788-8a415bfa9130
+    -
+      vid: location
+      tid: '51'
+      langcode: en
+      name: 'Clipperton Island'
+      description__value: Country
+      description__format: ''
+      weight: '50'
+      parent: '0'
+      uuid: af41849d-c858-4341-b53d-82355154aed3
+    -
+      vid: location
+      tid: '52'
+      langcode: en
+      name: 'Cocos (Keeling) Islands'
+      description__value: Country
+      description__format: ''
+      weight: '51'
+      parent: '0'
+      uuid: 4082dbdf-3ce7-4519-8dc3-1543606fb45c
+    -
+      vid: location
+      tid: '53'
+      langcode: en
+      name: Colombia
+      description__value: Country
+      description__format: ''
+      weight: '52'
+      parent: '0'
+      uuid: 38cca795-901e-4009-bebc-afbff22d9c64
+    -
+      vid: location
+      tid: '54'
+      langcode: en
+      name: Comoros
+      description__value: Country
+      description__format: ''
+      weight: '53'
+      parent: '0'
+      uuid: 2456ef32-5cc5-430c-9a43-182abf2a75b2
+    -
+      vid: location
+      tid: '55'
+      langcode: en
+      name: 'Congo (Congo-Brazzaville)'
+      description__value: Country
+      description__format: ''
+      weight: '54'
+      parent: '0'
+      uuid: b00736ce-7011-4dde-a657-fe28c5fc6ad2
+    -
+      vid: location
+      tid: '56'
+      langcode: en
+      name: 'Cook Islands'
+      description__value: Country
+      description__format: ''
+      weight: '55'
+      parent: '0'
+      uuid: 10426eba-a938-4697-a4a6-61d14917ad47
+    -
+      vid: location
+      tid: '57'
+      langcode: en
+      name: 'Coral Sea Islands'
+      description__value: Country
+      description__format: ''
+      weight: '56'
+      parent: '0'
+      uuid: 92956228-20d5-48d6-ae72-5cc21cea034c
+    -
+      vid: location
+      tid: '58'
+      langcode: en
+      name: 'Costa Rica'
+      description__value: Country
+      description__format: ''
+      weight: '57'
+      parent: '0'
+      uuid: 029b855b-d4d9-4723-a763-d1c3c7c656db
+    -
+      vid: location
+      tid: '59'
+      langcode: en
+      name: Croatia
+      description__value: Country
+      description__format: ''
+      weight: '58'
+      parent: '0'
+      uuid: 17733de8-c9a5-49ba-a0b0-d650b8272bf4
+    -
+      vid: location
+      tid: '60'
+      langcode: en
+      name: Cuba
+      description__value: Country
+      description__format: ''
+      weight: '59'
+      parent: '0'
+      uuid: 65f3bac8-5432-4f4b-8f0f-4b2b77b86579
+    -
+      vid: location
+      tid: '61'
+      langcode: en
+      name: Curaçao
+      description__value: Country
+      description__format: ''
+      weight: '60'
+      parent: '0'
+      uuid: 38768fe2-a699-4cd2-a264-6a11702b20da
+    -
+      vid: location
+      tid: '62'
+      langcode: en
+      name: Cyprus
+      description__value: Country
+      description__format: ''
+      weight: '61'
+      parent: '0'
+      uuid: 15ca0c22-4511-4d51-bd6d-289abcf878d4
+    -
+      vid: location
+      tid: '63'
+      langcode: en
+      name: 'Czech Republic'
+      description__value: Country
+      description__format: ''
+      weight: '62'
+      parent: '0'
+      uuid: d3fe7b14-49eb-41aa-91c3-dbfaf44e40af
+    -
+      vid: location
+      tid: '64'
+      langcode: en
+      name: 'Democratic Republic of the Congo (Congo-Kinshasa)'
+      description__value: Country
+      description__format: ''
+      weight: '63'
+      parent: '0'
+      uuid: 26bb2070-0d43-40af-849d-55cc63ebe8b3
+    -
+      vid: location
+      tid: '65'
+      langcode: en
+      name: Denmark
+      description__value: Country
+      description__format: ''
+      weight: '64'
+      parent: '0'
+      uuid: 68270fa2-ddb8-493f-a64d-b5521966890b
+    -
+      vid: location
+      tid: '66'
+      langcode: en
+      name: Djibouti
+      description__value: Country
+      description__format: ''
+      weight: '65'
+      parent: '0'
+      uuid: e1097718-825b-4830-b709-ff3531ed1fbc
+    -
+      vid: location
+      tid: '67'
+      langcode: en
+      name: Dominica
+      description__value: Country
+      description__format: ''
+      weight: '66'
+      parent: '0'
+      uuid: 1db9d9ab-af9b-4ac2-805f-64c99bd58a63
+    -
+      vid: location
+      tid: '68'
+      langcode: en
+      name: 'Dominican Republic'
+      description__value: Country
+      description__format: ''
+      weight: '67'
+      parent: '0'
+      uuid: 2f6c1b71-17d0-4bec-999e-00eec61042b1
+    -
+      vid: location
+      tid: '314'
+      langcode: en
+      name: 'Dr Kenneth Kaunda District Municipality ⟶ Klerksdorp'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '1'
+      parent: '273'
+      uuid: 0a4acde7-d954-4f71-a28b-a86c51b89e1d
+    -
+      vid: location
+      tid: '315'
+      langcode: en
+      name: 'Dr Ruth Segomotsi Mompati District Municipality ⟶ Vryburg'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '2'
+      parent: '273'
+      uuid: d4b3b443-8820-436d-a641-a3f9c00ac519
+    -
+      vid: location
+      tid: '69'
+      langcode: en
+      name: 'East Timor (Timor-Leste)'
+      description__value: Country
+      description__format: ''
+      weight: '68'
+      parent: '0'
+      uuid: ac749fee-e741-4c41-84ce-5f944c19d42f
+    -
+      vid: location
+      tid: '267'
+      langcode: en
+      name: 'Eastern Cape'
+      description__value: municipality
+      description__format: ''
+      weight: '0'
+      parent: '223'
+      uuid: 63b436c1-2f85-44c4-975e-16c813f16b95
+    -
+      vid: location
+      tid: '70'
+      langcode: en
+      name: Ecuador
+      description__value: Country
+      description__format: ''
+      weight: '69'
+      parent: '0'
+      uuid: bfd37fef-ec6d-4d51-8372-3ea199094f44
+    -
+      vid: location
+      tid: '325'
+      langcode: en
+      name: 'Eden District Municipality ⟶ George'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '3'
+      parent: '275'
+      uuid: b76c7926-f515-4cff-a128-a44132c7e93a
+    -
+      vid: location
+      tid: '71'
+      langcode: en
+      name: Egypt
+      description__value: Country
+      description__format: ''
+      weight: '70'
+      parent: '0'
+      uuid: ab265581-996b-4758-831e-62470fc41709
+    -
+      vid: location
+      tid: '310'
+      langcode: en
+      name: 'Ehlanzeni District Municipality ⟶ Nelspruit'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '0'
+      parent: '272'
+      uuid: 0c74d360-6b06-42b3-93eb-e6d66973ce02
+    -
+      vid: location
+      tid: '291'
+      langcode: en
+      name: 'Ekurhuleni Metropolitan Municipality ⟶ Germiston'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '2'
+      parent: '269'
+      uuid: 683a93b5-18a5-490a-85af-de0a6a5bc7a9
+    -
+      vid: location
+      tid: '72'
+      langcode: en
+      name: 'El Salvador'
+      description__value: Country
+      description__format: ''
+      weight: '71'
+      parent: '0'
+      uuid: 60c6086c-5e0c-404f-b135-7265952dfd05
+    -
+      vid: location
+      tid: '73'
+      langcode: en
+      name: 'Equatorial Guinea'
+      description__value: Country
+      description__format: ''
+      weight: '72'
+      parent: '0'
+      uuid: decae641-7fc3-4eaf-bee8-220e8c59d6fb
+    -
+      vid: location
+      tid: '74'
+      langcode: en
+      name: Eritrea
+      description__value: Country
+      description__format: ''
+      weight: '73'
+      parent: '0'
+      uuid: c485276b-b199-4e4b-aa3c-4e6ce512ca7f
+    -
+      vid: location
+      tid: '75'
+      langcode: en
+      name: Estonia
+      description__value: Country
+      description__format: ''
+      weight: '74'
+      parent: '0'
+      uuid: 97053550-70aa-4eeb-bdc3-6284be6c5206
+    -
+      vid: location
+      tid: '295'
+      langcode: en
+      name: 'eThekwini Metropolitan Municipality ⟶ Durban'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '1'
+      parent: '270'
+      uuid: 5778238c-df3f-4863-a693-fadf22314025
+    -
+      vid: location
+      tid: '76'
+      langcode: en
+      name: Ethiopia
+      description__value: Country
+      description__format: ''
+      weight: '75'
+      parent: '0'
+      uuid: d6519557-45aa-42a7-acf8-00111b6b2e8e
+    -
+      vid: location
+      tid: '77'
+      langcode: en
+      name: 'Falkland Islands'
+      description__value: Country
+      description__format: ''
+      weight: '76'
+      parent: '0'
+      uuid: 671dda33-6d05-4af4-9bae-2fb89dce7b92
+    -
+      vid: location
+      tid: '78'
+      langcode: en
+      name: 'Faroe Islands'
+      description__value: Country
+      description__format: ''
+      weight: '77'
+      parent: '0'
+      uuid: f37ef8d3-50df-488a-a8cf-4759cdf06e51
+    -
+      vid: location
+      tid: '284'
+      langcode: en
+      name: 'Fezile Dabi District Municipality ⟶ Sasolburg'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '0'
+      parent: '268'
+      uuid: c2e536b3-48a8-4d6a-9762-2fc36ce9831f
+    -
+      vid: location
+      tid: '79'
+      langcode: en
+      name: Fiji
+      description__value: Country
+      description__format: ''
+      weight: '78'
+      parent: '0'
+      uuid: 8a2a51f3-f598-47f4-b140-610aaea15008
+    -
+      vid: location
+      tid: '80'
+      langcode: en
+      name: Finland
+      description__value: Country
+      description__format: ''
+      weight: '79'
+      parent: '0'
+      uuid: 1d8fa22a-44fb-4b78-a0bc-81d90aabda17
+    -
+      vid: location
+      tid: '81'
+      langcode: en
+      name: France
+      description__value: Country
+      description__format: ''
+      weight: '80'
+      parent: '0'
+      uuid: fe972ec8-dff0-427a-b5a8-0203015d47ce
+    -
+      vid: location
+      tid: '317'
+      langcode: en
+      name: 'Frances Baard District Municipality ⟶ Kimberley'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '0'
+      parent: '274'
+      uuid: 9b696b0c-199e-4c34-95ad-669feef017a1
+    -
+      vid: location
+      tid: '268'
+      langcode: en
+      name: 'Free State'
+      description__value: municipality
+      description__format: ''
+      weight: '1'
+      parent: '223'
+      uuid: 761c3732-f7f6-4c80-9ca6-04cb97217c20
+    -
+      vid: location
+      tid: '82'
+      langcode: en
+      name: 'French Guiana'
+      description__value: Country
+      description__format: ''
+      weight: '81'
+      parent: '0'
+      uuid: 399dbf1f-4a00-465c-b4ee-817454232a7e
+    -
+      vid: location
+      tid: '83'
+      langcode: en
+      name: 'French Polynesia'
+      description__value: Country
+      description__format: ''
+      weight: '82'
+      parent: '0'
+      uuid: f9ab9cb9-4c07-4e6f-a8e2-75939337b1dc
+    -
+      vid: location
+      tid: '84'
+      langcode: en
+      name: Gabon
+      description__value: Country
+      description__format: ''
+      weight: '83'
+      parent: '0'
+      uuid: 2a703e6d-e4a0-48f2-81f4-43dfc3f7a5ce
+    -
+      vid: location
+      tid: '85'
+      langcode: en
+      name: Gambia
+      description__value: Country
+      description__format: ''
+      weight: '84'
+      parent: '0'
+      uuid: 8116bb61-0aff-4194-995d-ac52586c04e9
+    -
+      vid: location
+      tid: '269'
+      langcode: en
+      name: Gauteng
+      description__value: municipality
+      description__format: ''
+      weight: '2'
+      parent: '223'
+      uuid: fce75281-db62-4482-97c5-2a0238ac0cdb
+    -
+      vid: location
+      tid: '86'
+      langcode: en
+      name: Georgia
+      description__value: Country
+      description__format: ''
+      weight: '85'
+      parent: '0'
+      uuid: 98b6ff12-c96f-4e92-bf63-5b24d7380c57
+    -
+      vid: location
+      tid: '87'
+      langcode: en
+      name: Germany
+      description__value: Country
+      description__format: ''
+      weight: '86'
+      parent: '0'
+      uuid: 25c42b6a-bb9b-4438-bf87-9b1838052835
+    -
+      vid: location
+      tid: '311'
+      langcode: en
+      name: 'Gert Sibande District Municipality ⟶ Ermelo'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '1'
+      parent: '272'
+      uuid: 8083f7c9-f137-42ce-835b-f52708ae3c48
+    -
+      vid: location
+      tid: '88'
+      langcode: en
+      name: Ghana
+      description__value: Country
+      description__format: ''
+      weight: '87'
+      parent: '0'
+      uuid: 8eb155f1-3e38-4238-bb2d-7131a4feda7e
+    -
+      vid: location
+      tid: '89'
+      langcode: en
+      name: Gibraltar
+      description__value: Country
+      description__format: ''
+      weight: '88'
+      parent: '0'
+      uuid: 412af3c9-2ad0-4530-be8e-39e881489952
+    -
+      vid: location
+      tid: '90'
+      langcode: en
+      name: Greece
+      description__value: Country
+      description__format: ''
+      weight: '89'
+      parent: '0'
+      uuid: 54591180-cf3a-41c0-a424-e32d4bef6a04
+    -
+      vid: location
+      tid: '91'
+      langcode: en
+      name: Greenland
+      description__value: Country
+      description__format: ''
+      weight: '90'
+      parent: '0'
+      uuid: 750bf0ac-0ccb-4169-aef1-d9f7d7a6585a
+    -
+      vid: location
+      tid: '92'
+      langcode: en
+      name: Grenada
+      description__value: Country
+      description__format: ''
+      weight: '91'
+      parent: '0'
+      uuid: da7a6c49-e620-4658-9014-c4b116f121d9
+    -
+      vid: location
+      tid: '93'
+      langcode: en
+      name: Guadeloupe
+      description__value: Country
+      description__format: ''
+      weight: '92'
+      parent: '0'
+      uuid: bbcc9f55-1a38-4e17-80eb-00db6e17f37d
+    -
+      vid: location
+      tid: '94'
+      langcode: en
+      name: Guam
+      description__value: Country
+      description__format: ''
+      weight: '93'
+      parent: '0'
+      uuid: c1da7d37-f0f9-440b-a806-fe5f3597a2f1
+    -
+      vid: location
+      tid: '95'
+      langcode: en
+      name: Guatemala
+      description__value: Country
+      description__format: ''
+      weight: '94'
+      parent: '0'
+      uuid: b30098d6-d2ce-433e-9dba-c9cf4d14b4ef
+    -
+      vid: location
+      tid: '96'
+      langcode: en
+      name: Guernsey
+      description__value: Country
+      description__format: ''
+      weight: '95'
+      parent: '0'
+      uuid: 782ec8d1-f28c-46f5-8565-44855f9801ee
+    -
+      vid: location
+      tid: '97'
+      langcode: en
+      name: Guinea
+      description__value: Country
+      description__format: ''
+      weight: '96'
+      parent: '0'
+      uuid: 41d1ecfd-1855-484c-9748-e7d61529b6c2
+    -
+      vid: location
+      tid: '98'
+      langcode: en
+      name: Guinea-Bissau
+      description__value: Country
+      description__format: ''
+      weight: '97'
+      parent: '0'
+      uuid: 140c916c-0871-4b44-8ac7-deeebaef82a3
+    -
+      vid: location
+      tid: '99'
+      langcode: en
+      name: Guyana
+      description__value: Country
+      description__format: ''
+      weight: '98'
+      parent: '0'
+      uuid: f4b596f4-eec3-4048-b3bc-c7072c3864cf
+    -
+      vid: location
+      tid: '100'
+      langcode: en
+      name: Haiti
+      description__value: Country
+      description__format: ''
+      weight: '99'
+      parent: '0'
+      uuid: 3c14bacd-2395-46fa-a8aa-ad8e81f47c2e
+    -
+      vid: location
+      tid: '296'
+      langcode: en
+      name: 'Harry Gwala District Municipality ⟶ Ixopo'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '2'
+      parent: '270'
+      uuid: aca33cc8-d722-406d-8398-5414b56d9d65
+    -
+      vid: location
+      tid: '101'
+      langcode: en
+      name: Honduras
+      description__value: Country
+      description__format: ''
+      weight: '100'
+      parent: '0'
+      uuid: e80da532-92e2-4b83-ae7c-4c7a46baf0d8
+    -
+      vid: location
+      tid: '102'
+      langcode: en
+      name: 'Hong Kong'
+      description__value: Country
+      description__format: ''
+      weight: '101'
+      parent: '0'
+      uuid: 0a97dcf1-b8b9-41e6-b82f-b5d037ae5d4a
+    -
+      vid: location
+      tid: '103'
+      langcode: en
+      name: 'Howland Island'
+      description__value: Country
+      description__format: ''
+      weight: '102'
+      parent: '0'
+      uuid: 410f214a-f6d2-4654-a1b3-90607d414183
+    -
+      vid: location
+      tid: '104'
+      langcode: en
+      name: Hungary
+      description__value: Country
+      description__format: ''
+      weight: '103'
+      parent: '0'
+      uuid: 6def594d-8125-49b7-ac1a-bc9b695d05a1
+    -
+      vid: location
+      tid: '105'
+      langcode: en
+      name: Iceland
+      description__value: Country
+      description__format: ''
+      weight: '104'
+      parent: '0'
+      uuid: 2ae07e99-78c7-4e38-a89c-9de958002178
+    -
+      vid: location
+      tid: '297'
+      langcode: en
+      name: 'iLembe District Municipality ⟶ KwaDukuza'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '3'
+      parent: '270'
+      uuid: 94b1afc8-cd6c-4377-91c7-dbfad823f88b
+    -
+      vid: location
+      tid: '106'
+      langcode: en
+      name: India
+      description__value: Country
+      description__format: ''
+      weight: '105'
+      parent: '0'
+      uuid: 7ba224ee-9ca5-450d-8b1b-763d887969a2
+    -
+      vid: location
+      tid: '107'
+      langcode: en
+      name: Indonesia
+      description__value: Country
+      description__format: ''
+      weight: '106'
+      parent: '0'
+      uuid: dae63cd5-6790-41d8-9098-f8ae9a40ef82
+    -
+      vid: location
+      tid: '108'
+      langcode: en
+      name: Iran
+      description__value: Country
+      description__format: ''
+      weight: '107'
+      parent: '0'
+      uuid: a4e6fb4f-89a4-4dc5-98b2-64f481c45572
+    -
+      vid: location
+      tid: '109'
+      langcode: en
+      name: Iraq
+      description__value: Country
+      description__format: ''
+      weight: '108'
+      parent: '0'
+      uuid: ab08327f-3100-42d7-8817-28e6b0f18eaa
+    -
+      vid: location
+      tid: '110'
+      langcode: en
+      name: Ireland
+      description__value: Country
+      description__format: ''
+      weight: '109'
+      parent: '0'
+      uuid: e30a3cdd-a5f9-440b-a24b-0a210e5bb34e
+    -
+      vid: location
+      tid: '111'
+      langcode: en
+      name: 'Isle of Man'
+      description__value: Country
+      description__format: ''
+      weight: '110'
+      parent: '0'
+      uuid: 19c855b6-aea5-43ff-a5e1-dc2fce661b41
+    -
+      vid: location
+      tid: '112'
+      langcode: en
+      name: Israel
+      description__value: Country
+      description__format: ''
+      weight: '111'
+      parent: '0'
+      uuid: d015a432-1fa5-4224-be64-9f17781b61c0
+    -
+      vid: location
+      tid: '113'
+      langcode: en
+      name: Italy
+      description__value: Country
+      description__format: ''
+      weight: '112'
+      parent: '0'
+      uuid: a1b3ab8b-5cd6-4042-ba69-ea60d06dba03
+    -
+      vid: location
+      tid: '114'
+      langcode: en
+      name: 'Ivory Coast (Côte d''Ivoire)'
+      description__value: Country
+      description__format: ''
+      weight: '113'
+      parent: '0'
+      uuid: 954568d9-93a7-4c44-9db7-f22f365b601e
+    -
+      vid: location
+      tid: '115'
+      langcode: en
+      name: Jamaica
+      description__value: Country
+      description__format: ''
+      weight: '114'
+      parent: '0'
+      uuid: 67d38e49-c4e1-4c80-b1c2-02817b9b4bb3
+    -
+      vid: location
+      tid: '116'
+      langcode: en
+      name: Japan
+      description__value: Country
+      description__format: ''
+      weight: '115'
+      parent: '0'
+      uuid: b4ff5845-0765-4a56-887b-939f678bd428
+    -
+      vid: location
+      tid: '117'
+      langcode: en
+      name: 'Jarvis Island'
+      description__value: Country
+      description__format: ''
+      weight: '116'
+      parent: '0'
+      uuid: 3b5da7ac-2dfa-460f-854e-92ee603dff4b
+    -
+      vid: location
+      tid: '118'
+      langcode: en
+      name: Jersey
+      description__value: Country
+      description__format: ''
+      weight: '117'
+      parent: '0'
+      uuid: 3479d6fb-948a-4a0f-a20e-254fcb4e4333
+    -
+      vid: location
+      tid: '280'
+      langcode: en
+      name: 'Joe Gqabi District Municipality ⟶ Barkly East'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '4'
+      parent: '267'
+      uuid: 60f0a0ad-9d84-4145-be0d-1ed642eb5721
+    -
+      vid: location
+      tid: '318'
+      langcode: en
+      name: 'John Taolo Gaetsewe District Municipality ⟶ Kuruman'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '1'
+      parent: '274'
+      uuid: b616bd4a-1aac-4845-b20a-8c517503891b
+    -
+      vid: location
+      tid: '119'
+      langcode: en
+      name: 'Johnston Atoll'
+      description__value: Country
+      description__format: ''
+      weight: '118'
+      parent: '0'
+      uuid: 5686e196-de77-4c1d-aadd-05b25522a298
+    -
+      vid: location
+      tid: '120'
+      langcode: en
+      name: Jordan
+      description__value: Country
+      description__format: ''
+      weight: '119'
+      parent: '0'
+      uuid: 5daa30b5-7294-4e10-b021-f3ba269ea4ab
+    -
+      vid: location
+      tid: '121'
+      langcode: en
+      name: Kazakhstan
+      description__value: Country
+      description__format: ''
+      weight: '120'
+      parent: '0'
+      uuid: bd2dcc0f-623e-494f-9799-fd6a9ccc2505
+    -
+      vid: location
+      tid: '122'
+      langcode: en
+      name: Kenya
+      description__value: Country
+      description__format: ''
+      weight: '121'
+      parent: '0'
+      uuid: bedf2cfa-50c1-4107-8067-bed88fc05630
+    -
+      vid: location
+      tid: '298'
+      langcode: en
+      name: 'King Cetshwayo District Municipality ⟶ Richards Bay'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '4'
+      parent: '270'
+      uuid: 99e95f2e-e0bf-4375-8820-5003fc8d79d4
+    -
+      vid: location
+      tid: '123'
+      langcode: en
+      name: 'Kingman Reef'
+      description__value: Country
+      description__format: ''
+      weight: '122'
+      parent: '0'
+      uuid: 7124f6dd-573d-44e0-b709-3e81990667fb
+    -
+      vid: location
+      tid: '124'
+      langcode: en
+      name: Kiribati
+      description__value: Country
+      description__format: ''
+      weight: '123'
+      parent: '0'
+      uuid: 442bb370-c66d-4927-9e24-ce53c364abd1
+    -
+      vid: location
+      tid: '125'
+      langcode: en
+      name: Kosovo
+      description__value: Country
+      description__format: ''
+      weight: '124'
+      parent: '0'
+      uuid: 9f1c871f-47f9-4547-ab26-c3717e7fac8c
+    -
+      vid: location
+      tid: '126'
+      langcode: en
+      name: Kuwait
+      description__value: Country
+      description__format: ''
+      weight: '125'
+      parent: '0'
+      uuid: 18e89d87-a879-406f-89a4-d909bd1c2ce8
+    -
+      vid: location
+      tid: '270'
+      langcode: en
+      name: KwaZulu-Natal
+      description__value: municipality
+      description__format: ''
+      weight: '3'
+      parent: '223'
+      uuid: bd983960-ec26-468b-8849-c6ddadceb3e2
+    -
+      vid: location
+      tid: '127'
+      langcode: en
+      name: Kyrgyzstan
+      description__value: Country
+      description__format: ''
+      weight: '126'
+      parent: '0'
+      uuid: 04147e95-5ca7-45a0-83b7-1863c1b18589
+    -
+      vid: location
+      tid: '128'
+      langcode: en
+      name: Laos
+      description__value: Country
+      description__format: ''
+      weight: '127'
+      parent: '0'
+      uuid: 7596dc02-0930-41ce-af06-d000bc0ef121
+    -
+      vid: location
+      tid: '129'
+      langcode: en
+      name: Latvia
+      description__value: Country
+      description__format: ''
+      weight: '128'
+      parent: '0'
+      uuid: b166f125-81af-44ee-a5d6-b8733aa8e72c
+    -
+      vid: location
+      tid: '130'
+      langcode: en
+      name: Lebanon
+      description__value: Country
+      description__format: ''
+      weight: '129'
+      parent: '0'
+      uuid: 3216b135-fcd2-41ab-b26c-7649dbba3cf0
+    -
+      vid: location
+      tid: '285'
+      langcode: en
+      name: 'Lejweleputswa District Municipality ⟶ Welkom'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '1'
+      parent: '268'
+      uuid: 630d0d14-b16e-4a3d-a6fd-c2732fafb264
+    -
+      vid: location
+      tid: '131'
+      langcode: en
+      name: Lesotho
+      description__value: Country
+      description__format: ''
+      weight: '130'
+      parent: '0'
+      uuid: c9007bda-e028-400c-9c25-728dbf4f4648
+    -
+      vid: location
+      tid: '132'
+      langcode: en
+      name: Liberia
+      description__value: Country
+      description__format: ''
+      weight: '131'
+      parent: '0'
+      uuid: 92a5c291-7b09-4e2d-b174-4208cf0242bf
+    -
+      vid: location
+      tid: '133'
+      langcode: en
+      name: Libya
+      description__value: Country
+      description__format: ''
+      weight: '132'
+      parent: '0'
+      uuid: 934ac9e0-f5ab-478d-aeb1-172c896f580c
+    -
+      vid: location
+      tid: '134'
+      langcode: en
+      name: Liechtenstein
+      description__value: Country
+      description__format: ''
+      weight: '133'
+      parent: '0'
+      uuid: edec0abb-77a0-4732-ab16-30eb1b3bea35
+    -
+      vid: location
+      tid: '271'
+      langcode: en
+      name: Limpopo
+      description__value: municipality
+      description__format: ''
+      weight: '4'
+      parent: '223'
+      uuid: e2fc53d0-272d-4699-a32d-53d0a45c25cc
+    -
+      vid: location
+      tid: '135'
+      langcode: en
+      name: Lithuania
+      description__value: Country
+      description__format: ''
+      weight: '134'
+      parent: '0'
+      uuid: fd6b78ec-6ee3-4680-96e3-df1ba813b996
+    -
+      vid: location
+      tid: '136'
+      langcode: en
+      name: Luxembourg
+      description__value: Country
+      description__format: ''
+      weight: '135'
+      parent: '0'
+      uuid: d13cc558-0ea0-4966-9879-a8e39b64f31d
+    -
+      vid: location
+      tid: '137'
+      langcode: en
+      name: Macau
+      description__value: Country
+      description__format: ''
+      weight: '136'
+      parent: '0'
+      uuid: 593c0370-7a49-4430-b2c8-a7dce63d852d
+    -
+      vid: location
+      tid: '138'
+      langcode: en
+      name: Macedonia
+      description__value: Country
+      description__format: ''
+      weight: '137'
+      parent: '0'
+      uuid: c0bdfdde-33fc-4d1d-8152-2762c00b9ddd
+    -
+      vid: location
+      tid: '139'
+      langcode: en
+      name: Madagascar
+      description__value: Country
+      description__format: ''
+      weight: '138'
+      parent: '0'
+      uuid: dac1a0e2-d2f5-4980-99d3-f093ae9244a9
+    -
+      vid: location
+      tid: '140'
+      langcode: en
+      name: Malawi
+      description__value: Country
+      description__format: ''
+      weight: '139'
+      parent: '0'
+      uuid: 7b4364c1-6bef-4657-abe9-b135518e17aa
+    -
+      vid: location
+      tid: '141'
+      langcode: en
+      name: Malaysia
+      description__value: Country
+      description__format: ''
+      weight: '140'
+      parent: '0'
+      uuid: f02c7517-7aab-480a-a157-31b20c46203f
+    -
+      vid: location
+      tid: '142'
+      langcode: en
+      name: Maldives
+      description__value: Country
+      description__format: ''
+      weight: '141'
+      parent: '0'
+      uuid: c9699c36-4515-4bf9-ace2-33c6b85926f3
+    -
+      vid: location
+      tid: '143'
+      langcode: en
+      name: Mali
+      description__value: Country
+      description__format: ''
+      weight: '142'
+      parent: '0'
+      uuid: 8df41274-6fff-47cf-b75d-86cd2dde07d4
+    -
+      vid: location
+      tid: '144'
+      langcode: en
+      name: Malta
+      description__value: Country
+      description__format: ''
+      weight: '143'
+      parent: '0'
+      uuid: 98e201f1-4bef-4942-8770-61f61ce8b5e3
+    -
+      vid: location
+      tid: '286'
+      langcode: en
+      name: 'Mangaung Metropolitan Municipality ⟶ Bloemfontein'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '2'
+      parent: '268'
+      uuid: ce8805c0-f37e-45b5-bdc0-cad77a0c6796
+    -
+      vid: location
+      tid: '145'
+      langcode: en
+      name: 'Marshall Islands'
+      description__value: Country
+      description__format: ''
+      weight: '144'
+      parent: '0'
+      uuid: 20bde5fe-6ea3-4df0-aa5f-04825fb7f90c
+    -
+      vid: location
+      tid: '146'
+      langcode: en
+      name: Martinique
+      description__value: Country
+      description__format: ''
+      weight: '145'
+      parent: '0'
+      uuid: 958a620b-d8b9-45cf-8218-30b348f5a06e
+    -
+      vid: location
+      tid: '147'
+      langcode: en
+      name: Mauritania
+      description__value: Country
+      description__format: ''
+      weight: '146'
+      parent: '0'
+      uuid: 339a6e3b-3356-428e-953c-e325c06bd3c6
+    -
+      vid: location
+      tid: '148'
+      langcode: en
+      name: Mauritius
+      description__value: Country
+      description__format: ''
+      weight: '147'
+      parent: '0'
+      uuid: 2afa9eff-1017-4a02-a220-6971f986502e
+    -
+      vid: location
+      tid: '149'
+      langcode: en
+      name: Mayotte
+      description__value: Country
+      description__format: ''
+      weight: '148'
+      parent: '0'
+      uuid: ee9b28a8-c080-459d-b3c8-1dc0bacce5a2
+    -
+      vid: location
+      tid: '150'
+      langcode: en
+      name: Mexico
+      description__value: Country
+      description__format: ''
+      weight: '149'
+      parent: '0'
+      uuid: db890576-9c9d-4623-9a29-645eb95bb751
+    -
+      vid: location
+      tid: '151'
+      langcode: en
+      name: Micronesia
+      description__value: Country
+      description__format: ''
+      weight: '150'
+      parent: '0'
+      uuid: 85a24074-ce6c-4006-b607-94d2ceffe341
+    -
+      vid: location
+      tid: '152'
+      langcode: en
+      name: 'Midway Atoll'
+      description__value: Country
+      description__format: ''
+      weight: '151'
+      parent: '0'
+      uuid: 3ec99c03-0134-4134-8eb0-c86b41bfd4fc
+    -
+      vid: location
+      tid: '153'
+      langcode: en
+      name: Moldova
+      description__value: Country
+      description__format: ''
+      weight: '152'
+      parent: '0'
+      uuid: 7faacdf4-eccb-49a0-a1c9-05fdf3ee18e5
+    -
+      vid: location
+      tid: '154'
+      langcode: en
+      name: Monaco
+      description__value: Country
+      description__format: ''
+      weight: '153'
+      parent: '0'
+      uuid: eb4756ba-f89f-41e5-b0a1-b34ee4a1ce0c
+    -
+      vid: location
+      tid: '155'
+      langcode: en
+      name: Mongolia
+      description__value: Country
+      description__format: ''
+      weight: '154'
+      parent: '0'
+      uuid: 333e2ea2-90ed-410a-9eb6-147ba983ccf5
+    -
+      vid: location
+      tid: '156'
+      langcode: en
+      name: Montenegro
+      description__value: Country
+      description__format: ''
+      weight: '155'
+      parent: '0'
+      uuid: 3caf0951-b926-4c26-b447-b3fd1f716471
+    -
+      vid: location
+      tid: '157'
+      langcode: en
+      name: Montserrat
+      description__value: Country
+      description__format: ''
+      weight: '156'
+      parent: '0'
+      uuid: 37d2009c-b738-40b1-bb9f-9bf26d40509b
+    -
+      vid: location
+      tid: '306'
+      langcode: en
+      name: 'Mopani District Municipality ⟶ Giyani'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '1'
+      parent: '271'
+      uuid: c07c4005-c2a2-43d8-b9ad-2297527b18d1
+    -
+      vid: location
+      tid: '158'
+      langcode: en
+      name: Morocco
+      description__value: Country
+      description__format: ''
+      weight: '157'
+      parent: '0'
+      uuid: d1fa836a-26f0-4857-87f5-a32660470432
+    -
+      vid: location
+      tid: '159'
+      langcode: en
+      name: Mozambique
+      description__value: Country
+      description__format: ''
+      weight: '158'
+      parent: '0'
+      uuid: 75488656-8e3e-410f-add8-dbce89887ffe
+    -
+      vid: location
+      tid: '272'
+      langcode: en
+      name: Mpumalanga
+      description__value: municipality
+      description__format: ''
+      weight: '5'
+      parent: '223'
+      uuid: 718620b8-69e6-4f8e-8bc6-f37d16dcccb2
+    -
+      vid: location
+      tid: '160'
+      langcode: en
+      name: 'Myanmar (Burma)'
+      description__value: Country
+      description__format: ''
+      weight: '159'
+      parent: '0'
+      uuid: 6447611a-821a-4b17-8023-60926d9b32af
+    -
+      vid: location
+      tid: '161'
+      langcode: en
+      name: Nagorno-Karabakh
+      description__value: Country
+      description__format: ''
+      weight: '160'
+      parent: '0'
+      uuid: 5b766d81-dc24-4379-a1e7-bc3b0819c990
+    -
+      vid: location
+      tid: '319'
+      langcode: en
+      name: 'Namakwa District Municipality ⟶ Springbok'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '2'
+      parent: '274'
+      uuid: c91643c0-2bf0-4b7e-9c39-ee18dc99ff1e
+    -
+      vid: location
+      tid: '162'
+      langcode: en
+      name: Namibia
+      description__value: Country
+      description__format: ''
+      weight: '161'
+      parent: '0'
+      uuid: 05034501-95f4-4352-a2f2-35c13c8515c5
+    -
+      vid: location
+      tid: '163'
+      langcode: en
+      name: Nauru
+      description__value: Country
+      description__format: ''
+      weight: '162'
+      parent: '0'
+      uuid: 0a701789-24eb-4df8-a8e9-5ae624ec0f28
+    -
+      vid: location
+      tid: '164'
+      langcode: en
+      name: 'Navassa Island'
+      description__value: Country
+      description__format: ''
+      weight: '163'
+      parent: '0'
+      uuid: 631d9709-9948-403b-8f0e-ff375a780ae1
+    -
+      vid: location
+      tid: '281'
+      langcode: en
+      name: 'Nelson Mandela Bay Metropolitan Municipality ⟶ Port Elizabeth'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '5'
+      parent: '267'
+      uuid: 1da49c99-1056-48f3-afb0-7dbee6479a26
+    -
+      vid: location
+      tid: '165'
+      langcode: en
+      name: Nepal
+      description__value: Country
+      description__format: ''
+      weight: '164'
+      parent: '0'
+      uuid: a876c747-35d9-4289-90e1-994c02c113c1
+    -
+      vid: location
+      tid: '166'
+      langcode: en
+      name: Netherlands
+      description__value: Country
+      description__format: ''
+      weight: '165'
+      parent: '0'
+      uuid: 50ad91f8-6102-4544-bebd-0ad487798643
+    -
+      vid: location
+      tid: '167'
+      langcode: en
+      name: 'New Caledonia'
+      description__value: Country
+      description__format: ''
+      weight: '166'
+      parent: '0'
+      uuid: f77a9460-d37f-476d-b293-eec1e47e32da
+    -
+      vid: location
+      tid: '168'
+      langcode: en
+      name: 'New Zealand'
+      description__value: Country
+      description__format: ''
+      weight: '167'
+      parent: '0'
+      uuid: d8e66b00-2337-4a94-ae27-058324b5730e
+    -
+      vid: location
+      tid: '316'
+      langcode: en
+      name: 'Ngaka Modiri Molema District Municipality ⟶ Mahikeng'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '3'
+      parent: '273'
+      uuid: ac754069-593f-4a7f-89a4-eb8a934b2dde
+    -
+      vid: location
+      tid: '169'
+      langcode: en
+      name: Nicaragua
+      description__value: Country
+      description__format: ''
+      weight: '168'
+      parent: '0'
+      uuid: 070d80bf-5426-4569-933a-62a47dcad423
+    -
+      vid: location
+      tid: '170'
+      langcode: en
+      name: Niger
+      description__value: Country
+      description__format: ''
+      weight: '169'
+      parent: '0'
+      uuid: 6d11deca-ec7e-4451-8798-db8b33533107
+    -
+      vid: location
+      tid: '171'
+      langcode: en
+      name: Nigeria
+      description__value: Country
+      description__format: ''
+      weight: '170'
+      parent: '0'
+      uuid: be401a7c-5cd0-4545-994d-3099331bf079
+    -
+      vid: location
+      tid: '172'
+      langcode: en
+      name: Niue
+      description__value: Country
+      description__format: ''
+      weight: '171'
+      parent: '0'
+      uuid: f28e6e55-c1af-4f7c-b446-8d594860457e
+    -
+      vid: location
+      tid: '312'
+      langcode: en
+      name: 'Nkangala District Municipality ⟶ Middelburg'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '2'
+      parent: '272'
+      uuid: 4f53a0ee-9f55-4812-a72e-35054ac47f0c
+    -
+      vid: location
+      tid: '173'
+      langcode: en
+      name: 'Norfolk Island'
+      description__value: Country
+      description__format: ''
+      weight: '172'
+      parent: '0'
+      uuid: 601cf103-4298-409a-ab27-5787771215a2
+    -
+      vid: location
+      tid: '174'
+      langcode: en
+      name: 'North Korea'
+      description__value: Country
+      description__format: ''
+      weight: '173'
+      parent: '0'
+      uuid: e7b494c3-8d55-4ccb-af14-ce9fec799290
+    -
+      vid: location
+      tid: '273'
+      langcode: en
+      name: 'North West'
+      description__value: municipality
+      description__format: ''
+      weight: '6'
+      parent: '223'
+      uuid: d1cf1ac8-dcd0-4dad-a36b-91f12efaeb86
+    -
+      vid: location
+      tid: '274'
+      langcode: en
+      name: 'Northern Cape'
+      description__value: municipality
+      description__format: ''
+      weight: '7'
+      parent: '223'
+      uuid: 1a9d9be3-c8f3-4120-828a-0695c366708d
+    -
+      vid: location
+      tid: '175'
+      langcode: en
+      name: 'Northern Cyprus'
+      description__value: Country
+      description__format: ''
+      weight: '174'
+      parent: '0'
+      uuid: dbf04f47-a000-40e2-af50-24fce074bc3d
+    -
+      vid: location
+      tid: '176'
+      langcode: en
+      name: 'Northern Mariana Islands'
+      description__value: Country
+      description__format: ''
+      weight: '175'
+      parent: '0'
+      uuid: b0057976-cee1-4511-97f0-4b90425940ac
+    -
+      vid: location
+      tid: '177'
+      langcode: en
+      name: Norway
+      description__value: Country
+      description__format: ''
+      weight: '176'
+      parent: '0'
+      uuid: 362c0d15-e380-4683-b2af-d202659d6518
+    -
+      vid: location
+      tid: '178'
+      langcode: en
+      name: Oman
+      description__value: Country
+      description__format: ''
+      weight: '177'
+      parent: '0'
+      uuid: 5618ccbe-7177-44bf-856e-6cff94e77d95
+    -
+      vid: location
+      tid: '282'
+      langcode: en
+      name: 'OR Tambo District Municipality ⟶ Mthatha'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '6'
+      parent: '267'
+      uuid: dedec414-69b8-4799-969e-392326b59ca3
+    -
+      vid: location
+      tid: '326'
+      langcode: en
+      name: 'Overberg District Municipality ⟶ Bredasdorp'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '4'
+      parent: '275'
+      uuid: 92f5f3d0-4c8e-4b4c-b1a0-733f6408c963
+    -
+      vid: location
+      tid: '179'
+      langcode: en
+      name: Pakistan
+      description__value: Country
+      description__format: ''
+      weight: '178'
+      parent: '0'
+      uuid: 446733c6-e0a0-4757-80da-462a50cbee4b
+    -
+      vid: location
+      tid: '180'
+      langcode: en
+      name: Palau
+      description__value: Country
+      description__format: ''
+      weight: '179'
+      parent: '0'
+      uuid: 152db8fc-392f-4d26-9bba-96c451a33dbb
+    -
+      vid: location
+      tid: '181'
+      langcode: en
+      name: Palestine
+      description__value: Country
+      description__format: ''
+      weight: '180'
+      parent: '0'
+      uuid: 50afb1e6-3371-42cd-bc31-7c2e4c5ad0ac
+    -
+      vid: location
+      tid: '182'
+      langcode: en
+      name: 'Palmyra Atoll'
+      description__value: Country
+      description__format: ''
+      weight: '181'
+      parent: '0'
+      uuid: 00ad1d62-0155-4a21-9af3-eb27cca9db14
+    -
+      vid: location
+      tid: '183'
+      langcode: en
+      name: Panama
+      description__value: Country
+      description__format: ''
+      weight: '182'
+      parent: '0'
+      uuid: e4681039-5baf-4aa5-997e-fc726b7a9be0
+    -
+      vid: location
+      tid: '184'
+      langcode: en
+      name: 'Papua New Guinea'
+      description__value: Country
+      description__format: ''
+      weight: '183'
+      parent: '0'
+      uuid: 26fbce18-5efa-4024-ad27-3eec6cf013ad
+    -
+      vid: location
+      tid: '185'
+      langcode: en
+      name: Paraguay
+      description__value: Country
+      description__format: ''
+      weight: '184'
+      parent: '0'
+      uuid: 7432c022-1f9b-4825-841a-079ad218b1e2
+    -
+      vid: location
+      tid: '186'
+      langcode: en
+      name: Peru
+      description__value: Country
+      description__format: ''
+      weight: '185'
+      parent: '0'
+      uuid: fae1e2c8-ca69-4c7e-97ee-b54a94b683ea
+    -
+      vid: location
+      tid: '187'
+      langcode: en
+      name: Philippines
+      description__value: Country
+      description__format: ''
+      weight: '186'
+      parent: '0'
+      uuid: 716866c0-71ef-4d07-a24a-fc2ad007ca97
+    -
+      vid: location
+      tid: '188'
+      langcode: en
+      name: 'Pitcairn Islands'
+      description__value: Country
+      description__format: ''
+      weight: '187'
+      parent: '0'
+      uuid: 3c93b7b9-906f-4d1d-93f0-a17ca5df3854
+    -
+      vid: location
+      tid: '320'
+      langcode: en
+      name: 'Pixley ka Seme District Municipality ⟶ De Aar'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '3'
+      parent: '274'
+      uuid: 16fb0385-2712-43f4-8237-652c424d9e09
+    -
+      vid: location
+      tid: '189'
+      langcode: en
+      name: Poland
+      description__value: Country
+      description__format: ''
+      weight: '188'
+      parent: '0'
+      uuid: 6d4987d6-5081-49cc-8089-2e694e8bbcfc
+    -
+      vid: location
+      tid: '190'
+      langcode: en
+      name: Portugal
+      description__value: Country
+      description__format: ''
+      weight: '189'
+      parent: '0'
+      uuid: 1fea8043-4eff-40ca-b88e-8b64414129c8
+    -
+      vid: location
+      tid: '191'
+      langcode: en
+      name: 'Puerto Rico'
+      description__value: Country
+      description__format: ''
+      weight: '190'
+      parent: '0'
+      uuid: 455a4df8-b1ee-4222-95a7-fa26c71db8c5
+    -
+      vid: location
+      tid: '192'
+      langcode: en
+      name: Qatar
+      description__value: Country
+      description__format: ''
+      weight: '191'
+      parent: '0'
+      uuid: d5f35b21-2049-4c87-b729-5457eea4b585
+    -
+      vid: location
+      tid: '193'
+      langcode: en
+      name: Réunion
+      description__value: Country
+      description__format: ''
+      weight: '192'
+      parent: '0'
+      uuid: d635b524-81a3-43fc-a4f4-9e94419eac0b
+    -
+      vid: location
+      tid: '194'
+      langcode: en
+      name: Romania
+      description__value: Country
+      description__format: ''
+      weight: '193'
+      parent: '0'
+      uuid: 56210a05-833f-48e5-9dbf-5493e2cc8b5d
+    -
+      vid: location
+      tid: '195'
+      langcode: en
+      name: Russia
+      description__value: Country
+      description__format: ''
+      weight: '194'
+      parent: '0'
+      uuid: fc1f94d8-ac6e-4bc6-b866-a1d26906ba80
+    -
+      vid: location
+      tid: '196'
+      langcode: en
+      name: Rwanda
+      description__value: Country
+      description__format: ''
+      weight: '195'
+      parent: '0'
+      uuid: 529e8bac-d3ea-4281-babe-bebe9b903fc5
+    -
+      vid: location
+      tid: '197'
+      langcode: en
+      name: Saba
+      description__value: Country
+      description__format: ''
+      weight: '196'
+      parent: '0'
+      uuid: 340aeecb-8aaf-419d-8e1f-e4c8227e0120
+    -
+      vid: location
+      tid: '198'
+      langcode: en
+      name: 'Sahrawi Arab Democratic Republic'
+      description__value: Country
+      description__format: ''
+      weight: '197'
+      parent: '0'
+      uuid: 5f2348e9-e916-4aca-9dec-4bf224ffff9d
+    -
+      vid: location
+      tid: '199'
+      langcode: en
+      name: 'Saint Barthélemy'
+      description__value: Country
+      description__format: ''
+      weight: '198'
+      parent: '0'
+      uuid: 41a22436-016e-483e-ab48-86c484d7a200
+    -
+      vid: location
+      tid: '200'
+      langcode: en
+      name: 'Saint Helena Ascension and Tristan da Cunha'
+      description__value: Country
+      description__format: ''
+      weight: '199'
+      parent: '0'
+      uuid: f98c7985-315f-4825-a794-e6373ebc4360
+    -
+      vid: location
+      tid: '201'
+      langcode: en
+      name: 'Saint Kitts and Nevis'
+      description__value: Country
+      description__format: ''
+      weight: '261'
+      parent: '0'
+      uuid: b838d159-21f4-40f7-b98d-0ffff8604ccf
+    -
+      vid: location
+      tid: '202'
+      langcode: en
+      name: 'Saint Lucia'
+      description__value: Country
+      description__format: ''
+      weight: '262'
+      parent: '0'
+      uuid: e46abf4f-43cd-49c9-8261-ce86111ab55a
+    -
+      vid: location
+      tid: '203'
+      langcode: en
+      name: 'Saint Martin'
+      description__value: Country
+      description__format: ''
+      weight: '263'
+      parent: '0'
+      uuid: 73c2fda8-49de-497e-aab6-63d18bcc5642
+    -
+      vid: location
+      tid: '204'
+      langcode: en
+      name: 'Saint Pierre and Miquelon'
+      description__value: Country
+      description__format: ''
+      weight: '264'
+      parent: '0'
+      uuid: 8b0e4813-a253-47d2-9781-b9e3dfce0a31
+    -
+      vid: location
+      tid: '205'
+      langcode: en
+      name: 'Saint Vincent and the Grenadines'
+      description__value: Country
+      description__format: ''
+      weight: '265'
+      parent: '0'
+      uuid: 13dd9d3a-a045-483b-beab-f75b22403260
+    -
+      vid: location
+      tid: '206'
+      langcode: en
+      name: Samoa
+      description__value: Country
+      description__format: ''
+      weight: '266'
+      parent: '0'
+      uuid: 2c464357-8d4e-4f6f-9697-32d2b04e6f48
+    -
+      vid: location
+      tid: '207'
+      langcode: en
+      name: 'San Marino'
+      description__value: Country
+      description__format: ''
+      weight: '267'
+      parent: '0'
+      uuid: 1694389b-03ca-4cf1-87cb-f066a5bb2d16
+    -
+      vid: location
+      tid: '208'
+      langcode: en
+      name: 'São Tomé and Príncipe'
+      description__value: Country
+      description__format: ''
+      weight: '268'
+      parent: '0'
+      uuid: 674c264c-7e95-4345-bfa6-5202fec43915
+    -
+      vid: location
+      tid: '283'
+      langcode: en
+      name: 'Sarah Baartman District Municipality ⟶ Port Elizabeth'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '7'
+      parent: '267'
+      uuid: 6d90d0c3-9d9c-4b32-ae45-cad0904fc178
+    -
+      vid: location
+      tid: '209'
+      langcode: en
+      name: 'Saudi Arabia'
+      description__value: Country
+      description__format: ''
+      weight: '269'
+      parent: '0'
+      uuid: dc8928d9-1917-4179-84f2-d2735b28a27b
+    -
+      vid: location
+      tid: '292'
+      langcode: en
+      name: 'Sedibeng District Municipality ⟶ Vereeniging'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '3'
+      parent: '269'
+      uuid: 9186230a-291e-4044-a9e2-18c081fb8fd6
+    -
+      vid: location
+      tid: '307'
+      langcode: en
+      name: 'Sekhukhune District Municipality ⟶ Groblersdal'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '2'
+      parent: '271'
+      uuid: 30f073c5-2452-4e6b-9369-ea1fa364e971
+    -
+      vid: location
+      tid: '210'
+      langcode: en
+      name: Senegal
+      description__value: Country
+      description__format: ''
+      weight: '270'
+      parent: '0'
+      uuid: a43e7611-790b-4aa3-aa1e-0d9515156fcb
+    -
+      vid: location
+      tid: '211'
+      langcode: en
+      name: Serbia
+      description__value: Country
+      description__format: ''
+      weight: '271'
+      parent: '0'
+      uuid: 9e063cee-19b6-48c5-b64d-1393737dc03f
+    -
+      vid: location
+      tid: '212'
+      langcode: en
+      name: Seychelles
+      description__value: Country
+      description__format: ''
+      weight: '272'
+      parent: '0'
+      uuid: 18bafe4e-2687-422e-810e-4edd2a28e7b7
+    -
+      vid: location
+      tid: '213'
+      langcode: en
+      name: 'Sierra Leone'
+      description__value: Country
+      description__format: ''
+      weight: '273'
+      parent: '0'
+      uuid: b9371806-1f08-410e-a756-c36b8c9f5166
+    -
+      vid: location
+      tid: '214'
+      langcode: en
+      name: Singapore
+      description__value: Country
+      description__format: ''
+      weight: '274'
+      parent: '0'
+      uuid: 9ce227cf-a2f7-4825-8fc7-f5256d22207e
+    -
+      vid: location
+      tid: '215'
+      langcode: en
+      name: 'Sint Eustatius'
+      description__value: Country
+      description__format: ''
+      weight: '275'
+      parent: '0'
+      uuid: 9f5ca4d7-869a-41c7-a3c5-b8457ebf0adb
+    -
+      vid: location
+      tid: '216'
+      langcode: en
+      name: 'Sint Maarten'
+      description__value: Country
+      description__format: ''
+      weight: '276'
+      parent: '0'
+      uuid: 416b174e-3bd0-45b2-9632-73de76b11733
+    -
+      vid: location
+      tid: '217'
+      langcode: en
+      name: Slovakia
+      description__value: Country
+      description__format: ''
+      weight: '277'
+      parent: '0'
+      uuid: 9bb64dfc-8959-473e-b20e-ef2630b422d9
+    -
+      vid: location
+      tid: '218'
+      langcode: en
+      name: Slovenia
+      description__value: Country
+      description__format: ''
+      weight: '278'
+      parent: '0'
+      uuid: d33b0930-e685-43b3-b4a3-42cc7db61bce
+    -
+      vid: location
+      tid: '219'
+      langcode: en
+      name: 'Solomon Islands'
+      description__value: Country
+      description__format: ''
+      weight: '279'
+      parent: '0'
+      uuid: 49d28884-3460-48c6-ae8d-3d9095167769
+    -
+      vid: location
+      tid: '220'
+      langcode: en
+      name: Somalia
+      description__value: Country
+      description__format: ''
+      weight: '280'
+      parent: '0'
+      uuid: 1735f9f4-1fca-42dc-8d5c-b670691ffd93
+    -
+      vid: location
+      tid: '221'
+      langcode: en
+      name: Somaliland
+      description__value: Country
+      description__format: ''
+      weight: '281'
+      parent: '0'
+      uuid: a7f101ba-aeda-4230-972f-a1fdd2b098a5
+    -
+      vid: location
+      tid: '223'
+      langcode: en
+      name: 'South Africa'
+      description__value: Country
+      description__format: ''
+      weight: '282'
+      parent: '0'
+      uuid: 77c8b7e9-2730-443f-a50a-4588a4c21d1b
+    -
+      vid: location
+      tid: '222'
+      langcode: en
+      name: 'South Georgia and the South Sandwich Islands'
+      description__value: Country
+      description__format: ''
+      weight: '283'
+      parent: '0'
+      uuid: 4452de56-d62d-40c1-8735-ca923446eb6f
+    -
+      vid: location
+      tid: '224'
+      langcode: en
+      name: 'South Korea'
+      description__value: Country
+      description__format: ''
+      weight: '284'
+      parent: '0'
+      uuid: 7e094bca-aadf-4f19-b48d-833edc80b606
+    -
+      vid: location
+      tid: '225'
+      langcode: en
+      name: 'South Ossetia'
+      description__value: Country
+      description__format: ''
+      weight: '285'
+      parent: '0'
+      uuid: 490018b8-9ef5-4c5f-af59-35d8eec0c78a
+    -
+      vid: location
+      tid: '226'
+      langcode: en
+      name: 'South Sudan'
+      description__value: Country
+      description__format: ''
+      weight: '286'
+      parent: '0'
+      uuid: 39cb165d-e945-48c1-bfb0-7bdb1511fc62
+    -
+      vid: location
+      tid: '227'
+      langcode: en
+      name: Spain
+      description__value: Country
+      description__format: ''
+      weight: '287'
+      parent: '0'
+      uuid: e30428ba-3b69-46d4-b48d-8dbfb3a4d710
+    -
+      vid: location
+      tid: '228'
+      langcode: en
+      name: 'Sri Lanka'
+      description__value: Country
+      description__format: ''
+      weight: '288'
+      parent: '0'
+      uuid: 8d37211d-36cf-44fd-8931-1cc8f6745d47
+    -
+      vid: location
+      tid: '229'
+      langcode: en
+      name: Sudan
+      description__value: Country
+      description__format: ''
+      weight: '289'
+      parent: '0'
+      uuid: 292e2ab4-12ad-47b8-ab40-987358232ed4
+    -
+      vid: location
+      tid: '230'
+      langcode: en
+      name: Suriname
+      description__value: Country
+      description__format: ''
+      weight: '290'
+      parent: '0'
+      uuid: aef246da-e87e-4ad2-93b6-dba976c70da1
+    -
+      vid: location
+      tid: '231'
+      langcode: en
+      name: Svalbard
+      description__value: Country
+      description__format: ''
+      weight: '291'
+      parent: '0'
+      uuid: 9c2e8392-c960-447c-9f0f-55fbfb733ddd
+    -
+      vid: location
+      tid: '232'
+      langcode: en
+      name: Swaziland
+      description__value: Country
+      description__format: ''
+      weight: '292'
+      parent: '0'
+      uuid: f9b38885-ed2f-4900-a030-f192cd105501
+    -
+      vid: location
+      tid: '233'
+      langcode: en
+      name: Sweden
+      description__value: Country
+      description__format: ''
+      weight: '293'
+      parent: '0'
+      uuid: 354f1448-c568-4a8d-b72b-6fea2713f748
+    -
+      vid: location
+      tid: '234'
+      langcode: en
+      name: Switzerland
+      description__value: Country
+      description__format: ''
+      weight: '294'
+      parent: '0'
+      uuid: 84e763d6-4986-4557-a6cb-ab8f1f74276f
+    -
+      vid: location
+      tid: '235'
+      langcode: en
+      name: Syria
+      description__value: Country
+      description__format: ''
+      weight: '295'
+      parent: '0'
+      uuid: da913a22-5ab6-4153-884c-c98d4539b673
+    -
+      vid: location
+      tid: '236'
+      langcode: en
+      name: Taiwan
+      description__value: Country
+      description__format: ''
+      weight: '296'
+      parent: '0'
+      uuid: 81eb6445-d1f3-439c-bba8-54e945f5777b
+    -
+      vid: location
+      tid: '237'
+      langcode: en
+      name: Tajikistan
+      description__value: Country
+      description__format: ''
+      weight: '297'
+      parent: '0'
+      uuid: e5e0b632-6d5d-4dee-8e8d-43fc5380fc0e
+    -
+      vid: location
+      tid: '238'
+      langcode: en
+      name: Tanzania
+      description__value: Country
+      description__format: ''
+      weight: '298'
+      parent: '0'
+      uuid: a42051bb-2055-469a-bf2f-d9b79a4beb9f
+    -
+      vid: location
+      tid: '287'
+      langcode: en
+      name: 'Thabo Mofutsanyana District Municipality ⟶ Phuthaditjhaba'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '3'
+      parent: '268'
+      uuid: 71a5a569-77ad-4828-8dcb-6ef58b7ff1fe
+    -
+      vid: location
+      tid: '239'
+      langcode: en
+      name: Thailand
+      description__value: Country
+      description__format: ''
+      weight: '299'
+      parent: '0'
+      uuid: da5ce85d-e2e9-4697-8ce1-50c316f852eb
+    -
+      vid: location
+      tid: '240'
+      langcode: en
+      name: Togo
+      description__value: Country
+      description__format: ''
+      weight: '300'
+      parent: '0'
+      uuid: e599957f-6958-4302-9656-1adfb99c0c56
+    -
+      vid: location
+      tid: '241'
+      langcode: en
+      name: Tokelau
+      description__value: Country
+      description__format: ''
+      weight: '301'
+      parent: '0'
+      uuid: fb99a495-ef56-4795-9ee5-d0f0bca3d630
+    -
+      vid: location
+      tid: '242'
+      langcode: en
+      name: Tonga
+      description__value: Country
+      description__format: ''
+      weight: '302'
+      parent: '0'
+      uuid: e88ccca2-b1d8-4003-bc73-b03e6eb5baa7
+    -
+      vid: location
+      tid: '243'
+      langcode: en
+      name: Transnistria
+      description__value: Country
+      description__format: ''
+      weight: '303'
+      parent: '0'
+      uuid: f6fc780e-1fa1-4a1b-b0e0-e85c496c5756
+    -
+      vid: location
+      tid: '244'
+      langcode: en
+      name: 'Trinidad and Tobago'
+      description__value: Country
+      description__format: ''
+      weight: '304'
+      parent: '0'
+      uuid: 02c24eb9-64e0-42b8-88d8-c77f95908fd8
+    -
+      vid: location
+      tid: '245'
+      langcode: en
+      name: Tunisia
+      description__value: Country
+      description__format: ''
+      weight: '305'
+      parent: '0'
+      uuid: a0ffcdbb-15e0-4f96-a5a6-cb81635d9ed5
+    -
+      vid: location
+      tid: '246'
+      langcode: en
+      name: Turkey
+      description__value: Country
+      description__format: ''
+      weight: '306'
+      parent: '0'
+      uuid: 253c1046-2cfb-4936-b457-a1131cb8faa0
+    -
+      vid: location
+      tid: '247'
+      langcode: en
+      name: Turkmenistan
+      description__value: Country
+      description__format: ''
+      weight: '307'
+      parent: '0'
+      uuid: 72b3ce72-8362-4a2c-a7c9-3228e5b12480
+    -
+      vid: location
+      tid: '248'
+      langcode: en
+      name: 'Turks and Caicos Islands'
+      description__value: Country
+      description__format: ''
+      weight: '308'
+      parent: '0'
+      uuid: 259b2f4b-1262-4362-b3e1-3617990af602
+    -
+      vid: location
+      tid: '249'
+      langcode: en
+      name: Tuvalu
+      description__value: Country
+      description__format: ''
+      weight: '309'
+      parent: '0'
+      uuid: cd2db9c5-9328-4514-8926-03e1320625ab
+    -
+      vid: location
+      tid: '250'
+      langcode: en
+      name: Uganda
+      description__value: Country
+      description__format: ''
+      weight: '310'
+      parent: '0'
+      uuid: c070482f-e486-4614-9600-bb9738f3a7eb
+    -
+      vid: location
+      tid: '299'
+      langcode: en
+      name: 'Ugu District Municipality ⟶ Port Shepstone'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '5'
+      parent: '270'
+      uuid: 88a38b5d-df35-4707-a3aa-41b65c788df5
+    -
+      vid: location
+      tid: '251'
+      langcode: en
+      name: Ukraine
+      description__value: Country
+      description__format: ''
+      weight: '311'
+      parent: '0'
+      uuid: 2fad7b3f-dc49-4d7c-964c-344ea18bcc93
+    -
+      vid: location
+      tid: '300'
+      langcode: en
+      name: 'uMgungundlovu District Municipality ⟶ Pietermaritzburg'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '6'
+      parent: '270'
+      uuid: 4cdf0840-d20a-44b3-9d6e-a71698e5754b
+    -
+      vid: location
+      tid: '301'
+      langcode: en
+      name: 'uMkhanyakude District Municipality ⟶ Mkuze'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '7'
+      parent: '270'
+      uuid: 494e82e3-01dd-4ed1-b26f-9f64635ad56b
+    -
+      vid: location
+      tid: '302'
+      langcode: en
+      name: 'uMzinyathi District Municipality ⟶ Dundee'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '8'
+      parent: '270'
+      uuid: 60d65067-5daa-4a0a-947b-993e465fa0bb
+    -
+      vid: location
+      tid: '252'
+      langcode: en
+      name: 'United Arab Emirates'
+      description__value: Country
+      description__format: ''
+      weight: '312'
+      parent: '0'
+      uuid: e19190d0-3c8e-4ed9-8fc7-0b778b7db5f8
+    -
+      vid: location
+      tid: '253'
+      langcode: en
+      name: 'United Kingdom'
+      description__value: Country
+      description__format: ''
+      weight: '313'
+      parent: '0'
+      uuid: eedf9e44-c97b-4fc7-ba23-cc00b23f87a5
+    -
+      vid: location
+      tid: '254'
+      langcode: en
+      name: 'United States'
+      description__value: Country
+      description__format: ''
+      weight: '314'
+      parent: '0'
+      uuid: ed683530-bcf8-4510-9993-12c7eaebe0db
+    -
+      vid: location
+      tid: '255'
+      langcode: en
+      name: 'United States Virgin Islands'
+      description__value: Country
+      description__format: ''
+      weight: '315'
+      parent: '0'
+      uuid: 98fbd41a-8e62-48ad-8beb-690e32ee9b5d
+    -
+      vid: location
+      tid: '256'
+      langcode: en
+      name: Uruguay
+      description__value: Country
+      description__format: ''
+      weight: '316'
+      parent: '0'
+      uuid: a5610fed-2f42-43cc-8111-7c65731ad298
+    -
+      vid: location
+      tid: '303'
+      langcode: en
+      name: 'uThukela District Municipality ⟶ Ladysmith'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '9'
+      parent: '270'
+      uuid: 210e5092-f81c-4f37-9c31-f0d2ca6f71e5
+    -
+      vid: location
+      tid: '257'
+      langcode: en
+      name: Uzbekistan
+      description__value: Country
+      description__format: ''
+      weight: '317'
+      parent: '0'
+      uuid: 0ba179e6-854d-4a99-92d8-cc464de005a8
+    -
+      vid: location
+      tid: '258'
+      langcode: en
+      name: Vanuatu
+      description__value: Country
+      description__format: ''
+      weight: '318'
+      parent: '0'
+      uuid: 84605643-e860-4332-9872-29461df3d150
+    -
+      vid: location
+      tid: '259'
+      langcode: en
+      name: 'Vatican City/Holy See'
+      description__value: Country
+      description__format: ''
+      weight: '319'
+      parent: '0'
+      uuid: 098c251d-4a7b-4f61-9228-ae0a3bb8f230
+    -
+      vid: location
+      tid: '260'
+      langcode: en
+      name: Venezuela
+      description__value: Country
+      description__format: ''
+      weight: '320'
+      parent: '0'
+      uuid: bf147e57-00cb-432d-9dac-f43cc165b3d4
+    -
+      vid: location
+      tid: '308'
+      langcode: en
+      name: 'Vhembe District Municipality ⟶ Thohoyandou'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '3'
+      parent: '271'
+      uuid: 1c2ae235-1721-475b-abd6-ddb15768c43a
+    -
+      vid: location
+      tid: '261'
+      langcode: en
+      name: Vietnam
+      description__value: Country
+      description__format: ''
+      weight: '321'
+      parent: '0'
+      uuid: 22f03e95-41ac-46b9-a140-8fb92960460b
+    -
+      vid: location
+      tid: '262'
+      langcode: en
+      name: 'Wake Island'
+      description__value: Country
+      description__format: ''
+      weight: '322'
+      parent: '0'
+      uuid: f6a4dfdc-5d5b-423e-902b-e48e4d958636
+    -
+      vid: location
+      tid: '263'
+      langcode: en
+      name: 'Wallis and Futuna'
+      description__value: Country
+      description__format: ''
+      weight: '323'
+      parent: '0'
+      uuid: f36d46aa-c0cf-43e0-b1a6-bcb4f8c826d8
+    -
+      vid: location
+      tid: '309'
+      langcode: en
+      name: 'Waterberg District Municipality ⟶ Modimolle'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '4'
+      parent: '271'
+      uuid: 9d0f706d-6cc3-436d-9e18-3699a9bd04fc
+    -
+      vid: location
+      tid: '327'
+      langcode: en
+      name: 'West Coast District Municipality ⟶ Moorreesburg'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '5'
+      parent: '275'
+      uuid: 5d24e6da-fc7d-46c0-aea1-12f8558bb6b3
+    -
+      vid: location
+      tid: '293'
+      langcode: en
+      name: 'West Rand District Municipality ⟶ Randfontein'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '4'
+      parent: '269'
+      uuid: 1660b9fb-9d1b-4929-aae6-0ce98f7b0712
+    -
+      vid: location
+      tid: '275'
+      langcode: en
+      name: 'Western Cape'
+      description__value: municipality
+      description__format: ''
+      weight: '8'
+      parent: '223'
+      uuid: 77d0fc7c-36d9-4f97-8fe4-663849c73fb7
+    -
+      vid: location
+      tid: '288'
+      langcode: en
+      name: 'Xhariep District Municipality ⟶ Trompsburg'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '4'
+      parent: '268'
+      uuid: 35f37d56-ac99-43d2-9715-938be4fe0d46
+    -
+      vid: location
+      tid: '264'
+      langcode: en
+      name: Yemen
+      description__value: Country
+      description__format: ''
+      weight: '324'
+      parent: '0'
+      uuid: 7e17b937-7282-454a-8a33-23be2077c081
+    -
+      vid: location
+      tid: '265'
+      langcode: en
+      name: Zambia
+      description__value: Country
+      description__format: ''
+      weight: '325'
+      parent: '0'
+      uuid: 5f1f8fcf-cb0f-44d5-a4ba-dac662d0cdc3
+    -
+      vid: location
+      tid: '321'
+      langcode: en
+      name: 'ZF Mgcawu District Municipality ⟶ Upington'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '4'
+      parent: '274'
+      uuid: fa2043b0-31a9-44a4-9bbf-16c3ff708177
+    -
+      vid: location
+      tid: '266'
+      langcode: en
+      name: Zimbabwe
+      description__value: Country
+      description__format: ''
+      weight: '326'
+      parent: '0'
+      uuid: 94582525-b4b1-4fd5-8dd1-f5cd8ad22c9d
+    -
+      vid: location
+      tid: '304'
+      langcode: en
+      name: 'Zululand District Municipality ⟶ Ulundi'
+      description__value: 'Municipal district'
+      description__format: ''
+      weight: '10'
+      parent: '270'
+      uuid: 69d71407-17f2-4239-a779-01006a6b1b69
+  moop_score:
+    -
+      vid: moop_score
+      tid: '470'
+      langcode: en
+      name: Green
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '0'
+      uuid: e9475410-9344-4f93-b474-cdc344e41eb1
+    -
+      vid: moop_score
+      tid: '471'
+      langcode: en
+      name: 'Lime Green'
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '0'
+      uuid: 03dfd018-65f1-4ceb-891a-0dcb75e169cd
+    -
+      vid: moop_score
+      tid: '469'
+      langcode: en
+      name: 'Not Rated'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: ff4fa8a1-1859-4792-9f73-a95b1e74388d
+    -
+      vid: moop_score
+      tid: '473'
+      langcode: en
+      name: Orange
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '0'
+      uuid: 54599758-f370-41a7-9222-58dc6bb0e4e6
+    -
+      vid: moop_score
+      tid: '474'
+      langcode: en
+      name: Red
+      description__value: null
+      description__format: null
+      weight: '5'
+      parent: '0'
+      uuid: 819bd423-f652-4d10-8fad-1cc13b737e19
+    -
+      vid: moop_score
+      tid: '472'
+      langcode: en
+      name: Yellow
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '0'
+      uuid: a5baa90b-f5d0-4791-85f3-4bfb2ba61232
+  moop_type:
+    -
+      vid: moop_type
+      tid: '490'
+      langcode: en
+      name: 'Cable ties'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '0'
+      uuid: 7612c25a-c35a-4dfd-8c28-ed5378e68264
+    -
+      vid: moop_type
+      tid: '491'
+      langcode: en
+      name: 'Cigarette butts'
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '0'
+      uuid: 7835ea95-013a-4446-a1bd-909e0e8a6c60
+    -
+      vid: moop_type
+      tid: '492'
+      langcode: en
+      name: Coals/Ash
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '0'
+      uuid: 41c81347-c22e-48cd-b610-1447ceb6d539
+    -
+      vid: moop_type
+      tid: '493'
+      langcode: en
+      name: 'Food bits'
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '0'
+      uuid: 826ae354-7eed-41e7-9689-b903317f4786
+    -
+      vid: moop_type
+      tid: '479'
+      langcode: en
+      name: Glass
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 537f0e60-94ac-45ed-b33a-562fffbe8a28
+    -
+      vid: moop_type
+      tid: '494'
+      langcode: en
+      name: 'Glass shards'
+      description__value: null
+      description__format: null
+      weight: '5'
+      parent: '0'
+      uuid: 18a12c5d-834a-49bd-a26b-46202ec4b5b2
+    -
+      vid: moop_type
+      tid: '495'
+      langcode: en
+      name: 'Glowstick connectors'
+      description__value: null
+      description__format: null
+      weight: '6'
+      parent: '0'
+      uuid: d5646baf-c3be-4172-b258-f0d0ce1112eb
+    -
+      vid: moop_type
+      tid: '496'
+      langcode: en
+      name: Glowsticks
+      description__value: null
+      description__format: null
+      weight: '7'
+      parent: '0'
+      uuid: 76a026b3-cc4d-419e-83e7-f120738a4b13
+    -
+      vid: moop_type
+      tid: '497'
+      langcode: en
+      name: Greywater
+      description__value: null
+      description__format: null
+      weight: '8'
+      parent: '0'
+      uuid: 9ac9be74-343c-4871-88bf-bf4da286decc
+    -
+      vid: moop_type
+      tid: '498'
+      langcode: en
+      name: Hay/bamboo
+      description__value: null
+      description__format: null
+      weight: '9'
+      parent: '0'
+      uuid: 5a306609-7a28-4b83-9fcb-fd0391ac1862
+    -
+      vid: moop_type
+      tid: '499'
+      langcode: en
+      name: 'Macro MOOP'
+      description__value: null
+      description__format: null
+      weight: '10'
+      parent: '0'
+      uuid: 8bbd2ef8-a276-4452-95ab-70cae42eefed
+    -
+      vid: moop_type
+      tid: '500'
+      langcode: en
+      name: 'Open Fires'
+      description__value: null
+      description__format: null
+      weight: '11'
+      parent: '0'
+      uuid: e700e454-408a-4fed-b2bb-700dde939d3f
+    -
+      vid: moop_type
+      tid: '501'
+      langcode: en
+      name: Rebar
+      description__value: null
+      description__format: null
+      weight: '12'
+      parent: '0'
+      uuid: b066b24a-c699-4a30-bb8a-fe3db321803c
+    -
+      vid: moop_type
+      tid: '502'
+      langcode: en
+      name: 'Sparkly bits/feathers'
+      description__value: null
+      description__format: null
+      weight: '13'
+      parent: '0'
+      uuid: 869d3fe6-2aa7-4805-9cda-8dd3ad95c97b
+    -
+      vid: moop_type
+      tid: '503'
+      langcode: en
+      name: String/nails/screws
+      description__value: null
+      description__format: null
+      weight: '14'
+      parent: '0'
+      uuid: 5d68e748-ea84-47a7-afcf-e87dc581194b
+    -
+      vid: moop_type
+      tid: '504'
+      langcode: en
+      name: 'Swept ground'
+      description__value: null
+      description__format: null
+      weight: '15'
+      parent: '0'
+      uuid: f8debdf4-bc1e-4a5c-8f72-8996d4b0e597
+    -
+      vid: moop_type
+      tid: '505'
+      langcode: en
+      name: 'Tent pegs'
+      description__value: null
+      description__format: null
+      weight: '16'
+      parent: '0'
+      uuid: c265c42c-9e9b-46f3-838d-81560cacc2d1
+    -
+      vid: moop_type
+      tid: '506'
+      langcode: en
+      name: Trenches
+      description__value: null
+      description__format: null
+      weight: '17'
+      parent: '0'
+      uuid: 309f2738-e57e-4439-a3f1-752235b3ade6
+    -
+      vid: moop_type
+      tid: '507'
+      langcode: en
+      name: Vomit/boskak
+      description__value: null
+      description__format: null
+      weight: '18'
+      parent: '0'
+      uuid: 09fbbbde-6e12-44f3-9e80-e0a0945bdcdb
+    -
+      vid: moop_type
+      tid: '508'
+      langcode: en
+      name: Wood
+      description__value: null
+      description__format: null
+      weight: '19'
+      parent: '0'
+      uuid: c1995e65-e8ee-4d3b-9371-5d19799dddeb
+  performer_types:
+    -
+      vid: performer_types
+      tid: '328'
+      langcode: en
+      name: 'Child Focused'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '0'
+      uuid: 5e3f87b9-a0ca-45fc-922a-63ce20e16696
+    -
+      vid: performer_types
+      tid: '329'
+      langcode: en
+      name: 'Circus Arts'
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '0'
+      uuid: 8db896aa-9741-4b10-a689-965e9de26260
+    -
+      vid: performer_types
+      tid: '330'
+      langcode: en
+      name: Dancers
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '0'
+      uuid: c341187e-b8ca-428e-ad39-11be21af95b6
+    -
+      vid: performer_types
+      tid: '331'
+      langcode: en
+      name: 'DJ''s'
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '0'
+      uuid: 6b107bc4-cb8f-492d-b9db-8aacefb29fbe
+    -
+      vid: performer_types
+      tid: '332'
+      langcode: en
+      name: 'Fire Dancers / Performers'
+      description__value: null
+      description__format: null
+      weight: '5'
+      parent: '0'
+      uuid: 02939dea-82c7-48b2-9da5-3cad01973d3f
+    -
+      vid: performer_types
+      tid: '333'
+      langcode: en
+      name: Illusion
+      description__value: null
+      description__format: null
+      weight: '6'
+      parent: '0'
+      uuid: 03b072b9-7c19-40e5-bf24-46c81dbe5d30
+    -
+      vid: performer_types
+      tid: '334'
+      langcode: en
+      name: 'Live Music'
+      description__value: null
+      description__format: null
+      weight: '7'
+      parent: '0'
+      uuid: 8db1ae75-4706-400d-b626-d6418e397d25
+    -
+      vid: performer_types
+      tid: '335'
+      langcode: en
+      name: Magic
+      description__value: null
+      description__format: null
+      weight: '8'
+      parent: '0'
+      uuid: aa773002-ae44-4205-936f-e6c4a26ee645
+    -
+      vid: performer_types
+      tid: '336'
+      langcode: en
+      name: Mime
+      description__value: null
+      description__format: null
+      weight: '9'
+      parent: '0'
+      uuid: 807146b2-784e-44f4-9d37-518b25c7a651
+    -
+      vid: performer_types
+      tid: '337'
+      langcode: en
+      name: 'Performance Art'
+      description__value: null
+      description__format: null
+      weight: '10'
+      parent: '0'
+      uuid: ad55a42f-e587-4f77-8b63-3b5001ee500b
+    -
+      vid: performer_types
+      tid: '338'
+      langcode: en
+      name: Puppetry
+      description__value: null
+      description__format: null
+      weight: '11'
+      parent: '0'
+      uuid: f821df4c-d3b8-43e3-85b3-e40ad6c57ce2
+    -
+      vid: performer_types
+      tid: '339'
+      langcode: en
+      name: 'Spoken Word'
+      description__value: null
+      description__format: null
+      weight: '12'
+      parent: '0'
+      uuid: a65021d0-12df-4b1a-9970-6937ce3e47f4
+    -
+      vid: performer_types
+      tid: '340'
+      langcode: en
+      name: Theatre
+      description__value: null
+      description__format: null
+      weight: '13'
+      parent: '0'
+      uuid: 89c2deff-18b6-4c79-a20f-4beebfc6aeaa
+  planned_activities:
+    -
+      vid: planned_activities
+      tid: '411'
+      langcode: en
+      name: Afternoon
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '0'
+      uuid: efe61017-a83f-493b-9108-205c3d1c138b
+    -
+      vid: planned_activities
+      tid: '413'
+      langcode: en
+      name: Evening
+      description__value: null
+      description__format: null
+      weight: '6'
+      parent: '0'
+      uuid: f9420b91-5a59-4b31-a198-3c0d20e6d69d
+    -
+      vid: planned_activities
+      tid: '409'
+      langcode: en
+      name: Morning
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '0'
+      uuid: dd29b6af-5d3e-4db2-967a-2bc0a28e677a
+    -
+      vid: planned_activities
+      tid: '415'
+      langcode: en
+      name: 'Night 11 till 2'
+      description__value: null
+      description__format: null
+      weight: '8'
+      parent: '0'
+      uuid: 2d447c79-0c52-4182-9983-affdd4299842
+    -
+      vid: planned_activities
+      tid: '416'
+      langcode: en
+      name: 'Night 2 till 6'
+      description__value: null
+      description__format: null
+      weight: '9'
+      parent: '0'
+      uuid: b6ee8cd3-89d8-4f8c-96b4-d348c0272237
+    -
+      vid: planned_activities
+      tid: '414'
+      langcode: en
+      name: 'Night 7 till 11'
+      description__value: null
+      description__format: null
+      weight: '7'
+      parent: '0'
+      uuid: 568285ee-a8ed-4a0a-957c-e11f1839e441
+    -
+      vid: planned_activities
+      tid: '410'
+      langcode: en
+      name: Noon
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '0'
+      uuid: 6cfe3d3c-8947-4b30-8875-e7de28f30013
+    -
+      vid: planned_activities
+      tid: '408'
+      langcode: en
+      name: Sunrise
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '0'
+      uuid: 36ff1338-2219-4814-af96-dce89753b920
+    -
+      vid: planned_activities
+      tid: '412'
+      langcode: en
+      name: Sunset
+      description__value: null
+      description__format: null
+      weight: '5'
+      parent: '0'
+      uuid: 913903ef-f58b-4bb8-bc2a-cb23d83341e9
+  sound_levels:
+    -
+      vid: sound_levels
+      tid: '405'
+      langcode: en
+      name: 'Level 1 - Normal car stereo without sub woofers'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '0'
+      uuid: 5a29dcc8-46e0-4539-830d-d87d39b1af5c
+    -
+      vid: sound_levels
+      tid: '406'
+      langcode: en
+      name: 'Level 2 - Loud amplified sound'
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '0'
+      uuid: 50480786-add6-43e2-9b57-620c5d072811
+    -
+      vid: sound_levels
+      tid: '407'
+      langcode: en
+      name: 'Level 3 - Large club or stadium size sound'
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '0'
+      uuid: 9b793b15-33af-4f36-bd3a-20980228c785
+  subsidised_tickets_status:
+    -
+      vid: subsidised_tickets_status
+      tid: '531'
+      langcode: und
+      name: 'Bank Statment Required'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 5f7ad995-4ad2-4bcc-be41-f4122adefd09
+    -
+      vid: subsidised_tickets_status
+      tid: '532'
+      langcode: und
+      name: 'Follow up'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 1e1e8225-d6be-472b-8287-060ebf529138
+    -
+      vid: subsidised_tickets_status
+      tid: '533'
+      langcode: und
+      name: 'Further Review'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: c74b510e-bc80-40d4-a105-5a965efd39ee
+    -
+      vid: subsidised_tickets_status
+      tid: '534'
+      langcode: und
+      name: Granted
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 626fb220-997c-47df-b705-dc7403e68bea
+    -
+      vid: subsidised_tickets_status
+      tid: '535'
+      langcode: und
+      name: Rejected
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: e4196fcb-0359-45d3-b325-a8f7c1ca7b56
+  tags: {  }
+  theme_camp_location:
+    -
+      vid: theme_camp_location
+      tid: '391'
+      langcode: en
+      name: '10ish A'
+      description__value: null
+      description__format: null
+      weight: '51'
+      parent: '0'
+      uuid: 1e6bbf8d-a690-487f-a411-fa1fe2a737dd
+    -
+      vid: theme_camp_location
+      tid: '392'
+      langcode: en
+      name: '10ish B'
+      description__value: null
+      description__format: null
+      weight: '52'
+      parent: '0'
+      uuid: f9e05564-ba15-423c-9c7c-a8bdd1f86b79
+    -
+      vid: theme_camp_location
+      tid: '389'
+      langcode: en
+      name: '10ish Binnekring'
+      description__value: null
+      description__format: null
+      weight: '49'
+      parent: '0'
+      uuid: 1480aa02-bdb8-4d9e-a847-41730f6872c3
+    -
+      vid: theme_camp_location
+      tid: '390'
+      langcode: en
+      name: '10ish Buitekring'
+      description__value: null
+      description__format: null
+      weight: '50'
+      parent: '0'
+      uuid: b504ee5a-3e6e-4462-94bc-351db95bb249
+    -
+      vid: theme_camp_location
+      tid: '393'
+      langcode: en
+      name: '10ish C'
+      description__value: null
+      description__format: null
+      weight: '53'
+      parent: '0'
+      uuid: dfe1dcbe-4c71-4d84-a639-d56ba8a1be9d
+    -
+      vid: theme_camp_location
+      tid: '394'
+      langcode: en
+      name: '10ish D'
+      description__value: null
+      description__format: null
+      weight: '54'
+      parent: '0'
+      uuid: 16952337-978a-425b-9898-e6c3bc2513b9
+    -
+      vid: theme_camp_location
+      tid: '395'
+      langcode: en
+      name: '10ish E'
+      description__value: null
+      description__format: null
+      weight: '55'
+      parent: '0'
+      uuid: 3127ace9-f9dd-4f10-91bc-da4a0f1a4b3f
+    -
+      vid: theme_camp_location
+      tid: '396'
+      langcode: en
+      name: '10ish F'
+      description__value: null
+      description__format: null
+      weight: '56'
+      parent: '0'
+      uuid: b231a19f-bf96-429e-9509-01b78b356b62
+    -
+      vid: theme_camp_location
+      tid: '397'
+      langcode: en
+      name: '10ish G'
+      description__value: null
+      description__format: null
+      weight: '57'
+      parent: '0'
+      uuid: 700e98cc-38be-4521-a74a-caf56a439c50
+    -
+      vid: theme_camp_location
+      tid: '398'
+      langcode: en
+      name: '10ish H'
+      description__value: null
+      description__format: null
+      weight: '58'
+      parent: '0'
+      uuid: 48dcd920-ee8b-4943-82b4-b839a01c549f
+    -
+      vid: theme_camp_location
+      tid: '399'
+      langcode: en
+      name: '10ish I'
+      description__value: null
+      description__format: null
+      weight: '59'
+      parent: '0'
+      uuid: c2ea67b4-f292-45f7-aadd-d84ba9d7410e
+    -
+      vid: theme_camp_location
+      tid: '400'
+      langcode: en
+      name: '10ish J'
+      description__value: null
+      description__format: null
+      weight: '60'
+      parent: '0'
+      uuid: 0ef8d365-bdfb-4ea2-85a7-7b34d868910e
+    -
+      vid: theme_camp_location
+      tid: '401'
+      langcode: en
+      name: '10ish K'
+      description__value: null
+      description__format: null
+      weight: '61'
+      parent: '0'
+      uuid: f623173b-081b-4db2-a891-9754a467f54c
+    -
+      vid: theme_camp_location
+      tid: '402'
+      langcode: en
+      name: '10ish L'
+      description__value: null
+      description__format: null
+      weight: '62'
+      parent: '0'
+      uuid: 5195573f-0d43-43ea-baee-db82c017d9a2
+    -
+      vid: theme_camp_location
+      tid: '342'
+      langcode: en
+      name: '2ish Binnekring'
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '0'
+      uuid: f4551dd6-8144-4c79-9da4-e6dc7a05aaff
+    -
+      vid: theme_camp_location
+      tid: '343'
+      langcode: en
+      name: '2ish Buitekring'
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '0'
+      uuid: 4779baae-72bc-48bb-87fe-f2d5407801ba
+    -
+      vid: theme_camp_location
+      tid: '341'
+      langcode: en
+      name: '2ish cul de sac'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '0'
+      uuid: 4d9008f9-7361-462f-b86f-0fee63638be3
+    -
+      vid: theme_camp_location
+      tid: '344'
+      langcode: en
+      name: '3ish Binnekring'
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '0'
+      uuid: 18020ffd-92ed-45b8-a290-fe6e53d71504
+    -
+      vid: theme_camp_location
+      tid: '345'
+      langcode: en
+      name: '4ish Binnekring'
+      description__value: null
+      description__format: null
+      weight: '5'
+      parent: '0'
+      uuid: f521bec5-8da5-4c92-9544-5bfa1a667a32
+    -
+      vid: theme_camp_location
+      tid: '346'
+      langcode: en
+      name: '4ish Buitekring'
+      description__value: null
+      description__format: null
+      weight: '6'
+      parent: '0'
+      uuid: 20b4009d-c40e-4512-9c4c-47c97e230cd8
+    -
+      vid: theme_camp_location
+      tid: '349'
+      langcode: en
+      name: '5ish A'
+      description__value: null
+      description__format: null
+      weight: '9'
+      parent: '0'
+      uuid: a7f368f2-cc59-4f1a-9785-f00bb8fec348
+    -
+      vid: theme_camp_location
+      tid: '350'
+      langcode: en
+      name: '5ish B'
+      description__value: null
+      description__format: null
+      weight: '10'
+      parent: '0'
+      uuid: e5767d9b-62ef-46b4-ace3-621e3b211266
+    -
+      vid: theme_camp_location
+      tid: '347'
+      langcode: en
+      name: '5ish Binnekring'
+      description__value: null
+      description__format: null
+      weight: '7'
+      parent: '0'
+      uuid: f4d693d3-77bc-4765-a3fc-46895648b74c
+    -
+      vid: theme_camp_location
+      tid: '348'
+      langcode: en
+      name: '5ish Buitekring'
+      description__value: null
+      description__format: null
+      weight: '8'
+      parent: '0'
+      uuid: b1dd12b9-a242-4f4d-8846-c0fdef6c7938
+    -
+      vid: theme_camp_location
+      tid: '351'
+      langcode: en
+      name: '5ish C'
+      description__value: null
+      description__format: null
+      weight: '11'
+      parent: '0'
+      uuid: 70fa9360-9c2e-4b96-93b6-bc5d35af6876
+    -
+      vid: theme_camp_location
+      tid: '352'
+      langcode: en
+      name: '5ish D'
+      description__value: null
+      description__format: null
+      weight: '12'
+      parent: '0'
+      uuid: 5e729c14-aca2-4ba6-bb6d-cd3f553e1bbf
+    -
+      vid: theme_camp_location
+      tid: '353'
+      langcode: en
+      name: '5ish E'
+      description__value: null
+      description__format: null
+      weight: '13'
+      parent: '0'
+      uuid: 2a04e091-007b-4792-99d7-96932620286e
+    -
+      vid: theme_camp_location
+      tid: '356'
+      langcode: en
+      name: '6ish A'
+      description__value: null
+      description__format: null
+      weight: '16'
+      parent: '0'
+      uuid: a207fb2c-6dda-4851-b1c8-260e758f46ae
+    -
+      vid: theme_camp_location
+      tid: '357'
+      langcode: en
+      name: '6ish B'
+      description__value: null
+      description__format: null
+      weight: '17'
+      parent: '0'
+      uuid: 5ba44fc1-3c15-4fb0-b120-6f8e3c415d15
+    -
+      vid: theme_camp_location
+      tid: '354'
+      langcode: en
+      name: '6ish Binnekring'
+      description__value: null
+      description__format: null
+      weight: '14'
+      parent: '0'
+      uuid: 9e68ac51-292b-48f3-83be-9312a2df6402
+    -
+      vid: theme_camp_location
+      tid: '355'
+      langcode: en
+      name: '6ish Buitekring'
+      description__value: null
+      description__format: null
+      weight: '15'
+      parent: '0'
+      uuid: f2f16a06-f666-44a8-9f1b-7e6da00cb9af
+    -
+      vid: theme_camp_location
+      tid: '358'
+      langcode: en
+      name: '6ish C'
+      description__value: null
+      description__format: null
+      weight: '18'
+      parent: '0'
+      uuid: f838c98f-a63e-4902-8a61-eb7b7deb8836
+    -
+      vid: theme_camp_location
+      tid: '359'
+      langcode: en
+      name: '6ish D'
+      description__value: null
+      description__format: null
+      weight: '19'
+      parent: '0'
+      uuid: 956cc1ec-d42c-4df3-845a-414b76d97366
+    -
+      vid: theme_camp_location
+      tid: '360'
+      langcode: en
+      name: '7ish Binnekring'
+      description__value: null
+      description__format: null
+      weight: '20'
+      parent: '0'
+      uuid: 2f4a2daf-66ed-489d-b0b4-f2bc9fc65a30
+    -
+      vid: theme_camp_location
+      tid: '361'
+      langcode: en
+      name: '7ish Buitekring'
+      description__value: null
+      description__format: null
+      weight: '21'
+      parent: '0'
+      uuid: 81633c1d-272e-4b68-b32c-94681bd4c56c
+    -
+      vid: theme_camp_location
+      tid: '362'
+      langcode: en
+      name: '7ish D'
+      description__value: null
+      description__format: null
+      weight: '22'
+      parent: '0'
+      uuid: 07240756-68ba-409d-b8fe-83a028e4645d
+    -
+      vid: theme_camp_location
+      tid: '363'
+      langcode: en
+      name: '7ish E'
+      description__value: null
+      description__format: null
+      weight: '23'
+      parent: '0'
+      uuid: 9fca7678-8477-4d99-9e97-015c6018a97f
+    -
+      vid: theme_camp_location
+      tid: '364'
+      langcode: en
+      name: '7ish F'
+      description__value: null
+      description__format: null
+      weight: '24'
+      parent: '0'
+      uuid: dfaf3a07-6efc-4507-92e3-1c62ec97d0f8
+    -
+      vid: theme_camp_location
+      tid: '365'
+      langcode: en
+      name: '7ish G'
+      description__value: null
+      description__format: null
+      weight: '25'
+      parent: '0'
+      uuid: eb130cbf-aefc-4a7b-adee-fec3a467d43b
+    -
+      vid: theme_camp_location
+      tid: '366'
+      langcode: en
+      name: '7ish H'
+      description__value: null
+      description__format: null
+      weight: '26'
+      parent: '0'
+      uuid: ff4cfa40-f2d4-4a63-b97d-5fc73166d213
+    -
+      vid: theme_camp_location
+      tid: '372'
+      langcode: en
+      name: '8:30ish E'
+      description__value: null
+      description__format: null
+      weight: '32'
+      parent: '0'
+      uuid: 6d97737d-fa0a-49c4-8eca-fc7a4781cf3e
+    -
+      vid: theme_camp_location
+      tid: '373'
+      langcode: en
+      name: '8:30ish F'
+      description__value: null
+      description__format: null
+      weight: '33'
+      parent: '0'
+      uuid: 79f82cca-990c-4696-b4f3-c9cb31fc1d7b
+    -
+      vid: theme_camp_location
+      tid: '374'
+      langcode: en
+      name: '8:30ish G'
+      description__value: null
+      description__format: null
+      weight: '34'
+      parent: '0'
+      uuid: 5794bb87-8908-4010-b1ee-4595e46f6514
+    -
+      vid: theme_camp_location
+      tid: '375'
+      langcode: en
+      name: '8:30ish H'
+      description__value: null
+      description__format: null
+      weight: '35'
+      parent: '0'
+      uuid: 4f9c4e1d-db5a-4db6-9018-0f064c3f9d3e
+    -
+      vid: theme_camp_location
+      tid: '367'
+      langcode: en
+      name: '8ish D'
+      description__value: null
+      description__format: null
+      weight: '27'
+      parent: '0'
+      uuid: f744a237-11ea-419b-9d88-f5e5dcc3f3c1
+    -
+      vid: theme_camp_location
+      tid: '368'
+      langcode: en
+      name: '8ish E'
+      description__value: null
+      description__format: null
+      weight: '28'
+      parent: '0'
+      uuid: 2700b076-a496-42ad-b4b4-2c381f507297
+    -
+      vid: theme_camp_location
+      tid: '369'
+      langcode: en
+      name: '8ish F'
+      description__value: null
+      description__format: null
+      weight: '29'
+      parent: '0'
+      uuid: e86a5921-332e-4c26-8f49-ecdbd89ea1e7
+    -
+      vid: theme_camp_location
+      tid: '370'
+      langcode: en
+      name: '8ish G'
+      description__value: null
+      description__format: null
+      weight: '30'
+      parent: '0'
+      uuid: 8c6aca2d-a675-41e4-9e4d-9d0ee761851c
+    -
+      vid: theme_camp_location
+      tid: '371'
+      langcode: en
+      name: '8ish H'
+      description__value: null
+      description__format: null
+      weight: '31'
+      parent: '0'
+      uuid: 801faf75-de73-4e17-b476-3ad2457b6cd5
+    -
+      vid: theme_camp_location
+      tid: '378'
+      langcode: en
+      name: '9ish A'
+      description__value: null
+      description__format: null
+      weight: '38'
+      parent: '0'
+      uuid: 6ddf86c6-9a8d-494e-a8a4-0f56a51ccfec
+    -
+      vid: theme_camp_location
+      tid: '379'
+      langcode: en
+      name: '9ish B'
+      description__value: null
+      description__format: null
+      weight: '39'
+      parent: '0'
+      uuid: c54edffa-6a42-46a4-9719-24c1c037f16b
+    -
+      vid: theme_camp_location
+      tid: '376'
+      langcode: en
+      name: '9ish Binnekring'
+      description__value: null
+      description__format: null
+      weight: '36'
+      parent: '0'
+      uuid: e456bc77-b548-4758-98f1-e71408d9dd6e
+    -
+      vid: theme_camp_location
+      tid: '377'
+      langcode: en
+      name: '9ish Buitekring'
+      description__value: null
+      description__format: null
+      weight: '37'
+      parent: '0'
+      uuid: 53dc825c-e6b0-4124-b891-914d3f49d304
+    -
+      vid: theme_camp_location
+      tid: '380'
+      langcode: en
+      name: '9ish C'
+      description__value: null
+      description__format: null
+      weight: '40'
+      parent: '0'
+      uuid: 62a34b42-8bf1-4c44-b95e-effeeee1bfec
+    -
+      vid: theme_camp_location
+      tid: '381'
+      langcode: en
+      name: '9ish D'
+      description__value: null
+      description__format: null
+      weight: '41'
+      parent: '0'
+      uuid: 478db1b0-ea5e-4144-9c04-fbec7a3153bf
+    -
+      vid: theme_camp_location
+      tid: '382'
+      langcode: en
+      name: '9ish E'
+      description__value: null
+      description__format: null
+      weight: '42'
+      parent: '0'
+      uuid: c083817c-b60b-4920-9fb9-b59abd8ab2cd
+    -
+      vid: theme_camp_location
+      tid: '383'
+      langcode: en
+      name: '9ish F'
+      description__value: null
+      description__format: null
+      weight: '43'
+      parent: '0'
+      uuid: ea380b11-54da-472b-9fb7-ac81490d15b3
+    -
+      vid: theme_camp_location
+      tid: '384'
+      langcode: en
+      name: '9ish G'
+      description__value: null
+      description__format: null
+      weight: '44'
+      parent: '0'
+      uuid: 82172593-260c-4a54-a19c-9b41eb8bba7c
+    -
+      vid: theme_camp_location
+      tid: '385'
+      langcode: en
+      name: '9ish H'
+      description__value: null
+      description__format: null
+      weight: '45'
+      parent: '0'
+      uuid: a2f81953-93ed-443d-b0bf-5e9f333a4f77
+    -
+      vid: theme_camp_location
+      tid: '386'
+      langcode: en
+      name: '9ish I'
+      description__value: null
+      description__format: null
+      weight: '46'
+      parent: '0'
+      uuid: 54e8b15b-9ee2-40f9-8c51-16c358e4f08f
+    -
+      vid: theme_camp_location
+      tid: '387'
+      langcode: en
+      name: '9ish J'
+      description__value: null
+      description__format: null
+      weight: '47'
+      parent: '0'
+      uuid: df61d4f5-e7fa-49f2-9ad5-1d24507e89cd
+    -
+      vid: theme_camp_location
+      tid: '388'
+      langcode: en
+      name: '9ish K'
+      description__value: null
+      description__format: null
+      weight: '48'
+      parent: '0'
+      uuid: 022a5e0c-bb60-4b80-b82a-a12747f2edc2
+    -
+      vid: theme_camp_location
+      tid: '404'
+      langcode: en
+      name: 'Other - Clearly define below'
+      description__value: null
+      description__format: null
+      weight: '64'
+      parent: '0'
+      uuid: 3d213fef-d5ff-42ca-a957-4617d95c3800
+    -
+      vid: theme_camp_location
+      tid: '403'
+      langcode: en
+      name: 'Walk in Camping'
+      description__value: null
+      description__format: null
+      weight: '63'
+      parent: '0'
+      uuid: 8430d8df-c3c2-4d53-bff9-da7552396a6c
+  type_of_expence:
+    -
+      vid: type_of_expence
+      tid: '512'
+      langcode: en
+      name: 'Health & Safety'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '0'
+      uuid: 7b38240d-6644-4cb1-8bb2-c9fc570e2785
+    -
+      vid: type_of_expence
+      tid: '513'
+      langcode: en
+      name: Lighting
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '0'
+      uuid: c32dc5be-75df-4c46-aea9-2708cb6f609a
+    -
+      vid: type_of_expence
+      tid: '514'
+      langcode: en
+      name: Locations
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '0'
+      uuid: 801f8647-8ca4-4179-8dc3-4648bf49fe7e
+    -
+      vid: type_of_expence
+      tid: '515'
+      langcode: en
+      name: Materials
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '0'
+      uuid: 81b48c63-2bcd-4db1-be20-47bfd45f2ada
+    -
+      vid: type_of_expence
+      tid: '516'
+      langcode: en
+      name: 'Other? Specify'
+      description__value: null
+      description__format: null
+      weight: '5'
+      parent: '0'
+      uuid: beef6697-9bf6-4d61-87c1-4496bd9644b9
+    -
+      vid: type_of_expence
+      tid: '517'
+      langcode: en
+      name: Pyrothecnics
+      description__value: null
+      description__format: null
+      weight: '6'
+      parent: '0'
+      uuid: aae816c4-6633-487c-b5ae-ef9c46c19e0f
+    -
+      vid: type_of_expence
+      tid: '518'
+      langcode: en
+      name: Services
+      description__value: null
+      description__format: null
+      weight: '7'
+      parent: '0'
+      uuid: 59957643-7e3f-4c59-9a22-2f0d68d8161c
+    -
+      vid: type_of_expence
+      tid: '519'
+      langcode: en
+      name: Tools
+      description__value: null
+      description__format: null
+      weight: '8'
+      parent: '0'
+      uuid: 894c80d8-cb4b-4727-b4c3-9d401b6546f8
+    -
+      vid: type_of_expence
+      tid: '520'
+      langcode: en
+      name: Transport
+      description__value: null
+      description__format: null
+      weight: '9'
+      parent: '0'
+      uuid: f527e9bd-2436-4313-babf-747f2db03ced
+  volunteer_roles:
+    -
+      vid: volunteer_roles
+      tid: '654'
+      langcode: und
+      name: 'Airport Volunteers'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '653'
+      uuid: d5e74bf9-431c-41ae-9ae3-4055096c4341
+    -
+      vid: volunteer_roles
+      tid: '653'
+      langcode: und
+      name: Airspace
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: cbfcc1bb-e334-46eb-9bae-2d40b36591e5
+    -
+      vid: volunteer_roles
+      tid: '657'
+      langcode: und
+      name: Arteria
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 198d7e58-c886-4602-9bfc-4948e0f6144c
+    -
+      vid: volunteer_roles
+      tid: '658'
+      langcode: und
+      name: 'Arteria Booth Guides'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '657'
+      uuid: 474993f6-c86a-49a0-bd44-e1029ded5422
+    -
+      vid: volunteer_roles
+      tid: '659'
+      langcode: und
+      name: 'Assist Artists'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '657'
+      uuid: 6282a91e-74fa-4342-ab47-6183649bf183
+    -
+      vid: volunteer_roles
+      tid: '672'
+      langcode: und
+      name: 'Burn Inspectors'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '671'
+      uuid: fd76cd45-c651-48a7-941b-fd327313866c
+    -
+      vid: volunteer_roles
+      tid: '673'
+      langcode: und
+      name: 'Clan & Temple MOOP Stars'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '671'
+      uuid: eef4f4ff-797d-4060-a77f-e6ba8f4613d6
+    -
+      vid: volunteer_roles
+      tid: '660'
+      langcode: und
+      name: 'Department of Public Works (DPW)'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 6e31e0fa-c3ec-4753-99ec-e35e21c77224
+    -
+      vid: volunteer_roles
+      tid: '664'
+      langcode: und
+      name: 'Die Hek - Gate'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 7cb61b78-33ef-4ecb-9b77-cfb25f61dc7a
+    -
+      vid: volunteer_roles
+      tid: '666'
+      langcode: und
+      name: 'Die Hek Exodus Crew'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '664'
+      uuid: cecce0c3-73b2-402c-8df4-1f26127f2784
+    -
+      vid: volunteer_roles
+      tid: '667'
+      langcode: und
+      name: 'DMV - Department of Mutant Vehicles'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 73d3cd4e-cb5a-4531-9861-8ad815bf89ee
+    -
+      vid: volunteer_roles
+      tid: '655'
+      langcode: und
+      name: 'Drone, UAV and RPA Volunteers'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '653'
+      uuid: 40585037-c1ea-41f1-b6e6-94713dd63d92
+    -
+      vid: volunteer_roles
+      tid: '678'
+      langcode: und
+      name: 'Dust Lead'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '676'
+      uuid: 2517db27-22a1-4618-87ac-973c401c318e
+    -
+      vid: volunteer_roles
+      tid: '677'
+      langcode: und
+      name: 'Dust Ranger'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '676'
+      uuid: eb54e7c6-0bd1-4aa1-be5b-ee4bdb61bb39
+    -
+      vid: volunteer_roles
+      tid: '661'
+      langcode: und
+      name: 'Event Volunteer'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '660'
+      uuid: 21dad33a-e94b-42d3-91c3-39f8f00b930a
+    -
+      vid: volunteer_roles
+      tid: '685'
+      langcode: und
+      name: 'Fire Perimeter Marshals'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '684'
+      uuid: 417c7425-0a6b-4f87-87d8-01897fceff1f
+    -
+      vid: volunteer_roles
+      tid: '686'
+      langcode: und
+      name: Fluffers
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '684'
+      uuid: d99362dd-0c87-4f29-be02-23a177661c43
+    -
+      vid: volunteer_roles
+      tid: '665'
+      langcode: und
+      name: 'Gate & Ticketing Welcome Crew'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '664'
+      uuid: 4640b044-c2ca-4d13-bac2-2f0931fbfd0b
+    -
+      vid: volunteer_roles
+      tid: '680'
+      langcode: und
+      name: 'Green Dot'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '676'
+      uuid: 888f3cf5-a4b8-46b3-a89e-c19a0434a3fd
+    -
+      vid: volunteer_roles
+      tid: '687'
+      langcode: und
+      name: Greeters
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '684'
+      uuid: 99f0917e-6982-412c-8984-5a06852faeab
+    -
+      vid: volunteer_roles
+      tid: '688'
+      langcode: und
+      name: 'Ice Sales'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '684'
+      uuid: 2d321f33-36f0-4336-a5c3-7fce874fb8fe
+    -
+      vid: volunteer_roles
+      tid: '689'
+      langcode: und
+      name: 'Kids Registration Booth'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '684'
+      uuid: f4bc5609-e23d-4acb-95b4-ded6be02ee66
+    -
+      vid: volunteer_roles
+      tid: '662'
+      langcode: und
+      name: Kitchen
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '660'
+      uuid: 5dd70f64-4aa1-48ca-9243-6bae3ea46e35
+    -
+      vid: volunteer_roles
+      tid: '674'
+      langcode: und
+      name: 'Leave no Trace Post Event'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '671'
+      uuid: c055e4d1-b889-4711-be3b-b527b7e9d932
+    -
+      vid: volunteer_roles
+      tid: '671'
+      langcode: und
+      name: 'LNT - Leave No Trace (MOOP - Matter Out Of Place)'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: cc6e2937-1337-41f8-a6f3-85fa3fc259d6
+    -
+      vid: volunteer_roles
+      tid: '690'
+      langcode: und
+      name: 'Lost and Found Booth'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '684'
+      uuid: 72a7bf77-d037-4c52-960c-d7f54146cbb6
+    -
+      vid: volunteer_roles
+      tid: '691'
+      langcode: und
+      name: 'Media Booth Volunteers'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '684'
+      uuid: e0d8d266-2080-4870-8405-06002c6e023d
+    -
+      vid: volunteer_roles
+      tid: '675'
+      langcode: und
+      name: 'MOOP SWOOP Pub Crawl'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '671'
+      uuid: daae6ed6-f31a-4462-8f19-a9acb7167d3e
+    -
+      vid: volunteer_roles
+      tid: '669'
+      langcode: und
+      name: 'Mutant Patrol'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '667'
+      uuid: 2b904ccc-4780-41cc-bfea-2d0ac9027afb
+    -
+      vid: volunteer_roles
+      tid: '656'
+      langcode: und
+      name: 'Radio Licence'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '653'
+      uuid: 4433478f-9e34-40f0-8c93-ddff840a2800
+    -
+      vid: volunteer_roles
+      tid: '681'
+      langcode: und
+      name: 'Ranger Council'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '676'
+      uuid: b161bf53-b689-41ee-99cb-711395aea310
+    -
+      vid: volunteer_roles
+      tid: '676'
+      langcode: und
+      name: Rangers
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 05e22632-8950-40ff-a4a8-822d023f2954
+    -
+      vid: volunteer_roles
+      tid: '663'
+      langcode: und
+      name: Recycle
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '660'
+      uuid: db53f322-3481-46e6-b7c5-afa0c02a8b01
+    -
+      vid: volunteer_roles
+      tid: '668'
+      langcode: und
+      name: Registration
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '667'
+      uuid: 907763b2-f4c1-49ba-9935-7c760d7455f9
+    -
+      vid: volunteer_roles
+      tid: '682'
+      langcode: und
+      name: Sanctuary
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 6997e97f-adbd-4fbf-b67f-bed93640c93a
+    -
+      vid: volunteer_roles
+      tid: '683'
+      langcode: und
+      name: Sanctuary
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '682'
+      uuid: f76155b4-6b0d-47d6-a24f-061abfb0860a
+    -
+      vid: volunteer_roles
+      tid: '679'
+      langcode: und
+      name: 'Shift Lead'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '676'
+      uuid: 9f6ac4a3-7c2e-4bd8-a1cf-91107d1a7fd9
+    -
+      vid: volunteer_roles
+      tid: '692'
+      langcode: und
+      name: 'Volunteer Booth Faeries'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '684'
+      uuid: aa19c877-7e6b-47d4-a650-47aef0b50573
+    -
+      vid: volunteer_roles
+      tid: '693'
+      langcode: und
+      name: 'Volunteer Booth Lead'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '684'
+      uuid: eeaf856e-ab3b-4851-92e3-863f24ca3db3
+    -
+      vid: volunteer_roles
+      tid: '695'
+      langcode: und
+      name: 'Volunteer Coordinator Leads, Off Centre Camp'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '684'
+      uuid: d3be5a63-0a31-4bc2-9d2b-6e97963bb4c3
+    -
+      vid: volunteer_roles
+      tid: '694'
+      langcode: und
+      name: 'Volunteer Coordinators, Off Centre Camp'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '684'
+      uuid: a25272c7-a2e8-4004-bd89-688a4e4ab467
+    -
+      vid: volunteer_roles
+      tid: '696'
+      langcode: und
+      name: 'Volunteer Recruiters'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '684'
+      uuid: eec26999-b270-47b2-a390-d19ea6d3df5d
+    -
+      vid: volunteer_roles
+      tid: '684'
+      langcode: und
+      name: Volunteers
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '0'
+      uuid: 2ad9923c-f199-42fc-a857-b57151030bb6
+    -
+      vid: volunteer_roles
+      tid: '670'
+      langcode: und
+      name: 'Wranglers (Department of Mutant Vehicles)'
+      description__value: null
+      description__format: null
+      weight: '0'
+      parent: '667'
+      uuid: e1acbc07-3258-419e-bde0-6827906b7e89
+  volunteer_skills: {  }
+  wrangler_review:
+    -
+      vid: wrangler_review
+      tid: '422'
+      langcode: en
+      name: Accepted
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '0'
+      uuid: 7d9e496d-666d-4bf3-96e5-8c2b9979a41c
+    -
+      vid: wrangler_review
+      tid: '426'
+      langcode: en
+      name: Cancelled
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '0'
+      uuid: 27137e03-59b3-43f9-838e-5f70518295af
+    -
+      vid: wrangler_review
+      tid: '427'
+      langcode: en
+      name: 'Cancelled by Participant'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '426'
+      uuid: 2075c215-b87d-4dcf-bc15-086c4ced74db
+    -
+      vid: wrangler_review
+      tid: '419'
+      langcode: en
+      name: Contacted
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '417'
+      uuid: 6b8bebd1-f9e5-45a4-96c6-9beb7d86a4e7
+    -
+      vid: wrangler_review
+      tid: '424'
+      langcode: en
+      name: 'Following up'
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '422'
+      uuid: 09755615-6bc2-4cda-8e90-eb31f1f360db
+    -
+      vid: wrangler_review
+      tid: '425'
+      langcode: en
+      name: 'Good to Go'
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '422'
+      uuid: 2269c60e-7645-4be9-be07-92112071ddc8
+    -
+      vid: wrangler_review
+      tid: '423'
+      langcode: en
+      name: 'Missing info'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '422'
+      uuid: 239ac678-5841-4c24-ae21-4592520bf7e5
+    -
+      vid: wrangler_review
+      tid: '418'
+      langcode: en
+      name: 'Need more info'
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '417'
+      uuid: c1a98bef-37ab-43ed-bb49-c37ca3fc68c4
+    -
+      vid: wrangler_review
+      tid: '417'
+      langcode: en
+      name: New
+      description__value: null
+      description__format: null
+      weight: '1'
+      parent: '0'
+      uuid: 2c96af3a-dd21-4e19-9643-11767e41a17e
+    -
+      vid: wrangler_review
+      tid: '429'
+      langcode: en
+      name: 'Plug and Play'
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '426'
+      uuid: 24cf881c-76af-4090-a955-459642209962
+    -
+      vid: wrangler_review
+      tid: '421'
+      langcode: en
+      name: Recieved
+      description__value: null
+      description__format: null
+      weight: '4'
+      parent: '417'
+      uuid: 1d358cd6-c398-4830-b495-28ebd0eaf305
+    -
+      vid: wrangler_review
+      tid: '428'
+      langcode: en
+      name: Rejected
+      description__value: null
+      description__format: null
+      weight: '2'
+      parent: '426'
+      uuid: 27b7ac04-9086-4d4d-b209-000b37115d09
+    -
+      vid: wrangler_review
+      tid: '420'
+      langcode: en
+      name: Reviewing
+      description__value: null
+      description__format: null
+      weight: '3'
+      parent: '417'
+      uuid: 55675a03-23a0-46b4-9e15-a090bf87be5c

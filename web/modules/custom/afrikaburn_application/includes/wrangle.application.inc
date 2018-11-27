@@ -50,7 +50,6 @@ function _merge(){
         'operations'
       ],
     ],
-    'wrangle_community_tna' => [],
   ];
 }
 
