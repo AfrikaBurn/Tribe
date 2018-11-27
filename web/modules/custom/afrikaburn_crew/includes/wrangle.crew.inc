@@ -13,7 +13,9 @@ function _editable($id){
         'approved_roles' => 'webform_submission_value_10',
       ],
 
-      'wrangle_dpw' => [],
+      'wrangle_dpw' => [
+        'assigned' => 'webform_submission_value_25',
+      ],
     ]
   )[$id];
 }

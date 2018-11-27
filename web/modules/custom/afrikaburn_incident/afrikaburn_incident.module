@@ -16,6 +16,13 @@ function afrikaburn_incident_form_node_incident_form_alter(&$form, &$form_state)
     $form['field_incident_type']['widget'][$index]['target_id']['#default_value'] = \Drupal\taxonomy\Entity\Term::load($type);
   }
 
+  $new_state = \Drupal::request()->get('newstate');
+  if ($new_state) {
+    $form['field_incident_state']['widget']['#default_value'] = $new_state;
+    $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($new_state);
+    $form['field_description']['widget'][0]['value']['#default_value'] = 'Changing state to ' . $term->name->value;
+  }
+
   $form['actions'][] = [
     '#type' => 'markup',
     '#markup' => '<a class="button" href="/wrangle/incidents">Cancel</a>',
@@ -54,23 +61,7 @@ function afrikaburn_incident_preprocess_views_view(&$variables){
     case 'wrangle_incidents':
       $variables['#attached']['library'][] = 'afrikaburn_incident/log';
       $variables['#attached']['library'][] = 'afrikaburn_shared/log';
-      module_load_include('inc', 'afrikaburn_incident', 'includes/wrangle.incidents');
-      ab_prepare_incident_view($variables);
     break;
-
-  }
-}
-
-/**
- * Implements hook_preprocess_views_view_table().
- */
-function afrikaburn_incident_preprocess_views_view_table(&$variables) {
-  switch ($variables['view']->id()){
-    case 'wrangle_incidents':
-      module_load_include('inc', 'afrikaburn_incident', 'includes/wrangle.incidents');
-      ab_insert_wrangler_view_rows($variables);
-    break;
-
   }
 }
 
@@ -78,6 +69,42 @@ function afrikaburn_incident_preprocess_views_view_table(&$variables) {
  * Redirect incident submit to incident view
  */
 function afrikaburn_incident_submit($form, $form_state){
+
+  $values = $form_state->getValues();
+  $properties = [
+    'vid' => 'incident_type',
+    'name' => 'State change'
+  ];
+  $state_changer = array_shift(
+    \Drupal::entityManager()
+      ->getStorage('taxonomy_term')
+      ->loadByProperties($properties)
+  );
+  $state_change = in_array($state_changer->tid->value,
+    array_column(
+      $values['field_incident_type'], 'target_id'
+    )
+  );
+  $new_state = array_shift(
+    array_column(
+      $values['field_incident_state'], 'target_id'
+    )
+  );
+  $related = array_column(
+    $values['field_related_incident'], 'target_id'
+  );
+
+  if ($state_change && $related) {
+    $targets = \Drupal::entityTypeManager()
+      ->getStorage('node')
+      ->load($related);
+    foreach($targets as $target){
+      $target->set('field_incident_state', [['target_id' =>$new_state]]);
+      $target->save();
+    }
+  }
+
   $url = \Drupal\Core\Url::fromUri('internal:/wrangle/incidents');
   $form_state->setRedirectUrl($url);
 }
+

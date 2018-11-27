@@ -127,12 +127,14 @@ access:
     roles:
       - outreach_wrangler
       - outreach_admin
+      - anathi
     users: {  }
     permissions: {  }
   update_any:
     roles:
       - outreach_wrangler
       - outreach_admin
+      - anathi
     users: {  }
     permissions: {  }
   delete_any:
@@ -158,7 +160,10 @@ access:
     users: {  }
     permissions: {  }
   administer:
-    roles: {  }
+    roles:
+      - outreach_wrangler
+      - administrator
+      - anathi
     users: {  }
     permissions: {  }
   test:

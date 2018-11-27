@@ -1,12 +1,35 @@
 uuid: cd282c81-db97-4d89-a7b7-fdd7890d67c6
 langcode: en
 status: true
-dependencies: {  }
+dependencies:
+  module:
+    - user
 id: wrangle_registrations
 label: 'Wrangle Registrations'
 description: ''
 use_admin_theme: true
 path: /wrangle/projects
 access_logic: and
-access_conditions: {  }
+access_conditions:
+  -
+    id: user_role
+    roles:
+      art_wrangler: art_wrangler
+      communications_wrangler: communications_wrangler
+      leave_no_trace_moop: leave_no_trace_moop
+      mutant_vehicle_wrangler: mutant_vehicle_wrangler
+      outreach_wrangler: outreach_wrangler
+      administrator: administrator
+      support_wrangler: support_wrangler
+      theme_camp_wrangler: theme_camp_wrangler
+      supplier: supplier
+      dpw: dpw
+      volunteer_admin: volunteer_admin
+      ranger_admin: ranger_admin
+      sanctuary_admin: sanctuary_admin
+      logger: logger
+      anathi: anathi
+    negate: false
+    context_mapping:
+      user: current_user
 parameters: {  }
