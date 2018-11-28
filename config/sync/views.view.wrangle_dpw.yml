@@ -2260,7 +2260,7 @@ display:
               sanctuary_admin: '0'
               logger: '0'
               anathi: '0'
-            placeholder: 'Name, mail or location'
+            placeholder: 'Name or mail'
           is_grouped: false
           group_info:
             label: ''
@@ -2277,7 +2277,6 @@ display:
             webform_submission_value_8: webform_submission_value_8
             webform_submission_value_19: webform_submission_value_19
             webform_submission_value_7: webform_submission_value_7
-            webform_submission_value_26: webform_submission_value_26
           plugin_id: combine
         webform_submission_value_1:
           id: webform_submission_value_1
