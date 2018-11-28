@@ -52,7 +52,8 @@ function _meta_collective($entity){
     : $entity->get('field_collective')
       ->first()
       ->get('entity')
-      ->getTarget();
+      ->getTarget()
+      ->getValue();
 
   if ($collective) {
     $member_uids = array_diff(
