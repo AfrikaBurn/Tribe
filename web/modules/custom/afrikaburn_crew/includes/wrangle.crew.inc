@@ -42,6 +42,7 @@ function _merge(){
         'operations'
       ],
     ],
+    'wrangle_dpw' => [],
   ];
 }
 
