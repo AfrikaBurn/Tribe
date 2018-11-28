@@ -51,7 +51,7 @@ class CollectiveAdminCheck implements AccessInterface {
     }
 
     if ($bundle == 'collective') {
-      return AccessResult::allowedIf($this::isAdmin($uid, $node) || $user->hasRole('administrator') || $user->hasRole($roles[$bundle]));
+      return AccessResult::allowedIf($this::isAdmin($uid, $node) || $user->hasRole('administrator') || (isset($roles[$bundle]) && $user->hasRole($roles[$bundle])));
     }
 
     if ( ($cid = \Drupal::routeMatch()->getParameter('cid')) && (\Drupal::routeMatch()->getParameter('uid')) ){
