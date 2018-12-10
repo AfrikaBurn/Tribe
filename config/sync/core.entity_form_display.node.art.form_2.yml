@@ -134,9 +134,9 @@ dependencies:
     - field.field.node.art.field_year_cycle
     - node.type.art
   module:
-    - autocomplete_deluxe
     - computed_field
     - datetime
+    - entity_reference_views_select
     - field_group
     - markup
 third_party_settings:
@@ -291,21 +291,10 @@ bundle: art
 mode: form_2
 content:
   field_collective:
-    type: autocomplete_deluxe
+    type: options_select
     weight: 0
     region: content
-    settings:
-      match_operator: CONTAINS
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
-      target_type: taxonomy_term
-      size: 60
-      selection_handler: default
-      limit: 10
-      min_length: 0
-      delimiter: ''
-      not_found_message_allow: false
-      not_found_message: 'The term ''@term'' will be added'
-      new_terms: false
+    settings: {  }
     third_party_settings: {  }
   field_form_mode:
     type: string_textfield
@@ -322,38 +311,16 @@ content:
     type: markup
     region: content
   field_prj_adm_review:
-    type: autocomplete_deluxe
+    type: options_select
     weight: 0
     region: content
-    settings:
-      match_operator: CONTAINS
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
-      target_type: taxonomy_term
-      size: 60
-      selection_handler: default
-      limit: 10
-      min_length: 0
-      delimiter: ''
-      not_found_message_allow: false
-      not_found_message: 'The term ''@term'' will be added'
-      new_terms: false
+    settings: {  }
     third_party_settings: {  }
   field_prj_adm_wrangler:
-    type: autocomplete_deluxe
+    type: options_select
     weight: 0
     region: content
-    settings:
-      match_operator: CONTAINS
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
-      target_type: taxonomy_term
-      size: 60
-      selection_handler: default
-      limit: 10
-      min_length: 0
-      delimiter: ''
-      not_found_message_allow: false
-      not_found_message: 'The term ''@term'' will be added'
-      new_terms: false
+    settings: {  }
     third_party_settings: {  }
   field_prj_brn_agree:
     type: boolean_checkbox
@@ -405,13 +372,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_prj_brn_person:
-    type: entity_reference_autocomplete
+    type: erviews_options_select
     weight: 5
     region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_prj_brn_plan:
     type: string_textarea
@@ -461,13 +425,10 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_prj_lgh_lighter:
-    type: entity_reference_autocomplete
+    type: erviews_options_select
     weight: 59
     region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_prj_lgh_policy:
     type: markup
@@ -520,22 +481,16 @@ content:
     type: number
     region: content
   field_prj_lnt_historic:
-    type: entity_reference_autocomplete
+    type: options_select
     weight: 9
     region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_prj_lnt_representative:
     weight: 10
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: erviews_options_select
     region: content
   field_prj_oth_area:
     weight: 74
@@ -656,12 +611,9 @@ content:
     region: content
   field_prj_snd_person:
     weight: 36
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: erviews_options_select
     region: content
   field_prj_snd_sound:
     weight: 32
@@ -683,21 +635,10 @@ content:
     type: markup
     region: content
   field_prj_stc_size:
-    type: autocomplete_deluxe
+    type: options_select
     weight: 0
     region: content
-    settings:
-      match_operator: CONTAINS
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
-      target_type: taxonomy_term
-      size: 60
-      selection_handler: default
-      limit: 10
-      min_length: 0
-      delimiter: ''
-      not_found_message_allow: false
-      not_found_message: 'The term ''@term'' will be added'
-      new_terms: false
+    settings: {  }
     third_party_settings: {  }
   field_prj_wtf_area:
     weight: 67
