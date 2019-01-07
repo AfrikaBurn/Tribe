@@ -89,13 +89,18 @@ function _project_form_config() {
       'type' => 'an Artwork',
       'wrangler' => 'art_wrangler'
     ],
+    'node_art_form_3_form' => [
+      'mode' => 'form_3',
+      'title' => 'Completing registration: %title',
+      'type' => 'an Artwork',
+      'wrangler' => 'art_wrangler'
+    ],
     'node_art_grant_form' => [
       'mode' => 'grant',
       'title' => 'Grant application for: %title',
       'type' => 'an Artwork',
       'wrangler' => 'art_wrangler'
     ],
-    //TODO: Form 3
     //TODO: Suppliers
     //TODO: WAP
 
@@ -180,6 +185,12 @@ function _project_form_config() {
     'node_theme_camps_form_2_form' => [
       'mode' => 'form_2',
       'title' => 'Continuing registration: %title',
+      'type' => 'a Theme Camp',
+      'wrangler' => 'theme_camps_wrangler'
+    ],
+    'node_theme_camps_form_3_form' => [
+      'mode' => 'form_3',
+      'title' => 'Completing registration: %title',
       'type' => 'a Theme Camp',
       'wrangler' => 'theme_camps_wrangler'
     ],
