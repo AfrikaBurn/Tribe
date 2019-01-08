@@ -26,6 +26,7 @@
 
 # Tribe specific
 /config/sync/smtp.settings.yml
+/config/sync/system.performance.yml
 /config/sync/afrikaburn_notification.address_settings.yml
 /config/sync/swiftmailer.transport.yml
 /config/sync/afrikaburn_registration.settings.yml
