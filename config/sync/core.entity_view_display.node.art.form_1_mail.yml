@@ -502,7 +502,7 @@ content:
     weight: 11
     region: content
     settings:
-      view_mode: real_name
+      view_mode: full_name
       link: false
     third_party_settings:
       empty_fields:
@@ -553,7 +553,7 @@ content:
     weight: 8
     region: content
     settings:
-      view_mode: real_name
+      view_mode: full_name
       link: false
     third_party_settings:
       empty_fields:
@@ -579,7 +579,7 @@ content:
     weight: 16
     region: content
     settings:
-      view_mode: real_name
+      view_mode: full_name
       link: false
     third_party_settings:
       empty_fields:
@@ -614,7 +614,7 @@ content:
     weight: 10
     region: content
     settings:
-      view_mode: real_name
+      view_mode: full_name
       link: false
     third_party_settings:
       empty_fields:
@@ -632,7 +632,7 @@ content:
     weight: 9
     region: content
     settings:
-      view_mode: real_name
+      view_mode: full_name
       link: false
     third_party_settings:
       empty_fields:
@@ -679,7 +679,7 @@ content:
     weight: 0
     region: content
     settings:
-      view_mode: real_name
+      view_mode: full_name
       link: false
     third_party_settings:
       empty_fields:
@@ -857,7 +857,7 @@ content:
     weight: 14
     region: content
     settings:
-      view_mode: real_name
+      view_mode: full_name
       link: false
     third_party_settings:
       empty_fields:
