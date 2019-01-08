@@ -1,9 +1,9 @@
-uuid: cc4f78ef-b6f5-49e1-8657-251555f267be
+uuid: 62538054-e878-426c-8342-932f03de04ad
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.node.form_2
+    - core.entity_form_mode.node.form_3
     - field.field.node.art.field_admin_comments
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
@@ -132,26 +132,25 @@ dependencies:
     - field.field.node.art.field_this_is_the_amount_of_mone
     - field.field.node.art.field_vp_ea
     - field.field.node.art.field_year_cycle
+    - image.style.thumbnail
     - node.type.art
   module:
-    - computed_field
-    - datetime
     - entity_reference_views_select
     - field_group
-    - markup
+    - image
+    - link
 third_party_settings:
   field_group:
     group_administrative:
       children:
-        - field_collective
-        - field_form_mode
+        - field_prjr_complete
         - field_prj_adm_review
         - field_prj_adm_wrangler
         - field_prj_stc_size
-        - field_prjr_complete
-        - field_year_cycle
+        - field_collective
+        - field_form_mode
       parent_name: ''
-      weight: 1
+      weight: 0
       format_type: details
       format_settings:
         id: ''
@@ -159,146 +158,69 @@ third_party_settings:
         open: false
         required_fields: true
       label: Administrative
-    group_project_registration:
+    group_wtf_guide_and_community_up:
       children:
-        - group_placement
-        - group_lighting
-        - group_sound
-        - group_burn
-        - group_moop
-        - group_other
+        - group_wtf_guide
+        - group_app_and_web
       parent_name: ''
-      weight: 5
+      weight: 8
       format_type: tabs
       format_settings:
-        label: 'Project Registration'
+        label: 'WTF Guide and Community update'
         direction: horizontal
         id: ''
         classes: ''
-      label: 'Project Registration'
-    group_lighting:
+      label: 'WTF Guide and Community update'
+    group_wtf_guide:
       children:
-        - field_prj_lgh_f2
-        - field_prj_lgh_description
-        - field_prj_lgh_power
-        - field_prj_lgh_projection
-        - field_prj_lgh_lighter
-        - field_prj_lgh_policy
-        - field_prj_lgh_agree
-      parent_name: group_project_registration
-      weight: 7
+        - field_prj_wtf_short
+        - field_prj_wtf_categories
+        - field_prj_wtf_planned
+      parent_name: group_wtf_guide_and_community_up
+      weight: 20
       format_type: tab
       format_settings:
         id: ''
         classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-      label: Lighting
-    group_sound:
-      children:
-        - field_prj_snd_f1
-        - field_prj_snd_sound
-        - field_prj_snd_level
-        - field_prj_snd_description
-        - field_prj_snd_agree
-        - field_prj_snd_person
-      parent_name: group_project_registration
-      weight: 8
-      format_type: tab
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-      label: Sound
-    group_burn:
-      children:
-        - field_prj_brn_f2
-        - field_prj_brn_burning
-        - field_prj_brn_motivation
-        - field_prj_brn_plan
-        - field_prj_brn_person
-        - field_prj_brn_perimeter
-        - field_prj_brn_time
-        - field_prj_brn_desc
-        - field_prj_brn_agree
-      parent_name: group_project_registration
-      weight: 9
-      format_type: tab
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-      label: Burn
-    group_moop:
-      children:
-        - field_prj_lnt_helpers
-        - field_prj_lnt_handled
-        - field_prj_lnt_duration
-        - field_prj_lnt_historic
-        - field_prj_lnt_representative
-      parent_name: group_project_registration
-      weight: 10
-      format_type: tab
-      format_settings:
-        label: 'Leave No Trace'
-        formatter: closed
-        description: ''
-        required_fields: true
-        id: ''
-        classes: ''
-      label: 'Leave No Trace'
-    group_other:
-      children:
-        - field_prj_oth_unregistered
-        - field_prj_oth_other
-        - field_prj_oth_associated
-        - field_prj_oth_relationship
-        - field_prj_oth_grant
-      parent_name: group_project_registration
-      weight: 11
-      format_type: tab
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        description: ''
-        required_fields: true
-      label: Other
-    group_placement:
-      children:
-        - field_prj_plc_f1
-        - field_prj_plc_location_extra
-      parent_name: group_project_registration
-      weight: 6
-      format_type: tab
-      format_settings:
-        label: Placement
         formatter: open
+        description: ''
+        required_fields: true
+      label: 'WTF Guide'
+    group_app_and_web:
+      children:
+        - field_prj_wtf_long
+        - field_prj_wtf_image
+        - field_prj_wtf_website
+      parent_name: group_wtf_guide_and_community_up
+      weight: 21
+      format_type: tab
+      format_settings:
+        label: 'App and Web'
+        formatter: open
+        description: ''
         required_fields: true
         id: ''
         classes: ''
-      label: Placement
+      label: 'App and Web'
 _core:
   default_config_hash: ehnjrE-MS25SZlH5syS8NpyAb0kWLGl88OywWqUiYwM
-id: node.art.form_2
+id: node.art.form_3
 targetEntityType: node
 bundle: art
-mode: form_2
+mode: form_3
 content:
   field_collective:
-    type: options_select
-    weight: 0
+    type: entity_reference_autocomplete
+    weight: 7
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_form_mode:
     type: string_textfield
-    weight: 0
+    weight: 8
     region: content
     settings:
       size: 60
@@ -312,41 +234,13 @@ content:
     region: content
   field_prj_adm_review:
     type: options_select
-    weight: 0
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_prj_adm_wrangler:
-    type: options_select
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_prj_brn_agree:
-    type: boolean_checkbox
-    weight: 9
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  field_prj_brn_burning:
-    type: boolean_checkbox
-    weight: 2
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
-  field_prj_brn_desc:
-    type: string_textarea
-    weight: 8
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_prj_brn_f2:
-    type: markup
-    weight: 0
+    type: erviews_options_select
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -356,37 +250,14 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_brn_motivation:
-    type: string_textarea
-    weight: 3
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_prj_brn_perimeter:
-    type: number
+  field_prj_gen_header2:
+    type: markup
     weight: 6
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_prj_brn_person:
-    type: erviews_options_select
-    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_prj_brn_plan:
-    type: string_textarea
-    weight: 4
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_prj_brn_time:
-    type: datetime_default
+  field_prj_gen_header3:
+    type: markup
     weight: 7
     region: content
     settings: {  }
@@ -397,100 +268,17 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_lgh_agree:
-    type: boolean_checkbox
-    weight: 61
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   field_prj_lgh_area:
     weight: 37
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_lgh_description:
-    type: string_textarea
-    weight: 56
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_prj_lgh_f2:
-    type: markup
-    weight: 55
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_prj_lgh_lighter:
-    type: erviews_options_select
-    weight: 59
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_prj_lgh_policy:
-    type: markup
-    weight: 60
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_prj_lgh_power:
-    type: string_textarea
-    weight: 57
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_prj_lgh_projection:
-    type: string_textarea
-    weight: 58
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
   field_prj_lnt_area:
     weight: 57
     settings: {  }
     third_party_settings: {  }
     type: markup
-    region: content
-  field_prj_lnt_duration:
-    weight: 8
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
-  field_prj_lnt_handled:
-    type: string_textarea
-    weight: 7
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_prj_lnt_helpers:
-    weight: 6
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
-  field_prj_lnt_historic:
-    type: options_select
-    weight: 9
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_prj_lnt_representative:
-    weight: 10
-    settings: {  }
-    third_party_settings: {  }
-    type: erviews_options_select
     region: content
   field_prj_oth_area:
     weight: 74
@@ -498,66 +286,12 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_oth_associated:
-    weight: 15
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  field_prj_oth_grant:
-    weight: 18
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
-  field_prj_oth_other:
-    weight: 14
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
-    region: content
-  field_prj_oth_relationship:
-    weight: 17
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textarea
-    region: content
-  field_prj_oth_unregistered:
-    type: string_textfield
-    weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_prj_plc_area:
     weight: 35
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_plc_f1:
-    type: markup
-    weight: 11
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_prj_plc_location_extra:
-    type: string_textarea
-    weight: 12
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
   field_prj_prp_area:
     weight: 27
     settings: {  }
@@ -576,51 +310,11 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_snd_agree:
-    type: boolean_checkbox
-    weight: 35
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   field_prj_snd_area:
     weight: 43
     settings: {  }
     third_party_settings: {  }
     type: markup
-    region: content
-  field_prj_snd_description:
-    type: string_textarea
-    weight: 34
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_prj_snd_f1:
-    weight: 31
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_snd_level:
-    weight: 33
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
-  field_prj_snd_person:
-    weight: 36
-    settings: {  }
-    third_party_settings: {  }
-    type: erviews_options_select
-    region: content
-  field_prj_snd_sound:
-    weight: 32
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
     region: content
   field_prj_stc_dimensions:
     weight: 18
@@ -636,7 +330,7 @@ content:
     region: content
   field_prj_stc_size:
     type: options_select
-    weight: 0
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -646,17 +340,66 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
-  field_prjr_complete:
-    type: options_select
-    weight: 0
+  field_prj_wtf_categories:
+    weight: 26
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_prj_wtf_image:
+    weight: 31
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  field_prj_wtf_long:
+    type: string_textarea
+    weight: 30
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_wtf_planned:
+    type: options_buttons
+    weight: 27
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_year_cycle:
-    type: computed_number_widget
-    weight: 0
+  field_prj_wtf_short:
+    type: string_textarea
+    weight: 25
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_wtf_website:
+    weight: 32
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_prjr_complete:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  flag:
+    weight: 9
     region: content
     settings: {  }
+    third_party_settings: {  }
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
     third_party_settings: {  }
 hidden:
   created: true
@@ -682,7 +425,6 @@ hidden:
   field_grt_short_desc: true
   field_grt_specify: true
   field_grt_tec_apply: true
-  field_grt_tec_comment: true
   field_grt_tec_reason: true
   field_grt_tec_total: true
   field_grt_tool: true
@@ -691,8 +433,16 @@ hidden:
   field_prj_adm_form_3: true
   field_prj_adm_latitude: true
   field_prj_adm_longitude: true
-  field_prj_adm_ranger_comment: true
+  field_prj_brn_agree: true
+  field_prj_brn_burning: true
+  field_prj_brn_desc: true
   field_prj_brn_f1: true
+  field_prj_brn_f2: true
+  field_prj_brn_motivation: true
+  field_prj_brn_perimeter: true
+  field_prj_brn_person: true
+  field_prj_brn_plan: true
+  field_prj_brn_time: true
   field_prj_brn_time_adm: true
   field_prj_cll_collaborate: true
   field_prj_cll_contact: true
@@ -713,18 +463,44 @@ hidden:
   field_prj_gen_manager: true
   field_prj_gen_story: true
   field_prj_grant_expenses: true
+  field_prj_lgh_agree: true
+  field_prj_lgh_description: true
   field_prj_lgh_f1: true
-  field_prj_lnt_comments: true
+  field_prj_lgh_f2: true
+  field_prj_lgh_lighter: true
+  field_prj_lgh_policy: true
+  field_prj_lgh_power: true
+  field_prj_lgh_projection: true
+  field_prj_lnt_duration: true
+  field_prj_lnt_handled: true
+  field_prj_lnt_helpers: true
+  field_prj_lnt_historic: true
   field_prj_lnt_images: true
+  field_prj_lnt_publish: true
+  field_prj_lnt_representative: true
   field_prj_lnt_score: true
   field_prj_lnt_signoff: true
   field_prj_lnt_type: true
+  field_prj_oth_associated: true
+  field_prj_oth_grant: true
+  field_prj_oth_other: true
+  field_prj_oth_relationship: true
+  field_prj_oth_unregistered: true
+  field_prj_plc_f1: true
+  field_prj_plc_location_extra: true
   field_prj_prp_duration: true
   field_prj_prp_erection: true
   field_prj_prp_start: true
   field_prj_prp_transport: true
+  field_prj_saf_comment: true
+  field_prj_snd_agree: true
   field_prj_snd_comment: true
+  field_prj_snd_description: true
+  field_prj_snd_f1: true
+  field_prj_snd_level: true
   field_prj_snd_more_later: true
+  field_prj_snd_person: true
+  field_prj_snd_sound: true
   field_prj_stc_attributes: true
   field_prj_stc_footprint: true
   field_prj_stc_height: true
@@ -740,17 +516,14 @@ hidden:
   field_prj_sup_details: true
   field_prj_sup_details_view: true
   field_prj_sup_h1: true
-  field_prj_wtf_categories: true
-  field_prj_wtf_image: true
-  field_prj_wtf_long: true
-  field_prj_wtf_planned: true
   field_prj_wtf_scheduled: true
-  field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
-  field_prj_wtf_website: true
+  field_sup_comment: true
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
+  field_year_cycle: true
+  moderation_state: true
   path: true
   promote: true
   status: true

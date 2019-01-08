@@ -130,9 +130,9 @@ dependencies:
     - image.style.thumbnail
     - node.type.theme_camps
   module:
-    - autocomplete_deluxe
     - computed_field
     - conditional_fields
+    - entity_reference_views_select
     - field_group
     - image
     - markup
@@ -334,38 +334,16 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_prj_adm_review:
-    type: autocomplete_deluxe
+    type: options_select
     weight: 0
     region: content
-    settings:
-      match_operator: CONTAINS
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
-      target_type: taxonomy_term
-      size: 60
-      selection_handler: default
-      limit: 10
-      min_length: 0
-      delimiter: ''
-      not_found_message_allow: false
-      not_found_message: 'The term ''@term'' will be added'
-      new_terms: false
+    settings: {  }
     third_party_settings: {  }
   field_prj_adm_wrangler:
-    type: autocomplete_deluxe
+    type: options_select
     weight: 0
     region: content
-    settings:
-      match_operator: CONTAINS
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
-      target_type: taxonomy_term
-      size: 60
-      selection_handler: default
-      limit: 10
-      min_length: 0
-      delimiter: ''
-      not_found_message_allow: false
-      not_found_message: 'The term ''@term'' will be added'
-      new_terms: false
+    settings: {  }
     third_party_settings: {  }
   field_prj_gen_concept:
     type: image_image
@@ -414,21 +392,15 @@ content:
     region: content
   field_prj_lnt_historic:
     weight: 17
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: options_select
     region: content
   field_prj_lnt_representative:
     weight: 18
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: erviews_options_select
     region: content
   field_prj_plc_artwork_d:
     weight: 28
@@ -652,21 +624,15 @@ content:
     region: content
   field_prj_saf_markup:
     weight: 17
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: erviews_options_select
     region: content
   field_prj_saf_person:
-    type: entity_reference_autocomplete
+    type: erviews_options_select
     weight: 18
     region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_prj_snd_agree:
     weight: 19
@@ -823,10 +789,7 @@ content:
     region: content
   field_prj_snd_person:
     weight: 20
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings:
       conditional_fields:
         e97d8c4c-5c8d-4231-bc4b-ed4ab7bc5112:
@@ -859,7 +822,7 @@ content:
             selector: ''
           entity_type: node
           bundle: theme_camps
-    type: entity_reference_autocomplete
+    type: erviews_options_select
     region: content
   field_prj_snd_soop:
     weight: 18
