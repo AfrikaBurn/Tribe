@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "3cf94ac5b08a923a713b305ca7faa07f",
+    "content-hash": "57241ee53de783fbc8cd1aa0900e12a3",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3086,6 +3086,56 @@
                 "CloudFlare",
                 "Drupal"
             ],
+            "support": {
+                "source": "http://cgit.drupalcode.org/cloudflare"
+            }
+        },
+        {
+            "name": "drupal/cloudflarepurger",
+            "version": "1.0.0-alpha7",
+            "require": {
+                "drupal/cloudflare": "self.version",
+                "drupal/core": "~8.0",
+                "drupal/purge": "*"
+            },
+            "type": "metapackage",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.0-alpha7",
+                    "datestamp": "1477961340",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Project has not opted into security advisory coverage!"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Brian294",
+                    "homepage": "https://www.drupal.org/user/348040"
+                },
+                {
+                    "name": "Wim Leers",
+                    "homepage": "https://www.drupal.org/user/99777"
+                },
+                {
+                    "name": "adam.weingarten",
+                    "homepage": "https://www.drupal.org/user/2677413"
+                },
+                {
+                    "name": "phayes",
+                    "homepage": "https://www.drupal.org/user/47098"
+                }
+            ],
+            "description": "CloudFlare CDN integration.",
+            "homepage": "https://www.drupal.org/project/cloudflare",
             "support": {
                 "source": "http://cgit.drupalcode.org/cloudflare"
             }
@@ -7365,6 +7415,61 @@
             "homepage": "https://www.drupal.org/project/prlp",
             "support": {
                 "source": "http://cgit.drupalcode.org/prlp"
+            }
+        },
+        {
+            "name": "drupal/purge",
+            "version": "3.0.0-beta8",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/purge",
+                "reference": "8.x-3.0-beta8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/purge-8.x-3.0-beta8.zip",
+                "reference": "8.x-3.0-beta8",
+                "shasum": "5b6a53d6adcfa0d4e081edf2563d366fc7205bc4"
+            },
+            "require": {
+                "drupal/core": "~8.0"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-3.x": "3.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-3.0-beta8",
+                    "datestamp": "1502719311",
+                    "security-coverage": {
+                        "status": "not-covered",
+                        "message": "Beta releases are not covered by Drupal security advisories."
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "SqyD",
+                    "homepage": "https://www.drupal.org/user/106525"
+                },
+                {
+                    "name": "djbobbydrake",
+                    "homepage": "https://www.drupal.org/user/336378"
+                },
+                {
+                    "name": "nielsvm",
+                    "homepage": "https://www.drupal.org/user/163285"
+                }
+            ],
+            "description": "Provides a generic external cache invalidation API and queue service.",
+            "homepage": "https://www.drupal.org/project/purge",
+            "support": {
+                "source": "http://cgit.drupalcode.org/purge"
             }
         },
         {
@@ -14649,6 +14754,7 @@
         "drupal/captcha": 10,
         "drupal/clientside_validation": 5,
         "drupal/cloudflare": 15,
+        "drupal/cloudflarepurger": 15,
         "drupal/computed_field": 15,
         "drupal/conditional_fields": 15,
         "drupal/cshs": 10,
@@ -14672,6 +14778,7 @@
         "drupal/paragraphs_edit": 15,
         "drupal/pdf_using_mpdf8": 15,
         "drupal/php": 10,
+        "drupal/purge": 10,
         "drupal/smtp": 10,
         "drupal/swiftmailer": 10,
         "drupal/taxonomy_manager": 15,
