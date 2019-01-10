@@ -12,6 +12,11 @@ targetEntityType: node
 bundle: alert
 mode: teaser
 content:
+  flag_unread:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   links:
     weight: 100
     settings: {  }
@@ -20,5 +25,6 @@ content:
 hidden:
   field_alert_action: true
   field_alert_collective: true
+  field_alert_comment: true
   field_alert_post: true
   field_alert_project: true

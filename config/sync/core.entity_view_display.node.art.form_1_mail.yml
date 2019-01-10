@@ -939,6 +939,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  flag_mute:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_admin_comments: true
   field_col_members: true
@@ -1009,6 +1014,7 @@ hidden:
   field_prj_snd_comment: true
   field_prj_snd_description: true
   field_prj_snd_f1: true
+  field_prj_snd_more_later: true
   field_prj_snd_person: true
   field_prj_stc_size: true
   field_prj_stg_contact: true
