@@ -97,7 +97,7 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
       $incomplete = array_search(
         $defaults['mode'],
         $defaults['mode'] == 'support_camp'
-          ? array_column($registration->field_supporting_project->entity->field_prjr_complete->getValue(), 'value')
+          ? array_column($supporting_project->field_prjr_complete->getValue(), 'value')
           : array_column($registration->field_prjr_complete->getValue(), 'value')
       ) === FALSE;
       $existing = isset($registration->nid->value);
