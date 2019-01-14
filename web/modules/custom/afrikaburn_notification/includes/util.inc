@@ -92,6 +92,7 @@ function _entity_diff($node, &$body){
     'Members',
     'Admins',
     'form_mode',
+    'Supporting project',
     'Complete'
   ];
 

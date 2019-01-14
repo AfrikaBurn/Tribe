@@ -26,6 +26,7 @@ dependencies:
     - field.field.node.performances.field_grt_tool
     - field.field.node.performances.field_grt_total
     - field.field.node.performances.field_grt_transport
+    - field.field.node.performances.field_lineup_request
     - field.field.node.performances.field_muncipal_district
     - field.field.node.performances.field_prj_adm_notes
     - field.field.node.performances.field_prj_adm_review
@@ -125,6 +126,7 @@ dependencies:
     - field_group
     - image
     - link
+    - markup
 third_party_settings:
   field_group:
     group_project_registration:
@@ -265,6 +267,12 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_lineup_request:
+    type: markup
+    weight: -100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_prj_adm_wrangler:
     type: entity_reference_autocomplete
     weight: 39

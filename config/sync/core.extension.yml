@@ -28,6 +28,7 @@ module:
   clientside_validation: 0
   clientside_validation_jquery: 0
   cloudflare: 0
+  cloudflarepurger: 0
   collapsiblock: 0
   color: 0
   colorbox: 0
@@ -106,6 +107,11 @@ module:
   pfdp: 0
   php: 0
   prlp: 0
+  purge: 0
+  purge_drush: 0
+  purge_processor_cron: 0
+  purge_queuer_coretags: 0
+  purge_ui: 0
   rdf: 0
   recaptcha: 0
   redirect: 0

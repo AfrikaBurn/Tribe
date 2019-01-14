@@ -33,8 +33,6 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
   $registration_config = _project_form_config();
   $defaults = @($registration_config)[$form_id];
 
-  // dpm($form_id);
-
   if (isset($defaults) && preg_match('/^\/node/', \Drupal::service('path.current')->getPath())) {
 
     $entity = $form_state->getFormObject()->getEntity();
@@ -46,60 +44,80 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
       ]
     )[0];
     $collective = _get_collective($registration);
+    $supporting_project = _get_supporting_project($registration);
     $is_wrangler = $user->hasRole($defaults['wrangler']);
     $is_admin = $user->hasRole('administrator');
-    $incomplete = array_search($defaults['mode'], $form['field_prjr_complete']['widget']['#default_value']) === FALSE;
     $bundle = $entity->bundle();
+    $mode = array_pop(explode('/', \Drupal::service('path.current')->getPath()));
 
     // Naughty naughty users
-    if (!$collective) {
-      drupal_set_message('Oops! You really should do that from within a collective', 'warning', true);
+    if (!$collective || ($mode == 'support_camp' && !$supporting_project)) {
+      drupal_set_message('Oops! You really should do that using the links in a collective', 'warning', true);
       $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
       $response->send();
-    }
 
-    // Form title, Submit title, Submit handler
-    $form['#title'] = [
-      '#type' => 'markup',
-      '#markup' => _get_title($defaults, $collective, $registration),
-    ];
-    $form['actions']['submit']['#value'] = 'Submit';
-    array_unshift($form['actions']['submit']['#submit'], 'afrikaburn_registration_publish');
-    $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_redirect';
+      $form['#title'] = [
+        '#type' => 'markup',
+        '#markup' => _get_title($defaults, $collective, $registration),
+      ];
 
-    // Set defaults
-    $form['field_collective']['widget'][0]['target_id']['#default_value'] = $collective;
-    $form['field_form_mode']['widget'][0]['value']['#default_value'] = $defaults['mode'];
-    $form['field_prjr_complete']['widget']['#default_value'][] = $defaults['mode'];
-    $form['#administrator'] = $is_admin || $is_wrangler;
+    } else {
 
-    // Hide fields and inappropriate complete options per type
-    $form['revision_log']['#access'] = $is_admin;
-    $form['field_form_mode']['#type'] = 'hidden';
-    $form['field_collective']['#access'] = $is_admin;
-    $form['field_prjr_complete']['widget']['#options'] = array_intersect_key(
-      $form['field_prjr_complete']['widget']['#options'],
-      _project_form_modes()[$bundle]['modes']
-    );
-    if (!($is_wrangler || $is_admin)) $form['field_prjr_complete']['widget']['#type'] = 'value';
+      // Form title, Submit title, Submit handler
+      $form['#title'] = [
+        '#type' => 'markup',
+        '#markup' => _get_title($defaults, $collective, $registration),
+      ];
+      $form['actions']['submit']['#value'] = 'Submit';
+      array_unshift($form['actions']['submit']['#submit'], 'afrikaburn_registration_publish');
+      $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_redirect';
 
-    // Wizard or tabs (cake or death?)
-    $is_new = !isset($registration);
-    $errors = count($form_state->getErrors()) > 0;
-    $form['#wizard'] =
-      !$is_wrangler && (
-        $is_new && !$errors ||
-        $incomplete && !$errors
+      if ($mode == 'support_camp'){
+        $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_support';
+      }
+
+      // Set defaults
+      $form['field_collective']['widget'][0]['target_id']['#default_value'] = $collective;
+      $form['field_supporting_project']['widget'][0]['target_id']['#default_value'] = $supporting_project;
+      $form['field_form_mode']['widget'][0]['value']['#default_value'] = $defaults['mode'];
+      $form['field_prjr_complete']['widget']['#default_value'][] = $defaults['mode'];
+      $form['#administrator'] = $is_admin || $is_wrangler;
+
+      // Hide fields and inappropriate complete options per type
+      $form['revision_log']['#access'] = $is_admin;
+      $form['field_form_mode']['#type'] = 'hidden';
+      $form['field_collective']['#access'] = $is_admin;
+      $form['field_prjr_complete']['widget']['#options'] = array_intersect_key(
+        $form['field_prjr_complete']['widget']['#options'],
+        _project_form_modes()[$bundle]['modes']
       );
+      if (!($is_wrangler || $is_admin)) $form['field_prjr_complete']['widget']['#type'] = 'value';
 
-    // // Add "Save Draft" button.
-    // $form['draft'] = [
-    //   '#type' => 'submit',
-    //   '#value' => 'Save Draft',
-    //   '#limit_validation_errors' => [['title'], ['field_form_mode']],
-    //   '#validate' => ['afrikaburn_registration_validate_draft'],
-    //   '#submit' => ['afrikaburn_registration_save_draft'],
-    // ];
+      // Wizard or tabs (cake or death?)
+      $incomplete = array_search(
+        $defaults['mode'],
+        $defaults['mode'] == 'support_camp'
+          ? array_column($supporting_project->field_prjr_complete->getValue(), 'value')
+          : array_column($registration->field_prjr_complete->getValue(), 'value')
+      ) === FALSE;
+      $existing = isset($registration->nid->value);
+      $errors = count($form_state->getErrors()) > 0;
+      $form['#wizard'] = !$is_wrangler && (!$existing || $incomplete) || $errors;
+
+        // !$is_wrangler && (
+        //   ($is_new && !$errors) ||
+        //   ($incomplete && !$errors)
+        // );
+
+        // Add "Save Draft" button.
+        // $form['draft'] = [
+        //   '#type' => 'submit',
+        //   '#value' => 'Save Draft',
+        //   '#limit_validation_errors' => [['title'], ['field_form_mode']],
+        //   '#validate' => ['afrikaburn_registration_validate_draft'],
+        //   '#submit' => ['afrikaburn_registration_save_draft'],
+        // ];
+    }
   }
 }
 
@@ -336,6 +354,28 @@ function afrikaburn_registration_publish($form, $form_state){
   $form_state->getFormObject()->getEntity()->setPublished(TRUE);
 }
 
+/**
+ * Marks a support camp as complete on the supported project
+ */
+function afrikaburn_registration_support($form, $form_state){
+  $camp = $form_state->getFormObject()->getEntity();
+  $project = array_shift(
+    array_filter(
+      [
+        $camp->field_supporting_project->entity,
+        $camp->field_supporting_project->getEntity(),
+      ]
+    )
+  );
+  if (!in_array(
+    'support_camp',
+    array_column($project->field_prjr_complete->getValue(), 'value')
+  )){
+    $project->field_prjr_complete->appendItem('support_camp');
+    $project->save();
+  }
+}
+
 
 /* ----- Computed fields ----- */
 
@@ -384,10 +424,3 @@ function afrikaburn_registration_node_presave($entity){
   }
 }
 
-
-/* ---- Utility ---- */
-
-
-function afrikaburn_registration_page(){
-
-}

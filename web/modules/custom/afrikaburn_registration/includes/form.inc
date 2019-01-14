@@ -17,7 +17,7 @@ function _project_form_modes(){
         'form_2' => 'Registration form 2',
         'form_3' => 'Registration form 3',
         'grant' => 'Grant application',
-        'support' => 'Support camp registration',
+        'support_camp' => 'Support camp',
         'supplier' => 'Supplier registration',
         'wap' => 'Work access passes',
       ],
@@ -28,7 +28,7 @@ function _project_form_modes(){
       'modes' => [
         'form_1' => 'Registration form',
         'grant' => 'Grant application',
-        'support' => 'Support camp registration',
+        'support_camp' => 'Support camp',
         'supplier' => 'Supplier registration',
         'wap' => 'Work access passes',
       ],
@@ -39,7 +39,7 @@ function _project_form_modes(){
       'modes' => [
         'form_1' => 'Registration form',
         'grant' => 'Grant application',
-        'support' => 'Support camp registration',
+        'support_camp' => 'Support camp',
         'supplier' => 'Supplier registration',
         'wap' => 'Work access passes',
       ],
@@ -51,6 +51,7 @@ function _project_form_modes(){
         'form_1' => 'Registration form 1',
         'form_2' => 'Registration form 2',
         'form_3' => 'Registration form 3',
+        'support_camp' => 'Support camp',
         'supplier' => 'Supplier registration',
         'wap' => 'Work access passes',
       ],
@@ -139,25 +140,25 @@ function _project_form_config() {
       'mode' => 'new',
       'title' => 'Register',
       'type' => 'a Mutant Vehicle',
-      'wrangler' => 'mutant_vehicles_wrangler'
+      'wrangler' => 'mutant_vehicle_wrangler'
     ],
     'node_mutant_vehicles_edit_form' => [
       'mode' => 'edit',
       'title' => 'Updating: %title',
       'type' => 'a Mutant Vehicle',
-      'wrangler' => 'mutant_vehicles_wrangler'
+      'wrangler' => 'mutant_vehicle_wrangler'
     ],
     'node_mutant_vehicles_form_1_form' => [
       'mode' => 'form_1',
       'title' => 'Registering: %title',
       'type' => 'a Mutant Vehicle',
-      'wrangler' => 'mutant_vehicles_wrangler'
+      'wrangler' => 'mutant_vehicle_wrangler'
     ],
     'node_mutant_vehicles_grant_form' => [
       'mode' => 'grant',
       'title' => 'Grant application for: %title',
       'type' => 'a Mutant Vehicle',
-      'wrangler' => 'mutant_vehicles_wrangler'
+      'wrangler' => 'mutant_vehicle_wrangler'
     ],
     //TODO: Suppliers
     //TODO: WAP
@@ -168,31 +169,37 @@ function _project_form_config() {
       'mode' => 'edit',
       'title' => 'Register',
       'type' => 'a Theme Camp',
-      'wrangler' => 'theme_camps_wrangler'
+      'wrangler' => 'theme_camp_wrangler'
     ],
     'node_theme_camps_edit_form' => [
       'mode' => 'edit',
       'title' => 'Updating: %title',
       'type' => 'a Theme Camp',
-      'wrangler' => 'theme_camps_wrangler'
+      'wrangler' => 'theme_camp_wrangler'
     ],
     'node_theme_camps_form_1_form' => [
       'mode' => 'form_1',
       'title' => 'Registering: %title',
       'type' => 'a Theme Camp',
-      'wrangler' => 'theme_camps_wrangler'
+      'wrangler' => 'theme_camp_wrangler'
     ],
     'node_theme_camps_form_2_form' => [
       'mode' => 'form_2',
       'title' => 'Continuing registration: %title',
       'type' => 'a Theme Camp',
-      'wrangler' => 'theme_camps_wrangler'
+      'wrangler' => 'theme_camp_wrangler'
     ],
     'node_theme_camps_form_3_form' => [
       'mode' => 'form_3',
       'title' => 'Completing registration: %title',
       'type' => 'a Theme Camp',
-      'wrangler' => 'theme_camps_wrangler'
+      'wrangler' => 'theme_camp_wrangler'
+    ],
+    'node_theme_camps_support_camp_form' => [
+      'mode' => 'support_camp',
+      'title' => 'Registering: %title',
+      'type' => 'a Support Camp',
+      'wrangler' => 'theme_camp_wrangler'
     ],
   ];
 }
@@ -221,6 +228,18 @@ function _get_collective($registration){
     ? \Drupal::request()->query->get('field_collective')
     : ($registration && $registration->field_collective
       ? $registration->field_collective->getValue()[0]['target_id']
+      : false);
+  return \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+}
+
+/**
+ * Retrieve the collective from the URL or the registration.
+ */
+function _get_supporting_project($registration){
+  $cid = \Drupal::request()->query->get('field_supporting_project')
+    ? \Drupal::request()->query->get('field_supporting_project')
+    : ($registration && $registration->field_supporting_project
+      ? $registration->field_supporting_project->getValue()[0]['target_id']
       : false);
   return \Drupal::entityTypeManager()->getStorage('node')->load($cid);
 }
