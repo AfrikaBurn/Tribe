@@ -92,48 +92,52 @@ class NotificationSettings extends ConfigFormBase {
       ];
 
       foreach($project['modes'] as $mode=>$label){
-        $form[$key][$mode] = [
-          '#type' => 'details',
-          '#title' => $label,
-        ];
 
-        foreach(['new', 'update'] as $cycle){
+        if ($mode == 'support_camp' && $key == 'theme_camps' || $mode != 'support_camp'){
 
-          $form[$key][$mode][$cycle] = [
-            '#type' => 'fieldset',
-            '#title' => $cycle,
-            '#attributes' => ['class' => ['settings-column']],
+          $form[$key][$mode] = [
+            '#type' => 'details',
+            '#title' => $label,
           ];
 
-          $recipients = ['collective', $mode == 'invitation' ? 'invitees' : 'wranglers'];
-          foreach($recipients as $recipient){
+          foreach(['new', 'update'] as $cycle){
 
-            $parentage = implode('-', [$key, $mode, $cycle, $recipient]);
+            $form[$key][$mode][$cycle] = [
+              '#type' => 'fieldset',
+              '#title' => $cycle,
+              '#attributes' => ['class' => ['settings-column']],
+            ];
 
-            $form[$key][$mode][$cycle][$recipient][$parentage . '-enabled'] = [
-              '#type' => 'checkbox',
-              '#title' => 'Active',
-              '#default_value' => $settings->get($parentage . '-enabled'),
-              '#rows' => 20,
-            ];
-            $form[$key][$mode][$cycle][$recipient][$parentage . '-subject'] = [
-              '#type' => 'textfield',
-              '#title' => 'To ' . $recipient,
-              '#default_value' => $settings->get($parentage . '-subject'),
-              '#attributes' => [
-                'placeholder' => 'Subject',
-              ],
-            ];
-            $form[$key][$mode][$cycle][$recipient][$parentage . '-body'] = [
-              '#type' => 'text_format',
-              '#default_value' => $settings->get($parentage . '-body'),
-              '#rows' => 20,
-              '#format' => 'full_html',
-              '#base_type' => 'textarea',
-              '#attributes' => [
-                'placeholder' => 'Body',
-              ],
-            ];
+            $recipients = ['collective', $mode == 'invitation' ? 'invitees' : 'wranglers'];
+            foreach($recipients as $recipient){
+
+              $parentage = implode('-', [$key, $mode, $cycle, $recipient]);
+
+              $form[$key][$mode][$cycle][$recipient][$parentage . '-enabled'] = [
+                '#type' => 'checkbox',
+                '#title' => 'Active',
+                '#default_value' => $settings->get($parentage . '-enabled'),
+                '#rows' => 20,
+              ];
+              $form[$key][$mode][$cycle][$recipient][$parentage . '-subject'] = [
+                '#type' => 'textfield',
+                '#title' => 'To ' . $recipient,
+                '#default_value' => $settings->get($parentage . '-subject'),
+                '#attributes' => [
+                  'placeholder' => 'Subject',
+                ],
+              ];
+              $form[$key][$mode][$cycle][$recipient][$parentage . '-body'] = [
+                '#type' => 'text_format',
+                '#default_value' => $settings->get($parentage . '-body'),
+                '#rows' => 20,
+                '#format' => 'full_html',
+                '#base_type' => 'textarea',
+                '#attributes' => [
+                  'placeholder' => 'Body',
+                ],
+              ];
+            }
           }
         }
       }

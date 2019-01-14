@@ -148,7 +148,7 @@ theme_camps-form_1-new-wranglers-subject: 'New theme camp registration: [node:ti
 theme_camps-form_1-new-wranglers-body: "<p>Submitted by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>[render form_1_mail]</p>\r\n"
 theme_camps-form_1-update-collective-subject: '[node:title] theme camp registration updated'
 theme_camps-form_1-update-collective-body: "<p>Excellent!</p>\r\n\r\n<p>Your theme camp registration has been updated by [user:name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
-theme_camps-form_1-update-wranglers-subject: 'theme camp registration updated: [node:title]'
+theme_camps-form_1-update-wranglers-subject: 'Theme camp registration updated: [node:title]'
 theme_camps-form_1-update-wranglers-body: "<p>Updated by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
 theme_camps-form_2-new-collective-subject: '[node:title] theme camp registration continued'
 theme_camps-form_2-new-collective-body: "<p>Well done!</p>\r\n\r\n<p>We've received your theme camp registration form 2 submitted by [user:name]:</p>\r\n\r\n<hr />\r\n<p>(Display to be updated once form is finalised)</p>\r\n\r\n<p>[render form_2_mail]</p>\r\n"
@@ -156,16 +156,16 @@ theme_camps-form_2-new-wranglers-subject: 'New theme camp registration form 2: [
 theme_camps-form_2-new-wranglers-body: "<p>Submitted by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>(Display to be updated once form is finalised)</p>\r\n\r\n<p>[render form_2_mail]</p>\r\n"
 theme_camps-form_2-update-collective-subject: '[node:title] theme camp registration updated'
 theme_camps-form_2-update-collective-body: "<p>Excellent!</p>\r\n\r\n<p>Your theme camp registration has been updated by [user:name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
-theme_camps-form_2-update-wranglers-subject: 'theme camp registration updated: [node:title]'
+theme_camps-form_2-update-wranglers-subject: 'Theme camp registration updated: [node:title]'
 theme_camps-form_2-update-wranglers-body: "<p>Updated by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
 theme_camps-form_3-new-collective-subject: '[node:title] theme camp registration continued'
 theme_camps-form_3-new-collective-body: "<p>Well done!</p>\r\n\r\n<p>We've received your theme camp registration form 3 submitted by [user:name]:</p>\r\n\r\n<hr />\r\n<p>(Display to be updated once form is finalised)</p>\r\n\r\n<p>[render form_3_mail]</p>\r\n"
-theme_camps-form_3-new-wranglers-subject: ''
-theme_camps-form_3-new-wranglers-body: ''
+theme_camps-form_3-new-wranglers-subject: 'New theme camp registration form 3: [node:title]'
+theme_camps-form_3-new-wranglers-body: "<p>Submitted by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>(Display to be updated once form is finalised)</p>\r\n\r\n<p>[render form_3_mail]</p>\r\n"
 theme_camps-form_3-update-collective-subject: '[node:title] theme camp registration updated'
 theme_camps-form_3-update-collective-body: "<p>Excellent!</p>\r\n\r\n<p>Your theme camp registration has been updated by [user:name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
-theme_camps-form_3-update-wranglers-subject: ''
-theme_camps-form_3-update-wranglers-body: ''
+theme_camps-form_3-update-wranglers-subject: 'Theme camp registration updated: [node:title]'
+theme_camps-form_3-update-wranglers-body: "<p>Updated by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
 theme_camps-supplier-new-collective-subject: ''
 theme_camps-supplier-new-collective-body: ''
 theme_camps-supplier-new-wranglers-subject: ''
@@ -366,3 +366,15 @@ mutant_vehicles-support_camp-update-collective-body: ''
 mutant_vehicles-support_camp-update-wranglers-enabled: 0
 mutant_vehicles-support_camp-update-wranglers-subject: ''
 mutant_vehicles-support_camp-update-wranglers-body: ''
+theme_camps-support_camp-new-collective-enabled: 0
+theme_camps-support_camp-new-collective-subject: '[node:title] support camp registration'
+theme_camps-support_camp-new-collective-body: "<p>Well done!</p>\r\n\r\n<p>We've received your support camp registration submitted by [user:name]:</p>\r\n\r\n<hr />\r\n<p>(Display to be updated once form is finalised)</p>\r\n\r\n<p>[render support_camp_mail]</p>\r\n"
+theme_camps-support_camp-new-wranglers-enabled: 0
+theme_camps-support_camp-new-wranglers-subject: 'New support camp registration: [node:title]'
+theme_camps-support_camp-new-wranglers-body: "<p>Submitted by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>(Display to be updated once form is finalised)</p>\r\n\r\n<p>[render support_camp_mail]</p>\r\n"
+theme_camps-support_camp-update-collective-enabled: 0
+theme_camps-support_camp-update-collective-subject: '[node:title] support camp registration updated'
+theme_camps-support_camp-update-collective-body: "<p>Excellent!</p>\r\n\r\n<p>Your support camp registration has been updated by [user:name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
+theme_camps-support_camp-update-wranglers-enabled: 0
+theme_camps-support_camp-update-wranglers-subject: 'Support camp registration updated: [node:title]'
+theme_camps-support_camp-update-wranglers-body: "<p>Excellent!</p>\r\n\r\n<p>Your support camp registration has been updated by [user:name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
