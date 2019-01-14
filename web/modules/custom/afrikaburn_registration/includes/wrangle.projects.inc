@@ -18,6 +18,7 @@ function _editable($id){
         'field_prj_snd_level',
         'field_prj_snd_sound',
         'field_prj_stc_size',
+        'field_allow_support_camp',
       ],
 
       'wrangle_binnekring_events' => [
@@ -26,6 +27,7 @@ function _editable($id){
         'field_prjr_complete',
         'field_prj_adm_review',
         'field_prj_snd_level',
+        'field_allow_support_camp',
       ],
 
       'wrangle_mutant_vehicles' => [
@@ -38,6 +40,7 @@ function _editable($id){
         'field_prj_snd_level',
         'field_grt_awarded',
         'field_mv_amount_worthy',
+        'field_allow_support_camp',
       ],
 
       'wrangle_theme_camps' => [
@@ -70,6 +73,7 @@ function _merge(){
       'field_final_placement',
       'field_plot',
       'field_neighbours',
+      'field_allow_support_camp',
     ],
     'process' => [
       'field_prj_adm_wrangler',
@@ -95,7 +99,7 @@ function _title($field){
     'field_prj_snd_level' => 'Sound level',
     'field_grt_awarded' => false,
     'field_mv_amount_worthy' => false,
-  ])[$field];
+    ])[$field];
 }
 
 
@@ -193,9 +197,26 @@ function ab_prepare_wrangler_view(&$variables){
         // Links to completed forms
         if ($field == 'field_prjr_complete'){
           foreach($field_form['#options'] as $option=>$markup){
-            $field_form[$option]['#description'] =
-              '<a target="_blank" href="/node/'.$nid.'/' . $option . '">view</a> ' .
-              '<a target="_blank" href="/node/'.$nid.'/edit/' . $option . '">edit</a>';
+
+            if ($option == 'support_camp'){
+              $supporting = $row->_relationship_entities['reverse__node__field_supporting_project'];
+              if ($supporting){
+                $sid = $supporting->nid->value;
+                $field_form[$option]['#description'] =
+                  '<a target="_blank" href="/node/'.$sid.'/' . $option . '">view</a> ' .
+                  '<a target="_blank" href="/node/'.$sid.'/edit/' . $option . '">edit</a>';
+              } else {
+                $cid = $row->_relationship_entities['field_collective']->nid->value;
+                $field_form[$option]['#description'] =
+                  '<a target="_blank" href="/node/add/theme_camps/' . $option . '?field_collective=' . $cid . '&field_supporting_project=' .$nid . '">Create</a> ';
+                $field_form[$option]['#attributes']['disabled'] = 'disabled';
+              }
+            } else {
+              $field_form[$option]['#description'] =
+                '<a target="_blank" href="/node/'.$nid.'/' . $option . '">view</a> ' .
+                '<a target="_blank" href="/node/'.$nid.'/edit/' . $option . '">edit</a>';
+            }
+
             if ($option == 'grant')
             $field_form[$option]['#description'] .= '<a target="_blank" href="/node/'.$nid.'/' . $option . '_print">print</a>';
           }

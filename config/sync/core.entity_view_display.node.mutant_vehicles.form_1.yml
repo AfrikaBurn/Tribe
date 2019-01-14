@@ -1544,6 +1544,7 @@ content:
     third_party_settings: {  }
 hidden:
   field_admin_comments: true
+  field_allow_support_camp: true
   field_grt_art_total: true
   field_grt_awarded: true
   field_grt_contribution: true
@@ -1555,6 +1556,7 @@ hidden:
   field_grt_status: true
   field_grt_total: true
   field_grt_transport: true
+  field_lineup_request: true
   field_mv_amount_worthy: true
   field_prj_adm_ranger_comment: true
   field_prj_cll_thread: true

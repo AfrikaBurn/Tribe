@@ -9,6 +9,7 @@ filenames:
   art: ''
   notification: ''
   mutant_vehicles: ''
+  theme_camps: ''
 bundles:
   announcement:
     body:
@@ -266,6 +267,28 @@ bundles:
       notes: ''
       relationship: 0
       sars_filename: ''
+    field_lineup_request:
+      bundle: art
+      name: field_lineup_request
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_allow_support_camp:
+      bundle: art
+      name: field_allow_support_camp
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   theme_camps:
     field_prj_est_camp_population:
       enabled: false
@@ -379,6 +402,28 @@ bundles:
       notes: ''
       bundle: theme_camps
       name: field_prj_lnt_historic
+    field_supporting_project:
+      bundle: theme_camps
+      name: field_supporting_project
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_lineup_request:
+      bundle: theme_camps
+      name: field_lineup_request
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   mutant_vehicles:
     field_mutant_drivers:
       enabled: false
@@ -466,6 +511,28 @@ bundles:
     field_grt_awarded:
       bundle: mutant_vehicles
       name: field_grt_awarded
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_lineup_request:
+      bundle: mutant_vehicles
+      name: field_lineup_request
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_allow_support_camp:
+      bundle: mutant_vehicles
+      name: field_allow_support_camp
       entity_type_id: node
       rtf: 'no'
       rta: 'no'
@@ -572,6 +639,28 @@ bundles:
     field_grt_total:
       bundle: performances
       name: field_grt_total
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_lineup_request:
+      bundle: performances
+      name: field_lineup_request
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_allow_support_camp:
+      bundle: performances
+      name: field_allow_support_camp
       entity_type_id: node
       rtf: 'no'
       rta: 'no'

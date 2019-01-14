@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.performances.field_admin_comments
+    - field.field.node.performances.field_allow_support_camp
     - field.field.node.performances.field_bke_day
     - field.field.node.performances.field_bke_location
     - field.field.node.performances.field_bke_time
@@ -25,6 +26,7 @@ dependencies:
     - field.field.node.performances.field_grt_tool
     - field.field.node.performances.field_grt_total
     - field.field.node.performances.field_grt_transport
+    - field.field.node.performances.field_lineup_request
     - field.field.node.performances.field_muncipal_district
     - field.field.node.performances.field_prj_adm_notes
     - field.field.node.performances.field_prj_adm_review
@@ -121,6 +123,7 @@ dependencies:
     - colorbox
     - ds
     - empty_fields
+    - markup
     - user
 third_party_settings:
   ds:
@@ -141,6 +144,23 @@ targetEntityType: node
 bundle: performances
 mode: default
 content:
+  field_allow_support_camp:
+    weight: 12
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_lineup_request:
+    weight: 11
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
   field_prj_gen_concept:
     type: colorbox
     weight: 0
@@ -182,6 +202,11 @@ content:
     third_party_settings:
       empty_fields:
         handler: ''
+  flag_mute:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_admin_comments: true
   field_bke_day: true

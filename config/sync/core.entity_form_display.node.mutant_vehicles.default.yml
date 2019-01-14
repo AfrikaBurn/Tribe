@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.mutant_vehicles.field_admin_comments
+    - field.field.node.mutant_vehicles.field_allow_support_camp
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
     - field.field.node.mutant_vehicles.field_grt_art_total
@@ -17,6 +18,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_grt_status
     - field.field.node.mutant_vehicles.field_grt_total
     - field.field.node.mutant_vehicles.field_grt_transport
+    - field.field.node.mutant_vehicles.field_lineup_request
     - field.field.node.mutant_vehicles.field_mutant_drivers
     - field.field.node.mutant_vehicles.field_mv_amount_worthy
     - field.field.node.mutant_vehicles.field_prj_adm_registration
@@ -339,6 +341,7 @@ third_party_settings:
         - field_year_cycle
         - field_mv_amount_worthy
         - field_grt_awarded
+        - field_allow_support_camp
       parent_name: ''
       weight: 0
       format_type: details
@@ -360,6 +363,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: comment_default
+    region: content
+  field_allow_support_camp:
+    weight: 131
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_collective:
     type: entity_reference_autocomplete
@@ -1586,6 +1596,7 @@ hidden:
   field_grt_status: true
   field_grt_total: true
   field_grt_transport: true
+  field_lineup_request: true
   field_prj_adm_ranger_comment: true
   field_prj_cll_thread: true
   field_prj_gen_fundraiser: true

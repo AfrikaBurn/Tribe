@@ -9,21 +9,21 @@ art-form_1-update-collective-body: "<p>Excellent!</p>\r\n\r\n<p>Your artwork reg
 art-form_1-update-wranglers-subject: 'Artwork registration updated: [node:title]'
 art-form_1-update-wranglers-body: "<p>Updated by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
 art-form_2-new-collective-subject: '[node:title] artwork registration continued'
-art-form_2-new-collective-body: "<p>Well done!</p>\r\n\r\n<p>We've received form 2 of your artwork registration submitted by [user:name]:</p>\r\n\r\n<hr />\r\n<p>(Display to be updated once form is finalised)</p>\r\n\r\n<p>[render form_1_mail]</p>\r\n"
+art-form_2-new-collective-body: "<p>Well done!</p>\r\n\r\n<p>We've received form 2 of your artwork registration submitted by [user:name]:</p>\r\n\r\n<hr />\r\n<p>(Display to be updated once form is finalised)</p>\r\n\r\n<p>[render form_2_mail]</p>\r\n"
 art-form_2-new-wranglers-subject: 'Artwork registration form 2: [node:title]'
-art-form_2-new-wranglers-body: "<p>Submitted by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>(Display to be updated once form is finalised)</p>\r\n\r\n<p>[render form_1_mail]</p>\r\n"
+art-form_2-new-wranglers-body: "<p>Submitted by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>(Display to be updated once form is finalised)</p>\r\n\r\n<p>[render form_2_mail]</p>\r\n"
 art-form_2-update-collective-subject: '[node:title] artwork registration updated'
 art-form_2-update-collective-body: "<p>Excellent!</p>\r\n\r\n<p>Your artwork registration has been updated by [user:name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
 art-form_2-update-wranglers-subject: 'Artwork registration updated: [node:title]'
 art-form_2-update-wranglers-body: "<p>Updated by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
 art-form_3-new-collective-subject: ''
-art-form_3-new-collective-body: ''
-art-form_3-new-wranglers-subject: ''
-art-form_3-new-wranglers-body: ''
-art-form_3-update-collective-subject: ''
-art-form_3-update-collective-body: ''
-art-form_3-update-wranglers-subject: ''
-art-form_3-update-wranglers-body: ''
+art-form_3-new-collective-body: "<p>Well done!</p>\r\n\r\n<p>We've received form 3 of your artwork registration submitted by [user:name]:</p>\r\n\r\n<hr />\r\n<p>(Display to be updated once form is finalised)</p>\r\n\r\n<p>[render form_3_mail]</p>\r\n"
+art-form_3-new-wranglers-subject: 'Artwork registration form 3: [node:title]'
+art-form_3-new-wranglers-body: "<p>Submitted by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>(Display to be updated once form is finalised)</p>\r\n\r\n<p>[render form_3_mail]</p>\r\n"
+art-form_3-update-collective-subject: '[node:title] artwork registration updated'
+art-form_3-update-collective-body: "<p>Excellent!</p>\r\n\r\n<p>Your artwork registration has been updated by [user:name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
+art-form_3-update-wranglers-subject: 'Artwork registration updated: [node:title]'
+art-form_3-update-wranglers-body: "<p>Updated by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
 art-grant-new-collective-subject: '[node:title] grant application submitted'
 art-grant-new-collective-body: "<p>Well done!</p>\r\n\r\n<p>We've received your grant application submitted by [user:name]:</p>\r\n\r\n<hr />\r\n<p>[render grant_mail]</p>\r\n"
 art-grant-new-wranglers-subject: 'New grant application: [node:title]'
@@ -151,19 +151,19 @@ theme_camps-form_1-update-collective-body: "<p>Excellent!</p>\r\n\r\n<p>Your the
 theme_camps-form_1-update-wranglers-subject: 'theme camp registration updated: [node:title]'
 theme_camps-form_1-update-wranglers-body: "<p>Updated by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
 theme_camps-form_2-new-collective-subject: '[node:title] theme camp registration continued'
-theme_camps-form_2-new-collective-body: "<p>Well done!</p>\r\n\r\n<p>We've received your theme camp registration form 2 submitted by [user:name]:</p>\r\n\r\n<hr />\r\n<p>(Display to be updated once form is finalised)</p>\r\n\r\n<p>[render form_1_mail]</p>\r\n"
+theme_camps-form_2-new-collective-body: "<p>Well done!</p>\r\n\r\n<p>We've received your theme camp registration form 2 submitted by [user:name]:</p>\r\n\r\n<hr />\r\n<p>(Display to be updated once form is finalised)</p>\r\n\r\n<p>[render form_2_mail]</p>\r\n"
 theme_camps-form_2-new-wranglers-subject: 'New theme camp registration form 2: [node:title]'
-theme_camps-form_2-new-wranglers-body: "<p>Submitted by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>(Display to be updated once form is finalised)</p>\r\n\r\n<p>[render form_1_mail]</p>\r\n"
+theme_camps-form_2-new-wranglers-body: "<p>Submitted by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>(Display to be updated once form is finalised)</p>\r\n\r\n<p>[render form_2_mail]</p>\r\n"
 theme_camps-form_2-update-collective-subject: '[node:title] theme camp registration updated'
 theme_camps-form_2-update-collective-body: "<p>Excellent!</p>\r\n\r\n<p>Your theme camp registration has been updated by [user:name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
 theme_camps-form_2-update-wranglers-subject: 'theme camp registration updated: [node:title]'
 theme_camps-form_2-update-wranglers-body: "<p>Updated by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
-theme_camps-form_3-new-collective-subject: ''
-theme_camps-form_3-new-collective-body: ''
+theme_camps-form_3-new-collective-subject: '[node:title] theme camp registration continued'
+theme_camps-form_3-new-collective-body: "<p>Well done!</p>\r\n\r\n<p>We've received your theme camp registration form 3 submitted by [user:name]:</p>\r\n\r\n<hr />\r\n<p>(Display to be updated once form is finalised)</p>\r\n\r\n<p>[render form_3_mail]</p>\r\n"
 theme_camps-form_3-new-wranglers-subject: ''
 theme_camps-form_3-new-wranglers-body: ''
-theme_camps-form_3-update-collective-subject: ''
-theme_camps-form_3-update-collective-body: ''
+theme_camps-form_3-update-collective-subject: '[node:title] theme camp registration updated'
+theme_camps-form_3-update-collective-body: "<p>Excellent!</p>\r\n\r\n<p>Your theme camp registration has been updated by [user:name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
 theme_camps-form_3-update-wranglers-subject: ''
 theme_camps-form_3-update-wranglers-body: ''
 theme_camps-supplier-new-collective-subject: ''
@@ -330,3 +330,39 @@ collective-invitation-new-invitees-body: "<p>BOOYAH!</p>\r\n\r\n<p>You've cracke
 collective-invitation-update-invitees-enabled: 1
 collective-invitation-update-invitees-subject: 'Reminder to join [node:title]'
 collective-invitation-update-invitees-body: "<p>Hi!</p>\r\n\r\n<p>Just a friendly&nbsp;reminder from the [node:title] collective that we'd like you to join us!</p>\r\n\r\n<p>You may <a href=\"[accept]\">accept</a> or <a href=\"[ignore]\">ignore</a> directly, or log onto <a href=\"[site:url]\">AfrikaBurn Tribe</a> to take things from there.</p>\r\n\r\n<p>[user:name]<br />\r\n<a href=\"[site:url]\">AfrikaBurn Tribe</a></p>\r\n"
+art-support_camp-new-collective-enabled: 0
+art-support_camp-new-collective-subject: ''
+art-support_camp-new-collective-body: ''
+art-support_camp-new-wranglers-enabled: 0
+art-support_camp-new-wranglers-subject: ''
+art-support_camp-new-wranglers-body: ''
+art-support_camp-update-collective-enabled: 0
+art-support_camp-update-collective-subject: ''
+art-support_camp-update-collective-body: ''
+art-support_camp-update-wranglers-enabled: 0
+art-support_camp-update-wranglers-subject: ''
+art-support_camp-update-wranglers-body: ''
+performances-support_camp-new-collective-enabled: 0
+performances-support_camp-new-collective-subject: ''
+performances-support_camp-new-collective-body: ''
+performances-support_camp-new-wranglers-enabled: 0
+performances-support_camp-new-wranglers-subject: ''
+performances-support_camp-new-wranglers-body: ''
+performances-support_camp-update-collective-enabled: 0
+performances-support_camp-update-collective-subject: ''
+performances-support_camp-update-collective-body: ''
+performances-support_camp-update-wranglers-enabled: 0
+performances-support_camp-update-wranglers-subject: ''
+performances-support_camp-update-wranglers-body: ''
+mutant_vehicles-support_camp-new-collective-enabled: 0
+mutant_vehicles-support_camp-new-collective-subject: ''
+mutant_vehicles-support_camp-new-collective-body: ''
+mutant_vehicles-support_camp-new-wranglers-enabled: 0
+mutant_vehicles-support_camp-new-wranglers-subject: ''
+mutant_vehicles-support_camp-new-wranglers-body: ''
+mutant_vehicles-support_camp-update-collective-enabled: 0
+mutant_vehicles-support_camp-update-collective-subject: ''
+mutant_vehicles-support_camp-update-collective-body: ''
+mutant_vehicles-support_camp-update-wranglers-enabled: 0
+mutant_vehicles-support_camp-update-wranglers-subject: ''
+mutant_vehicles-support_camp-update-wranglers-body: ''

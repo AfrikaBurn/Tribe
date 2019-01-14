@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.art.field_admin_comments
+    - field.field.node.art.field_allow_support_camp
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_form_mode
@@ -31,6 +32,7 @@ dependencies:
     - field.field.node.art.field_grt_tec_total
     - field.field.node.art.field_grt_tool
     - field.field.node.art.field_grt_transport
+    - field.field.node.art.field_lineup_request
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_form_3
     - field.field.node.art.field_prj_adm_latitude
@@ -160,6 +162,23 @@ targetEntityType: node
 bundle: art
 mode: default
 content:
+  field_allow_support_camp:
+    weight: 12
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_lineup_request:
+    weight: 11
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
   field_prj_gen_concept:
     type: colorbox
     weight: 0
@@ -213,6 +232,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  flag_mute:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_admin_comments: true
   field_col_members: true

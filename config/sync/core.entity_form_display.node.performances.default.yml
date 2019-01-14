@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.performances.field_admin_comments
+    - field.field.node.performances.field_allow_support_camp
     - field.field.node.performances.field_bke_day
     - field.field.node.performances.field_bke_location
     - field.field.node.performances.field_bke_time
@@ -25,6 +26,7 @@ dependencies:
     - field.field.node.performances.field_grt_tool
     - field.field.node.performances.field_grt_total
     - field.field.node.performances.field_grt_transport
+    - field.field.node.performances.field_lineup_request
     - field.field.node.performances.field_muncipal_district
     - field.field.node.performances.field_prj_adm_notes
     - field.field.node.performances.field_prj_adm_review
@@ -186,6 +188,7 @@ third_party_settings:
         - field_collective
         - field_form_mode
         - field_year_cycle
+        - field_allow_support_camp
       parent_name: ''
       weight: 0
       format_type: details
@@ -223,6 +226,13 @@ content:
     weight: 40
     region: content
     settings: {  }
+    third_party_settings: {  }
+  field_allow_support_camp:
+    type: boolean_checkbox
+    weight: 44
+    region: content
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_bke_day:
     weight: 6
@@ -442,6 +452,7 @@ hidden:
   field_grt_tool: true
   field_grt_total: true
   field_grt_transport: true
+  field_lineup_request: true
   field_muncipal_district: true
   field_prj_adm_notes: true
   field_prj_adm_review: true

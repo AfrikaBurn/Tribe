@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.theme_camps.field_final_placement
     - field.field.node.theme_camps.field_form_mode
     - field.field.node.theme_camps.field_ice_card
+    - field.field.node.theme_camps.field_lineup_request
     - field.field.node.theme_camps.field_neighbours
     - field.field.node.theme_camps.field_placed
     - field.field.node.theme_camps.field_placement_card
@@ -124,6 +125,7 @@ dependencies:
     - field.field.node.theme_camps.field_prjr_complete
     - field.field.node.theme_camps.field_stretch_tent_dimen
     - field.field.node.theme_camps.field_sup_review
+    - field.field.node.theme_camps.field_supporting_project
     - field.field.node.theme_camps.field_tc_type
     - field.field.node.theme_camps.field_vp_ea
     - field.field.node.theme_camps.field_year_cycle
@@ -136,6 +138,7 @@ dependencies:
     - field_group
     - image
     - link
+    - markup
 third_party_settings:
   field_group:
     group_administrative:
@@ -156,12 +159,12 @@ third_party_settings:
         open: false
         required_fields: true
       label: Administrative
-    group_wtf_guide_and_community_up:
+    group_project_registration:
       children:
         - group_wtf_guide
         - group_app_web
       parent_name: ''
-      weight: 8
+      weight: 2
       format_type: tabs
       format_settings:
         label: 'WTF Guide and Community update'
@@ -174,7 +177,7 @@ third_party_settings:
         - field_prj_wtf_short
         - field_prj_wtf_categories
         - field_prj_wtf_planned
-      parent_name: group_wtf_guide_and_community_up
+      parent_name: group_project_registration
       weight: 20
       format_type: tab
       format_settings:
@@ -189,7 +192,7 @@ third_party_settings:
         - field_prj_wtf_long
         - field_prj_wtf_image
         - field_prj_wtf_website
-      parent_name: group_wtf_guide_and_community_up
+      parent_name: group_project_registration
       weight: 21
       format_type: tab
       format_settings:
@@ -237,6 +240,12 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_lineup_request:
+    type: markup
+    weight: 0
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_prj_adm_review:
     type: autocomplete_deluxe
@@ -450,6 +459,7 @@ hidden:
   field_prj_wtf_short_copy: true
   field_stretch_tent_dimen: true
   field_sup_review: true
+  field_supporting_project: true
   field_tc_type: true
   field_vp_ea: true
   path: true
