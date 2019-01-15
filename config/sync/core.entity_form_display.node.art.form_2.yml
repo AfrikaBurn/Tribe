@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_form_mode.node.form_2
     - field.field.node.art.field_admin_comments
+    - field.field.node.art.field_allow_support_camp
+    - field.field.node.art.field_burn_can_be_denied
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_form_mode
@@ -32,6 +34,8 @@ dependencies:
     - field.field.node.art.field_grt_tec_total
     - field.field.node.art.field_grt_tool
     - field.field.node.art.field_grt_transport
+    - field.field.node.art.field_lineup_request
+    - field.field.node.art.field_lnt_intro
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_form_3
     - field.field.node.art.field_prj_adm_latitude
@@ -151,7 +155,7 @@ third_party_settings:
         - field_prjr_complete
         - field_year_cycle
       parent_name: ''
-      weight: 1
+      weight: 0
       format_type: details
       format_settings:
         id: ''
@@ -168,7 +172,7 @@ third_party_settings:
         - group_moop
         - group_other
       parent_name: ''
-      weight: 5
+      weight: 1
       format_type: tabs
       format_settings:
         label: 'Project Registration'
@@ -224,6 +228,7 @@ third_party_settings:
         - field_prj_brn_time
         - field_prj_brn_desc
         - field_prj_brn_agree
+        - field_burn_can_be_denied
       parent_name: group_project_registration
       weight: 9
       format_type: tab
@@ -236,8 +241,9 @@ third_party_settings:
       label: Burn
     group_moop:
       children:
-        - field_prj_lnt_helpers
+        - field_lnt_intro
         - field_prj_lnt_handled
+        - field_prj_lnt_helpers
         - field_prj_lnt_duration
         - field_prj_lnt_historic
         - field_prj_lnt_representative
@@ -254,11 +260,8 @@ third_party_settings:
       label: 'Leave No Trace'
     group_other:
       children:
-        - field_prj_oth_unregistered
-        - field_prj_oth_other
-        - field_prj_oth_associated
         - field_prj_oth_relationship
-        - field_prj_oth_grant
+        - field_prj_oth_other
       parent_name: group_project_registration
       weight: 11
       format_type: tab
@@ -290,6 +293,13 @@ targetEntityType: node
 bundle: art
 mode: form_2
 content:
+  field_burn_can_be_denied:
+    type: boolean_checkbox
+    weight: 9
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_collective:
     type: options_select
     weight: 0
@@ -298,11 +308,17 @@ content:
     third_party_settings: {  }
   field_form_mode:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_lnt_intro:
+    type: markup
+    weight: 7
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_prj_adm_area:
     weight: 78
@@ -312,33 +328,33 @@ content:
     region: content
   field_prj_adm_review:
     type: options_select
-    weight: 0
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   field_prj_adm_wrangler:
     type: options_select
-    weight: 0
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_prj_brn_agree:
     type: boolean_checkbox
-    weight: 9
+    weight: 8
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_prj_brn_burning:
     type: boolean_checkbox
-    weight: 2
+    weight: 1
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_prj_brn_desc:
     type: string_textarea
-    weight: 8
+    weight: 7
     region: content
     settings:
       rows: 5
@@ -358,7 +374,7 @@ content:
     region: content
   field_prj_brn_motivation:
     type: string_textarea
-    weight: 3
+    weight: 2
     region: content
     settings:
       rows: 5
@@ -366,20 +382,20 @@ content:
     third_party_settings: {  }
   field_prj_brn_perimeter:
     type: number
-    weight: 6
+    weight: 5
     region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
   field_prj_brn_person:
     type: erviews_options_select
-    weight: 5
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_prj_brn_plan:
     type: string_textarea
-    weight: 4
+    weight: 3
     region: content
     settings:
       rows: 5
@@ -387,7 +403,7 @@ content:
     third_party_settings: {  }
   field_prj_brn_time:
     type: datetime_default
-    weight: 7
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -399,7 +415,7 @@ content:
     region: content
   field_prj_lgh_agree:
     type: boolean_checkbox
-    weight: 61
+    weight: 62
     region: content
     settings:
       display_label: true
@@ -426,13 +442,13 @@ content:
     third_party_settings: {  }
   field_prj_lgh_lighter:
     type: erviews_options_select
-    weight: 59
+    weight: 60
     region: content
     settings: {  }
     third_party_settings: {  }
   field_prj_lgh_policy:
     type: markup
-    weight: 60
+    weight: 61
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -459,7 +475,7 @@ content:
     type: markup
     region: content
   field_prj_lnt_duration:
-    weight: 8
+    weight: 10
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -467,14 +483,14 @@ content:
     region: content
   field_prj_lnt_handled:
     type: string_textarea
-    weight: 7
+    weight: 8
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_prj_lnt_helpers:
-    weight: 6
+    weight: 9
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -482,12 +498,12 @@ content:
     region: content
   field_prj_lnt_historic:
     type: options_select
-    weight: 9
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
   field_prj_lnt_representative:
-    weight: 10
+    weight: 12
     settings: {  }
     third_party_settings: {  }
     type: erviews_options_select
@@ -498,24 +514,8 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_oth_associated:
-    weight: 15
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: entity_reference_autocomplete
-    region: content
-  field_prj_oth_grant:
-    weight: 18
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_prj_oth_other:
-    weight: 14
+    weight: 4
     settings:
       rows: 5
       placeholder: ''
@@ -523,21 +523,13 @@ content:
     type: string_textarea
     region: content
   field_prj_oth_relationship:
-    weight: 17
+    weight: 3
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
     region: content
-  field_prj_oth_unregistered:
-    type: string_textfield
-    weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_prj_plc_area:
     weight: 35
     settings: {  }
@@ -610,7 +602,7 @@ content:
     type: options_select
     region: content
   field_prj_snd_person:
-    weight: 36
+    weight: 37
     settings: {  }
     third_party_settings: {  }
     type: erviews_options_select
@@ -636,7 +628,7 @@ content:
     region: content
   field_prj_stc_size:
     type: options_select
-    weight: 0
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -648,19 +640,20 @@ content:
     region: content
   field_prjr_complete:
     type: options_select
-    weight: 0
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   field_year_cycle:
     type: computed_number_widget
-    weight: 0
+    weight: 7
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   created: true
   field_admin_comments: true
+  field_allow_support_camp: true
   field_col_members: true
   field_grant_expense_header: true
   field_grt_art_apply: true
@@ -687,6 +680,7 @@ hidden:
   field_grt_tec_total: true
   field_grt_tool: true
   field_grt_transport: true
+  field_lineup_request: true
   field_muncipal_district: true
   field_prj_adm_form_3: true
   field_prj_adm_latitude: true
@@ -719,6 +713,9 @@ hidden:
   field_prj_lnt_score: true
   field_prj_lnt_signoff: true
   field_prj_lnt_type: true
+  field_prj_oth_associated: true
+  field_prj_oth_grant: true
+  field_prj_oth_unregistered: true
   field_prj_prp_duration: true
   field_prj_prp_erection: true
   field_prj_prp_start: true

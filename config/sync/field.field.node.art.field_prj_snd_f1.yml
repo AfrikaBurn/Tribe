@@ -27,6 +27,6 @@ default_value:
 default_value_callback: ''
 settings:
   markup:
-    value: "<p dir=\"ltr\"><span>Do you intend for your piece to be a party site with permanently installed sound equipment?</span></p>\r\n\r\n<p dir=\"ltr\"><a href=\"https://www.afrikaburn.com/the-event/artworks/afrikaburn-sound-policy\" target=\"_blank\">https://www.afrikaburn.com/the-event/artworks/afrikaburn-sound-policy</a></p>\r\n\r\n<p dir=\"ltr\"><span>Note that you will have to motivate to have installed sound (i.e. not from an MV) sound at your artwork as this affects placement.</span></p>\r\n"
+    value: "<p><span><a href=\"https://www.afrikaburn.com/the-event/artworks/afrikaburn-sound-policy\">Read our Sound Policy</a>. </span></p>\r\n\r\n<p><span>Note that you will have to motivate to have installed sound (i.e. not from an MV) sound at your artwork as this affects placement.</span></p>\r\n"
     format: full_html
 field_type: markup

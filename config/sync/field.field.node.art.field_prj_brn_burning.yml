@@ -18,7 +18,7 @@ field_name: field_prj_brn_burning
 entity_type: node
 bundle: art
 label: 'Are you planning to burn your artwork and/or does it have a fire component?'
-description: '<p><b>Note that this year burning artworks need to be approved by the Art Committee and the Pyro Team, based on your motivation, design and burn plan.</b></p>'
+description: 'Burning artworks have to be approved as such.'
 required: false
 translatable: false
 default_value:
