@@ -228,10 +228,13 @@ bundles:
       enabled: false
       rta: 'no'
       rtf: 'no'
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       bundle: art
       name: field_prj_snd_f1
+      entity_type_id: node
+      relationship: 0
+      sars_filename: ''
     field_prj_snd_more_later:
       enabled: false
       rta: 'no'
@@ -281,6 +284,105 @@ bundles:
     field_allow_support_camp:
       bundle: art
       name: field_allow_support_camp
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_plc_f1:
+      bundle: art
+      name: field_prj_plc_f1
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_plc_location_extra:
+      bundle: art
+      name: field_prj_plc_location_extra
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_lgh_f2:
+      bundle: art
+      name: field_prj_lgh_f2
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_brn_f2:
+      bundle: art
+      name: field_prj_brn_f2
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_brn_burning:
+      bundle: art
+      name: field_prj_brn_burning
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_brn_agree:
+      bundle: art
+      name: field_prj_brn_agree
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_burn_can_be_denied:
+      bundle: art
+      name: field_burn_can_be_denied
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_lnt_intro:
+      bundle: art
+      name: field_lnt_intro
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_lnt_handled:
+      bundle: art
+      name: field_prj_lnt_handled
       entity_type_id: node
       rtf: 'no'
       rta: 'no'

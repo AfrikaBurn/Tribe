@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.art.field_admin_comments
     - field.field.node.art.field_allow_support_camp
+    - field.field.node.art.field_burn_can_be_denied
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_form_mode
@@ -33,6 +34,7 @@ dependencies:
     - field.field.node.art.field_grt_tool
     - field.field.node.art.field_grt_transport
     - field.field.node.art.field_lineup_request
+    - field.field.node.art.field_lnt_intro
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_form_3
     - field.field.node.art.field_prj_adm_latitude
@@ -1009,6 +1011,7 @@ content:
 hidden:
   created: true
   field_admin_comments: true
+  field_burn_can_be_denied: true
   field_col_members: true
   field_grant_expense_header: true
   field_grt_art_apply: true
@@ -1035,6 +1038,7 @@ hidden:
   field_grt_tool: true
   field_grt_transport: true
   field_lineup_request: true
+  field_lnt_intro: true
   field_prj_adm_form_3: true
   field_prj_adm_latitude: true
   field_prj_adm_longitude: true
