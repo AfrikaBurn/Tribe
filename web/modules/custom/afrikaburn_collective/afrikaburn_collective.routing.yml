@@ -49,3 +49,7 @@ afrikaburn_collective.admin:
     cid: '^[0-9]+'
     uid: '^[0-9]+'
     _is_collective_admin: 'TRUE'
+afrikaburn_collective.wrangle_collectives:
+  path: '/wrangle/people/collectives'
+  options:
+    _admin_route: TRUE
