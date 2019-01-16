@@ -1,0 +1,12 @@
+uuid: 4f49f850-b0e2-4778-a930-9c9095468a34
+langcode: en
+status: true
+dependencies: {  }
+id: wrangle_people
+label: 'Wrangle: People'
+description: ''
+use_admin_theme: true
+path: /wrangle/people
+access_logic: and
+access_conditions: {  }
+parameters: {  }

@@ -1403,7 +1403,7 @@ display:
           plugin_id: date
           entity_type: user
           entity_field: created
-      title: People
+      title: Accounts
       empty:
         area_text_custom:
           id: area_text_custom
@@ -1915,14 +1915,13 @@ display:
       show_admin_links: false
       menu:
         type: normal
-        title: People
+        title: Accounts
         description: 'Find and manage people interacting with your site.'
         expanded: true
-        parent: ''
-        weight: -48
+        parent: 'menu_link_content:f296ff9b-8613-4ccf-ade5-7ee2a288b7a0'
+        weight: -50
         context: '0'
         menu_name: wrangle
-        enabled: true
       tab_options:
         type: normal
         title: People

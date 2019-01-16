@@ -14,11 +14,16 @@ dependencies:
     - system.menu.wrangle
     - user.role.administrator
     - user.role.art_admin
+    - user.role.art_wrangler
     - user.role.communications_admin
+    - user.role.communications_wrangler
     - user.role.mutant_vehicle_admin
+    - user.role.mutant_vehicle_wrangler
     - user.role.outreach_admin
     - user.role.support_admin
+    - user.role.support_wrangler
     - user.role.theme
+    - user.role.theme_camp_wrangler
   module:
     - computed_field
     - node
@@ -47,12 +52,17 @@ display:
         type: role
         options:
           role:
+            art_wrangler: art_wrangler
             art_admin: art_admin
+            communications_wrangler: communications_wrangler
             communications_admin: communications_admin
+            mutant_vehicle_wrangler: mutant_vehicle_wrangler
             mutant_vehicle_admin: mutant_vehicle_admin
             outreach_admin: outreach_admin
             administrator: administrator
+            support_wrangler: support_wrangler
             support_admin: support_admin
+            theme_camp_wrangler: theme_camp_wrangler
             theme: theme
       cache:
         type: tag
@@ -68,7 +78,7 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
+          submit_button: Search
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
@@ -1014,6 +1024,8 @@ display:
       defaults:
         fields: false
         relationships: false
+        filters: false
+        filter_groups: false
       path: wrangle/people/collectives
       relationships: {  }
       display_description: ''
@@ -1022,15 +1034,103 @@ display:
         title: Collectives
         description: ''
         expanded: true
-        parent: 'views_view:views.wrangle_people.page_1'
-        weight: 0
+        parent: 'menu_link_content:f296ff9b-8613-4ccf-ade5-7ee2a288b7a0'
+        weight: -49
         context: '0'
         menu_name: wrangle
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            collective: collective
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: word
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: title_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: title_op
+            identifier: title
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              art_wrangler: '0'
+              art_admin: '0'
+              communications_wrangler: '0'
+              communications_admin: '0'
+              leave_no_trace_moop: '0'
+              mutant_vehicle_viewer: '0'
+              mutant_vehicle_wrangler: '0'
+              mutant_vehicle_admin: '0'
+              outreach_wrangler: '0'
+              outreach_admin: '0'
+              administrator: '0'
+              support_wrangler: '0'
+              support_admin: '0'
+              theme_camp_wrangler: '0'
+              theme: '0'
+              supplier: '0'
+              dpw: '0'
+              volunteer_admin: '0'
+              ranger_admin: '0'
+              sanctuary_admin: '0'
+              logger: '0'
+              anathi: '0'
+            placeholder: 'Search name'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: title
+          plugin_id: string
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - 'user.node_grants:view'
         - user.roles
       tags:
