@@ -1911,17 +1911,18 @@ display:
     display_title: Page
     position: 1
     display_options:
-      path: wrangle/people
+      path: wrangle/people/accounts
       show_admin_links: false
       menu:
         type: normal
         title: People
         description: 'Find and manage people interacting with your site.'
-        expanded: false
+        expanded: true
         parent: ''
         weight: -48
         context: '0'
         menu_name: wrangle
+        enabled: true
       tab_options:
         type: normal
         title: People

@@ -9,6 +9,7 @@ filenames:
   art: ''
   notification: ''
   mutant_vehicles: ''
+  theme_camps: ''
 bundles:
   announcement:
     body:
@@ -227,10 +228,13 @@ bundles:
       enabled: false
       rta: 'no'
       rtf: 'no'
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       bundle: art
       name: field_prj_snd_f1
+      entity_type_id: node
+      relationship: 0
+      sars_filename: ''
     field_prj_snd_more_later:
       enabled: false
       rta: 'no'
@@ -258,6 +262,127 @@ bundles:
     field_grt_art_total:
       bundle: art
       name: field_grt_art_total
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_lineup_request:
+      bundle: art
+      name: field_lineup_request
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_allow_support_camp:
+      bundle: art
+      name: field_allow_support_camp
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_plc_f1:
+      bundle: art
+      name: field_prj_plc_f1
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_plc_location_extra:
+      bundle: art
+      name: field_prj_plc_location_extra
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_lgh_f2:
+      bundle: art
+      name: field_prj_lgh_f2
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_brn_f2:
+      bundle: art
+      name: field_prj_brn_f2
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_brn_burning:
+      bundle: art
+      name: field_prj_brn_burning
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_brn_agree:
+      bundle: art
+      name: field_prj_brn_agree
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_burn_can_be_denied:
+      bundle: art
+      name: field_burn_can_be_denied
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_lnt_intro:
+      bundle: art
+      name: field_lnt_intro
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_lnt_handled:
+      bundle: art
+      name: field_prj_lnt_handled
       entity_type_id: node
       rtf: 'no'
       rta: 'no'
@@ -379,6 +504,28 @@ bundles:
       notes: ''
       bundle: theme_camps
       name: field_prj_lnt_historic
+    field_supporting_project:
+      bundle: theme_camps
+      name: field_supporting_project
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_lineup_request:
+      bundle: theme_camps
+      name: field_lineup_request
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   mutant_vehicles:
     field_mutant_drivers:
       enabled: false
@@ -466,6 +613,28 @@ bundles:
     field_grt_awarded:
       bundle: mutant_vehicles
       name: field_grt_awarded
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_lineup_request:
+      bundle: mutant_vehicles
+      name: field_lineup_request
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_allow_support_camp:
+      bundle: mutant_vehicles
+      name: field_allow_support_camp
       entity_type_id: node
       rtf: 'no'
       rta: 'no'
@@ -572,6 +741,28 @@ bundles:
     field_grt_total:
       bundle: performances
       name: field_grt_total
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_lineup_request:
+      bundle: performances
+      name: field_lineup_request
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_allow_support_camp:
+      bundle: performances
+      name: field_allow_support_camp
       entity_type_id: node
       rtf: 'no'
       rta: 'no'

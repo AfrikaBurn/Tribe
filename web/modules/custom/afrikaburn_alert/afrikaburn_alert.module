@@ -40,11 +40,20 @@ function afrikaburn_alert_node_insert($entity){
   module_load_include('inc', 'afrikaburn_alert', 'includes/alert');
 
   $bundle = $entity->bundle();
-
   if (in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
+
+    $collective = @array_shift(
+      array_filter(
+        [
+          $entity->field_collective->entity,
+          $entity->field_collective->getEntity(),
+        ]
+      )
+    );
+
     _alert(
       'create',
-      $entity->field_collective->entity,
+      $collective,
       $entity
     );
   }
@@ -76,9 +85,19 @@ function afrikaburn_alert_node_update($entity){
   $bundle = $entity->bundle();
 
   if (in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
+
+    $collective = @array_shift(
+      array_filter(
+        [
+          $entity->field_collective->entity,
+          $entity->field_collective->getEntity(),
+        ]
+      )
+    );
+
     _alert(
       'update',
-      $entity->field_collective->entity,
+      $collective,
       $entity
     );
   }
@@ -93,9 +112,19 @@ function afrikaburn_alert_node_predelete($entity){
   $bundle = $entity->bundle();
 
   if (in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
+
+    $collective = @array_shift(
+      array_filter(
+        [
+          $entity->field_collective->entity,
+          $entity->field_collective->getEntity(),
+        ]
+      )
+    );
+
     _alert(
       'delete',
-      $entity->field_collective->entity,
+      $collective,
       $entity
     );
   }

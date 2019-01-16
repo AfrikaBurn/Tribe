@@ -124,6 +124,7 @@ dependencies:
     - field.field.node.theme_camps.field_prjr_complete
     - field.field.node.theme_camps.field_stretch_tent_dimen
     - field.field.node.theme_camps.field_sup_review
+    - field.field.node.theme_camps.field_supporting_project
     - field.field.node.theme_camps.field_tc_type
     - field.field.node.theme_camps.field_vp_ea
     - field.field.node.theme_camps.field_year_cycle
@@ -798,6 +799,7 @@ hidden:
   field_stretch_tent_dimen: true
   field_sup_comment: true
   field_sup_review: true
+  field_supporting_project: true
   field_tc_type: true
   field_vp_ea: true
   path: true

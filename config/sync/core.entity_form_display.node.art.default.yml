@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - field.field.node.art.field_admin_comments
+    - field.field.node.art.field_allow_support_camp
+    - field.field.node.art.field_burn_can_be_denied
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_form_mode
@@ -31,6 +33,8 @@ dependencies:
     - field.field.node.art.field_grt_tec_total
     - field.field.node.art.field_grt_tool
     - field.field.node.art.field_grt_transport
+    - field.field.node.art.field_lineup_request
+    - field.field.node.art.field_lnt_intro
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_form_3
     - field.field.node.art.field_prj_adm_latitude
@@ -396,6 +400,7 @@ third_party_settings:
         - field_collective
         - field_form_mode
         - field_year_cycle
+        - field_allow_support_camp
       parent_name: ''
       weight: 0
       format_type: details
@@ -412,6 +417,13 @@ targetEntityType: node
 bundle: art
 mode: default
 content:
+  field_allow_support_camp:
+    type: boolean_checkbox
+    weight: 10
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_collective:
     type: entity_reference_autocomplete
     weight: 7
@@ -999,6 +1011,7 @@ content:
 hidden:
   created: true
   field_admin_comments: true
+  field_burn_can_be_denied: true
   field_col_members: true
   field_grant_expense_header: true
   field_grt_art_apply: true
@@ -1024,6 +1037,8 @@ hidden:
   field_grt_tec_total: true
   field_grt_tool: true
   field_grt_transport: true
+  field_lineup_request: true
+  field_lnt_intro: true
   field_prj_adm_form_3: true
   field_prj_adm_latitude: true
   field_prj_adm_longitude: true

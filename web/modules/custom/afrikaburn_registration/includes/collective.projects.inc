@@ -41,6 +41,7 @@ function ar_prepare_collective_projects(&$variables){
 
 /**
  * Constructs project links.
+ * DO NOT FUCKING JUDGE. Drupal makes hacks of all...
  */
 function ar_prepare_project_links(&$variables) {
 
@@ -65,6 +66,7 @@ function ar_prepare_project_links(&$variables) {
 
           $editable = @$mode['state']['editable'] && $view->group_admin;
           $complete = @$completed[$mode['name']];
+          $pid = false;
 
           switch (true){
             case $editable && !$complete:
@@ -80,13 +82,39 @@ function ar_prepare_project_links(&$variables) {
               $description = 'LOCKED: Read only.';
           }
 
-          $link = (
-            $editable
-              ? '<a href="/node/' . $nid . '/edit/' . $mode['name'] . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
-              : '<a href="/node/' . $nid . '/' . $mode['name'] . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
-          );
+          if ($mode['name'] == 'support_camp') {
 
-          $links[] = '<li class="messages messages--' . $status . '">' . $link . '</li>';
+            $query = \Drupal::entityQuery('node')
+              ->condition('type', 'theme_camps')
+              ->condition('field_supporting_project', $nid);
+            $pid = array_shift($query->execute());
+            $cid = $view->args[0];
+
+            $link =  $registration->get('field_allow_support_camp')->value
+              ? (
+                $pid
+                  ? ($editable
+                      ? '<a href="/node/' . $pid . '/edit/' . $mode['name'] . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
+                      : '<a href="/node/' . $pid . '/' . $mode['name'] . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
+                    )
+                  : ($editable
+                      ? '<a href="/node/add/theme_camps/support_camp?field_collective='. $cid .'&field_supporting_project=' . $nid . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
+                      : false
+                    )
+                )
+              : false;
+
+          } else  {
+            $link = (
+              $editable
+                ? '<a href="/node/' . $nid . '/edit/' . $mode['name'] . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
+                : '<a href="/node/' . $nid . '/' . $mode['name'] . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
+            );
+          }
+
+          if ($link) {
+            $links[] = '<li class="messages messages--' . $status . '">' . $link . '</li>';
+          }
         }
       }
 

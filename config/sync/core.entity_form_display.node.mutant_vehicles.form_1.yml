@@ -18,6 +18,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_grt_status
     - field.field.node.mutant_vehicles.field_grt_total
     - field.field.node.mutant_vehicles.field_grt_transport
+    - field.field.node.mutant_vehicles.field_lineup_request
     - field.field.node.mutant_vehicles.field_mutant_drivers
     - field.field.node.mutant_vehicles.field_mv_amount_worthy
     - field.field.node.mutant_vehicles.field_prj_adm_registration
@@ -378,6 +379,12 @@ content:
     region: content
     settings:
       placeholder: ''
+    third_party_settings: {  }
+  field_lineup_request:
+    type: markup
+    weight: -100
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_mutant_drivers:
     weight: 18

@@ -61,11 +61,15 @@ class RegistrationSettings extends ConfigFormBase {
           '#default_value' => $config->get($key . '/' . $mode),
         ];
 
-        foreach(['Open', 'Editable', 'Visible'] as $i=>$state){
+        $options = $key == 'theme_camps' && $mode == 'support_camp'
+          ? ['Open', 'Editable']
+          : ['Open', 'Editable', 'Visible'];
+
+        foreach($options as $i=>$state){
           $form[$key][$mode]['#options'][strtolower($state)] = $state;
         }
-      }
 
+      }
     }
 
     return parent::buildForm($form, $form_state);

@@ -32,6 +32,7 @@ dependencies:
     - field.field.node.art.field_grt_tec_total
     - field.field.node.art.field_grt_tool
     - field.field.node.art.field_grt_transport
+    - field.field.node.art.field_lineup_request
     - field.field.node.art.field_muncipal_district
     - field.field.node.art.field_prj_adm_form_3
     - field.field.node.art.field_prj_adm_latitude
@@ -139,6 +140,7 @@ dependencies:
     - field_group
     - image
     - link
+    - markup
 third_party_settings:
   field_group:
     group_administrative:
@@ -158,7 +160,7 @@ third_party_settings:
         open: false
         required_fields: true
       label: Administrative
-    group_wtf_guide_and_community_up:
+    group_project_registration:
       children:
         - group_wtf_guide
         - group_app_and_web
@@ -176,7 +178,7 @@ third_party_settings:
         - field_prj_wtf_short
         - field_prj_wtf_categories
         - field_prj_wtf_planned
-      parent_name: group_wtf_guide_and_community_up
+      parent_name: group_project_registration
       weight: 20
       format_type: tab
       format_settings:
@@ -191,7 +193,7 @@ third_party_settings:
         - field_prj_wtf_long
         - field_prj_wtf_image
         - field_prj_wtf_website
-      parent_name: group_wtf_guide_and_community_up
+      parent_name: group_project_registration
       weight: 21
       format_type: tab
       format_settings:
@@ -225,6 +227,12 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_lineup_request:
+    type: markup
+    weight: -100
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_prj_adm_area:
     weight: 78
@@ -404,6 +412,7 @@ content:
 hidden:
   created: true
   field_admin_comments: true
+  field_allow_support_camp: true
   field_col_members: true
   field_grant_expense_header: true
   field_grt_art_apply: true

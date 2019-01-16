@@ -17,8 +17,8 @@ id: node.art.field_prj_plc_location_extra
 field_name: field_prj_plc_location_extra
 entity_type: node
 bundle: art
-label: 'Placement - where would you like to be'
-description: ''
+label: 'Where ideally would you like your artwork to be?'
+description: 'Please use zone letters on the map above to give us an approximate idea of your preferred location. But also use words. More words are better and will help us find the right spot for your piece. (e.g.: D Far. Quiet contemplative area). VERY IMPORTANT: Note the sound zones!'
 required: true
 translatable: true
 default_value: {  }
