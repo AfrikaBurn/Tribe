@@ -1040,6 +1040,7 @@ display:
         relationships: false
         filters: false
         filter_groups: false
+        pager: false
       path: wrangle/people/collectives
       relationships: {  }
       display_description: ''
@@ -1139,6 +1140,11 @@ display:
         operator: AND
         groups:
           1: AND
+      pager:
+        type: some
+        options:
+          items_per_page: 20
+          offset: 0
     cache_metadata:
       max-age: -1
       contexts:
