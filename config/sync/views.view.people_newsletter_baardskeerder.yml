@@ -6,7 +6,6 @@ dependencies:
     - field.storage.user.field_first_name
     - field.storage.user.field_last_name
   module:
-    - csv_serialization
     - rest
     - serialization
     - user
@@ -74,7 +73,7 @@ display:
         type: data_export
         options:
           formats:
-            csv: csv
+            xls: xls
           csv_settings:
             delimiter: ','
             enclosure: '"'
@@ -383,7 +382,7 @@ display:
           value:
             min: ''
             max: ''
-            value: '2018-11-28'
+            value: '2018-03-29'
             type: date
           group: 1
           exposed: false
@@ -460,7 +459,7 @@ display:
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
-      title: '17 jan 2019'
+      title: '18 jan'
     cache_metadata:
       max-age: -1
       contexts:
