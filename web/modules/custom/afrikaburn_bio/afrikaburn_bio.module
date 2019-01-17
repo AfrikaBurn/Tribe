@@ -100,7 +100,7 @@ function afrikaburn_bio_form_views_exposed_form_alter(&$form, $form_state, $form
 
   if ($view->storage->get('id') == 'wrangle_people') {
     module_load_include('inc', 'afrikaburn_bio', 'includes/wrangle.people');
-    _prepare_wrangler_filter($form, $type);
+    _prepare_wrangler_filter($form);
   }
 }
 
