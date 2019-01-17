@@ -166,7 +166,7 @@ function _insert_wrangler_view_rows(&$variables){
 /**
  * Prepares wrangler filter.
  */
-function _prepare_wrangler_filter(&$form, $type){
+function _prepare_wrangler_filter(&$form){
   $form['user']['#placeholder'] = 'Name or email';
   $form['field_id_number_value']['#placeholder'] = 'SA ID or Passport Number';
   $form['status']['#options']['All'] = t('- any status -');

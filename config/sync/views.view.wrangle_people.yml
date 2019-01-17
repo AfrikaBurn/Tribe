@@ -14,7 +14,18 @@ dependencies:
     - image.style.medium
     - system.menu.wrangle
     - user.role.administrator
+    - user.role.anathi
+    - user.role.art_wrangler
+    - user.role.communications_wrangler
+    - user.role.dpw
+    - user.role.mutant_vehicle_wrangler
+    - user.role.outreach_wrangler
+    - user.role.ranger_admin
+    - user.role.sanctuary_admin
+    - user.role.supplier
     - user.role.support_wrangler
+    - user.role.theme_camp_wrangler
+    - user.role.volunteer_admin
   module:
     - csv_serialization
     - flag
@@ -44,8 +55,19 @@ display:
         type: role
         options:
           role:
+            art_wrangler: art_wrangler
+            communications_wrangler: communications_wrangler
+            mutant_vehicle_wrangler: mutant_vehicle_wrangler
+            outreach_wrangler: outreach_wrangler
             administrator: administrator
             support_wrangler: support_wrangler
+            theme_camp_wrangler: theme_camp_wrangler
+            supplier: supplier
+            dpw: dpw
+            volunteer_admin: volunteer_admin
+            ranger_admin: ranger_admin
+            sanctuary_admin: sanctuary_admin
+            anathi: anathi
       cache:
         type: tag
       query:
@@ -1403,7 +1425,7 @@ display:
           plugin_id: date
           entity_type: user
           entity_field: created
-      title: People
+      title: Accounts
       empty:
         area_text_custom:
           id: area_text_custom
@@ -1915,14 +1937,13 @@ display:
       show_admin_links: false
       menu:
         type: normal
-        title: People
+        title: Accounts
         description: 'Find and manage people interacting with your site.'
         expanded: true
-        parent: ''
-        weight: -48
+        parent: 'menu_link_content:f296ff9b-8613-4ccf-ade5-7ee2a288b7a0'
+        weight: -50
         context: '0'
         menu_name: wrangle
-        enabled: true
       tab_options:
         type: normal
         title: People

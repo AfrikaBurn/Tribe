@@ -1,0 +1,21 @@
+uuid: 03309511-d3eb-4acb-b7eb-39b9298960a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.wrangle_people
+id: wrangle_people-block_display-0
+label: 'Wrangle People'
+variant: block_display
+variant_settings:
+  blocks: {  }
+  id: block_display
+  uuid: ee3a0e14-ac4b-4fb6-8349-fa1e1566c597
+  label: null
+  weight: 0
+  page_title: ''
+page: wrangle_people
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }
