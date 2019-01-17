@@ -13,17 +13,24 @@ dependencies:
     - node.type.theme_camps
     - system.menu.wrangle
     - user.role.administrator
+    - user.role.anathi
     - user.role.art_admin
     - user.role.art_wrangler
     - user.role.communications_admin
     - user.role.communications_wrangler
+    - user.role.dpw
     - user.role.mutant_vehicle_admin
     - user.role.mutant_vehicle_wrangler
     - user.role.outreach_admin
+    - user.role.outreach_wrangler
+    - user.role.ranger_admin
+    - user.role.sanctuary_admin
+    - user.role.supplier
     - user.role.support_admin
     - user.role.support_wrangler
     - user.role.theme
     - user.role.theme_camp_wrangler
+    - user.role.volunteer_admin
   module:
     - computed_field
     - node
@@ -58,12 +65,19 @@ display:
             communications_admin: communications_admin
             mutant_vehicle_wrangler: mutant_vehicle_wrangler
             mutant_vehicle_admin: mutant_vehicle_admin
+            outreach_wrangler: outreach_wrangler
             outreach_admin: outreach_admin
             administrator: administrator
             support_wrangler: support_wrangler
             support_admin: support_admin
             theme_camp_wrangler: theme_camp_wrangler
             theme: theme
+            supplier: supplier
+            dpw: dpw
+            volunteer_admin: volunteer_admin
+            ranger_admin: ranger_admin
+            sanctuary_admin: sanctuary_admin
+            anathi: anathi
       cache:
         type: tag
         options: {  }
