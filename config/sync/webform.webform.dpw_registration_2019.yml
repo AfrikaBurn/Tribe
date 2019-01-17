@@ -1,4 +1,3 @@
-uuid: b66591f8-87f7-44d0-ae95-9d8fc5747162
 langcode: en
 status: open
 dependencies: {  }
@@ -12,7 +11,7 @@ id: dpw_registration_2019
 title: 'DPW registration 2019'
 description: ''
 category: Registration
-elements: "about_you:\n  '#type': webform_wizard_page\n  '#title': 'About you'\n  intro:\n    '#type': webform_markup\n    '#markup': '<em>Some of the information here is populated from your <a href=\"/user\" target=\"_blank\">Burner Bio</a>. If any information is incorrect please update your Bio and refresh this page.</em>'\n  name:\n    '#type': webform_computed_token\n    '#title': Name\n    '#title_display': inline\n    '#value': '[webform_submission:user:field_first_name] \"[webform_submission:user:name]\" [webform_submission:user:field_last_name]'\n    '#store': true\n  email:\n    '#type': webform_computed_token\n    '#title': Email\n    '#title_display': inline\n    '#value': '[webform_submission:user:field_email]'\n    '#store': true\n  which_crew_have_you_been_allocated_to:\n    '#type': webform_select_other\n    '#title': 'Which crew have you been allocated to'\n    '#options':\n      WASH: WASH\n      Metal: Metal\n      Carpentry: Carpentry\n      HEat: HEat\n      Rigging: Rigging\n      'Kitchen setup': 'Kitchen setup'\n      Kitchen: Kitchen\n      Power: Power\n      Demarcation: Demarcation\n      Signage: Signage\n      'H&S / Fluffers': 'H&S / Fluffers'\n      Logistics: Logistics\n      'I don''t know yet': 'I don''t know yet'\n    '#required': true\n    '#required_error': 'This field is required!'\nyour_kit:\n  '#type': webform_wizard_page\n  '#title': 'Your kit'\n  i_need_cheap_safety_boots_in_uk_size_:\n    '#type': number\n    '#title': 'I need cheap safety boots in UK size:'\n    '#min': '1'\n  shirt_size:\n    '#type': radios\n    '#title': 'Shirt size'\n    '#options':\n      XS: XS\n      S: S\n      M: M\n      L: L\n      XL: XL\n      XXL: XXL\n      XXXL: XXXL\ndiet:\n  '#type': webform_wizard_page\n  '#title': 'Your diet'\n  dietary_restrictions:\n    '#type': textfield\n    '#title': 'Dietary restrictions'\n  crew_drink_of_choice:\n    '#type': radios\n    '#title': 'Crew drink of choice'\n    '#options':\n      Beer: Beer!\n      Cider: Cider\n      Non-alcoholic: Non-alcoholic\nlogistics:\n  '#type': webform_wizard_page\n  '#title': Logistics\n  i_need_a_ride_to_site:\n    '#type': checkbox\n    '#title': 'I need  a ride to site'\n    '#description': 'Main crew ride to site 31 March'\n  when_do_you_need_a_ride:\n    '#type': date\n    '#title': 'When do you need a ride'\n    '#states':\n      visible:\n        ':input[name=\"i_need_a_ride_to_site\"]':\n          checked: true\n      required:\n        ':input[name=\"i_need_a_ride_to_site\"]':\n          checked: true\n    '#datepicker': true\n    '#date_date_format': j/M/Y\n  available_until:\n    '#type': date\n    '#title': 'I am available until'\n    '#description': 'Last day on site will be 24 May(ish).'\n    '#required': true\n    '#datepicker': true\n    '#date_date_format': j/M/Y"
+elements: "about_you:\n  '#type': webform_wizard_page\n  '#title': 'About you'\n  intro:\n    '#type': webform_markup\n    '#markup': '<em>Some of the information here is populated from your <a href=\"/user\" target=\"_blank\">Burner Bio</a>. If any information is incorrect please update your Bio and refresh this page.</em>'\n  name:\n    '#type': webform_computed_token\n    '#title': Name\n    '#title_display': inline\n    '#store': true\n    '#template': '[webform_submission:user:field_first_name] \"[webform_submission:user:name]\" [webform_submission:user:field_last_name]'\n  email:\n    '#type': webform_computed_token\n    '#title': Email\n    '#title_display': inline\n    '#store': true\n    '#template': '[webform_submission:user:field_email]'\n  which_crew_have_you_been_allocated_to:\n    '#type': webform_select_other\n    '#title': 'Which crew have you been allocated to'\n    '#options':\n      WASH: WASH\n      Metal: Metal\n      Carpentry: Carpentry\n      HEat: HEat\n      Rigging: Rigging\n      'Kitchen setup': 'Kitchen setup'\n      Kitchen: Kitchen\n      Power: Power\n      Demarcation: Demarcation\n      Signage: Signage\n      'H&S / Fluffers': 'H&S / Fluffers'\n      Logistics: Logistics\n      'I don''t know yet': 'I don''t know yet'\n    '#required': true\n    '#required_error': 'This field is required!'\nyour_kit:\n  '#type': webform_wizard_page\n  '#title': 'Your kit'\n  i_need_cheap_safety_boots_in_uk_size_:\n    '#type': number\n    '#title': 'I need cheap safety boots in UK size:'\n    '#min': '1'\n  shirt_size:\n    '#type': radios\n    '#title': 'Shirt size'\n    '#options':\n      XS: XS\n      S: S\n      M: M\n      L: L\n      XL: XL\n      XXL: XXL\n      XXXL: XXXL\ndiet:\n  '#type': webform_wizard_page\n  '#title': 'Your diet'\n  dietary_restrictions:\n    '#type': textfield\n    '#title': 'Dietary restrictions'\n  crew_drink_of_choice:\n    '#type': radios\n    '#title': 'Crew drink of choice'\n    '#options':\n      Beer: Beer!\n      Cider: Cider\n      Non-alcoholic: Non-alcoholic\nlogistics:\n  '#type': webform_wizard_page\n  '#title': Logistics\n  i_need_a_ride_to_site:\n    '#type': checkbox\n    '#title': 'I need  a ride to site'\n    '#description': 'Main crew ride to site 31 March'\n  when_do_you_need_a_ride:\n    '#type': date\n    '#title': 'When do you need a ride'\n    '#states':\n      visible:\n        ':input[name=\"i_need_a_ride_to_site\"]':\n          checked: true\n      required:\n        ':input[name=\"i_need_a_ride_to_site\"]':\n          checked: true\n    '#datepicker': true\n    '#date_date_format': j/M/Y\n  available_until:\n    '#type': date\n    '#title': 'I am available until'\n    '#description': 'Last day on site will be 24 May(ish).'\n    '#required': true\n    '#datepicker': true\n    '#date_date_format': j/M/Y\n"
 css: ''
 javascript: ''
 settings:
@@ -29,6 +28,7 @@ settings:
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
+  form_remote_addr: true
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false
@@ -104,9 +104,11 @@ settings:
   limit_total: null
   limit_total_interval: null
   limit_total_message: ''
+  limit_total_unique: false
   limit_user: null
   limit_user_interval: null
   limit_user_message: ''
+  limit_user_unique: false
   entity_limit_total: null
   entity_limit_total_interval: null
   entity_limit_user: null
@@ -161,6 +163,10 @@ access:
     users: {  }
     permissions: {  }
   test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
     roles: {  }
     users: {  }
     permissions: {  }
@@ -233,3 +239,4 @@ handlers:
       sender_mail: ''
       sender_name: ''
       theme_name: ''
+uuid: b66591f8-87f7-44d0-ae95-9d8fc5747162

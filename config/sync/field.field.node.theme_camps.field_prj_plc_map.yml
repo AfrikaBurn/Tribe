@@ -27,6 +27,6 @@ default_value:
 default_value_callback: ''
 settings:
   markup:
-    value: "<p><img alt=\"Map of street address\" data-entity-type=\"file\" data-entity-uuid=\"4a949dbf-fa3f-4c33-9fc2-e43334eece78\" src=\"https://tribe.afrikaburn.com/sites/default/files/inline-images/20180115_Theme%20camp%20map4.jpg\" /></p>\r\n"
+    value: "<p><img alt=\"Map of street address\" src=\"/modules/custom/afrikaburn_registration/files/tc-placement.png\" /></p>\r\n"
     format: full_html
 field_type: markup
