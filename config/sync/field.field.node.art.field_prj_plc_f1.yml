@@ -27,6 +27,6 @@ default_value:
 default_value_callback: ''
 settings:
   markup:
-    value: "<p>Think about the ideal surroundings for your artwork - what type of place would suit or is necessary for your piece? Are you imagining it in a quiet contemplative area, far out in the distance, in a place with lots of foot traffic, or anywhere, it doesn't matter. If you have no problem with where we place the piece, please indicate so.</p>\r\n\r\n<p>We try to accommodate the Artists preferences as much as possible, but sometimes it is not possible. Ultimately, the decision sits on the Curatorial Team.</p>\r\n"
+    value: "<p>Think about the ideal surroundings for your artwork - what type of place would suit or is necessary for your piece? Are you imagining it in a quiet contemplative area, far out in the distance, in a place with lots of foot traffic, or anywhere, it doesn't matter. If you have no problem with where we place the piece, please indicate so.</p>\r\n\r\n<p>We try to accommodate the Artists preferences as much as possible, but sometimes it is not possible. Ultimately, the decision sits on the Curatorial Team.</p>\r\n\r\n<p><img src=\"/modules/custom/afrikaburn_registration/files/art-placement.png\" /></p>\r\n"
     format: basic_html
 field_type: markup
