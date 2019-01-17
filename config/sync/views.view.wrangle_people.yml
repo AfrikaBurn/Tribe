@@ -14,7 +14,18 @@ dependencies:
     - image.style.medium
     - system.menu.wrangle
     - user.role.administrator
+    - user.role.anathi
+    - user.role.art_wrangler
+    - user.role.communications_wrangler
+    - user.role.dpw
+    - user.role.mutant_vehicle_wrangler
+    - user.role.outreach_wrangler
+    - user.role.ranger_admin
+    - user.role.sanctuary_admin
+    - user.role.supplier
     - user.role.support_wrangler
+    - user.role.theme_camp_wrangler
+    - user.role.volunteer_admin
   module:
     - csv_serialization
     - flag
@@ -44,8 +55,19 @@ display:
         type: role
         options:
           role:
+            art_wrangler: art_wrangler
+            communications_wrangler: communications_wrangler
+            mutant_vehicle_wrangler: mutant_vehicle_wrangler
+            outreach_wrangler: outreach_wrangler
             administrator: administrator
             support_wrangler: support_wrangler
+            theme_camp_wrangler: theme_camp_wrangler
+            supplier: supplier
+            dpw: dpw
+            volunteer_admin: volunteer_admin
+            ranger_admin: ranger_admin
+            sanctuary_admin: sanctuary_admin
+            anathi: anathi
       cache:
         type: tag
       query:
