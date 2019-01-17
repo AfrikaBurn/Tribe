@@ -27,8 +27,8 @@ function ar_prepare_collective_projects(&$variables){
 
     foreach($modes as $mode=>$mode_title){
 
-      $state = array_keys(array_filter($settings->get($key . '/' . $mode)));
-      $state = array_combine($state, $state);
+      $state = @array_keys(array_filter($settings->get($key . '/' . $mode)));
+      $state = @array_combine($state, $state);
 
       $variables['view']->form_modes[$key][$mode] = [
         'title' => $mode_title,
