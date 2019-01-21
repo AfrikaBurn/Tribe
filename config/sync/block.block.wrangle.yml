@@ -35,7 +35,7 @@ visibility:
     context_mapping: {  }
   request_path:
     id: request_path
-    pages: "/node/add*\r\n/node/*/edit*\r\n*/form_*\r\n*/grant\r\n*/support\r\n*/supplier\r\n*/wap"
+    pages: "/node/add*\r\n/node/*/edit*\r\n*/form_*\r\n*/grant\r\n*/support_camp*\r\n*/supplier\r\n*/wap"
     negate: true
     context_mapping: {  }
   user_role:
