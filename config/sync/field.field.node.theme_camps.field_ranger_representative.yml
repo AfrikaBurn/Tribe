@@ -1,0 +1,31 @@
+uuid: 052d50d3-5ab6-40ac-97e0-082cb0debd65
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ranger_representative
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.theme_camps.field_ranger_representative
+field_name: field_ranger_representative
+entity_type: node
+bundle: theme_camps
+label: 'Ranger representative'
+description: 'It''s always good to have the orange at your back, and even better to have one in your backyard. Who in your camp is a Ranger, or is going to complete Ranger training.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: collective_members
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference
