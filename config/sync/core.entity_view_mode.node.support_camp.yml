@@ -1,10 +1,10 @@
-uuid: f2f9d850-2662-406e-b7cd-bdf2c0796509
+uuid: 63717acf-4bfa-4cdc-9656-f0c5136cfb3d
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: node.support_camps
-label: 'Support camps'
+id: node.support_camp
+label: 'Support Camp'
 targetEntityType: node
 cache: true
