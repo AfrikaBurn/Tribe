@@ -139,69 +139,18 @@ dependencies:
     - node.type.art
   module:
     - colorbox
-    - ds
     - empty_fields
     - markup
     - user
-third_party_settings:
-  ds:
-    layout:
-      id: layout_twocol
-      library: layout_discovery/twocol
-      disable_css: false
-      entity_classes: all_classes
-      settings: {  }
-    regions:
-      first:
-        - field_prj_gen_concept
-        - field_prj_wtf_image
-      second:
-        - field_prj_gen_description
-      top:
-        - field_prj_snd_more_later
 id: node.art.default
 targetEntityType: node
 bundle: art
 mode: default
 content:
-  field_allow_support_camp:
-    weight: 12
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_burn_can_be_denied:
-    weight: 13
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: content
-  field_lineup_request:
-    weight: 11
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_lnt_intro:
-    weight: 14
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
   field_prj_gen_concept:
     type: colorbox
     weight: 0
-    region: first
+    region: content
     label: hidden
     settings:
       colorbox_node_style: medium
@@ -219,7 +168,7 @@ content:
   field_prj_gen_description:
     type: basic_string
     weight: 2
-    region: second
+    region: content
     label: hidden
     settings: {  }
     third_party_settings: {  }
@@ -229,11 +178,11 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: markup
-    region: top
+    region: content
   field_prj_wtf_image:
     type: colorbox
     weight: 1
-    region: first
+    region: content
     label: above
     settings:
       colorbox_node_style: medium
@@ -252,12 +201,14 @@ content:
     settings: {  }
     third_party_settings: {  }
   flag_mute:
-    weight: 10
+    weight: 4
+    region: content
     settings: {  }
     third_party_settings: {  }
-    region: content
 hidden:
   field_admin_comments: true
+  field_allow_support_camp: true
+  field_burn_can_be_denied: true
   field_col_members: true
   field_collective: true
   field_form_mode: true
@@ -285,6 +236,8 @@ hidden:
   field_grt_tec_total: true
   field_grt_tool: true
   field_grt_transport: true
+  field_lineup_request: true
+  field_lnt_intro: true
   field_muncipal_district: true
   field_prj_adm_form_3: true
   field_prj_adm_latitude: true
