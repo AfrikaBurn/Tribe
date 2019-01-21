@@ -11,6 +11,8 @@ dependencies:
     - core.entity_view_mode.node.form_3_mail
     - core.entity_view_mode.node.grant
     - core.entity_view_mode.node.grant_print
+    - core.entity_view_mode.node.support_camp
+    - core.entity_view_mode.node.support_camp_mail
   module:
     - node
     - user
@@ -314,6 +316,8 @@ display:
         - 'config:core.entity_view_display.node.theme_camps.form_2_mail'
         - 'config:core.entity_view_display.node.theme_camps.form_3'
         - 'config:core.entity_view_display.node.theme_camps.form_3_mail'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp_mail'
   form_1:
     display_plugin: page
     id: form_1
@@ -394,6 +398,8 @@ display:
         - 'config:core.entity_view_display.node.theme_camps.form_2_mail'
         - 'config:core.entity_view_display.node.theme_camps.form_3'
         - 'config:core.entity_view_display.node.theme_camps.form_3_mail'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp_mail'
   form_1_mail:
     display_plugin: page
     id: form_1_mail
@@ -474,6 +480,8 @@ display:
         - 'config:core.entity_view_display.node.theme_camps.form_2_mail'
         - 'config:core.entity_view_display.node.theme_camps.form_3'
         - 'config:core.entity_view_display.node.theme_camps.form_3_mail'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp_mail'
   grant:
     display_plugin: page
     id: grant
@@ -554,6 +562,8 @@ display:
         - 'config:core.entity_view_display.node.theme_camps.form_2_mail'
         - 'config:core.entity_view_display.node.theme_camps.form_3'
         - 'config:core.entity_view_display.node.theme_camps.form_3_mail'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp_mail'
   grant_print:
     display_plugin: page
     id: grant_print
@@ -634,6 +644,8 @@ display:
         - 'config:core.entity_view_display.node.theme_camps.form_2_mail'
         - 'config:core.entity_view_display.node.theme_camps.form_3'
         - 'config:core.entity_view_display.node.theme_camps.form_3_mail'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp_mail'
   page_1:
     display_plugin: page
     id: page_1
@@ -714,6 +726,8 @@ display:
         - 'config:core.entity_view_display.node.theme_camps.form_2_mail'
         - 'config:core.entity_view_display.node.theme_camps.form_3'
         - 'config:core.entity_view_display.node.theme_camps.form_3_mail'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp_mail'
   page_2:
     display_plugin: page
     id: page_2
@@ -794,6 +808,8 @@ display:
         - 'config:core.entity_view_display.node.theme_camps.form_2_mail'
         - 'config:core.entity_view_display.node.theme_camps.form_3'
         - 'config:core.entity_view_display.node.theme_camps.form_3_mail'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp_mail'
   page_3:
     display_plugin: page
     id: page_3
@@ -874,6 +890,8 @@ display:
         - 'config:core.entity_view_display.node.theme_camps.form_2_mail'
         - 'config:core.entity_view_display.node.theme_camps.form_3'
         - 'config:core.entity_view_display.node.theme_camps.form_3_mail'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp_mail'
   page_4:
     display_plugin: page
     id: page_4
@@ -954,3 +972,169 @@ display:
         - 'config:core.entity_view_display.node.theme_camps.form_2_mail'
         - 'config:core.entity_view_display.node.theme_camps.form_3'
         - 'config:core.entity_view_display.node.theme_camps.form_3_mail'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp_mail'
+  page_5:
+    display_plugin: page
+    id: page_5
+    display_title: 'Support Camp'
+    position: 4
+    display_options:
+      display_extenders: {  }
+      path: node/%/support_camp
+      display_description: ''
+      style:
+        type: default
+        options: {  }
+      defaults:
+        style: false
+        row: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: support_camp
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:core.entity_view_display.node.agreement.default'
+        - 'config:core.entity_view_display.node.agreement.teaser'
+        - 'config:core.entity_view_display.node.alert.default'
+        - 'config:core.entity_view_display.node.alert.teaser'
+        - 'config:core.entity_view_display.node.announcement.default'
+        - 'config:core.entity_view_display.node.announcement.teaser'
+        - 'config:core.entity_view_display.node.art.default'
+        - 'config:core.entity_view_display.node.art.form_1'
+        - 'config:core.entity_view_display.node.art.form_1_mail'
+        - 'config:core.entity_view_display.node.art.form_2'
+        - 'config:core.entity_view_display.node.art.form_2_mail'
+        - 'config:core.entity_view_display.node.art.form_3'
+        - 'config:core.entity_view_display.node.art.form_3_mail'
+        - 'config:core.entity_view_display.node.art.grant'
+        - 'config:core.entity_view_display.node.art.grant_mail'
+        - 'config:core.entity_view_display.node.art.grant_print'
+        - 'config:core.entity_view_display.node.article.default'
+        - 'config:core.entity_view_display.node.article.notification'
+        - 'config:core.entity_view_display.node.article.rss'
+        - 'config:core.entity_view_display.node.article.teaser'
+        - 'config:core.entity_view_display.node.collective.default'
+        - 'config:core.entity_view_display.node.collective.full'
+        - 'config:core.entity_view_display.node.collective.teaser'
+        - 'config:core.entity_view_display.node.incident.default'
+        - 'config:core.entity_view_display.node.incident.teaser'
+        - 'config:core.entity_view_display.node.mutant_vehicles.default'
+        - 'config:core.entity_view_display.node.mutant_vehicles.form_1'
+        - 'config:core.entity_view_display.node.mutant_vehicles.form_1_mail'
+        - 'config:core.entity_view_display.node.mutant_vehicles.grant'
+        - 'config:core.entity_view_display.node.mutant_vehicles.grant_mail'
+        - 'config:core.entity_view_display.node.mutant_vehicles.grant_print'
+        - 'config:core.entity_view_display.node.page.default'
+        - 'config:core.entity_view_display.node.page.teaser'
+        - 'config:core.entity_view_display.node.performances.default'
+        - 'config:core.entity_view_display.node.performances.form_1'
+        - 'config:core.entity_view_display.node.performances.form_1_mail'
+        - 'config:core.entity_view_display.node.performances.form_2'
+        - 'config:core.entity_view_display.node.performances.form_2_mail'
+        - 'config:core.entity_view_display.node.performances.grant'
+        - 'config:core.entity_view_display.node.performances.grant_mail'
+        - 'config:core.entity_view_display.node.performances.grant_print'
+        - 'config:core.entity_view_display.node.subsidised_ticket.default'
+        - 'config:core.entity_view_display.node.subsidised_ticket.teaser'
+        - 'config:core.entity_view_display.node.subsidised_ticket.wrangler_overview'
+        - 'config:core.entity_view_display.node.theme_camps.default'
+        - 'config:core.entity_view_display.node.theme_camps.form_1'
+        - 'config:core.entity_view_display.node.theme_camps.form_1_mail'
+        - 'config:core.entity_view_display.node.theme_camps.form_2'
+        - 'config:core.entity_view_display.node.theme_camps.form_2_mail'
+        - 'config:core.entity_view_display.node.theme_camps.form_3'
+        - 'config:core.entity_view_display.node.theme_camps.form_3_mail'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp_mail'
+  page_6:
+    display_plugin: page
+    id: page_6
+    display_title: 'Support Camp Mail'
+    position: 4
+    display_options:
+      display_extenders: {  }
+      path: node/%/support_camp_mail
+      display_description: ''
+      style:
+        type: default
+        options: {  }
+      defaults:
+        style: false
+        row: false
+      row:
+        type: 'entity:node'
+        options:
+          relationship: none
+          view_mode: support_camp_mail
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:core.entity_view_display.node.agreement.default'
+        - 'config:core.entity_view_display.node.agreement.teaser'
+        - 'config:core.entity_view_display.node.alert.default'
+        - 'config:core.entity_view_display.node.alert.teaser'
+        - 'config:core.entity_view_display.node.announcement.default'
+        - 'config:core.entity_view_display.node.announcement.teaser'
+        - 'config:core.entity_view_display.node.art.default'
+        - 'config:core.entity_view_display.node.art.form_1'
+        - 'config:core.entity_view_display.node.art.form_1_mail'
+        - 'config:core.entity_view_display.node.art.form_2'
+        - 'config:core.entity_view_display.node.art.form_2_mail'
+        - 'config:core.entity_view_display.node.art.form_3'
+        - 'config:core.entity_view_display.node.art.form_3_mail'
+        - 'config:core.entity_view_display.node.art.grant'
+        - 'config:core.entity_view_display.node.art.grant_mail'
+        - 'config:core.entity_view_display.node.art.grant_print'
+        - 'config:core.entity_view_display.node.article.default'
+        - 'config:core.entity_view_display.node.article.notification'
+        - 'config:core.entity_view_display.node.article.rss'
+        - 'config:core.entity_view_display.node.article.teaser'
+        - 'config:core.entity_view_display.node.collective.default'
+        - 'config:core.entity_view_display.node.collective.full'
+        - 'config:core.entity_view_display.node.collective.teaser'
+        - 'config:core.entity_view_display.node.incident.default'
+        - 'config:core.entity_view_display.node.incident.teaser'
+        - 'config:core.entity_view_display.node.mutant_vehicles.default'
+        - 'config:core.entity_view_display.node.mutant_vehicles.form_1'
+        - 'config:core.entity_view_display.node.mutant_vehicles.form_1_mail'
+        - 'config:core.entity_view_display.node.mutant_vehicles.grant'
+        - 'config:core.entity_view_display.node.mutant_vehicles.grant_mail'
+        - 'config:core.entity_view_display.node.mutant_vehicles.grant_print'
+        - 'config:core.entity_view_display.node.page.default'
+        - 'config:core.entity_view_display.node.page.teaser'
+        - 'config:core.entity_view_display.node.performances.default'
+        - 'config:core.entity_view_display.node.performances.form_1'
+        - 'config:core.entity_view_display.node.performances.form_1_mail'
+        - 'config:core.entity_view_display.node.performances.form_2'
+        - 'config:core.entity_view_display.node.performances.form_2_mail'
+        - 'config:core.entity_view_display.node.performances.grant'
+        - 'config:core.entity_view_display.node.performances.grant_mail'
+        - 'config:core.entity_view_display.node.performances.grant_print'
+        - 'config:core.entity_view_display.node.subsidised_ticket.default'
+        - 'config:core.entity_view_display.node.subsidised_ticket.teaser'
+        - 'config:core.entity_view_display.node.subsidised_ticket.wrangler_overview'
+        - 'config:core.entity_view_display.node.theme_camps.default'
+        - 'config:core.entity_view_display.node.theme_camps.form_1'
+        - 'config:core.entity_view_display.node.theme_camps.form_1_mail'
+        - 'config:core.entity_view_display.node.theme_camps.form_2'
+        - 'config:core.entity_view_display.node.theme_camps.form_2_mail'
+        - 'config:core.entity_view_display.node.theme_camps.form_3'
+        - 'config:core.entity_view_display.node.theme_camps.form_3_mail'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp_mail'
