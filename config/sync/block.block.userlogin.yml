@@ -1,0 +1,37 @@
+uuid: 43bd7324-98f9-4900-8170-ef97a9f2edbf
+langcode: en
+status: true
+dependencies:
+  module:
+    - collapsiblock
+    - system
+    - user
+  theme:
+    - afrikaburn
+third_party_settings:
+  collapsiblock:
+    collapse_action: '0'
+id: userlogin
+theme: afrikaburn
+region: content
+weight: -15
+provider: null
+plugin: user_login_block
+settings:
+  id: user_login_block
+  label: 'User login'
+  provider: user
+  label_display: visible
+visibility:
+  request_path:
+    id: request_path
+    pages: '/apply/*'
+    negate: false
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
