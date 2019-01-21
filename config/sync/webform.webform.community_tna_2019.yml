@@ -1,3 +1,4 @@
+uuid: 9d95ae67-88d7-4bf1-b903-6099c633bc42
 langcode: en
 status: open
 dependencies: {  }
@@ -20,7 +21,7 @@ settings:
   page: true
   page_submit_path: /apply/anathi
   page_confirm_path: ''
-  form_title: both
+  form_title: source_entity_webform
   form_submit_once: true
   form_exception_message: ''
   form_open_message: ''
@@ -44,7 +45,7 @@ settings:
   form_submit_back: false
   form_autofocus: true
   form_details_toggle: false
-  form_access_denied: default
+  form_access_denied: page
   form_access_denied_title: ''
   form_access_denied_message: ''
   form_access_denied_attributes: {  }
@@ -223,4 +224,3 @@ handlers:
       sender_mail: ''
       sender_name: ''
       theme_name: ''
-uuid: 9d95ae67-88d7-4bf1-b903-6099c633bc42

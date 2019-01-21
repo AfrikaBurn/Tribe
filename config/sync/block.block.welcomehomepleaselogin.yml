@@ -1,0 +1,43 @@
+uuid: f9ffcc27-dc87-4e94-993a-ece5bba0be65
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:ef007ed2-4f7d-4bf7-972b-feb3bb9c61fa'
+  module:
+    - block_content
+    - collapsiblock
+    - system
+    - user
+  theme:
+    - afrikaburn
+third_party_settings:
+  collapsiblock:
+    collapse_action: '0'
+id: welcomehomepleaselogin
+theme: afrikaburn
+region: content
+weight: -16
+provider: null
+plugin: 'block_content:ef007ed2-4f7d-4bf7-972b-feb3bb9c61fa'
+settings:
+  id: 'block_content:ef007ed2-4f7d-4bf7-972b-feb3bb9c61fa'
+  label: 'Welcome Home - Please login'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '/apply/*'
+    negate: false
+    context_mapping: {  }
+  user_role:
+    id: user_role
+    roles:
+      anonymous: anonymous
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
