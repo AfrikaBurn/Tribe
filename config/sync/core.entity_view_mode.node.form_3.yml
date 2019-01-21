@@ -1,0 +1,10 @@
+uuid: 09bf161f-a802-46e6-bd16-98a5447ade41
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.form_3
+label: 'Form 3'
+targetEntityType: node
+cache: true

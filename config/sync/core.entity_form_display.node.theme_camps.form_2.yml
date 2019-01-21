@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.theme_camps.field_final_placement
     - field.field.node.theme_camps.field_form_mode
     - field.field.node.theme_camps.field_ice_card
+    - field.field.node.theme_camps.field_lineup_request
     - field.field.node.theme_camps.field_neighbours
     - field.field.node.theme_camps.field_placed
     - field.field.node.theme_camps.field_placement_card
@@ -122,8 +123,10 @@ dependencies:
     - field.field.node.theme_camps.field_prj_wtf_short_copy
     - field.field.node.theme_camps.field_prj_wtf_website
     - field.field.node.theme_camps.field_prjr_complete
+    - field.field.node.theme_camps.field_ranger_representative
     - field.field.node.theme_camps.field_stretch_tent_dimen
     - field.field.node.theme_camps.field_sup_review
+    - field.field.node.theme_camps.field_supporting_project
     - field.field.node.theme_camps.field_tc_type
     - field.field.node.theme_camps.field_vp_ea
     - field.field.node.theme_camps.field_year_cycle
@@ -193,6 +196,7 @@ third_party_settings:
         - field_prj_saf_access
         - field_prj_saf_markup
         - field_prj_saf_person
+        - field_ranger_representative
       parent_name: group_project_registration
       weight: 16
       format_type: tab
@@ -250,7 +254,7 @@ third_party_settings:
         - field_prj_lgh_policy
         - field_prj_lgh_agree
       parent_name: group_project_registration
-      weight: 18
+      weight: 19
       format_type: tab
       format_settings:
         id: ''
@@ -269,7 +273,7 @@ third_party_settings:
         - field_prj_snd_agree
         - field_prj_snd_person
       parent_name: group_project_registration
-      weight: 19
+      weight: 20
       format_type: tab
       format_settings:
         id: ''
@@ -284,7 +288,7 @@ third_party_settings:
         - field_prj_lnt_historic
         - field_prj_lnt_representative
       parent_name: group_project_registration
-      weight: 20
+      weight: 21
       format_type: tab
       format_settings:
         label: 'Leave No Trace'
@@ -299,7 +303,7 @@ third_party_settings:
         - field_prj_wtf_planned
         - field_prj_wtf_image
       parent_name: group_project_registration
-      weight: 21
+      weight: 22
       format_type: tab
       format_settings:
         label: 'WTF Guide and Community'
@@ -888,6 +892,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_ranger_representative:
+    type: erviews_options_select
+    weight: 19
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_year_cycle:
     type: computed_number_widget
     weight: 0
@@ -901,6 +911,7 @@ hidden:
   field_field_prj_plc_stretch_m: true
   field_final_placement: true
   field_ice_card: true
+  field_lineup_request: true
   field_neighbours: true
   field_placed: true
   field_placement_card: true
@@ -961,6 +972,7 @@ hidden:
   field_prj_wtf_website: true
   field_stretch_tent_dimen: true
   field_sup_review: true
+  field_supporting_project: true
   field_tc_type: true
   field_vp_ea: true
   path: true
