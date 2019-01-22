@@ -105,8 +105,11 @@ dependencies:
     - field.field.node.theme_camps.field_prj_snd_genre
     - field.field.node.theme_camps.field_prj_snd_level
     - field.field.node.theme_camps.field_prj_snd_person
+    - field.field.node.theme_camps.field_prj_snd_rangers
+    - field.field.node.theme_camps.field_prj_snd_setup_date
     - field.field.node.theme_camps.field_prj_snd_soop
     - field.field.node.theme_camps.field_prj_snd_sound
+    - field.field.node.theme_camps.field_prj_snd_specs
     - field.field.node.theme_camps.field_prj_stg_contact
     - field.field.node.theme_camps.field_prj_stg_description
     - field.field.node.theme_camps.field_prj_stg_stage
@@ -135,6 +138,7 @@ dependencies:
     - colorbox
     - computed_field
     - conditional_fields
+    - datetime
     - field_group
     - markup
     - options
@@ -287,12 +291,15 @@ third_party_settings:
     group_sound:
       children:
         - field_prj_snd_sound
-        - field_prj_snd_level
-        - field_prj_snd_genre
-        - field_prj_snd_description
         - field_prj_snd_soop
-        - field_prj_snd_agree
+        - field_prj_snd_level
+        - field_prj_snd_specs
+        - field_prj_snd_description
+        - field_prj_snd_genre
+        - field_prj_snd_setup_date
         - field_prj_snd_person
+        - field_prj_snd_rangers
+        - field_prj_snd_agree
       parent_name: group_project_registration
       weight: 20
       format_type: html_element
@@ -687,7 +694,7 @@ content:
     type: author
     label: above
   field_prj_snd_agree:
-    weight: 19
+    weight: 17
     settings:
       format: default
       format_custom_false: ''
@@ -728,7 +735,7 @@ content:
     type: boolean
     label: above
   field_prj_snd_description:
-    weight: 17
+    weight: 12
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -766,7 +773,7 @@ content:
     type: basic_string
     label: above
   field_prj_snd_genre:
-    weight: 16
+    weight: 13
     settings:
       link_to_entity: false
     third_party_settings:
@@ -805,7 +812,7 @@ content:
     type: string
     label: above
   field_prj_snd_level:
-    weight: 15
+    weight: 10
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -843,7 +850,7 @@ content:
     type: entity_reference_rss_category
     label: above
   field_prj_snd_person:
-    weight: 20
+    weight: 15
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -880,8 +887,28 @@ content:
     region: content
     type: author
     label: above
+  field_prj_snd_rangers:
+    weight: 16
+    region: content
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    label: above
+  field_prj_snd_setup_date:
+    weight: 14
+    region: content
+    settings:
+      future_format: '@interval hence'
+      past_format: '@interval ago'
+      granularity: 2
+    third_party_settings: {  }
+    type: datetime_time_ago
+    label: above
   field_prj_snd_soop:
-    weight: 18
+    weight: 9
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -919,7 +946,7 @@ content:
     type: markup
     label: above
   field_prj_snd_sound:
-    weight: 14
+    weight: 8
     settings:
       format: default
       format_custom_false: ''
@@ -927,6 +954,13 @@ content:
     third_party_settings: {  }
     region: content
     type: boolean
+    label: above
+  field_prj_snd_specs:
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
     label: above
   field_prj_wtf_image:
     weight: 69
@@ -974,6 +1008,11 @@ content:
     third_party_settings: {  }
     type: computed_integer
     label: above
+  flag_mute:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_admin_comments: true
   field_field_prj_plc_marquis: true
@@ -1044,7 +1083,6 @@ hidden:
   field_supporting_project: true
   field_tc_type: true
   field_vp_ea: true
-  flag_mute: true
   links: true
   path: true
   promote: true

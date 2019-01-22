@@ -106,7 +106,10 @@ dependencies:
     - field.field.node.art.field_prj_snd_level
     - field.field.node.art.field_prj_snd_more_later
     - field.field.node.art.field_prj_snd_person
+    - field.field.node.art.field_prj_snd_rangers
+    - field.field.node.art.field_prj_snd_setup_date
     - field.field.node.art.field_prj_snd_sound
+    - field.field.node.art.field_prj_snd_specs
     - field.field.node.art.field_prj_stc_attributes
     - field.field.node.art.field_prj_stc_footprint
     - field.field.node.art.field_prj_stc_height
@@ -214,7 +217,10 @@ third_party_settings:
         - field_prj_snd_f1
         - field_prj_snd_sound
         - field_prj_snd_level
+        - field_prj_snd_specs
         - field_prj_snd_description
+        - field_prj_snd_setup_date
+        - field_prj_snd_rangers
         - field_prj_snd_agree
         - field_prj_snd_person
       parent_name: group_project_registration
@@ -605,7 +611,7 @@ content:
     third_party_settings: {  }
     region: content
   field_prj_snd_agree:
-    weight: 35
+    weight: 9
     region: content
     settings:
       format: default
@@ -620,35 +626,55 @@ content:
     third_party_settings: {  }
     region: content
   field_prj_snd_description:
-    weight: 34
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
     type: basic_string
     label: above
   field_prj_snd_f1:
-    weight: 31
+    weight: 2
     settings: {  }
     third_party_settings: {  }
     region: content
     type: markup
     label: above
   field_prj_snd_level:
-    weight: 33
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     region: content
     type: entity_reference_rss_category
     label: above
   field_prj_snd_person:
-    weight: 37
+    weight: 10
     settings: {  }
     third_party_settings: {  }
     region: content
     type: author
     label: above
+  field_prj_snd_rangers:
+    weight: 8
+    region: content
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    label: above
+  field_prj_snd_setup_date:
+    weight: 7
+    region: content
+    settings:
+      future_format: '@interval hence'
+      past_format: '@interval ago'
+      granularity: 2
+    third_party_settings: {  }
+    type: datetime_time_ago
+    label: above
   field_prj_snd_sound:
-    weight: 32
+    weight: 3
     settings:
       format: default
       format_custom_false: ''
@@ -656,6 +682,13 @@ content:
     third_party_settings: {  }
     region: content
     type: boolean
+    label: above
+  field_prj_snd_specs:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
     label: above
   field_prj_stc_dimensions:
     weight: 18
