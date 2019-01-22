@@ -105,8 +105,11 @@ dependencies:
     - field.field.node.theme_camps.field_prj_snd_genre
     - field.field.node.theme_camps.field_prj_snd_level
     - field.field.node.theme_camps.field_prj_snd_person
+    - field.field.node.theme_camps.field_prj_snd_rangers
+    - field.field.node.theme_camps.field_prj_snd_setup_date
     - field.field.node.theme_camps.field_prj_snd_soop
     - field.field.node.theme_camps.field_prj_snd_sound
+    - field.field.node.theme_camps.field_prj_snd_specs
     - field.field.node.theme_camps.field_prj_stg_contact
     - field.field.node.theme_camps.field_prj_stg_description
     - field.field.node.theme_camps.field_prj_stg_stage
@@ -135,6 +138,7 @@ dependencies:
   module:
     - computed_field
     - conditional_fields
+    - datetime
     - entity_reference_views_select
     - field_group
     - image
@@ -266,12 +270,15 @@ third_party_settings:
     group_sound:
       children:
         - field_prj_snd_sound
-        - field_prj_snd_level
-        - field_prj_snd_genre
-        - field_prj_snd_description
         - field_prj_snd_soop
-        - field_prj_snd_agree
+        - field_prj_snd_level
+        - field_prj_snd_specs
+        - field_prj_snd_description
+        - field_prj_snd_genre
+        - field_prj_snd_setup_date
         - field_prj_snd_person
+        - field_prj_snd_rangers
+        - field_prj_snd_agree
       parent_name: group_project_registration
       weight: 20
       format_type: tab
@@ -639,7 +646,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_prj_snd_agree:
-    weight: 19
+    weight: 17
     settings:
       display_label: true
     third_party_settings:
@@ -677,7 +684,7 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_snd_description:
-    weight: 17
+    weight: 12
     settings:
       rows: 5
       placeholder: ''
@@ -716,7 +723,7 @@ content:
     type: string_textarea
     region: content
   field_prj_snd_genre:
-    weight: 16
+    weight: 13
     settings:
       size: 60
       placeholder: ''
@@ -755,7 +762,7 @@ content:
     type: string_textfield
     region: content
   field_prj_snd_level:
-    weight: 15
+    weight: 10
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -792,7 +799,7 @@ content:
     type: options_select
     region: content
   field_prj_snd_person:
-    weight: 20
+    weight: 15
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -828,8 +835,21 @@ content:
           bundle: theme_camps
     type: erviews_options_select
     region: content
+  field_prj_snd_rangers:
+    type: boolean_checkbox
+    weight: 16
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_prj_snd_setup_date:
+    type: datetime_default
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_prj_snd_soop:
-    weight: 18
+    weight: 9
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -866,12 +886,20 @@ content:
     type: markup
     region: content
   field_prj_snd_sound:
-    weight: 14
+    weight: 8
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
+  field_prj_snd_specs:
+    type: string_textarea
+    weight: 11
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_wtf_image:
     weight: 69
     settings:

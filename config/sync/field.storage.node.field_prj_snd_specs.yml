@@ -1,0 +1,23 @@
+uuid: 5c1cbf8d-37c0-4d68-8cd4-2dac3df9335d
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_prj_snd_specs
+field_name: field_prj_snd_specs
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

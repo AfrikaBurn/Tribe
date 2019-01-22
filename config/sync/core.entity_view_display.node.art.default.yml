@@ -105,7 +105,10 @@ dependencies:
     - field.field.node.art.field_prj_snd_level
     - field.field.node.art.field_prj_snd_more_later
     - field.field.node.art.field_prj_snd_person
+    - field.field.node.art.field_prj_snd_rangers
+    - field.field.node.art.field_prj_snd_setup_date
     - field.field.node.art.field_prj_snd_sound
+    - field.field.node.art.field_prj_snd_specs
     - field.field.node.art.field_prj_stc_attributes
     - field.field.node.art.field_prj_stc_footprint
     - field.field.node.art.field_prj_stc_height
@@ -139,6 +142,7 @@ dependencies:
     - node.type.art
   module:
     - colorbox
+    - datetime
     - empty_fields
     - markup
     - user
@@ -178,6 +182,32 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: markup
+    region: content
+  field_prj_snd_rangers:
+    weight: 8
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_prj_snd_setup_date:
+    weight: 5
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_prj_snd_specs:
+    weight: 6
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
     region: content
   field_prj_wtf_image:
     type: colorbox
