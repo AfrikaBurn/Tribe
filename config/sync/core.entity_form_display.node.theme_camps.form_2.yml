@@ -836,10 +836,11 @@ content:
     type: erviews_options_select
     region: content
   field_prj_snd_rangers:
-    type: options_buttons
+    type: boolean_checkbox
     weight: 16
     region: content
-    settings: {  }
+    settings:
+      display_label: true
     third_party_settings: {  }
   field_prj_snd_setup_date:
     type: datetime_default
