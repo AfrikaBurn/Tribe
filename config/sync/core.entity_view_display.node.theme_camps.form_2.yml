@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.form_2
+    - core.entity_form_mode.node.form_2
     - field.field.node.theme_camps.field_admin_comments
     - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_field_prj_plc_marquis
@@ -105,8 +105,11 @@ dependencies:
     - field.field.node.theme_camps.field_prj_snd_genre
     - field.field.node.theme_camps.field_prj_snd_level
     - field.field.node.theme_camps.field_prj_snd_person
+    - field.field.node.theme_camps.field_prj_snd_rangers
+    - field.field.node.theme_camps.field_prj_snd_setup_date
     - field.field.node.theme_camps.field_prj_snd_soop
     - field.field.node.theme_camps.field_prj_snd_sound
+    - field.field.node.theme_camps.field_prj_snd_specs
     - field.field.node.theme_camps.field_prj_stg_contact
     - field.field.node.theme_camps.field_prj_stg_description
     - field.field.node.theme_camps.field_prj_stg_stage
@@ -130,16 +133,16 @@ dependencies:
     - field.field.node.theme_camps.field_tc_type
     - field.field.node.theme_camps.field_vp_ea
     - field.field.node.theme_camps.field_year_cycle
+    - image.style.thumbnail
     - node.type.theme_camps
   module:
-    - colorbox
     - computed_field
     - conditional_fields
+    - datetime
+    - entity_reference_views_select
     - field_group
+    - image
     - markup
-    - options
-    - taxonomy
-    - user
 third_party_settings:
   field_group:
     group_administrative:
@@ -267,12 +270,15 @@ third_party_settings:
     group_sound:
       children:
         - field_prj_snd_sound
-        - field_prj_snd_level
-        - field_prj_snd_genre
-        - field_prj_snd_description
         - field_prj_snd_soop
-        - field_prj_snd_agree
+        - field_prj_snd_level
+        - field_prj_snd_specs
+        - field_prj_snd_description
+        - field_prj_snd_genre
+        - field_prj_snd_setup_date
         - field_prj_snd_person
+        - field_prj_snd_rangers
+        - field_prj_snd_agree
       parent_name: group_project_registration
       weight: 20
       format_type: tab
@@ -323,345 +329,279 @@ content:
     weight: 10
     region: content
     settings:
-      link: true
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_label
-    label: above
   field_form_mode:
     weight: 0
     region: content
     settings:
-      link_to_entity: false
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: string
-    label: above
   field_prj_adm_review:
     weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
-    type: entity_reference_rss_category
-    label: above
   field_prj_adm_wrangler:
     weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
-    type: author
-    label: above
   field_prj_gen_concept:
     weight: 18
     region: content
     settings:
-      colorbox_node_style: ''
-      colorbox_node_style_first: ''
-      colorbox_image_style: ''
-      colorbox_gallery: post
-      colorbox_gallery_custom: ''
-      colorbox_caption: auto
-      colorbox_caption_custom: ''
+      progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
-    type: colorbox
-    label: above
   field_prj_lgh_agree:
     weight: 52
     region: content
     settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+      display_label: true
     third_party_settings: {  }
-    type: boolean
-    label: above
   field_prj_lgh_description:
     weight: 49
-    settings: {  }
+    settings:
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: basic_string
-    label: above
   field_prj_lgh_policy:
     weight: 51
     region: content
     settings: {  }
     third_party_settings: {  }
-    type: markup
-    label: above
   field_prj_lgh_power:
     weight: 50
-    settings: {  }
+    settings:
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: basic_string
-    label: above
   field_prj_lnt_handled:
     weight: 16
-    settings: {  }
+    settings:
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: basic_string
-    label: above
   field_prj_lnt_historic:
     weight: 17
     settings: {  }
     third_party_settings: {  }
     region: content
-    type: entity_reference_rss_category
-    label: above
   field_prj_lnt_representative:
     weight: 18
     settings: {  }
     third_party_settings: {  }
     region: content
-    type: author
-    label: above
   field_prj_plc_artwork_d:
     weight: 28
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_plc_artwork_w:
     weight: 27
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_plc_binnekring:
     weight: 19
     settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+      display_label: true
     third_party_settings: {  }
     region: content
-    type: boolean
-    label: above
   field_prj_plc_camp_d:
     weight: 23
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_plc_caravan:
     weight: 35
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_plc_cars:
     weight: 32
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_plc_fire:
     weight: 29
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_plc_flame_d:
     weight: 30
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_plc_flame_w:
     weight: 31
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_plc_frontage:
     weight: 21
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_plc_large:
     weight: 39
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_plc_layout:
     weight: 46
     settings:
-      colorbox_node_style: ''
-      colorbox_node_style_first: ''
-      colorbox_image_style: ''
-      colorbox_gallery: post
-      colorbox_gallery_custom: ''
-      colorbox_caption: auto
-      colorbox_caption_custom: ''
+      progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
     region: content
-    type: colorbox
-    label: above
   field_prj_plc_location:
     weight: 43
     settings: {  }
     third_party_settings: {  }
     region: content
-    type: entity_reference_rss_category
-    label: above
   field_prj_plc_location_extra:
     weight: 45
-    settings: {  }
+    settings:
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: basic_string
-    label: above
   field_prj_plc_map:
     weight: 44
     settings: {  }
     third_party_settings: {  }
     region: content
-    type: markup
-    label: above
   field_prj_plc_motivation:
     weight: 20
-    settings: {  }
+    settings:
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: basic_string
-    label: above
   field_prj_plc_people:
     weight: 26
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_plc_portaloos:
     weight: 41
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_plc_public_d:
     weight: 22
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_plc_recreational:
     weight: 34
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_plc_showers:
     weight: 42
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_plc_sleep:
     weight: 36
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_plc_stretch_d:
     weight: 38
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_plc_stretch_w:
     weight: 37
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_plc_tanks:
     weight: 40
     region: content
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
-    type: number_unformatted
-    label: above
   field_prj_plc_tent_d:
     weight: 25
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_plc_tent_w:
     weight: 24
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_plc_trailers:
     weight: 33
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_saf_access:
     weight: 16
-    settings: {  }
+    settings:
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: basic_string
-    label: above
   field_prj_saf_extinguish:
     weight: 15
-    settings: {  }
+    settings:
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: number_unformatted
-    label: above
   field_prj_saf_guide:
     weight: 14
-    settings: {  }
+    settings:
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
     region: content
-    type: basic_string
-    label: above
   field_prj_saf_markup:
     weight: 17
     settings: {  }
     third_party_settings: {  }
     region: content
-    type: author
-    label: above
   field_prj_saf_person:
     weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
-    type: author
-    label: above
   field_prj_snd_agree:
-    weight: 19
+    weight: 17
     settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+      display_label: true
     third_party_settings:
       conditional_fields:
         ab34b9c7-a2e1-4bd1-a4e7-86c8197642b7:
@@ -695,11 +635,11 @@ content:
           entity_type: node
           bundle: theme_camps
     region: content
-    type: boolean
-    label: above
   field_prj_snd_description:
-    weight: 17
-    settings: {  }
+    weight: 12
+    settings:
+      rows: 5
+      placeholder: ''
     third_party_settings:
       conditional_fields:
         58a66474-2703-49c6-a5a7-46ffd5f0c6f2:
@@ -733,12 +673,11 @@ content:
           entity_type: node
           bundle: theme_camps
     region: content
-    type: basic_string
-    label: above
   field_prj_snd_genre:
-    weight: 16
+    weight: 13
     settings:
-      link_to_entity: false
+      size: 60
+      placeholder: ''
     third_party_settings:
       conditional_fields:
         07659ab4-22dd-47fd-9784-e7d509db0376:
@@ -772,10 +711,8 @@ content:
           entity_type: node
           bundle: theme_camps
     region: content
-    type: string
-    label: above
   field_prj_snd_level:
-    weight: 15
+    weight: 10
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -810,10 +747,8 @@ content:
           entity_type: node
           bundle: theme_camps
     region: content
-    type: entity_reference_rss_category
-    label: above
   field_prj_snd_person:
-    weight: 20
+    weight: 15
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -848,10 +783,19 @@ content:
           entity_type: node
           bundle: theme_camps
     region: content
-    type: author
-    label: above
+  field_prj_snd_rangers:
+    weight: 16
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_prj_snd_setup_date:
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_prj_snd_soop:
-    weight: 18
+    weight: 9
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -886,74 +830,56 @@ content:
           entity_type: node
           bundle: theme_camps
     region: content
-    type: markup
-    label: above
   field_prj_snd_sound:
-    weight: 14
+    weight: 8
     settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+      display_label: true
     third_party_settings: {  }
     region: content
-    type: boolean
-    label: above
+  field_prj_snd_specs:
+    weight: 11
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_wtf_image:
     weight: 69
     settings:
-      colorbox_node_style: ''
-      colorbox_node_style_first: ''
-      colorbox_image_style: ''
-      colorbox_gallery: post
-      colorbox_gallery_custom: ''
-      colorbox_caption: auto
-      colorbox_caption_custom: ''
+      progress_indicator: throbber
+      preview_image_style: thumbnail
     third_party_settings: {  }
     region: content
-    type: colorbox
-    label: above
   field_prj_wtf_planned:
     weight: 67
     settings: {  }
     third_party_settings: {  }
     region: content
-    type: entity_reference_rss_category
-    label: above
   field_prjr_complete:
     weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
-    type: list_key
-    label: above
   field_ranger_representative:
     weight: 19
     region: content
     settings: {  }
     third_party_settings: {  }
-    type: author
-    label: above
   field_year_cycle:
     weight: 0
     region: content
-    settings:
-      cache_unit: -1
-      cache_duration: 1
-      thousand_separator: ''
-      prefix_suffix: true
+    settings: {  }
     third_party_settings: {  }
-    type: computed_integer
-    label: above
   flag_mute:
     weight: 10
-    region: content
     settings: {  }
     third_party_settings: {  }
+    region: content
   links:
     weight: 100
-    region: content
     settings: {  }
     third_party_settings: {  }
+    region: content
 hidden:
   field_admin_comments: true
   field_field_prj_plc_marquis: true
