@@ -41,7 +41,7 @@ class CrewController extends ControllerBase {
           $target->setElementData(
             $field_name,
             $value
-              ? $current + [$parts['value']]
+              ? array_merge($current, [$parts['value']])
               : array_diff($current, [$parts['value']])
           );
         break;
