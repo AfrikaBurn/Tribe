@@ -391,6 +391,39 @@ bundles:
       notes: ''
       relationship: 0
       sars_filename: ''
+    field_prj_snd_setup_date:
+      bundle: art
+      name: field_prj_snd_setup_date
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_snd_specs:
+      bundle: art
+      name: field_prj_snd_specs
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_snd_rangers:
+      bundle: art
+      name: field_prj_snd_rangers
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   theme_camps:
     field_prj_est_camp_population:
       enabled: false
@@ -545,6 +578,39 @@ bundles:
       rta: 'no'
       enabled: false
       anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_snd_rangers:
+      bundle: theme_camps
+      name: field_prj_snd_rangers
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_snd_specs:
+      bundle: theme_camps
+      name: field_prj_snd_specs
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_snd_setup_date:
+      bundle: theme_camps
+      name: field_prj_snd_setup_date
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
       notes: ''
       relationship: 0
       sars_filename: ''
