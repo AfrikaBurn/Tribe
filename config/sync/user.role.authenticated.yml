@@ -161,6 +161,7 @@ permissions:
   - 'use node.supplier form mode'
   - 'use node.support_camp form mode'
   - 'use node.wangler_overview form mode'
+  - 'use node.waps form mode'
   - 'use text format basic_html'
   - 'use user.default form mode'
   - 'use user.register form mode'

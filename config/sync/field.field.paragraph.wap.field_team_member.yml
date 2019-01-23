@@ -1,0 +1,31 @@
+uuid: e9fcd34a-6eaa-49aa-a33c-9eb356992506
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_team_member
+    - paragraphs.paragraphs_type.wap
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.wap.field_team_member
+field_name: field_team_member
+entity_type: paragraph
+bundle: wap
+label: 'Team member'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: collective_members
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

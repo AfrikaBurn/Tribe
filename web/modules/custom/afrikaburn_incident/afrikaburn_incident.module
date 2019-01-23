@@ -41,13 +41,15 @@ function afrikaburn_incident_form_node_incident_form_alter(&$form, &$form_state)
  */
 function afrikaburn_incident_theme(){
   return [
-    // Collective projects
     'views_view__wrangle_incidents' => [
       'template' => 'views-view--wrangle',
       'base hook' => 'view',
     ],
     'views_view_table__wrangle_incidents' => [
       'template' => 'views-view-table--wrangle-incidents',
+      'base hook' => 'view',
+    ],
+    'views_view_excel_export__wrangle_incidents' => [
       'base hook' => 'view',
     ],
   ];
@@ -64,6 +66,17 @@ function afrikaburn_incident_preprocess_views_view(&$variables){
     break;
   }
 }
+
+
+/**
+ * Implements hook_preprocess_views_view_fields().
+ */
+function afrikaburn_incident_preprocess_views_view_fields(&$variables) {
+  if ($variables['view']->id() == 'wrangle_incidents' && $variables['view']->current_display == 'excel_export'){
+
+  }
+}
+
 
 /**
  * Redirect incident submit to incident view
