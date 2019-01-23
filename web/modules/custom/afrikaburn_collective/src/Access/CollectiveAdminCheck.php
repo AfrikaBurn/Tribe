@@ -35,26 +35,29 @@ class CollectiveAdminCheck implements AccessInterface {
     $bundle = $node ? $node->bundle() : FALSE;
 
     $roles = [
-      'art' => 'art_admin',
-      'performances' => 'art_admin',
-      'mutant_vehicles' => 'mutant_vehicle_admin',
-      'theme_camps' => 'theme_camp_admin',
+      'art' => 'art_wrangler',
+      'performances' => 'art_wrangler',
+      'mutant_vehicles' => 'mutant_vehicle_wrangler',
+      'theme_camps' => 'theme_camp_wrangler',
     ];
+
+    if ($user->hasRole('administrator') || (isset($roles[$bundle]) && $user->hasRole($roles[$bundle]))){
+      return AccessResult::allowed(TRUE);
+    }
 
     if ($node && in_array($bundle, array_keys($roles))){
       $field_collective = $node->get('field_collective');
       if ($field_collective) {
         $collective = $field_collective->first()->get('entity')->getTarget();
-        return AccessResult::allowedIf($this::isAdmin($uid, $collective) || $user->hasRole('administrator'));
+        return AccessResult::allowedIf($this::isAdmin($uid, $collective));
       }
-      return AccessResult::allowedIf($user->hasRole('administrator'));
     }
 
     if ($bundle == 'collective') {
-      return AccessResult::allowedIf($this::isAdmin($uid, $node) || $user->hasRole('administrator') || (isset($roles[$bundle]) && $user->hasRole($roles[$bundle])));
+      return AccessResult::allowedIf($this::isAdmin($uid, $node));
     }
 
-    if ( ($cid = \Drupal::routeMatch()->getParameter('cid')) && (\Drupal::routeMatch()->getParameter('uid')) ){
+    if (($cid = \Drupal::routeMatch()->getParameter('cid')) && (\Drupal::routeMatch()->getParameter('uid'))){
       $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
       return AccessResult::allowedIf($this::isAdmin($uid, $collective));
     }
