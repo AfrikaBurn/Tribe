@@ -1,8 +1,9 @@
-uuid: 3de18989-f226-4884-a9a5-d9ea6c3afd57
+uuid: d08f821f-e44c-4e6b-9f57-738fdd776341
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_form_mode.node.waps
     - field.field.node.art.field_admin_comments
     - field.field.node.art.field_allow_support_camp
     - field.field.node.art.field_burn_can_be_denied
@@ -139,120 +140,208 @@ dependencies:
     - field.field.node.art.field_vp_ea
     - field.field.node.art.field_waps
     - field.field.node.art.field_year_cycle
-    - image.style.medium
     - node.type.art
   module:
-    - colorbox
-    - datetime
-    - empty_fields
-    - entity_reference_revisions
-    - markup
-    - user
-id: node.art.default
+    - computed_field
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_administrative:
+      children:
+        - field_allow_support_camp
+        - field_collective
+        - field_form_mode
+        - field_prj_adm_review
+        - field_prj_adm_wrangler
+        - field_prj_stc_size
+        - field_prjr_complete
+        - field_year_cycle
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: Administrative
+_core:
+  default_config_hash: ehnjrE-MS25SZlH5syS8NpyAb0kWLGl88OywWqUiYwM
+id: node.art.waps
 targetEntityType: node
 bundle: art
-mode: default
+mode: waps
 content:
-  field_prj_gen_concept:
-    type: colorbox
+  field_allow_support_camp:
+    type: boolean_checkbox
     weight: 0
     region: content
-    label: hidden
     settings:
-      colorbox_node_style: medium
-      colorbox_node_style_first: ''
-      colorbox_image_style: ''
-      colorbox_gallery: field_page
-      colorbox_gallery_custom: ''
-      colorbox_caption: auto
-      colorbox_caption_custom: ''
-    third_party_settings:
-      empty_fields:
-        handler: ''
-      ds:
-        ds_limit: ''
-  field_prj_gen_description:
-    type: basic_string
-    weight: 2
-    region: content
-    label: hidden
-    settings: {  }
+      display_label: true
     third_party_settings: {  }
-  field_prj_snd_more_later:
-    weight: 3
-    label: above
+  field_collective:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_form_mode:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_adm_area:
+    weight: 78
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_snd_rangers:
-    weight: 8
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
+  field_prj_adm_review:
+    type: entity_reference_autocomplete
+    weight: 0
     region: content
-  field_prj_snd_setup_date:
-    weight: 5
-    label: above
     settings:
-      format_type: medium
-      timezone_override: ''
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: datetime_default
+  field_prj_adm_wrangler:
+    type: entity_reference_autocomplete
+    weight: 0
     region: content
-  field_prj_snd_specs:
-    weight: 6
-    label: above
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_brn_head:
+    weight: 49
     settings: {  }
     third_party_settings: {  }
-    type: basic_string
+    type: markup
     region: content
-  field_prj_wtf_image:
-    type: colorbox
+  field_prj_hed_project:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_lgh_area:
+    weight: 37
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_lnt_area:
+    weight: 57
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_oth_area:
+    weight: 74
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_plc_area:
+    weight: 35
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_prp_area:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_prp_offsite:
+    weight: 28
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_prp_onsite:
+    weight: 32
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_snd_area:
+    weight: 43
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_stc_dimensions:
+    weight: 18
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_stc_header:
+    weight: 17
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prj_stc_size:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_wtf_area:
+    weight: 67
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_prjr_complete:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_waps:
+    type: entity_reference_paragraphs
     weight: 1
     region: content
-    label: above
     settings:
-      colorbox_node_style: medium
-      colorbox_node_style_first: ''
-      colorbox_image_style: ''
-      colorbox_gallery: field_page
-      colorbox_gallery_custom: ''
-      colorbox_caption: auto
-      colorbox_caption_custom: ''
-    third_party_settings:
-      empty_fields:
-        handler: ''
-  field_waps:
-    type: entity_reference_revisions_entity_view
-    weight: 9
-    label: above
-    settings:
-      view_mode: default
-      link: ''
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: wap
     third_party_settings: {  }
-    region: content
-  flag_approved:
-    weight: 2
+  field_year_cycle:
+    type: computed_number_widget
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
-  flag_mute:
-    weight: 4
+  flag:
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
+  created: true
   field_admin_comments: true
-  field_allow_support_camp: true
   field_burn_can_be_denied: true
   field_col_members: true
-  field_collective: true
-  field_form_mode: true
   field_grant_expense_header: true
   field_grt_art_apply: true
   field_grt_art_reason: true
@@ -283,8 +372,6 @@ hidden:
   field_prj_adm_form_3: true
   field_prj_adm_latitude: true
   field_prj_adm_longitude: true
-  field_prj_adm_review: true
-  field_prj_adm_wrangler: true
   field_prj_brn_agree: true
   field_prj_brn_burning: true
   field_prj_brn_desc: true
@@ -301,7 +388,9 @@ hidden:
   field_prj_cll_description: true
   field_prj_cost: true
   field_prj_gen_bio: true
+  field_prj_gen_concept: true
   field_prj_gen_contact: true
+  field_prj_gen_description: true
   field_prj_gen_doc: true
   field_prj_gen_external: true
   field_prj_gen_fundraiser: true
@@ -326,6 +415,7 @@ hidden:
   field_prj_lnt_helpers: true
   field_prj_lnt_historic: true
   field_prj_lnt_images: true
+  field_prj_lnt_publish: true
   field_prj_lnt_representative: true
   field_prj_lnt_score: true
   field_prj_lnt_signoff: true
@@ -341,18 +431,23 @@ hidden:
   field_prj_prp_erection: true
   field_prj_prp_start: true
   field_prj_prp_transport: true
+  field_prj_saf_comment: true
   field_prj_snd_agree: true
+  field_prj_snd_comment: true
   field_prj_snd_description: true
   field_prj_snd_f1: true
   field_prj_snd_level: true
+  field_prj_snd_more_later: true
   field_prj_snd_person: true
+  field_prj_snd_rangers: true
+  field_prj_snd_setup_date: true
   field_prj_snd_sound: true
+  field_prj_snd_specs: true
   field_prj_stc_attributes: true
   field_prj_stc_footprint: true
   field_prj_stc_height: true
   field_prj_stc_materials: true
   field_prj_stc_safety: true
-  field_prj_stc_size: true
   field_prj_stc_structural: true
   field_prj_stc_weight: true
   field_prj_stg_contact: true
@@ -364,16 +459,22 @@ hidden:
   field_prj_sup_details_view: true
   field_prj_sup_h1: true
   field_prj_wtf_categories: true
+  field_prj_wtf_image: true
   field_prj_wtf_long: true
   field_prj_wtf_planned: true
   field_prj_wtf_scheduled: true
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
-  field_prjr_complete: true
+  field_sup_comment: true
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
-  field_year_cycle: true
-  flag_archived: true
-  links: true
+  moderation_state: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  title: true
+  uid: true
+  url_redirects: true
