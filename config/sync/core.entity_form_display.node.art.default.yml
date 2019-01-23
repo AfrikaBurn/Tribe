@@ -137,6 +137,7 @@ dependencies:
     - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
     - field.field.node.art.field_vp_ea
+    - field.field.node.art.field_waps
     - field.field.node.art.field_year_cycle
     - image.style.thumbnail
     - node.type.art
@@ -445,7 +446,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 95
+    weight: 14
     settings:
       display_label: true
     type: boolean_checkbox
@@ -509,7 +510,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 94
+    weight: 13
     settings:
       display_label: true
     type: boolean_checkbox
@@ -540,7 +541,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 93
+    weight: 12
     settings:
       rows: 5
       placeholder: ''
@@ -608,7 +609,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 91
+    weight: 10
     settings:
       placeholder: ''
     type: number
@@ -632,7 +633,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 90
+    weight: 9
     settings:
       match_operator: CONTAINS
       size: 60
@@ -658,7 +659,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 89
+    weight: 8
     settings:
       rows: 5
       placeholder: ''
@@ -683,7 +684,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 92
+    weight: 11
     settings: {  }
     type: datetime_default
     region: content
@@ -1003,7 +1004,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 87
+    weight: 6
     settings:
       display_label: true
     type: boolean_checkbox
@@ -1033,7 +1034,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 84
+    weight: 3
     settings:
       rows: 5
       placeholder: ''
@@ -1093,7 +1094,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 88
+    weight: 7
     settings:
       match_operator: CONTAINS
       size: 60
@@ -1119,7 +1120,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 86
+    weight: 5
     settings:
       display_label: true
     type: boolean_checkbox
@@ -1143,7 +1144,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 85
+    weight: 4
     settings: {  }
     type: datetime_default
     region: content
@@ -1173,7 +1174,7 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-    weight: 83
+    weight: 2
     settings:
       rows: 5
       placeholder: ''
@@ -1401,6 +1402,7 @@ hidden:
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
+  field_waps: true
   moderation_state: true
   path: true
   promote: true
