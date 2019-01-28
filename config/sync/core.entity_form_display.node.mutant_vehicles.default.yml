@@ -101,6 +101,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prjr_complete
     - field.field.node.mutant_vehicles.field_sup_review
     - field.field.node.mutant_vehicles.field_vp_ea
+    - field.field.node.mutant_vehicles.field_waps_allowed
     - field.field.node.mutant_vehicles.field_year_cycle
     - image.style.thumbnail
     - node.type.mutant_vehicles
@@ -342,6 +343,7 @@ third_party_settings:
         - field_mv_amount_worthy
         - field_grt_awarded
         - field_allow_support_camp
+        - field_waps_allowed
       parent_name: ''
       weight: 0
       format_type: details
@@ -1564,6 +1566,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
+  field_waps_allowed:
+    weight: 132
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
   field_year_cycle:
     weight: 10

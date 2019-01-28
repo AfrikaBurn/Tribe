@@ -49,9 +49,6 @@ function afrikaburn_incident_theme(){
       'template' => 'views-view-table--wrangle-incidents',
       'base hook' => 'view',
     ],
-    'views_view_excel_export__wrangle_incidents' => [
-      'base hook' => 'view',
-    ],
   ];
 }
 
@@ -64,16 +61,6 @@ function afrikaburn_incident_preprocess_views_view(&$variables){
       $variables['#attached']['library'][] = 'afrikaburn_incident/log';
       $variables['#attached']['library'][] = 'afrikaburn_shared/log';
     break;
-  }
-}
-
-
-/**
- * Implements hook_preprocess_views_view_fields().
- */
-function afrikaburn_incident_preprocess_views_view_fields(&$variables) {
-  if ($variables['view']->id() == 'wrangle_incidents' && $variables['view']->current_display == 'excel_export'){
-
   }
 }
 

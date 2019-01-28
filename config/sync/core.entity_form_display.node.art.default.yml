@@ -138,6 +138,7 @@ dependencies:
     - field.field.node.art.field_this_is_the_amount_of_mone
     - field.field.node.art.field_vp_ea
     - field.field.node.art.field_waps
+    - field.field.node.art.field_waps_allowed
     - field.field.node.art.field_year_cycle
     - image.style.thumbnail
     - node.type.art
@@ -152,6 +153,7 @@ dependencies:
     - image
     - link
     - markup
+    - paragraphs
 third_party_settings:
   field_group:
     group_intro:
@@ -405,6 +407,8 @@ third_party_settings:
         - field_form_mode
         - field_year_cycle
         - field_allow_support_camp
+        - field_waps_allowed
+        - field_waps
       parent_name: ''
       weight: 0
       format_type: details
@@ -987,23 +991,7 @@ content:
     third_party_settings: {  }
   field_prj_snd_agree:
     third_party_settings:
-      conditional_fields:
-        0d39f6c9-a5ab-41ab-ab55-843fbfe442f7:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              value: false
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
+      conditional_fields: {  }
     weight: 6
     settings:
       display_label: true
@@ -1309,6 +1297,25 @@ content:
     third_party_settings: {  }
     type: options_buttons
     region: content
+  field_waps:
+    type: entity_reference_paragraphs
+    weight: 12
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_waps_allowed:
+    weight: 11
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   field_year_cycle:
     weight: 9
     settings: {  }
@@ -1402,7 +1409,6 @@ hidden:
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
-  field_waps: true
   moderation_state: true
   path: true
   promote: true

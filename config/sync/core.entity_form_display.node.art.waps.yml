@@ -144,7 +144,6 @@ dependencies:
   module:
     - computed_field
     - field_group
-    - paragraphs
 third_party_settings:
   field_group:
     group_administrative:
@@ -152,10 +151,10 @@ third_party_settings:
         - field_allow_support_camp
         - field_collective
         - field_form_mode
+        - field_prjr_complete
         - field_prj_adm_review
         - field_prj_adm_wrangler
         - field_prj_stc_size
-        - field_prjr_complete
         - field_year_cycle
       parent_name: ''
       weight: 0
@@ -314,18 +313,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_waps:
-    type: entity_reference_paragraphs
-    weight: 1
-    region: content
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: wap
-    third_party_settings: {  }
   field_year_cycle:
     type: computed_number_widget
     weight: 0
@@ -470,6 +457,7 @@ hidden:
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
+  field_waps: true
   moderation_state: true
   path: true
   promote: true
