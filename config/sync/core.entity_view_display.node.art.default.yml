@@ -138,6 +138,7 @@ dependencies:
     - field.field.node.art.field_this_is_the_amount_of_mone
     - field.field.node.art.field_vp_ea
     - field.field.node.art.field_waps
+    - field.field.node.art.field_waps_allowed
     - field.field.node.art.field_year_cycle
     - image.style.medium
     - node.type.art
@@ -235,6 +236,15 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
+    region: content
+  field_waps_allowed:
+    weight: 10
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
   flag_approved:
     weight: 2

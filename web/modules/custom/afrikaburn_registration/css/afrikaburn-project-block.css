@@ -147,3 +147,7 @@ div.body-content .block .view-id-collective_projects .messages--archive:before{
   line-height: 110%;
 }
 
+
+div.body-content table th {
+  text-align: left !important;
+}

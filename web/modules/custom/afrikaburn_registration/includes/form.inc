@@ -3,6 +3,7 @@
  * @file: form.inc
  */
 
+use \Drupal\user\Entity\User;
 
  /**
   * Determine which forms have which modes
@@ -19,7 +20,7 @@ function _project_form_modes(){
         'grant' => 'Grant application',
         'support_camp' => 'Support camp',
         'supplier' => 'Supplier registration',
-        'wap' => 'Work access passes',
+        'waps' => 'Work access passes',
       ],
     ],
 
@@ -30,7 +31,7 @@ function _project_form_modes(){
         'grant' => 'Grant application',
         'support_camp' => 'Support camp',
         'supplier' => 'Supplier registration',
-        'wap' => 'Work access passes',
+        'waps' => 'Work access passes',
       ],
     ],
 
@@ -41,7 +42,7 @@ function _project_form_modes(){
         'grant' => 'Grant application',
         'support_camp' => 'Support camp',
         'supplier' => 'Supplier registration',
-        'wap' => 'Work access passes',
+        'waps' => 'Work access passes',
       ],
     ],
 
@@ -53,7 +54,7 @@ function _project_form_modes(){
         'form_3' => 'Registration form 3',
         'support_camp' => 'Support camp',
         'supplier' => 'Supplier registration',
-        'wap' => 'Work access passes',
+        'waps' => 'Work access passes',
       ],
     ],
   ];
@@ -102,8 +103,13 @@ function _project_form_config() {
       'type' => 'an Artwork',
       'wrangler' => 'art_wrangler'
     ],
+    'node_art_waps_form' => [
+      'mode' => 'waps',
+      'title' => 'Work Access Passes for: %title',
+      'type' => 'an Artwork',
+      'wrangler' => 'art_wrangler'
+    ],
     //TODO: Suppliers
-    //TODO: WAP
 
     /* ---- Performance ---- */
 
@@ -131,8 +137,13 @@ function _project_form_config() {
       'type' => 'a Binnekring event',
       'wrangler' => 'art_wrangler'
     ],
+    'node_performances_waps_form' => [
+      'mode' => 'waps',
+      'title' => 'Work Access Passes for: %title',
+      'type' => 'a Binnekring event',
+      'wrangler' => 'art_wrangler'
+    ],
     //TODO: Suppliers
-    //TODO: WAP
 
     /* ---- Mutant Vehicles ---- */
 
@@ -160,8 +171,13 @@ function _project_form_config() {
       'type' => 'a Mutant Vehicle',
       'wrangler' => 'mutant_vehicle_wrangler'
     ],
+    'node_mutant_vehicles_waps_form' => [
+      'mode' => 'waps',
+      'title' => 'Work Access Passes for: %title',
+      'type' => 'a Mutant Vehicle',
+      'wrangler' => 'mutant_vehicle_wrangler'
+    ],
     //TODO: Suppliers
-    //TODO: WAP
 
     /* ---- Theme Camps ---- */
 
@@ -201,8 +217,18 @@ function _project_form_config() {
       'type' => 'a Support Camp',
       'wrangler' => 'theme_camp_wrangler'
     ],
+    'node_theme_camps_waps_form' => [
+      'mode' => 'waps',
+      'title' => 'Work Access Passes for: %title',
+      'type' => 'a Theme Camp',
+      'wrangler' => 'theme_camp_wrangler'
+    ],
   ];
 }
+
+
+/* ----- Form utilities ----- */
+
 
 /**
  * Checks whether the form is open or the user is a wrangler.
@@ -255,4 +281,189 @@ function _get_title($defaults, $collective, $registration){
     $defaults['title'],
     ['%title' => $registration ? $registration->getTitle() : '']
   ) . $collective_title;
+}
+
+/**
+ * Determine the parameters of registration form altering
+ */
+function _get_registration_params($form_state, $defaults){
+  $entity = $form_state->getFormObject()->getEntity();
+  $user = User::load(\Drupal::currentUser()->id());
+  $registration = array_filter(
+    [
+      $entity,
+      \Drupal::routeMatch()->getParameter('node'),
+    ]
+  )[0];
+
+  return [
+    $entity,
+    $user,
+    $registration,
+    _get_collective($registration), // $collective,
+    _get_supporting_project($registration), // $supporting_project,
+    $user->hasRole($defaults['wrangler']), // $is_wrangler,
+    $user->hasRole('administrator'), // $is_admin,
+    $entity->bundle(), // $bundle,
+    array_pop(explode('/', \Drupal::service('path.current')->getPath())), // $mode,
+  ];
+}
+
+/**
+ * Sets form title, Submit title, Submit handlers
+ */
+function _set_form_attrs(&$form, $defaults, $collective, $registration, $mode){
+  $form['#title'] = [
+    '#type' => 'markup',
+    '#markup' => _get_title($defaults, $collective, $registration),
+  ];
+  $form['actions']['submit']['#value'] = 'Submit';
+  array_unshift($form['actions']['submit']['#submit'], 'afrikaburn_registration_publish');
+  $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_redirect';
+
+  if ($mode == 'support_camp'){
+    $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_support';
+  }
+}
+
+/**
+ * Set form default values
+ */
+function _set_form_defaults(&$form, $collective, $supporting_project, $defaults, $is_admin, $is_wrangler){
+  $form['field_collective']['widget'][0]['target_id']['#default_value'] = $collective;
+  $form['field_supporting_project']['widget'][0]['target_id']['#default_value'] = $supporting_project;
+  $form['field_form_mode']['widget'][0]['value']['#default_value'] = $defaults['mode'];
+  $form['field_prjr_complete']['widget']['#default_value'][] = $defaults['mode'];
+  $form['#administrator'] = $is_admin || $is_wrangler;
+}
+
+/**
+ * Hide fields and inappropriate complete options per type
+ */
+function _set_form_field_state(&$form, $is_admin, $is_wrangler, $bundle){
+  $form['revision_log']['#access'] = $is_admin;
+  $form['field_form_mode']['#type'] = 'hidden';
+  $form['field_collective']['#access'] = $is_admin;
+  $form['field_prjr_complete']['widget']['#options'] = array_intersect_key(
+    $form['field_prjr_complete']['widget']['#options'],
+    _project_form_modes()[$bundle]['modes']
+  );
+  if (!($is_wrangler || $is_admin)) $form['field_prjr_complete']['widget']['#type'] = 'value';
+}
+
+/**
+ * Wizard or tabs (cake or death?)
+ */
+function _set_form_wizard_state(&$form, $form_state, $defaults, $supporting_project, $registration, $is_wrangler){
+  $incomplete = array_search(
+    $defaults['mode'],
+    $defaults['mode'] == 'support_camp'
+      ? array_column($supporting_project->field_prjr_complete->getValue(), 'value')
+      : array_column($registration->field_prjr_complete->getValue(), 'value')
+  ) === FALSE;
+
+  $existing = isset($registration->nid->value);
+  $errors = count($form_state->getErrors()) > 0;
+  $form['#wizard'] = !$is_wrangler && (!$existing || $incomplete) || $errors;
+}
+
+/**
+ * Prevent link spoofing
+ */
+function _verify_link(&$form, $collective, $mode, $supporting_project){
+  if (!$collective || ($mode == 'support_camp' && !$supporting_project)){
+
+    drupal_set_message('Oops! You really should do that using the links found on a collective page.', 'warning', true);
+
+    $form['#access'] = FALSE;
+    $form['#title'] = [
+      '#type' => 'markup',
+      '#markup' => '<a href="/" class="button">Ok</a>',
+    ];
+
+    return false;
+  }
+
+  return true;
+}
+
+/**
+ * Generate the WAP form
+ */
+function _wap_form(&$form, $collective, $registration, $mode){
+  if ($mode == 'waps'){
+
+    $allowed = (int)$registration->field_waps_allowed->value;
+    $assigned = count($registration->field_waps);
+
+    $view = \Drupal\views\Views::getView('collective_members');
+    $view->setDisplay('wap');
+    $view->setArguments([$collective->nid->value]);
+    $view->preExecute();
+    $view->execute();
+    $options = ['-- Unassigned --'];
+    foreach($view->result as $row){
+      $options[$row->uid] = $row->_entity->field_first_name->value . ' "' . $row->_entity->name->value . '" ' . $row->_entity->field_last_name->value;
+    }
+
+    $form['waps'] = [
+      '#prefix' => '<table><thead><th>Member</th><th>Estimated arrival date</th></tr></thead><tbody>',
+      '#type' => 'fieldset',
+      '#suffix' => '</tbody></table>',
+      '#tree' => TRUE,
+    ];
+
+    unset($form['actions']['delete']);
+    if ($assigned == $allowed){
+      unset($form['actions']);
+    }
+
+    foreach($registration->field_waps as $i=>$wap){
+      $form['waps']['assigned_' . $i] = [
+        '#prefix' => '<tr>',
+        '#type' => 'markup',
+        '#markup' =>
+          '<td>' .
+            $wap->entity->field_team_member->entity->field_first_name->value . ' "' .
+            $wap->entity->field_team_member->entity->name->value . '" ' .
+            $wap->entity->field_team_member->entity->field_last_name->value .
+          '</td><td>' .
+            $wap->entity->field_estimated_date_of_arrival->date->format('d/m/Y') .
+          '</td>',
+        '#suffix' => '</tr>',
+      ];
+    }
+
+    if ($allowed - $assigned > 0){
+      for ($i=0; $i<$allowed - $assigned; $i++){
+        $form['waps'][$i] = [
+          '#prefix' => '<tr>',
+          '#type' => 'container',
+          '#suffix' => '</tr>',
+        ];
+        $form['waps'][$i]['member'] = [
+          '#prefix' => '<td>',
+          '#type' => 'select',
+          '#options' => $options,
+          '#suffix' => '</td>',
+        ];
+        $form['waps'][$i]['arrives'] = [
+          '#prefix' => '<td>',
+          '#type' => 'date',
+          '#suffix' => '</td>',
+        ];
+      }
+    }
+
+    $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_wap_submit';
+    $form['#validate'][] = 'afrikaburn_registration_wap_validate';
+
+    $form['outtro'] = [
+      '#type' => 'markup',
+      '#markup' =>
+        '<div class="messages messages--warning"><strong>' .
+        '</strong>Once assigned, WAPs can only be transfered through Quicket.<strong>' .
+        '</div>',
+    ];
+  }
 }

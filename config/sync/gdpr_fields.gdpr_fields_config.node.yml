@@ -435,6 +435,17 @@ bundles:
       notes: ''
       relationship: 0
       sars_filename: ''
+    field_waps_allowed:
+      bundle: art
+      name: field_waps_allowed
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   theme_camps:
     field_prj_est_camp_population:
       enabled: false
@@ -625,6 +636,17 @@ bundles:
       notes: ''
       relationship: 0
       sars_filename: ''
+    field_waps_allowed:
+      bundle: theme_camps
+      name: field_waps_allowed
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   mutant_vehicles:
     field_mutant_drivers:
       enabled: false
@@ -734,6 +756,17 @@ bundles:
     field_allow_support_camp:
       bundle: mutant_vehicles
       name: field_allow_support_camp
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_waps_allowed:
+      bundle: mutant_vehicles
+      name: field_waps_allowed
       entity_type_id: node
       rtf: 'no'
       rta: 'no'
@@ -862,6 +895,17 @@ bundles:
     field_allow_support_camp:
       bundle: performances
       name: field_allow_support_camp
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_waps_allowed:
+      bundle: performances
+      name: field_waps_allowed
       entity_type_id: node
       rtf: 'no'
       rta: 'no'
