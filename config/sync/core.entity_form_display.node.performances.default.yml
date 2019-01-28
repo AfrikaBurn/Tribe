@@ -116,6 +116,7 @@ dependencies:
     - field.field.node.performances.field_sup_review
     - field.field.node.performances.field_this_is_the_amount_of_mone
     - field.field.node.performances.field_vp_ea
+    - field.field.node.performances.field_waps
     - field.field.node.performances.field_waps_allowed
     - field.field.node.performances.field_year_cycle
     - image.style.thumbnail
@@ -127,6 +128,7 @@ dependencies:
     - field_group
     - image
     - link
+    - paragraphs
 third_party_settings:
   field_group:
     group_project_registration:
@@ -191,6 +193,7 @@ third_party_settings:
         - field_year_cycle
         - field_allow_support_camp
         - field_waps_allowed
+        - field_waps
       parent_name: ''
       weight: 0
       format_type: details
@@ -409,6 +412,18 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_waps:
+    weight: 71
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
   field_waps_allowed:
     weight: 70
     settings:

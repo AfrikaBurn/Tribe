@@ -101,6 +101,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prjr_complete
     - field.field.node.mutant_vehicles.field_sup_review
     - field.field.node.mutant_vehicles.field_vp_ea
+    - field.field.node.mutant_vehicles.field_waps
     - field.field.node.mutant_vehicles.field_waps_allowed
     - field.field.node.mutant_vehicles.field_year_cycle
     - image.style.thumbnail
@@ -115,6 +116,7 @@ dependencies:
     - image
     - link
     - markup
+    - paragraphs
 third_party_settings:
   field_group:
     group_project_registration:
@@ -344,6 +346,7 @@ third_party_settings:
         - field_grt_awarded
         - field_allow_support_camp
         - field_waps_allowed
+        - field_waps
       parent_name: ''
       weight: 0
       format_type: details
@@ -1566,6 +1569,18 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
+  field_waps:
+    weight: 133
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
     region: content
   field_waps_allowed:
     weight: 132
