@@ -131,6 +131,7 @@ dependencies:
     - field.field.node.theme_camps.field_supporting_project
     - field.field.node.theme_camps.field_tc_type
     - field.field.node.theme_camps.field_vp_ea
+    - field.field.node.theme_camps.field_waps_allowed
     - field.field.node.theme_camps.field_year_cycle
     - image.style.medium
     - node.type.theme_camps
@@ -211,6 +212,15 @@ content:
     third_party_settings:
       empty_fields:
         handler: ''
+  field_waps_allowed:
+    weight: 14
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
   flag_archived:
     weight: 10
     region: content

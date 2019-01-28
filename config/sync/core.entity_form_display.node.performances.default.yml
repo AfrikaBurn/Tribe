@@ -116,6 +116,7 @@ dependencies:
     - field.field.node.performances.field_sup_review
     - field.field.node.performances.field_this_is_the_amount_of_mone
     - field.field.node.performances.field_vp_ea
+    - field.field.node.performances.field_waps_allowed
     - field.field.node.performances.field_year_cycle
     - image.style.thumbnail
     - node.type.performances
@@ -189,6 +190,7 @@ third_party_settings:
         - field_form_mode
         - field_year_cycle
         - field_allow_support_camp
+        - field_waps_allowed
       parent_name: ''
       weight: 0
       format_type: details
@@ -407,6 +409,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_waps_allowed:
+    weight: 70
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   field_year_cycle:
     weight: 43
     settings: {  }

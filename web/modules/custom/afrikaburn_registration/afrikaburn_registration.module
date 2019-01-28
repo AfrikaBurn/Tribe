@@ -35,79 +35,26 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
 
   if (isset($defaults) && preg_match('/^\/node/', \Drupal::service('path.current')->getPath())) {
 
-    $entity = $form_state->getFormObject()->getEntity();
-    $user = User::load(\Drupal::currentUser()->id());
-    $registration = array_filter(
-      [
-        $entity,
-        \Drupal::routeMatch()->getParameter('node'),
-      ]
-    )[0];
-    $collective = _get_collective($registration);
-    $supporting_project = _get_supporting_project($registration);
-    $is_wrangler = $user->hasRole($defaults['wrangler']);
-    $is_admin = $user->hasRole('administrator');
-    $bundle = $entity->bundle();
-    $mode = array_pop(explode('/', \Drupal::service('path.current')->getPath()));
+    // Get parameters
+    list($entity, $user, $registration, $collective, $supporting_project, $is_wrangler, $is_admin, $bundle, $mode) = _get_registration_params($form_state, $defaults);
 
-    // Naughty naughty users
-    if (!$collective || ($mode == 'support_camp' && !$supporting_project)) {
-      drupal_set_message('Oops! You really should do that using the links in a collective', 'warning', true);
-      $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
-      $response->send();
+    // Catch naughty naughty link faking users
+    if (_verify_link($form, $collective, $mode, $supporting_project)) {
 
-      $form['#title'] = [
-        '#type' => 'markup',
-        '#markup' => _get_title($defaults, $collective, $registration),
-      ];
-
-    } else {
-
-      // Form title, Submit title, Submit handler
-      $form['#title'] = [
-        '#type' => 'markup',
-        '#markup' => _get_title($defaults, $collective, $registration),
-      ];
-      $form['actions']['submit']['#value'] = 'Submit';
-      array_unshift($form['actions']['submit']['#submit'], 'afrikaburn_registration_publish');
-      $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_redirect';
-
-      if ($mode == 'support_camp'){
-        $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_support';
-      }
+      // Set form title, Submit title, Submit handlers
+      _set_form_attrs($form, $defaults, $collective, $registration, $mode);
 
       // Set defaults
-      $form['field_collective']['widget'][0]['target_id']['#default_value'] = $collective;
-      $form['field_supporting_project']['widget'][0]['target_id']['#default_value'] = $supporting_project;
-      $form['field_form_mode']['widget'][0]['value']['#default_value'] = $defaults['mode'];
-      $form['field_prjr_complete']['widget']['#default_value'][] = $defaults['mode'];
-      $form['#administrator'] = $is_admin || $is_wrangler;
+      _set_form_defaults($form, $collective, $supporting_project, $defaults, $is_admin, $is_wrangler);
 
       // Hide fields and inappropriate complete options per type
-      $form['revision_log']['#access'] = $is_admin;
-      $form['field_form_mode']['#type'] = 'hidden';
-      $form['field_collective']['#access'] = $is_admin;
-      $form['field_prjr_complete']['widget']['#options'] = array_intersect_key(
-        $form['field_prjr_complete']['widget']['#options'],
-        _project_form_modes()[$bundle]['modes']
-      );
-      if (!($is_wrangler || $is_admin)) $form['field_prjr_complete']['widget']['#type'] = 'value';
+      _set_form_field_state($form, $is_admin, $is_wrangler, $bundle);
 
       // Wizard or tabs (cake or death?)
-      $incomplete = array_search(
-        $defaults['mode'],
-        $defaults['mode'] == 'support_camp'
-          ? array_column($supporting_project->field_prjr_complete->getValue(), 'value')
-          : array_column($registration->field_prjr_complete->getValue(), 'value')
-      ) === FALSE;
-      $existing = isset($registration->nid->value);
-      $errors = count($form_state->getErrors()) > 0;
-      $form['#wizard'] = !$is_wrangler && (!$existing || $incomplete) || $errors;
+      _set_form_wizard_state($form, $form_state, $defaults, $supporting_project, $registration, $is_wrangler);
 
-        // !$is_wrangler && (
-        //   ($is_new && !$errors) ||
-        //   ($incomplete && !$errors)
-        // );
+      // Generate WAP form
+      _wap_form($form, $collective, $registration, $mode);
 
         // Add "Save Draft" button.
         // $form['draft'] = [
@@ -375,6 +322,66 @@ function afrikaburn_registration_support($form, $form_state){
     $project->save();
   }
 }
+
+/**
+ * WAPs validation
+ */
+function afrikaburn_registration_wap_validate($form, $form_state){
+
+  $values = $form_state->getValues();
+  $registration = $form_state->getFormObject()->getEntity();
+  $allowed = (int)$registration->field_waps_allowed->value;
+  $assigned = count($registration->field_waps);
+  $new = 0;
+
+  foreach($values['waps'] as $i=>$wap){
+    if ($wap['member']){
+      if (!$wap['arrives']){
+        $form_state->setError($form['waps'][0]['arrives'], t('You must estimate when this member will arrive!'));
+      }
+      $new ++;
+    }
+  }
+
+  if ($allowed < $assigned + $new){
+    $form_state->setError($form['waps'], t('You are attempting to assign more WAPs than you are allowed!'));
+  }
+}
+
+/**
+ * WAPs submission
+ */
+function afrikaburn_registration_wap_submit($form, $form_state){
+
+  $project = $form_state->getFormObject()->getEntity();
+  $values = $form_state->getValues();
+
+  foreach($values['waps'] as $wap){
+    if ($wap['member']){
+
+
+      // TODO: Quicket API call
+
+      $paragraph = \Drupal\paragraphs\Entity\Paragraph::create(
+        [
+          'type' => 'wap',
+          'field_team_member' => ['target_id' => $wap['member']],
+          'field_estimated_date_of_arrival' => ['value' => $wap['arrives']],
+        ]
+      );
+      $paragraph->save();
+
+      if ($paragraph){
+        $project->field_waps->appendItem($paragraph);
+      }
+    }
+  }
+
+  if ($paragraph){
+    $project->save();
+  }
+}
+
 
 
 /* ----- Computed fields ----- */

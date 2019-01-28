@@ -19,6 +19,7 @@ function _editable($id){
         'field_prj_snd_sound',
         'field_prj_stc_size',
         'field_allow_support_camp',
+        'field_waps_allowed',
       ],
 
       'wrangle_binnekring_events' => [
@@ -28,6 +29,7 @@ function _editable($id){
         'field_prj_adm_review',
         'field_prj_snd_level',
         'field_allow_support_camp',
+        'field_waps_allowed',
       ],
 
       'wrangle_mutant_vehicles' => [
@@ -41,6 +43,7 @@ function _editable($id){
         'field_grt_awarded',
         'field_mv_amount_worthy',
         'field_allow_support_camp',
+        'field_waps_allowed',
       ],
 
       'wrangle_theme_camps' => [
@@ -58,6 +61,7 @@ function _editable($id){
         'field_placed',
         'field_placement_card',
         'field_placement_letter_sent',
+        'field_waps_allowed',
       ],
 
     ]
@@ -74,6 +78,7 @@ function _merge(){
       'field_plot',
       'field_neighbours',
       'field_allow_support_camp',
+      'field_waps_allowed',
     ],
     'process' => [
       'field_prj_adm_wrangler',
@@ -97,8 +102,8 @@ function _title($field){
     'field_placement_card' => FALSE,
     'field_placement_letter_sent' => FALSE,
     'field_prj_snd_level' => 'Sound level',
-    'field_grt_awarded' => false,
-    'field_mv_amount_worthy' => false,
+    'field_grt_awarded' => FALSE,
+    'field_mv_amount_worthy' => FALSE,
     ])[$field];
 }
 

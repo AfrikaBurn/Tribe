@@ -131,6 +131,7 @@ dependencies:
     - field.field.node.theme_camps.field_supporting_project
     - field.field.node.theme_camps.field_tc_type
     - field.field.node.theme_camps.field_vp_ea
+    - field.field.node.theme_camps.field_waps_allowed
     - field.field.node.theme_camps.field_year_cycle
     - image.style.thumbnail
     - node.type.theme_camps
@@ -295,6 +296,7 @@ third_party_settings:
         - field_admin_comments
         - field_neighbours
         - field_year_cycle
+        - field_waps_allowed
       parent_name: ''
       weight: 0
       format_type: details
@@ -640,22 +642,7 @@ content:
     third_party_settings: {  }
   field_prj_snd_agree:
     third_party_settings:
-      conditional_fields:
-        53e707f9-360e-4850-a015-d2e1ad89b2fa:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: theme_camps
+      conditional_fields: {  }
     weight: 43
     settings:
       display_label: true
@@ -996,6 +983,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
+  field_waps_allowed:
+    weight: 49
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
   field_year_cycle:
     weight: 40
