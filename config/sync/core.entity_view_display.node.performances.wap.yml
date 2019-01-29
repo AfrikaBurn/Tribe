@@ -1,8 +1,9 @@
-uuid: ecb22a02-7b8c-43e0-aac9-d049f6ea6fa2
+uuid: f55601ac-b947-4568-8120-0c0dd9351245
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.wap
     - field.field.node.performances.field_admin_comments
     - field.field.node.performances.field_allow_support_camp
     - field.field.node.performances.field_bke_day
@@ -119,128 +120,116 @@ dependencies:
     - field.field.node.performances.field_waps
     - field.field.node.performances.field_waps_allowed
     - field.field.node.performances.field_year_cycle
-    - image.style.medium
     - node.type.performances
   module:
-    - colorbox
-    - ds
-    - empty_fields
-    - entity_reference_revisions
-    - markup
+    - computed_field
+    - field_group
+    - options
+    - paragraphs
     - user
 third_party_settings:
-  ds:
-    layout:
-      id: layout_twocol
-      library: layout_discovery/twocol
-      disable_css: false
-      entity_classes: all_classes
-      settings: {  }
-    regions:
-      first:
-        - field_prj_gen_concept
-        - field_prj_wtf_image
-      second:
-        - field_prj_gen_description
-      top:
-        - flag_mute
-        - field_lineup_request
-        - field_allow_support_camp
+  field_group:
+    group_administrative:
+      children:
+        - field_prjr_complete
+        - field_prj_adm_wrangler
+        - field_collective
+        - field_form_mode
+        - field_year_cycle
         - field_waps_allowed
-        - field_waps
-id: node.performances.default
+        - field_allow_support_camp
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: Administrative
+id: node.performances.wap
 targetEntityType: node
 bundle: performances
-mode: default
+mode: wap
 content:
-  field_allow_support_camp:
-    weight: 12
-    label: above
+  field_collective:
+    weight: 41
+    region: content
     settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+      link: true
     third_party_settings: {  }
-    type: boolean
-    region: top
-  field_lineup_request:
-    weight: 11
+    type: entity_reference_label
     label: above
+  field_form_mode:
+    weight: 42
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+    type: string
+    label: above
+  field_prj_adm_wrangler:
+    weight: 39
+    region: content
     settings: {  }
     third_party_settings: {  }
-    type: markup
-    region: top
-  field_prj_gen_concept:
-    type: colorbox
-    weight: 0
-    region: first
-    label: hidden
-    settings:
-      colorbox_node_style: medium
-      colorbox_node_style_first: ''
-      colorbox_image_style: ''
-      colorbox_gallery: field_page
-      colorbox_gallery_custom: ''
-      colorbox_caption: auto
-      colorbox_caption_custom: ''
-    third_party_settings:
-      empty_fields:
-        handler: ''
-      ds:
-        ds_limit: ''
-  field_prj_gen_description:
-    type: basic_string
-    weight: 2
-    region: second
-    label: hidden
+    type: author
+    label: above
+  field_prjr_complete:
+    weight: 38
+    region: content
     settings: {  }
     third_party_settings: {  }
-  field_prj_wtf_image:
-    type: colorbox
-    weight: 1
-    region: first
-    label: hidden
-    settings:
-      colorbox_node_style: medium
-      colorbox_node_style_first: ''
-      colorbox_image_style: ''
-      colorbox_gallery: field_page
-      colorbox_gallery_custom: ''
-      colorbox_caption: auto
-      colorbox_caption_custom: ''
-    third_party_settings:
-      empty_fields:
-        handler: ''
+    type: list_key
+    label: above
   field_waps:
-    weight: 14
-    label: above
-    settings:
-      view_mode: default
-      link: ''
+    weight: 2
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
-    region: top
+    region: content
+    type: paragraph_summary
+    label: hidden
   field_waps_allowed:
-    weight: 13
+    weight: 70
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: number_unformatted
     label: above
+  field_year_cycle:
+    weight: 43
     settings:
+      cache_unit: -1
+      cache_duration: 1
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    type: number_integer
-    region: top
-  flag_mute:
-    weight: 10
-    region: top
+    region: content
+    type: computed_integer
+    label: above
+  flag:
+    weight: 8
+    region: content
     settings: {  }
     third_party_settings: {  }
+  flag_mute:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  moderation_state:
+    weight: 69
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
 hidden:
   field_admin_comments: true
+  field_allow_support_camp: true
   field_bke_day: true
   field_bke_location: true
   field_bke_time: true
-  field_collective: true
-  field_form_mode: true
   field_grt_art_total: true
   field_grt_breakdown: true
   field_grt_contribution: true
@@ -257,10 +246,10 @@ hidden:
   field_grt_tool: true
   field_grt_total: true
   field_grt_transport: true
+  field_lineup_request: true
   field_muncipal_district: true
   field_prj_adm_notes: true
   field_prj_adm_review: true
-  field_prj_adm_wrangler: true
   field_prj_brn_agree: true
   field_prj_brn_burning: true
   field_prj_brn_f2: true
@@ -272,7 +261,9 @@ hidden:
   field_prj_cll_description: true
   field_prj_cll_thread: true
   field_prj_gen_bio: true
+  field_prj_gen_concept: true
   field_prj_gen_contact: true
+  field_prj_gen_description: true
   field_prj_gen_doc: true
   field_prj_gen_external: true
   field_prj_gen_fundraiser: true
@@ -332,6 +323,7 @@ hidden:
   field_prj_sup_h1: true
   field_prj_total_cost: true
   field_prj_wtf_categories: true
+  field_prj_wtf_image: true
   field_prj_wtf_long: true
   field_prj_wtf_plan: true
   field_prj_wtf_planned: true
@@ -339,9 +331,12 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
-  field_prjr_complete: true
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
-  field_year_cycle: true
   links: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  url_redirects: true

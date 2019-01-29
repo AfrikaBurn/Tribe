@@ -1,0 +1,10 @@
+uuid: d6c1f69a-57b5-4f5e-94ac-3b049c9fe73f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.wap
+label: WAP
+targetEntityType: node
+cache: true
