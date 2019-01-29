@@ -34,7 +34,7 @@ settings:
       value: support_camp
       label: 'Support camp registration'
     -
-      value: wap
+      value: waps
       label: 'Work access and Vehicle passes'
   allowed_values_function: ''
 module: options
