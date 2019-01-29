@@ -22,7 +22,9 @@ function afrikaburn_registration_page_attachments(array &$page) {
 
 
 function afrikaburn_registration_node_view(&$build, $entity, $display, $view_mode) {
+  if (in_array($entity->bundle, [])){
 
+  }
 }
 
 
