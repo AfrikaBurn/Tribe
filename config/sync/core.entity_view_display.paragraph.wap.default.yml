@@ -10,6 +10,7 @@ dependencies:
   module:
     - datetime
     - ds
+    - empty_fields
 third_party_settings:
   ds:
     layout:
@@ -32,10 +33,12 @@ content:
     weight: 0
     label: hidden
     settings:
-      format_type: medium
       timezone_override: ''
-    third_party_settings: {  }
-    type: datetime_default
+      date_format: d/m/Y
+    third_party_settings:
+      empty_fields:
+        handler: ''
+    type: datetime_custom
     region: first
   field_team_member:
     weight: 1

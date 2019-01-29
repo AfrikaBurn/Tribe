@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.wap
+    - core.entity_view_mode.node.waps
     - field.field.node.mutant_vehicles.field_admin_comments
     - field.field.node.mutant_vehicles.field_allow_support_camp
     - field.field.node.mutant_vehicles.field_collective
@@ -138,10 +138,10 @@ third_party_settings:
         open: false
         required_fields: true
       label: Administrative
-id: node.mutant_vehicles.wap
+id: node.mutant_vehicles.waps
 targetEntityType: node
 bundle: mutant_vehicles
-mode: wap
+mode: waps
 content:
   field_collective:
     weight: 8

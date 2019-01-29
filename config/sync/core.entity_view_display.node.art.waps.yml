@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.wap
+    - core.entity_view_mode.node.waps
     - field.field.node.art.field_admin_comments
     - field.field.node.art.field_allow_support_camp
     - field.field.node.art.field_burn_can_be_denied
@@ -171,10 +171,10 @@ third_party_settings:
         open: false
         required_fields: true
       label: Administrative
-id: node.art.wap
+id: node.art.waps
 targetEntityType: node
 bundle: art
-mode: wap
+mode: waps
 content:
   field_allow_support_camp:
     weight: 0

@@ -8,7 +8,6 @@ use \Drupal\node\Entity\Node;
 
 
 module_load_include('inc', 'afrikaburn_registration', 'includes/project.wizard');
-// module_load_include('inc', 'afrikaburn_registration', 'includes/project.draft');
 
 
 /**
@@ -20,13 +19,28 @@ function afrikaburn_registration_page_attachments(array &$page) {
   $page['#attached']['library'][] = 'afrikaburn_registration/print';
 }
 
-
+/**
+ * Implements hook_node_view()
+ */
 function afrikaburn_registration_node_view(&$build, $entity, $display, $view_mode) {
-  if (in_array($entity->bundle, [])){
 
+  $bundle = $entity->bundle();
+
+  if (in_array($bundle, ['art', 'mutant_vehicles', 'performances', 'mutant_vehicles'])){
+
+    module_load_include('inc', 'afrikaburn_registration', 'includes/form');
+
+    $registration_config = _project_form_config();
+    $defaults = @($registration_config)['node_' . $bundle . '_' . $display->get('mode') . '_form'];
+
+    if ($defaults){
+      $collective = $entity->field_collective->entity;
+      $build['title'] = [
+        '#markup' => '<h1 class="page-title">' . _get_title($defaults, $collective, $entity) . '</h1>',
+      ];
+    }
   }
 }
-
 
 
 /* ----- Form alters ----- */

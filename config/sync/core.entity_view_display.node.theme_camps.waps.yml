@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.wap
+    - core.entity_view_mode.node.waps
     - field.field.node.theme_camps.field_admin_comments
     - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_field_prj_plc_marquis
@@ -176,10 +176,10 @@ third_party_settings:
         open: false
         required_fields: true
       label: Administrative
-id: node.theme_camps.wap
+id: node.theme_camps.waps
 targetEntityType: node
 bundle: theme_camps
-mode: wap
+mode: waps
 content:
   field_collective:
     weight: 16

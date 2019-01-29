@@ -4,7 +4,7 @@ status: true
 dependencies:
   module:
     - node
-id: node.wap
-label: WAP
+id: node.waps
+label: WAPs
 targetEntityType: node
 cache: true

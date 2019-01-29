@@ -3,7 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.wap
+    - core.entity_view_mode.node.waps
     - field.field.node.performances.field_admin_comments
     - field.field.node.performances.field_allow_support_camp
     - field.field.node.performances.field_bke_day
@@ -147,10 +147,10 @@ third_party_settings:
         open: false
         required_fields: true
       label: Administrative
-id: node.performances.wap
+id: node.performances.waps
 targetEntityType: node
 bundle: performances
-mode: wap
+mode: waps
 content:
   field_collective:
     weight: 41
