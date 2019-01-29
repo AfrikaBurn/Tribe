@@ -407,7 +407,7 @@ function _wap_form(&$form, $collective, $registration, $mode){
     }
 
     $form['waps'] = [
-      '#prefix' => '<table><thead><th>Member</th><th>Estimated arrival date</th></tr></thead><tbody>',
+      '#prefix' => '<table id="wap-assign"><thead><th>Member</th><th>Estimated arrival date</th></tr></thead><tbody>',
       '#type' => 'fieldset',
       '#suffix' => '</tbody></table>',
       '#tree' => TRUE,
@@ -457,12 +457,15 @@ function _wap_form(&$form, $collective, $registration, $mode){
 
     $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_wap_submit';
     $form['#validate'][] = 'afrikaburn_registration_wap_validate';
+    $form['#attached']['library'][] = 'afrikaburn_registration/registration';
 
     $form['outtro'] = [
       '#type' => 'markup',
       '#markup' =>
-        '<div class="messages messages--warning"><strong>' .
-        '</strong>Once assigned, WAPs can only be transfered through Quicket.<strong>' .
+        '<div class="messages messages--warning">' .
+        '* If a member of your collective does not appear in the dropdown, they have likely been assigned one elsewhere already.<br />' .
+        '* Once assigned, WAPs can only be transfered through Quicket.<br />' .
+        '* You do not have to assign all WAPs in one go, you can assign WAPs until April 15th.' .
         '</div>',
     ];
   }
