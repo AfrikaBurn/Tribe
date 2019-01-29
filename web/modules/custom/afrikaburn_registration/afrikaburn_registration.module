@@ -12,12 +12,19 @@ module_load_include('inc', 'afrikaburn_registration', 'includes/project.wizard')
 
 
 /**
+ * Implements hook_page_attachments()
  * Attach shared script
  */
 function afrikaburn_registration_page_attachments(array &$page) {
   $page['#attached']['library'][] = 'afrikaburn_registration/block';
   $page['#attached']['library'][] = 'afrikaburn_registration/print';
 }
+
+
+function afrikaburn_registration_node_view(&$build, $entity, $display, $view_mode) {
+
+}
+
 
 
 /* ----- Form alters ----- */
@@ -105,7 +112,7 @@ function afrikaburn_registration_form_views_exposed_form_alter(&$form, $form_sta
 }
 
 
-/* ---- Locat task alter ----- */
+/* ---- Local task alter ----- */
 
 
 /**
@@ -223,6 +230,10 @@ function afrikaburn_registration_theme(){
  */
 function afrikaburn_registration_preprocess_views_view(&$variables){
   switch ($variables['id']){
+
+    case 'project_registration_view':
+      \Drupal::routeMatch()->getRouteObject()->setDefault('_title', $title);
+    break;
 
     case 'collective_projects':
       module_load_include('inc', 'afrikaburn_registration', 'includes/collective.projects');

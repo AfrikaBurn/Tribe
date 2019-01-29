@@ -8,39 +8,42 @@ dependencies:
     - field.field.paragraph.wap.field_year_cycle
     - paragraphs.paragraphs_type.wap
   module:
-    - computed_field
     - datetime
+    - ds
+third_party_settings:
+  ds:
+    layout:
+      id: layout_twocol
+      library: layout_discovery/twocol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      first:
+        - field_estimated_date_of_arrival
+      second:
+        - field_team_member
 id: paragraph.wap.default
 targetEntityType: paragraph
 bundle: wap
 mode: default
 content:
   field_estimated_date_of_arrival:
-    weight: 2
-    label: inline
+    weight: 0
+    label: hidden
     settings:
       format_type: medium
       timezone_override: ''
     third_party_settings: {  }
     type: datetime_default
-    region: content
+    region: first
   field_team_member:
     weight: 1
-    label: inline
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
-    region: content
-  field_year_cycle:
-    weight: 0
-    label: inline
-    settings:
-      cache_unit: -1
-      cache_duration: 1
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: computed_integer
-    region: content
-hidden: {  }
+    region: second
+hidden:
+  field_year_cycle: true
