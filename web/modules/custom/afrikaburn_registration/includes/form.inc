@@ -255,19 +255,23 @@ function _get_collective($registration){
     : ($registration && $registration->field_collective
       ? $registration->field_collective->getValue()[0]['target_id']
       : false);
-  return \Drupal::entityTypeManager()->getStorage('node')->load($cid);
-}
+      return $cid
+      ? \Drupal::entityTypeManager()->getStorage('node')->load($cid)
+      : false;
+  }
 
 /**
  * Retrieve the collective from the URL or the registration.
  */
 function _get_supporting_project($registration){
-  $cid = \Drupal::request()->query->get('field_supporting_project')
+  $rid = \Drupal::request()->query->get('field_supporting_project')
     ? \Drupal::request()->query->get('field_supporting_project')
     : ($registration && $registration->field_supporting_project
       ? $registration->field_supporting_project->getValue()[0]['target_id']
       : false);
-  return \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+  return $rid
+    ? \Drupal::entityTypeManager()->getStorage('node')->load($rid)
+    : false;
 }
 
 /**
@@ -305,7 +309,7 @@ function _get_registration_params($form_state, $defaults){
     $user->hasRole($defaults['wrangler']), // $is_wrangler,
     $user->hasRole('administrator'), // $is_admin,
     $entity->bundle(), // $bundle,
-    array_pop(explode('/', \Drupal::service('path.current')->getPath())), // $mode,
+    @array_pop(explode('/', \Drupal::service('path.current')->getPath())), // $mode,
   ];
 }
 
@@ -457,6 +461,7 @@ function _wap_form(&$form, $collective, $registration, $mode){
 
     $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_wap_submit';
     $form['#validate'][] = 'afrikaburn_registration_wap_validate';
+    $form['#validate'][] = 'afrikaburn_registration_wap_quicket';
     $form['#attached']['library'][] = 'afrikaburn_registration/registration';
 
     $form['outtro'] = [
