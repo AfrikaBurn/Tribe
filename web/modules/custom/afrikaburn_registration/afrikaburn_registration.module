@@ -376,6 +376,36 @@ function afrikaburn_registration_wap_validate($form, $form_state){
 }
 
 /**
+ * WAPs quicket
+ */
+function afrikaburn_registration_wap_quicket($form, $form_state){
+
+  if (count($form_state->getErrors())) return;
+
+  module_load_include('inc', 'afrikaburn_registration', 'includes/quicket');
+
+  $values = $form_state->getValues();
+  $uids = array_filter(array_column($values['waps'], 'member'));
+  $users = @User::loadMultiple($uids);
+  $waps = [];
+
+  foreach($users as $user){
+    $waps[] = [
+      'FirstName' => $user->field_first_name->value,
+      'Surname' => $user->field_last_name->value,
+      'Email' => $user->field_email->value,
+    ];
+  }
+
+  if (!_send_WAPs($waps)){
+    $form_state->setError(
+      $form,
+      t('<strong>Quicket says NO!</strong><br />There was a problem creating these WAPs, please try submitting this form again later.<br /> If the problem persists please <a href="mailto:cia@afrikaburn.com">Contact an Administrator!</a>')
+    );
+  }
+}
+
+/**
  * WAPs submission
  */
 function afrikaburn_registration_wap_submit($form, $form_state){
@@ -385,9 +415,6 @@ function afrikaburn_registration_wap_submit($form, $form_state){
 
   foreach($values['waps'] as $wap){
     if ($wap['member']){
-
-
-      // TODO: Quicket API call
 
       $paragraph = \Drupal\paragraphs\Entity\Paragraph::create(
         [
@@ -408,7 +435,6 @@ function afrikaburn_registration_wap_submit($form, $form_state){
     $project->save();
   }
 }
-
 
 
 /* ----- Computed fields ----- */
