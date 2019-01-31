@@ -400,7 +400,7 @@ function afrikaburn_registration_wap_quicket($form, $form_state){
   if (!_send_WAPs($waps)){
     $form_state->setError(
       $form,
-      t('<strong>Quicket says NO!</strong><br />There was a problem creating these WAPs, please try submitting this form again later.<br /> If the problem persists please <a href="mailto:cia@afrikaburn.com">Contact an Administrator!</a>')
+      t('<strong>Quicket says NO!</strong><br />There was a problem creating these WAPs, please try submitting this form again later.<br /> If the problem persists please <a href="mailto:cia@afrikaburn.com">Contact an Administrator</a>!')
     );
   }
 }
