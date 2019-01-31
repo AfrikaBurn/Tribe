@@ -67,6 +67,7 @@ function ar_prepare_project_links(&$variables) {
           $editable = @$mode['state']['editable'] && $view->group_admin;
           $complete = @$completed[$mode['name']];
           $pid = false;
+          $link = false;
 
           switch (true){
             case $editable && !$complete:
@@ -82,34 +83,49 @@ function ar_prepare_project_links(&$variables) {
               $description = 'LOCKED: Read only.';
           }
 
-          if ($mode['name'] == 'support_camp') {
+          switch($mode['name']){
 
-            $query = \Drupal::entityQuery('node')
-              ->condition('type', 'theme_camps')
-              ->condition('field_supporting_project', $nid);
-            $pid = array_shift($query->execute());
-            $cid = $view->args[0];
+            case 'support_camp':
+              $query = \Drupal::entityQuery('node')
+                ->condition('type', 'theme_camps')
+                ->condition('field_supporting_project', $nid);
+              $pid = array_shift($query->execute());
+              $cid = $view->args[0];
 
-            $link =  $registration->get('field_allow_support_camp')->value
-              ? (
-                $pid
-                  ? ($editable
-                      ? '<a href="/node/' . $pid . '/edit/' . $mode['name'] . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
-                      : '<a href="/node/' . $pid . '/' . $mode['name'] . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
-                    )
-                  : ($editable
-                      ? '<a href="/node/add/theme_camps/support_camp?field_collective='. $cid .'&field_supporting_project=' . $nid . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
-                      : false
-                    )
-                )
-              : false;
+              $link =  $registration->get('field_allow_support_camp')->value
+                ? (
+                  $pid
+                    ? ($editable
+                        ? '<a href="/node/' . $pid . '/edit/' . $mode['name'] . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
+                        : '<a href="/node/' . $pid . '/' . $mode['name'] . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
+                      )
+                    : ($editable
+                        ? '<a href="/node/add/theme_camps/support_camp?field_collective='. $cid .'&field_supporting_project=' . $nid . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
+                        : false
+                      )
+                  )
+                : false;
+            break;
 
-          } else  {
-            $link = (
-              $editable
-                ? '<a href="/node/' . $nid . '/edit/' . $mode['name'] . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
-                : '<a href="/node/' . $nid . '/' . $mode['name'] . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
-            );
+            case 'waps':
+
+              if ($registration->field_waps_allowed->value){
+                $link = (
+                  $editable
+                    ? '<a href="/node/' . $nid . '/edit/' . $mode['name'] . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
+                    : '<a href="/node/' . $nid . '/' . $mode['name'] . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
+                );
+              }
+
+            break;
+
+            default:
+
+              $link = (
+                $editable
+                  ? '<a href="/node/' . $nid . '/edit/' . $mode['name'] . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
+                  : '<a href="/node/' . $nid . '/' . $mode['name'] . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
+              );
           }
 
           if ($link) {
