@@ -176,18 +176,6 @@ function afrikaburn_registration_views_query_alter($view, $query){
       }
     }
   }
-
-  // WAPs
-  if ($view->id() == 'collective_members' && $view->current_display == 'wap'){
-
-    // $next = strtotime(Drupal\Core\Site\Settings::get('afrikaburn.cycle')['end']);
-    // $year_end = strtotime('31 dec ' . date('Y'));
-    // $offset = ($year_end - $next) / 86400;
-    // $year = date('Y', strtotime('+' . $offset .' days'));
-
-    // $query->where[2]['conditions'][1]["value"] = $year;
-  }
-
 }
 
 
@@ -248,10 +236,10 @@ function afrikaburn_registration_theme(){
       'template' => 'views-view-fields--wrangle-comments',
       'base hook' => 'view',
     ],
-    'views_view_fields__wrangle_waps' => [
-      'template' => 'views-view-fields--wrangle-projects',
-      'base hook' => 'view',
-    ],
+    // 'views_view_table__wrangle_waps' => [
+    //   'template' => 'views-view-fields--wrangle-projects',
+    //   'base hook' => 'view',
+    // ],
   ];
 }
 
