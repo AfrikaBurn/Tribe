@@ -46,3 +46,7 @@ afrikaburn_registration.wrangle_theme_camps-tasks:
   path: '/wrangle/projects/theme_camps/tasks'
   options:
     _admin_route: TRUE
+afrikaburn_registration.wrangle_waps:
+  path: '/wrangle/projects/waps'
+  options:
+    _admin_route: TRUE

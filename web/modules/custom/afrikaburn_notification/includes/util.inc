@@ -206,6 +206,7 @@ function _diff($entity){
 // Compute entity diff
 function _entity_compare($entity_new, $entity_old) {
 
+  $diff = FALSE;
   $bundle_fields = \Drupal::entityManager()->getFieldDefinitions('node', $entity_new->bundle());
 
   foreach($bundle_fields as $name=>$definition){
