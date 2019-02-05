@@ -4,7 +4,7 @@
  * Contains quicket utility functions
  */
 
-use \Drupal\Core\Site\Settings;
+use Drupal\Core\Site\Settings;
 use Drupal\Component\Serialization\Json;
 
 /**
@@ -26,14 +26,16 @@ function _send_WAPs($waps){
   ];
 
   foreach($waps as &$wap){
-    $wap['OrderItems'] = $ticket;
+    $wap['OrderItems'] = [$ticket];
   }
 
-  $data = [
-    'Guests' => $waps,
-    'IsRsvp' => TRUE, // Is it?
-    'SendMails' => TRUE,
-  ];
+  $data = json_encode(
+    [
+      'Guests' => $waps,
+      'IsRsvp' => FALSE,
+      'SendMails' => TRUE,
+    ]
+  );
 
   $options = [
     'headers' => [
@@ -41,15 +43,17 @@ function _send_WAPs($waps){
       'usertoken' => $settings['user_token'],
     ],
     'timeout' => 45,
-    'form_params' => $data,
+    'body' => $data,
   ];
 
   try{
 
     $client = \Drupal::httpClient();
-    $response = $client->request(
-      'POST',
+
+    \Drupal::logger('WAPs')->debug('Payload:<br /><pre>' . var_export($options, TRUE) . '</pre>');
+    $response = $client->post(
       'https://api.quicket.co.za/api/events/' . $settings['event_id'] . '/orders/complimentaries?api_key=' . $settings['api_key'],
+      // 'http://127.0.0.1:3000/' . $settings['event_id'] . '/orders/complimentaries?api_key=' . $settings['api_key'],
       $options
     );
 

@@ -156,11 +156,13 @@ function afrikaburn_registration_menu_local_tasks_alter(&$data, $route_name){
 /**
  * Implements hook_views_query_alter().
  * Change "unassigned" wrangler filter into IS NULL in query.
+ * Show only users that have not been assigned WAPs in this cycle.
  */
 function afrikaburn_registration_views_query_alter($view, $query){
 
   @list($purpose, $type) = array_map('trim', explode(',', $view->storage->get('tag')));
 
+  // Filter
   if ($purpose && $purpose == 'wrangle' && $view->exposed_raw_input['wrangler'] == 'unassigned') {
 
     foreach ($query->where as &$condition_group) {
@@ -234,6 +236,10 @@ function afrikaburn_registration_theme(){
       'template' => 'views-view-fields--wrangle-comments',
       'base hook' => 'view',
     ],
+    // 'views_view_table__wrangle_waps' => [
+    //   'template' => 'views-view-fields--wrangle-projects',
+    //   'base hook' => 'view',
+    // ],
   ];
 }
 
@@ -247,9 +253,9 @@ function afrikaburn_registration_theme(){
 function afrikaburn_registration_preprocess_views_view(&$variables){
   switch ($variables['id']){
 
-    case 'project_registration_view':
-      \Drupal::routeMatch()->getRouteObject()->setDefault('_title', $title);
-    break;
+    // case 'project_registration_view':
+    //   \Drupal::routeMatch()->getRouteObject()->setDefault('_title', $title);
+    // break;
 
     case 'collective_projects':
       module_load_include('inc', 'afrikaburn_registration', 'includes/collective.projects');
@@ -400,7 +406,7 @@ function afrikaburn_registration_wap_quicket($form, $form_state){
   if (!_send_WAPs($waps)){
     $form_state->setError(
       $form,
-      t('<strong>Quicket says NO!</strong><br />There was a problem creating these WAPs, please try submitting this form again later.<br /> If the problem persists please <a href="mailto:cia@afrikaburn.com">Contact an Administrator!</a>')
+      t('<strong>Quicket says NO!</strong><br />There was a problem creating these WAPs, please try submitting this form again later.<br /> If the problem persists please <a href="mailto:cia@afrikaburn.com">Contact an Administrator</a>!')
     );
   }
 }
@@ -444,7 +450,13 @@ function afrikaburn_registration_wap_submit($form, $form_state){
  * Computes event year cycle
  */
 function computed_field_field_year_cycle_compute($entity_type_manager, $entity, $fields, $delta){
-  return date('Y', strtotime('+8 months', $entity->get('created')->value));
+
+  $next = strtotime(Drupal\Core\Site\Settings::get('afrikaburn.cycle')['end']);
+  $year_end = strtotime('31 dec ' . date('Y'));
+  $offset = ($year_end - $next) / 86400;
+  $year = date('Y', strtotime('+' . $offset .' days', $entity->get('created')->value));
+
+  return $year;
 }
 
 /**
