@@ -229,6 +229,16 @@ article.collective-post header a{
   visibility: hidden;
 }
 
+details.leave-collective{
+  cursor: pointer;
+  position: absolute;
+  right: 33px;
+  background: #00000055;
+  padding: 5px 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
 .view-collective-posts article.collective-post:hover > header,
 .view-collective-posts article.collective-post footer details[open],
 .view-collective-posts article.collective-post:hover footer details{
