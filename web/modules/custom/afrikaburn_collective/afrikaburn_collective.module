@@ -33,6 +33,17 @@ function afrikaburn_collective_node_view(&$build, $entity, $display, $view_mode)
     $build['posts'] = views_embed_view('collective_posts', 'posts', $nid);
   }
 
+  if ($display->getComponent('leave')){
+    $build['leave'] = [
+      '#markup' => '<details class="leave-collective">
+        <summary>Leave collective</summary>
+          <a href="/collective/' . $nid . '/boot/' . \Drupal::currentUser()->id() . '">
+            Let me out!
+          </a>
+        </details>',
+    ];
+  }
+
   if ($display->getComponent('post_something')){
     $form = \Drupal::service('entity.form_builder')->getForm(
       \Drupal::entityTypeManager()->getStorage('comment')->create(
@@ -124,6 +135,13 @@ function afrikaburn_collective_entity_extra_field_info() {
   $extra['node']['collective']['display']['post_something'] = array(
     'label' => t('Post form'),
     'description' => t('Form to create a post'),
+    'weight' => 100,
+    'visible' => TRUE,
+  );
+
+  $extra['node']['collective']['display']['leave'] = array(
+    'label' => t('Leave collective'),
+    'description' => t('Link to leave a collective'),
     'weight' => 100,
     'visible' => TRUE,
   );
