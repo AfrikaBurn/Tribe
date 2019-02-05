@@ -4,14 +4,29 @@ status: true
 dependencies:
   config:
     - page_manager.page.home_page_logged_in
+  content:
+    - 'block_content:basic:e1c0c942-522b-410a-9b72-1668e3b402bd'
   module:
+    - block_content
     - panels
     - user
 id: home_page_logged_in-panels_variant-1
 label: 'Not Logged in'
 variant: panels_variant
 variant_settings:
-  blocks: {  }
+  blocks:
+    b6505532-a68d-42d9-bc29-049cd933342b:
+      id: 'block_content:e1c0c942-522b-410a-9b72-1668e3b402bd'
+      label: 'Welcome not logged in'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: content
+      weight: 0
+      uuid: b6505532-a68d-42d9-bc29-049cd933342b
+      context_mapping: {  }
   id: panels_variant
   uuid: c4dd57bf-e288-4b1b-9944-65c0233632db
   label: null
