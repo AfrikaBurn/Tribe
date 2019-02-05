@@ -207,9 +207,9 @@ form.node-collective-form details summary {
   cursor: pointer;
 }
 
-form.node-collective-edit-form details{
+/* form.node-collective-edit-form details{
   display: none;
-}
+} */
 
 .view-collective-posts article.collective-post{
   position: relative;
