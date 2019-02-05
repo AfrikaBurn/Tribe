@@ -1,10 +1,10 @@
-uuid: 8bde04dd-24be-4bae-a94b-c1fa63e6caa7
+uuid: bf36588a-459d-44f2-9e64-edfcd0f42abe
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_waps
-    - node.type.art
+    - node.type.mutant_vehicles
     - paragraphs.paragraphs_type.wap
   module:
     - custom_add_another
@@ -13,14 +13,14 @@ third_party_settings:
   custom_add_another:
     custom_add_another: ''
     custom_remove: ''
-id: node.art.field_waps
+id: node.mutant_vehicles.field_waps
 field_name: field_waps
 entity_type: node
-bundle: art
+bundle: mutant_vehicles
 label: WAPs
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

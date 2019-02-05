@@ -255,19 +255,23 @@ function _get_collective($registration){
     : ($registration && $registration->field_collective
       ? $registration->field_collective->getValue()[0]['target_id']
       : false);
-  return \Drupal::entityTypeManager()->getStorage('node')->load($cid);
-}
+      return $cid
+      ? \Drupal::entityTypeManager()->getStorage('node')->load($cid)
+      : false;
+  }
 
 /**
  * Retrieve the collective from the URL or the registration.
  */
 function _get_supporting_project($registration){
-  $cid = \Drupal::request()->query->get('field_supporting_project')
+  $rid = \Drupal::request()->query->get('field_supporting_project')
     ? \Drupal::request()->query->get('field_supporting_project')
     : ($registration && $registration->field_supporting_project
       ? $registration->field_supporting_project->getValue()[0]['target_id']
       : false);
-  return \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+  return $rid
+    ? \Drupal::entityTypeManager()->getStorage('node')->load($rid)
+    : false;
 }
 
 /**
@@ -305,7 +309,7 @@ function _get_registration_params($form_state, $defaults){
     $user->hasRole($defaults['wrangler']), // $is_wrangler,
     $user->hasRole('administrator'), // $is_admin,
     $entity->bundle(), // $bundle,
-    array_pop(explode('/', \Drupal::service('path.current')->getPath())), // $mode,
+    @array_pop(explode('/', \Drupal::service('path.current')->getPath())), // $mode,
   ];
 }
 
@@ -395,19 +399,32 @@ function _wap_form(&$form, $collective, $registration, $mode){
 
     $allowed = (int)$registration->field_waps_allowed->value;
     $assigned = count($registration->field_waps);
-
-    $view = \Drupal\views\Views::getView('collective_members');
-    $view->setDisplay('wap');
-    $view->setArguments([$collective->nid->value]);
-    $view->preExecute();
-    $view->execute();
+    $uids = \Drupal::database()->query("
+      SELECT
+        members.field_col_members_target_id as uid
+      FROM
+        {node__field_col_members} AS members
+      LEFT JOIN
+        {paragraph__field_team_member} AS wap_member ON members.field_col_members_target_id = wap_member.field_team_member_target_id
+      LEFT JOIN
+        {paragraphs_item_field_data} as wap ON wap.id = wap_member.entity_id
+      LEFT JOIN
+        {flagging} as archived ON archived.entity_id = wap.parent_id
+      WHERE
+        members.entity_id = " . $collective->nid->value . " AND
+        (
+          (archived.flag_id = 'archived' AND wap.parent_id IS NOT NULL) OR
+          (archived.flag_id IS NULL AND wap.parent_id IS NULL)
+        )"
+    )->fetchCol();
+    $users = \Drupal::entityTypeManager()->getStorage('user')->loadMultiple($uids);
     $options = ['-- Unassigned --'];
-    foreach($view->result as $row){
-      $options[$row->uid] = $row->_entity->field_first_name->value . ' "' . $row->_entity->name->value . '" ' . $row->_entity->field_last_name->value;
+    foreach($users as $user){
+      $options[$user->uid->value] = $user->field_first_name->value . ' "' . $user->name->value . '" ' . $user->field_last_name->value;
     }
 
     $form['waps'] = [
-      '#prefix' => '<table><thead><th>Member</th><th>Estimated arrival date</th></tr></thead><tbody>',
+      '#prefix' => '<table id="wap-assign"><thead><th>Member</th><th>Estimated arrival date</th></tr></thead><tbody>',
       '#type' => 'fieldset',
       '#suffix' => '</tbody></table>',
       '#tree' => TRUE,
@@ -457,12 +474,16 @@ function _wap_form(&$form, $collective, $registration, $mode){
 
     $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_wap_submit';
     $form['#validate'][] = 'afrikaburn_registration_wap_validate';
+    $form['#validate'][] = 'afrikaburn_registration_wap_quicket';
+    $form['#attached']['library'][] = 'afrikaburn_registration/registration';
 
     $form['outtro'] = [
       '#type' => 'markup',
       '#markup' =>
-        '<div class="messages messages--warning"><strong>' .
-        '</strong>Once assigned, WAPs can only be transfered through Quicket.<strong>' .
+        '<div class="messages messages--warning">' .
+        '* If a member of your collective does not appear in the dropdown, they have likely been assigned one elsewhere already.<br />' .
+        '* Once assigned, WAPs can only be transfered through Quicket.<br />' .
+        '* You do not have to assign all WAPs in one go, you can assign WAPs until April 15th.' .
         '</div>',
     ];
   }

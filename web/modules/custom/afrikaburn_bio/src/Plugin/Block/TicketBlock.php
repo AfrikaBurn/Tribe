@@ -32,7 +32,7 @@ class TicketBlock extends BlockBase {
       $links = ['<a class="button bio-update" href="/user/'.$uid.'/edit/update"><strong>Update your Bio</strong></a>'];
     }
 
-    $links[] = '<a class="button bio-tickets" target="_blank" href="https://www.quicket.co.za/events/' . $settings['event_id'] . 'h=' . md5($uid) . '">Buy tickets</a><br/>';
+    $links[] = '<a class="button bio-tickets" target="_blank" href="https://www.quicket.co.za/events/' . $settings['ticket_link'] . 'h=' . md5($uid) . '">Buy tickets</a><br/>';
 
     return [
       '#type' => 'markup',

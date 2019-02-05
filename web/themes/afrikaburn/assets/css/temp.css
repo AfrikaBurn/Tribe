@@ -2,10 +2,11 @@
 
 .view-community-projects .views-row{
   margin: 50px 0;
+  padding-bottom: 30px;
 }
 
 .view-community-projects .views-field-field-prj-wtf-image img{
-  width: 100%;
+  width: auto;
 }
 
 
@@ -285,4 +286,26 @@ body.path-frontpage .main-block{
 
 #edit-field-date-of-birth-0 select {
     max-width: 150px;
+}
+
+.view-community-projects .views-field.views-field-field-prj-wtf-image {
+    max-width: 220px;
+    float: left;
+    width: 100%;
+    height: auto;
+    padding-right: 12px;
+}
+.view-community-projects .views-row {
+    min-height: 220px;
+}
+.view-community-projects .views-field.views-field-type,
+.view-community-projects .views-label.views-label-field-prj-stg-type {
+    font-weight: 800;
+    font-size: 110%;
+}
+.view-community-projects .views-field.views-field-field-prj-stg-type {
+    padding-top: 12px;
+}
+.view-community-projects .js-form-item.form-item.js-form-type-textfield.form-type-textfield.js-form-item-search.form-item-search {
+    width: 600px;
 }

@@ -1,10 +1,10 @@
-uuid: 8bde04dd-24be-4bae-a94b-c1fa63e6caa7
+uuid: 765e80e2-7b05-4479-b9b3-3f4373b8b90a
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_waps
-    - node.type.art
+    - node.type.performances
     - paragraphs.paragraphs_type.wap
   module:
     - custom_add_another
@@ -13,14 +13,14 @@ third_party_settings:
   custom_add_another:
     custom_add_another: ''
     custom_remove: ''
-id: node.art.field_waps
+id: node.performances.field_waps
 field_name: field_waps
 entity_type: node
-bundle: art
+bundle: performances
 label: WAPs
 description: ''
 required: false
-translatable: false
+translatable: true
 default_value: {  }
 default_value_callback: ''
 settings:

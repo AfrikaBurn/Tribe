@@ -7,4 +7,4 @@ _core:
 id: medium
 label: 'Default medium date'
 locked: false
-pattern: 'D, Y/m/d - H:i'
+pattern: 'D, d/m/Y - H:i'
