@@ -50,3 +50,7 @@ afrikaburn_registration.wrangle_waps:
   path: '/wrangle/projects/waps'
   options:
     _admin_route: TRUE
+afrikaburn_registration.wrangle_sound:
+  path: '/wrangle/projects/sound'
+  options:
+    _admin_route: TRUE
