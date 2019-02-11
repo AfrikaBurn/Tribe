@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_form_mode.node.grant
     - field.field.node.mutant_vehicles.field_admin_comments
+    - field.field.node.mutant_vehicles.field_allow_support_camp
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
     - field.field.node.mutant_vehicles.field_grt_art_total
@@ -101,6 +102,8 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prjr_complete
     - field.field.node.mutant_vehicles.field_sup_review
     - field.field.node.mutant_vehicles.field_vp_ea
+    - field.field.node.mutant_vehicles.field_waps
+    - field.field.node.mutant_vehicles.field_waps_allowed
     - field.field.node.mutant_vehicles.field_year_cycle
     - node.type.mutant_vehicles
   module:
@@ -305,22 +308,16 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_prj_adm_review:
-    type: entity_reference_autocomplete
+    type: options_select
     weight: 1
     region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_prj_adm_wrangler:
-    type: entity_reference_autocomplete
+    type: options_select
     weight: 2
     region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_prjr_complete:
     type: options_buttons
@@ -345,6 +342,7 @@ content:
 hidden:
   created: true
   field_admin_comments: true
+  field_allow_support_camp: true
   field_grt_status: true
   field_mutant_drivers: true
   field_prj_adm_registration: true
@@ -424,6 +422,8 @@ hidden:
   field_prj_wtf_website: true
   field_sup_review: true
   field_vp_ea: true
+  field_waps: true
+  field_waps_allowed: true
   field_year_cycle: true
   path: true
   promote: true
