@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.theme_camps.field_final_placement
     - field.field.node.theme_camps.field_form_mode
     - field.field.node.theme_camps.field_ice_card
+    - field.field.node.theme_camps.field_lineup_request
     - field.field.node.theme_camps.field_neighbours
     - field.field.node.theme_camps.field_placed
     - field.field.node.theme_camps.field_placement_card
@@ -104,8 +105,11 @@ dependencies:
     - field.field.node.theme_camps.field_prj_snd_genre
     - field.field.node.theme_camps.field_prj_snd_level
     - field.field.node.theme_camps.field_prj_snd_person
+    - field.field.node.theme_camps.field_prj_snd_rangers
+    - field.field.node.theme_camps.field_prj_snd_setup_date
     - field.field.node.theme_camps.field_prj_snd_soop
     - field.field.node.theme_camps.field_prj_snd_sound
+    - field.field.node.theme_camps.field_prj_snd_specs
     - field.field.node.theme_camps.field_prj_stg_contact
     - field.field.node.theme_camps.field_prj_stg_description
     - field.field.node.theme_camps.field_prj_stg_stage
@@ -122,11 +126,14 @@ dependencies:
     - field.field.node.theme_camps.field_prj_wtf_short_copy
     - field.field.node.theme_camps.field_prj_wtf_website
     - field.field.node.theme_camps.field_prjr_complete
+    - field.field.node.theme_camps.field_ranger_representative
     - field.field.node.theme_camps.field_stretch_tent_dimen
     - field.field.node.theme_camps.field_sup_review
     - field.field.node.theme_camps.field_supporting_project
     - field.field.node.theme_camps.field_tc_type
     - field.field.node.theme_camps.field_vp_ea
+    - field.field.node.theme_camps.field_waps
+    - field.field.node.theme_camps.field_waps_allowed
     - field.field.node.theme_camps.field_year_cycle
     - image.style.thumbnail
     - node.type.theme_camps
@@ -351,13 +358,10 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_prj_adm_review:
-    type: entity_reference_autocomplete
+    type: options_select
     weight: 2
     region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_prj_adm_wrangler:
     type: options_select
@@ -662,6 +666,7 @@ hidden:
   created: true
   field_final_placement: true
   field_ice_card: true
+  field_lineup_request: true
   field_neighbours: true
   field_placed: true
   field_placement_card: true
@@ -717,8 +722,11 @@ hidden:
   field_prj_snd_genre: true
   field_prj_snd_level: true
   field_prj_snd_person: true
+  field_prj_snd_rangers: true
+  field_prj_snd_setup_date: true
   field_prj_snd_soop: true
   field_prj_snd_sound: true
+  field_prj_snd_specs: true
   field_prj_stg_contact: true
   field_prj_stg_description: true
   field_prj_stg_stage: true
@@ -734,9 +742,12 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
+  field_ranger_representative: true
   field_sup_review: true
   field_tc_type: true
   field_vp_ea: true
+  field_waps: true
+  field_waps_allowed: true
   moderation_state: true
   path: true
   promote: true

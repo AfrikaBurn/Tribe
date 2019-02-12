@@ -1545,6 +1545,7 @@ content:
 hidden:
   created: true
   field_admin_comments: true
+  field_allow_support_camp: true
   field_grt_art_total: true
   field_grt_contribution: true
   field_grt_dmv_budget: true
@@ -1582,6 +1583,8 @@ hidden:
   field_prj_wtf_short_copy: true
   field_sup_review: true
   field_vp_ea: true
+  field_waps: true
+  field_waps_allowed: true
   moderation_state: true
   path: true
   promote: true

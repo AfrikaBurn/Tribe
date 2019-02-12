@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.collective.field_col_invitee
     - field.field.node.collective.field_col_members
     - field.field.node.collective.field_col_posts
+    - field.field.node.collective.field_disable_emails
     - field.field.node.collective.field_picture
     - node.type.collective
   module:
@@ -54,6 +55,16 @@ content:
     third_party_settings: {  }
     type: text_trimmed
     region: ds_content
+  field_disable_emails:
+    weight: 6
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_picture:
     weight: 0
     label: hidden

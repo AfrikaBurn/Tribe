@@ -10,6 +10,7 @@ filenames:
   notification: ''
   mutant_vehicles: ''
   theme_camps: ''
+  collective: ''
 bundles:
   announcement:
     body:
@@ -980,6 +981,17 @@ bundles:
       notes: ''
       bundle: collective
       name: field_col_admins
+    field_disable_emails:
+      bundle: collective
+      name: field_disable_emails
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   incident:
     field_incident_type:
       bundle: incident

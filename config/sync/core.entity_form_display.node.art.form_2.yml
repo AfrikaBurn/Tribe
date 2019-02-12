@@ -138,6 +138,8 @@ dependencies:
     - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
     - field.field.node.art.field_vp_ea
+    - field.field.node.art.field_waps
+    - field.field.node.art.field_waps_allowed
     - field.field.node.art.field_year_cycle
     - node.type.art
   module:
@@ -307,10 +309,13 @@ content:
       display_label: true
     third_party_settings: {  }
   field_collective:
-    type: options_select
+    type: entity_reference_autocomplete
     weight: 0
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_form_mode:
     type: string_textfield
@@ -666,7 +671,7 @@ content:
     type: markup
     region: content
   field_prjr_complete:
-    type: options_select
+    type: options_buttons
     weight: 6
     region: content
     settings: {  }
@@ -775,6 +780,8 @@ hidden:
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
+  field_waps: true
+  field_waps_allowed: true
   path: true
   promote: true
   status: true

@@ -105,8 +105,11 @@ dependencies:
     - field.field.node.theme_camps.field_prj_snd_genre
     - field.field.node.theme_camps.field_prj_snd_level
     - field.field.node.theme_camps.field_prj_snd_person
+    - field.field.node.theme_camps.field_prj_snd_rangers
+    - field.field.node.theme_camps.field_prj_snd_setup_date
     - field.field.node.theme_camps.field_prj_snd_soop
     - field.field.node.theme_camps.field_prj_snd_sound
+    - field.field.node.theme_camps.field_prj_snd_specs
     - field.field.node.theme_camps.field_prj_stg_contact
     - field.field.node.theme_camps.field_prj_stg_description
     - field.field.node.theme_camps.field_prj_stg_stage
@@ -123,18 +126,21 @@ dependencies:
     - field.field.node.theme_camps.field_prj_wtf_short_copy
     - field.field.node.theme_camps.field_prj_wtf_website
     - field.field.node.theme_camps.field_prjr_complete
+    - field.field.node.theme_camps.field_ranger_representative
     - field.field.node.theme_camps.field_stretch_tent_dimen
     - field.field.node.theme_camps.field_sup_review
     - field.field.node.theme_camps.field_supporting_project
     - field.field.node.theme_camps.field_tc_type
     - field.field.node.theme_camps.field_vp_ea
+    - field.field.node.theme_camps.field_waps
+    - field.field.node.theme_camps.field_waps_allowed
     - field.field.node.theme_camps.field_year_cycle
     - image.style.thumbnail
     - node.type.theme_camps
   module:
-    - autocomplete_deluxe
     - comment
     - computed_field
+    - entity_reference_views_select
     - field_group
     - image
     - link
@@ -217,21 +223,13 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_collective:
-    type: autocomplete_deluxe
+    type: entity_reference_autocomplete
     weight: 0
     region: content
     settings:
       match_operator: CONTAINS
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
-      target_type: taxonomy_term
       size: 60
-      selection_handler: default
-      limit: 10
-      min_length: 0
-      delimiter: ''
-      not_found_message_allow: false
-      not_found_message: 'The term ''@term'' will be added'
-      new_terms: false
+      placeholder: ''
     third_party_settings: {  }
   field_form_mode:
     type: string_textfield
@@ -248,38 +246,16 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_prj_adm_review:
-    type: autocomplete_deluxe
+    type: options_select
     weight: 0
     region: content
-    settings:
-      match_operator: CONTAINS
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
-      target_type: taxonomy_term
-      size: 60
-      selection_handler: default
-      limit: 10
-      min_length: 0
-      delimiter: ''
-      not_found_message_allow: false
-      not_found_message: 'The term ''@term'' will be added'
-      new_terms: false
+    settings: {  }
     third_party_settings: {  }
   field_prj_adm_wrangler:
-    type: autocomplete_deluxe
+    type: erviews_options_select
     weight: 0
     region: content
-    settings:
-      match_operator: CONTAINS
-      autocomplete_route_name: autocomplete_deluxe.autocomplete
-      target_type: taxonomy_term
-      size: 60
-      selection_handler: default
-      limit: 10
-      min_length: 0
-      delimiter: ''
-      not_found_message_allow: false
-      not_found_message: 'The term ''@term'' will be added'
-      new_terms: false
+    settings: {  }
     third_party_settings: {  }
   field_prj_gen_header2:
     type: markup
@@ -332,7 +308,7 @@ content:
     type: link_default
     region: content
   field_prjr_complete:
-    type: options_select
+    type: options_buttons
     weight: 0
     region: content
     settings: {  }
@@ -446,8 +422,11 @@ hidden:
   field_prj_snd_genre: true
   field_prj_snd_level: true
   field_prj_snd_person: true
+  field_prj_snd_rangers: true
+  field_prj_snd_setup_date: true
   field_prj_snd_soop: true
   field_prj_snd_sound: true
+  field_prj_snd_specs: true
   field_prj_stg_contact: true
   field_prj_stg_description: true
   field_prj_stg_stage: true
@@ -457,11 +436,14 @@ hidden:
   field_prj_sup_details_view: true
   field_prj_sup_h1: true
   field_prj_wtf_short_copy: true
+  field_ranger_representative: true
   field_stretch_tent_dimen: true
   field_sup_review: true
   field_supporting_project: true
   field_tc_type: true
   field_vp_ea: true
+  field_waps: true
+  field_waps_allowed: true
   path: true
   promote: true
   status: true
