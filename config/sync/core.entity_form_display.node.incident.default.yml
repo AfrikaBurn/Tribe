@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.incident.field_relates_to_view
     - node.type.incident
   module:
+    - cshs
     - datetime
     - entity_reference_views_select
     - field_group
@@ -85,11 +86,11 @@ content:
   field_incident_type:
     weight: 6
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      parent: 0
+      level_labels: ''
+      force_deepest: false
     third_party_settings: {  }
-    type: entity_reference_autocomplete
+    type: cshs
     region: content
   field_people:
     weight: 6

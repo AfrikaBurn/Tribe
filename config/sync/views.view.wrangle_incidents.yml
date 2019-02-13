@@ -14,13 +14,12 @@ dependencies:
     - taxonomy.vocabulary.incident_type
     - user.role.logger
   content:
-    - 'taxonomy_term:incident_type:004bc089-936f-4215-ac7b-4e92430cfa07'
-    - 'taxonomy_term:incident_type:142dd983-cb3a-4903-8c85-e91ac8977b64'
-    - 'taxonomy_term:incident_type:63dcad5b-c508-46c3-aa49-679392146d59'
-    - 'taxonomy_term:incident_type:c66c22fb-e3a3-4f08-bb75-7bd314f69f4f'
+    - 'taxonomy_term:volunteer_skills:3116e4d3-a9c1-4d65-8dc1-2e72dac0e8c5'
+    - 'taxonomy_term:volunteer_skills:a8e9da95-d7f8-4332-a83e-6e3614221590'
+    - 'taxonomy_term:volunteer_skills:b4486848-a72d-4e34-b1e5-ef868e7c1bf9'
+    - 'taxonomy_term:volunteer_skills:bb3b1cd7-b8dd-404c-9a90-0efd22a43080'
   module:
     - datetime
-    - entity_reference_revisions
     - node
     - rest
     - search
@@ -2112,8 +2111,9 @@ display:
         type: entity_reference
         options:
           search_fields:
-            title: title
+            nid: nid
             field_description: field_description
+            title: title
             field_date_and_time: '0'
       defaults:
         fields: false
@@ -2123,26 +2123,27 @@ display:
         filter_groups: false
         header: false
       row:
-        type: entity_reference_revisions
+        type: entity_reference
         options:
           default_field_elements: true
-          inline: {  }
-          separator: ' | '
+          inline:
+            title: title
+          separator: ''
           hide_empty: true
       display_description: ''
       fields:
-        field_date_and_time:
-          id: field_date_and_time
-          table: node__field_date_and_time
-          field: field_date_and_time
+        nid:
+          id: nid
+          table: node_field_data
+          field: nid
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'Date and Time'
-          exclude: false
+          label: ''
+          exclude: true
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '#{{ nid }}'
             make_link: false
             path: ''
             absolute: false
@@ -2171,7 +2172,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -2180,10 +2181,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: datetime_custom
+          type: number_integer
           settings:
-            timezone_override: ''
-            date_format: 'H:i l j-M-Y'
+            thousand_separator: ''
+            prefix_suffix: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -2194,16 +2195,18 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: node
+          entity_field: nid
           plugin_id: field
-        title:
-          id: title
-          table: node_field_data
-          field: title
+        field_date_and_time:
+          id: field_date_and_time
+          table: node__field_date_and_time
+          field: field_date_and_time
           relationship: none
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -2244,9 +2247,10 @@ display:
           empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
-          type: string
+          type: datetime_custom
           settings:
-            link_to_entity: false
+            timezone_override: ''
+            date_format: 'H:i l d-M-Y'
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -2257,8 +2261,6 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
-          entity_type: node
-          entity_field: title
           plugin_id: field
         field_description:
           id: field_description
@@ -2268,7 +2270,7 @@ display:
           group_type: group
           admin_label: ''
           label: ''
-          exclude: false
+          exclude: true
           alter:
             alter_text: false
             text: ''
@@ -2321,6 +2323,71 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          plugin_id: field
+        title:
+          id: title
+          table: node_field_data
+          field: title
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: true
+            text: '{{ nid }} [{{ field_date_and_time }}] {{ title }} | {{ field_description }}'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: string
+          settings:
+            link_to_entity: false
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: node
+          entity_field: title
           plugin_id: field
       filters:
         type:
@@ -3776,7 +3843,6 @@ display:
         - 'config:core.entity_view_display.node.agreement.teaser'
         - 'config:core.entity_view_display.node.alert.default'
         - 'config:core.entity_view_display.node.alert.teaser'
-        - 'config:core.entity_view_display.node.announcement.default'
         - 'config:core.entity_view_display.node.announcement.teaser'
         - 'config:core.entity_view_display.node.art.default'
         - 'config:core.entity_view_display.node.art.form_1'
@@ -3788,14 +3854,12 @@ display:
         - 'config:core.entity_view_display.node.art.grant'
         - 'config:core.entity_view_display.node.art.grant_mail'
         - 'config:core.entity_view_display.node.art.grant_print'
+        - 'config:core.entity_view_display.node.art.waps'
         - 'config:core.entity_view_display.node.article.default'
         - 'config:core.entity_view_display.node.article.notification'
         - 'config:core.entity_view_display.node.article.rss'
         - 'config:core.entity_view_display.node.article.teaser'
-        - 'config:core.entity_view_display.node.collective.default'
-        - 'config:core.entity_view_display.node.collective.full'
         - 'config:core.entity_view_display.node.collective.teaser'
-        - 'config:core.entity_view_display.node.incident.default'
         - 'config:core.entity_view_display.node.incident.teaser'
         - 'config:core.entity_view_display.node.mutant_vehicles.default'
         - 'config:core.entity_view_display.node.mutant_vehicles.form_1'
@@ -3803,7 +3867,7 @@ display:
         - 'config:core.entity_view_display.node.mutant_vehicles.grant'
         - 'config:core.entity_view_display.node.mutant_vehicles.grant_mail'
         - 'config:core.entity_view_display.node.mutant_vehicles.grant_print'
-        - 'config:core.entity_view_display.node.page.default'
+        - 'config:core.entity_view_display.node.mutant_vehicles.waps'
         - 'config:core.entity_view_display.node.page.teaser'
         - 'config:core.entity_view_display.node.performances.default'
         - 'config:core.entity_view_display.node.performances.form_1'
@@ -3813,6 +3877,7 @@ display:
         - 'config:core.entity_view_display.node.performances.grant'
         - 'config:core.entity_view_display.node.performances.grant_mail'
         - 'config:core.entity_view_display.node.performances.grant_print'
+        - 'config:core.entity_view_display.node.performances.waps'
         - 'config:core.entity_view_display.node.subsidised_ticket.default'
         - 'config:core.entity_view_display.node.subsidised_ticket.teaser'
         - 'config:core.entity_view_display.node.subsidised_ticket.wrangler_overview'
@@ -3825,3 +3890,9 @@ display:
         - 'config:core.entity_view_display.node.theme_camps.form_3_mail'
         - 'config:core.entity_view_display.node.theme_camps.support_camp'
         - 'config:core.entity_view_display.node.theme_camps.support_camp_mail'
+        - 'config:core.entity_view_display.node.theme_camps.waps'
+        - 'config:core.entity_view_display.node.announcement.default'
+        - 'config:core.entity_view_display.node.collective.default'
+        - 'config:core.entity_view_display.node.collective.full'
+        - 'config:core.entity_view_display.node.incident.default'
+        - 'config:core.entity_view_display.node.page.default'
