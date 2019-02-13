@@ -6,7 +6,7 @@ dependencies:
     - field.storage.node.field_incident_state
     - node.type.incident
   content:
-    - 'taxonomy_term:incident_type:004bc089-936f-4215-ac7b-4e92430cfa07'
+    - 'taxonomy_term:incident_type:90a23f67-bd3e-42d4-9cf3-f7a85e77d9b7'
   module:
     - custom_add_another
 third_party_settings:
@@ -23,7 +23,7 @@ required: true
 translatable: false
 default_value:
   -
-    target_uuid: 004bc089-936f-4215-ac7b-4e92430cfa07
+    target_uuid: 90a23f67-bd3e-42d4-9cf3-f7a85e77d9b7
 default_value_callback: ''
 settings:
   handler: views

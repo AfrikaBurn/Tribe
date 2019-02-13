@@ -309,3 +309,9 @@ body.path-frontpage .main-block{
 .view-community-projects .js-form-item.form-item.js-form-type-textfield.form-type-textfield.js-form-item-search.form-item-search {
     width: 600px;
 }
+
+
+
+.wrangler-view table td.views-field-field-prj-plc-location {
+   word-wrap: break-word;
+}
