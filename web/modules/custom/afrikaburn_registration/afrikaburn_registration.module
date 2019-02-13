@@ -163,7 +163,7 @@ function afrikaburn_registration_views_query_alter($view, $query){
   @list($purpose, $type) = array_map('trim', explode(',', $view->storage->get('tag')));
 
   // Filter
-  if ($purpose && $purpose == 'wrangle' && $view->exposed_raw_input['wrangler'] == 'unassigned') {
+  if ($purpose && $purpose == 'wrangle' && @$view->exposed_raw_input['wrangler'] == 'unassigned') {
 
     foreach ($query->where as &$condition_group) {
       foreach ($condition_group['conditions'] as &$condition) {
