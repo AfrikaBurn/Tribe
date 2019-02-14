@@ -1,0 +1,26 @@
+uuid: 193de13d-03ea-4937-8e8b-1be674b58d18
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_snd_playtime_mon_wed
+    - node.type.art
+  module:
+    - custom_add_another
+    - datetime_range
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.art.field_snd_playtime_mon_wed
+field_name: field_snd_playtime_mon_wed
+entity_type: node
+bundle: art
+label: 'What are the daily times that you plan on playing music from and until between Monday and Wednesday?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

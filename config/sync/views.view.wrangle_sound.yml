@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_bke_location
-    - field.storage.node.field_grt_location
     - field.storage.node.field_prj_plc_location
     - field.storage.node.field_prj_plc_location_extra
     - field.storage.node.field_prj_snd_level
@@ -13,6 +12,8 @@ dependencies:
     - field.storage.node.field_prj_snd_setup_date
     - field.storage.node.field_prj_snd_specs
     - field.storage.node.field_prj_sup_address
+    - field.storage.node.field_snd_playtime_mon_wed
+    - field.storage.node.field_snd_playtime_thurs_sun
     - field.storage.user.field_email
     - flag.flag.archived
     - node.type.art
@@ -29,6 +30,7 @@ dependencies:
   module:
     - computed_field
     - datetime
+    - datetime_range
     - flag
     - node
     - user
@@ -99,7 +101,11 @@ display:
       style:
         type: table
         options:
-          grouping: {  }
+          grouping:
+            -
+              field: field_prj_snd_level
+              rendered: true
+              rendered_strip: false
           row_class: ''
           default_row_class: true
           override: true
@@ -111,15 +117,16 @@ display:
             title: title
             field_prj_snd_person: field_prj_snd_person
             field_email: field_prj_snd_person
-            field_prj_snd_setup_date: field_prj_snd_setup_date
             field_prj_snd_level: field_prj_snd_level
-            field_prj_snd_specs: field_prj_snd_specs
+            field_prj_snd_setup_date: field_prj_snd_setup_date
+            field_prj_snd_specs: field_prj_snd_setup_date
             field_prj_snd_rangers: field_prj_snd_rangers
             field_bke_location: field_bke_location
-            field_grt_location: field_bke_location
             field_prj_sup_address: field_bke_location
             field_prj_plc_location_extra: field_bke_location
             field_prj_plc_location: field_bke_location
+            field_snd_playtime_mon_wed: field_snd_playtime_mon_wed
+            field_snd_playtime_thurs_sun: field_snd_playtime_thurs_sun
           info:
             title:
               sortable: true
@@ -142,14 +149,14 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_prj_snd_setup_date:
+            field_prj_snd_level:
               sortable: true
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_prj_snd_level:
+            field_prj_snd_setup_date:
               sortable: true
               default_sort_order: asc
               align: ''
@@ -175,13 +182,6 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_grt_location:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
             field_prj_sup_address:
               sortable: false
               default_sort_order: asc
@@ -195,6 +195,20 @@ display:
               empty_column: false
               responsive: ''
             field_prj_plc_location:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_snd_playtime_mon_wed:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_snd_playtime_thurs_sun:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -386,6 +400,69 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        field_prj_snd_level:
+          id: field_prj_snd_level
+          table: node__field_prj_snd_level
+          field: field_prj_snd_level
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: true
+            text: '<h2>{{ field_prj_snd_level }}</h2>'
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_prj_snd_setup_date:
           id: field_prj_snd_setup_date
           table: node__field_prj_snd_setup_date
@@ -440,69 +517,6 @@ display:
             timezone_override: ''
             date_format: d/m/Y
           group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_prj_snd_level:
-          id: field_prj_snd_level
-          table: node__field_prj_snd_level
-          field: field_prj_snd_level
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Level
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: false
-          group_column: target_id
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -703,70 +717,6 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_grt_location:
-          id: field_grt_location
-          table: node__field_grt_location
-          field: field_grt_location
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: number_integer
-          settings:
-            thousand_separator: ''
-            prefix_suffix: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
         field_prj_sup_address:
           id: field_prj_sup_address
           table: node__field_prj_sup_address
@@ -955,6 +905,136 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        field_snd_playtime_mon_wed:
+          id: field_snd_playtime_mon_wed
+          table: node__field_snd_playtime_mon_wed
+          field: field_snd_playtime_mon_wed
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Monday to Wednesday '
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: daterange_custom
+          settings:
+            timezone_override: ''
+            date_format: 'H:i'
+            separator: ' to '
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
+        field_snd_playtime_thurs_sun:
+          id: field_snd_playtime_thurs_sun
+          table: node__field_snd_playtime_thurs_sun
+          field: field_snd_playtime_thurs_sun
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Thursday to Sunday'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: daterange_custom
+          settings:
+            timezone_override: ''
+            date_format: 'H:i'
+            separator: ' to '
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       filters:
         status:
           value: '1'
@@ -1084,6 +1164,18 @@ display:
             group_items: {  }
           plugin_id: boolean
       sorts:
+        field_prj_snd_level_target_id:
+          id: field_prj_snd_level_target_id
+          table: node__field_prj_snd_level
+          field: field_prj_snd_level_target_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: standard
         title:
           id: title
           table: node_field_data
@@ -1136,7 +1228,6 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.node.field_bke_location'
-        - 'config:field.storage.node.field_grt_location'
         - 'config:field.storage.node.field_prj_plc_location'
         - 'config:field.storage.node.field_prj_plc_location_extra'
         - 'config:field.storage.node.field_prj_snd_level'
@@ -1145,6 +1236,8 @@ display:
         - 'config:field.storage.node.field_prj_snd_setup_date'
         - 'config:field.storage.node.field_prj_snd_specs'
         - 'config:field.storage.node.field_prj_sup_address'
+        - 'config:field.storage.node.field_snd_playtime_mon_wed'
+        - 'config:field.storage.node.field_snd_playtime_thurs_sun'
         - 'config:field.storage.user.field_email'
   page_1:
     display_plugin: page
@@ -1173,7 +1266,6 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.node.field_bke_location'
-        - 'config:field.storage.node.field_grt_location'
         - 'config:field.storage.node.field_prj_plc_location'
         - 'config:field.storage.node.field_prj_plc_location_extra'
         - 'config:field.storage.node.field_prj_snd_level'
@@ -1182,4 +1274,6 @@ display:
         - 'config:field.storage.node.field_prj_snd_setup_date'
         - 'config:field.storage.node.field_prj_snd_specs'
         - 'config:field.storage.node.field_prj_sup_address'
+        - 'config:field.storage.node.field_snd_playtime_mon_wed'
+        - 'config:field.storage.node.field_snd_playtime_thurs_sun'
         - 'config:field.storage.user.field_email'

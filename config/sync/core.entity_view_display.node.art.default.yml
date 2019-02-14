@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.art.field_admin_comments
     - field.field.node.art.field_allow_support_camp
+    - field.field.node.art.field_arteria_checkin
     - field.field.node.art.field_burn_can_be_denied
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
@@ -134,6 +135,9 @@ dependencies:
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
     - field.field.node.art.field_prjr_complete
+    - field.field.node.art.field_snd_bass_bins
+    - field.field.node.art.field_snd_playtime_mon_wed
+    - field.field.node.art.field_snd_playtime_thurs_sun
     - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
     - field.field.node.art.field_vp_ea
@@ -146,6 +150,7 @@ dependencies:
     - colorbox
     - computed_field
     - datetime
+    - datetime_range
     - empty_fields
     - entity_reference_revisions
     - markup
@@ -155,6 +160,16 @@ targetEntityType: node
 bundle: art
 mode: default
 content:
+  field_arteria_checkin:
+    weight: 14
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_prj_gen_concept:
     type: colorbox
     weight: 0
@@ -229,6 +244,36 @@ content:
     third_party_settings:
       empty_fields:
         handler: ''
+  field_snd_bass_bins:
+    weight: 12
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_snd_playtime_mon_wed:
+    weight: 15
+    label: above
+    settings:
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  field_snd_playtime_thurs_sun:
+    weight: 16
+    label: above
+    settings:
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
   field_waps:
     type: entity_reference_revisions_entity_view
     weight: 9

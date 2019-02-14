@@ -1,20 +1,20 @@
-uuid: 9fdc6e18-86b7-4e8d-b55a-3ff58063d668
+uuid: 3847efa2-0aea-4a4a-8804-45dc0bb332a2
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_prj_snd_specs
-    - node.type.theme_camps
+    - node.type.mutant_vehicles
   module:
     - custom_add_another
 third_party_settings:
   custom_add_another:
     custom_add_another: ''
     custom_remove: ''
-id: node.theme_camps.field_prj_snd_specs
+id: node.mutant_vehicles.field_prj_snd_specs
 field_name: field_prj_snd_specs
 entity_type: node
-bundle: theme_camps
+bundle: mutant_vehicles
 label: 'What are your sound specs?'
 description: 'Please list ALL the technical specifications for ALL the components you are planning for your sound rig? (Manufacturer, size, output etc - ALL the detail) '
 required: false
