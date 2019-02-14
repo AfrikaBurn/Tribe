@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.art.field_admin_comments
     - field.field.node.art.field_allow_support_camp
+    - field.field.node.art.field_arteria_checkin
     - field.field.node.art.field_burn_can_be_denied
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
@@ -134,6 +135,9 @@ dependencies:
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
     - field.field.node.art.field_prjr_complete
+    - field.field.node.art.field_snd_bass_bins
+    - field.field.node.art.field_snd_playtime_mon_wed
+    - field.field.node.art.field_snd_playtime_thurs_sun
     - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
     - field.field.node.art.field_vp_ea
@@ -147,6 +151,7 @@ dependencies:
     - conditional_fields
     - cshs
     - datetime
+    - datetime_range
     - entity_reference_views_select
     - field_group
     - file
@@ -432,6 +437,29 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  field_arteria_checkin:
+    weight: 86
+    settings:
+      display_label: true
+    third_party_settings:
+      conditional_fields:
+        68abbc45-620d-4bdc-9864-d1a08b741802:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    type: boolean_checkbox
+    region: content
   field_burn_can_be_denied:
     third_party_settings:
       conditional_fields:
@@ -471,7 +499,71 @@ content:
     settings:
       size: 60
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        e9d3ef80-1df9-459a-8197-503bad9732d0:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+  field_grt_art_reason:
+    third_party_settings:
+      conditional_fields:
+        13fe49c8-20a3-473b-a0a6-c5f8def512eb:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    weight: 91
+    settings:
+      rows: 5
+      placeholder: ''
+    type: string_textarea
+    region: content
+  field_grt_tec_reason:
+    third_party_settings:
+      conditional_fields:
+        87b4f400-c331-466a-af98-e56f67a7eb03:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    weight: 92
+    settings:
+      rows: 5
+      placeholder: ''
+    type: string_textarea
+    region: content
   field_muncipal_district:
     type: options_select
     weight: 0
@@ -484,6 +576,29 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_adm_form_3:
+    third_party_settings:
+      conditional_fields:
+        7ec2e164-39c8-47db-827a-818b27b03f74:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    weight: 94
+    settings:
+      display_label: true
+    type: boolean_checkbox
+    region: content
   field_prj_adm_review:
     type: options_select
     weight: 4
@@ -495,7 +610,23 @@ content:
     weight: 5
     region: content
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        c977312e-8ba6-4512-a4fc-015c3fcb02a4:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
   field_prj_brn_agree:
     third_party_settings:
       conditional_fields:
@@ -556,13 +687,45 @@ content:
     weight: 5
     region: content
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        39b427c6-7199-4f81-9cda-ece999b1da76:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
   field_prj_brn_f2:
     type: markup
     weight: 1
     region: content
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        35e4c2a7-8828-42b7-8711-bd7065d7bc88:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
   field_prj_brn_head:
     weight: 49
     settings: {  }
@@ -589,6 +752,21 @@ content:
             values: {  }
             value_form:
               value: false
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+        e0639e07-4d63-4bbe-b389-337f62503747:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
             effect: show
             effect_options: {  }
             selector: ''
@@ -663,6 +841,21 @@ content:
             selector: ''
           entity_type: node
           bundle: art
+        9189b36c-354a-45a4-bfe8-61462baa4e45:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
     weight: 8
     settings:
       rows: 5
@@ -683,6 +876,21 @@ content:
             values: {  }
             value_form:
               value: false
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+        ae6488d9-5d00-4008-876e-9ba1a1dd24eb:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
             effect: show
             effect_options: {  }
             selector: ''
@@ -754,7 +962,23 @@ content:
     settings:
       rows: 5
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        96450d8a-b1c2-42e1-946f-5b2dc5d07600:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
   field_prj_gen_concept:
     type: image_image
     weight: 2
@@ -821,7 +1045,23 @@ content:
     settings:
       rows: 5
       placeholder: ''
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        cc741df2-e5d2-4c3b-a856-8d71c1232cc1:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
   field_prj_gen_immortal:
     type: string_textarea
     weight: 4
@@ -844,7 +1084,23 @@ content:
       parent: 0
       level_labels: ''
       force_deepest: false
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        ba68d609-39ff-4356-93e9-334c7bcaca9c:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
   field_prj_gen_manager:
     type: erviews_options_select
     weight: 9
@@ -883,6 +1139,31 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_prj_lgh_lighter:
+    third_party_settings:
+      conditional_fields:
+        e13e9d9f-1a34-4c15-9c89-b147cbb4a169:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    weight: 90
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    type: entity_reference_autocomplete
+    region: content
   field_prj_lnt_area:
     weight: 57
     settings: {  }
@@ -908,7 +1189,23 @@ content:
     weight: 0
     region: content
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        a84c3de8-7a66-48f4-a751-80d6a0a94dc7:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
   field_prj_oth_area:
     weight: 74
     settings: {  }
@@ -944,6 +1241,30 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_plc_location_extra:
+    third_party_settings:
+      conditional_fields:
+        dcff6ae0-9086-4407-a6e2-733b2f1906ca:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    weight: 89
+    settings:
+      rows: 5
+      placeholder: ''
+    type: string_textarea
+    region: content
   field_prj_prp_area:
     weight: 27
     settings: {  }
@@ -962,7 +1283,23 @@ content:
     weight: 0
     region: content
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        53789e42-6189-46c2-ae28-59d0d7160058:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
   field_prj_prp_offsite:
     weight: 28
     settings: {  }
@@ -980,7 +1317,23 @@ content:
     weight: 0
     region: content
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        80223942-a7fe-49b6-a93f-eed26af6f514:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
   field_prj_prp_transport:
     type: string_textarea
     weight: 0
@@ -1082,6 +1435,21 @@ content:
             selector: ''
           entity_type: node
           bundle: art
+        995f0b2c-dea9-4303-890b-f346ac8e2a6e:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
     weight: 7
     settings:
       match_operator: CONTAINS
@@ -1132,6 +1500,21 @@ content:
             selector: ''
           entity_type: node
           bundle: art
+        808120c3-f631-48af-b04a-93b5a9d1b07c:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
     weight: 4
     settings: {  }
     type: datetime_default
@@ -1157,6 +1540,21 @@ content:
             values: {  }
             value_form:
               value: false
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+        8a2c7936-7dee-4e8b-9878-65cfe5b80bdc:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
             effect: show
             effect_options: {  }
             selector: ''
@@ -1229,7 +1627,23 @@ content:
     weight: 14
     region: content
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        ed634b5a-7e5a-458a-8ce6-dd2b59eecec2:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
   field_prj_stc_weight:
     type: number
     weight: 10
@@ -1297,6 +1711,112 @@ content:
     third_party_settings: {  }
     type: options_buttons
     region: content
+  field_snd_bass_bins:
+    weight: 84
+    settings:
+      display_label: true
+    third_party_settings:
+      conditional_fields:
+        40857a37-a848-404f-9d10-a6471ab57989:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    type: boolean_checkbox
+    region: content
+  field_snd_playtime_mon_wed:
+    weight: 87
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        3298858a-b951-40ef-9c18-cb72ddad97d0:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+        8beef244-c64b-462a-8a8f-21ec8d3c1e6a:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    type: daterange_default
+    region: content
+  field_snd_playtime_thurs_sun:
+    weight: 88
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        a128daff-1abd-4cf1-82c2-04160ca1fe73:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    type: daterange_default
+    region: content
+  field_this_is_the_amount_of_mone:
+    third_party_settings:
+      conditional_fields:
+        68ad0ea4-5368-4c68-877c-97bd462c27bc:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    weight: 93
+    settings:
+      rows: 5
+      placeholder: ''
+    type: string_textarea
+    region: content
   field_waps:
     type: entity_reference_paragraphs
     weight: 12
@@ -1319,7 +1839,23 @@ content:
   field_year_cycle:
     weight: 9
     settings: {  }
-    third_party_settings: {  }
+    third_party_settings:
+      conditional_fields:
+        a879887f-bda5-4011-a589-82863e465bc8:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
     type: computed_number_widget
     region: content
   flag:
@@ -1341,7 +1877,6 @@ hidden:
   field_col_members: true
   field_grant_expense_header: true
   field_grt_art_apply: true
-  field_grt_art_reason: true
   field_grt_art_total: true
   field_grt_breakdown: true
   field_grt_contribution: true
@@ -1359,13 +1894,11 @@ hidden:
   field_grt_short_desc: true
   field_grt_specify: true
   field_grt_tec_apply: true
-  field_grt_tec_reason: true
   field_grt_tec_total: true
   field_grt_tool: true
   field_grt_transport: true
   field_lineup_request: true
   field_lnt_intro: true
-  field_prj_adm_form_3: true
   field_prj_adm_latitude: true
   field_prj_adm_longitude: true
   field_prj_brn_time_adm: true
@@ -1374,7 +1907,6 @@ hidden:
   field_prj_grant_expenses: true
   field_prj_lgh_agree: true
   field_prj_lgh_description: true
-  field_prj_lgh_lighter: true
   field_prj_lgh_policy: true
   field_prj_lgh_power: true
   field_prj_lgh_projection: true
@@ -1388,7 +1920,6 @@ hidden:
   field_prj_oth_associated: true
   field_prj_oth_unregistered: true
   field_prj_plc_f1: true
-  field_prj_plc_location_extra: true
   field_prj_saf_comment: true
   field_prj_snd_comment: true
   field_prj_stg_contact: true
@@ -1407,7 +1938,6 @@ hidden:
   field_prj_wtf_short_copy: true
   field_sup_comment: true
   field_sup_review: true
-  field_this_is_the_amount_of_mone: true
   field_vp_ea: true
   moderation_state: true
   path: true

@@ -7,6 +7,25 @@
 use \Drupal\user\Entity\User;
 
 
+/* ----- Entity hooks ----- */
+
+
+/**
+ * Implements hook_ENTITY_TYPE_insert.
+ */
+function afrikaburn_notification_user_insert($entity){
+  module_load_include('inc', 'afrikaburn_notification', 'includes/account');
+  _notify_account($entity);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert.
+ */
+function afrikaburn_notification_user_delete($entity){
+  module_load_include('inc', 'afrikaburn_notification', 'includes/account');
+  _notify_delete($entity);
+}
+
 /**
  * Implements hook_ENTITY_TYPE_insert.
  */
@@ -23,22 +42,6 @@ function afrikaburn_notification_node_insert($entity){
     module_load_include('inc', 'afrikaburn_notification', 'includes/collective');
     _notify_collective($entity);
   }
-}
-
-/**
- * Implements hook_ENTITY_TYPE_insert.
- */
-function afrikaburn_notification_user_insert($entity){
-  module_load_include('inc', 'afrikaburn_notification', 'includes/account');
-  _notify_account($entity);
-}
-
-/**
- * Implements hook_ENTITY_TYPE_insert.
- */
-function afrikaburn_notification_user_delete($entity){
-  module_load_include('inc', 'afrikaburn_notification', 'includes/account');
-  _notify_delete($entity);
 }
 
 /**
@@ -62,6 +65,10 @@ function afrikaburn_notification_node_update($entity){
     afrikaburn_notification_node_insert($entity);
   }
 }
+
+
+/* ----- Mail hooks ----- */
+
 
 /**
  * Implements hook_mail().

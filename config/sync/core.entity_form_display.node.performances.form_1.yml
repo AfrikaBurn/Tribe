@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_form_mode.node.form_1
     - field.field.node.performances.field_admin_comments
+    - field.field.node.performances.field_allow_support_camp
     - field.field.node.performances.field_bke_day
     - field.field.node.performances.field_bke_location
     - field.field.node.performances.field_bke_time
@@ -116,6 +117,8 @@ dependencies:
     - field.field.node.performances.field_sup_review
     - field.field.node.performances.field_this_is_the_amount_of_mone
     - field.field.node.performances.field_vp_ea
+    - field.field.node.performances.field_waps
+    - field.field.node.performances.field_waps_allowed
     - field.field.node.performances.field_year_cycle
     - image.style.thumbnail
     - node.type.performances
@@ -274,13 +277,10 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_prj_adm_wrangler:
-    type: entity_reference_autocomplete
+    type: erviews_options_select
     weight: 39
     region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    settings: {  }
     third_party_settings: {  }
   field_prj_cll_collaborate:
     weight: 6
@@ -432,6 +432,7 @@ content:
     third_party_settings: {  }
 hidden:
   field_admin_comments: true
+  field_allow_support_camp: true
   field_grt_art_total: true
   field_grt_breakdown: true
   field_grt_contribution: true
@@ -526,6 +527,8 @@ hidden:
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
+  field_waps: true
+  field_waps_allowed: true
   path: true
   promote: true
   status: true

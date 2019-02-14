@@ -149,9 +149,11 @@ function _update_users($type, $collective, $subject){
  * Gets users to alert to a delete.
  */
 function _delete_users($type, $collective, $subject){
-  return array_diff(
-    array_column($collective->field_col_members->getValue(), 'target_id'),
-    _muted($collective),
-    _muted($subject)
-  );
+  return $collective->field_col_members
+    ? array_diff(
+        array_column($collective->field_col_members->getValue(), 'target_id'),
+        _muted($collective),
+        _muted($subject)
+      )
+    : [];
 }

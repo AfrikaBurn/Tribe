@@ -139,6 +139,7 @@ dependencies:
     - field.field.node.art.field_this_is_the_amount_of_mone
     - field.field.node.art.field_vp_ea
     - field.field.node.art.field_waps
+    - field.field.node.art.field_waps_allowed
     - field.field.node.art.field_year_cycle
     - node.type.art
   module:
@@ -151,10 +152,10 @@ third_party_settings:
         - field_allow_support_camp
         - field_collective
         - field_form_mode
-        - field_prjr_complete
         - field_prj_adm_review
         - field_prj_adm_wrangler
         - field_prj_stc_size
+        - field_prjr_complete
         - field_year_cycle
       parent_name: ''
       weight: 0
@@ -308,7 +309,7 @@ content:
     type: markup
     region: content
   field_prjr_complete:
-    type: options_select
+    type: options_buttons
     weight: 0
     region: content
     settings: {  }
@@ -458,6 +459,7 @@ hidden:
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
   field_waps: true
+  field_waps_allowed: true
   moderation_state: true
   path: true
   promote: true

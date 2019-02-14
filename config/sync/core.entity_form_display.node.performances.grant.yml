@@ -4,135 +4,125 @@ status: true
 dependencies:
   config:
     - core.entity_form_mode.node.grant
-    - field.field.node.art.field_admin_comments
-    - field.field.node.art.field_col_members
-    - field.field.node.art.field_collective
-    - field.field.node.art.field_form_mode
-    - field.field.node.art.field_grant_expense_header
-    - field.field.node.art.field_grt_art_apply
-    - field.field.node.art.field_grt_art_reason
-    - field.field.node.art.field_grt_art_total
-    - field.field.node.art.field_grt_breakdown
-    - field.field.node.art.field_grt_contribution
-    - field.field.node.art.field_grt_f1
-    - field.field.node.art.field_grt_health
-    - field.field.node.art.field_grt_lighting
-    - field.field.node.art.field_grt_location
-    - field.field.node.art.field_grt_materials
-    - field.field.node.art.field_grt_more
-    - field.field.node.art.field_grt_other
-    - field.field.node.art.field_grt_other_description
-    - field.field.node.art.field_grt_pyrotechnics
-    - field.field.node.art.field_grt_services
-    - field.field.node.art.field_grt_short
-    - field.field.node.art.field_grt_short_desc
-    - field.field.node.art.field_grt_specify
-    - field.field.node.art.field_grt_tec_apply
-    - field.field.node.art.field_grt_tec_reason
-    - field.field.node.art.field_grt_tec_total
-    - field.field.node.art.field_grt_tool
-    - field.field.node.art.field_grt_transport
-    - field.field.node.art.field_muncipal_district
-    - field.field.node.art.field_prj_adm_form_3
-    - field.field.node.art.field_prj_adm_latitude
-    - field.field.node.art.field_prj_adm_longitude
-    - field.field.node.art.field_prj_adm_review
-    - field.field.node.art.field_prj_adm_wrangler
-    - field.field.node.art.field_prj_brn_agree
-    - field.field.node.art.field_prj_brn_burning
-    - field.field.node.art.field_prj_brn_desc
-    - field.field.node.art.field_prj_brn_f1
-    - field.field.node.art.field_prj_brn_f2
-    - field.field.node.art.field_prj_brn_motivation
-    - field.field.node.art.field_prj_brn_perimeter
-    - field.field.node.art.field_prj_brn_person
-    - field.field.node.art.field_prj_brn_plan
-    - field.field.node.art.field_prj_brn_time
-    - field.field.node.art.field_prj_brn_time_adm
-    - field.field.node.art.field_prj_cll_collaborate
-    - field.field.node.art.field_prj_cll_contact
-    - field.field.node.art.field_prj_cll_description
-    - field.field.node.art.field_prj_cost
-    - field.field.node.art.field_prj_gen_bio
-    - field.field.node.art.field_prj_gen_concept
-    - field.field.node.art.field_prj_gen_contact
-    - field.field.node.art.field_prj_gen_description
-    - field.field.node.art.field_prj_gen_doc
-    - field.field.node.art.field_prj_gen_external
-    - field.field.node.art.field_prj_gen_fundraiser
-    - field.field.node.art.field_prj_gen_fundraising
-    - field.field.node.art.field_prj_gen_history
-    - field.field.node.art.field_prj_gen_immortal
-    - field.field.node.art.field_prj_gen_lead
-    - field.field.node.art.field_prj_gen_location
-    - field.field.node.art.field_prj_gen_manager
-    - field.field.node.art.field_prj_gen_story
-    - field.field.node.art.field_prj_grant_expenses
-    - field.field.node.art.field_prj_lgh_agree
-    - field.field.node.art.field_prj_lgh_description
-    - field.field.node.art.field_prj_lgh_f1
-    - field.field.node.art.field_prj_lgh_f2
-    - field.field.node.art.field_prj_lgh_lighter
-    - field.field.node.art.field_prj_lgh_policy
-    - field.field.node.art.field_prj_lgh_power
-    - field.field.node.art.field_prj_lgh_projection
-    - field.field.node.art.field_prj_lnt_duration
-    - field.field.node.art.field_prj_lnt_handled
-    - field.field.node.art.field_prj_lnt_helpers
-    - field.field.node.art.field_prj_lnt_historic
-    - field.field.node.art.field_prj_lnt_images
-    - field.field.node.art.field_prj_lnt_representative
-    - field.field.node.art.field_prj_lnt_score
-    - field.field.node.art.field_prj_lnt_signoff
-    - field.field.node.art.field_prj_lnt_type
-    - field.field.node.art.field_prj_oth_associated
-    - field.field.node.art.field_prj_oth_grant
-    - field.field.node.art.field_prj_oth_other
-    - field.field.node.art.field_prj_oth_relationship
-    - field.field.node.art.field_prj_oth_unregistered
-    - field.field.node.art.field_prj_plc_f1
-    - field.field.node.art.field_prj_plc_location_extra
-    - field.field.node.art.field_prj_prp_duration
-    - field.field.node.art.field_prj_prp_erection
-    - field.field.node.art.field_prj_prp_start
-    - field.field.node.art.field_prj_prp_transport
-    - field.field.node.art.field_prj_snd_agree
-    - field.field.node.art.field_prj_snd_description
-    - field.field.node.art.field_prj_snd_f1
-    - field.field.node.art.field_prj_snd_level
-    - field.field.node.art.field_prj_snd_person
-    - field.field.node.art.field_prj_snd_sound
-    - field.field.node.art.field_prj_stc_attributes
-    - field.field.node.art.field_prj_stc_footprint
-    - field.field.node.art.field_prj_stc_height
-    - field.field.node.art.field_prj_stc_materials
-    - field.field.node.art.field_prj_stc_safety
-    - field.field.node.art.field_prj_stc_size
-    - field.field.node.art.field_prj_stc_structural
-    - field.field.node.art.field_prj_stc_weight
-    - field.field.node.art.field_prj_stg_contact
-    - field.field.node.art.field_prj_stg_description
-    - field.field.node.art.field_prj_stg_stage
-    - field.field.node.art.field_prj_stg_type
-    - field.field.node.art.field_prj_sup_address
-    - field.field.node.art.field_prj_sup_details
-    - field.field.node.art.field_prj_sup_details_view
-    - field.field.node.art.field_prj_sup_h1
-    - field.field.node.art.field_prj_wtf_categories
-    - field.field.node.art.field_prj_wtf_image
-    - field.field.node.art.field_prj_wtf_long
-    - field.field.node.art.field_prj_wtf_planned
-    - field.field.node.art.field_prj_wtf_scheduled
-    - field.field.node.art.field_prj_wtf_short
-    - field.field.node.art.field_prj_wtf_short_copy
-    - field.field.node.art.field_prj_wtf_website
-    - field.field.node.art.field_prjr_complete
-    - field.field.node.art.field_sup_review
-    - field.field.node.art.field_this_is_the_amount_of_mone
-    - field.field.node.art.field_vp_ea
-    - field.field.node.art.field_year_cycle
-    - node.type.art
+    - field.field.node.performances.field_admin_comments
+    - field.field.node.performances.field_allow_support_camp
+    - field.field.node.performances.field_bke_day
+    - field.field.node.performances.field_bke_location
+    - field.field.node.performances.field_bke_time
+    - field.field.node.performances.field_collective
+    - field.field.node.performances.field_form_mode
+    - field.field.node.performances.field_grt_art_total
+    - field.field.node.performances.field_grt_breakdown
+    - field.field.node.performances.field_grt_contribution
+    - field.field.node.performances.field_grt_f1
+    - field.field.node.performances.field_grt_lighting
+    - field.field.node.performances.field_grt_location
+    - field.field.node.performances.field_grt_materials
+    - field.field.node.performances.field_grt_more
+    - field.field.node.performances.field_grt_pyrotechnics
+    - field.field.node.performances.field_grt_services
+    - field.field.node.performances.field_grt_short
+    - field.field.node.performances.field_grt_short_desc
+    - field.field.node.performances.field_grt_specify
+    - field.field.node.performances.field_grt_tool
+    - field.field.node.performances.field_grt_total
+    - field.field.node.performances.field_grt_transport
+    - field.field.node.performances.field_lineup_request
+    - field.field.node.performances.field_muncipal_district
+    - field.field.node.performances.field_prj_adm_notes
+    - field.field.node.performances.field_prj_adm_review
+    - field.field.node.performances.field_prj_adm_wrangler
+    - field.field.node.performances.field_prj_brn_agree
+    - field.field.node.performances.field_prj_brn_burning
+    - field.field.node.performances.field_prj_brn_f2
+    - field.field.node.performances.field_prj_brn_motivation
+    - field.field.node.performances.field_prj_brn_person
+    - field.field.node.performances.field_prj_brn_plan
+    - field.field.node.performances.field_prj_cll_collaborate
+    - field.field.node.performances.field_prj_cll_contact
+    - field.field.node.performances.field_prj_cll_description
+    - field.field.node.performances.field_prj_cll_thread
+    - field.field.node.performances.field_prj_gen_bio
+    - field.field.node.performances.field_prj_gen_concept
+    - field.field.node.performances.field_prj_gen_contact
+    - field.field.node.performances.field_prj_gen_description
+    - field.field.node.performances.field_prj_gen_doc
+    - field.field.node.performances.field_prj_gen_external
+    - field.field.node.performances.field_prj_gen_fundraiser
+    - field.field.node.performances.field_prj_gen_fundraising
+    - field.field.node.performances.field_prj_gen_history
+    - field.field.node.performances.field_prj_gen_lead
+    - field.field.node.performances.field_prj_gen_location
+    - field.field.node.performances.field_prj_gen_manager
+    - field.field.node.performances.field_prj_gen_story
+    - field.field.node.performances.field_prj_gen_year
+    - field.field.node.performances.field_prj_grant_expenses
+    - field.field.node.performances.field_prj_lgh_agree
+    - field.field.node.performances.field_prj_lgh_description
+    - field.field.node.performances.field_prj_lgh_f1
+    - field.field.node.performances.field_prj_lgh_f2
+    - field.field.node.performances.field_prj_lgh_lighter
+    - field.field.node.performances.field_prj_lgh_night
+    - field.field.node.performances.field_prj_lgh_policy
+    - field.field.node.performances.field_prj_lnt_comments
+    - field.field.node.performances.field_prj_lnt_duration
+    - field.field.node.performances.field_prj_lnt_handled
+    - field.field.node.performances.field_prj_lnt_helpers
+    - field.field.node.performances.field_prj_lnt_historic
+    - field.field.node.performances.field_prj_lnt_images
+    - field.field.node.performances.field_prj_lnt_representative
+    - field.field.node.performances.field_prj_lnt_score
+    - field.field.node.performances.field_prj_lnt_signoff
+    - field.field.node.performances.field_prj_lnt_type
+    - field.field.node.performances.field_prj_oth_associated
+    - field.field.node.performances.field_prj_oth_grant
+    - field.field.node.performances.field_prj_oth_mv
+    - field.field.node.performances.field_prj_oth_other
+    - field.field.node.performances.field_prj_oth_relationship
+    - field.field.node.performances.field_prj_oth_unregistered
+    - field.field.node.performances.field_prj_prp_duration
+    - field.field.node.performances.field_prj_prp_erection
+    - field.field.node.performances.field_prj_prp_start
+    - field.field.node.performances.field_prj_prp_transport
+    - field.field.node.performances.field_prj_saf_comment
+    - field.field.node.performances.field_prj_snd_agree
+    - field.field.node.performances.field_prj_snd_comment
+    - field.field.node.performances.field_prj_snd_description
+    - field.field.node.performances.field_prj_snd_level
+    - field.field.node.performances.field_prj_snd_person
+    - field.field.node.performances.field_prj_snd_sound
+    - field.field.node.performances.field_prj_stc_attributes
+    - field.field.node.performances.field_prj_stc_footprint
+    - field.field.node.performances.field_prj_stc_height
+    - field.field.node.performances.field_prj_stc_materials
+    - field.field.node.performances.field_prj_stc_physical
+    - field.field.node.performances.field_prj_stc_safety
+    - field.field.node.performances.field_prj_stc_structural
+    - field.field.node.performances.field_prj_stc_weight
+    - field.field.node.performances.field_prj_sup_address
+    - field.field.node.performances.field_prj_sup_details
+    - field.field.node.performances.field_prj_sup_details_view
+    - field.field.node.performances.field_prj_sup_h1
+    - field.field.node.performances.field_prj_total_cost
+    - field.field.node.performances.field_prj_wtf_categories
+    - field.field.node.performances.field_prj_wtf_image
+    - field.field.node.performances.field_prj_wtf_long
+    - field.field.node.performances.field_prj_wtf_plan
+    - field.field.node.performances.field_prj_wtf_planned
+    - field.field.node.performances.field_prj_wtf_scheduled
+    - field.field.node.performances.field_prj_wtf_short
+    - field.field.node.performances.field_prj_wtf_short_copy
+    - field.field.node.performances.field_prj_wtf_website
+    - field.field.node.performances.field_prjr_complete
+    - field.field.node.performances.field_sup_review
+    - field.field.node.performances.field_this_is_the_amount_of_mone
+    - field.field.node.performances.field_vp_ea
+    - field.field.node.performances.field_waps
+    - field.field.node.performances.field_waps_allowed
+    - field.field.node.performances.field_year_cycle
+    - node.type.performances
   module:
+    - entity_reference_views_select
     - field_group
     - file
     - markup
@@ -170,7 +160,6 @@ third_party_settings:
       label: Intro
     group_expense_totals_by_type:
       children:
-        - field_grant_expense_header
         - field_prj_grant_expenses
       parent_name: group_project_registration
       weight: 7
@@ -229,7 +218,6 @@ third_party_settings:
       label: Other
     group_summary:
       children:
-        - field_prj_cost
         - field_grt_art_total
       parent_name: group_project_registration
       weight: 8
@@ -319,7 +307,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_prj_adm_wrangler:
-    type: options_select
+    type: erviews_options_select
     weight: 2
     region: content
     settings: {  }
@@ -439,6 +427,7 @@ content:
 hidden:
   created: true
   field_admin_comments: true
+  field_allow_support_camp: true
   field_bke_day: true
   field_bke_location: true
   field_bke_time: true
@@ -464,6 +453,7 @@ hidden:
   field_grt_tool: true
   field_grt_total: true
   field_grt_transport: true
+  field_lineup_request: true
   field_muncipal_district: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
@@ -575,6 +565,8 @@ hidden:
   field_sup_comment: true
   field_sup_review: true
   field_vp_ea: true
+  field_waps: true
+  field_waps_allowed: true
   field_year_cycle: true
   path: true
   promote: true

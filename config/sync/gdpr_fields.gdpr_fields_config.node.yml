@@ -10,6 +10,7 @@ filenames:
   notification: ''
   mutant_vehicles: ''
   theme_camps: ''
+  collective: ''
 bundles:
   announcement:
     body:
@@ -409,7 +410,7 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''
@@ -438,6 +439,50 @@ bundles:
     field_waps_allowed:
       bundle: art
       name: field_waps_allowed
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_arteria_checkin:
+      bundle: art
+      name: field_arteria_checkin
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_snd_bass_bins:
+      bundle: art
+      name: field_snd_bass_bins
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_snd_playtime_mon_wed:
+      bundle: art
+      name: field_snd_playtime_mon_wed
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_snd_playtime_thurs_sun:
+      bundle: art
+      name: field_snd_playtime_thurs_sun
       entity_type_id: node
       rtf: 'no'
       rta: 'no'
@@ -621,7 +666,7 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''
@@ -650,6 +695,50 @@ bundles:
     field_waps:
       bundle: theme_camps
       name: field_waps
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_arteria_checkin:
+      bundle: theme_camps
+      name: field_arteria_checkin
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_snd_bass_bins:
+      bundle: theme_camps
+      name: field_snd_bass_bins
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_snd_playtime_mon_wed:
+      bundle: theme_camps
+      name: field_snd_playtime_mon_wed
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_snd_playtime_thurs_sun:
+      bundle: theme_camps
+      name: field_snd_playtime_thurs_sun
       entity_type_id: node
       rtf: 'no'
       rta: 'no'
@@ -789,6 +878,61 @@ bundles:
     field_waps:
       bundle: mutant_vehicles
       name: field_waps
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_arteria_checkin:
+      bundle: mutant_vehicles
+      name: field_arteria_checkin
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_snd_specs:
+      bundle: mutant_vehicles
+      name: field_prj_snd_specs
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_snd_bass_bins:
+      bundle: mutant_vehicles
+      name: field_snd_bass_bins
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_snd_playtime_mon_wed:
+      bundle: mutant_vehicles
+      name: field_snd_playtime_mon_wed
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_snd_playtime_thurs_sun:
+      bundle: mutant_vehicles
+      name: field_snd_playtime_thurs_sun
       entity_type_id: node
       rtf: 'no'
       rta: 'no'
@@ -980,6 +1124,17 @@ bundles:
       notes: ''
       bundle: collective
       name: field_col_admins
+    field_disable_emails:
+      bundle: collective
+      name: field_disable_emails
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   incident:
     field_incident_type:
       bundle: incident

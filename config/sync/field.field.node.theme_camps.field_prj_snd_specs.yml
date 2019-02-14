@@ -16,7 +16,7 @@ field_name: field_prj_snd_specs
 entity_type: node
 bundle: theme_camps
 label: 'What are your sound specs?'
-description: 'Speaker and amplification specifications for all the components of your sound rig .'
+description: 'Please list ALL the technical specifications for ALL the components you are planning for your sound rig? (Manufacturer, size, output etc - ALL the detail) '
 required: false
 translatable: true
 default_value: {  }

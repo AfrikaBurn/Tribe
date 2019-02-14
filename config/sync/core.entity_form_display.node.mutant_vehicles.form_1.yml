@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_form_mode.node.form_1
     - field.field.node.mutant_vehicles.field_admin_comments
+    - field.field.node.mutant_vehicles.field_allow_support_camp
+    - field.field.node.mutant_vehicles.field_arteria_checkin
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
     - field.field.node.mutant_vehicles.field_grt_art_total
@@ -76,6 +78,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_snd_safety
     - field.field.node.mutant_vehicles.field_prj_snd_soop
     - field.field.node.mutant_vehicles.field_prj_snd_sound
+    - field.field.node.mutant_vehicles.field_prj_snd_specs
     - field.field.node.mutant_vehicles.field_prj_stg_contact
     - field.field.node.mutant_vehicles.field_prj_stg_description
     - field.field.node.mutant_vehicles.field_prj_stg_stage
@@ -99,8 +102,13 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_wtf_short_copy
     - field.field.node.mutant_vehicles.field_prj_wtf_website
     - field.field.node.mutant_vehicles.field_prjr_complete
+    - field.field.node.mutant_vehicles.field_snd_bass_bins
+    - field.field.node.mutant_vehicles.field_snd_playtime_mon_wed
+    - field.field.node.mutant_vehicles.field_snd_playtime_thurs_sun
     - field.field.node.mutant_vehicles.field_sup_review
     - field.field.node.mutant_vehicles.field_vp_ea
+    - field.field.node.mutant_vehicles.field_waps
+    - field.field.node.mutant_vehicles.field_waps_allowed
     - field.field.node.mutant_vehicles.field_year_cycle
     - image.style.thumbnail
     - node.type.mutant_vehicles
@@ -113,6 +121,7 @@ dependencies:
     - image
     - link
     - markup
+    - time_range
 third_party_settings:
   field_group:
     group_project_registration:
@@ -195,12 +204,16 @@ third_party_settings:
     group_sound:
       children:
         - field_prj_snd_sound
+        - field_prj_snd_soop
+        - field_prj_snd_person
         - field_prj_snd_level
         - field_prj_snd_description
+        - field_snd_playtime_mon_wed
+        - field_snd_playtime_thurs_sun
         - field_prj_snd_safety
-        - field_prj_snd_soop
+        - field_snd_bass_bins
+        - field_arteria_checkin
         - field_prj_snd_agree
-        - field_prj_snd_person
         - field_prj_brn_burning
         - field_prj_brn_plan
         - field_prj_brn_person
@@ -356,6 +369,13 @@ targetEntityType: node
 bundle: mutant_vehicles
 mode: form_1
 content:
+  field_arteria_checkin:
+    type: boolean_checkbox
+    weight: 12
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_collective:
     type: entity_reference_autocomplete
     weight: 10
@@ -428,7 +448,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_prj_brn_agree:
-    weight: 20
+    weight: 18
     settings:
       display_label: true
     third_party_settings:
@@ -468,14 +488,14 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_brn_burning:
-    weight: 16
+    weight: 14
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_brn_desc:
-    weight: 19
+    weight: 17
     settings:
       rows: 5
       placeholder: ''
@@ -516,7 +536,7 @@ content:
     type: string_textarea
     region: content
   field_prj_brn_person:
-    weight: 18
+    weight: 16
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -555,7 +575,7 @@ content:
     type: erviews_options_select
     region: content
   field_prj_brn_plan:
-    weight: 17
+    weight: 15
     settings:
       rows: 5
       placeholder: ''
@@ -984,7 +1004,7 @@ content:
     type: options_buttons
     region: content
   field_prj_snd_agree:
-    weight: 14
+    weight: 13
     settings:
       display_label: true
     third_party_settings:
@@ -1024,7 +1044,7 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_snd_description:
-    weight: 10
+    weight: 7
     settings:
       rows: 5
       placeholder: ''
@@ -1065,7 +1085,7 @@ content:
     type: string_textarea
     region: content
   field_prj_snd_level:
-    weight: 9
+    weight: 6
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -1104,7 +1124,7 @@ content:
     type: options_select
     region: content
   field_prj_snd_person:
-    weight: 15
+    weight: 5
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -1143,7 +1163,7 @@ content:
     type: erviews_options_select
     region: content
   field_prj_snd_safety:
-    weight: 11
+    weight: 10
     settings:
       rows: 5
       placeholder: ''
@@ -1184,7 +1204,7 @@ content:
     type: string_textarea
     region: content
   field_prj_snd_soop:
-    weight: 12
+    weight: 4
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -1207,7 +1227,7 @@ content:
     type: markup
     region: content
   field_prj_snd_sound:
-    weight: 8
+    weight: 3
     settings:
       display_label: true
     third_party_settings: {  }
@@ -1523,6 +1543,25 @@ content:
     third_party_settings: {  }
     type: options_buttons
     region: content
+  field_snd_bass_bins:
+    type: boolean_checkbox
+    weight: 11
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_snd_playtime_mon_wed:
+    type: time_range
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_snd_playtime_thurs_sun:
+    type: time_range
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_year_cycle:
     type: computed_number_widget
     weight: 12
@@ -1545,6 +1584,7 @@ content:
 hidden:
   created: true
   field_admin_comments: true
+  field_allow_support_camp: true
   field_grt_art_total: true
   field_grt_contribution: true
   field_grt_dmv_budget: true
@@ -1569,6 +1609,7 @@ hidden:
   field_prj_lnt_type: true
   field_prj_saf_comment: true
   field_prj_snd_comment: true
+  field_prj_snd_specs: true
   field_prj_stg_contact: true
   field_prj_stg_description: true
   field_prj_stg_stage: true
@@ -1582,6 +1623,8 @@ hidden:
   field_prj_wtf_short_copy: true
   field_sup_review: true
   field_vp_ea: true
+  field_waps: true
+  field_waps_allowed: true
   moderation_state: true
   path: true
   promote: true
