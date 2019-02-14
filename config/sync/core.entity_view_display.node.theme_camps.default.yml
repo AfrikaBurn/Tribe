@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.theme_camps.field_admin_comments
+    - field.field.node.theme_camps.field_arteria_checkin
     - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_field_prj_plc_marquis
     - field.field.node.theme_camps.field_field_prj_plc_stretch_m
@@ -126,6 +127,9 @@ dependencies:
     - field.field.node.theme_camps.field_prj_wtf_website
     - field.field.node.theme_camps.field_prjr_complete
     - field.field.node.theme_camps.field_ranger_representative
+    - field.field.node.theme_camps.field_snd_bass_bins
+    - field.field.node.theme_camps.field_snd_playtime_mon_wed
+    - field.field.node.theme_camps.field_snd_playtime_thurs_sun
     - field.field.node.theme_camps.field_stretch_tent_dimen
     - field.field.node.theme_camps.field_sup_review
     - field.field.node.theme_camps.field_supporting_project
@@ -139,6 +143,7 @@ dependencies:
   module:
     - colorbox
     - datetime
+    - datetime_range
     - empty_fields
     - entity_reference_revisions
     - user
@@ -147,6 +152,16 @@ targetEntityType: node
 bundle: theme_camps
 mode: default
 content:
+  field_arteria_checkin:
+    weight: 16
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_prj_gen_concept:
     type: colorbox
     weight: 0
@@ -214,6 +229,36 @@ content:
     third_party_settings:
       empty_fields:
         handler: ''
+  field_snd_bass_bins:
+    weight: 17
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_snd_playtime_mon_wed:
+    weight: 18
+    label: above
+    settings:
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  field_snd_playtime_thurs_sun:
+    weight: 19
+    label: above
+    settings:
+      separator: '-'
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
   field_waps:
     weight: 15
     label: above

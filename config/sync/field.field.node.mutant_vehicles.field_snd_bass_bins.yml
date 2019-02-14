@@ -1,0 +1,29 @@
+uuid: 48f8edf7-5735-42e1-9b4c-20a6598411b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_snd_bass_bins
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_snd_bass_bins
+field_name: field_snd_bass_bins
+entity_type: node
+bundle: mutant_vehicles
+label: 'Do you know you need to raise your bass-bins off of the ground?'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

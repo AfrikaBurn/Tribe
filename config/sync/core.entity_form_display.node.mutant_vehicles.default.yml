@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.mutant_vehicles.field_admin_comments
     - field.field.node.mutant_vehicles.field_allow_support_camp
+    - field.field.node.mutant_vehicles.field_arteria_checkin
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
     - field.field.node.mutant_vehicles.field_grt_art_total
@@ -76,6 +77,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_snd_safety
     - field.field.node.mutant_vehicles.field_prj_snd_soop
     - field.field.node.mutant_vehicles.field_prj_snd_sound
+    - field.field.node.mutant_vehicles.field_prj_snd_specs
     - field.field.node.mutant_vehicles.field_prj_stg_contact
     - field.field.node.mutant_vehicles.field_prj_stg_description
     - field.field.node.mutant_vehicles.field_prj_stg_stage
@@ -99,6 +101,9 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_wtf_short_copy
     - field.field.node.mutant_vehicles.field_prj_wtf_website
     - field.field.node.mutant_vehicles.field_prjr_complete
+    - field.field.node.mutant_vehicles.field_snd_bass_bins
+    - field.field.node.mutant_vehicles.field_snd_playtime_mon_wed
+    - field.field.node.mutant_vehicles.field_snd_playtime_thurs_sun
     - field.field.node.mutant_vehicles.field_sup_review
     - field.field.node.mutant_vehicles.field_vp_ea
     - field.field.node.mutant_vehicles.field_waps
@@ -110,6 +115,7 @@ dependencies:
     - comment
     - computed_field
     - conditional_fields
+    - datetime_range
     - entity_reference_views_select
     - field_group
     - file
@@ -374,6 +380,29 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_arteria_checkin:
+    weight: 134
+    settings:
+      display_label: true
+    third_party_settings:
+      conditional_fields:
+        67bbaa24-6506-43d2-89f7-9f2076762e40:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
     type: boolean_checkbox
     region: content
   field_collective:
@@ -1244,6 +1273,14 @@ content:
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
+  field_prj_snd_specs:
+    weight: 135
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
   field_prj_trl_area:
     weight: 6
     settings:
@@ -1569,6 +1606,73 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
+  field_snd_bass_bins:
+    weight: 136
+    settings:
+      display_label: true
+    third_party_settings:
+      conditional_fields:
+        e84093b6-0b64-4eb8-a475-4adce6253c2d:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    type: boolean_checkbox
+    region: content
+  field_snd_playtime_mon_wed:
+    weight: 137
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        2f2ad493-c281-4205-aec7-f09dac366a85:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    type: daterange_default
+    region: content
+  field_snd_playtime_thurs_sun:
+    weight: 138
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        c9daddd9-eb1c-4aee-b2d6-56db9ac06047:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    type: daterange_default
     region: content
   field_waps:
     weight: 133

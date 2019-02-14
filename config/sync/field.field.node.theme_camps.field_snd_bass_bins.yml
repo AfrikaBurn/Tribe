@@ -1,0 +1,29 @@
+uuid: d2e20a83-eb89-4c8d-835a-267738a6f83a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_snd_bass_bins
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.theme_camps.field_snd_bass_bins
+field_name: field_snd_bass_bins
+entity_type: node
+bundle: theme_camps
+label: 'Do you know you need to raise your bass-bins off of the ground?'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

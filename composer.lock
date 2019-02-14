@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "768f1a911f6389f139839160ac7ee2b9",
+    "content-hash": "f367ed3daa1bbba9877c6610ab464de2",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -8028,6 +8028,54 @@
             "homepage": "https://www.drupal.org/project/term_csv_export_import",
             "support": {
                 "source": "http://cgit.drupalcode.org/term_csv_export_import"
+            }
+        },
+        {
+            "name": "drupal/time_range",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://git.drupal.org/project/time_range",
+                "reference": "8.x-1.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://ftp.drupal.org/files/projects/time_range-8.x-1.1.zip",
+                "reference": "8.x-1.1",
+                "shasum": "5ff76b57ce308b55f8435ab653d6dd767bd25af6"
+            },
+            "require": {
+                "drupal/core": "*"
+            },
+            "type": "drupal-module",
+            "extra": {
+                "branch-alias": {
+                    "dev-1.x": "1.x-dev"
+                },
+                "drupal": {
+                    "version": "8.x-1.1",
+                    "datestamp": "1514180286",
+                    "security-coverage": {
+                        "status": "covered",
+                        "message": "Covered by Drupal's security advisory policy"
+                    }
+                }
+            },
+            "notification-url": "https://packages.drupal.org/8/downloads",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "authors": [
+                {
+                    "name": "dravenk",
+                    "homepage": "https://www.drupal.org/user/3452417"
+                }
+            ],
+            "description": "Provides the form widget to fill in time range.",
+            "homepage": "https://github.com/DravenK/time-range.git",
+            "support": {
+                "source": "https://github.com/DravenK/time-range.git",
+                "issues": "https://github.com/DravenK/time-range/issues"
             }
         },
         {
