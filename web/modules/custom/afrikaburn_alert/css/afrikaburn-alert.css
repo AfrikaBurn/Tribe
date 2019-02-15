@@ -69,10 +69,8 @@
   float: left;
 }
 
-
-
-.alert .flag a{
-  background-position: center center;
+.flag-mute a{
+    background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
   color: transparent !important;
