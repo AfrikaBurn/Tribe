@@ -79,6 +79,7 @@ function _merge(){
       'field_neighbours',
       'field_allow_support_camp',
       'field_waps_allowed',
+      'field_prj_plc_people',
     ],
     'process' => [
       'field_prj_adm_wrangler',

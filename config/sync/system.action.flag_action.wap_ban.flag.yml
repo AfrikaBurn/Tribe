@@ -1,0 +1,13 @@
+uuid: 1a09cf82-c7bb-4f8b-9b5e-aa20bc161b51
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.wap_ban.flag
+label: 'Ban user from receiving a WAP'
+type: user
+plugin: 'flag_action:wap_ban.flag'
+configuration:
+  flag_id: wap_ban
+  flag_action: flag

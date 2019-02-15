@@ -409,13 +409,15 @@ function _wap_form(&$form, $collective, $registration, $mode){
       LEFT JOIN
         {paragraphs_item_field_data} as wap ON wap.id = wap_member.entity_id
       LEFT JOIN
-        {flagging} as archived ON archived.entity_id = wap.parent_id
+        {flagging} AS archived ON archived.entity_id = wap.parent_id AND archived.flag_id = 'archived'
+      LEFT JOIN
+        {flagging} AS banned ON banned.entity_id = members.field_col_members_target_id AND banned.flag_id = 'wap_ban'
       WHERE
         members.entity_id = " . $collective->nid->value . " AND
         (
           (archived.flag_id = 'archived' AND wap.parent_id IS NOT NULL) OR
           (archived.flag_id IS NULL AND wap.parent_id IS NULL)
-        )"
+        ) AND banned.flag_id IS NULL"
     )->fetchCol();
     $users = \Drupal::entityTypeManager()->getStorage('user')->loadMultiple($uids);
     $options = ['-- Unassigned --'];

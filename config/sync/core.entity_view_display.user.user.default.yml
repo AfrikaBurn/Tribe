@@ -27,6 +27,7 @@ dependencies:
     - field.field.user.user.field_quicket_id
     - field.field.user.user.field_secondary_mail
     - field.field.user.user.field_terms_and_conditions
+    - field.field.user.user.field_year_cycle
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
@@ -278,6 +279,16 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: content
+  field_year_cycle:
+    weight: 107
+    label: above
+    settings:
+      sanitized: true
+      cache_unit: -1
+      cache_duration: 1
+    third_party_settings: {  }
+    type: computed_string
     region: content
   masquerade:
     weight: 1
