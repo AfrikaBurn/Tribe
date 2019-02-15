@@ -27,9 +27,11 @@ dependencies:
     - field.field.user.user.field_quicket_id
     - field.field.user.user.field_secondary_mail
     - field.field.user.user.field_terms_and_conditions
+    - field.field.user.user.field_year_cycle
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
+    - computed_field
     - cshs
     - datetime
     - field_group
@@ -258,6 +260,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: email_default
+    region: content
+  field_year_cycle:
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+    type: computed_string_widget
     region: content
   user_picture:
     type: image_image

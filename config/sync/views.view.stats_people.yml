@@ -1,16 +1,15 @@
-uuid: 9f134612-5771-4869-8fe6-084c40e2cf45
+uuid: 6e992308-9590-4b66-9e10-434ab394b6d1
 langcode: en
 status: true
 dependencies:
   module:
-    - node
     - user
-id: waps2
-label: WAPs2
+id: stats_people
+label: 'Stats: People'
 module: views
 description: ''
 tag: ''
-base_table: node_field_data
+base_table: users_field_data
 base_field: nid
 core: 8.x
 display:
@@ -23,7 +22,7 @@ display:
       access:
         type: perm
         options:
-          perm: 'access content'
+          perm: 'access user profiles'
       cache:
         type: tag
         options: {  }
@@ -46,45 +45,21 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: mini
+        type: none
         options:
-          items_per_page: 10
+          items_per_page: null
           offset: 0
-          id: 0
-          total_pages: null
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          tags:
-            previous: ‹‹
-            next: ››
       style:
-        type: default
-        options:
-          grouping: {  }
-          row_class: ''
-          default_row_class: true
-          uses_fields: false
+        type: table
       row:
         type: fields
-        options:
-          inline: {  }
-          separator: ''
-          hide_empty: false
-          default_field_elements: true
       fields:
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          entity_type: node
-          entity_field: title
-          label: ''
+        name:
+          id: name
+          table: users_field_data
+          field: name
+          entity_type: user
+          entity_field: name
           alter:
             alter_text: false
             make_link: false
@@ -96,12 +71,11 @@ display:
             html: false
           hide_empty: false
           empty_zero: false
-          settings:
-            link_to_entity: true
           plugin_id: field
           relationship: none
           group_type: group
           admin_label: ''
+          label: Name
           exclude: false
           element_type: ''
           element_class: ''
@@ -114,7 +88,8 @@ display:
           empty: ''
           hide_alter_empty: true
           click_sort_column: value
-          type: string
+          type: user_name
+          settings: {  }
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -128,31 +103,17 @@ display:
       filters:
         status:
           value: '1'
-          table: node_field_data
+          table: users_field_data
           field: status
           plugin_id: boolean
-          entity_type: node
+          entity_type: user
           entity_field: status
           id: status
           expose:
             operator: ''
           group: 1
-      sorts:
-        created:
-          id: created
-          table: node_field_data
-          field: created
-          order: DESC
-          entity_type: node
-          entity_field: created
-          plugin_id: date
-          relationship: none
-          group_type: group
-          admin_label: ''
-          exposed: false
-          expose:
-            label: ''
-          granularity: second
+      sorts: {  }
+      title: 'Stats: People'
       header: {  }
       footer: {  }
       empty: {  }
@@ -163,7 +124,19 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
-        - url.query_args
-        - 'user.node_grants:view'
+        - user.permissions
+      tags: {  }
+  block_1:
+    display_plugin: block
+    id: block_1
+    display_title: Block
+    position: 1
+    display_options:
+      display_extenders: {  }
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
         - user.permissions
       tags: {  }

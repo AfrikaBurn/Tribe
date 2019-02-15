@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies: {  }
 id: user
+filenames:
+  user: ''
 bundles:
   user:
     field_email_retype:
@@ -157,3 +159,14 @@ bundles:
       notes: ''
       bundle: user
       name: field_district
+    field_year_cycle:
+      bundle: user
+      name: field_year_cycle
+      entity_type_id: user
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
