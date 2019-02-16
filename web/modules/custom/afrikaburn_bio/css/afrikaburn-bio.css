@@ -56,6 +56,12 @@
   border-width: 2px;
 }
 
+#block-ticketblock .button.bio-tickets{
+  height: auto;
+  line-height: 100%;
+  padding: 10px;
+}
+
 #block-ticketblock .button.bio-update{
   margin-bottom: 5px;
   font-size: 90%;
