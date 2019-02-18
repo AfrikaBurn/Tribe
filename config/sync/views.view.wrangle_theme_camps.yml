@@ -3663,7 +3663,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          operator: word
+          operator: allwords
           value: ''
           group: 1
           exposed: true
@@ -3700,6 +3700,8 @@ display:
               volunteer_admin: '0'
               ranger_admin: '0'
               sanctuary_admin: '0'
+              logger: '0'
+              anathi: '0'
             placeholder: ''
           is_grouped: false
           group_info:
