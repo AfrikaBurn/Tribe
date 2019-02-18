@@ -115,7 +115,6 @@ dependencies:
     - comment
     - computed_field
     - conditional_fields
-    - datetime_range
     - entity_reference_views_select
     - field_group
     - file
@@ -123,6 +122,7 @@ dependencies:
     - link
     - markup
     - paragraphs
+    - time_range
 third_party_settings:
   field_group:
     group_project_registration:
@@ -1650,7 +1650,7 @@ content:
             selector: ''
           entity_type: node
           bundle: mutant_vehicles
-    type: daterange_default
+    type: time_range
     region: content
   field_snd_playtime_thurs_sun:
     weight: 138
@@ -1672,7 +1672,7 @@ content:
             selector: ''
           entity_type: node
           bundle: mutant_vehicles
-    type: daterange_default
+    type: time_range
     region: content
   field_waps:
     weight: 133

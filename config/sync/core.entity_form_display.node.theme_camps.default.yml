@@ -146,13 +146,13 @@ dependencies:
     - conditional_fields
     - cshs
     - datetime
-    - datetime_range
     - entity_reference_views_select
     - field_group
     - image
     - link
     - markup
     - paragraphs
+    - time_range
 third_party_settings:
   field_group:
     group_intro:
@@ -1058,7 +1058,7 @@ content:
             selector: ''
           entity_type: node
           bundle: theme_camps
-    type: daterange_default
+    type: time_range
     region: content
   field_snd_playtime_thurs_sun:
     weight: 54
@@ -1080,7 +1080,7 @@ content:
             selector: ''
           entity_type: node
           bundle: theme_camps
-    type: daterange_default
+    type: time_range
     region: content
   field_waps:
     weight: 50

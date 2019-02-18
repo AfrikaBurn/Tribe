@@ -145,7 +145,6 @@ dependencies:
     - computed_field
     - conditional_fields
     - datetime
-    - datetime_range
     - entity_reference_views_select
     - field_group
     - image
@@ -959,7 +958,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_snd_playtime_thurs_sun:
-    type: daterange_default
+    type: time_range
     weight: 10
     region: content
     settings: {  }
