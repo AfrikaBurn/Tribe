@@ -69,8 +69,10 @@
   float: left;
 }
 
+.flag-bookmark a,
+.flag-unread a,
 .flag-mute a{
-    background-position: center center;
+  background-position: center center;
   background-repeat: no-repeat;
   background-size: contain;
   color: transparent !important;
