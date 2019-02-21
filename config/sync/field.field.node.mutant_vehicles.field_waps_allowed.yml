@@ -15,7 +15,7 @@ id: node.mutant_vehicles.field_waps_allowed
 field_name: field_waps_allowed
 entity_type: node
 bundle: mutant_vehicles
-label: 'WAPs allowed'
+label: 'WAPs allocated'
 description: ''
 required: false
 translatable: true
