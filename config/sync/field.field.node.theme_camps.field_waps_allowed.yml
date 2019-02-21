@@ -15,7 +15,7 @@ id: node.theme_camps.field_waps_allowed
 field_name: field_waps_allowed
 entity_type: node
 bundle: theme_camps
-label: 'WAPs allowed'
+label: 'WAPs allocated'
 description: ''
 required: false
 translatable: true
