@@ -15,7 +15,7 @@ id: node.performances.field_waps_allowed
 field_name: field_waps_allowed
 entity_type: node
 bundle: performances
-label: 'WAPs allowed'
+label: 'WAPs allocated'
 description: ''
 required: false
 translatable: true
