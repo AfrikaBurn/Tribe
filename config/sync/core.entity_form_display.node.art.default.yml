@@ -500,40 +500,10 @@ content:
       size: 60
       placeholder: ''
     third_party_settings:
-      conditional_fields:
-        e9d3ef80-1df9-459a-8197-503bad9732d0:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
+      conditional_fields: {  }
   field_grt_art_reason:
     third_party_settings:
-      conditional_fields:
-        13fe49c8-20a3-473b-a0a6-c5f8def512eb:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
+      conditional_fields: {  }
     weight: 91
     settings:
       rows: 5
@@ -542,22 +512,7 @@ content:
     region: content
   field_grt_tec_reason:
     third_party_settings:
-      conditional_fields:
-        87b4f400-c331-466a-af98-e56f67a7eb03:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
+      conditional_fields: {  }
     weight: 92
     settings:
       rows: 5
@@ -578,22 +533,7 @@ content:
     region: content
   field_prj_adm_form_3:
     third_party_settings:
-      conditional_fields:
-        7ec2e164-39c8-47db-827a-818b27b03f74:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
+      conditional_fields: {  }
     weight: 94
     settings:
       display_label: true
@@ -611,22 +551,7 @@ content:
     region: content
     settings: {  }
     third_party_settings:
-      conditional_fields:
-        c977312e-8ba6-4512-a4fc-015c3fcb02a4:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
+      conditional_fields: {  }
   field_prj_brn_agree:
     third_party_settings:
       conditional_fields:
@@ -688,44 +613,14 @@ content:
     region: content
     settings: {  }
     third_party_settings:
-      conditional_fields:
-        39b427c6-7199-4f81-9cda-ece999b1da76:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
+      conditional_fields: {  }
   field_prj_brn_f2:
     type: markup
     weight: 1
     region: content
     settings: {  }
     third_party_settings:
-      conditional_fields:
-        35e4c2a7-8828-42b7-8711-bd7065d7bc88:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
+      conditional_fields: {  }
   field_prj_brn_head:
     weight: 49
     settings: {  }
@@ -752,21 +647,6 @@ content:
             values: {  }
             value_form:
               value: false
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
-        e0639e07-4d63-4bbe-b389-337f62503747:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
             effect: show
             effect_options: {  }
             selector: ''
@@ -841,21 +721,6 @@ content:
             selector: ''
           entity_type: node
           bundle: art
-        9189b36c-354a-45a4-bfe8-61462baa4e45:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
     weight: 8
     settings:
       rows: 5
@@ -876,21 +741,6 @@ content:
             values: {  }
             value_form:
               value: false
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
-        ae6488d9-5d00-4008-876e-9ba1a1dd24eb:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
             effect: show
             effect_options: {  }
             selector: ''
@@ -963,22 +813,7 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings:
-      conditional_fields:
-        96450d8a-b1c2-42e1-946f-5b2dc5d07600:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
+      conditional_fields: {  }
   field_prj_gen_concept:
     type: image_image
     weight: 2
@@ -1046,22 +881,7 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings:
-      conditional_fields:
-        cc741df2-e5d2-4c3b-a856-8d71c1232cc1:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
+      conditional_fields: {  }
   field_prj_gen_immortal:
     type: string_textarea
     weight: 4
@@ -1085,22 +905,7 @@ content:
       level_labels: ''
       force_deepest: false
     third_party_settings:
-      conditional_fields:
-        ba68d609-39ff-4356-93e9-334c7bcaca9c:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
+      conditional_fields: {  }
   field_prj_gen_manager:
     type: erviews_options_select
     weight: 9
@@ -1141,22 +946,7 @@ content:
     third_party_settings: {  }
   field_prj_lgh_lighter:
     third_party_settings:
-      conditional_fields:
-        e13e9d9f-1a34-4c15-9c89-b147cbb4a169:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
+      conditional_fields: {  }
     weight: 90
     settings:
       match_operator: CONTAINS
@@ -1190,22 +980,7 @@ content:
     region: content
     settings: {  }
     third_party_settings:
-      conditional_fields:
-        a84c3de8-7a66-48f4-a751-80d6a0a94dc7:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
+      conditional_fields: {  }
   field_prj_oth_area:
     weight: 74
     settings: {  }
@@ -1243,22 +1018,7 @@ content:
     region: content
   field_prj_plc_location_extra:
     third_party_settings:
-      conditional_fields:
-        dcff6ae0-9086-4407-a6e2-733b2f1906ca:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
+      conditional_fields: {  }
     weight: 89
     settings:
       rows: 5
@@ -1284,22 +1044,7 @@ content:
     region: content
     settings: {  }
     third_party_settings:
-      conditional_fields:
-        53789e42-6189-46c2-ae28-59d0d7160058:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
+      conditional_fields: {  }
   field_prj_prp_offsite:
     weight: 28
     settings: {  }
@@ -1318,22 +1063,7 @@ content:
     region: content
     settings: {  }
     third_party_settings:
-      conditional_fields:
-        80223942-a7fe-49b6-a93f-eed26af6f514:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
+      conditional_fields: {  }
   field_prj_prp_transport:
     type: string_textarea
     weight: 0
@@ -1529,22 +1259,6 @@ content:
   field_prj_snd_specs:
     third_party_settings:
       conditional_fields:
-        8f2bdb9e-e635-4782-a92e-74df0f78d251:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              value: false
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
         8a2c7936-7dee-4e8b-9878-65cfe5b80bdc:
           dependee: field_prj_snd_sound
           settings:
@@ -1795,22 +1509,7 @@ content:
     region: content
   field_this_is_the_amount_of_mone:
     third_party_settings:
-      conditional_fields:
-        68ad0ea4-5368-4c68-877c-97bd462c27bc:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
+      conditional_fields: {  }
     weight: 93
     settings:
       rows: 5
@@ -1840,22 +1539,7 @@ content:
     weight: 9
     settings: {  }
     third_party_settings:
-      conditional_fields:
-        a879887f-bda5-4011-a589-82863e465bc8:
-          dependee: field_prj_snd_sound
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
+      conditional_fields: {  }
     type: computed_number_widget
     region: content
   flag:
