@@ -1,0 +1,45 @@
+uuid: 20aad68a-fa57-4ec7-bb06-51e75a527891
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.artwork_overview
+  content:
+    - 'block_content:basic:6bdc871a-d2f7-49db-bfe9-33334fa63d2a'
+  module:
+    - block_content
+    - panels
+_core:
+  default_config_hash: _OMMM6kN-5RfF-XqrCKxPsf14qwqB2E3FtN0kmFqQns
+id: artwork_overview-panels_variant-1
+label: 'Artwork Overview'
+variant: panels_variant
+variant_settings:
+  blocks:
+    14f298d6-0b88-4f34-8d5f-026c1d2d6998:
+      id: 'block_content:6bdc871a-d2f7-49db-bfe9-33334fa63d2a'
+      label: 'Art Regestation Overview'
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      region: content
+      weight: 0
+      uuid: 14f298d6-0b88-4f34-8d5f-026c1d2d6998
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 6fe784bd-a3ef-45c0-9c3d-b351a1f0ac3c
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: 'Artwork Overview'
+  storage_type: page_manager
+  storage_id: artwork_overview-panels_variant-1
+  builder: ipe
+page: artwork_overview
+weight: -10
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }
