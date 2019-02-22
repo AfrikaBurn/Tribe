@@ -1,0 +1,89 @@
+uuid: 436590e1-4758-4e5d-ac3a-dbf37863335c
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.artwork_overview
+    - views.view.wrangler_members
+  content:
+    - 'block_content:basic:6bdc871a-d2f7-49db-bfe9-33334fa63d2a'
+  module:
+    - block_content
+    - panels
+    - user
+    - views
+_core:
+  default_config_hash: fF8vUMtLwFg6TylSvBdFFe9ED02luV-2y4-dPanuFmU
+id: artwork_overview-panels_variant-0
+label: 'Artwork Overview'
+variant: panels_variant
+variant_settings:
+  blocks:
+    c9643053-e7fd-4020-a44d-e567728f4c8b:
+      id: 'block_content:6bdc871a-d2f7-49db-bfe9-33334fa63d2a'
+      label: 'Art Regestation Overview'
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: full
+      region: content
+      weight: 0
+      uuid: c9643053-e7fd-4020-a44d-e567728f4c8b
+      context_mapping: {  }
+    698f7a98-d2b6-4dc4-ac03-8aeb09f91d90:
+      id: 'views_block:wrangler_members-block_2'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 0
+      uuid: 698f7a98-d2b6-4dc4-ac03-8aeb09f91d90
+      context_mapping: {  }
+    ea87919d-a970-4280-b142-d43473d5742b:
+      id: 'views_block:wrangler_members-block_2'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 0
+      uuid: ea87919d-a970-4280-b142-d43473d5742b
+      context_mapping: {  }
+    af0bf680-27d6-4529-9e40-b20322e6e588:
+      id: 'views_block:wrangler_members-block_2'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 0
+      uuid: af0bf680-27d6-4529-9e40-b20322e6e588
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 6ea6f9c5-c369-47d4-9b86-29c25279e728
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: artwork_overview-panels_variant-0
+  builder: ipe
+page: artwork_overview
+weight: -9
+selection_criteria:
+  -
+    id: user_role
+    roles:
+      art_wrangler: art_wrangler
+      art_admin: art_admin
+    negate: false
+    context_mapping:
+      user: current_user
+selection_logic: and
+static_context: {  }
