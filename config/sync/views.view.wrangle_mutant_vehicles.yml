@@ -4915,7 +4915,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: wrangle/projects/mutant_vehicles_people_movers
+      path: wrangle/projects/mutant_vehicles/people_movers
       menu:
         type: none
         title: 'Mutant Vehicles'
