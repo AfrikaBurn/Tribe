@@ -38,6 +38,10 @@ afrikaburn_registration.wrangle_mutant_vehicles-grants:
   path: '/wrangle/projects/mutant_vehicles/grants'
   options:
     _admin_route: TRUE
+afrikaburn_registration.wrangle_mutant_vehicles-people_movers:
+  path: '/wrangle/projects/mutant_vehicles/people_movers'
+  options:
+    _admin_route: TRUE
 afrikaburn_registration.wrangle_theme_camps:
   path: '/wrangle/projects/theme_camps'
   options:
