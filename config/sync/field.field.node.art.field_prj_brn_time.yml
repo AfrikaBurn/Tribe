@@ -20,7 +20,7 @@ entity_type: node
 bundle: art
 label: 'What is your preferred day and time to burn your piece?'
 description: 'We will try and accommodate your desired slot as much as possible but retain the right to schedule your burn according to what works in terms of availability of emergency services...and of course there is weather.'
-required: true
+required: false
 translatable: false
 default_value:
   -
