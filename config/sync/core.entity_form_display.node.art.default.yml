@@ -746,6 +746,22 @@ content:
             selector: ''
           entity_type: node
           bundle: art
+        b5fc2521-7fd4-4546-a301-54ccec5ce3b5:
+          dependee: field_prj_brn_burning
+          settings:
+            state: required
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              value: false
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
     weight: 11
     settings: {  }
     type: datetime_default

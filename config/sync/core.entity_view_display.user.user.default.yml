@@ -290,11 +290,6 @@ content:
     third_party_settings: {  }
     type: computed_string
     region: content
-  flag_wap_ban:
-    weight: 10
-    settings: {  }
-    third_party_settings: {  }
-    region: content
   masquerade:
     weight: 1
     region: content

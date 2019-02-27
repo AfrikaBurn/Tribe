@@ -89,7 +89,7 @@ function ar_prepare_project_links(&$variables) {
               $query = \Drupal::entityQuery('node')
                 ->condition('type', 'theme_camps')
                 ->condition('field_supporting_project', $nid);
-              $pid = array_shift($query->execute());
+              $pid = @array_shift($query->execute());
               $cid = $view->args[0];
 
               $link =  $registration->get('field_allow_support_camp')->value
