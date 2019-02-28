@@ -167,13 +167,13 @@ function ab_prepare_wrangler_view(&$variables){
     $form = \Drupal::service('entity.form_builder')->getForm($node);
 
     $mails[] = [
-      'contact' => $row->_relationship_entities['field_prj_gen_contact']
+      'contact' => @$row->_relationship_entities['field_prj_gen_contact']
         ? $row->_relationship_entities['field_prj_gen_contact']->get('mail')->value
         : FALSE,
-      'lead' => $row->_relationship_entities['field_prj_gen_lead']
+      'lead' => @$row->_relationship_entities['field_prj_gen_lead']
         ? $row->_relationship_entities['field_prj_gen_lead']->get('mail')->value
         : FALSE,
-      'manager' => $row->_relationship_entities['field_prj_gen_manager']
+      'manager' => @$row->_relationship_entities['field_prj_gen_manager']
         ? $row->_relationship_entities['field_prj_gen_manager']->get('mail')->value
         : FALSE,
     ];
@@ -205,7 +205,7 @@ function ab_prepare_wrangler_view(&$variables){
           foreach($field_form['#options'] as $option=>$markup){
 
             if ($option == 'support_camp'){
-              $supporting = $row->_relationship_entities['reverse__node__field_supporting_project'];
+              $supporting = @$row->_relationship_entities['reverse__node__field_supporting_project'];
               if ($supporting){
                 $sid = $supporting->nid->value;
                 $field_form[$option]['#description'] =
@@ -264,7 +264,7 @@ function ab_insert_wrangler_view_rows(&$variables){
       // Merge admin columns
       foreach (_merge() as $column=>$fields) {
         foreach($fields as $field){
-          if ($view->field[$field]){
+          if (isset($view->field[$field])){
             $row['columns'][$column]['content'][] = [
               'field_output' => @$row['columns'][$field]['content'][0]['field_output']
             ];
