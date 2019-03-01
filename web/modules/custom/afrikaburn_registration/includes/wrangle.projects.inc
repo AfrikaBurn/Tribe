@@ -224,7 +224,9 @@ function ab_prepare_wrangler_view(&$variables){
             }
 
             if ($option == 'grant')
-            $field_form[$option]['#description'] .= '<a target="_blank" href="/node/'.$nid.'/' . $option . '_print">print</a>';
+              $field_form[$option]['#description'] .= '<a target="_blank" href="/node/'.$nid.'/' . $option . '_print">print</a>';
+            if ($option == 'form_2' && $type == 'theme_camps')
+              $field_form[$option]['#description'] .= '<a target="_blank" href="/node/'.$nid.'/layout_print">print</a>';
           }
         }
 

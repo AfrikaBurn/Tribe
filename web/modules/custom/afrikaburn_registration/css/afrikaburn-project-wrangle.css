@@ -184,3 +184,7 @@
   border: none;
   padding: 0;
 }
+
+.wrangler-view .form--inline .form-actions .edit-actions{
+  width: 100%;
+}
