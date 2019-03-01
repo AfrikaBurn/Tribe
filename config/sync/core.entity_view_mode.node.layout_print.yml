@@ -1,0 +1,10 @@
+uuid: e8d5fc40-380f-4642-a1b5-0d23f40366d5
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.layout_print
+label: 'Layout Print'
+targetEntityType: node
+cache: true
