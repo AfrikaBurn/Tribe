@@ -52,7 +52,7 @@ class RegistrationController extends ControllerBase {
 
       $field_name = count($parts)
         ? $parts['name']
-        : $field;
+        : str_replace('[]', '', $field);
 
       $definition = $target->get($field_name)->getFieldDefinition()->get('field_type');
 
@@ -84,7 +84,7 @@ class RegistrationController extends ControllerBase {
         // Other
         default:
           if ($value == '_none') $value = NULL;
-          $target->set($field, $value);
+          $target->set($field_name, $value);
         break;
       }
 
