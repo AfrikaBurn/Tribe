@@ -159,12 +159,13 @@ function ab_prepare_wrangler_view(&$variables){
   $type = str_replace('wrangle_', '', $name);
   $rows = $variables['rows'];
   $mails = [];
+  $node = \Drupal\node\Entity\Node::create(['type' => $type]);
+  $form = \Drupal::service('entity.form_builder')->getForm($node);
 
   foreach($rows[0]['#rows'] as $index=>&$row){
 
     $nid = $row->_entity->id();
     $node = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
-    $form = \Drupal::service('entity.form_builder')->getForm($node);
 
     $mails[] = [
       'contact' => @$row->_relationship_entities['field_prj_gen_contact']
@@ -185,10 +186,43 @@ function ab_prepare_wrangler_view(&$variables){
             [
               $form[$field]['value'],
               $form[$field]['widget']['value'],
+              $form[$field]['widget'][0]['value'],
               $form[$field]['widget'],
             ]
           )
         );
+
+        $value = $node->get($field)->getValue();
+        switch ($field_form['#type']){
+
+          case 'checkboxes':
+            $values = array_column($value, 'value');
+            foreach($values as $cb_value) {
+              $field_form[$cb_value]['#checked'] = 1;
+            }
+          break;
+
+          case 'checkbox':
+            $field_form['#checked'] = array_column($value, 'value')[0] == "1";
+          break;
+
+          case 'textfield':
+          case 'number':
+            $field_form['#value'] = @array_shift(
+              array_column($value, 'value')
+            );
+          break;
+
+          case "select":
+            $field_form['#value'] = $field_form['#multiple']
+              ? array_column($value, 'target_id')
+              : @array_shift(array_column($value, 'target_id'));
+          break;
+
+          default:
+            $field_form;
+        }
+
         // Title
         $title = _title($field);
         if (isset($title)) {
