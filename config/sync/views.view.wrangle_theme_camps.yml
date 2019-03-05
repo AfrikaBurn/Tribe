@@ -149,7 +149,7 @@ display:
             field_prj_cll_collaborate: field_prj_cll_collaborate
             field_prj_snd_sound: field_prj_snd_sound
             field_prj_plc_location: field_prj_plc_location
-            field_prj_plc_location_extra: field_prj_plc_location_extra
+            field_prj_plc_location_extra: field_prj_plc_location
             field_prj_plc_binnekring: field_prj_plc_binnekring
             field_prj_adm_wrangler: field_prj_adm_wrangler
             field_prjr_complete: field_prjr_complete
@@ -169,8 +169,8 @@ display:
             field_first_name_3: field_first_name_3
             field_last_name_3: field_last_name_3
             name_3: name_3
-            field_prj_plc_camp_d: field_prj_plc_camp_d
             field_prj_plc_camp_w: field_prj_plc_camp_w
+            field_prj_plc_camp_d: field_prj_plc_camp_d
             field_ice_card: field_ice_card
             field_placed: field_placed
             field_placement_card: field_placement_card
@@ -427,14 +427,14 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_prj_plc_camp_d:
+            field_prj_plc_camp_w:
               sortable: false
               default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
               responsive: ''
-            field_prj_plc_camp_w:
+            field_prj_plc_camp_d:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -2825,6 +2825,70 @@ display:
           entity_type: user
           entity_field: name
           plugin_id: field
+        field_prj_plc_camp_w:
+          id: field_prj_plc_camp_w
+          table: node__field_prj_plc_camp_w
+          field: field_prj_plc_camp_w
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Width
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_prj_plc_camp_d:
           id: field_prj_plc_camp_d
           table: node__field_prj_plc_camp_d
@@ -2835,8 +2899,8 @@ display:
           label: 'Depth x Width'
           exclude: false
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '{{ field_prj_plc_camp_d }} x {{ field_prj_plc_camp_w }}'
             make_link: false
             path: ''
             absolute: false
@@ -2878,330 +2942,6 @@ display:
           settings:
             thousand_separator: ''
             prefix_suffix: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_prj_plc_camp_w:
-          id: field_prj_plc_camp_w
-          table: node__field_prj_plc_camp_w
-          field: field_prj_plc_camp_w
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Width
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: number_integer
-          settings:
-            thousand_separator: ''
-            prefix_suffix: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_ice_card:
-          id: field_ice_card
-          table: node__field_ice_card
-          field: field_ice_card
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Ice card'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: boolean
-          settings:
-            format: yes-no
-            format_custom_true: ''
-            format_custom_false: ''
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_placed:
-          id: field_placed
-          table: node__field_placed
-          field: field_placed
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: Placed
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: boolean
-          settings:
-            format: yes-no
-            format_custom_true: ''
-            format_custom_false: ''
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_placement_card:
-          id: field_placement_card
-          table: node__field_placement_card
-          field: field_placement_card
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Placement card'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: boolean
-          settings:
-            format: yes-no
-            format_custom_true: ''
-            format_custom_false: ''
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        field_placement_letter_sent:
-          id: field_placement_letter_sent
-          table: node__field_placement_letter_sent
-          field: field_placement_letter_sent
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: 'Placement letter sent'
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: true
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: boolean
-          settings:
-            format: yes-no
-            format_custom_true: ''
-            format_custom_false: ''
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -4230,11 +3970,7 @@ display:
       tags:
         - 'config:field.storage.node.field_collective'
         - 'config:field.storage.node.field_final_placement'
-        - 'config:field.storage.node.field_ice_card'
         - 'config:field.storage.node.field_neighbours'
-        - 'config:field.storage.node.field_placed'
-        - 'config:field.storage.node.field_placement_card'
-        - 'config:field.storage.node.field_placement_letter_sent'
         - 'config:field.storage.node.field_plot'
         - 'config:field.storage.node.field_prj_adm_review'
         - 'config:field.storage.node.field_prj_adm_wrangler'
@@ -4291,11 +4027,7 @@ display:
       tags:
         - 'config:field.storage.node.field_collective'
         - 'config:field.storage.node.field_final_placement'
-        - 'config:field.storage.node.field_ice_card'
         - 'config:field.storage.node.field_neighbours'
-        - 'config:field.storage.node.field_placed'
-        - 'config:field.storage.node.field_placement_card'
-        - 'config:field.storage.node.field_placement_letter_sent'
         - 'config:field.storage.node.field_plot'
         - 'config:field.storage.node.field_prj_adm_review'
         - 'config:field.storage.node.field_prj_adm_wrangler'
