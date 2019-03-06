@@ -270,8 +270,8 @@ handlers:
       from_mail: _default
       from_options: {  }
       from_name: _default
-      subject: 'Your subsidised ticket application has been approved'
-      body: 'YAY Well done'
+      subject: 'Your subsidised ticket application'
+      body: "Dear&nbsp;[webform_submission:user:field_first_name]<br />\r\n<br />\r\nWe are happy to inform you that your application for a subsidized ticket to AfrikaBurn 2019 <strong>Ephemeropolis has been successful</strong>.<br />\r\n<br />\r\nAn email from Quicket will be sent to you shortly. Please follow the instructions in that email in order to redeem your ticket. You can purchase your subsidized ticket at any point before arriving in the desert. Please ensure that you arrive at the AfrikaBurn gate with a valid ticket and a photo ID - we will be checking that the two match.<br />\r\n<br />\r\nPlease note: Subsidized tickets are not transferable. Thank You and we look forward to seeing you at the Burn!<br />\r\n<br />\r\nThe AfrikaBurn Ticketing Team"
       excluded_elements:
         wrangler: wrangler
         review: review
@@ -327,12 +327,13 @@ handlers:
       from_mail: _default
       from_options: {  }
       from_name: _default
-      subject: 'Your subsidised ticket application has been rejected'
-      body: 'Aw no!'
+      subject: 'Your subsidised ticket application'
+      body: "Dear&nbsp;[webform_submission:user:field_first_name]<br />\r\n<br />\r\nThank you for applying for a subsidized ticket to AfrikaBurn 2019, Ephemeropolis.<br />\r\n<br />\r\nUnfortunately your application was not successful. You are still able to purchase a full price AfrikaBurn tickets in our general sale which started on Wed 26th September 2018. This sale will remain open until it sells out.<br />\r\n<br />\r\nPlease secure your ticket sooner rather than later by logging into your Burner Bio and clicking the &ldquo;Buy Tickets&rdquo; button. We sincerely hope to see you at the Burn.<br />\r\n<br />\r\nThe AfrikaBurn Ticketing Team"
       excluded_elements:
         wrangler: wrangler
         review: review
         comment: comment
+        previous_state: previous_state
         applicant_name: applicant_name
         applicant_email: applicant_email
         applicant_id: applicant_id
