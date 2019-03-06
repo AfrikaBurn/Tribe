@@ -117,42 +117,13 @@ display:
           description: ''
           columns:
             title: title
-            field_col_admins: field_col_admins
-            field_col_members: field_col_members
-            field_email: field_email
-            field_email_1: field_email_1
             nid: nid
             view: view
+            uid: title
+            uid_1: title
+            view_1: view_1
           info:
             title:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_col_admins:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_col_members:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_email:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_email_1:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -167,6 +138,25 @@ display:
               empty_column: false
               responsive: ''
             view:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            uid:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            uid_1:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            view_1:
               align: ''
               separator: ''
               empty_column: false
@@ -739,6 +729,7 @@ display:
           plugin_id: standard
       arguments: {  }
       display_extenders: {  }
+      group_by: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -920,14 +911,132 @@ display:
           entity_type: node
           entity_field: nid
           plugin_id: field
-        field_col_admins:
-          id: field_col_admins
-          table: node__field_col_admins
-          field: field_col_admins
+        view:
+          id: view
+          table: views
+          field: view
           relationship: none
           group_type: group
           admin_label: ''
-          label: Admins
+          label: Projects
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: details
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: false
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          view: collectives_wrangler_views
+          display: projects
+          arguments: '{{ raw_fields.nid }}'
+          plugin_id: view
+        uid:
+          id: uid
+          table: users_field_data
+          field: uid
+          relationship: field_col_members
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: false
+          group_column: entity_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: user
+          entity_field: uid
+          plugin_id: field
+        uid_1:
+          id: uid_1
+          table: users_field_data
+          field: uid
+          relationship: field_col_members
+          group_type: count
+          admin_label: ''
+          label: Members
           exclude: false
           alter:
             alter_text: false
@@ -968,11 +1077,18 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
-          settings:
-            link: true
-          group_column: target_id
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: 0
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ' member(s)'
+          click_sort_column: value
+          type: number_integer
+          settings: {  }
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -980,17 +1096,18 @@ display:
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
           field_api_classes: false
+          entity_type: user
+          entity_field: uid
           plugin_id: field
-        view:
-          id: view
+        view_1:
+          id: view_1
           table: views
           field: view
           relationship: none
           group_type: group
           admin_label: ''
-          label: Projects
+          label: Members
           exclude: false
           alter:
             alter_text: false
@@ -1019,7 +1136,7 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
+          element_type: details
           element_class: ''
           element_label_type: ''
           element_label_class: ''
@@ -1031,8 +1148,8 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          view: collectives_wrangler_views
-          display: projects
+          view: collective_members
+          display: admin_block
           arguments: '{{ raw_fields.nid }}'
           plugin_id: view
       defaults:
@@ -1042,7 +1159,16 @@ display:
         filter_groups: false
         pager: false
       path: wrangle/people/collectives
-      relationships: {  }
+      relationships:
+        field_col_members:
+          id: field_col_members
+          table: node__field_col_members
+          field: field_col_members
+          relationship: none
+          group_type: group
+          admin_label: Members
+          required: false
+          plugin_id: standard
       display_description: ''
       menu:
         type: normal
@@ -1170,8 +1296,7 @@ display:
         - url.query_args
         - 'user.node_grants:view'
         - user.roles
-      tags:
-        - 'config:field.storage.node.field_col_admins'
+      tags: {  }
   projects:
     display_plugin: embed
     id: projects
