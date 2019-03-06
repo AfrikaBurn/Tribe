@@ -4,11 +4,47 @@ status: true
 dependencies:
   config:
     - page_manager.page.wrangle_people
+    - views.view.stats_people
+  module:
+    - views
 id: wrangle_people-block_display-0
 label: 'Wrangle People'
 variant: block_display
 variant_settings:
-  blocks: {  }
+  blocks:
+    2559a1de-96c3-40f0-b6be-be146e0abfd4:
+      id: 'views_block:stats_people-block_2'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: top
+      weight: -10
+      uuid: 2559a1de-96c3-40f0-b6be-be146e0abfd4
+      context_mapping: {  }
+    27b041c1-36be-4222-a9cc-e0c8e53881c3:
+      id: 'views_block:stats_people-block_3'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: top
+      weight: -8
+      uuid: 27b041c1-36be-4222-a9cc-e0c8e53881c3
+      context_mapping: {  }
+    e23ebab9-e442-4d64-b134-bdf44d7633ed:
+      id: 'views_block:stats_people-block_1'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: top
+      weight: -9
+      uuid: e23ebab9-e442-4d64-b134-bdf44d7633ed
+      context_mapping: {  }
   id: block_display
   uuid: ee3a0e14-ac4b-4fb6-8349-fa1e1566c597
   label: null
