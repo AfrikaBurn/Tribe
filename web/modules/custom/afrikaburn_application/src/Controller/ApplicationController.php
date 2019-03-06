@@ -30,7 +30,12 @@ class ApplicationController extends ControllerBase {
         ? $parts['name']
         : $field;
 
-      $definition = $elements[$field_name]['#type'];
+      $definition = @array_shift(array_filter(
+        [
+          $elements[$field_name]['#type'],
+          $elements['administrative'][$field_name]['#type']
+        ]
+      ));
       $current = $target->getData()[$field_name];
 
       switch ($definition){
