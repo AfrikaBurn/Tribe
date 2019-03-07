@@ -156,7 +156,7 @@ function ab_prepare_wrangler_view(&$variables){
 
   $view = $variables['view'];
   $name = $view->id();
-  $type = str_replace('wrangle_', '', $name);
+  $type = trim(explode(',', $view->storage->get('tag'))[1]);
   $rows = $variables['rows'];
   $mails = [];
   $node = \Drupal\node\Entity\Node::create(['type' => $type]);
