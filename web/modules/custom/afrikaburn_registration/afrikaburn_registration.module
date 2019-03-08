@@ -236,6 +236,14 @@ function afrikaburn_registration_theme(){
       'template' => 'views-view-fields--wrangle-comments',
       'base hook' => 'view',
     ],
+    'views_view__wrangle_wtf' => [
+      'template' => 'views-view--wrangle',
+      'base hook' => 'view',
+    ],
+    'views_view_table__wrangle_wtf' => [
+      'template' => 'views-view-table--wrangle-projects',
+      'base hook' => 'view',
+    ],
     // 'views_view_table__wrangle_waps' => [
     //   'template' => 'views-view-fields--wrangle-projects',
     //   'base hook' => 'view',
@@ -266,6 +274,7 @@ function afrikaburn_registration_preprocess_views_view(&$variables){
     case 'wrangle_binnekring_events':
     case 'wrangle_mutant_vehicles':
     case 'wrangle_theme_camps':
+    case 'wrangle_wtf':
       $variables['#attached']['library'][] = 'afrikaburn_registration/wrangle';
       module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
       ab_prepare_wrangler_view($variables);
@@ -294,6 +303,7 @@ function afrikaburn_registration_preprocess_views_view_table(&$variables) {
     case 'wrangle_binnekring_events':
     case 'wrangle_mutant_vehicles':
     case 'wrangle_theme_camps':
+    case 'wrangle_wtf':
       module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
       ab_insert_wrangler_view_rows($variables);
     break;

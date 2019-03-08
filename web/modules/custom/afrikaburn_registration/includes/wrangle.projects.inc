@@ -64,6 +64,9 @@ function _editable($id){
         'field_waps_allowed',
       ],
 
+      'wrangle_wtf' => [
+        'field_prj_wtf_short_copy'
+      ],
     ]
   )[$id];
 }
@@ -206,13 +209,6 @@ function ab_prepare_wrangler_view(&$variables){
             $field_form['#checked'] = array_column($value, 'value')[0] == "1";
           break;
 
-          case 'textfield':
-          case 'number':
-            $field_form['#value'] = @array_shift(
-              array_column($value, 'value')
-            );
-          break;
-
           case "select":
             $field_form['#value'] = $field_form['#multiple']
               ? array_column($value, 'target_id')
@@ -220,8 +216,10 @@ function ab_prepare_wrangler_view(&$variables){
           break;
 
           default:
-            $field_form;
-        }
+            $field_form['#value'] = @array_shift(
+              array_column($value, 'value')
+            );
+      }
 
         // Title
         $title = _title($field);
