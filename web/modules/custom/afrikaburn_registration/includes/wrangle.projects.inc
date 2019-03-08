@@ -64,6 +64,9 @@ function _editable($id){
         'field_waps_allowed',
       ],
 
+      'wrangle_wtf' => [
+        'field_prj_wtf_short_copy'
+      ],
     ]
   )[$id];
 }
@@ -116,6 +119,8 @@ function ar_prepare_wrangler_filter(&$form, $type){
 
   $view = \Drupal\views\Views::getView('wranglers');
 
+  if (!$form['wrangler']) return;
+
   if (is_object($view)) {
 
     // ARGH! consistent naming so desperately needed!
@@ -155,6 +160,9 @@ function ar_prepare_wrangler_filter(&$form, $type){
 function ab_prepare_wrangler_view(&$variables){
 
   $view = $variables['view'];
+
+  if ($view->current_display == 'download') return;
+
   $name = $view->id();
   $type = trim(explode(',', $view->storage->get('tag'))[1]);
   $rows = $variables['rows'];
@@ -206,13 +214,6 @@ function ab_prepare_wrangler_view(&$variables){
             $field_form['#checked'] = array_column($value, 'value')[0] == "1";
           break;
 
-          case 'textfield':
-          case 'number':
-            $field_form['#value'] = @array_shift(
-              array_column($value, 'value')
-            );
-          break;
-
           case "select":
             $field_form['#value'] = $field_form['#multiple']
               ? array_column($value, 'target_id')
@@ -220,8 +221,10 @@ function ab_prepare_wrangler_view(&$variables){
           break;
 
           default:
-            $field_form;
-        }
+            $field_form['#value'] = @array_shift(
+              array_column($value, 'value')
+            );
+      }
 
         // Title
         $title = _title($field);

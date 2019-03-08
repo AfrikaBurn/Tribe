@@ -188,3 +188,9 @@
 .wrangler-view .form--inline .form-actions .edit-actions{
   width: 100%;
 }
+
+.wrangle-wtf .views-field-title{ width: 20%;}
+.wrangle-wtf .views-field-field-prj-wtf-short,
+.wrangle-wtf .views-field-field-prj-wtf-short-copy{
+  width: 40%;
+}

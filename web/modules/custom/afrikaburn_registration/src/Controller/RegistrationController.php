@@ -68,15 +68,7 @@ class RegistrationController extends ControllerBase {
 
         // Single Checkbox
         case 'boolean':
-          $target->set($field_name, $value);
-        break;
-
-        // Textbox
         case 'string':
-          $target->set($field_name, $value);
-        break;
-
-        // Integer
         case 'integer':
           $target->set($field_name, $value);
         break;

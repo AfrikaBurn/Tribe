@@ -374,6 +374,7 @@ third_party_settings:
         - group_lnt
         - group_collaboration
         - group_other
+        - field_prj_wtf_short_copy
       parent_name: ''
       weight: 1
       format_type: tabs
@@ -432,7 +433,7 @@ mode: default
 content:
   field_allow_support_camp:
     type: boolean_checkbox
-    weight: 10
+    weight: 11
     region: content
     settings:
       display_label: true
@@ -823,7 +824,7 @@ content:
           bundle: art
   field_prj_gen_bio:
     type: string_textarea
-    weight: 13
+    weight: 16
     region: content
     settings:
       rows: 5
@@ -840,7 +841,7 @@ content:
     third_party_settings: {  }
   field_prj_gen_contact:
     type: erviews_options_select
-    weight: 8
+    weight: 12
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -861,7 +862,7 @@ content:
     third_party_settings: {  }
   field_prj_gen_fundraiser:
     type: erviews_options_select
-    weight: 16
+    weight: 19
     region: content
     settings: {  }
     third_party_settings:
@@ -884,14 +885,14 @@ content:
           bundle: art
   field_prj_gen_fundraising:
     type: boolean_checkbox
-    weight: 15
+    weight: 18
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_prj_gen_history:
     type: string_textarea
-    weight: 14
+    weight: 17
     region: content
     settings:
       rows: 5
@@ -908,13 +909,13 @@ content:
     third_party_settings: {  }
   field_prj_gen_lead:
     type: erviews_options_select
-    weight: 10
+    weight: 14
     region: content
     settings: {  }
     third_party_settings: {  }
   field_prj_gen_location:
     type: cshs
-    weight: 11
+    weight: 15
     region: content
     settings:
       parent: 0
@@ -924,7 +925,7 @@ content:
       conditional_fields: {  }
   field_prj_gen_manager:
     type: erviews_options_select
-    weight: 9
+    weight: 13
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -1411,6 +1412,14 @@ content:
             selector: ''
           entity_type: node
           bundle: art
+  field_prj_wtf_short_copy:
+    type: string_textarea
+    weight: 16
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_wtf_website:
     type: link_default
     weight: 11
@@ -1534,7 +1543,7 @@ content:
     region: content
   field_waps:
     type: entity_reference_paragraphs
-    weight: 12
+    weight: 13
     region: content
     settings:
       title: Paragraph
@@ -1545,7 +1554,7 @@ content:
       default_paragraph_type: ''
     third_party_settings: {  }
   field_waps_allowed:
-    weight: 11
+    weight: 12
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -1565,7 +1574,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 7
+    weight: 11
     region: content
     settings:
       size: 60
@@ -1635,7 +1644,6 @@ hidden:
   field_prj_wtf_planned: true
   field_prj_wtf_scheduled: true
   field_prj_wtf_short: true
-  field_prj_wtf_short_copy: true
   field_sup_comment: true
   field_sup_review: true
   field_vp_ea: true

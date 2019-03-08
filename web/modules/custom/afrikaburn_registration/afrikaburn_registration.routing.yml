@@ -58,3 +58,7 @@ afrikaburn_registration.wrangle_sound:
   path: '/wrangle/projects/sound'
   options:
     _admin_route: TRUE
+afrikaburn_registration.wrangle_wtf:
+  path: '/wrangle/projects/wtf'
+  options:
+    _admin_route: TRUE
