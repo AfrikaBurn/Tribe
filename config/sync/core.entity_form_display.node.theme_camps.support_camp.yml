@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_form_mode.node.support_camp
     - field.field.node.theme_camps.field_admin_comments
+    - field.field.node.theme_camps.field_arteria_checkin
     - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_field_prj_plc_marquis
     - field.field.node.theme_camps.field_field_prj_plc_stretch_m
@@ -127,6 +128,9 @@ dependencies:
     - field.field.node.theme_camps.field_prj_wtf_website
     - field.field.node.theme_camps.field_prjr_complete
     - field.field.node.theme_camps.field_ranger_representative
+    - field.field.node.theme_camps.field_snd_bass_bins
+    - field.field.node.theme_camps.field_snd_playtime_mon_wed
+    - field.field.node.theme_camps.field_snd_playtime_thurs_sun
     - field.field.node.theme_camps.field_stretch_tent_dimen
     - field.field.node.theme_camps.field_sup_review
     - field.field.node.theme_camps.field_supporting_project
@@ -433,9 +437,12 @@ content:
     region: content
   field_prj_oth_associated:
     weight: 10
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: options_select
+    type: entity_reference_autocomplete
     region: content
   field_prj_plc_camp_d:
     type: number
@@ -664,6 +671,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_arteria_checkin: true
   field_final_placement: true
   field_ice_card: true
   field_lineup_request: true
@@ -743,6 +751,9 @@ hidden:
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
   field_ranger_representative: true
+  field_snd_bass_bins: true
+  field_snd_playtime_mon_wed: true
+  field_snd_playtime_thurs_sun: true
   field_sup_review: true
   field_tc_type: true
   field_vp_ea: true
