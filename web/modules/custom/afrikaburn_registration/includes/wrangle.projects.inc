@@ -119,6 +119,8 @@ function ar_prepare_wrangler_filter(&$form, $type){
 
   $view = \Drupal\views\Views::getView('wranglers');
 
+  if (!$form['wrangler']) return;
+
   if (is_object($view)) {
 
     // ARGH! consistent naming so desperately needed!
@@ -158,6 +160,9 @@ function ar_prepare_wrangler_filter(&$form, $type){
 function ab_prepare_wrangler_view(&$variables){
 
   $view = $variables['view'];
+
+  if ($view->current_display == 'download') return;
+
   $name = $view->id();
   $type = trim(explode(',', $view->storage->get('tag'))[1]);
   $rows = $variables['rows'];

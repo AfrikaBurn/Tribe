@@ -35,7 +35,8 @@
 {%
   set classes = [
     dom_id ? 'js-view-dom-id-' ~ dom_id,
-    'wrangler-view'
+    'wrangler-view',
+    css_name
   ]
 %}
 <div{{ attributes.addClass(classes) }}>
