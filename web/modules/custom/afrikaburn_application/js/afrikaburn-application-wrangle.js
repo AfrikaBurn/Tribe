@@ -28,6 +28,7 @@
     update(){
       this.element.parent().addClass('editor-busy')
       this.element.parent().removeClass('editor-error')
+      this.element.parent().removeClass('editor-success')
 
       var
         sid = this.element.parents('tr').data('sid'),
@@ -45,6 +46,11 @@
           },
           success: (data, status) => {
             this.element.parent().removeClass('editor-busy')
+            setTimeout(
+              () => this.element.parent().removeClass('editor-success'),
+              5000
+            )
+            this.element.parent().addClass('editor-success')
           },
           error: () => {
             this.element.parent().removeClass('editor-busy')
