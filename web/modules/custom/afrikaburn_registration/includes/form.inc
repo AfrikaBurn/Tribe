@@ -346,6 +346,8 @@ function _set_form_defaults(&$form, $collective, $supporting_project, $defaults,
  */
 function _set_form_field_state(&$form, $is_admin, $is_wrangler, $bundle){
   $form['revision_log']['#access'] = $is_admin;
+  $form['field_waps']['#access'] = $is_admin;
+  $form['field_waps_allowed']['#access'] = $is_admin || $is_wrangler;
   $form['field_form_mode']['#type'] = 'hidden';
   $form['field_collective']['#access'] = $is_admin;
   $form['field_prjr_complete']['widget']['#options'] = array_intersect_key(
