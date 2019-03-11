@@ -44,9 +44,12 @@ content:
     weight: 1
     label: hidden
     settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
+      view_mode: full_name
+      link: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+    type: entity_reference_entity_view
     region: second
 hidden:
   field_year_cycle: true
