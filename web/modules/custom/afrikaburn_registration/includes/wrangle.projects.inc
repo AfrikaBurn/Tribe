@@ -20,6 +20,7 @@ function _editable($id){
         'field_prj_stc_size',
         'field_allow_support_camp',
         'field_waps_allowed',
+        'field_collective',
       ],
 
       'wrangle_binnekring_events' => [
@@ -30,6 +31,7 @@ function _editable($id){
         'field_prj_snd_level',
         'field_allow_support_camp',
         'field_waps_allowed',
+        'field_collective',
       ],
 
       'wrangle_mutant_vehicles' => [
@@ -44,6 +46,7 @@ function _editable($id){
         'field_mv_amount_worthy',
         'field_allow_support_camp',
         'field_waps_allowed',
+        'field_collective',
       ],
 
       'wrangle_theme_camps' => [
@@ -62,6 +65,7 @@ function _editable($id){
         'field_placement_card',
         'field_placement_letter_sent',
         'field_waps_allowed',
+        'field_collective',
       ],
 
       'wrangle_wtf' => [
@@ -85,6 +89,7 @@ function _merge(){
       'field_prj_plc_people',
     ],
     'process' => [
+      'field_collective',
       'field_prj_adm_wrangler',
       'field_prj_adm_review',
       'field_prjr_complete',
@@ -195,6 +200,7 @@ function ab_prepare_wrangler_view(&$variables){
               $form[$field]['value'],
               $form[$field]['widget']['value'],
               $form[$field]['widget'][0]['value'],
+              $form[$field]['widget'][0]['target_id'],
               $form[$field]['widget'],
             ]
           )
@@ -214,6 +220,7 @@ function ab_prepare_wrangler_view(&$variables){
             $field_form['#checked'] = array_column($value, 'value')[0] == "1";
           break;
 
+          case "entity_autocomplete":
           case "select":
             $field_form['#value'] = $field_form['#multiple']
               ? array_column($value, 'target_id')
