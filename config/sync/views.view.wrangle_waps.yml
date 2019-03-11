@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.node.field_collective
     - field.storage.node.field_waps
     - field.storage.node.field_waps_allowed
     - flag.flag.archived
@@ -30,7 +29,7 @@ id: wrangle_waps
 label: 'Wrangle: WAPs'
 module: views
 description: ''
-tag: ''
+tag: 'wrangle, waps'
 base_table: node_field_data
 base_field: nid
 core: 8.x
@@ -68,7 +67,7 @@ display:
       exposed_form:
         type: basic
         options:
-          submit_button: Apply
+          submit_button: Search
           reset_button: false
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
@@ -101,7 +100,7 @@ display:
         options:
           grouping:
             -
-              field: field_collective
+              field: title_1
               rendered: true
               rendered_strip: false
           row_class: ''
@@ -113,11 +112,26 @@ display:
           description: ''
           columns:
             title: title
-            field_waps: field_waps
-            field_collective: field_collective
+            type: type
             field_waps_allowed: field_waps_allowed
+            field_waps: field_waps
+            title_1: title_1
           info:
             title:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            type:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            field_waps_allowed:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -129,14 +143,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            field_collective:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            field_waps_allowed:
+            title_1:
               sortable: false
               default_sort_order: asc
               align: ''
@@ -417,18 +424,18 @@ display:
           prefix: ''
           suffix: ''
           plugin_id: field
-        field_collective:
-          id: field_collective
-          table: node__field_collective
-          field: field_collective
-          relationship: none
+        title_1:
+          id: title_1
+          table: node_field_data
+          field: title
+          relationship: field_collective
           group_type: group
           admin_label: ''
           label: ''
           exclude: true
           alter:
             alter_text: true
-            text: '<h2>{{ field_collective }} </h2>'
+            text: '<h2>{{ title_1 }}</h2>'
             make_link: false
             path: ''
             absolute: false
@@ -465,11 +472,11 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: entity_reference_label
+          click_sort_column: value
+          type: string
           settings:
-            link: true
-          group_column: target_id
+            link_to_entity: true
+          group_column: value
           group_columns: {  }
           group_rows: true
           delta_limit: 0
@@ -479,6 +486,8 @@ display:
           multi_type: separator
           separator: ', '
           field_api_classes: false
+          entity_type: node
+          entity_field: title
           plugin_id: field
       filters:
         status:
@@ -614,6 +623,69 @@ display:
             group_items: {  }
           entity_type: flagging
           plugin_id: flag_filter
+        combine:
+          id: combine
+          table: views
+          field: combine
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: allwords
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: combine_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: combine_op
+            identifier: search
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              art_wrangler: '0'
+              art_admin: '0'
+              communications_wrangler: '0'
+              communications_admin: '0'
+              leave_no_trace_moop: '0'
+              mutant_vehicle_viewer: '0'
+              mutant_vehicle_wrangler: '0'
+              mutant_vehicle_admin: '0'
+              outreach_wrangler: '0'
+              outreach_admin: '0'
+              administrator: '0'
+              support_wrangler: '0'
+              support_admin: '0'
+              theme_camp_wrangler: '0'
+              theme: '0'
+              supplier: '0'
+              dpw: '0'
+              volunteer_admin: '0'
+              ranger_admin: '0'
+              sanctuary_admin: '0'
+              logger: '0'
+              anathi: '0'
+            placeholder: 'Collective or project name'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          fields:
+            title: title
+            title_1: title_1
+          plugin_id: combine
       sorts:
         created:
           id: created
@@ -646,6 +718,15 @@ display:
           user_scope: any
           entity_type: node
           plugin_id: flag_relationship
+        field_collective:
+          id: field_collective
+          table: node__field_collective
+          field: field_collective
+          relationship: none
+          group_type: group
+          admin_label: Collective
+          required: false
+          plugin_id: standard
       arguments: {  }
       display_extenders: {  }
       group_by: false
@@ -654,11 +735,11 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:field.storage.node.field_collective'
         - 'config:field.storage.node.field_waps'
         - 'config:field.storage.node.field_waps_allowed'
   page:
@@ -683,10 +764,10 @@ display:
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
+        - url
         - url.query_args
         - 'user.node_grants:view'
         - user.roles
       tags:
-        - 'config:field.storage.node.field_collective'
         - 'config:field.storage.node.field_waps'
         - 'config:field.storage.node.field_waps_allowed'
