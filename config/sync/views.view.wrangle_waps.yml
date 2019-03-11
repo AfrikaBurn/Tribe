@@ -60,7 +60,7 @@ display:
         type: views_query
         options:
           disable_sql_rewrite: false
-          distinct: false
+          distinct: true
           replica: false
           query_comment: ''
           query_tags: {  }
@@ -77,7 +77,7 @@ display:
       pager:
         type: full
         options:
-          items_per_page: 10
+          items_per_page: 25
           offset: 0
           id: 0
           total_pages: null
