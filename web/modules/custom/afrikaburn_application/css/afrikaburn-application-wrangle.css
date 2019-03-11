@@ -55,6 +55,20 @@
   margin: -10px 0 0 -10px;
 }
 
+.editor-success:before {
+  background-image: url(/core/misc/icons/73b355/check.svg);
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  content: '';
+  z-index: 1;
+  background-size: cover;
+  top: 50%;
+  right: -10px;
+  margin: -10px 0 0 -10px;
+}
+
 .editor-error{
   background-color: #e85157;
   border: 2px solid #802727;
@@ -71,7 +85,7 @@
 }
 .editor-parent.form-item-field-prj-adm-wrangler select,
 .editor-parent.form-item-field-prj-adm-review select,
-.editor-parent.form-type-textfield input,
+.editor-parent.form-type-textfield input
 {
   width: 100%;
 }
