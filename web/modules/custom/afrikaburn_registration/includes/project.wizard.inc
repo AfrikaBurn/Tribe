@@ -14,7 +14,7 @@ function afrikaburn_registration_field_group_pre_render(&$element, &$group, &$fo
   if ($group->group_name == 'group_project_registration' && $form['#wizard']){
     $form['#attributes']['class'][] = 'js-wizard';
   }
-  if ($group->group_name == 'group_administrative' && !isset($form['#administrator'])){
-    $form['group_administrative']['#attributes']['class'][] = 'hidden';
+  if ($group->group_name == 'group_administrative' && !$form['#administrator']){
+    $form['group_administrative']['#access'] = false;
   }
 }
