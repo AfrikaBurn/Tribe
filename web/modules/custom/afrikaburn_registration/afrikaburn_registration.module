@@ -244,6 +244,14 @@ function afrikaburn_registration_theme(){
       'template' => 'views-view-table--wrangle-projects',
       'base hook' => 'view',
     ],
+    'views_view__wrangle_waps' => [
+      'template' => 'views-view--wrangle',
+      'base hook' => 'view',
+    ],
+    'views_view_table__wrangle_waps' => [
+      'template' => 'views-view-table--wrangle-projects',
+      'base hook' => 'view',
+    ],
     // 'views_view_table__wrangle_waps' => [
     //   'template' => 'views-view-fields--wrangle-projects',
     //   'base hook' => 'view',
