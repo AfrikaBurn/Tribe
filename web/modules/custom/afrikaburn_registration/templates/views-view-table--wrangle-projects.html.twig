@@ -39,6 +39,7 @@
     sticky ? 'sticky-enabled'
   ]
 %}
+{% if mails %}
 <div class="mass-mail">
   <label>On this page:</label>
 {% for person, addresses in mails %}
@@ -48,6 +49,7 @@
   </details>
 {% endfor %}
 </div>
+{% endif %}
 <table{{ attributes.addClass(classes) }}>
   {% if caption_needed %}
     <caption>
