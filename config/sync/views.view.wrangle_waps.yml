@@ -357,7 +357,7 @@ display:
           label: 'Assigned WAPs'
           exclude: false
           alter:
-            alter_text: true
+            alter_text: false
             text: '<details>{{ field_waps }} </details>'
             make_link: false
             path: ''
