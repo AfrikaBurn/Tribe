@@ -63,3 +63,6 @@
   cursor: pointer;
 }
 
+.views-field-field-incident-reporter details{
+  border: none;
+}

@@ -1,26 +1,25 @@
-uuid: aee775c8-eafc-41eb-8a35-f10b9f176680
+uuid: 8d23f142-c76a-4dcb-85db-a9c715bf4330
 langcode: en
 status: true
 dependencies:
   config:
     - comment.type.incident_comment
-    - field.storage.comment.comment_body
+    - field.storage.comment.field_body
   module:
     - custom_add_another
-    - text
 third_party_settings:
   custom_add_another:
     custom_add_another: ''
     custom_remove: ''
-id: comment.incident_comment.comment_body
-field_name: comment_body
+id: comment.incident_comment.field_body
+field_name: field_body
 entity_type: comment
 bundle: incident_comment
 label: Comment
 description: ''
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''
 settings: {  }
-field_type: text_long
+field_type: string_long
