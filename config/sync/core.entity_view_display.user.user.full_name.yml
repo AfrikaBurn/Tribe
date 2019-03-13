@@ -28,6 +28,7 @@ dependencies:
     - field.field.user.user.field_quicket_id
     - field.field.user.user.field_secondary_mail
     - field.field.user.user.field_terms_and_conditions
+    - field.field.user.user.field_year_cycle
     - field.field.user.user.user_picture
     - image.style.small_50x50
   module:
@@ -113,5 +114,7 @@ hidden:
   field_quicket_id: true
   field_secondary_mail: true
   field_terms_and_conditions: true
+  field_year_cycle: true
+  flag_wap_ban: true
   masquerade: true
   member_for: true

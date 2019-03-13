@@ -1,0 +1,7 @@
+status: '0'
+pattern: ''
+php: 0
+escape: 0
+dependencies:
+  config:
+    - comment.type.incident_comment

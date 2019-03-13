@@ -10,13 +10,6 @@
  */
 function afrikaburn_incident_form_node_incident_form_alter(&$form, &$form_state){
 
-  // $types = explode(',', \Drupal::request()->get('types'));
-  // foreach($types as $index=>$type){
-  //   // $form['field_incident_type']['widget'][$index] = $form['field_incident_type']['widget'][0];
-  //   // $form['field_incident_type']['widget'][$index]['target_id']['#default_value'] = \Drupal\taxonomy\Entity\Term::load($type);
-  //   // $form['field_incident_type']['widget']['#default_value']
-  // }
-
   $new_state = \Drupal::request()->get('newstate');
   if ($new_state) {
     $form['field_incident_state']['widget']['#default_value'] = $new_state;
@@ -50,6 +43,10 @@ function afrikaburn_incident_theme(){
       'template' => 'views-view-table--wrangle-incidents',
       'base hook' => 'view',
     ],
+    'views_view_fields__wrangle_incident_comments' => [
+      'template' => 'views-view-fields--wrangle-incident-comments',
+      'base hook' => 'view',
+    ],
   ];
 }
 
@@ -65,6 +62,54 @@ function afrikaburn_incident_preprocess_views_view(&$variables){
   }
 }
 
+/**
+ * Implements hook_preprocess_views_view_table().
+ */
+function afrikaburn_incident_preprocess_views_view_table(&$variables) {
+  if ($variables['view']->id() == 'wrangle_incidents') {
+
+    $view = $variables['view'];
+
+    // Insert forms
+    foreach($variables['rows'] as $index=>&$row){
+      $nid = $view->result[$index]->_entity->id();
+
+      // Latest comment
+      $row['columns']['field_description']['content'][] = [
+        'field_output' => @render(views_embed_view('wrangle_incident_comments', 'latest', $nid))
+      ];
+      // Comment form
+      $form = [
+        '#type' => 'details',
+        '#title' => 'Add comment',
+        'content' => \Drupal::service('entity.form_builder')->getForm(
+          \Drupal::entityTypeManager()->getStorage('comment')->create(
+            [
+              'entity_type'  => 'node',
+              'entity_id'    => $nid,
+              'field_name'   => 'field_comments',
+              'comment_type' => 'incident_comment',
+              'pid' => NULL,
+              'published' => 1,
+              'status' => 1,
+            ]
+          )
+        )
+      ];
+      unset($form['content']['field_body']['widget'][0]['value']['#title']);
+      $form['content']['#action'] .= '?destination=' . \Drupal\Component\Utility\UrlHelper::encodePath(drupal_get_destination()['destination']);
+      $history = [
+        '#type' => 'details',
+        '#title' => 'Older comments',
+        'content' => views_embed_view('wrangle_incident_comments', 'history', $nid),
+      ];
+      $row['columns']['field_description']['content'][] = ['field_output' => render($history)];
+      $row['columns']['field_description']['content'][] = ['field_output' => render($form)];
+      $row['columns']['field_description']['content'][] = $row['columns']['field_description']['content'][3];
+      unset($row['columns']['field_description']['content'][3]);
+    }
+  }
+}
 
 /**
  * Redirect incident submit to incident view

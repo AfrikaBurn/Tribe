@@ -4,33 +4,20 @@ status: true
 dependencies:
   config:
     - comment.type.incident_comment
-    - field.field.comment.incident_comment.comment_body
-  module:
-    - text
+    - field.field.comment.incident_comment.field_body
 id: comment.incident_comment.default
 targetEntityType: comment
 bundle: incident_comment
 mode: default
 content:
-  author:
-    weight: -2
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  comment_body:
-    type: text_textarea
-    weight: 11
+  field_body:
+    weight: 3
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+    type: string_textarea
     region: content
-  subject:
-    type: string_textfield
-    weight: 10
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  author: true
+  subject: true
