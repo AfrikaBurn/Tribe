@@ -45,8 +45,8 @@ function _notify_delete($entity){
     'Afrikaburn Tribe',
     'no-reply@afrikaburn.com',
     FALSE,
-    'New user account DELETED: ' . $entity->get('field_first_name')->value . ' "' . $entity->get('name')->value . '" ' . $entity->get('field_last_name')->value,
-    render($account),
+    'User account DELETED: ' . $entity->get('field_first_name')->value . ' "' . $entity->get('name')->value . '" ' . $entity->get('field_last_name')->value,
+    'The user has deleted their account: ' .$entity->get('mail')->value,
     $entity
   );
 }

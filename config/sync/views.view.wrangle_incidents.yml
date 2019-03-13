@@ -15,6 +15,7 @@ dependencies:
     - flag.flag.archived
     - node.type.incident
     - taxonomy.vocabulary.incident_type
+    - user.role.administrator
     - user.role.logger
   content:
     - 'taxonomy_term:incident_type:336f4c5c-d347-4532-a8c2-92517c4b1a4b'
@@ -51,6 +52,7 @@ display:
         type: role
         options:
           role:
+            administrator: administrator
             logger: logger
       cache:
         type: none

@@ -6,6 +6,8 @@ dependencies:
     - comment.type.incident_comment
     - core.entity_view_mode.user.full_name
     - field.storage.comment.field_body
+    - user.role.administrator
+    - user.role.logger
   module:
     - comment
     - node
@@ -26,9 +28,11 @@ display:
     position: 0
     display_options:
       access:
-        type: perm
+        type: role
         options:
-          perm: 'access comments'
+          role:
+            administrator: administrator
+            logger: logger
       cache:
         type: tag
         options: {  }
@@ -376,7 +380,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user.permissions
+        - user.roles
       tags:
         - 'config:core.entity_view_display.user.user.default'
         - 'config:core.entity_view_display.user.user.full_name'
@@ -587,7 +591,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user.permissions
+        - user.roles
       tags:
         - 'config:core.entity_view_display.user.user.default'
         - 'config:core.entity_view_display.user.user.full_name'
@@ -627,7 +631,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user.permissions
+        - user.roles
       tags:
         - 'config:core.entity_view_display.user.user.default'
         - 'config:core.entity_view_display.user.user.full_name'
@@ -655,7 +659,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user.permissions
+        - user.roles
       tags:
         - 'config:core.entity_view_display.user.user.default'
         - 'config:core.entity_view_display.user.user.full_name'

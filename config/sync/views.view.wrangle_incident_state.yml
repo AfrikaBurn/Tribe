@@ -4,6 +4,8 @@ status: true
 dependencies:
   config:
     - taxonomy.vocabulary.incident_type
+    - user.role.administrator
+    - user.role.logger
   module:
     - taxonomy
     - user
@@ -23,9 +25,11 @@ display:
     position: 0
     display_options:
       access:
-        type: perm
+        type: role
         options:
-          perm: 'access content'
+          role:
+            administrator: administrator
+            logger: logger
       cache:
         type: none
         options: {  }
@@ -448,7 +452,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user.permissions
+        - user.roles
       tags: {  }
   embed_1:
     display_plugin: embed
@@ -466,7 +470,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user.permissions
+        - user.roles
       tags: {  }
   entity_reference_1:
     display_plugin: entity_reference
@@ -533,5 +537,5 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - user.permissions
+        - user.roles
       tags: {  }

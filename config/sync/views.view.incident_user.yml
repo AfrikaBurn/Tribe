@@ -8,6 +8,7 @@ dependencies:
     - field.storage.user.field_last_name
     - field.storage.user.user_picture
     - image.style.small_50x50
+    - user.role.administrator
     - user.role.logger
   module:
     - image
@@ -31,6 +32,7 @@ display:
         type: role
         options:
           role:
+            administrator: administrator
             logger: logger
       cache:
         type: tag
@@ -421,6 +423,7 @@ display:
       tags:
         - 'config:core.entity_view_display.user.user.default'
         - 'config:core.entity_view_display.user.user.full_name'
+        - 'config:core.entity_view_display.user.user.web_view'
         - 'config:core.entity_view_display.user.user.wrangler_overview'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
@@ -449,6 +452,7 @@ display:
       tags:
         - 'config:core.entity_view_display.user.user.default'
         - 'config:core.entity_view_display.user.user.full_name'
+        - 'config:core.entity_view_display.user.user.web_view'
         - 'config:core.entity_view_display.user.user.wrangler_overview'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
