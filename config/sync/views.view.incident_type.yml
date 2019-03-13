@@ -7,6 +7,7 @@ dependencies:
     - image.style.small_50x50
     - image.style.thumbnail
     - taxonomy.vocabulary.incident_type
+    - user.role.administrator
     - user.role.logger
   module:
     - image
@@ -33,6 +34,7 @@ display:
         type: role
         options:
           role:
+            administrator: administrator
             logger: logger
       cache:
         type: tag

@@ -2,7 +2,3 @@ afrikaburn_incident.log:
   path: '/wrangle/incidents'
   options:
     _admin_route: TRUE
-afrikaburn_incident.view:
-  path: '/wrangle/incidents/{nid}'
-  options:
-    _admin_route: TRUE
