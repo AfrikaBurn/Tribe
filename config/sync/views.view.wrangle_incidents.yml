@@ -2216,7 +2216,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<details>\r\n<summary><a href=\"/wrangle/incidents?search={{ nid }}\">#{{ nid }}</a> {{ field_date_and_time }} {{ title }}</summary>\r\n<p>{{ field_description }}</p>\r\n</details>"
+            text: "<details>\r\n<summary><a href=\"?search={{ nid }}\">#{{ nid }}</a> {{ field_date_and_time }} {{ title }}</summary>\r\n<p>{{ field_description }}</p>\r\n</details>"
             make_link: false
             path: ''
             absolute: false
@@ -2658,7 +2658,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<details>\r\n<summary><a href=\"/wrangle/incidents?search={{ nid }}\">#{{ nid }}</a> {{ field_date_and_time }} {{ title }}</summary>\r\n<p>{{ field_description }}</p>\r\n</details>"
+            text: "<details>\r\n<summary><a href=\"?search={{ nid }}\">#{{ nid }}</a> {{ field_date_and_time }} {{ title }}</summary>\r\n<p>{{ field_description }}</p>\r\n</details>"
             make_link: false
             path: ''
             absolute: false
