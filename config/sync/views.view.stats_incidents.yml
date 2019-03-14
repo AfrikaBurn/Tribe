@@ -684,8 +684,8 @@ display:
           label: ''
           exclude: true
           alter:
-            alter_text: false
-            text: ''
+            alter_text: true
+            text: '<h3>{{ parent_target_id }}</h3>'
             make_link: false
             path: ''
             absolute: false
