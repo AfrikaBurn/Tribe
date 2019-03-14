@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.form_2
     - field.field.node.art.field_admin_comments
     - field.field.node.art.field_allow_support_camp
+    - field.field.node.art.field_arteria_checkin
     - field.field.node.art.field_burn_can_be_denied
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
@@ -135,9 +136,14 @@ dependencies:
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
     - field.field.node.art.field_prjr_complete
+    - field.field.node.art.field_snd_bass_bins
+    - field.field.node.art.field_snd_playtime_mon_wed
+    - field.field.node.art.field_snd_playtime_thurs_sun
     - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
     - field.field.node.art.field_vp_ea
+    - field.field.node.art.field_waps
+    - field.field.node.art.field_waps_allowed
     - field.field.node.art.field_year_cycle
     - node.type.art
   module:
@@ -422,11 +428,10 @@ content:
     weight: 6
     region: content
     settings:
-      future_format: '@interval hence'
-      past_format: '@interval ago'
-      granularity: 2
+      timezone_override: ''
+      format_type: medium
     third_party_settings: {  }
-    type: datetime_time_ago
+    type: datetime_default
     label: above
   field_prj_hed_project:
     weight: 6
@@ -711,6 +716,7 @@ content:
 hidden:
   field_admin_comments: true
   field_allow_support_camp: true
+  field_arteria_checkin: true
   field_col_members: true
   field_grant_expense_header: true
   field_grt_art_apply: true
@@ -802,9 +808,14 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
+  field_snd_bass_bins: true
+  field_snd_playtime_mon_wed: true
+  field_snd_playtime_thurs_sun: true
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
+  field_waps: true
+  field_waps_allowed: true
   flag_mute: true
   path: true
   promote: true

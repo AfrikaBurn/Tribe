@@ -449,8 +449,11 @@ function _wap_form(&$form, $collective, $registration, $mode){
             $wap->entity->field_team_member->entity->name->value . '" ' .
             $wap->entity->field_team_member->entity->field_last_name->value .
           '</td><td>' .
-            $wap->entity->field_estimated_date_of_arrival->date->format('d/m/Y') .
-          '</td>',
+            ($wap->entity->field_estimated_date_of_arrival->date
+              ? $wap->entity->field_estimated_date_of_arrival->date->format('d/m/Y')
+              : 'UNSPECIFIED'
+            ) .
+      '</td>',
         '#suffix' => '</tr>',
       ];
     }
