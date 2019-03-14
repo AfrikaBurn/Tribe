@@ -252,10 +252,6 @@ function afrikaburn_registration_theme(){
       'template' => 'views-view-table--wrangle-projects',
       'base hook' => 'view',
     ],
-    // 'views_view_table__wrangle_waps' => [
-    //   'template' => 'views-view-fields--wrangle-projects',
-    //   'base hook' => 'view',
-    // ],
   ];
 }
 
@@ -268,10 +264,6 @@ function afrikaburn_registration_theme(){
  */
 function afrikaburn_registration_preprocess_views_view(&$variables){
   switch ($variables['id']){
-
-    // case 'project_registration_view':
-    //   \Drupal::routeMatch()->getRouteObject()->setDefault('_title', $title);
-    // break;
 
     case 'collective_projects':
       module_load_include('inc', 'afrikaburn_registration', 'includes/collective.projects');

@@ -24,7 +24,6 @@ function afrikaburn_incident_form_node_incident_form_alter(&$form, &$form_state)
   ];
 
   $form['#action'] == '/node/add/incident';
-
   $form['advanced']['#access'] = FALSE;
   $form['actions']['submit']['#submit'][] = 'afrikaburn_incident_submit';
 }
@@ -51,10 +50,23 @@ function afrikaburn_incident_theme(){
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter().
+ * Alters dashboard filter form.
+ */
+function afrikaburn_incident_form_views_exposed_form_alter(&$form, $form_state, $form_id) {
+
+  if ($form_id == '') {
+    $form;
+  }
+
+}
+
+/**
  * Implements hook_preprocess_views_view().
  */
 function afrikaburn_incident_preprocess_views_view(&$variables){
   switch ($variables['id']){
+    case 'incident_type':
     case 'wrangle_incidents':
       $variables['#attached']['library'][] = 'afrikaburn_incident/log';
       $variables['#attached']['library'][] = 'afrikaburn_shared/log';

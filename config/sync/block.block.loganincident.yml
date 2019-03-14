@@ -25,6 +25,6 @@ settings:
 visibility:
   request_path:
     id: request_path
-    pages: /wrangle/incidents
+    pages: '/wrangle/incidents*'
     negate: false
     context_mapping: {  }
