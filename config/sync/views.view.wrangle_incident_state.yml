@@ -211,7 +211,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a href="/wrangle/incidents?types={{ parent_target_id }}&newstate={{ tid }}&related={{ arguments.null }}">{{ name }}</a>'
+            text: '<a href="?types={{ parent_target_id }}&newstate={{ tid }}&related={{ arguments.null }}">{{ name }}</a>'
             make_link: false
             path: ''
             absolute: false
