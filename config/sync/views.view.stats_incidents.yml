@@ -63,7 +63,11 @@ display:
       style:
         type: table
         options:
-          grouping: {  }
+          grouping:
+            -
+              field: parent_target_id
+              rendered: true
+              rendered_strip: false
           row_class: ''
           default_row_class: true
           override: true
@@ -72,10 +76,25 @@ display:
           summary: ''
           description: ''
           columns:
+            field_icon: field_icon
+            name: name
             type: type
-            type_1: type_1
-            flagged: flagged
+            parent_target_id: parent_target_id
           info:
+            field_icon:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            name:
+              sortable: false
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
             type:
               sortable: false
               default_sort_order: asc
@@ -83,16 +102,7 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            type_1:
-              sortable: false
-              default_sort_order: asc
-              align: ''
-              separator: ''
-              empty_column: false
-              responsive: ''
-            flagged:
-              sortable: false
-              default_sort_order: asc
+            parent_target_id:
               align: ''
               separator: ''
               empty_column: false
@@ -323,7 +333,7 @@ display:
     display_options:
       display_extenders: {  }
       display_description: ''
-      title: 'Active types'
+      title: 'Current types'
       defaults:
         title: false
         relationships: false
@@ -352,6 +362,17 @@ display:
           group_type: group
           admin_label: Type
           required: false
+          plugin_id: standard
+        parent_target_id:
+          id: parent_target_id
+          table: taxonomy_term__parent
+          field: parent_target_id
+          relationship: field_incident_type
+          group_type: group
+          admin_label: Parent
+          required: false
+          entity_type: taxonomy_term
+          entity_field: parent
           plugin_id: standard
       filters:
         type:
@@ -652,6 +673,71 @@ display:
           field_api_classes: false
           entity_type: node
           entity_field: type
+          plugin_id: field
+        parent_target_id:
+          id: parent_target_id
+          table: taxonomy_term__parent
+          field: parent_target_id
+          relationship: field_incident_type
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: true
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: target_id
+          type: entity_reference_label
+          settings:
+            link: false
+          group_column: target_id
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: taxonomy_term
+          entity_field: parent
           plugin_id: field
       group_by: true
     cache_metadata:
