@@ -4,12 +4,10 @@ status: true
 dependencies:
   config:
     - comment.type.admin_comments
+    - core.entity_view_mode.user.full_name
     - field.storage.comment.field_body
-    - field.storage.user.user_picture
-    - image.style.tiny_25x25
   module:
     - comment
-    - image
     - node
     - user
 id: wrangle_comments
@@ -206,6 +204,8 @@ display:
           click_sort_column: value
           type: timestamp_ago
           settings:
+            future_format: 'just now'
+            past_format: '@interval ago'
             granularity: 1
           group_column: value
           group_columns: {  }
@@ -326,10 +326,10 @@ display:
           absolute: false
           entity_type: comment
           plugin_id: entity_link_edit
-        user_picture:
-          id: user_picture
-          table: user__user_picture
-          field: user_picture
+        rendered_entity:
+          id: rendered_entity
+          table: users
+          field: rendered_entity
           relationship: uid
           group_type: group
           admin_label: ''
@@ -337,7 +337,7 @@ display:
           exclude: false
           alter:
             alter_text: false
-            text: ''
+            text: '{{ rendered_entity|striptags|trim|replace({''\n'': '''', ''  '': '' ''})|replace({''  '': '' ''}) }}'
             make_link: false
             path: ''
             absolute: false
@@ -374,117 +374,47 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
-          click_sort_column: target_id
-          type: image
-          settings:
-            image_style: tiny_25x25
-            image_link: content
-          group_column: ''
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
-          plugin_id: field
-        name:
-          id: name
-          table: users_field_data
-          field: name
-          relationship: uid
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: false
-            text: ''
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: ''
-          element_class: ''
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: ''
-          element_wrapper_class: ''
-          element_default_classes: true
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: true
-          click_sort_column: value
-          type: user_name
-          settings:
-            link_to_entity: true
-          group_column: value
-          group_columns: {  }
-          group_rows: true
-          delta_limit: 0
-          delta_offset: 0
-          delta_reversed: false
-          delta_first_last: false
-          multi_type: separator
-          separator: ', '
-          field_api_classes: false
+          view_mode: full_name
           entity_type: user
-          entity_field: name
-          plugin_id: field
+          plugin_id: rendered_entity
       filters:
-        status:
-          value: '1'
-          table: comment_field_data
-          field: status
-          plugin_id: boolean
-          entity_type: comment
-          entity_field: status
-          id: status
-          expose:
-            operator: ''
-          group: 1
-        status_node:
-          value: '1'
-          table: node_field_data
-          field: status
-          plugin_id: boolean
-          relationship: node
-          entity_type: node
-          entity_field: status
-          id: status_node
-          expose:
-            operator: ''
-          group: 1
         comment_type:
           id: comment_type
           table: comment_field_data
           field: comment_type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
           value:
             admin_comments: admin_comments
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
           entity_type: comment
           entity_field: comment_type
           plugin_id: bundle
@@ -565,8 +495,11 @@ display:
         - url
         - user.permissions
       tags:
+        - 'config:core.entity_view_display.user.user.default'
+        - 'config:core.entity_view_display.user.user.full_name'
+        - 'config:core.entity_view_display.user.user.web_view'
+        - 'config:core.entity_view_display.user.user.wrangler_overview'
         - 'config:field.storage.comment.field_body'
-        - 'config:field.storage.user.user_picture'
   history:
     display_plugin: embed
     id: history
@@ -602,8 +535,11 @@ display:
         - url
         - user.permissions
       tags:
+        - 'config:core.entity_view_display.user.user.default'
+        - 'config:core.entity_view_display.user.user.full_name'
+        - 'config:core.entity_view_display.user.user.web_view'
+        - 'config:core.entity_view_display.user.user.wrangler_overview'
         - 'config:field.storage.comment.field_body'
-        - 'config:field.storage.user.user_picture'
   latest:
     display_plugin: embed
     id: latest
@@ -627,5 +563,8 @@ display:
         - url
         - user.permissions
       tags:
+        - 'config:core.entity_view_display.user.user.default'
+        - 'config:core.entity_view_display.user.user.full_name'
+        - 'config:core.entity_view_display.user.user.web_view'
+        - 'config:core.entity_view_display.user.user.wrangler_overview'
         - 'config:field.storage.comment.field_body'
-        - 'config:field.storage.user.user_picture'

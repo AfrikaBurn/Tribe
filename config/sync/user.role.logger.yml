@@ -7,7 +7,10 @@ label: Logger
 weight: 11
 is_admin: null
 permissions:
+  - 'access comments'
   - 'create incident content'
   - 'edit any incident content'
-  - 'view incident revisions'
+  - 'skip comment approval'
+  - 'view own unpublished content'
   - 'view the administration theme'
+  - 'view webprofiler toolbar'

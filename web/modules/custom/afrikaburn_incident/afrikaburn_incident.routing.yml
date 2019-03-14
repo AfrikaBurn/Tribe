@@ -1,8 +1,12 @@
-afrikaburn_incident.log:
+afrikaburn_incident.stats:
   path: '/wrangle/incidents'
   options:
     _admin_route: TRUE
-afrikaburn_incident.view:
-  path: '/wrangle/incidents/{nid}'
+afrikaburn_incident.current:
+  path: '/wrangle/incidents/current'
+  options:
+    _admin_route: TRUE
+afrikaburn_incident.archive:
+  path: '/wrangle/incidents/archive'
   options:
     _admin_route: TRUE

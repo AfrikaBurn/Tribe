@@ -7,6 +7,7 @@ dependencies:
     - image.style.small_50x50
     - image.style.thumbnail
     - taxonomy.vocabulary.incident_type
+    - user.role.administrator
     - user.role.logger
   module:
     - image
@@ -33,6 +34,7 @@ display:
         type: role
         options:
           role:
+            administrator: administrator
             logger: logger
       cache:
         type: tag
@@ -661,7 +663,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"/wrangle/incidents?types={{ tid }},{{ parent_target_id }}\">\r\n{{ field_icon }}\r\n{{ name }}\r\n</a>"
+            text: "<a href=\"/wrangle/incidents/current?types={{ tid }},{{ parent_target_id }}\">\r\n{{ field_icon }}\r\n{{ name }}\r\n</a>"
             make_link: false
             path: ''
             absolute: false
@@ -859,6 +861,7 @@ display:
         fields: false
         style: false
         row: false
+        footer: true
       filter_groups:
         operator: AND
         groups:
@@ -1121,7 +1124,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: "<a href=\"/wrangle/incidents?types={{ tid }}\">\r\n{{field_icon}}\r\n<h2>{{ name }}</h2>\r\n</a>\r\n{% if view|length %}\r\n<details>\r\n<summary>Specify {{name}}</summary>\r\n{{ view }}\r\n</details>\r\n{% endif %}"
+            text: "<a href=\"/wrangle/incidents/current?types={{ tid }}\">\r\n{{field_icon}}\r\n<h2>{{ name }}</h2>\r\n</a>\r\n{% if view|length %}\r\n<details>\r\n<summary>Specify {{name}}</summary>\r\n{{ view }}\r\n</details>\r\n{% endif %}"
             make_link: false
             path: ''
             absolute: false
@@ -1172,6 +1175,7 @@ display:
           separator: ''
           hide_empty: false
           default_field_elements: true
+      block_description: 'Incident Type Select'
     cache_metadata:
       max-age: -1
       contexts:
