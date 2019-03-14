@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.waps
     - field.field.node.theme_camps.field_admin_comments
+    - field.field.node.theme_camps.field_arteria_checkin
     - field.field.node.theme_camps.field_collective
     - field.field.node.theme_camps.field_field_prj_plc_marquis
     - field.field.node.theme_camps.field_field_prj_plc_stretch_m
@@ -127,6 +128,9 @@ dependencies:
     - field.field.node.theme_camps.field_prj_wtf_website
     - field.field.node.theme_camps.field_prjr_complete
     - field.field.node.theme_camps.field_ranger_representative
+    - field.field.node.theme_camps.field_snd_bass_bins
+    - field.field.node.theme_camps.field_snd_playtime_mon_wed
+    - field.field.node.theme_camps.field_snd_playtime_thurs_sun
     - field.field.node.theme_camps.field_stretch_tent_dimen
     - field.field.node.theme_camps.field_sup_review
     - field.field.node.theme_camps.field_supporting_project
@@ -137,124 +141,29 @@ dependencies:
     - field.field.node.theme_camps.field_year_cycle
     - node.type.theme_camps
   module:
-    - computed_field
-    - field_group
-    - options
-    - paragraphs
-    - taxonomy
+    - entity_reference_revisions
     - user
-third_party_settings:
-  field_group:
-    group_administrative:
-      children:
-        - field_prjr_complete
-        - field_prj_adm_review
-        - field_prj_adm_wrangler
-        - field_collective
-        - field_form_mode
-        - field_year_cycle
-        - field_waps_allowed
-        - field_admin_comments
-        - field_final_placement
-        - field_ice_card
-        - field_neighbours
-        - field_placed
-        - field_placement_card
-        - field_placement_letter_sent
-        - field_plot
-        - field_prj_plc_binnekring
-        - field_prj_plc_camp_d
-        - field_prj_plc_camp_w
-        - field_prj_plc_location
-        - field_prj_plc_location_extra
-      parent_name: ''
-      weight: 0
-      format_type: details
-      format_settings:
-        id: ''
-        classes: ''
-        open: false
-        required_fields: true
-      label: Administrative
 id: node.theme_camps.waps
 targetEntityType: node
 bundle: theme_camps
 mode: waps
 content:
-  field_collective:
-    weight: 16
-    region: content
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    label: above
-  field_form_mode:
-    weight: 17
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    region: content
-    type: string
-    label: above
-  field_prj_adm_review:
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-    type: entity_reference_rss_category
-    label: above
-  field_prj_adm_wrangler:
-    weight: 3
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-    type: author
-    label: above
   field_prj_cll_thread:
     weight: 15
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_prjr_complete:
-    weight: 1
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-    type: list_key
-    label: above
   field_waps:
     weight: 2
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-    type: paragraph_summary
-    label: hidden
-  field_waps_allowed:
-    weight: 49
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-    type: number_unformatted
-    label: above
-  field_year_cycle:
-    weight: 40
     settings:
-      cache_unit: -1
-      cache_duration: 1
-      thousand_separator: ''
-      prefix_suffix: true
+      view_mode: default
+      link: ''
     third_party_settings: {  }
     region: content
-    type: computed_integer
-    label: above
+    type: entity_reference_revisions_entity_view
+    label: hidden
   flag:
     weight: 4
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  flag_mute:
-    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -267,9 +176,12 @@ content:
     region: content
 hidden:
   field_admin_comments: true
+  field_arteria_checkin: true
+  field_collective: true
   field_field_prj_plc_marquis: true
   field_field_prj_plc_stretch_m: true
   field_final_placement: true
+  field_form_mode: true
   field_ice_card: true
   field_lineup_request: true
   field_neighbours: true
@@ -283,6 +195,8 @@ hidden:
   field_prj_adm_longitude: true
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
+  field_prj_adm_review: true
+  field_prj_adm_wrangler: true
   field_prj_cll_collaborate: true
   field_prj_cll_contact: true
   field_prj_cll_description: true
@@ -391,13 +305,20 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
+  field_prjr_complete: true
   field_ranger_representative: true
+  field_snd_bass_bins: true
+  field_snd_playtime_mon_wed: true
+  field_snd_playtime_thurs_sun: true
   field_stretch_tent_dimen: true
   field_sup_comment: true
   field_sup_review: true
   field_supporting_project: true
   field_tc_type: true
   field_vp_ea: true
+  field_waps_allowed: true
+  field_year_cycle: true
+  flag_mute: true
   links: true
   path: true
   promote: true

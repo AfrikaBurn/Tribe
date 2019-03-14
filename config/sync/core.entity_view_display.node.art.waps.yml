@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.waps
     - field.field.node.art.field_admin_comments
     - field.field.node.art.field_allow_support_camp
+    - field.field.node.art.field_arteria_checkin
     - field.field.node.art.field_burn_can_be_denied
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
@@ -135,6 +136,9 @@ dependencies:
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
     - field.field.node.art.field_prjr_complete
+    - field.field.node.art.field_snd_bass_bins
+    - field.field.node.art.field_snd_playtime_mon_wed
+    - field.field.node.art.field_snd_playtime_thurs_sun
     - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
     - field.field.node.art.field_vp_ea
@@ -143,84 +147,18 @@ dependencies:
     - field.field.node.art.field_year_cycle
     - node.type.art
   module:
-    - computed_field
     - entity_reference_revisions
-    - field_group
-    - options
-    - taxonomy
     - user
-third_party_settings:
-  field_group:
-    group_administrative:
-      children:
-        - field_allow_support_camp
-        - field_collective
-        - field_form_mode
-        - field_prj_adm_review
-        - field_prj_adm_wrangler
-        - field_prj_stc_size
-        - field_prjr_complete
-        - field_waps_allowed
-        - field_year_cycle
-      parent_name: ''
-      weight: 0
-      format_type: details
-      format_settings:
-        id: ''
-        classes: ''
-        open: false
-        required_fields: true
-      label: Administrative
 id: node.art.waps
 targetEntityType: node
 bundle: art
 mode: waps
 content:
-  field_allow_support_camp:
-    weight: 0
-    region: content
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    label: above
-  field_collective:
-    weight: 0
-    region: content
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    label: above
-  field_form_mode:
-    weight: 0
-    region: content
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    label: above
   field_prj_adm_area:
     weight: 78
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_prj_adm_review:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-    type: entity_reference_rss_category
-    label: above
-  field_prj_adm_wrangler:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-    type: author
-    label: above
   field_prj_brn_head:
     weight: 49
     settings: {  }
@@ -281,25 +219,11 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_prj_stc_size:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-    type: entity_reference_rss_category
-    label: above
   field_prj_wtf_area:
     weight: 67
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_prjr_complete:
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-    type: list_key
-    label: above
   field_waps:
     type: entity_reference_revisions_entity_view
     weight: 2
@@ -309,40 +233,19 @@ content:
       view_mode: default
       link: ''
     third_party_settings: {  }
-  field_waps_allowed:
-    type: number_integer
-    weight: 0
-    region: content
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-  field_year_cycle:
-    weight: 0
-    region: content
-    settings:
-      cache_unit: -1
-      cache_duration: 1
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: computed_integer
-    label: above
   flag:
     weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
-  flag_mute:
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   field_admin_comments: true
+  field_allow_support_camp: true
+  field_arteria_checkin: true
   field_burn_can_be_denied: true
   field_col_members: true
+  field_collective: true
+  field_form_mode: true
   field_grant_expense_header: true
   field_grt_art_apply: true
   field_grt_art_reason: true
@@ -373,6 +276,8 @@ hidden:
   field_prj_adm_form_3: true
   field_prj_adm_latitude: true
   field_prj_adm_longitude: true
+  field_prj_adm_review: true
+  field_prj_adm_wrangler: true
   field_prj_brn_agree: true
   field_prj_brn_burning: true
   field_prj_brn_desc: true
@@ -449,6 +354,7 @@ hidden:
   field_prj_stc_height: true
   field_prj_stc_materials: true
   field_prj_stc_safety: true
+  field_prj_stc_size: true
   field_prj_stc_structural: true
   field_prj_stc_weight: true
   field_prj_stg_contact: true
@@ -467,10 +373,17 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
+  field_prjr_complete: true
+  field_snd_bass_bins: true
+  field_snd_playtime_mon_wed: true
+  field_snd_playtime_thurs_sun: true
   field_sup_comment: true
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
+  field_waps_allowed: true
+  field_year_cycle: true
+  flag_mute: true
   links: true
   moderation_state: true
   path: true
