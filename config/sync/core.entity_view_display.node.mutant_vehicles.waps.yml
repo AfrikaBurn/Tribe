@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.waps
     - field.field.node.mutant_vehicles.field_admin_comments
     - field.field.node.mutant_vehicles.field_allow_support_camp
+    - field.field.node.mutant_vehicles.field_arteria_checkin
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
     - field.field.node.mutant_vehicles.field_grt_art_total
@@ -77,6 +78,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_snd_safety
     - field.field.node.mutant_vehicles.field_prj_snd_soop
     - field.field.node.mutant_vehicles.field_prj_snd_sound
+    - field.field.node.mutant_vehicles.field_prj_snd_specs
     - field.field.node.mutant_vehicles.field_prj_stg_contact
     - field.field.node.mutant_vehicles.field_prj_stg_description
     - field.field.node.mutant_vehicles.field_prj_stg_stage
@@ -100,6 +102,9 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_wtf_short_copy
     - field.field.node.mutant_vehicles.field_prj_wtf_website
     - field.field.node.mutant_vehicles.field_prjr_complete
+    - field.field.node.mutant_vehicles.field_snd_bass_bins
+    - field.field.node.mutant_vehicles.field_snd_playtime_mon_wed
+    - field.field.node.mutant_vehicles.field_snd_playtime_thurs_sun
     - field.field.node.mutant_vehicles.field_sup_review
     - field.field.node.mutant_vehicles.field_vp_ea
     - field.field.node.mutant_vehicles.field_waps
@@ -107,58 +112,13 @@ dependencies:
     - field.field.node.mutant_vehicles.field_year_cycle
     - node.type.mutant_vehicles
   module:
-    - computed_field
-    - field_group
-    - options
-    - paragraphs
-    - taxonomy
+    - entity_reference_revisions
     - user
-third_party_settings:
-  field_group:
-    group_administrative:
-      children:
-        - field_prjr_complete
-        - field_prj_adm_review
-        - field_prj_adm_wrangler
-        - field_collective
-        - field_form_mode
-        - field_year_cycle
-        - field_waps_allowed
-        - field_admin_comments
-        - field_allow_support_camp
-        - field_grt_awarded
-        - field_mv_amount_worthy
-        - field_prj_adm_registration
-      parent_name: ''
-      weight: 0
-      format_type: details
-      format_settings:
-        id: ''
-        classes: ''
-        open: false
-        required_fields: true
-      label: Administrative
 id: node.mutant_vehicles.waps
 targetEntityType: node
 bundle: mutant_vehicles
 mode: waps
 content:
-  field_collective:
-    weight: 8
-    region: content
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    label: above
-  field_form_mode:
-    weight: 9
-    region: content
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    label: above
   field_prj_adm_notes:
     weight: 2
     region: content
@@ -166,65 +126,26 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
-  field_prj_adm_review:
-    weight: 5
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-    type: entity_reference_rss_category
-    label: above
-  field_prj_adm_wrangler:
-    weight: 6
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-    type: author
-    label: above
-  field_prjr_complete:
-    weight: 4
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-    type: list_key
-    label: above
   field_waps:
     weight: 2
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-    type: paragraph_summary
-    label: hidden
-  field_waps_allowed:
-    weight: 132
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-    type: number_unformatted
-    label: above
-  field_year_cycle:
-    weight: 10
     settings:
-      cache_unit: -1
-      cache_duration: 1
-      thousand_separator: ''
-      prefix_suffix: true
+      view_mode: default
+      link: ''
     third_party_settings: {  }
     region: content
-    type: computed_integer
-    label: above
+    type: entity_reference_revisions_entity_view
+    label: hidden
   flag:
     weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  flag_mute:
-    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_admin_comments: true
   field_allow_support_camp: true
+  field_arteria_checkin: true
+  field_collective: true
+  field_form_mode: true
   field_grt_art_total: true
   field_grt_awarded: true
   field_grt_contribution: true
@@ -241,6 +162,8 @@ hidden:
   field_mv_amount_worthy: true
   field_prj_adm_ranger_comment: true
   field_prj_adm_registration: true
+  field_prj_adm_review: true
+  field_prj_adm_wrangler: true
   field_prj_brn_agree: true
   field_prj_brn_burning: true
   field_prj_brn_desc: true
@@ -297,6 +220,7 @@ hidden:
   field_prj_snd_safety: true
   field_prj_snd_soop: true
   field_prj_snd_sound: true
+  field_prj_snd_specs: true
   field_prj_stg_contact: true
   field_prj_stg_description: true
   field_prj_stg_stage: true
@@ -320,8 +244,15 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
+  field_prjr_complete: true
+  field_snd_bass_bins: true
+  field_snd_playtime_mon_wed: true
+  field_snd_playtime_thurs_sun: true
   field_sup_review: true
   field_vp_ea: true
+  field_waps_allowed: true
+  field_year_cycle: true
+  flag_mute: true
   links: true
   moderation_state: true
   path: true

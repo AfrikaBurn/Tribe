@@ -122,66 +122,13 @@ dependencies:
     - field.field.node.performances.field_year_cycle
     - node.type.performances
   module:
-    - computed_field
-    - field_group
-    - options
     - paragraphs
     - user
-third_party_settings:
-  field_group:
-    group_administrative:
-      children:
-        - field_prjr_complete
-        - field_prj_adm_wrangler
-        - field_collective
-        - field_form_mode
-        - field_year_cycle
-        - field_waps_allowed
-        - field_allow_support_camp
-      parent_name: ''
-      weight: 0
-      format_type: details
-      format_settings:
-        id: ''
-        classes: ''
-        open: false
-        required_fields: true
-      label: Administrative
 id: node.performances.waps
 targetEntityType: node
 bundle: performances
 mode: waps
 content:
-  field_collective:
-    weight: 41
-    region: content
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    label: above
-  field_form_mode:
-    weight: 42
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    region: content
-    type: string
-    label: above
-  field_prj_adm_wrangler:
-    weight: 39
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-    type: author
-    label: above
-  field_prjr_complete:
-    weight: 38
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-    type: list_key
-    label: above
   field_waps:
     weight: 2
     settings: {  }
@@ -189,31 +136,8 @@ content:
     region: content
     type: paragraph_summary
     label: hidden
-  field_waps_allowed:
-    weight: 70
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-    type: number_unformatted
-    label: above
-  field_year_cycle:
-    weight: 43
-    settings:
-      cache_unit: -1
-      cache_duration: 1
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    region: content
-    type: computed_integer
-    label: above
   flag:
     weight: 8
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  flag_mute:
-    weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -230,6 +154,8 @@ hidden:
   field_bke_day: true
   field_bke_location: true
   field_bke_time: true
+  field_collective: true
+  field_form_mode: true
   field_grt_art_total: true
   field_grt_breakdown: true
   field_grt_contribution: true
@@ -250,6 +176,7 @@ hidden:
   field_muncipal_district: true
   field_prj_adm_notes: true
   field_prj_adm_review: true
+  field_prj_adm_wrangler: true
   field_prj_brn_agree: true
   field_prj_brn_burning: true
   field_prj_brn_f2: true
@@ -331,9 +258,13 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
+  field_prjr_complete: true
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
+  field_waps_allowed: true
+  field_year_cycle: true
+  flag_mute: true
   links: true
   path: true
   promote: true
