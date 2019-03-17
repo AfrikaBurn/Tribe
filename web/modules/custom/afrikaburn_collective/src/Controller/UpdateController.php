@@ -81,7 +81,7 @@ class UpdateController extends ControllerBase {
         'private_projects',
         'private_discussion',
         'privileged_discussion',
-        // 'emails'
+        'emails'
       ]
     );
     $collective->save();
