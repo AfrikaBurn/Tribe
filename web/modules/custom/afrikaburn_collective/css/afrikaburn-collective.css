@@ -342,6 +342,7 @@ article.collective-post header a{
 }
 
 .node--type-collective .field--name-field-picture{
+  width: 100%;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -386,3 +387,5 @@ article.collective-post header a{
   bottom: -55px;
   right: 0;
 }
+
+.field--name-field-picture
