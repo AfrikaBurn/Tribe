@@ -11,6 +11,8 @@ permissions:
   - 'create incident content'
   - 'edit any incident content'
   - 'skip comment approval'
+  - 'view field_terms_and_conditions'
+  - 'view own field_terms_and_conditions'
   - 'view own unpublished content'
   - 'view the administration theme'
   - 'view webprofiler toolbar'

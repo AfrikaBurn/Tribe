@@ -53,7 +53,5 @@ class InviteBlock extends BlockBase {
           'max-age' => 0,
         ],
       ];
-
-    return $form;
   }
 }

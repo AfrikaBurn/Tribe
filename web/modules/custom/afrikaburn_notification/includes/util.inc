@@ -72,6 +72,7 @@ function _meta_collective($entity){
   return [
     'title' => $title,
     'members' => implode(',', $addresses),
+    'collective' => $collective,
   ];
 }
 

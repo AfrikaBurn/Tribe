@@ -81,6 +81,7 @@ third_party_settings:
         - username
         - field_email
         - field_location
+        - field_year_cycle
         - member_for
       parent_name: group_root
       weight: 2
@@ -241,7 +242,7 @@ content:
     third_party_settings: {  }
   field_other_burns:
     type: basic_string
-    weight: 2
+    weight: 4
     region: content
     label: above
     settings: {  }
@@ -258,7 +259,7 @@ content:
     region: content
   field_participation:
     type: basic_string
-    weight: 1
+    weight: 3
     region: content
     label: above
     settings: {  }
@@ -281,7 +282,7 @@ content:
     type: boolean
     region: content
   field_year_cycle:
-    weight: 107
+    weight: 8
     label: above
     settings:
       sanitized: true
@@ -290,13 +291,23 @@ content:
     third_party_settings: {  }
     type: computed_string
     region: content
-  masquerade:
+  flag_outdated:
     weight: 1
     region: content
     settings: {  }
     third_party_settings: {  }
+  flag_wap_ban:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  masquerade:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   member_for:
-    weight: 8
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }

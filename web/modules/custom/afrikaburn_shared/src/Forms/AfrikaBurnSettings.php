@@ -49,6 +49,23 @@ class AfrikaBurnSettings extends ConfigFormBase {
       '#default_value' => $config->get('tickets'),
     ];
 
+    $nids = \Drupal::entityQuery('node')
+      ->condition('type', 'collective')
+      ->condition('title', 'AfrikaBurn')
+      ->execute();
+
+    if (!count($nids)){
+      $form['actions'][] = [
+        '#type' => 'submit',
+        '#value' => 'Update Collectives'
+      ];
+    }
+
+    $form['actions'][] = [
+      '#type' => 'submit',
+      '#value' => 'Resave Users'
+    ];
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -57,13 +74,21 @@ class AfrikaBurnSettings extends ConfigFormBase {
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
-    $config = $this->config('afrikaburn_shared.settings');
     $values = $form_state->getValues();
 
-
-    $config->set('tickets', $values['tickets']);
-
-    $this->config('afrikaburn_shared.settings')->save();
-    drupal_set_message('Settings saved');
+    switch($values['op']){
+      case 'Update Collectives':
+        \Drupal\afrikaburn_collective\Controller\UpdateController::update();
+      break;
+      case 'Resave Users':
+        \Drupal\afrikaburn_collective\Controller\UpdateController::resave();
+      break;
+      default:
+        $config = $this->config('afrikaburn_shared.settings');
+        $config->set('tickets', $values['tickets']);
+        $this->config('afrikaburn_shared.settings')->save();
+        drupal_set_message('Settings saved');
+      break;
+    }
   }
 }

@@ -9,6 +9,9 @@ use \Drupal\Core\Form\FormStateInterface;
 use \Drupal\Core\Entity\EntityInterface;
 use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use \Drupal\user\Entity\User;
+use \Drupal\afrikaburn_collective\Access\CollectiveMemberCheck;
+use \Drupal\afrikaburn_collective\Access\CollectiveAdminCheck;
+use Drupal\Core\Access\AccessResult;
 
 
 /* ----- Module hooks ----- */
@@ -22,53 +25,133 @@ function afrikaburn_collective_page_attachments(&$page) {
   $page['#attached']['library'][] = 'afrikaburn_collective/main';
 }
 
+
+/* ----- Create hooks ----- */
+
+
+function afrikaburn_collective_user_insert($user){
+
+  if (!$user->uid->value) return;
+
+  $cid = array_shift(
+    \Drupal::entityQuery('node')
+      ->condition('type', 'collective')
+      ->condition('title', 'AfrikaBurn')
+      ->execute()
+  );
+
+  $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+  $collective->field_col_members->appendItem($user);
+  $collective->save();
+}
+
+
+/* ----- View hooks ----- */
+
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function afrikaburn_collective_entity_extra_field_info() {
+  $extra = array();
+
+  $extra['node']['collective']['display']['post_something'] = array(
+    'label' => t('Post form'),
+    'description' => t('Form to create a post'),
+    'weight' => 100,
+    'visible' => TRUE,
+  );
+
+  $extra['node']['collective']['display']['posts'] = array(
+    'label' => t('Posts'),
+    'description' => t('View of the latest posts'),
+    'weight' => 100,
+    'visible' => TRUE,
+  );
+
+  $extra['node']['collective']['display']['edit'] = array(
+    'label' => t('Edit collective'),
+    'description' => t('Link to edit collective'),
+    'weight' => 100,
+    'visible' => TRUE,
+  );
+
+  $extra['node']['collective']['display']['leave'] = array(
+    'label' => t('Leave collective'),
+    'description' => t('Link to leave a collective'),
+    'weight' => 100,
+    'visible' => TRUE,
+  );
+
+  $extra['node']['collective']['display']['join'] = array(
+    'label' => t('Join collective'),
+    'description' => t('Link to join a collective'),
+    'weight' => 100,
+    'visible' => TRUE,
+  );
+
+  return $extra;
+}
+
 /**
  * Implements hook_ENTITY_TYPE_view().
  */
 function afrikaburn_collective_node_view(&$build, $entity, $display, $view_mode) {
 
-  $nid = $entity->id();
+  if ($entity->bundle() == 'collective'){
 
-  if ($display->getComponent('posts')){
-    $build['posts'] = views_embed_view('collective_posts', 'posts', $nid);
+    module_load_include('inc', 'afrikaburn_collective', 'includes/view');
+    module_load_include('inc', 'afrikaburn_collective', 'includes/util');
+
+    $nid = $entity->id();
+    $uid = \Drupal::currentUser()->id();
+    $user = User::load($uid);
+
+    $is_admin =
+      $entity->bundle() == 'collective' &&
+      (CollectiveAdminCheck::isAdmin($uid, $entity) || $user->hasRole('administrator'));
+    $is_member =
+      $entity->bundle() == 'collective' &&
+      (CollectiveMemberCheck::isMember($entity));
+
+    _build_post_form($build, $display, $uid, $nid, $is_admin, $is_member);
+    _build_post_view($build, $display, $uid, $nid, $is_admin, $is_member);
+    _build_join($build, $display, $uid, $nid, $is_admin, $is_member);
+    _build_leave($build, $display, $uid, $nid, $is_admin, $is_member);
+    _build_edit($build, $display, $uid, $nid, $is_admin, $is_member);
   }
+}
 
-  if ($display->getComponent('leave')){
-    $build['leave'] = [
-      '#markup' => '<details class="leave-collective">
-        <summary>Leave collective</summary>
-          <a href="/collective/' . $nid . '/boot/' . \Drupal::currentUser()->id() . '">
-            Let me out!
-          </a>
-        </details>',
-    ];
+
+/* ----- Theme hooks ----- */
+
+
+/**
+ * Implements hook_theme().
+ * Views Customizaton.
+ */
+function afrikaburn_collective_theme(){
+  return [
+
+    'views_view_fields__collective_posts' => [
+      'template' => 'views-view-fields--collective-posts',
+      'base hook' => 'view',
+    ],
+
+  ];
+}
+
+
+/* ----- Flag access ----- */
+
+
+function afrikaburn_collective_flag_action_access($action, $flag, $account, $flaggable = NULL) {
+  if ($flaggable->bundle() == 'collective' && $flag->id == "mute"){
+    return CollectiveMemberCheck::isMember($flaggable)
+      ? AccessResult::neutral()
+      : AccessResult::forbidden();
   }
-
-  if ($display->getComponent('post_something')){
-    $form = \Drupal::service('entity.form_builder')->getForm(
-      \Drupal::entityTypeManager()->getStorage('comment')->create(
-        [
-          'entity_type'  => 'node',
-          'entity_id'    => $nid,
-          'field_name'   => 'field_col_posts',
-          'comment_type' => 'post',
-          'pid' => NULL,
-        ]
-      )
-    );
-
-    unset($form['comment_body']['widget'][0]['value']['#title']);
-    $form['actions']['submit']['#value'] = t('Post it!');
-
-    $form['#action'] .= '?destination=' . \Drupal\Component\Utility\UrlHelper::encodePath(drupal_get_destination()['destination']);
-
-    $build['post_something'] = [
-      '#type' => 'markup',
-      '#markup' => render($form),
-      '#prefix' => '<details class="comment-form"><summary class="button">Post something</summary>',
-      '#suffix' => '</details>',
-    ];
-  }
+  return AccessResult::neutral();
 }
 
 
@@ -91,6 +174,9 @@ function afrikaburn_collective_form_alter(&$form, $form_state, $form_id) {
       $form['field_col_admins']['widget'][0]['target_id']['#default_value'] = $user;
       $form['field_col_members']['widget'][0]['target_id']['#default_value'] = $user;
     }
+
+    $form['field_settings']['widget']['#title'] = '';
+    $form['#validate'][] = 'afrikaburn_collective_unique_name';
   }
 }
 
@@ -115,100 +201,43 @@ function afrikaburn_collective_form_comment_post_form_alter(&$form, $form_state,
   $form['actions']['submit']['#submit'][] = 'afrikaburn_collective_post_redirect';
 }
 
-
-/* ----- Field hooks ----- */
-
-
 /**
- * Implements hook_entity_extra_field_info().
+ * Implements hook_form_FORM_ID_alter().
+ * Alters public collective view form.
  */
-function afrikaburn_collective_entity_extra_field_info() {
-  $extra = array();
+function afrikaburn_collective_form_views_exposed_form_alter(&$form, $form_state, $form_id) {
+  $view = $form_state->getStorage('view')['view']->storage;
+  if ($view->get('id') == "collectives_browse"){
 
-  $extra['node']['collective']['display']['posts'] = array(
-    'label' => t('Posts'),
-    'description' => t('View of the latest posts'),
-    'weight' => 100,
-    'visible' => TRUE,
-  );
+    $form['options']['#type'] = 'checkboxes';
 
-  $extra['node']['collective']['display']['post_something'] = array(
-    'label' => t('Post form'),
-    'description' => t('Form to create a post'),
-    'weight' => 100,
-    'visible' => TRUE,
-  );
-
-  $extra['node']['collective']['display']['leave'] = array(
-    'label' => t('Leave collective'),
-    'description' => t('Link to leave a collective'),
-    'weight' => 100,
-    'visible' => TRUE,
-  );
-
-  return $extra;
-}
-
-
-/* ----- Theme hooks ----- */
-
-
-/**
- * Implements hook_theme().
- * Views Customizaton.
- */
-function afrikaburn_collective_theme(){
-  return [
-
-    'views_view_fields__collective_posts' => [
-      'template' => 'views-view-fields--collective-posts',
-      'base hook' => 'view',
-    ],
-
-  ];
-}
-
-
-/* ----- Preprocessors ----- */
-
-
-/**
- * Implements hook_preprocess_views_view_fields().
- */
-function afrikaburn_collective_preprocess_views_view_fields(&$variables) {
-
-  $view = $variables['view'];
-
-  if ($view->id() == 'collective_posts' && $view->current_display == 'posts') {
-
-    $row = $variables['row'];
-    $cid = $row->_entity->get('cid')->value;
-    $nid = $variables['view']->args[0];
-
-    $form =  \Drupal::service('entity.form_builder')->getForm(
-      \Drupal::entityTypeManager()->getStorage('comment')->create(
-        [
-          'entity_type'  => 'node',
-          'entity_id'    => $nid,
-          'field_name'   => 'field_col_posts',
-          'comment_type' => 'comment',
-          'pid' => $cid,
-        ]
-      )
-    );
-    unset($form['comment_body']['widget'][0]['value']['#title']);
-    $form['pid']['#value'] = $cid;
-
-    $variables['fields']['replyto_comment']['content'] = render($form);
   }
 }
 
+
+/* ----- Validators ----- */
+
+
 /**
- * Implements computed_field_field_col_invite_token_compute()
+ * Enforce unique collective name
  */
-function computed_field_field_col_invite_token_compute($entity_type_manager, $entity, $fields, $delta){
-  return $entity;
+function afrikaburn_collective_unique_name(&$form, $form_state){
+
+  $values = $form_state->getValues();
+  $editing = $form_state->getformObject()->getEntity();
+  $query = \Drupal::entityQuery('node')
+    ->condition('type', 'collective')
+    ->condition('title', $values['title'][0]['value']);
+  $nids = $query->execute();
+
+  if (count($nids) > 1 || count($nids) && array_shift($nids) != $editing->id()){
+    $form_state->setError($form['title']['widget'][0]['value'], t('The Collective name is already in use!'));
+  }
 }
+
+
+/* ----- Submission handlers ----- */
+
 
 /**
  * Redirects after posting
@@ -260,3 +289,53 @@ function afrikaburn_collective_comment_redirect(&$form, $form_state){
     );
   }
 }
+
+
+/* ----- Preprocessors ----- */
+
+
+/**
+ * Implements hook_preprocess_views_view_fields().
+ */
+function afrikaburn_collective_preprocess_views_view_fields(&$variables) {
+
+  module_load_include('inc', 'afrikaburn_collective', 'includes/util');
+
+  $view = $variables['view'];
+
+  if (
+    $view->id() == 'collective_posts' &&
+    $view->current_display == 'posts' &&
+    (afrikaburn_collective_member() || !afrikaburn_collective_setting('privileged_discussion'))
+  ) {
+
+    $row = $variables['row'];
+    $cid = $row->_entity->get('cid')->value;
+    $nid = $variables['view']->args[0];
+
+    $form =  \Drupal::service('entity.form_builder')->getForm(
+      \Drupal::entityTypeManager()->getStorage('comment')->create(
+        [
+          'entity_type'  => 'node',
+          'entity_id'    => $nid,
+          'field_name'   => 'field_col_posts',
+          'comment_type' => 'comment',
+          'pid' => $cid,
+        ]
+      )
+    );
+    unset($form['comment_body']['widget'][0]['value']['#title']);
+    $form['pid']['#value'] = $cid;
+
+    $variables['fields']['replyto_comment']['content'] = render($form);
+  }
+}
+
+/**
+ * Implements computed_field_field_col_invite_token_compute()
+ */
+function computed_field_field_col_invite_token_compute($entity_type_manager, $entity, $fields, $delta){
+  return $entity;
+}
+
+

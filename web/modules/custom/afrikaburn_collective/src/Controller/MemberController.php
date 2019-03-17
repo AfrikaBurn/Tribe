@@ -14,6 +14,53 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class MemberController extends ControllerBase {
 
+
+  /* ----- Joining ----- */
+
+  /**
+   * Join a group
+   */
+  public static function join($cid){
+
+    module_load_include('inc', 'afrikaburn_collective', 'includes/util');
+    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+
+    if (afrikaburn_collective_setting('open', $collective)) {
+
+      $user = \Drupal::entityTypeManager()->getStorage('user')->load(\Drupal::currentUser()->id());
+
+      if (!afrikaburn_collective_setting('vetted', $collective)) {
+
+        self::addToMembers($user, $collective);
+        $collective->save();
+
+        drupal_set_message(
+          t('You have joined successfully joined the %collective collective!', ['%collective' => $collective->getTitle()]),
+          'status',
+          TRUE
+        );
+      } else {
+
+        self::addToRequests($user, $collective);
+        $collective->save();
+
+        drupal_set_message(
+          t('You have successfully requested to join the %collective collective. Your request is awaiting moderation.', ['%collective' => $collective->getTitle()]),
+          'status',
+          TRUE
+        );
+      }
+    } else {
+        drupal_set_message(
+          t('The %collective collective no longer accepts join requests!', ['%collective' => $collective->getTitle()]),
+          'warning',
+          TRUE
+        );
+    }
+
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $cid]));
+  }
+
   /**
    * Invite a person to the group
    */
@@ -137,6 +184,86 @@ class MemberController extends ControllerBase {
   }
 
   /**
+   * Approve a membership application
+   */
+  public static function approve($cid = FALSE, $uid = FALSE) {
+
+    $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
+    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+
+    if (!count(self::memberIndex($uid, $collective, 'field_col_members'))){
+      self::addToMembers($user, $collective);
+      self::removeFromRequests($user, $collective);
+      $collective->save();
+
+      drupal_set_message(
+        t('Membership approved!'),
+        'status',
+        TRUE
+      );
+    }
+
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $cid]));
+  }
+
+  /**
+   * Reject a membership application
+   */
+  public static function reject($cid = FALSE, $uid = FALSE) {
+
+    $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
+    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+
+    self::removeFromRequests($user, $collective);
+    $collective->save();
+
+    drupal_set_message(
+      t('Membership request rejected!'),
+      'warning',
+      TRUE
+    );
+
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $cid]));
+  }
+
+  /* ----- Leaving ----- */
+
+
+  /**
+   * Leave a group
+   */
+  public static function leave($cid = FALSE) {
+
+    $uid = \Drupal::currentUser()->id();
+    $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
+    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+
+    if ($collective->bundle() == 'collective'){
+
+      $member_index = self::memberIndex($uid, $collective, 'field_col_members');
+      $admin_index = self::memberIndex($uid, $collective, 'field_col_admins');
+
+      self::removeFromMembers($member_index, $collective);
+      self::removeFromAdmins($admin_index, $collective);
+      $collective->save();
+    }
+
+    drupal_set_message(
+      t(
+        'You have left %collective',
+        [
+            '%user' => $user->getUsername(),
+            '%collective' => $collective->getTitle(),
+        ]
+      ),
+      'status',
+      TRUE
+    );
+
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $cid]));
+  }
+
+  /**
    * Remove a member from a group
    */
   public static function boot($cid = FALSE, $uid = FALSE) {
@@ -182,6 +309,48 @@ class MemberController extends ControllerBase {
     return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $cid]));
   }
 
+
+  /* ----- Role changes ----- */
+
+
+  /**
+   * Unadmin
+   */
+  public static function strip($cid = FALSE, $uid = FALSE) {
+
+    $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
+    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+
+    if($collective->getOwner()->id() != $uid){
+
+      if (isset($user) && $collective->bundle() == 'collective'){
+        $admin_index = self::memberIndex($uid, $collective, 'field_col_admins');
+        self::removeFromAdmins($admin_index, $collective);
+        $collective->save();
+      }
+
+      drupal_set_message(
+        t(
+          '%user has been stripped of Admin privileges in %collective',
+          [
+              '%user' => $user->getUsername(),
+              '%collective' => $collective->getTitle(),
+          ]
+        ),
+        'status',
+        TRUE
+      );
+    } else {
+      drupal_set_message(
+        t('You cannot strip the creator of a collective!'),
+        'status',
+        TRUE
+      );
+    }
+
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $cid]));
+  }
+
   /**
    * Promote member to admin
    */
@@ -213,6 +382,25 @@ class MemberController extends ControllerBase {
 
   /* ---- CRUD ---- */
 
+
+  // Add to requests
+  private static function addToRequests($user, $collective) {
+    if (!self::hasRequested($collective)){
+      $collective->get('field_col_requests')->appendItem($user);
+    }
+  }
+
+  // Remove from requests
+  private static function removeFromRequests($user, $collective) {
+
+    $indexes = self::memberIndex($user->id(), $collective, 'field_col_requests');
+
+    if (count($indexes)){
+      foreach(array_reverse($indexes) as $index){
+        $collective->get('field_col_requests')->removeItem($index);
+      }
+    }
+  }
 
   // Add email address to invites
   private static function addToInvites($emails, $collective) {
@@ -372,6 +560,22 @@ class MemberController extends ControllerBase {
     return $indexes;
   }
 
-
+  /**
+   * Checks whether the current user is an admin
+   */
+  public static function hasRequested($collective){
+    $uid = \Drupal::currentUser()->id();
+    return $collective
+      ? !in_array(
+          array_search(
+            $uid,
+            array_column(
+              $collective->get('field_col_requests')->getValue(), 'target_id'
+            )
+          ),
+          [NULL, FALSE],
+          TRUE
+        )
+      : FALSE;
+  }
 }
-

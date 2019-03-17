@@ -26,6 +26,7 @@ permissions:
   - 'create field_location'
   - 'create field_mobile'
   - 'create field_secondary_mail'
+  - 'create field_terms_and_conditions'
   - 'display eu cookie compliance popup'
   - 'edit own field_consent_form'
   - 'flag updated'

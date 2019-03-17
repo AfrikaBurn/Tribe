@@ -48,6 +48,25 @@
   font-size: 80%;
 }
 
+#block-membersblock h2{
+  position: relative;
+}
+#block-membersblock h2 span.alert{
+  display: block;
+  position: absolute;
+  height: 20px;
+  line-height: 24px;
+  background: #961116;
+  border-radius: 15px;
+  top: 3px;
+  right: 30px;
+  margin: 0;
+  padding: 0 10px;
+  text-align: center;
+  font-size: 60%;
+  font-weight: bold;
+}
+
 .view-my-collectives .view-content .views-field-title{
   padding-top: 2.5px;
   width: 110px;
@@ -185,6 +204,7 @@ details.comment-form .form-submit:hover,
 details.comment-form .form-submit.active{
   margin-top: 0;
   border-radius: 0 0 10px 10px !important;
+  max-width: 100%;
 }
 
 
@@ -207,9 +227,25 @@ form.node-collective-form details summary {
   cursor: pointer;
 }
 
-/* form.node-collective-edit-form details{
-  display: none;
-} */
+form.node-collective-form .column-tab .details-wrapper,
+form.node-collective-edit-form .column-tab .details-wrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+form.node-collective-form .column-tab .details-wrapper > *,
+form.node-collective-edit-form .column-tab .details-wrapper > *{
+  flex-basis: 30%;
+}
+
+form.node-collective-form .column-tab .details-wrapper .pager,
+form.node-collective-edit-form .column-tab .details-wrapper .pager,
+form.node-collective-form .column-tab .details-wrapper .wizard-actions,
+form.node-collective-edit-form .column-tab .details-wrapper .wizard-actions{
+  flex-basis: 100%;
+  width: 100%;
+}
 
 .view-collective-posts article.collective-post{
   position: relative;
@@ -229,18 +265,124 @@ article.collective-post header a{
   visibility: hidden;
 }
 
-details.leave-collective{
-  cursor: pointer;
-  position: absolute;
-  right: 33px;
-  background: #00000055;
-  padding: 5px 10px;
-  border-radius: 10px;
-  text-align: center;
-}
-
 .view-collective-posts article.collective-post:hover > header,
 .view-collective-posts article.collective-post footer details[open],
 .view-collective-posts article.collective-post:hover footer details{
   visibility: visible;
+}
+
+.collective-actions{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.collective-actions > a,
+.collective-actions .flag a,
+.collective-actions details{
+  background-position: 10px center;
+  background-repeat: no-repeat;
+  background-color: #00000055;
+  background-size: 18px;
+  border-radius: 10px;
+  color: #ffefb6 !important;
+  display: inline-block;
+  line-height: 24px;
+  margin: 0 0 20px 10px;
+  padding: 7px 10px 5px 34px;
+  text-decoration: none;
+  text-align: left;
+  width: auto;
+  height: 24px;
+  outline: none;
+}
+
+.collective-actions details summary::-webkit-details-marker {
+  display:none;
+}
+
+.collective-actions details.leave-collective{
+  cursor: pointer;
+  text-align: center;
+  position: relative;
+}
+
+.collective-actions details{
+  background-image: url(../images/exit.svg);
+}
+
+.collective-actions details a{
+  background: #961116;
+  padding: 10px 20px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  position: absolute;
+  width: 100px;
+  z-index: 10;
+  top: 100%;
+  right: 0;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.collective-actions a.edit{
+  background-image: url(../images/edit.svg);
+}
+
+.collective-actions a.join{
+  background-image: url(../images/join.svg);
+}
+.collective-actions a.join.requested{
+  text-decoration: none;
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.sidebar-outer.collectivebar .sidebar{
+  margin-top: 48px;
+}
+
+.node--type-collective .field--name-field-picture{
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.node--type-collective .field--name-field-settings{
+  margin: 40px 0;
+}
+
+#block-membersblock .colorbox{
+  float: left;
+  margin: 5px 10px 0 0;
+}
+
+.view-collectives-find #edit-options--wrapper .form-type-checkbox{
+  width: 40%;
+}
+
+.view-collectives-find .view-content{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.view-collectives-find .view-content .views-row{
+  background: #00000033;
+  border: 1px solid  #000000aa;
+  border-radius: 5px;
+  flex-basis: 45%;
+  padding: 10px 15px 50px;
+  margin-top: 10px;
+}
+
+
+.view-collectives-find .view-content .views-row .layout,
+.view-collectives-find .view-content .views-row .layout__region--content{
+  height: 100%;
+  position: relative;
+}
+
+.view-collectives-find .view-content .views-row .collective-actions{
+  position: absolute;
+  bottom: -55px;
+  right: 0;
 }
