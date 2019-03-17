@@ -549,7 +549,18 @@ display:
       title: 'Find Collectives'
       header: {  }
       footer: {  }
-      empty: {  }
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: "<div class=\"messages messages--warning\">\r\nOh no! No matching Collectives found!<br />Have you tried switching it off and on again?\r\n</div>"
+          plugin_id: text_custom
       relationships: {  }
       arguments: {  }
       display_extenders: {  }
