@@ -49,7 +49,7 @@ function ar_prepare_project_links(&$variables) {
   $id = $view->id();
   $display = $view->current_display;
 
-  if (in_array($display, ['current_block', 'past_block'])){
+  if (in_array($display, ['current', 'past'])){
 
     $nid = $variables['row']->nid;
     $registration = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
@@ -59,7 +59,7 @@ function ar_prepare_project_links(&$variables) {
     $published = $registration->get('status')->getValue()[0]['value'];
     $links = false;
 
-    if ($display == 'current_block'){
+    if ($display == 'current'){
 
       foreach($view->form_modes[$type] as $mode){
         if (@$mode['state']['visible']) {

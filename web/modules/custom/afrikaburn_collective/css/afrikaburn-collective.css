@@ -387,3 +387,7 @@ article.collective-post header a{
   bottom: -55px;
   right: 0;
 }
+
+.ajax-progress-fullscreen{
+  display: none;
+}
