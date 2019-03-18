@@ -10,10 +10,10 @@
   Drupal.behaviors.afrikaburnCollective = {
     attach: function (context, settings) {
 
+      /* Hack hack hack hack hack - stop view from scrolling when refreshed */
       jQuery.each(Drupal.views.instances,
         (i, view) => {
           if (['my_collectives', 'collective_posts'].indexOf(view.settings.view_name) > -1) {
-            console.log(view.settings)
             delete view.settings.pager_element
           }
         }
