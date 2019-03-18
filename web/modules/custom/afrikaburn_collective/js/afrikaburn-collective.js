@@ -13,7 +13,8 @@
       jQuery.each(Drupal.views.instances,
         (i, view) => {
           if (['my_collectives', 'collective_posts'].indexOf(view.settings.view_name) > -1) {
-            view.$view.once('view-refresher', () => delete view.settings.pager_element);
+            console.log(view.settings)
+            delete view.settings.pager_element
           }
         }
       )

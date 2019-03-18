@@ -13,7 +13,7 @@
       jQuery.each(Drupal.views.instances,
         (i, view) => {
           if (view.settings.view_name == 'alerts') {
-            view.$view.once('view-refresher', () => delete view.settings.pager_element);
+            delete view.settings.pager_element
           }
         }
       )
