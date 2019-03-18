@@ -18,6 +18,8 @@
         }
       )
 
+      $('.view-posts form').attr('action', '?post=all')
+
       $(
         () => {
           if (context == document) {
