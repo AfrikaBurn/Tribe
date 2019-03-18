@@ -1,6 +1,6 @@
 uuid: b3670bb1-d18d-48aa-89b8-50e1ca93b22d
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_form_mode.node.wrangler_overview
