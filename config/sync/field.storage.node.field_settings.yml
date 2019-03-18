@@ -22,6 +22,9 @@ settings:
       value: public_members
       label: 'Anyone can see who the Collective members are.'
     -
+      value: privare_members
+      label: 'Members can see who the Collective members are.'
+    -
       value: open
       label: 'Anyone may join or request to join.'
     -

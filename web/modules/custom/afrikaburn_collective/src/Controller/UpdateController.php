@@ -106,6 +106,15 @@ class UpdateController extends ControllerBase {
    */
   public static function updateFinished($success, $results, $operations) {
 
+    drupal_set_message(
+      $success
+        ? \Drupal::translation()->formatPlural(
+            count($results),
+            'One Collective updated.', '@count Collectives updated.'
+          )
+        : t('Finished with errors.')
+    );
+
     $abCollective = Node::create(
       array(
         'type' => 'collective',
@@ -117,18 +126,13 @@ class UpdateController extends ControllerBase {
         'field_col_admins' => [['target_id' => 1]],
       )
     );
-    $uids = $query = \Drupal::entityQuery('user')->execute();
+    $uids = $query = \Drupal::entityQuery('user')
+      ->condition('uid', 0, '>')
+      ->execute();
     $abCollective->set('field_col_members', $uids);
     $abCollective->save();
 
-    drupal_set_message(
-      $success
-        ? \Drupal::translation()->formatPlural(
-            count($results),
-            'One Collective updated.', '@count Collectives updated.'
-          )
-        : t('Finished with errors.')
-    );
+    drupal_set_message('AfrikaBurn collective created. All users added.');
   }
 
   /**
