@@ -23,7 +23,7 @@ settings:
   id: ticket_block
   label: Tickets
   provider: afrikaburn_bio
-  label_display: '0'
+  label_display: visible
 visibility:
   php:
     id: php

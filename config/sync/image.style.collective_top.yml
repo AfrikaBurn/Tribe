@@ -1,0 +1,15 @@
+uuid: 47705630-9f16-4137-bbbf-2e96a4bb548d
+langcode: en
+status: true
+dependencies: {  }
+name: collective_top
+label: 'Collective Top (480x240)'
+effects:
+  73a8f273-5e15-4e0c-b133-8d87d79f8d7b:
+    uuid: 73a8f273-5e15-4e0c-b133-8d87d79f8d7b
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 480
+      height: 240
+      anchor: center-center

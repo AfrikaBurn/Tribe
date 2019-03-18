@@ -52,7 +52,14 @@ class CollectiveMemberCheck implements AccessInterface {
     }
 
     if ($bundle == 'collective') {
-      return AccessResult::allowedIf($this::isMember($node) || $user->hasRole('administrator'));
+      $settings = array_fill_keys(
+        array_column($node->field_settings->getValue(), 'value'), 1
+      );
+      return AccessResult::allowedIf(
+        $settings['public'] ||
+        $user->hasRole('administrator') ||
+        $this::isMember($node)
+      );
     }
 
     return AccessResult::allowedIf(TRUE);

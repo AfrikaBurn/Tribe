@@ -7,4 +7,6 @@ label: Anathi
 weight: 12
 is_admin: null
 permissions:
+  - 'view field_terms_and_conditions'
+  - 'view own field_terms_and_conditions'
   - 'view the administration theme'

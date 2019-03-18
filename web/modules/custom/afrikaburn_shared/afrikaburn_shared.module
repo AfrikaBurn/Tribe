@@ -26,3 +26,16 @@ function afrikaburn_shared_page_attachments(array &$page) {
   $page['#attached']['library'][] = 'afrikaburn_shared/wrangle';
   $page['#attached']['drupalSettings']['widthBreakpoint'] = 1;
 }
+
+/**
+ * Computes event year cycle
+ */
+function computed_field_field_year_cycle_compute($entity_type_manager, $entity, $fields, $delta){
+
+  $next = strtotime(Drupal\Core\Site\Settings::get('afrikaburn.cycle')['end']);
+  $year_end = strtotime('31 dec ' . date('Y'));
+  $offset = ($year_end - $next) / 86400;
+  $year = date('Y', strtotime('+' . $offset .' days', $entity->get('created')->value));
+
+  return $year;
+}

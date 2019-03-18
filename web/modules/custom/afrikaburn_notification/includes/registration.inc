@@ -27,7 +27,10 @@ function _notify_registration($entity){
     : 'new';
 
   // Mail collective
-  if ($settings->get("$bundle-$stage-$state-collective-enabled")) {
+  if (
+    $settings->get("$bundle-$stage-$state-collective-enabled") &&
+    afrikaburn_collective_setting('emails', $collective['collective'])
+  ) {
     _notify(
       'no-reply@afrikaburn.com',
       $settings->get($bundle . '-label'), $address_settings->get($bundle . '-address'),

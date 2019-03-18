@@ -9,14 +9,14 @@ dependencies:
     - custom_add_another
 third_party_settings:
   custom_add_another:
-    custom_add_another: ''
-    custom_remove: ''
+    custom_add_another: 'Add another Admin'
+    custom_remove: 'Remove Admin'
 id: node.collective.field_col_admins
 field_name: field_col_admins
 entity_type: node
 bundle: collective
 label: Admins
-description: 'Administrators of this collective'
+description: ''
 required: true
 translatable: false
 default_value: {  }

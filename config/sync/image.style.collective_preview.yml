@@ -1,0 +1,15 @@
+uuid: e2fad067-1574-40e8-9bc8-cdd5095c8b16
+langcode: en
+status: true
+dependencies: {  }
+name: collective_preview
+label: 'Collective Preview (320x160)'
+effects:
+  9886637e-c89d-44e2-afbf-70602b11f13c:
+    uuid: 9886637e-c89d-44e2-afbf-70602b11f13c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 320
+      height: 160
+      anchor: center-center

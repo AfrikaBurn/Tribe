@@ -7,6 +7,7 @@ use \Drupal\Core\Site\Settings;
 
 /**
  * Provides a Ticket Block.
+ * TODO: Move to shared
  *
  * @Block(
  *   id = "ticket_block",
@@ -22,7 +23,8 @@ class TicketBlock extends BlockBase {
   public function build() {
 
     $uid = \Drupal::currentUser()->id();
-    $settings = Settings::get('afrikaburn.quicket');
+    $quicket = Settings::get('afrikaburn.quicket');
+    $settings = \Drupal::config('afrikaburn_shared.settings');
     $account = \Drupal\user\Entity\User::load($uid);
     $flag_service = \Drupal::service('flag');
     $flag = $flag_service->getFlagById('outdated');
@@ -32,8 +34,14 @@ class TicketBlock extends BlockBase {
       $links = ['<a class="button bio-update" href="/user/'.$uid.'/edit/update"><strong>Update your Bio</strong></a>'];
     }
 
-    $links[] = '<a class="button bio-tickets" target="_blank" href="https://www.quicket.co.za/events/' . $settings['ticket_link'] . 'h=' . md5($uid) . '">Buy tickets</a><br/>';
-#    $links[] = '<a class="button bio-tickets" href="/apply/anathi">Apply for Anathi tickets</a><br/>';
+    if ($settings->get('tickets')['general']){
+      $links[] = '<a class="button bio-tickets" target="_blank" href="https://www.quicket.co.za/events/' . $quicket['ticket_link'] . 'h=' . md5($uid) . '">Buy tickets</a><br/>';
+    } else {
+      $links[] = '<h2>General Ticket Sales closed</h2>';
+    }
+    if ($settings->get('tickets')['anathi']){
+      $links[] = '<a class="button bio-tickets" href="/apply/anathi">Apply for Anathi tickets</a><br/>';
+    }
     $links[] = '<ul><li>&nbsp;&gt; <a target="_blank" href="https://www.afrikaburn.com/the-event/tickets">More about tickets</a></li></ul>';
 
     return [

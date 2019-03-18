@@ -1,0 +1,10 @@
+uuid: 544ec073-be67-4e49-b6e9-31d6859408ff
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.edit
+label: Edit
+targetEntityType: node
+cache: true

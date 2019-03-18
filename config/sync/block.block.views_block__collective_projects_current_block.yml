@@ -39,8 +39,8 @@ visibility:
       node: '@node.node_route_context:node'
   php:
     id: php
-    negate: true
-    php: ''
+    negate: false
+    php: "<?php\r\nmodule_load_include('inc', 'afrikaburn_collective', 'includes/util');\r\nreturn afrikaburn_collective_member() || !afrikaburn_collective_setting('private_projects');\r\n?>"
     context_mapping: {  }
   request_path:
     id: request_path
