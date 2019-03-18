@@ -49,7 +49,7 @@ third_party_settings:
         - group_contact
         - group_location
       parent_name: ''
-      weight: 0
+      weight: 1
       format_type: tabs
       format_settings:
         label: Root
@@ -67,7 +67,7 @@ third_party_settings:
         - field_id_number
         - field_date_of_birth
       parent_name: group_root
-      weight: 1
+      weight: 5
       format_type: tab
       format_settings:
         formatter: closed
@@ -78,13 +78,12 @@ third_party_settings:
       region: content
     group_account:
       children:
-        - username
         - field_email
         - field_location
         - field_year_cycle
         - member_for
       parent_name: group_root
-      weight: 2
+      weight: 6
       format_type: tab
       format_settings:
         formatter: closed
@@ -97,7 +96,7 @@ third_party_settings:
       children:
         - field_terms_and_conditions
       parent_name: group_root
-      weight: 6
+      weight: 9
       format_type: tab
       format_settings:
         formatter: closed
@@ -111,7 +110,7 @@ third_party_settings:
         - field_participation
         - field_other_burns
       parent_name: group_root
-      weight: 3
+      weight: 7
       format_type: tab
       format_settings:
         formatter: closed
@@ -127,7 +126,7 @@ third_party_settings:
         - field_links
         - field_newsletter
       parent_name: group_root
-      weight: 4
+      weight: 8
       format_type: tab
       format_settings:
         formatter: closed
@@ -136,6 +135,26 @@ third_party_settings:
         id: ''
       label: Contact
       region: content
+    group_account_actions:
+      children:
+        - edit
+        - flag_outdated
+        - flag_wap_ban
+        - masquerade
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        label: 'Account Actions'
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: account-actions
+      label: 'Account Actions'
 _core:
   default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
 id: user.user.default
@@ -143,9 +162,14 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
+  edit:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_date_of_birth:
     type: datetime_custom
-    weight: 106
+    weight: 107
     region: content
     label: above
     settings:
@@ -307,7 +331,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   member_for:
-    weight: 9
+    weight: 10
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -320,11 +344,6 @@ content:
       image_link: content
     third_party_settings: {  }
     label: hidden
-  username:
-    weight: 5
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
   field_agreements: true
   field_country: true
@@ -336,3 +355,4 @@ hidden:
   field_kids_and_teens: true
   field_quicket_code: true
   field_quicket_id: true
+  username: true

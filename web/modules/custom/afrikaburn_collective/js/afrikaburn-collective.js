@@ -21,7 +21,7 @@
 
             setInterval(
               () => {
-                if (!$('.view-collective-posts summary[open]').length) $('.view-collective-posts').triggerHandler('RefreshView')
+                if (!$('.view-collective-posts details[open]').length) $('.view-collective-posts').triggerHandler('RefreshView')
               }, 10000
             )
 
