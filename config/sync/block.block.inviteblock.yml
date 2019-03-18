@@ -17,7 +17,7 @@ third_party_settings:
 id: inviteblock
 theme: afrikaburn
 region: sidebar
-weight: -21
+weight: -20
 provider: null
 plugin: invite_block
 settings:
@@ -43,7 +43,7 @@ visibility:
   php:
     id: php
     negate: false
-    php: "<?php\r\nmodule_load_include('inc', 'afrikaburn_collective', 'includes/util');\r\nreturn (\r\n  afrikaburn_collective_member() || \r\n  afrikaburn_collective_setting('open')\r\n) && !afrikaburn_collective_setting('vetted');\r\n?>"
+    php: "<?php\r\nmodule_load_include('inc', 'afrikaburn_collective', 'includes/util');\r\nreturn afrikaburn_collective_admin() || afrikaburn_collective_setting('open') && !afrikaburn_collective_setting('vetted');\r\n?>"
     context_mapping: {  }
   request_path:
     id: request_path

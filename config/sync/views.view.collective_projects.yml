@@ -661,9 +661,9 @@ display:
       tags:
         - 'config:field.storage.node.field_prj_gen_concept'
         - 'config:field.storage.node.field_prj_wtf_image'
-  current_block:
-    display_plugin: block
-    id: current_block
+  current:
+    display_plugin: embed
+    id: current
     display_title: Current
     position: 1
     display_options:
@@ -761,7 +761,6 @@ display:
         groups:
           1: AND
       empty: {  }
-      block_hide_empty: true
     cache_metadata:
       max-age: -1
       contexts:
@@ -773,9 +772,9 @@ display:
       tags:
         - 'config:field.storage.node.field_prj_gen_concept'
         - 'config:field.storage.node.field_prj_wtf_image'
-  past_block:
-    display_plugin: block
-    id: past_block
+  past:
+    display_plugin: embed
+    id: past
     display_title: Past
     position: 1
     display_options:
@@ -886,7 +885,6 @@ display:
         groups:
           1: AND
       empty: {  }
-      block_hide_empty: true
       relationships:
         flag_relationship:
           id: flag_relationship

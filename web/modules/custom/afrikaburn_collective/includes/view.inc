@@ -105,7 +105,7 @@ function _build_edit(&$build, $display, $uid, $nid, $is_admin, $is_member){
       '#markup' =>
         '<a class="edit" title="Edit this Collective" href="/node/' .
         $nid .
-        '/edit/edit">Edit</a>',
+        '/edit">Edit</a>',
     ];
   }
 }
