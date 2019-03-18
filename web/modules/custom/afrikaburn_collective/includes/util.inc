@@ -57,7 +57,7 @@ function afrikaburn_collective_setting($setting, $col = false){
     if (!$collective) $collective = \Drupal::routeMatch()->getParameter('node');
   }
 
-  if (!$col || $collective) return;
+  if (!($col || $collective)) return;
 
   static $settings = false;
   if (!$settings) $settings = array_fill_keys(
