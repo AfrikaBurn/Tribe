@@ -26,6 +26,7 @@ class PastRegistrationBlock extends BlockBase {
     $user = \Drupal::currentUser();
     $collective = \Drupal::routeMatch()->getParameter('node');
 
+
     return
       afrikaburn_collective_member() || !afrikaburn_collective_setting('private_projects')
       ? [

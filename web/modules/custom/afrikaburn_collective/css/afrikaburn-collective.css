@@ -44,10 +44,11 @@
   height: 25px;
   width: 25px;
   line-height: 25px;
-  background: #ff000033;
+  background: #ff000099;
   border-radius: 15px;
   font-size: 80%;
   border: 2px solid #ffefb688;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 #block-membersblock h2{

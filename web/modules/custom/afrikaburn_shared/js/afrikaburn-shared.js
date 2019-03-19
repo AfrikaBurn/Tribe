@@ -27,7 +27,7 @@
       )
 
       // Scroll to error linked to in messages
-      $('.messages--error:not(.delete)').each(
+      $('.messages--error:not(.delete)', context).each(
         (index, messages) => {
           $('a', messages).each(
             (index, link) => {

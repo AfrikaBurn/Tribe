@@ -28,13 +28,13 @@
             setInterval(
               () => {
                 $('.view-my-collectives').triggerHandler('RefreshView')
-              }, 10000
+              }, 20000
             )
 
             setInterval(
               () => {
                 if (!$('.view-collective-posts details[open]').length) $('.view-collective-posts').triggerHandler('RefreshView')
-              }, 10000
+              }, 20000
             )
 
           }
