@@ -115,7 +115,7 @@ display:
               responsive: ''
             field_prj_wtf_short:
               align: ''
-              separator: ''
+              separator: '<hr />'
               empty_column: false
               responsive: ''
             field_prj_wtf_short_copy:
@@ -788,18 +788,7 @@ display:
             label: ''
           granularity: second
       header: {  }
-      footer:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: false
-          tokenize: false
-          content: '<a href="/wrangle/projects/wtf/download">Download</a>'
-          plugin_id: text_custom
+      footer: {  }
       empty: {  }
       relationships:
         field_prj_gen_contact:
@@ -1254,15 +1243,19 @@ display:
           offset: 0
       display_description: ''
       style:
-        type: default
+        type: html_list
         options:
           grouping: {  }
           row_class: ''
           default_row_class: true
+          type: ul
+          wrapper_class: item-list
+          class: ''
       defaults:
         fields: false
         style: false
         row: false
+        pager: false
       fields:
         title:
           id: title
@@ -1302,9 +1295,9 @@ display:
             html: false
           element_type: ''
           element_class: ''
-          element_label_type: ''
+          element_label_type: h2
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -1315,7 +1308,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -1367,9 +1360,9 @@ display:
             html: false
           element_type: ''
           element_class: ''
-          element_label_type: ''
+          element_label_type: h4
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -1429,9 +1422,9 @@ display:
             html: false
           element_type: ''
           element_class: ''
-          element_label_type: ''
+          element_label_type: h4
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -1460,7 +1453,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: When
+          label: ''
           exclude: false
           alter:
             alter_text: false
@@ -1493,7 +1486,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -1523,7 +1516,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: 'What time(ish)'
+          label: ''
           exclude: false
           alter:
             alter_text: true
@@ -1556,7 +1549,7 @@ display:
           element_class: ''
           element_label_type: ''
           element_label_class: ''
-          element_label_colon: true
+          element_label_colon: false
           element_wrapper_type: ''
           element_wrapper_class: ''
           element_default_classes: true
@@ -1592,7 +1585,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - url.query_args
         - 'user.node_grants:view'
         - user.roles
       tags:
