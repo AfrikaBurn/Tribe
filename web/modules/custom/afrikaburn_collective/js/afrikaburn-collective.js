@@ -25,17 +25,17 @@
         () => {
           if (context == document) {
 
-            setInterval(
-              () => {
-                $('.view-my-collectives').triggerHandler('RefreshView')
-              }, 20000
-            )
+            // setInterval(
+            //   () => {
+            //     $('.view-my-collectives').triggerHandler('RefreshView')
+            //   }, 20000
+            // )
 
-            setInterval(
-              () => {
-                if (!$('.view-collective-posts details[open]').length) $('.view-collective-posts').triggerHandler('RefreshView')
-              }, 20000
-            )
+            // setInterval(
+            //   () => {
+            //     if (!$('.view-collective-posts details[open]').length) $('.view-collective-posts').triggerHandler('RefreshView')
+            //   }, 20000
+            // )
 
           }
         }

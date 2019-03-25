@@ -135,7 +135,7 @@ function ar_prepare_project_links(&$variables) {
       }
 
       $collective = \Drupal::routeMatch()->getParameter('node');
-      if ($view->group_admin){
+      if ($collective && $view->group_admin){
         $links[] = '<li class="delete messages messages--error"><a href="/node/' . $nid . '/delete?destination=/node/' . $collective->id() . '" title="Delete this registration. This cannot be undone!">Delete registration</a></li>';
       }
 

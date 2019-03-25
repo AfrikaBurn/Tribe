@@ -394,3 +394,7 @@ article.collective-post header a{
 .ajax-progress-fullscreen{
   display: none;
 }
+
+.page-node-type-collective .field--name-field-picture img{
+  width: 100%;
+}

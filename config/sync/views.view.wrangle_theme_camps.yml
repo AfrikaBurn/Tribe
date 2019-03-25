@@ -4114,9 +4114,9 @@ display:
         - 'config:field.storage.node.field_waps_allowed'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
-  page_1:
+  tasks:
     display_plugin: page
-    id: page_1
+    id: tasks
     display_title: Tasks
     position: 1
     display_options:
