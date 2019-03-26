@@ -1,21 +1,23 @@
-uuid: b14388ff-e987-407e-b5bf-8ffb47f9e801
+uuid: 33c94b0c-7126-4065-aba6-4f644fe20d25
 langcode: en
 status: true
 dependencies:
   module:
     - field_permissions
     - node
+    - user
 third_party_settings:
   field_permissions:
-    permission_type: public
-id: node.field_disable_emails
-field_name: field_disable_emails
+    permission_type: custom
+id: node.field_col_requests
+field_name: field_col_requests
 entity_type: node
-type: boolean
-settings: {  }
+type: entity_reference
+settings:
+  target_type: user
 module: core
 locked: false
-cardinality: 1
+cardinality: -1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

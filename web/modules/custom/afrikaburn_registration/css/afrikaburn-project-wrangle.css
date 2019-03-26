@@ -133,8 +133,7 @@
 }
 .editor-parent.form-item-field-prj-adm-wrangler select,
 .editor-parent.form-item-field-prj-adm-review select,
-.editor-parent.form-type-textfield input,
-{
+.editor-parent.form-type-textfield input{
   width: 100%;
 }
 
@@ -193,4 +192,9 @@
 .wrangle-wtf .views-field-field-prj-wtf-short,
 .wrangle-wtf .views-field-field-prj-wtf-short-copy{
   width: 40%;
+}
+
+.wrangle-wtf .views-row{
+  clear: both;
+  margin: 10px 0;
 }

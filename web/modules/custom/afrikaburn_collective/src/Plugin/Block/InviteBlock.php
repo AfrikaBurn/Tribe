@@ -20,10 +20,14 @@ class InviteBlock extends BlockBase {
    */
   public function build() {
 
+    module_load_include('inc', 'afrikaburn_collective', 'includes/util');
+
     $user = \Drupal::currentUser();
     $collective = \Drupal::routeMatch()->getParameter('node');
 
-    return $collective && \Drupal::service('access_manager')->checkNamedRoute('afrikaburn_collective.invite', ['cid' => $collective->id()], $user)
+    return
+      afrikaburn_collective_admin() ||
+      afrikaburn_collective_setting('open') && !afrikaburn_collective_setting('vetted')
       ? [
         '#type' => 'form',
         '#action' => '/collective/' . $collective->id() . '/invite',
@@ -53,7 +57,5 @@ class InviteBlock extends BlockBase {
           'max-age' => 0,
         ],
       ];
-
-    return $form;
   }
 }

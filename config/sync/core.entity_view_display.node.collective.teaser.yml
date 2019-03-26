@@ -1,6 +1,6 @@
 uuid: 16628369-3567-46a8-9573-46d222babb48
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
@@ -11,36 +11,122 @@ dependencies:
     - field.field.node.collective.field_col_invitee
     - field.field.node.collective.field_col_members
     - field.field.node.collective.field_col_posts
+    - field.field.node.collective.field_col_requests
     - field.field.node.collective.field_picture
+    - field.field.node.collective.field_settings
+    - image.style.collective_preview
     - node.type.collective
   module:
+    - ds
+    - empty_fields
+    - field_group
+    - image
+    - text
     - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - node_title
+        - field_picture
+        - field_col_description
+        - group_actions
+        - edit
+        - flag_mute
+        - join
+        - leave
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          link: true
+          wrapper: h2
+          class: ''
+  field_group:
+    group_actions:
+      children:
+        - edit
+        - flag_mute
+        - join
+        - leave
+      parent_name: ''
+      weight: 3
+      format_type: html_element
+      format_settings:
+        label: Actions
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: collective-actions
+      label: Actions
 id: node.collective.teaser
 targetEntityType: node
 bundle: collective
 mode: teaser
 content:
-  links:
-    weight: 100
+  edit:
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
-  post_something:
-    weight: 100
+  field_col_description:
+    type: text_trimmed
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      trim_length: 200
+    third_party_settings:
+      empty_fields:
+        handler: ''
+  field_picture:
+    type: image
+    weight: 1
+    region: content
+    label: hidden
+    settings:
+      image_style: collective_preview
+      image_link: content
+    third_party_settings:
+      empty_fields:
+        handler: ''
+  flag_mute:
+    weight: 18
+    region: content
     settings: {  }
     third_party_settings: {  }
+  join:
+    weight: 19
     region: content
-  posts:
-    weight: 100
     settings: {  }
     third_party_settings: {  }
+  leave:
+    weight: 20
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_col_admins: true
-  field_col_description: true
   field_col_invite_mail: true
   field_col_invite_token: true
   field_col_invitee: true
   field_col_members: true
   field_col_posts: true
-  field_picture: true
+  field_col_requests: true
+  field_settings: true
+  links: true
+  post_something: true
+  posts: true

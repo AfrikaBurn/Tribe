@@ -231,7 +231,7 @@ function ab_prepare_wrangler_view(&$variables){
             $field_form['#value'] = @array_shift(
               array_column($value, 'value')
             );
-      }
+        }
 
         // Title
         $title = _title($field);
@@ -289,7 +289,7 @@ function ab_prepare_wrangler_view(&$variables){
 /**
  * Inserts wrangle view fields
  */
-function ab_insert_wrangler_view_rows(&$variables){
+function ab_insert_wrangler_view_rows(&$variables, $comments, $merge){
 
   $view = $variables['view'];
 
@@ -306,20 +306,7 @@ function ab_insert_wrangler_view_rows(&$variables){
       }
     }
 
-    if ($view->current_display == 'bench'){
-      // Merge admin columns
-      foreach (_merge() as $column=>$fields) {
-        foreach($fields as $field){
-          if (isset($view->field[$field])){
-            $row['columns'][$column]['content'][] = [
-              'field_output' => @$row['columns'][$field]['content'][0]['field_output']
-            ];
-            unset($row['columns'][$field]);
-            $row['columns'][$column]['attributes'] =  new \Drupal\Core\Template\Attribute(['class' => 'column-' . $column]);
-          }
-        }
-      }
-
+    if ($comments){
       // Latest comment
       $row['columns']['administrative']['content'][] = [
         'field_output' => @render(views_embed_view('wrangle_comments', 'latest', $nid))
@@ -352,6 +339,21 @@ function ab_insert_wrangler_view_rows(&$variables){
       $row['columns']['administrative']['content'][] = [
         'field_output' => render($history)
       ];
+    }
+
+    if ($merge) {
+      // Merge admin columns
+      foreach (_merge() as $column=>$fields) {
+        foreach($fields as $field){
+          if (isset($view->field[$field])){
+            $row['columns'][$column]['content'][] = [
+              'field_output' => @$row['columns'][$field]['content'][0]['field_output']
+            ];
+            unset($row['columns'][$field]);
+            $row['columns'][$column]['attributes'] =  new \Drupal\Core\Template\Attribute(['class' => 'column-' . $column]);
+          }
+        }
+      }
 
       // Unset admin column headers
       foreach (_merge() as $index=>$fields) {

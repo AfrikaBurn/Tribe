@@ -1,6 +1,6 @@
 uuid: 32ab565a-f952-4ddc-b9c1-a5a6033239b4
 langcode: en
-status: true
+status: false
 dependencies:
   module:
     - afrikaburn_registration
@@ -35,7 +35,7 @@ visibility:
   php:
     id: php
     negate: false
-    php: '<?php return true; ?>'
+    php: "<?php\r\nmodule_load_include('inc', 'afrikaburn_collective', 'includes/util');\r\nreturn afrikaburn_collective_admin() && afrikaburn_collective_setting('projects');\r\n?>"
     context_mapping: {  }
   request_path:
     id: request_path

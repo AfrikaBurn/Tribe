@@ -10,9 +10,10 @@ dependencies:
     - field.field.node.collective.field_col_invitee
     - field.field.node.collective.field_col_members
     - field.field.node.collective.field_col_posts
-    - field.field.node.collective.field_disable_emails
+    - field.field.node.collective.field_col_requests
     - field.field.node.collective.field_picture
-    - image.style.thumbnail
+    - field.field.node.collective.field_settings
+    - image.style.collective_preview
     - node.type.collective
   module:
     - field_group
@@ -20,20 +21,80 @@ dependencies:
     - text
 third_party_settings:
   field_group:
-    group_optional:
+    group_collective:
       children:
-        - field_col_description
-        - field_picture
+        - group_about
+        - group_how_it_works
+        - group_membership
+        - group_invitations
       parent_name: ''
-      weight: 1
-      format_type: details
+      weight: 0
+      format_type: tabs
       format_settings:
-        label: 'Click to add a description and picture (You can do this later, too)'
+        label: Collective
+        direction: horizontal
+        id: ''
+        classes: js-wizard
+      label: Collective
+    group_how_it_works:
+      children:
+        - field_settings
+      parent_name: group_collective
+      weight: 21
+      format_type: tab
+      format_settings:
         id: ''
         classes: ''
-        open: false
-        required_fields: false
-      label: 'Click to add a description and picture (You can do this later, too)'
+        formatter: open
+        description: ''
+        required_fields: true
+      label: 'How it works'
+    group_membership:
+      children:
+        - field_col_admins
+        - field_col_members
+        - field_col_requests
+      parent_name: group_collective
+      weight: 22
+      format_type: tab
+      format_settings:
+        label: Membership
+        formatter: open
+        description: ''
+        required_fields: true
+        id: ''
+        classes: column-tab
+      label: Membership
+    group_invitations:
+      children:
+        - field_col_invite_mail
+        - field_col_invite_token
+      parent_name: group_collective
+      weight: 23
+      format_type: tab
+      format_settings:
+        label: Invitations
+        formatter: open
+        description: ''
+        required_fields: true
+        id: ''
+        classes: column-tab
+      label: Invitations
+    group_about:
+      children:
+        - title
+        - field_col_description
+        - field_picture
+      parent_name: group_collective
+      weight: 20
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: open
+        description: ''
+        required_fields: true
+      label: About
 id: node.collective.default
 targetEntityType: node
 bundle: collective
@@ -41,7 +102,7 @@ mode: default
 content:
   field_col_admins:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 7
     region: content
     settings:
       match_operator: CONTAINS
@@ -49,7 +110,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_col_description:
-    weight: 4
+    weight: 2
     settings:
       rows: 5
       placeholder: ''
@@ -58,7 +119,7 @@ content:
     region: content
   field_col_invite_mail:
     type: email_default
-    weight: 5
+    weight: 7
     region: content
     settings:
       size: 60
@@ -66,7 +127,7 @@ content:
     third_party_settings: {  }
   field_col_invite_token:
     type: string_textfield
-    weight: 6
+    weight: 8
     region: content
     settings:
       size: 60
@@ -74,27 +135,35 @@ content:
     third_party_settings: {  }
   field_col_members:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 8
     region: content
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_disable_emails:
-    weight: 2
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
+  field_col_requests:
+    type: entity_reference_autocomplete
+    weight: 9
     region: content
-  field_picture:
-    weight: 5
     settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_picture:
+    weight: 3
+    settings:
+      preview_image_style: collective_preview
       progress_indicator: throbber
-      preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
+    region: content
+  field_settings:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
     region: content
   moderation_state:
     weight: 122
@@ -106,7 +175,7 @@ content:
     region: content
   title:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60

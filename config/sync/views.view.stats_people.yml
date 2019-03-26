@@ -290,10 +290,10 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
-        field_year_cycle_1:
-          id: field_year_cycle_1
-          table: user__field_year_cycle
-          field: field_year_cycle
+        uid:
+          id: uid
+          table: users_field_data
+          field: uid
           relationship: none
           group_type: count_distinct
           admin_label: ''
@@ -338,12 +338,17 @@ display:
           hide_empty: false
           empty_zero: false
           hide_alter_empty: true
+          set_precision: false
+          precision: 0
+          decimal: .
+          separator: ''
+          format_plural: 0
+          format_plural_string: !!binary MQNAY291bnQ=
+          prefix: ''
+          suffix: ''
           click_sort_column: value
-          type: computed_string
-          settings:
-            sanitized: 0
-            cache_unit: '-1'
-            cache_duration: '1'
+          type: number_integer
+          settings: {  }
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -352,8 +357,9 @@ display:
           delta_reversed: false
           delta_first_last: false
           multi_type: separator
-          separator: ', '
           field_api_classes: false
+          entity_type: user
+          entity_field: uid
           plugin_id: field
       defaults:
         fields: false

@@ -17,7 +17,7 @@ third_party_settings:
 id: membersblock
 theme: afrikaburn
 region: sidebar
-weight: -20
+weight: -19
 provider: null
 plugin: members_block
 settings:
@@ -43,7 +43,7 @@ visibility:
   php:
     id: php
     negate: false
-    php: '<?php return TRUE; ?>'
+    php: "<?php\r\nmodule_load_include('inc', 'afrikaburn_collective', 'includes/util');\r\nreturn afrikaburn_collective_member() && afrikaburn_collective_setting('private_members') || afrikaburn_collective_setting('public_members');\r\n?>"
     context_mapping: {  }
   request_path:
     id: request_path

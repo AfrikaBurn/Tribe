@@ -28,9 +28,11 @@ dependencies:
     - field.field.user.user.field_quicket_id
     - field.field.user.user.field_secondary_mail
     - field.field.user.user.field_terms_and_conditions
+    - field.field.user.user.field_year_cycle
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
+    - computed_field
     - cshs
     - datetime
     - field_group
@@ -122,6 +124,7 @@ third_party_settings:
     group_ts_cs:
       children:
         - field_terms_and_conditions
+        - field_year_cycle
       parent_name: group_root
       weight: 12
       format_type: tab
@@ -282,6 +285,12 @@ content:
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
+  field_year_cycle:
+    type: computed_string_widget
+    weight: 31
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   user_picture:
     type: image_image
     settings:

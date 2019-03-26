@@ -43,12 +43,14 @@ settings:
           items:
             - Source
   plugins:
-    stylescombo:
-      styles: ''
     language:
       language_list: un
+    stylescombo:
+      styles: ''
     linkit:
       linkit_profile: ''
+    tokenbrowser:
+      token_types: {  }
 image_upload:
   status: true
   scheme: public

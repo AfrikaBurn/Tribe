@@ -43,142 +43,6 @@ function afrikaburn_registration_node_view(&$build, $entity, $display, $view_mod
 }
 
 
-/* ----- Form alters ----- */
-
-
-/**
- * Implements hook_form_alter().
- * Performs project form alterations.
- */
-function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
-
-  module_load_include('inc', 'afrikaburn_registration', 'includes/form');
-  $registration_config = _project_form_config();
-  $defaults = @($registration_config)[$form_id];
-
-  if (isset($defaults) && preg_match('/^\/node/', \Drupal::service('path.current')->getPath())) {
-
-    // Get parameters
-    list($entity, $user, $registration, $collective, $supporting_project, $is_wrangler, $is_admin, $bundle, $mode) = _get_registration_params($form_state, $defaults);
-
-    // Catch naughty naughty link faking users
-    if (_verify_link($form, $collective, $mode, $supporting_project)) {
-
-      // Set form title, Submit title, Submit handlers
-      _set_form_attrs($form, $defaults, $collective, $registration, $mode);
-
-      // Set defaults
-      _set_form_defaults($form, $collective, $supporting_project, $defaults, $is_admin, $is_wrangler);
-
-      // Hide fields and inappropriate complete options per type
-      _set_form_field_state($form, $is_admin, $is_wrangler, $bundle);
-
-      // Wizard or tabs (cake or death?)
-      _set_form_wizard_state($form, $form_state, $defaults, $supporting_project, $registration, $is_wrangler);
-
-      // Generate WAP form
-      _wap_form($form, $collective, $registration, $mode);
-
-        // Add "Save Draft" button.
-        // $form['draft'] = [
-        //   '#type' => 'submit',
-        //   '#value' => 'Save Draft',
-        //   '#limit_validation_errors' => [['title'], ['field_form_mode']],
-        //   '#validate' => ['afrikaburn_registration_validate_draft'],
-        //   '#submit' => ['afrikaburn_registration_save_draft'],
-        // ];
-    }
-  }
-}
-
-/**
- * Implements hook_form_FORM_ID_alter().
- * Attach settings form style.
- */
-function afrikaburn_registration_form_afrikaburn_registration_settings_alter(&$form, $form_state, $form_id) {
-  $form['#attached']['library'][] = 'afrikaburn_registration/settings';
-}
-
-/**
- * Implements hook_form_FORM_ID_alter().
- * Alters dashboard filter form.
- */
-function afrikaburn_registration_form_views_exposed_form_alter(&$form, $form_state, $form_id) {
-
-  $view = $form_state->getStorage('view')['view'];
-  if ($view->storage->get('tag')) list($purpose, $type) = array_map('trim', explode(',', $view->storage->get('tag')));
-
-  if (isset($purpose) && $purpose == 'wrangle') {
-
-    switch($type){
-
-      // TODO: needs to move to incident module
-      case 'logger':
-        $form['status']['#options']['All'] = t('- any state -');
-        $form['type']['#options']['All'] = t('- any type -');
-      break;
-
-      default:
-        $form['search']['#placeholder'] = 'project, person or collective';
-        $form['status']['#options']['All'] = t('- any review state -');
-        module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
-        ar_prepare_wrangler_filter($form, $type);
-    }
-  }
-}
-
-
-/* ---- Local task alter ----- */
-
-
-/**
- * Implements hook_menu_local_tasks_alter().
- * Hooked to hide edit button.
- */
-function afrikaburn_registration_menu_local_tasks_alter(&$data, $route_name){
-
-  module_load_include('inc', 'afrikaburn_registration', 'includes/form');
-  $node = \Drupal::routeMatch()->getParameter('node');
-
-  if ($node) {
-    $bundle = $node->bundle();
-
-    if (@_project_form_modes()[$bundle]){
-      unset($data['tabs'][0]['entity.node.edit_form']);
-    }
-  }
-}
-
-
-/* ---- View alters ----- */
-
-
-/**
- * Implements hook_views_query_alter().
- * Change "unassigned" wrangler filter into IS NULL in query.
- * Show only users that have not been assigned WAPs in this cycle.
- */
-function afrikaburn_registration_views_query_alter($view, $query){
-
-  @list($purpose, $type) = array_map('trim', explode(',', $view->storage->get('tag')));
-
-  // Filter
-  if ($purpose && $purpose == 'wrangle' && @$view->exposed_raw_input['wrangler'] == 'unassigned') {
-
-    foreach ($query->where as &$condition_group) {
-      foreach ($condition_group['conditions'] as &$condition) {
-        if ($condition['field'] == 'node__field_prj_adm_wrangler.field_prj_adm_wrangler_target_id') {
-          $condition = [
-            'field' => 'field_prj_adm_wrangler_target_id',
-            'operator' => 'IS NULL',
-          ];
-        }
-      }
-    }
-  }
-}
-
-
 /* ----- Theme hooks ----- */
 
 
@@ -276,8 +140,10 @@ function afrikaburn_registration_preprocess_views_view(&$variables){
     case 'wrangle_theme_camps':
     case 'wrangle_wtf':
       $variables['#attached']['library'][] = 'afrikaburn_registration/wrangle';
-      module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
-      ab_prepare_wrangler_view($variables);
+      if (in_array($variables['display_id'], ['bench', 'tasks'])){
+        module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
+        ab_prepare_wrangler_view($variables);
+      }
     break;
 
   }
@@ -297,17 +163,117 @@ function afrikaburn_registration_preprocess_views_view_fields(&$variables) {
  * Implements hook_preprocess_views_view_table().
  */
 function afrikaburn_registration_preprocess_views_view_table(&$variables) {
-  switch ($variables['view']->id()){
 
+  $comments = TRUE;
+  $merge = TRUE;
+
+  switch ($variables['view']->id()){
+    case 'wrangle_wtf':
+      $comments = FALSE;
+      $merge = FALSE;
     case 'wrangle_art':
     case 'wrangle_binnekring_events':
     case 'wrangle_mutant_vehicles':
     case 'wrangle_theme_camps':
-    case 'wrangle_wtf':
-      module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
-      ab_insert_wrangler_view_rows($variables);
-    break;
 
+      if ($variables['view']->current_display == 'tasks') {
+        $comments = FALSE;
+        $merge = FALSE;
+      }
+
+      if (in_array($variables['view']->current_display, ['bench', 'tasks'])){
+        module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
+        ab_insert_wrangler_view_rows($variables, $comments, $merge);
+      }
+    break;
+  }
+}
+
+
+/* ----- Form alters ----- */
+
+
+/**
+ * Implements hook_form_alter().
+ * Performs project form alterations.
+ */
+function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
+
+  module_load_include('inc', 'afrikaburn_registration', 'includes/form');
+  $registration_config = _project_form_config();
+  $defaults = @($registration_config)[$form_id];
+
+  if (isset($defaults) && preg_match('/^\/node/', \Drupal::service('path.current')->getPath())) {
+
+    // Get parameters
+    list($entity, $user, $registration, $collective, $supporting_project, $is_wrangler, $is_admin, $bundle, $mode) = _get_registration_params($form_state, $defaults);
+
+    // Check access
+    _check_access($defaults, $user, $form_state);
+
+    // Catch naughty naughty link faking users
+    if (_verify_link($form, $collective, $mode, $supporting_project)) {
+
+      // Set form title, Submit title, Submit handlers
+      _set_form_attrs($form, $defaults, $collective, $registration, $mode);
+
+      // Set defaults
+      _set_form_defaults($form, $collective, $supporting_project, $defaults, $is_admin, $is_wrangler);
+
+      // Hide fields and inappropriate complete options per type
+      _set_form_field_state($form, $is_admin, $is_wrangler, $bundle);
+
+      // Wizard or tabs (cake or death?)
+      _set_form_wizard_state($form, $form_state, $defaults, $supporting_project, $registration, $is_wrangler);
+
+      // Generate WAP form
+      _wap_form($form, $collective, $registration, $mode);
+
+        // Add "Save Draft" button.
+        // $form['draft'] = [
+        //   '#type' => 'submit',
+        //   '#value' => 'Save Draft',
+        //   '#limit_validation_errors' => [['title'], ['field_form_mode']],
+        //   '#validate' => ['afrikaburn_registration_validate_draft'],
+        //   '#submit' => ['afrikaburn_registration_save_draft'],
+        // ];
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ * Attach settings form style.
+ */
+function afrikaburn_registration_form_afrikaburn_registration_settings_alter(&$form, $form_state, $form_id) {
+  $form['#attached']['library'][] = 'afrikaburn_registration/settings';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ * Alters dashboard filter form.
+ */
+function afrikaburn_registration_form_views_exposed_form_alter(&$form, $form_state, $form_id) {
+
+  $view = $form_state->getStorage('view')['view'];
+  if ($view->storage->get('tag')) @list($purpose, $type) = array_map('trim', explode(',', $view->storage->get('tag')));
+
+  if (isset($purpose) && $purpose == 'wrangle') {
+
+    switch($type){
+
+      // TODO: needs to move to incident module
+      case 'logger':
+        $form['status']['#options']['All'] = t('- any state -');
+        $form['type']['#options']['All'] = t('- any type -');
+      break;
+
+      default:
+        $form['search']['#placeholder'] = 'project, person or collective';
+        $form['status']['#options']['All'] = t('- any review state -');
+        module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
+        ar_prepare_wrangler_filter($form, $type);
+    }
   }
 }
 
@@ -376,7 +342,7 @@ function afrikaburn_registration_wap_validate($form, $form_state){
   foreach($values['waps'] as $i=>$wap){
     if ($wap['member']){
       if (!$wap['arrives']){
-        $form_state->setError($form['waps'][0]['arrives'], t('You must estimate when this member will arrive!'));
+        $form_state->setError($form['waps'][$i]['arrives'], t('You must estimate when this member will arrive!'));
       }
       $new ++;
     }
@@ -449,21 +415,59 @@ function afrikaburn_registration_wap_submit($form, $form_state){
 }
 
 
-/* ----- Computed fields ----- */
+/* ---- Local task alter ----- */
 
 
 /**
- * Computes event year cycle
+ * Implements hook_menu_local_tasks_alter().
+ * Hooked to hide edit button.
  */
-function computed_field_field_year_cycle_compute($entity_type_manager, $entity, $fields, $delta){
+function afrikaburn_registration_menu_local_tasks_alter(&$data, $route_name){
 
-  $next = strtotime(Drupal\Core\Site\Settings::get('afrikaburn.cycle')['end']);
-  $year_end = strtotime('31 dec ' . date('Y'));
-  $offset = ($year_end - $next) / 86400;
-  $year = date('Y', strtotime('+' . $offset .' days', $entity->get('created')->value));
+  module_load_include('inc', 'afrikaburn_registration', 'includes/form');
+  $node = \Drupal::routeMatch()->getParameter('node');
 
-  return $year;
+  if ($node) {
+    $bundle = $node->bundle();
+
+    if (@_project_form_modes()[$bundle]){
+      unset($data['tabs'][0]['entity.node.edit_form']);
+    }
+  }
 }
+
+
+/* ---- View alters ----- */
+
+
+/**
+ * Implements hook_views_query_alter().
+ * Change "unassigned" wrangler filter into IS NULL in query.
+ * Show only users that have not been assigned WAPs in this cycle.
+ */
+function afrikaburn_registration_views_query_alter($view, $query){
+
+  @list($purpose, $type) = array_map('trim', explode(',', $view->storage->get('tag')));
+
+  // Filter
+  if ($purpose && $purpose == 'wrangle' && @$view->exposed_raw_input['wrangler'] == 'unassigned') {
+
+    foreach ($query->where as &$condition_group) {
+      foreach ($condition_group['conditions'] as &$condition) {
+        if ($condition['field'] == 'node__field_prj_adm_wrangler.field_prj_adm_wrangler_target_id') {
+          $condition = [
+            'field' => 'field_prj_adm_wrangler_target_id',
+            'operator' => 'IS NULL',
+          ];
+        }
+      }
+    }
+  }
+}
+
+
+/* ----- Computed fields ----- */
+
 
 /**
  * Implements hook_entity_presave().
@@ -475,6 +479,7 @@ function afrikaburn_registration_node_presave($entity){
     // Year cycle
     if (in_array($entity->bundle(), ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
       if (!count($entity->get('field_year_cycle')->getValue())){
+        module_load_include('module', 'afrikaburn_shared', 'afrikaburn_shared');
         $entity->set('field_year_cycle', computed_field_field_year_cycle_compute(null, $entity, null, null));
       }
     }

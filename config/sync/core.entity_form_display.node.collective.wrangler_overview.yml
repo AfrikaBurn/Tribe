@@ -1,6 +1,6 @@
 uuid: b3670bb1-d18d-48aa-89b8-50e1ca93b22d
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_form_mode.node.wrangler_overview
@@ -11,7 +11,9 @@ dependencies:
     - field.field.node.collective.field_col_invitee
     - field.field.node.collective.field_col_members
     - field.field.node.collective.field_col_posts
+    - field.field.node.collective.field_col_requests
     - field.field.node.collective.field_picture
+    - field.field.node.collective.field_settings
     - image.style.thumbnail
     - node.type.collective
   module:
@@ -116,6 +118,8 @@ hidden:
   field_col_invite_token: true
   field_col_invitee: true
   field_col_posts: true
+  field_col_requests: true
+  field_settings: true
   path: true
   promote: true
   sticky: true

@@ -275,6 +275,13 @@ function afrikaburn_bio_theme_suggestions_field_alter(&$suggestions, $variables)
 function afrikaburn_bio_entity_extra_field_info() {
   $extra = [];
 
+  $extra['user']['user']['display']['edit'] = array(
+    'label' => t('Edit account'),
+    'description' => t('Link to edit account'),
+    'weight' => 100,
+    'visible' => TRUE,
+  );
+
   $extra['user']['user']['display']['username'] =[
     'label' => t('Username'),
     'description' => t('The users chosen username'),
@@ -289,10 +296,22 @@ function afrikaburn_bio_entity_extra_field_info() {
  * Implements hook_user_view().
  */
 function afrikaburn_bio_user_view(&$build, $user, $display, $mode) {
+
+  $uid = \Drupal::currentUser()->id();
+  $current_user = User::load($uid);
+
   if ($display->getComponent('username')) {
     $build['username'] = [
-      '#type' => 'markup',
       '#markup' => $user->link($user->name->value),
+    ];
+  }
+
+  if ($display->getComponent('edit') && ($uid == $user->get('uid') || $current_user->hasRole('administrator'))){
+    $build['edit'] = [
+      '#markup' =>
+        '<a class="edit" title="Edit this Account" href="/user/' .
+        $user->uid->value .
+        '/edit">Edit</a>',
     ];
   }
 }
@@ -319,5 +338,16 @@ function afrikaburn_bio_preprocess_views_view_table(&$variables) {
   if($variables['view']->id() == 'wrangle_people'){
     module_load_include('inc', 'afrikaburn_bio', 'includes/wrangle.people');
     _insert_wrangler_view_rows($variables);
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ * Force calculation of year cycle.
+ */
+function afrikaburn_bio_user_presave($entity){
+  if (!count($entity->get('field_year_cycle')->getValue())){
+    module_load_include('module', 'afrikaburn_shared', 'afrikaburn_shared');
+    $entity->set('field_year_cycle', computed_field_field_year_cycle_compute(null, $entity, null, null));
   }
 }

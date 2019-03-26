@@ -306,7 +306,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: '<a href="/node/add/collective" class="button">Create a collective</a>'
+          content: "<a href=\"/collectives\" class=\"button\">Find collectives</a>\r\n<a href=\"/node/add/collective\" class=\"button\">Create a collective</a>\r\n"
           plugin_id: text_custom
       empty: {  }
       relationships:
@@ -355,6 +355,7 @@ display:
           not: false
           plugin_id: numeric
       display_extenders: {  }
+      use_ajax: true
     cache_metadata:
       max-age: -1
       contexts:
