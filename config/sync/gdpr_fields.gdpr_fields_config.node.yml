@@ -1185,6 +1185,17 @@ bundles:
       notes: ''
       relationship: 0
       sars_filename: ''
+    field_picture:
+      bundle: collective
+      name: field_picture
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   incident:
     field_incident_type:
       bundle: incident
