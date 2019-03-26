@@ -13,7 +13,7 @@ dependencies:
     - field.field.node.collective.field_col_requests
     - field.field.node.collective.field_picture
     - field.field.node.collective.field_settings
-    - image.style.collective_preview
+    - image.style.collective_top
     - node.type.collective
   module:
     - field_group
@@ -154,7 +154,7 @@ content:
   field_picture:
     weight: 3
     settings:
-      preview_image_style: collective_preview
+      preview_image_style: collective_top
       progress_indicator: throbber
     third_party_settings: {  }
     type: image_image
