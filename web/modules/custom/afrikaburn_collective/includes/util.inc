@@ -21,7 +21,7 @@ function afrikaburn_collective_admin(){
 
   return $collective && (
     _found('administrator', $user->getRoles()) ||
-    CollectiveAdminCheck::isAdmin($user->uid, $collective)
+    CollectiveAdminCheck::isAdmin($user->id(), $collective)
   );
 }
 
