@@ -166,6 +166,7 @@ function afrikaburn_collective_form_alter(&$form, $form_state, $form_id) {
 
     $user = User::load(\Drupal::currentUser()->id());
     $form['field_col_admins']['#access'] = $user->hasRole('administrator');
+    $form['field_col_members']['#access'] = $user->hasRole('administrator');
     $form['field_col_requests']['#access'] = $user->hasRole('administrator');
     $form['field_col_invite_mail']['#access'] = $user->hasRole('administrator');
     $form['field_col_invite_token']['#access'] = $user->hasRole('administrator');
