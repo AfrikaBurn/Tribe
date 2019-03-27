@@ -21,13 +21,13 @@
 
       $(
         () => {
-          if (context == document){
-            setInterval(
-              () => {
-                $('.view-alerts').triggerHandler('RefreshView')
-              }, 20000
-            )
-          }
+          // if (context == document){
+          //   setInterval(
+          //     () => {
+          //       $('.view-alerts').triggerHandler('RefreshView')
+          //     }, 20000
+          //   )
+          // }
 
           $(context).find('.flag-unread.action-unflag:not(.flag-processed)').add(
             $(context).filter('.flag-unread.action-unflag:not(.flag-processed)')

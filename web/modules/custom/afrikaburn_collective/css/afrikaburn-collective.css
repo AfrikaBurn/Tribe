@@ -409,3 +409,31 @@ article.collective-post header a{
 .page-node-type-collective .field--name-field-picture img{
   width: 100%;
 }
+
+#edit-field-col-members > .view-collective-members{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#edit-field-col-members > .view-collective-members > .view-filters{
+  width: 100%;
+}
+
+#edit-field-col-members > .view-collective-members > .view-content,
+#edit-field-col-members > .view-collective-members > .attachment{
+  width: 50%;
+}
+
+#edit-field-col-members > .view-collective-members > .view-filters > .form--inline{
+  display: flex;
+}
+
+#edit-field-col-members .form-actions{
+  padding: 0;
+  margin: 0;
+}
+
+#edit-field-col-members input{
+  height: 30px;
+  line-height: 100%;
+}

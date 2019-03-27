@@ -37,9 +37,9 @@ class UpdateController extends ControllerBase {
       ->condition('title', 'AfrikaBurn')
       ->execute());
 
-    $uids = db_query(
+    $uid_count = (int) db_query(
       "SELECT
-          uid
+          COUNT(uid)
         FROM
           d8_newusers LEFT JOIN d8_newnode__field_col_members
           ON
@@ -48,14 +48,30 @@ class UpdateController extends ControllerBase {
         WHERE
           d8_newnode__field_col_members.field_col_members_target_id IS NULL
           AND uid > 0
-        LIMIT 50
+        LIMIT 100
       ", [$cid]
-    )->fetchCol('uid');
+    )->fetchCol('COUNT(uid)')[0];
 
-    foreach($uids as $uid) {
+    for($page = 0; $page <= $uid_count / 100; $page++) {
+
+      $uids = db_query(
+        "SELECT
+            uid
+          FROM
+            d8_newusers LEFT JOIN d8_newnode__field_col_members
+            ON
+              uid = field_col_members_target_id
+              AND entity_id = ?
+          WHERE
+            d8_newnode__field_col_members.field_col_members_target_id IS NULL
+            AND uid > 0
+          LIMIT 100
+        ", [$cid]
+      )->fetchCol('uid');
+
       $batch['operations'][] = [
         'Drupal\afrikaburn_collective\Controller\UpdateController::addUser',
-        [$cid, $uid]
+        [$cid, $uids]
       ];
     }
 
@@ -63,9 +79,13 @@ class UpdateController extends ControllerBase {
   }
   public static function addUser($cid, $uid, &$context){
     $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
-    $collective->field_col_members[] = [
-      'target_id' => $uid
-    ];
+
+    foreach($uids as $uid){
+      $collective->field_col_members[] = [
+        'target_id' => $uid
+      ];
+    }
+
     $collective->save();
     $context['results'][] = 1;
   }
@@ -74,7 +94,7 @@ class UpdateController extends ControllerBase {
       $success
         ? \Drupal::translation()->formatPlural(
             count($results),
-            'One user added.', '@count users added.'
+            'One user added.', '@count batch of users processed.'
           )
         : t('Finished with errors.')
     );
