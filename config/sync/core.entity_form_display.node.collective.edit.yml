@@ -26,7 +26,6 @@ third_party_settings:
       children:
         - group_about
         - group_how_it_works
-        - group_membership
         - group_invitations
       parent_name: ''
       weight: 0
@@ -55,7 +54,7 @@ third_party_settings:
         - field_col_invite_mail
         - field_col_invite_token
       parent_name: group_collective
-      weight: 23
+      weight: 22
       format_type: tab
       format_settings:
         label: Invitations
