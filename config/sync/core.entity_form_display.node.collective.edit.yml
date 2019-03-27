@@ -26,8 +26,8 @@ third_party_settings:
       children:
         - group_about
         - group_how_it_works
-        - group_membership
         - group_invitations
+        - group_members
       parent_name: ''
       weight: 0
       format_type: tabs
@@ -55,7 +55,7 @@ third_party_settings:
         - field_col_invite_mail
         - field_col_invite_token
       parent_name: group_collective
-      weight: 23
+      weight: 22
       format_type: tab
       format_settings:
         label: Invitations
@@ -80,11 +80,34 @@ third_party_settings:
         description: ''
         required_fields: true
       label: About
+    group_members:
+      children:
+        - field_col_admins
+        - field_col_members
+      parent_name: group_collective
+      weight: 23
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: open
+        description: ''
+        required_fields: true
+      label: Members
 id: node.collective.edit
 targetEntityType: node
 bundle: collective
 mode: edit
 content:
+  field_col_admins:
+    type: entity_reference_autocomplete
+    weight: 0
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_col_description:
     weight: 2
     settings:
@@ -106,6 +129,15 @@ content:
     weight: 4
     region: content
     settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_col_members:
+    type: entity_reference_autocomplete
+    weight: 1
+    region: content
+    settings:
+      match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
@@ -141,9 +173,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
-  field_col_admins: true
   field_col_invitee: true
-  field_col_members: true
   field_col_posts: true
   field_col_requests: true
   path: true

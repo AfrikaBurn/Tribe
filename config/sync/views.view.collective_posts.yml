@@ -668,7 +668,7 @@ display:
           entity_field: cid
           plugin_id: numeric
       display_extenders: {  }
-      use_ajax: true
+      use_ajax: false
     cache_metadata:
       max-age: -1
       contexts:
