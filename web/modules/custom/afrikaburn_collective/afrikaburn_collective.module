@@ -175,13 +175,6 @@ function afrikaburn_collective_form_alter(&$form, $form_state, $form_id) {
       $form['field_col_members']['widget'][0]['target_id']['#default_value'] = $user;
     }
 
-    $form['field_col_members'] = [
-      '#access' => $user->hasRole('administrator'),
-      '#type' => 'view',
-      '#name' => 'collective_members',
-      '#display_id' => 'admin_block',
-    ];
-
     $form['field_settings']['widget']['#title'] = '';
     $form['#validate'][] = 'afrikaburn_collective_unique_name';
   }
