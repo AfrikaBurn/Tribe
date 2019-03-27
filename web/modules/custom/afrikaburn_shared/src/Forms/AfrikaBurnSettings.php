@@ -77,9 +77,10 @@ class AfrikaBurnSettings extends ConfigFormBase {
         \Drupal\afrikaburn_collective\Controller\UpdateController::resave();
       break;
       default:
-        $config = $this->config('afrikaburn_shared.settings');
-        $config->set('tickets', $values['tickets']);
-        $this->config('afrikaburn_shared.settings')->save();
+        $this
+          ->configFactory->getEditable('afrikaburn_shared.settings')
+          ->set('tickets', $values['tickets'])
+          ->save();
         drupal_set_message('Settings saved');
       break;
     }

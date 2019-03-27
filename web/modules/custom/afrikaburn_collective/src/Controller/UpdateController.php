@@ -48,6 +48,7 @@ class UpdateController extends ControllerBase {
         WHERE
           d8_newnode__field_col_members.field_col_members_target_id IS NULL
           AND uid > 0
+        LIMIT 50
       ", [$cid]
     )->fetchCol('uid');
 
