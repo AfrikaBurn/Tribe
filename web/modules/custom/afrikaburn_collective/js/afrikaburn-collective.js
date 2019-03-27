@@ -19,23 +19,36 @@
         }
       )
 
+      // Make member filter autosubmit
       $('.view-posts form').attr('action', '?post=all')
+      $('.view-collective-members .views-exposed-form .form-text').not('.processed').keyup(
+        function() {
+          clearTimeout($(this).data('timeout'))
+          $(this).data('timeout', setTimeout(() => $('.view-collective-members .form-submit').click(), 500))
+          $('.view-collective-members .views-exposed-form .form-text').addClass('busy')
+        }
+      ).addClass('processed')
+
+      if ($(context).hasClass('view-id-collective_members')){
+        $('.form-text', context).focus()[0].setSelectionRange(100, 100);
+      }
 
       $(
         () => {
+
           if (context == document) {
 
-            // setInterval(
-            //   () => {
-            //     $('.view-my-collectives').triggerHandler('RefreshView')
-            //   }, 20000
-            // )
+            setInterval(
+              () => {
+                $('.view-my-collectives').triggerHandler('RefreshView')
+              }, 30000
+            )
 
-            // setInterval(
-            //   () => {
-            //     if (!$('.view-collective-posts details[open]').length) $('.view-collective-posts').triggerHandler('RefreshView')
-            //   }, 20000
-            // )
+            setInterval(
+              () => {
+                if (!$('.view-collective-posts details[open]').length) $('.view-collective-posts').triggerHandler('RefreshView')
+              }, 15000
+            )
 
           }
         }

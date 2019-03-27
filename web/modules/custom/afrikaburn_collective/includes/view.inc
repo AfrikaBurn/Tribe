@@ -109,4 +109,3 @@ function _build_edit(&$build, $display, $uid, $nid, $is_admin, $is_member){
     ];
   }
 }
-

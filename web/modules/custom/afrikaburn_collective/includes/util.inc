@@ -113,7 +113,7 @@ function afrikaburn_collective_setting($setting, $col = false){
     : _collective();
 
   return $collective
-    ? array_fill_keys(
+    ? @array_fill_keys(
         array_column(
           $collective->field_settings->getValue(),
           'value'
