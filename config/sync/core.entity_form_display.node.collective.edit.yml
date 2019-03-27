@@ -14,7 +14,7 @@ dependencies:
     - field.field.node.collective.field_col_requests
     - field.field.node.collective.field_picture
     - field.field.node.collective.field_settings
-    - image.style.collective_preview
+    - image.style.collective_top
     - node.type.collective
   module:
     - field_group
@@ -50,22 +50,6 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'How it works'
-    group_membership:
-      children:
-        - field_col_admins
-        - field_col_members
-        - field_col_requests
-      parent_name: group_collective
-      weight: 22
-      format_type: tab
-      format_settings:
-        label: Membership
-        formatter: open
-        description: ''
-        required_fields: true
-        id: ''
-        classes: column-tab
-      label: Membership
     group_invitations:
       children:
         - field_col_invite_mail
@@ -101,15 +85,6 @@ targetEntityType: node
 bundle: collective
 mode: edit
 content:
-  field_col_admins:
-    type: entity_reference_autocomplete
-    weight: 7
-    region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_col_description:
     weight: 2
     settings:
@@ -120,7 +95,7 @@ content:
     region: content
   field_col_invite_mail:
     type: email_default
-    weight: 7
+    weight: 3
     region: content
     settings:
       size: 60
@@ -128,34 +103,16 @@ content:
     third_party_settings: {  }
   field_col_invite_token:
     type: string_textfield
-    weight: 8
+    weight: 4
     region: content
     settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_col_members:
-    type: entity_reference_autocomplete
-    weight: 8
-    region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_col_requests:
-    type: entity_reference_autocomplete
-    weight: 9
-    region: content
-    settings:
-      match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
   field_picture:
     weight: 3
     settings:
-      preview_image_style: collective_preview
+      preview_image_style: collective_top
       progress_indicator: throbber
     third_party_settings: {  }
     type: image_image
@@ -184,8 +141,11 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_col_admins: true
   field_col_invitee: true
+  field_col_members: true
   field_col_posts: true
+  field_col_requests: true
   path: true
   promote: true
   status: true

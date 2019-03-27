@@ -15,33 +15,73 @@ use Drupal\node\Entity\Node;
 
 class UpdateController extends ControllerBase {
 
-  /* ----- Batch setup ----- */
+
+  /* ----- AB collective ----- */
+
 
   /**
-   * Update Collectives
+   * Add users to AB collective
    */
   public static function update(){
 
     $batch = array(
-      'title' => t('Updating collectives...'),
+      'title' => t('Populating AfrikaBurn...'),
       'operations' => [],
       'progress_message' => t('Processed @current out of @total.'),
       'error_message'    => t('An error occurred during processing'),
       'finished' => '\Drupal\afrikaburn_collective\Controller\UpdateController::updateFinished',
     );
 
-    $cids = \Drupal::entityQuery('node')
+    $cid = array_shift(\Drupal::entityQuery('node')
       ->condition('type', 'collective')
-      ->execute();
-    foreach ($cids as $cid) {
+      ->condition('title', 'AfrikaBurn')
+      ->execute());
+
+    $uids = db_query(
+      "SELECT
+          uid
+        FROM
+          d8_newusers LEFT JOIN d8_newnode__field_col_members
+          ON
+            uid = field_col_members_target_id
+            AND entity_id = ?
+        WHERE
+          d8_newnode__field_col_members.field_col_members_target_id IS NULL
+          AND uid > 0
+      ", [$cid]
+    )->fetchCol('uid');
+
+    foreach($uids as $uid) {
       $batch['operations'][] = [
-        'Drupal\afrikaburn_collective\Controller\UpdateController::updateCollective',
-        [$cid]
+        'Drupal\afrikaburn_collective\Controller\UpdateController::addUser',
+        [$cid, $uid]
       ];
     }
 
     batch_set($batch);
   }
+  public static function addUser($cid, $uid, &$context){
+    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+    $collective->field_col_members[] = [
+      'target_id' => $uid
+    ];
+    $collective->save();
+    $context['results'][] = 1;
+  }
+  public static function updateFinished($success, $results, $operations) {
+    drupal_set_message(
+      $success
+        ? \Drupal::translation()->formatPlural(
+            count($results),
+            'One user added.', '@count users added.'
+          )
+        : t('Finished with errors.')
+    );
+  }
+
+
+  /* ----- Resave users ----- */
+
 
   /**
    * Resave all user records
@@ -63,81 +103,10 @@ class UpdateController extends ControllerBase {
     }
     batch_set($batch);
   }
-
-
-  /* ----- Batch operations ----- */
-
-
-  /**
-   * Update collective settings
-   */
-  public static function updateCollective($cid, &$context){
-
-    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
-    $collective->set(
-      'field_settings',
-      [
-        'projects',
-        'private_projects',
-        'private_discussion',
-        'privileged_discussion',
-        'emails'
-      ]
-    );
-    $collective->save();
-
-    $context['results'][] = 1;
-  }
-
-  /**
-   * Resave user
-   */
   public static function resaveUser($uid, &$context) {
     $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid)->save();
     $context['results'][] = 1;
   }
-
-
-  /* ----- Batch complete ----- */
-
-
-  /**
-   * Collectives
-   */
-  public static function updateFinished($success, $results, $operations) {
-
-    drupal_set_message(
-      $success
-        ? \Drupal::translation()->formatPlural(
-            count($results),
-            'One Collective updated.', '@count Collectives updated.'
-          )
-        : t('Finished with errors.')
-    );
-
-    $abCollective = Node::create(
-      array(
-        'type' => 'collective',
-        'title' => 'AfrikaBurn',
-        'langcode' => 'en',
-        'uid' => '1',
-        'status' => 1,
-        'field_settings' => ['public', 'open'],
-        'field_col_admins' => [['target_id' => 1]],
-      )
-    );
-    $uids = $query = \Drupal::entityQuery('user')
-      ->condition('uid', 0, '>')
-      ->execute();
-    $abCollective->set('field_col_members', $uids);
-    $abCollective->save();
-
-    drupal_set_message('AfrikaBurn collective created. All users added.');
-  }
-
-  /**
-   * Users
-   */
   public static function usersResaved($success, $results, $operations) {
     drupal_set_message(
       $success

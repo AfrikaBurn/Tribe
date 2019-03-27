@@ -359,6 +359,17 @@ article.collective-post header a{
   margin: 5px 10px 0 0;
 }
 
+#block-membersblock .form-actions{
+  display: none;
+}
+#block-membersblock .form-item,
+#block-membersblock input{
+  width: 100%;
+}
+#block-membersblock input.busy{
+  background: #fff url(/core/modules/quickedit/images/icon-throbber.gif) no-repeat 98% center;
+}
+
 .view-collectives-find #edit-options--wrapper .form-type-checkbox{
   width: 40%;
 }
