@@ -185,6 +185,7 @@ permissions:
   - 'view field_prj_gen_doc'
   - 'view field_prj_lnt_score'
   - 'view field_prj_lnt_signoff'
+  - 'view field_terms_and_conditions'
   - 'view own field_agreements'
   - 'view own field_consent_form'
   - 'view own field_date_of_birth'
@@ -225,3 +226,4 @@ permissions:
   - 'view own field_sub_proof_of_income'
   - 'view own field_sub_transferable'
   - 'view own field_sup_invoice'
+  - 'view own field_terms_and_conditions'

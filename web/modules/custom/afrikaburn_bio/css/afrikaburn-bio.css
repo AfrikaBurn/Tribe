@@ -125,6 +125,14 @@ article.user div{
   background-image: url(../images/masquerade.svg);
 }
 
+.account-actions a.contact{
+  background-image: url(../images/mail.svg);
+}
+.account-actions a.no-contact{
+  background-image: url(../images/no-mail.svg);
+  cursor: default;
+  text-decoration: line-through;
+}
 .account-actions a.edit{
   background-image: url(../images/edit.svg);
 }

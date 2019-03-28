@@ -85,6 +85,8 @@ function afrikaburn_bio_form_user_form_alter(&$form, $form_state, $form_id){
     if (\Drupal::currentUser()->isAnonymous()) $form['#validate'][] = 'afrikaburn_bio_mail_validate';
   }
 
+  $form['contact']['#type'] = 'container';
+
   // Add Updated flag to new and updated accounts
   $form['actions']['submit']['#submit'][] = 'afrikaburn_bio_updated';
 }
@@ -289,6 +291,13 @@ function afrikaburn_bio_entity_extra_field_info() {
     'visible' => TRUE,
   ];
 
+  $extra['user']['user']['display']['contact'] =[
+    'label' => t('Contact link'),
+    'description' => t('Link to user contact form'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
   return $extra;
 }
 
@@ -297,8 +306,9 @@ function afrikaburn_bio_entity_extra_field_info() {
  */
 function afrikaburn_bio_user_view(&$build, $user, $display, $mode) {
 
-  $uid = \Drupal::currentUser()->id();
-  $current_user = User::load($uid);
+  $uid = $user->uid->value;
+  $current_uid = \Drupal::currentUser()->id();
+  $current_user = User::load($current_uid);
 
   if ($display->getComponent('username')) {
     $build['username'] = [
@@ -306,11 +316,25 @@ function afrikaburn_bio_user_view(&$build, $user, $display, $mode) {
     ];
   }
 
-  if ($display->getComponent('edit') && ($uid == $user->get('uid') || $current_user->hasRole('administrator'))){
+  if ($display->getComponent('contact') && $current_uid != $uid) {
+    if (\Drupal::service('user.data')->get('contact', $uid, 'enabled')){
+      $build['contact'] = [
+        '#markup' => '<a class="contact" title="Contact this participant" href="' .
+          \Drupal\Core\Url::fromRoute('entity.user.contact_form', ['user' => $uid])->toString() .
+        '">Contact</a>',
+      ];
+    } else {
+      $build['contact'] = [
+        '#markup' => '<a class="no-contact" title="Participant rejects contact">No contact</a>',
+      ];
+    }
+  }
+
+  if ($display->getComponent('edit') && ($current_uid == $uid || $current_user->hasRole('administrator'))){
     $build['edit'] = [
       '#markup' =>
         '<a class="edit" title="Edit this Account" href="/user/' .
-        $user->uid->value .
+        $uid .
         '/edit">Edit</a>',
     ];
   }
