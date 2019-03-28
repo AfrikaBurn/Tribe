@@ -314,10 +314,9 @@ function afrikaburn_bio_user_view(&$build, $user, $display, $mode) {
     ];
   }
 
-  if ($display->getComponent('contact')) {
+  if ($display->getComponent('contact') && $current_uid != $uid) {
     $build['contact'] = [
-      '#markup' =>
-      '<a class="contact" title="Contact this participant" href="' .
+      '#markup' => '<a class="contact" title="Contact this participant" href="' .
         \Drupal\Core\Url::fromRoute('entity.user.contact_form', ['user' => $uid])->toString() .
       '">Contact</a>',
     ];
