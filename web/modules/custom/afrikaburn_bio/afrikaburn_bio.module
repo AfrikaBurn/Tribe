@@ -85,6 +85,8 @@ function afrikaburn_bio_form_user_form_alter(&$form, $form_state, $form_id){
     if (\Drupal::currentUser()->isAnonymous()) $form['#validate'][] = 'afrikaburn_bio_mail_validate';
   }
 
+  $form['contact']['#type'] = 'container';
+
   // Add Updated flag to new and updated accounts
   $form['actions']['submit']['#submit'][] = 'afrikaburn_bio_updated';
 }
@@ -315,11 +317,17 @@ function afrikaburn_bio_user_view(&$build, $user, $display, $mode) {
   }
 
   if ($display->getComponent('contact') && $current_uid != $uid) {
-    $build['contact'] = [
-      '#markup' => '<a class="contact" title="Contact this participant" href="' .
-        \Drupal\Core\Url::fromRoute('entity.user.contact_form', ['user' => $uid])->toString() .
-      '">Contact</a>',
-    ];
+    if (\Drupal::service('user.data')->get('contact', $uid, 'enabled')){
+      $build['contact'] = [
+        '#markup' => '<a class="contact" title="Contact this participant" href="' .
+          \Drupal\Core\Url::fromRoute('entity.user.contact_form', ['user' => $uid])->toString() .
+        '">Contact</a>',
+      ];
+    } else {
+      $build['contact'] = [
+        '#markup' => '<a class="no-contact" title="Participant rejects contact">No contact</a>',
+      ];
+    }
   }
 
   if ($display->getComponent('edit') && ($current_uid == $uid || $current_user->hasRole('administrator'))){
