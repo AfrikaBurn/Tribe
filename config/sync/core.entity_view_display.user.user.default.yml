@@ -81,7 +81,6 @@ third_party_settings:
         - field_email
         - field_location
         - field_year_cycle
-        - member_for
       parent_name: group_root
       weight: 6
       format_type: tab
@@ -94,6 +93,7 @@ third_party_settings:
       region: content
     group_location:
       children:
+        - field_newsletter
         - field_terms_and_conditions
       parent_name: group_root
       weight: 9
@@ -124,7 +124,7 @@ third_party_settings:
         - field_mobile
         - field_secondary_mail
         - field_links
-        - field_newsletter
+        - contact
       parent_name: group_root
       weight: 8
       format_type: tab
@@ -162,6 +162,11 @@ targetEntityType: user
 bundle: user
 mode: default
 content:
+  contact:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   edit:
     weight: 0
     region: content
@@ -256,7 +261,7 @@ content:
     third_party_settings: {  }
   field_newsletter:
     type: boolean
-    weight: 7
+    weight: 4
     region: content
     label: above
     settings:
@@ -296,7 +301,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_terms_and_conditions:
-    weight: 2
+    weight: 5
     label: above
     settings:
       format: default
@@ -330,11 +335,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  member_for:
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   user_picture:
     type: image
     weight: 101
@@ -355,4 +355,5 @@ hidden:
   field_kids_and_teens: true
   field_quicket_code: true
   field_quicket_id: true
+  member_for: true
   username: true

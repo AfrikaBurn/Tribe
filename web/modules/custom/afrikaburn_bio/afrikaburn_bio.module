@@ -289,6 +289,13 @@ function afrikaburn_bio_entity_extra_field_info() {
     'visible' => TRUE,
   ];
 
+  $extra['user']['user']['display']['contact'] =[
+    'label' => t('Contact form'),
+    'description' => t('Form to contact a user'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
   return $extra;
 }
 
@@ -297,8 +304,8 @@ function afrikaburn_bio_entity_extra_field_info() {
  */
 function afrikaburn_bio_user_view(&$build, $user, $display, $mode) {
 
-  $uid = \Drupal::currentUser()->id();
-  $current_user = User::load($uid);
+  $current_uid = \Drupal::currentUser()->id();
+  $current_user = User::load($current_uid);
 
   if ($display->getComponent('username')) {
     $build['username'] = [
@@ -306,7 +313,20 @@ function afrikaburn_bio_user_view(&$build, $user, $display, $mode) {
     ];
   }
 
-  if ($display->getComponent('edit') && ($uid == $user->get('uid') || $current_user->hasRole('administrator'))){
+  if ($display->getComponent('contact')) {
+    $build['contact'] = \Drupal::service('entity.form_builder')->getForm(
+      \Drupal::entityTypeManager()
+        ->getStorage('contact_message')
+        ->create(
+          [
+            'contact_form' => 'personal',
+            'recipient' => $user->uid->value,
+          ]
+        )
+    );
+  }
+
+  if ($display->getComponent('edit') && ($current_uid == $user->get('uid') || $current_user->hasRole('administrator'))){
     $build['edit'] = [
       '#markup' =>
         '<a class="edit" title="Edit this Account" href="/user/' .
