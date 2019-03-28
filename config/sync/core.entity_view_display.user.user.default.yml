@@ -124,7 +124,6 @@ third_party_settings:
         - field_mobile
         - field_secondary_mail
         - field_links
-        - contact
       parent_name: group_root
       weight: 8
       format_type: tab
@@ -137,6 +136,7 @@ third_party_settings:
       region: content
     group_account_actions:
       children:
+        - contact
         - edit
         - flag_outdated
         - flag_wap_ban
@@ -163,12 +163,12 @@ bundle: user
 mode: default
 content:
   contact:
-    weight: 5
+    weight: 102
     region: content
     settings: {  }
     third_party_settings: {  }
   edit:
-    weight: 0
+    weight: 103
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -193,7 +193,7 @@ content:
     third_party_settings: {  }
   field_first_name:
     type: string
-    weight: 102
+    weight: 103
     region: content
     label: above
     settings:
@@ -201,7 +201,7 @@ content:
     third_party_settings: {  }
   field_gender:
     type: list_default
-    weight: 104
+    weight: 105
     region: content
     label: above
     settings: {  }
@@ -215,7 +215,7 @@ content:
     region: content
   field_id_number:
     type: string
-    weight: 105
+    weight: 106
     region: content
     label: above
     settings:
@@ -223,7 +223,7 @@ content:
     third_party_settings: {  }
   field_last_name:
     type: string
-    weight: 103
+    weight: 104
     region: content
     label: above
     settings:
@@ -304,10 +304,12 @@ content:
     weight: 5
     label: above
     settings:
-      format: default
-      format_custom_false: ''
+      format: yes-no
       format_custom_true: ''
-    third_party_settings: {  }
+      format_custom_false: ''
+    third_party_settings:
+      empty_fields:
+        handler: ''
     type: boolean
     region: content
   field_year_cycle:
@@ -321,17 +323,17 @@ content:
     type: computed_string
     region: content
   flag_outdated:
-    weight: 1
+    weight: 104
     region: content
     settings: {  }
     third_party_settings: {  }
   flag_wap_ban:
-    weight: 2
+    weight: 105
     region: content
     settings: {  }
     third_party_settings: {  }
   masquerade:
-    weight: 3
+    weight: 106
     region: content
     settings: {  }
     third_party_settings: {  }

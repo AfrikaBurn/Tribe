@@ -125,6 +125,9 @@ article.user div{
   background-image: url(../images/masquerade.svg);
 }
 
+.account-actions a.contact{
+  background-image: url(../images/mail.svg);
+}
 .account-actions a.edit{
   background-image: url(../images/edit.svg);
 }
