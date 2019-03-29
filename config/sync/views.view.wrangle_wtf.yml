@@ -102,20 +102,20 @@ display:
             title: title
             field_prj_wtf_short: field_prj_wtf_short
             field_prj_wtf_short_copy: field_prj_wtf_short_copy
-            field_bke_day: field_prj_wtf_short
-            field_prj_wtf_planned: field_prj_wtf_short
-            field_bke_time: field_prj_wtf_short
+            field_bke_day: title
+            field_prj_wtf_planned: title
+            field_bke_time: title
           info:
             title:
               sortable: false
               default_sort_order: asc
               align: ''
-              separator: ''
+              separator: '<hr />'
               empty_column: false
               responsive: ''
             field_prj_wtf_short:
               align: ''
-              separator: '<hr />'
+              separator: ''
               empty_column: false
               responsive: ''
             field_prj_wtf_short_copy:
