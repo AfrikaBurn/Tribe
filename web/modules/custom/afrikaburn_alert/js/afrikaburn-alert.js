@@ -11,13 +11,13 @@
     attach: function (context, settings) {
 
       /* Hack hack hack hack hack - stop view from scrolling when refreshed */
-      jQuery.each(Drupal.views.instances,
-        (i, view) => {
-          if (view.settings.view_name == 'alerts') {
-            delete view.settings.pager_element
-          }
-        }
-      )
+      // jQuery.each(Drupal.views.instances,
+      //   (i, view) => {
+      //     if (view.settings.view_name == 'alerts') {
+      //       delete view.settings.pager_element
+      //     }
+      //   }
+      // )
 
       $(
         () => {

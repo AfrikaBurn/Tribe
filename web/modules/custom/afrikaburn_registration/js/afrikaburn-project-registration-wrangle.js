@@ -12,6 +12,22 @@
       $('tbody .form-checkbox, tbody .form-select, tbody .form-text, tbody .form-textarea, tbody .form-number', context).not('.editor-processed').each(
         (i, element) => new editor(element)
       )
+
+      $('td.views-field-field-prj-wtf-short-copy').not('.wrangle-processed').each(
+        function() {
+          $(this).prepend('<button class="copy-description">Copy &gt; &gt;</button>')
+        }
+      )
+
+      $('.copy-description').click(
+        function(){
+          var
+            copyTo = $(this).parent().find('textarea'),
+            copyFrom = $(this).parent().siblings('.views-field-field-prj-wtf-short')
+
+          copyTo.val(copyFrom.text().trim()).focus()
+        }
+      )
     }
   }
 
