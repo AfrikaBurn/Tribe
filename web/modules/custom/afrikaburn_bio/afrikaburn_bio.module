@@ -85,8 +85,6 @@ function afrikaburn_bio_form_user_form_alter(&$form, $form_state, $form_id){
     if (\Drupal::currentUser()->isAnonymous()) $form['#validate'][] = 'afrikaburn_bio_mail_validate';
   }
 
-  $form['contact']['#type'] = 'container';
-
   // Add Updated flag to new and updated accounts
   $form['actions']['submit']['#submit'][] = 'afrikaburn_bio_updated';
 }

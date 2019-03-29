@@ -40,8 +40,11 @@ function afrikaburn_collective_user_insert($user){
       ->execute()
   );
 
-  $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
-  $collective->field_col_members->appendItem($user);
+  if ($cid){
+    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+    $collective->field_col_members->appendItem($user);
+  }
+
   $collective->save();
 }
 
