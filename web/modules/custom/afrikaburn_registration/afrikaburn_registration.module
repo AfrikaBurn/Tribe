@@ -140,8 +140,10 @@ function afrikaburn_registration_preprocess_views_view(&$variables){
     case 'wrangle_theme_camps':
     case 'wrangle_wtf':
       $variables['#attached']['library'][] = 'afrikaburn_registration/wrangle';
-      module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
-      ab_prepare_wrangler_view($variables);
+      if (in_array($variables['display_id'], ['bench', 'tasks'])){
+        module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
+        ab_prepare_wrangler_view($variables);
+      }
     break;
 
   }
@@ -161,17 +163,29 @@ function afrikaburn_registration_preprocess_views_view_fields(&$variables) {
  * Implements hook_preprocess_views_view_table().
  */
 function afrikaburn_registration_preprocess_views_view_table(&$variables) {
-  switch ($variables['view']->id()){
 
+  $comments = TRUE;
+  $merge = TRUE;
+
+  switch ($variables['view']->id()){
+    case 'wrangle_wtf':
+      $comments = FALSE;
+      $merge = FALSE;
     case 'wrangle_art':
     case 'wrangle_binnekring_events':
     case 'wrangle_mutant_vehicles':
     case 'wrangle_theme_camps':
-    case 'wrangle_wtf':
-      module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
-      ab_insert_wrangler_view_rows($variables);
-    break;
 
+      if ($variables['view']->current_display == 'tasks') {
+        $comments = FALSE;
+        $merge = FALSE;
+      }
+
+      if (in_array($variables['view']->current_display, ['bench', 'tasks'])){
+        module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
+        ab_insert_wrangler_view_rows($variables, $comments, $merge);
+      }
+    break;
   }
 }
 
@@ -193,6 +207,9 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
 
     // Get parameters
     list($entity, $user, $registration, $collective, $supporting_project, $is_wrangler, $is_admin, $bundle, $mode) = _get_registration_params($form_state, $defaults);
+
+    // Check access
+    _check_access($defaults, $user, $form_state);
 
     // Catch naughty naughty link faking users
     if (_verify_link($form, $collective, $mode, $supporting_project)) {

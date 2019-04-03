@@ -25,8 +25,7 @@ third_party_settings:
       children:
         - group_about
         - group_how_it_works
-        - group_membership
-        - group_invitations
+        - group_members
       parent_name: ''
       weight: 0
       format_type: tabs
@@ -49,37 +48,6 @@ third_party_settings:
         description: ''
         required_fields: true
       label: 'How it works'
-    group_membership:
-      children:
-        - field_col_admins
-        - field_col_members
-        - field_col_requests
-      parent_name: group_collective
-      weight: 22
-      format_type: tab
-      format_settings:
-        label: Membership
-        formatter: open
-        description: ''
-        required_fields: true
-        id: ''
-        classes: column-tab
-      label: Membership
-    group_invitations:
-      children:
-        - field_col_invite_mail
-        - field_col_invite_token
-      parent_name: group_collective
-      weight: 23
-      format_type: tab
-      format_settings:
-        label: Invitations
-        formatter: open
-        description: ''
-        required_fields: true
-        id: ''
-        classes: column-tab
-      label: Invitations
     group_about:
       children:
         - title
@@ -95,6 +63,20 @@ third_party_settings:
         description: ''
         required_fields: true
       label: About
+    group_members:
+      children:
+        - field_col_admins
+        - field_col_members
+      parent_name: group_collective
+      weight: 22
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: open
+        description: ''
+        required_fields: true
+      label: Members
 id: node.collective.default
 targetEntityType: node
 bundle: collective
@@ -102,7 +84,7 @@ mode: default
 content:
   field_col_admins:
     type: entity_reference_autocomplete
-    weight: 7
+    weight: 5
     region: content
     settings:
       match_operator: CONTAINS
@@ -117,34 +99,9 @@ content:
     third_party_settings: {  }
     type: text_textarea
     region: content
-  field_col_invite_mail:
-    type: email_default
-    weight: 7
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_col_invite_token:
-    type: string_textfield
-    weight: 8
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_col_members:
     type: entity_reference_autocomplete
-    weight: 8
-    region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  field_col_requests:
-    type: entity_reference_autocomplete
-    weight: 9
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
@@ -183,8 +140,11 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_col_invite_mail: true
+  field_col_invite_token: true
   field_col_invitee: true
   field_col_posts: true
+  field_col_requests: true
   path: true
   promote: true
   status: true

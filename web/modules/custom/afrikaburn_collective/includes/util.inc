@@ -15,11 +15,14 @@ use \Drupal\afrikaburn_collective\Controller\MemberController;
  * Used by Collective right hand blocks
  */
 function afrikaburn_collective_admin(){
+
   $user = \Drupal::currentUser();
-  $collective = \Drupal::routeMatch()->getParameter('node');
-  return
+  $collective = _collective();
+
+  return $collective && (
     _found('administrator', $user->getRoles()) ||
-    CollectiveAdminCheck::isAdmin($user->uid, $collective);
+    CollectiveAdminCheck::isAdmin($user->id(), $collective)
+  );
 }
 
 /**
@@ -27,11 +30,64 @@ function afrikaburn_collective_admin(){
  * Used by Collective right hand blocks
  */
 function afrikaburn_collective_member(){
+
   $user = \Drupal::currentUser();
-  $collective = \Drupal::routeMatch()->getParameter('node');
-  return
+  $collective = _collective();
+
+  return $collective && (
     _found('administrator', $user->getRoles()) ||
-    CollectiveMemberCheck::isMember($collective);
+    CollectiveMemberCheck::isMember($collective)
+  );
+}
+
+/**
+ * Checks collective has current projects
+ * Used by Collective right hand blocks
+ */
+function afrikaburn_collective_current_projects(){
+
+  $collective = _collective();
+
+  return $collective
+    ? db_query("
+        SELECT
+          COUNT({node_field_data}.nid) as rows
+        FROM
+          {node_field_data}
+          LEFT JOIN {flagging} ON {node_field_data}.nid = {flagging}.entity_id AND {flagging}.flag_id = 'archived',
+          {node__field_collective}
+        WHERE {node_field_data}.type IN ('art', 'theme_camps', 'mutant_vehicles', 'performances')
+          AND {node__field_collective}.entity_id = {node_field_data}.nid
+          AND {node__field_collective}.field_collective_target_id = ?
+          AND {flagging}.entity_id IS NULL
+        ", [$collective->id()]
+      )->fetchCol('rows')[0]
+    : 0;
+}
+
+/**
+ * Checks collective has past projects
+ * Used by Collective right hand blocks
+ */
+function afrikaburn_collective_past_projects(){
+
+  $collective = _collective();
+
+  return $collective
+    ? db_query("
+        SELECT
+          COUNT({node_field_data}.nid) as rows
+        FROM
+          {node_field_data}
+          LEFT JOIN {flagging} ON {node_field_data}.nid = {flagging}.entity_id AND {flagging}.flag_id = 'archived',
+          {node__field_collective}
+        WHERE {node_field_data}.type IN ('art', 'theme_camps', 'mutant_vehicles', 'performances')
+          AND {node__field_collective}.entity_id = {node_field_data}.nid
+          AND {node__field_collective}.field_collective_target_id = ?
+          AND {flagging}.entity_id IS NOT NULL
+        ", [$collective->id()]
+      )->fetchCol('rows')[0]
+    : 0;
 }
 
 /**
@@ -39,8 +95,8 @@ function afrikaburn_collective_member(){
  * Used by Collective right hand blocks
  */
 function afrikaburn_collective_requested(){
-  $collective = \Drupal::routeMatch()->getParameter('node');
-  return MemberController::hasRequested($collective);
+  $collective = _collective();
+  return $collective && MemberController::hasRequested($collective);
 }
 
 /**
@@ -52,24 +108,24 @@ function afrikaburn_collective_setting($setting, $col = false){
     ? \Drupal::entityTypeManager()->getStorage('node')->load($col)
     : $col;
 
-  if (!$col){
-    static $collective = false;
-    if (!$collective) $collective = \Drupal::routeMatch()->getParameter('node');
-  }
+  $collective = $col
+    ? $col
+    : _collective();
 
-  if (!$col || $collective) return;
-
-  static $settings = false;
-  if (!$settings) $settings = array_fill_keys(
-    array_column(
-      ($col ? $col : $collective)->field_settings->getValue(),
-      'value'
-    ),
-    1
-  );
-
-  return $settings[$setting];
+  return $collective
+    ? @array_fill_keys(
+        array_column(
+          $collective->field_settings->getValue(),
+          'value'
+        ),
+        1
+      )[$setting]
+    : FALSE;
 }
+
+
+/* ----- Private utils ----- */
+
 
 /**
  * Checks for a needle in a haystack
@@ -80,4 +136,22 @@ function _found($needle, $haystack){
     [FALSE, NULL],
     TRUE
   );
+}
+
+/**
+ * Checks for a collective
+ */
+function _collective(){
+
+  static $collective;
+  if (isset($collective)) return $collective;
+
+  $node = \Drupal::routeMatch()->getParameter('node');
+  $collective = $node
+    ? $node->bundle() == 'collective'
+      ? $node
+      : $node->field_collective->entity
+    : FALSE;
+
+  return $collective;
 }

@@ -275,9 +275,23 @@ function afrikaburn_bio_theme_suggestions_field_alter(&$suggestions, $variables)
 function afrikaburn_bio_entity_extra_field_info() {
   $extra = [];
 
+  $extra['user']['user']['display']['edit'] = array(
+    'label' => t('Edit account'),
+    'description' => t('Link to edit account'),
+    'weight' => 100,
+    'visible' => TRUE,
+  );
+
   $extra['user']['user']['display']['username'] =[
     'label' => t('Username'),
     'description' => t('The users chosen username'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
+  $extra['user']['user']['display']['contact'] =[
+    'label' => t('Contact link'),
+    'description' => t('Link to user contact form'),
     'weight' => 100,
     'visible' => TRUE,
   ];
@@ -289,10 +303,37 @@ function afrikaburn_bio_entity_extra_field_info() {
  * Implements hook_user_view().
  */
 function afrikaburn_bio_user_view(&$build, $user, $display, $mode) {
+
+  $uid = $user->uid->value;
+  $current_uid = \Drupal::currentUser()->id();
+  $current_user = User::load($current_uid);
+
   if ($display->getComponent('username')) {
     $build['username'] = [
-      '#type' => 'markup',
       '#markup' => $user->link($user->name->value),
+    ];
+  }
+
+  if ($display->getComponent('contact') && $current_uid != $uid) {
+    if (\Drupal::service('user.data')->get('contact', $uid, 'enabled')){
+      $build['contact'] = [
+        '#markup' => '<a class="contact" title="Contact this participant" href="' .
+          \Drupal\Core\Url::fromRoute('entity.user.contact_form', ['user' => $uid])->toString() .
+        '">Contact</a>',
+      ];
+    } else {
+      $build['contact'] = [
+        '#markup' => '<a class="no-contact" title="Participant rejects contact">No contact</a>',
+      ];
+    }
+  }
+
+  if ($display->getComponent('edit') && ($current_uid == $uid || $current_user->hasRole('administrator'))){
+    $build['edit'] = [
+      '#markup' =>
+        '<a class="edit" title="Edit this Account" href="/user/' .
+        $uid .
+        '/edit">Edit</a>',
     ];
   }
 }

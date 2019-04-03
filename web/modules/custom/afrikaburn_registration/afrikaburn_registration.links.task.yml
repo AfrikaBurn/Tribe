@@ -18,3 +18,12 @@ mutant_vehicles.peoplemovers:
   title: PeopleMovers
   route_name: afrikaburn_registration.wrangle_mutant_vehicles-people_movers
   base_route: afrikaburn_registration.wrangle_mutant_vehicles
+
+wrangle.wtf:
+  title: Edit Copy
+  route_name: afrikaburn_registration.wrangle_wtf
+  base_route: afrikaburn_registration.wrangle_wtf
+wrangle.export:
+  title: Export
+  route_name: afrikaburn_registration.wrangle_wtf_export
+  base_route: afrikaburn_registration.wrangle_wtf

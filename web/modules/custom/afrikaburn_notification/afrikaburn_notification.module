@@ -56,11 +56,11 @@ function afrikaburn_notification_node_update($entity){
 
     module_load_include('inc', 'afrikaburn_notification', 'includes/util');
 
-    $wrangling = preg_match('/^\/registration\//', \Drupal::service('path.current')->getPath());
-    $changed = _diff($entity);
-
     // Don't mail while wrangling or on no changes
-    if (!$changed || $wrangling) return;
+    if (
+      preg_match('/^\/registration\/update/', \Drupal::service('path.current')->getPath()) ||
+      !_diff($entity)
+    ) return;
 
     afrikaburn_notification_node_insert($entity);
   }
