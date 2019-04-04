@@ -17,6 +17,7 @@ dependencies:
     - system.menu.wrangle
     - user.role.administrator
     - user.role.communications_wrangler
+    - user.role.theme
   module:
     - flag
     - node
@@ -46,6 +47,7 @@ display:
           role:
             communications_wrangler: communications_wrangler
             administrator: administrator
+            theme: theme
       cache:
         type: tag
         options: {  }
