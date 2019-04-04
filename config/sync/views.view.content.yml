@@ -70,6 +70,7 @@ display:
             field_last_name: field_first_name
             field_email: field_email
             status: status
+            created: created
             changed: changed
             operations: operations
           info:
@@ -121,6 +122,13 @@ display:
               empty_column: false
               responsive: ''
             status:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            created:
               sortable: true
               default_sort_order: asc
               align: ''

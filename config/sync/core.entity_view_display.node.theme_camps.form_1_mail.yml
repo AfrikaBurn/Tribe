@@ -719,6 +719,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  flag_mute:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   links:
     weight: 2
     region: content
@@ -733,10 +738,12 @@ content:
     region: content
 hidden:
   field_admin_comments: true
+  field_arteria_checkin: true
   field_field_prj_plc_marquis: true
   field_field_prj_plc_stretch_m: true
   field_final_placement: true
   field_ice_card: true
+  field_lineup_request: true
   field_neighbours: true
   field_placed: true
   field_placement_card: true
@@ -813,7 +820,10 @@ hidden:
   field_prj_snd_description: true
   field_prj_snd_genre: true
   field_prj_snd_person: true
+  field_prj_snd_rangers: true
+  field_prj_snd_setup_date: true
   field_prj_snd_soop: true
+  field_prj_snd_specs: true
   field_prj_stg_tread: true
   field_prj_sup_address: true
   field_prj_sup_details: true
@@ -824,11 +834,18 @@ hidden:
   field_prj_wtf_planned: true
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
+  field_ranger_representative: true
+  field_snd_bass_bins: true
+  field_snd_playtime_mon_wed: true
+  field_snd_playtime_thurs_sun: true
   field_stretch_tent_dimen: true
   field_sup_comment: true
   field_sup_review: true
+  field_supporting_project: true
   field_tc_type: true
   field_vp_ea: true
+  field_waps: true
+  field_waps_allowed: true
   field_year_cycle: true
   path: true
   promote: true

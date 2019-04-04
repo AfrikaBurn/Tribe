@@ -403,6 +403,11 @@ content:
     region: content
     type: basic_string
     label: above
+  flag_mute:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   moderation_state:
     weight: 100
     settings: {  }
@@ -410,6 +415,7 @@ content:
     third_party_settings: {  }
 hidden:
   field_admin_comments: true
+  field_allow_support_camp: true
   field_bke_day: true
   field_bke_location: true
   field_bke_time: true
@@ -435,6 +441,7 @@ hidden:
   field_grt_tool: true
   field_grt_total: true
   field_grt_transport: true
+  field_lineup_request: true
   field_muncipal_district: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
@@ -546,6 +553,8 @@ hidden:
   field_sup_comment: true
   field_sup_review: true
   field_vp_ea: true
+  field_waps: true
+  field_waps_allowed: true
   field_year_cycle: true
   links: true
   path: true

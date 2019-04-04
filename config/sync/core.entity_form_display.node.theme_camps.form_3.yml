@@ -327,6 +327,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_arteria_checkin: true
   field_field_prj_plc_marquis: true
   field_field_prj_plc_stretch_m: true
   field_final_placement: true
@@ -437,6 +438,9 @@ hidden:
   field_prj_sup_h1: true
   field_prj_wtf_short_copy: true
   field_ranger_representative: true
+  field_snd_bass_bins: true
+  field_snd_playtime_mon_wed: true
+  field_snd_playtime_thurs_sun: true
   field_stretch_tent_dimen: true
   field_sup_review: true
   field_supporting_project: true
