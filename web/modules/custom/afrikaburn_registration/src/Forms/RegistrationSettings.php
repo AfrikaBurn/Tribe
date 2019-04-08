@@ -91,7 +91,7 @@ class RegistrationSettings extends ConfigFormBase {
 
       foreach(array_keys($modes) as $mode){
         $this
-          ->config('afrikaburn_registration.settings')
+          ->configFactory->getEditable('afrikaburn_registration.settings')
           ->set($key . '/' . $mode, $values[$key][$mode]);
       }
 
