@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.theme_camps.field_admin_comments
+    - field.field.node.theme_camps.field_api_content_type
     - field.field.node.theme_camps.field_arteria_checkin
     - field.field.node.theme_camps.field_collective
+    - field.field.node.theme_camps.field_event_services
     - field.field.node.theme_camps.field_field_prj_plc_marquis
     - field.field.node.theme_camps.field_field_prj_plc_stretch_m
     - field.field.node.theme_camps.field_final_placement
@@ -305,6 +307,8 @@ third_party_settings:
         - field_year_cycle
         - field_waps_allowed
         - field_waps
+        - field_event_services
+        - field_api_content_type
       parent_name: ''
       weight: 0
       format_type: details
@@ -322,10 +326,16 @@ bundle: theme_camps
 mode: default
 content:
   field_admin_comments:
-    weight: 18
+    weight: 17
     settings: {  }
     third_party_settings: {  }
     type: comment_default
+    region: content
+  field_api_content_type:
+    weight: 23
+    settings: {  }
+    third_party_settings: {  }
+    type: computed_string_widget
     region: content
   field_arteria_checkin:
     weight: 51
@@ -352,10 +362,17 @@ content:
     region: content
   field_collective:
     type: options_select
-    weight: 16
+    weight: 15
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_event_services:
+    weight: 22
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_final_placement:
     weight: 13
     settings:
@@ -365,7 +382,7 @@ content:
     type: string_textfield
     region: content
   field_form_mode:
-    weight: 17
+    weight: 16
     settings:
       size: 60
       placeholder: ''
@@ -380,7 +397,7 @@ content:
     type: boolean_checkbox
     region: content
   field_neighbours:
-    weight: 39
+    weight: 18
     settings: {  }
     third_party_settings: {  }
     type: options_select
@@ -400,7 +417,7 @@ content:
     type: boolean_checkbox
     region: content
   field_placement_letter_sent:
-    weight: 15
+    weight: 14
     settings:
       display_label: true
     third_party_settings: {  }
@@ -1077,7 +1094,7 @@ content:
     type: time_range
     region: content
   field_waps:
-    weight: 50
+    weight: 21
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -1089,14 +1106,14 @@ content:
     type: entity_reference_paragraphs
     region: content
   field_waps_allowed:
-    weight: 49
+    weight: 20
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_year_cycle:
-    weight: 40
+    weight: 19
     settings: {  }
     third_party_settings: {  }
     type: computed_number_widget

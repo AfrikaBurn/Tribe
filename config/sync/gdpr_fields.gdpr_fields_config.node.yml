@@ -502,6 +502,17 @@ bundles:
       notes: ''
       relationship: 0
       sars_filename: ''
+    field_api_content_type:
+      bundle: art
+      name: field_api_content_type
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   theme_camps:
     field_prj_est_camp_population:
       enabled: false
@@ -755,6 +766,28 @@ bundles:
       rta: 'no'
       enabled: false
       anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_event_services:
+      bundle: theme_camps
+      name: field_event_services
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_api_content_type:
+      bundle: theme_camps
+      name: field_api_content_type
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: number_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''

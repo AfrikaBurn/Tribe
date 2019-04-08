@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.storage.node.field_api_content_type
     - field.storage.node.field_collective
     - field.storage.node.field_mutant_drivers
     - field.storage.node.field_prj_adm_latitude
@@ -28,6 +29,7 @@ dependencies:
     - node.type.performances
     - node.type.theme_camps
   module:
+    - computed_field
     - csv_serialization
     - datetime
     - image
@@ -1359,6 +1361,11 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        field_api_content_type:
+          id: field_api_content_type
+          table: node__field_api_content_type
+          field: field_api_content_type
+          plugin_id: field
       filters:
         status:
           value: '1'
@@ -1490,6 +1497,7 @@ display:
         - request_format
         - 'user.node_grants:view'
       tags:
+        - 'config:field.storage.node.field_api_content_type'
         - 'config:field.storage.node.field_collective'
         - 'config:field.storage.node.field_prj_adm_latitude'
         - 'config:field.storage.node.field_prj_adm_longitude'
@@ -1545,6 +1553,113 @@ display:
         type: none
         options:
           offset: 0
+      filters:
+        status:
+          value: '1'
+          table: node_field_data
+          field: status
+          plugin_id: boolean
+          entity_type: node
+          entity_field: status
+          id: status
+          expose:
+            operator: ''
+          group: 1
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            art: art
+            mutant_vehicles: mutant_vehicles
+            performances: performances
+            theme_camps: theme_camps
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '>'
+          value:
+            min: ''
+            max: ''
+            value: '2018-06-01 00:00:00'
+            type: date
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            placeholder: ''
+            min_placeholder: ''
+            max_placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: node
+          entity_field: created
+          plugin_id: date
+      defaults:
+        filters: false
+        filter_groups: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
@@ -1553,6 +1668,7 @@ display:
         - request_format
         - 'user.node_grants:view'
       tags:
+        - 'config:field.storage.node.field_api_content_type'
         - 'config:field.storage.node.field_collective'
         - 'config:field.storage.node.field_prj_adm_latitude'
         - 'config:field.storage.node.field_prj_adm_longitude'
@@ -2950,6 +3066,7 @@ display:
         - request_format
         - 'user.node_grants:view'
       tags:
+        - 'config:field.storage.node.field_api_content_type'
         - 'config:field.storage.node.field_collective'
         - 'config:field.storage.node.field_prj_adm_latitude'
         - 'config:field.storage.node.field_prj_adm_longitude'
@@ -3013,6 +3130,7 @@ display:
         - request_format
         - 'user.node_grants:view'
       tags:
+        - 'config:field.storage.node.field_api_content_type'
         - 'config:field.storage.node.field_collective'
         - 'config:field.storage.node.field_prj_adm_latitude'
         - 'config:field.storage.node.field_prj_adm_longitude'
@@ -3751,6 +3869,10 @@ display:
           1: AND
       relationships: {  }
       arguments: {  }
+      pager:
+        type: none
+        options:
+          offset: 0
     cache_metadata:
       max-age: -1
       contexts:
@@ -3903,6 +4025,7 @@ display:
         - request_format
         - 'user.node_grants:view'
       tags:
+        - 'config:field.storage.node.field_api_content_type'
         - 'config:field.storage.node.field_collective'
         - 'config:field.storage.node.field_prj_adm_latitude'
         - 'config:field.storage.node.field_prj_adm_longitude'
@@ -4015,6 +4138,7 @@ display:
         - request_format
         - 'user.node_grants:view'
       tags:
+        - 'config:field.storage.node.field_api_content_type'
         - 'config:field.storage.node.field_collective'
         - 'config:field.storage.node.field_prj_adm_latitude'
         - 'config:field.storage.node.field_prj_adm_longitude'
@@ -4065,6 +4189,7 @@ display:
         - request_format
         - 'user.node_grants:view'
       tags:
+        - 'config:field.storage.node.field_api_content_type'
         - 'config:field.storage.node.field_collective'
         - 'config:field.storage.node.field_prj_adm_latitude'
         - 'config:field.storage.node.field_prj_adm_longitude'
@@ -4115,6 +4240,7 @@ display:
         - request_format
         - 'user.node_grants:view'
       tags:
+        - 'config:field.storage.node.field_api_content_type'
         - 'config:field.storage.node.field_collective'
         - 'config:field.storage.node.field_prj_adm_latitude'
         - 'config:field.storage.node.field_prj_adm_longitude'
