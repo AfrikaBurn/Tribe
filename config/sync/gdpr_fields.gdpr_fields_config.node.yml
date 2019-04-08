@@ -985,6 +985,17 @@ bundles:
       notes: ''
       relationship: 0
       sars_filename: ''
+    field_api_content_type:
+      bundle: mutant_vehicles
+      name: field_api_content_type
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   performances:
     field_prj_gen_description:
       enabled: false
@@ -1127,6 +1138,17 @@ bundles:
     field_waps:
       bundle: performances
       name: field_waps
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_api_content_type:
+      bundle: performances
+      name: field_api_content_type
       entity_type_id: node
       rtf: 'no'
       rta: 'no'

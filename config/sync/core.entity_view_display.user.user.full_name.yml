@@ -42,6 +42,11 @@ targetEntityType: user
 bundle: user
 mode: full_name
 content:
+  contact:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_first_name:
     type: string
     weight: 1

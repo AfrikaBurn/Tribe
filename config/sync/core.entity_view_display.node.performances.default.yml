@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.performances.field_admin_comments
     - field.field.node.performances.field_allow_support_camp
+    - field.field.node.performances.field_api_content_type
     - field.field.node.performances.field_bke_day
     - field.field.node.performances.field_bke_location
     - field.field.node.performances.field_bke_time
@@ -123,6 +124,7 @@ dependencies:
     - node.type.performances
   module:
     - colorbox
+    - computed_field
     - ds
     - empty_fields
     - entity_reference_revisions
@@ -163,6 +165,16 @@ content:
     third_party_settings: {  }
     type: boolean
     region: top
+  field_api_content_type:
+    weight: 15
+    label: above
+    settings:
+      sanitized: true
+      cache_unit: -1
+      cache_duration: 1
+    third_party_settings: {  }
+    type: computed_string
+    region: content
   field_lineup_request:
     weight: 11
     label: above
