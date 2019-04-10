@@ -103,7 +103,7 @@
 
 /* Headers */
 
-.wrangler-view table th{
+.wrangler-view > table th{
   position: relative;
   height: 128px;
   padding: 0 0 0 5px;
@@ -112,7 +112,7 @@
   background: #fafafa !important;
 }
 
-.wrangler-view table th span.label{
+.wrangler-view > table th span.label{
   position: absolute;
   transform: rotate(-45deg);
   transform-origin: top left;
@@ -125,7 +125,7 @@
   left: 0;
 }
 
-.wrangler-view table th:first-child span{
+.wrangler-view > table th:first-child span{
   display: none;
 }
 

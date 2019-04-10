@@ -39,3 +39,32 @@ function computed_field_field_year_cycle_compute($entity_type_manager, $entity, 
 
   return $year;
 }
+
+function computed_field_field_api_content_type_compute($entity_type_manager, $entity, $fields, $delta){
+  
+  switch ($entity->bundle()) {
+    case "theme_camps":
+      if ($entity->field_event_services->value == TRUE) {
+        $value="Event Service";
+      } else {
+        $value="Theme Camp";
+      } 
+      break;
+    case "art":
+      $value="Artwork";
+      break;
+    case "collective":
+      $value="Collective";
+      break;
+    case "performances":
+      $value="Binnekring Event";
+      break;
+    case "mutant_vehicles":
+      $value="Mutant Vehicle";
+      break;
+    default:
+      $value="not set" + implode( ", ", $entity->bundle());
+      break;
+  }
+  return $value;
+}

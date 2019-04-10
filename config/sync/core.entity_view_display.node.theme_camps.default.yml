@@ -4,8 +4,10 @@ status: true
 dependencies:
   config:
     - field.field.node.theme_camps.field_admin_comments
+    - field.field.node.theme_camps.field_api_content_type
     - field.field.node.theme_camps.field_arteria_checkin
     - field.field.node.theme_camps.field_collective
+    - field.field.node.theme_camps.field_event_services
     - field.field.node.theme_camps.field_field_prj_plc_marquis
     - field.field.node.theme_camps.field_field_prj_plc_stretch_m
     - field.field.node.theme_camps.field_final_placement
@@ -142,6 +144,7 @@ dependencies:
     - node.type.theme_camps
   module:
     - colorbox
+    - computed_field
     - datetime
     - datetime_range
     - empty_fields
@@ -152,8 +155,28 @@ targetEntityType: node
 bundle: theme_camps
 mode: default
 content:
+  field_api_content_type:
+    weight: 21
+    label: above
+    settings:
+      sanitized: true
+      cache_unit: -1
+      cache_duration: 1
+    third_party_settings: {  }
+    type: computed_string
+    region: content
   field_arteria_checkin:
     weight: 16
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_event_services:
+    weight: 20
     label: above
     settings:
       format: default

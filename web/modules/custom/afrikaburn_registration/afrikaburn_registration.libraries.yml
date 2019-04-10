@@ -15,6 +15,11 @@ print:
   css:
     theme:
       css/afrikaburn-project-print.css: {}
+book:
+  version: 0.0
+  css:
+    theme:
+      css/afrikaburn-project-book.css: {}
 settings:
   version: 0.0
   css:

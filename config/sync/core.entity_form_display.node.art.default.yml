@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.art.field_admin_comments
     - field.field.node.art.field_allow_support_camp
+    - field.field.node.art.field_api_content_type
     - field.field.node.art.field_arteria_checkin
     - field.field.node.art.field_burn_can_be_denied
     - field.field.node.art.field_col_members
@@ -438,6 +439,12 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  field_api_content_type:
+    weight: 95
+    settings: {  }
+    third_party_settings: {  }
+    type: computed_string_widget
+    region: content
   field_arteria_checkin:
     weight: 86
     settings:
