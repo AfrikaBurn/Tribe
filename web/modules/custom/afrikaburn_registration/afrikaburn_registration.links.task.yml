@@ -6,14 +6,16 @@ theme_camps.tasks:
   title: Tasks
   route_name: afrikaburn_registration.wrangle_theme_camps-tasks
   base_route: afrikaburn_registration.wrangle_theme_camps
+
 mutant_vehicles.bench:
   title: Workbench
   route_name: afrikaburn_registration.wrangle_mutant_vehicles
   base_route: afrikaburn_registration.wrangle_mutant_vehicles
-mutant_vehicles.tasks:
-  title: Grants
-  route_name: afrikaburn_registration.wrangle_mutant_vehicles-grants
+mutant_vehicles.dmv_book:
+  title: DMV Book
+  route_name: afrikaburn_registration.wrangle_mutant_vehicles-dmv_book
   base_route: afrikaburn_registration.wrangle_mutant_vehicles
+
 mutant_vehicles.peoplemovers:
   title: PeopleMovers
   route_name: afrikaburn_registration.wrangle_mutant_vehicles-people_movers

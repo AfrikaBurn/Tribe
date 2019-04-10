@@ -10,6 +10,9 @@ use \Drupal\node\Entity\Node;
 module_load_include('inc', 'afrikaburn_registration', 'includes/project.wizard');
 
 
+/* ----- Page Hooks ----- */
+
+
 /**
  * Implements hook_page_attachments()
  * Attach shared script
@@ -18,6 +21,43 @@ function afrikaburn_registration_page_attachments(array &$page) {
   $page['#attached']['library'][] = 'afrikaburn_registration/block';
   $page['#attached']['library'][] = 'afrikaburn_registration/print';
 }
+
+
+/* ----- Field Hooks ----- */
+
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function afrikaburn_registration_entity_extra_field_info() {
+  $extra = [];
+
+  $extra['node']['mutant_vehicles']['display']['support_camp'] = array(
+    'label' => t('Support Camp'),
+    'description' => t('Support Camp'),
+    'weight' => 100,
+    'visible' => TRUE,
+  );
+
+  $extra['node']['mutant_vehicles']['display']['registrant'] = array(
+    'label' => t('Registrant'),
+    'description' => t('Person who registered the mutant'),
+    'weight' => 100,
+    'visible' => TRUE,
+  );
+
+  $extra['node']['mutant_vehicles']['display']['drivers'] = array(
+    'label' => t('Drivers'),
+    'weight' => 100,
+    'visible' => TRUE,
+  );
+
+  return $extra;
+}
+
+
+/* ----- Node Hooks ----- */
+
 
 /**
  * Implements hook_node_view()
@@ -38,6 +78,14 @@ function afrikaburn_registration_node_view(&$build, $entity, $display, $view_mod
       $build['title'] = [
         '#markup' => '<h1 class="page-title">' . _get_title($defaults, $collective, $entity) . '</h1>',
       ];
+    }
+
+    if ($view_mode == 'book'){
+      module_load_include('inc', 'afrikaburn_registration', 'includes/mutant.book');
+      _mutant_titles($build);
+      _mutant_support_camp($build, $entity, $display);
+      _mutant_registrant($build, $entity, $display);
+      _mutant_drivers($build, $entity, $display);
     }
   }
 }
@@ -137,6 +185,9 @@ function afrikaburn_registration_preprocess_views_view(&$variables){
     case 'wrangle_art':
     case 'wrangle_binnekring_events':
     case 'wrangle_mutant_vehicles':
+      if ($variables['display_id'] == 'dmv_book') {
+        $variables['view_array']['#attached']['library'][] = 'afrikaburn_registration/book';
+      }
     case 'wrangle_theme_camps':
     case 'wrangle_wtf':
       $variables['#attached']['library'][] = 'afrikaburn_registration/wrangle';
