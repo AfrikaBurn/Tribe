@@ -39,8 +39,8 @@ afrikaburn_registration.wrangle_mutant_vehicles-dmv_book:
   path: '/wrangle/projects/mutant_vehicles/dmv_book'
   options:
     _admin_route: TRUE
-afrikaburn_registration.wrangle_mutant_vehicles-people_movers:
-  path: '/wrangle/projects/mutant_vehicles/people_movers'
+afrikaburn_registration.wrangle_mutant_vehicles-ranger_book:
+  path: '/wrangle/projects/mutant_vehicles/ranger_book'
   options:
     _admin_route: TRUE
 

@@ -12,13 +12,12 @@ mutant_vehicles.bench:
   route_name: afrikaburn_registration.wrangle_mutant_vehicles
   base_route: afrikaburn_registration.wrangle_mutant_vehicles
 mutant_vehicles.dmv_book:
-  title: DMV Book
+  title: Book
   route_name: afrikaburn_registration.wrangle_mutant_vehicles-dmv_book
   base_route: afrikaburn_registration.wrangle_mutant_vehicles
-
-mutant_vehicles.peoplemovers:
-  title: PeopleMovers
-  route_name: afrikaburn_registration.wrangle_mutant_vehicles-people_movers
+mutant_vehicles.ranger_book:
+  title: Book by Type
+  route_name: afrikaburn_registration.wrangle_mutant_vehicles-ranger_book
   base_route: afrikaburn_registration.wrangle_mutant_vehicles
 
 wrangle.wtf:

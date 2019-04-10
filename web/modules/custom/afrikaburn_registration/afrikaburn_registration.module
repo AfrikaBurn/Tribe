@@ -132,6 +132,22 @@ function afrikaburn_registration_theme(){
       'template' => 'views-view--wrangle',
       'base hook' => 'view',
     ],
+    'views_view__wrangle_mutant_vehicles__name_reg_base' => [
+      'template' => 'views-view--wrangle-index',
+      'base hook' => 'view',
+    ],
+    'views_view__wrangle_mutant_vehicles__reg_name_base' => [
+      'template' => 'views-view--wrangle-index',
+      'base hook' => 'view',
+    ],
+    'views_view__wrangle_mutant_vehicles__base_name_reg' => [
+      'template' => 'views-view--wrangle-index',
+      'base hook' => 'view',
+    ],
+    'views_view__wrangle_mutant_vehicles__base_reg_name' => [
+      'template' => 'views-view--wrangle-index',
+      'base hook' => 'view',
+    ],
     'views_view_table__wrangle_mutant_vehicles' => [
       'template' => 'views-view-table--wrangle-projects',
       'base hook' => 'view',
@@ -185,7 +201,7 @@ function afrikaburn_registration_preprocess_views_view(&$variables){
     case 'wrangle_art':
     case 'wrangle_binnekring_events':
     case 'wrangle_mutant_vehicles':
-      if ($variables['display_id'] == 'dmv_book') {
+      if ($variables['display_id'] == 'dmv_book' || $variables['display_id'] == 'ranger_book') {
         $variables['view_array']['#attached']['library'][] = 'afrikaburn_registration/book';
       }
     case 'wrangle_theme_camps':

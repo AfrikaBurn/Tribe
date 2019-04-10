@@ -4,6 +4,8 @@
 /* ----- Pages ----- */
 
 
+.wrangle-mutant-vehicles h1.page,
+.wrangler-index,
 .wrangle-mutant-vehicles .book-page{
   clear: both;
   width: 210mm;
@@ -11,11 +13,28 @@
   box-sizing: border-box;
   page-break-after: always;
   page-break-inside: avoid;
+  padding: 5mm;
+  border: 1px solid #bbb;
+  margin: 5mm;
+}
+
+.wrangle-mutant-vehicles h1.page{
+  padding-top: 103mm;
+  font-size: 1.25cm;
+  line-height: 1.5cm;
+}
+
+.wrangler-index table thead th{
+  color: #000;
+}
+
+.wrangle-mutant-vehicles .wrangler-index h2{
+  margin: 0.5cm 0;
+}
+
+.wrangle-mutant-vehicles .book-page{
   font-size: 0.4cm;
   line-height: 0.6cm;
-  padding: 5mm;
-  position: relative;
-  z-index: 1000;;
 }
 
 .wrangle-mutant-vehicles .book-page:last-child{
@@ -31,6 +50,10 @@
 
 /* ----- Title ----- */
 
+
+body .wrangle-mutant-vehicles .wrangler-index h1{
+  margin-bottom: 5mm;
+}
 
 body .wrangle-mutant-vehicles h1,
 body .wrangle-mutant-vehicles h2{
@@ -175,6 +198,9 @@ body .wrangle-mutant-vehicles h1{
   color: #000;
 }
 
+.wrangler-index th{
+  width: 33%;
+}
 
 /* --- Spacing --- */
 
@@ -191,6 +217,7 @@ body .wrangle-mutant-vehicles h1{
 @media print {
 
   form#views-exposed-form-wrangle-mutant-vehicles-dmv-book,
+  form#views-exposed-form-wrangle-mutant-vehicles-ranger-book,
   .content-header{
     display: none;
   }
@@ -200,8 +227,10 @@ body .wrangle-mutant-vehicles h1{
     text-decoration: none !important;
   }
 
-
+  .wrangle-mutant-vehicles h1.page,
+  .wrangler-index,
+  .wrangle-mutant-vehicles .book-page{
+    border: none;
+    margin: 0;
+  }
 }
-
-viewer-page-indicator,
-#page-indicator{ display: none !important; visibility: hidden !important;}
