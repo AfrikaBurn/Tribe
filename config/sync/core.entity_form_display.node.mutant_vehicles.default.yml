@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.mutant_vehicles.field_admin_comments
     - field.field.node.mutant_vehicles.field_allow_support_camp
+    - field.field.node.mutant_vehicles.field_api_content_type
     - field.field.node.mutant_vehicles.field_arteria_checkin
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
@@ -381,6 +382,12 @@ content:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
+    region: content
+  field_api_content_type:
+    weight: 139
+    settings: {  }
+    third_party_settings: {  }
+    type: computed_string_widget
     region: content
   field_arteria_checkin:
     weight: 134

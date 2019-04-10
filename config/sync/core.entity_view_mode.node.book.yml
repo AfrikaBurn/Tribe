@@ -1,0 +1,10 @@
+uuid: 81b5c18b-c0ea-4a1d-b3c5-8675653bf737
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.book
+label: Book
+targetEntityType: node
+cache: true

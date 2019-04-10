@@ -5,12 +5,16 @@ dependencies:
   config:
     - core.entity_form_mode.node.form_1
     - field.field.node.theme_camps.field_admin_comments
+    - field.field.node.theme_camps.field_api_content_type
+    - field.field.node.theme_camps.field_arteria_checkin
     - field.field.node.theme_camps.field_collective
+    - field.field.node.theme_camps.field_event_services
     - field.field.node.theme_camps.field_field_prj_plc_marquis
     - field.field.node.theme_camps.field_field_prj_plc_stretch_m
     - field.field.node.theme_camps.field_final_placement
     - field.field.node.theme_camps.field_form_mode
     - field.field.node.theme_camps.field_ice_card
+    - field.field.node.theme_camps.field_lineup_request
     - field.field.node.theme_camps.field_neighbours
     - field.field.node.theme_camps.field_placed
     - field.field.node.theme_camps.field_placement_card
@@ -104,8 +108,11 @@ dependencies:
     - field.field.node.theme_camps.field_prj_snd_genre
     - field.field.node.theme_camps.field_prj_snd_level
     - field.field.node.theme_camps.field_prj_snd_person
+    - field.field.node.theme_camps.field_prj_snd_rangers
+    - field.field.node.theme_camps.field_prj_snd_setup_date
     - field.field.node.theme_camps.field_prj_snd_soop
     - field.field.node.theme_camps.field_prj_snd_sound
+    - field.field.node.theme_camps.field_prj_snd_specs
     - field.field.node.theme_camps.field_prj_stg_contact
     - field.field.node.theme_camps.field_prj_stg_description
     - field.field.node.theme_camps.field_prj_stg_stage
@@ -122,11 +129,17 @@ dependencies:
     - field.field.node.theme_camps.field_prj_wtf_short_copy
     - field.field.node.theme_camps.field_prj_wtf_website
     - field.field.node.theme_camps.field_prjr_complete
+    - field.field.node.theme_camps.field_ranger_representative
+    - field.field.node.theme_camps.field_snd_bass_bins
+    - field.field.node.theme_camps.field_snd_playtime_mon_wed
+    - field.field.node.theme_camps.field_snd_playtime_thurs_sun
     - field.field.node.theme_camps.field_stretch_tent_dimen
     - field.field.node.theme_camps.field_sup_review
     - field.field.node.theme_camps.field_supporting_project
     - field.field.node.theme_camps.field_tc_type
     - field.field.node.theme_camps.field_vp_ea
+    - field.field.node.theme_camps.field_waps
+    - field.field.node.theme_camps.field_waps_allowed
     - field.field.node.theme_camps.field_year_cycle
     - image.style.thumbnail
     - node.type.theme_camps
@@ -260,7 +273,7 @@ third_party_settings:
         - group_collaboration
         - group_almost_done_new
       parent_name: ''
-      weight: 2
+      weight: 1
       format_type: tabs
       format_settings:
         label: 'Project registration'
@@ -278,8 +291,10 @@ third_party_settings:
         - field_collective
         - field_form_mode
         - field_admin_comments
+        - field_api_content_type
+        - field_event_services
       parent_name: ''
-      weight: 1
+      weight: 0
       format_type: details
       format_settings:
         id: ''
@@ -295,22 +310,35 @@ bundle: theme_camps
 mode: form_1
 content:
   field_admin_comments:
-    weight: 39
+    weight: 6
     settings: {  }
     third_party_settings: {  }
     type: comment_default
     region: content
+  field_api_content_type:
+    type: computed_string_widget
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_collective:
     type: entity_reference_autocomplete
-    weight: 6
+    weight: 4
     region: content
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_event_services:
+    type: boolean_checkbox
+    weight: 9
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_form_mode:
-    weight: 7
+    weight: 5
     settings:
       size: 60
       placeholder: ''
@@ -705,6 +733,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_arteria_checkin: true
   field_field_prj_plc_marquis: true
   field_field_prj_plc_stretch_m: true
   field_final_placement: true
@@ -801,6 +830,9 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_ranger_representative: true
+  field_snd_bass_bins: true
+  field_snd_playtime_mon_wed: true
+  field_snd_playtime_thurs_sun: true
   field_stretch_tent_dimen: true
   field_sup_comment: true
   field_sup_review: true

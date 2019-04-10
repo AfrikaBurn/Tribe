@@ -83,6 +83,9 @@ class RegistrationSettings extends ConfigFormBase {
     module_load_include('inc', 'afrikaburn_registration', 'includes/form');
 
     $values = $form_state->getValues();
+    $config = $this
+      ->configFactory
+      ->getEditable('afrikaburn_registration.settings');
 
     foreach(_project_form_modes() as $key=>$map){
 
@@ -90,14 +93,12 @@ class RegistrationSettings extends ConfigFormBase {
       $modes = $map['modes'];
 
       foreach(array_keys($modes) as $mode){
-        $this
-          ->config('afrikaburn_registration.settings')
-          ->set($key . '/' . $mode, $values[$key][$mode]);
+        $config->set($key . '/' . $mode, $values[$key][$mode]);
       }
 
     }
 
-    $this->config('afrikaburn_registration.settings')->save();
+    $config->save();
     drupal_set_message('Settings saved');
   }
 

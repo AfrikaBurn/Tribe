@@ -140,6 +140,11 @@ third_party_settings:
         - field_allow_support_camp
         - field_waps_allowed
         - field_waps
+        - field_arteria_checkin
+        - field_prj_snd_specs
+        - field_snd_bass_bins
+        - field_snd_playtime_mon_wed
+        - field_snd_playtime_thurs_sun
 id: node.mutant_vehicles.default
 targetEntityType: node
 bundle: mutant_vehicles
@@ -164,7 +169,7 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
-    region: content
+    region: top
   field_lineup_request:
     weight: 12
     label: above
@@ -212,7 +217,7 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: basic_string
-    region: content
+    region: top
   field_prj_wtf_image:
     type: colorbox
     weight: 1
@@ -238,7 +243,7 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
-    region: content
+    region: top
   field_snd_playtime_mon_wed:
     weight: 19
     label: above
@@ -248,7 +253,7 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: daterange_default
-    region: content
+    region: top
   field_snd_playtime_thurs_sun:
     weight: 20
     label: above
@@ -258,7 +263,7 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: daterange_default
-    region: content
+    region: top
   field_waps:
     weight: 15
     label: above

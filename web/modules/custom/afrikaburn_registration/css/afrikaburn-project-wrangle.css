@@ -14,10 +14,10 @@
   width: 200px;
 }
 
-.wrangler-view table td.views-field-title,
-.wrangler-view table td.column-process,
-.wrangler-view table td.views-field-field-prj-plc-location,
-.wrangler-view table td.views-field-field-prj-plc-camp-d{
+.wrangler-view > table td.views-field-title,
+.wrangler-view > table td.column-process,
+.wrangler-view > table td.views-field-field-prj-plc-location,
+.wrangler-view > table td.views-field-field-prj-plc-camp-d{
   padding-top: 20px;
 }
 

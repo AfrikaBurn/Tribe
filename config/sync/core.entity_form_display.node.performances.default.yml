@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.performances.field_admin_comments
     - field.field.node.performances.field_allow_support_camp
+    - field.field.node.performances.field_api_content_type
     - field.field.node.performances.field_bke_day
     - field.field.node.performances.field_bke_location
     - field.field.node.performances.field_bke_time
@@ -239,6 +240,12 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
+  field_api_content_type:
+    weight: 72
+    settings: {  }
+    third_party_settings: {  }
+    type: computed_string_widget
+    region: content
   field_bke_day:
     weight: 6
     settings: {  }
