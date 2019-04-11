@@ -82,6 +82,14 @@ function afrikaburn_registration_node_view(&$build, $entity, $display, $view_mod
       _mutant_titles($build);
       _mutant_support_camp($build, $entity, $display);
       _mutant_registrant($build, $entity, $display);
+
+      foreach(
+        [
+          'field_prj_trl_size' => 'field_prj_trl_area',
+          'field_prj_snd_level' => 'field_prj_snd_sound',
+        ]
+        as $field => $trigger
+      ) $build[$field]['#access'] = $entity->get($trigger)->getValue()[0]['value'] == "1";
     }
   }
 }
