@@ -30,18 +30,20 @@ afrikaburn_registration.wrangle_performances:
   path: '/wrangle/projects/performances'
   options:
     _admin_route: TRUE
+
 afrikaburn_registration.wrangle_mutant_vehicles:
   path: '/wrangle/projects/mutant_vehicles'
   options:
     _admin_route: TRUE
-afrikaburn_registration.wrangle_mutant_vehicles-grants:
-  path: '/wrangle/projects/mutant_vehicles/grants'
+afrikaburn_registration.wrangle_mutant_vehicles-dmv_book:
+  path: '/wrangle/projects/mutant_vehicles/dmv_book'
   options:
     _admin_route: TRUE
-afrikaburn_registration.wrangle_mutant_vehicles-people_movers:
-  path: '/wrangle/projects/mutant_vehicles/people_movers'
+afrikaburn_registration.wrangle_mutant_vehicles-ranger_book:
+  path: '/wrangle/projects/mutant_vehicles/ranger_book'
   options:
     _admin_route: TRUE
+
 afrikaburn_registration.wrangle_theme_camps:
   path: '/wrangle/projects/theme_camps'
   options:
@@ -50,6 +52,7 @@ afrikaburn_registration.wrangle_theme_camps-tasks:
   path: '/wrangle/projects/theme_camps/tasks'
   options:
     _admin_route: TRUE
+
 afrikaburn_registration.wrangle_waps:
   path: '/wrangle/projects/waps'
   options:

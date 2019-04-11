@@ -1,0 +1,236 @@
+@charset "utf-8";
+
+
+/* ----- Pages ----- */
+
+
+.wrangle-mutant-vehicles h1.page,
+.wrangler-index,
+.wrangle-mutant-vehicles .book-page{
+  clear: both;
+  width: 210mm;
+  min-height: 280mm;
+  box-sizing: border-box;
+  page-break-after: always;
+  page-break-inside: avoid;
+  padding: 5mm;
+  border: 1px solid #bbb;
+  margin: 5mm;
+}
+
+.wrangle-mutant-vehicles h1.page{
+  padding-top: 103mm;
+  font-size: 1.25cm;
+  line-height: 1.5cm;
+}
+
+.wrangler-index table thead th{
+  color: #000;
+}
+
+.wrangle-mutant-vehicles .wrangler-index h2{
+  margin: 0.5cm 0;
+}
+
+.wrangle-mutant-vehicles .book-page{
+  font-size: 0.4cm;
+  line-height: 0.6cm;
+}
+
+.wrangle-mutant-vehicles .book-page:last-child{
+  page-break-after: avoid;
+}
+
+.wrangle-mutant-vehicles main{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+
+/* ----- Title ----- */
+
+
+body .wrangle-mutant-vehicles .wrangler-index h1{
+  margin-bottom: 5mm;
+}
+
+body .wrangle-mutant-vehicles h1,
+body .wrangle-mutant-vehicles h2{
+  color: #333;
+  font-weight: bolder;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+}
+body .wrangle-mutant-vehicles h1{
+  font-size: 1cm;
+  margin: 0;
+}
+.wrangle-mutant-vehicles h2{
+  margin: 0 0 1cm 0;
+}
+
+.wrangle-mutant-vehicles h1 .field--name-field-prj-adm-registration{
+  text-align: right;
+}
+
+
+/* ----- Images ----- */
+
+
+.wrangle-mutant-vehicles main .field--name-field-prj-gen-concept{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wrangle-mutant-vehicles main .field--name-field-prj-gen-concept .field__item{
+  box-sizing: border-box;
+  padding: 0 2mm 2mm 0;
+  width: 50%;
+}
+
+.wrangle-mutant-vehicles main .field--name-field-prj-gen-concept .field__item:first-child{
+  width: 100%;
+}
+
+
+/* ----- Summary ----- */
+
+
+.wrangle-mutant-vehicles main > section{
+  box-sizing: border-box;
+  width: 50%;
+}
+
+.wrangle-mutant-vehicles main > section img{
+  display: block;
+  border-radius: 0.125cm;
+}
+
+.wrangle-mutant-vehicles main > section.details{
+  width: 100%;
+}
+
+.wrangle-mutant-vehicles main > section.inline-fields{
+  padding-left: 0.5cm;
+}
+
+.wrangle-mutant-vehicles main > section.inline-fields > .field{
+  display: flex;
+}
+
+.wrangle-mutant-vehicles main > section.inline-fields .field > div{
+  justify-content: space-between;
+  width: 40%;
+}
+
+.wrangle-mutant-vehicles main > section.inline-fields .field > div.field__item{
+  width: 60%;
+}
+
+/* --- Flags --- */
+
+.wrangle-mutant-vehicles main section.inline-fields .flags{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.wrangle-mutant-vehicles main section.inline-fields .flags .field{
+  width: 50%;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+.wrangle-mutant-vehicles main section.inline-fields .flags .field:nth-child(2n+2){
+  text-align: right;
+}
+
+/* --- Fields --- */
+
+.wrangle-mutant-vehicles .user-full-name img{
+  display: none;
+}
+
+.wrangle-mutant-vehicles main .user-full-name .first-name{
+  margin: 0;
+}
+
+
+/* ----- Sections ----- */
+
+
+.wrangle-mutant-vehicles section{
+  page-break-inside: avoid;
+}
+
+.wrangle-mutant-vehicles section.responsible article,
+.wrangle-mutant-vehicles .views-field-rendered-entity .field-content > section h3{
+  border-bottom: 0.5mm solid #555;
+  margin: 1cm 0;
+}
+
+.wrangle-mutant-vehicles section.responsible{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.wrangle-mutant-vehicles section.responsible > *{
+  flex-basis: 100%;
+}
+
+.wrangle-mutant-vehicles section.responsible h3,
+.wrangle-mutant-vehicles section.responsible .field--name-field-prj-trl-size,
+.wrangle-mutant-vehicles section.responsible .field--type-entity-reference{
+  flex-basis: 50%;
+}
+
+.wrangle-mutant-vehicles .field--name-field-prj-trl-size,
+.wrangle-mutant-vehicles section.responsible article{
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.wrangle-mutant-vehicles .view-wrangle-mutant-drivers th{
+  height: auto;
+  color: #000;
+}
+
+.wrangler-index th{
+  width: 33%;
+}
+
+/* --- Spacing --- */
+
+.wrangle-mutant-vehicles main section.inline-fields .flags,
+.wrangle-mutant-vehicles main .field--name-field-prj-trl-passengers,
+.wrangle-mutant-vehicles main .field--name-field-prj-gen-contact{
+  margin-bottom: 7.5mm;
+}
+
+
+/* ----- Print Overrides ----- */
+
+
+@media print {
+
+  form#views-exposed-form-wrangle-mutant-vehicles-dmv-book,
+  form#views-exposed-form-wrangle-mutant-vehicles-ranger-book,
+  .content-header{
+    display: none;
+  }
+
+  a{
+    color: #000 !important;;
+    text-decoration: none !important;
+  }
+
+  .wrangle-mutant-vehicles h1.page,
+  .wrangler-index,
+  .wrangle-mutant-vehicles .book-page{
+    border: none;
+    margin: 0;
+  }
+}
