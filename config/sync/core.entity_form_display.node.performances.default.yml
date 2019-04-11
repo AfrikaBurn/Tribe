@@ -240,12 +240,6 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-  field_api_content_type:
-    weight: 72
-    settings: {  }
-    third_party_settings: {  }
-    type: computed_string_widget
-    region: content
   field_bke_day:
     weight: 6
     settings: {  }
@@ -464,6 +458,7 @@ content:
     third_party_settings: {  }
 hidden:
   field_admin_comments: true
+  field_api_content_type: true
   field_grt_art_total: true
   field_grt_breakdown: true
   field_grt_contribution: true

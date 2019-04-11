@@ -149,7 +149,6 @@ dependencies:
     - image.style.thumbnail
     - node.type.art
   module:
-    - computed_field
     - conditional_fields
     - cshs
     - datetime
@@ -409,7 +408,6 @@ third_party_settings:
         - field_prj_stc_size
         - field_collective
         - field_form_mode
-        - field_api_content_type
       parent_name: ''
       weight: 0
       format_type: details
@@ -426,12 +424,6 @@ targetEntityType: node
 bundle: art
 mode: form_1
 content:
-  field_api_content_type:
-    type: computed_string_widget
-    weight: 12
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_collective:
     type: entity_reference_autocomplete
     weight: 10
@@ -1007,6 +999,7 @@ hidden:
   created: true
   field_admin_comments: true
   field_allow_support_camp: true
+  field_api_content_type: true
   field_arteria_checkin: true
   field_burn_can_be_denied: true
   field_col_members: true

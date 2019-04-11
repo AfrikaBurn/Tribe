@@ -76,12 +76,3 @@ function _mutant_registrant(&$build, $entity, $display){
     ];
   }
 }
-
-
-function _mutant_drivers(&$build, $entity, $display){
-  if ($display->getComponent('drivers')) {
-
-    $build['drivers'] = views_embed_view('wrangle_mutant_drivers', 'default', $entity->id());
-
-  }
-}

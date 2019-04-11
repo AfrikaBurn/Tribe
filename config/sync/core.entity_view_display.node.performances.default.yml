@@ -124,7 +124,6 @@ dependencies:
     - node.type.performances
   module:
     - colorbox
-    - computed_field
     - ds
     - empty_fields
     - entity_reference_revisions
@@ -139,24 +138,24 @@ third_party_settings:
       entity_classes: all_classes
       settings: {  }
     regions:
-      first:
-        - field_prj_gen_concept
-        - field_prj_wtf_image
-      second:
-        - field_prj_gen_description
       top:
         - flag_mute
         - field_lineup_request
         - field_allow_support_camp
         - field_waps_allowed
         - field_waps
+      first:
+        - field_prj_gen_concept
+        - field_prj_wtf_image
+      second:
+        - field_prj_gen_description
 id: node.performances.default
 targetEntityType: node
 bundle: performances
 mode: default
 content:
   field_allow_support_camp:
-    weight: 12
+    weight: 2
     label: above
     settings:
       format: default
@@ -165,18 +164,8 @@ content:
     third_party_settings: {  }
     type: boolean
     region: top
-  field_api_content_type:
-    weight: 15
-    label: above
-    settings:
-      sanitized: true
-      cache_unit: -1
-      cache_duration: 1
-    third_party_settings: {  }
-    type: computed_string
-    region: content
   field_lineup_request:
-    weight: 11
+    weight: 1
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -184,7 +173,7 @@ content:
     region: top
   field_prj_gen_concept:
     type: colorbox
-    weight: 0
+    weight: 5
     region: first
     label: hidden
     settings:
@@ -202,14 +191,14 @@ content:
         ds_limit: ''
   field_prj_gen_description:
     type: basic_string
-    weight: 2
+    weight: 7
     region: second
     label: hidden
     settings: {  }
     third_party_settings: {  }
   field_prj_wtf_image:
     type: colorbox
-    weight: 1
+    weight: 6
     region: first
     label: hidden
     settings:
@@ -224,7 +213,7 @@ content:
       empty_fields:
         handler: ''
   field_waps:
-    weight: 14
+    weight: 4
     label: above
     settings:
       view_mode: default
@@ -233,7 +222,7 @@ content:
     type: entity_reference_revisions_entity_view
     region: top
   field_waps_allowed:
-    weight: 13
+    weight: 3
     label: above
     settings:
       thousand_separator: ''
@@ -242,12 +231,13 @@ content:
     type: number_integer
     region: top
   flag_mute:
-    weight: 10
+    weight: 0
     region: top
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_admin_comments: true
+  field_api_content_type: true
   field_bke_day: true
   field_bke_location: true
   field_bke_time: true

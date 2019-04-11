@@ -51,6 +51,11 @@ function afrikaburn_alert_node_insert($entity){
       )
     );
 
+    if (
+      preg_match('/^\/registration\/update/', \Drupal::service('path.current')->getPath()) ||
+      !_diff($entity)
+    ) return;
+
     _alert(
       'create',
       $collective,
