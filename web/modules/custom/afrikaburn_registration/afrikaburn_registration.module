@@ -7,9 +7,6 @@ use \Drupal\user\Entity\User;
 use \Drupal\node\Entity\Node;
 
 
-module_load_include('inc', 'afrikaburn_registration', 'includes/project.wizard');
-
-
 /* ----- Page Hooks ----- */
 
 
@@ -85,7 +82,14 @@ function afrikaburn_registration_node_view(&$build, $entity, $display, $view_mod
       _mutant_titles($build);
       _mutant_support_camp($build, $entity, $display);
       _mutant_registrant($build, $entity, $display);
-      _mutant_drivers($build, $entity, $display);
+
+      foreach(
+        [
+          'field_prj_trl_size' => 'field_prj_trl_area',
+          'field_prj_snd_level' => 'field_prj_snd_sound',
+        ]
+        as $field => $trigger
+      ) $build[$field]['#access'] = $entity->get($trigger)->getValue()[0]['value'] == "1";
     }
   }
 }
@@ -253,6 +257,36 @@ function afrikaburn_registration_preprocess_views_view_table(&$variables) {
         ab_insert_wrangler_view_rows($variables, $comments, $merge);
       }
     break;
+  }
+}
+
+/**
+ * Implements hook_field_group_pre_render().
+ * Sets the js-wizard classes on a form.
+ * Hides administrative fieldset from muggles.
+ */
+function afrikaburn_registration_field_group_pre_render(&$element, &$group, &$form) {
+
+  // Hide empty page sections in book views
+  $book_groups = [
+    'group_trailer' => 'field_prj_trl_area',
+    'group_flames' => 'field_prj_brn_burning',
+    'group_night_driving' => 'field_prj_lgh_night',
+    'group_sound' => 'field_prj_snd_sound',
+  ];
+  if (isset($book_groups[$group->group_name]) && isset($form['#node'])) {
+    $form[$group->group_name]['#access'] =
+      $form['#node']
+        ->get($book_groups[$group->group_name])
+        ->getValue()[0]['value']
+      == "1";
+  }
+
+  if ($group->group_name == 'group_project_registration' && $form['#wizard']){
+    $form['#attributes']['class'][] = 'js-wizard';
+  }
+  if ($group->group_name == 'group_administrative' && !$form['#administrator']){
+    $form['group_administrative']['#access'] = false;
   }
 }
 

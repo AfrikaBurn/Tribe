@@ -168,7 +168,7 @@ body .wrangle-mutant-vehicles h1{
 .wrangle-mutant-vehicles section.responsible article,
 .wrangle-mutant-vehicles .views-field-rendered-entity .field-content > section h3{
   border-bottom: 0.5mm solid #555;
-  margin: 1cm 0;
+  margin: 1cm 0 5mm;
 }
 
 .wrangle-mutant-vehicles section.responsible{

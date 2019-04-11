@@ -12,7 +12,7 @@ mutant_vehicles.bench:
   route_name: afrikaburn_registration.wrangle_mutant_vehicles
   base_route: afrikaburn_registration.wrangle_mutant_vehicles
 mutant_vehicles.dmv_book:
-  title: Book
+  title: Book by Name
   route_name: afrikaburn_registration.wrangle_mutant_vehicles-dmv_book
   base_route: afrikaburn_registration.wrangle_mutant_vehicles
 mutant_vehicles.ranger_book:
