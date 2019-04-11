@@ -439,14 +439,8 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-  field_api_content_type:
-    weight: 95
-    settings: {  }
-    third_party_settings: {  }
-    type: computed_string_widget
-    region: content
   field_arteria_checkin:
-    weight: 86
+    weight: 16
     settings:
       display_label: true
     third_party_settings:
@@ -509,7 +503,7 @@ content:
   field_grt_art_reason:
     third_party_settings:
       conditional_fields: {  }
-    weight: 91
+    weight: 21
     settings:
       rows: 5
       placeholder: ''
@@ -518,7 +512,7 @@ content:
   field_grt_tec_reason:
     third_party_settings:
       conditional_fields: {  }
-    weight: 92
+    weight: 22
     settings:
       rows: 5
       placeholder: ''
@@ -539,7 +533,7 @@ content:
   field_prj_adm_form_3:
     third_party_settings:
       conditional_fields: {  }
-    weight: 94
+    weight: 24
     settings:
       display_label: true
     type: boolean_checkbox
@@ -968,7 +962,7 @@ content:
   field_prj_lgh_lighter:
     third_party_settings:
       conditional_fields: {  }
-    weight: 90
+    weight: 20
     settings:
       match_operator: CONTAINS
       size: 60
@@ -1040,7 +1034,7 @@ content:
   field_prj_plc_location_extra:
     third_party_settings:
       conditional_fields: {  }
-    weight: 89
+    weight: 19
     settings:
       rows: 5
       placeholder: ''
@@ -1455,7 +1449,7 @@ content:
     type: options_buttons
     region: content
   field_snd_bass_bins:
-    weight: 84
+    weight: 15
     settings:
       display_label: true
     third_party_settings:
@@ -1478,7 +1472,7 @@ content:
     type: boolean_checkbox
     region: content
   field_snd_playtime_mon_wed:
-    weight: 87
+    weight: 17
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -1515,7 +1509,7 @@ content:
     type: daterange_default
     region: content
   field_snd_playtime_thurs_sun:
-    weight: 88
+    weight: 18
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -1539,7 +1533,7 @@ content:
   field_this_is_the_amount_of_mone:
     third_party_settings:
       conditional_fields: {  }
-    weight: 93
+    weight: 23
     settings:
       rows: 5
       placeholder: ''
@@ -1587,6 +1581,7 @@ content:
 hidden:
   created: true
   field_admin_comments: true
+  field_api_content_type: true
   field_col_members: true
   field_grant_expense_header: true
   field_grt_art_apply: true

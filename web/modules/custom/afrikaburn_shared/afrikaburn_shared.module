@@ -42,6 +42,8 @@ function computed_field_field_year_cycle_compute($entity_type_manager, $entity, 
 
 function computed_field_field_api_content_type_compute($entity_type_manager, $entity, $fields, $delta){
   
+  echo "<script>console.log( 'Debug Objects: " . $entity->bundle() . "' );</script> fuckerty fuck fuck dgfdsg     ";
+  
   switch ($entity->bundle()) {
     case "theme_camps":
       if ($entity->field_event_services->value == TRUE) {

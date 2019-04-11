@@ -6,6 +6,7 @@ dependencies:
     - core.entity_form_mode.node.form_1
     - field.field.node.performances.field_admin_comments
     - field.field.node.performances.field_allow_support_camp
+    - field.field.node.performances.field_api_content_type
     - field.field.node.performances.field_bke_day
     - field.field.node.performances.field_bke_location
     - field.field.node.performances.field_bke_time
@@ -433,6 +434,7 @@ content:
 hidden:
   field_admin_comments: true
   field_allow_support_camp: true
+  field_api_content_type: true
   field_grt_art_total: true
   field_grt_breakdown: true
   field_grt_contribution: true
