@@ -26,6 +26,10 @@ afrikaburn_registration.wrangle_art:
   path: '/wrangle/projects/art'
   options:
     _admin_route: TRUE
+afrikaburn_registration.wrangle_art_guide:
+  path: '/wrangle/projects/art/guide'
+  options:
+    _admin_route: TRUE
 afrikaburn_registration.wrangle_performances:
   path: '/wrangle/projects/performances'
   options:
