@@ -23,8 +23,8 @@ function _mutant_titles(&$build){
   $build['field_prj_brn_plan']['#title'] = 'Decription';
   $build['field_prj_brn_desc']['#title'] = 'Safety';
 
-  $build['field_prj_lgh_description']['#title'] = 'Vehicle';
-  $build['field_prj_lgh_projection']['#title'] = 'Trailer and A-frame';
+  if (isset($build['field_prj_lgh_description'])) $build['field_prj_lgh_description']['#title'] = 'Vehicle';
+  if (isset($build['field_prj_lgh_projection'])) $build['field_prj_lgh_projection']['#title'] = 'Trailer and A-frame';
 
   $build['field_prj_snd_description']['#title'] = 'Description';
   $build['field_prj_snd_safety']['#title'] = 'Safety';

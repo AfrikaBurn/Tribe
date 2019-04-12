@@ -118,6 +118,8 @@ function afrikaburn_registration_theme(){
     ],
 
     // Wrangle
+
+    // Art
     'views_view__wrangle_art' => [
       'template' => 'views-view--wrangle',
       'base hook' => 'view',
@@ -126,6 +128,11 @@ function afrikaburn_registration_theme(){
       'template' => 'views-view-table--wrangle-projects',
       'base hook' => 'view',
     ],
+    'views_view__wrangle_art__guide' => [
+      'template' => 'views-view--wrangle--book',
+      'base hook' => 'view',
+    ],
+    // Binnekring Events
     'views_view__wrangle_binnekring_events' => [
       'template' => 'views-view--wrangle',
       'base hook' => 'view',
@@ -134,8 +141,21 @@ function afrikaburn_registration_theme(){
       'template' => 'views-view-table--wrangle-projects',
       'base hook' => 'view',
     ],
+    // Mutant Vehicles
     'views_view__wrangle_mutant_vehicles' => [
       'template' => 'views-view--wrangle',
+      'base hook' => 'view',
+    ],
+    'views_view_table__wrangle_mutant_vehicles' => [
+      'template' => 'views-view-table--wrangle-projects',
+      'base hook' => 'view',
+    ],
+    'views_view__wrangle_mutant_vehicles__dmv_book' => [
+      'template' => 'views-view--wrangle--book',
+      'base hook' => 'view',
+    ],
+    'views_view__wrangle_mutant_vehicles__ranger_book' => [
+      'template' => 'views-view--wrangle--book',
       'base hook' => 'view',
     ],
     'views_view__wrangle_mutant_vehicles__name_reg_base' => [
@@ -154,10 +174,7 @@ function afrikaburn_registration_theme(){
       'template' => 'views-view--wrangle-index',
       'base hook' => 'view',
     ],
-    'views_view_table__wrangle_mutant_vehicles' => [
-      'template' => 'views-view-table--wrangle-projects',
-      'base hook' => 'view',
-    ],
+    // Theme Camps
     'views_view__wrangle_theme_camps' => [
       'template' => 'views-view--wrangle',
       'base hook' => 'view',
@@ -166,10 +183,7 @@ function afrikaburn_registration_theme(){
       'template' => 'views-view-table--wrangle-projects',
       'base hook' => 'view',
     ],
-    'views_view_fields__wrangle_comments' => [
-      'template' => 'views-view-fields--wrangle-comments',
-      'base hook' => 'view',
-    ],
+    // WTF
     'views_view__wrangle_wtf' => [
       'template' => 'views-view--wrangle',
       'base hook' => 'view',
@@ -178,12 +192,18 @@ function afrikaburn_registration_theme(){
       'template' => 'views-view-table--wrangle-projects',
       'base hook' => 'view',
     ],
+    // WAPS
     'views_view__wrangle_waps' => [
       'template' => 'views-view--wrangle',
       'base hook' => 'view',
     ],
     'views_view_table__wrangle_waps' => [
       'template' => 'views-view-table--wrangle-projects',
+      'base hook' => 'view',
+    ],
+    // Comments
+    'views_view_fields__wrangle_comments' => [
+      'template' => 'views-view-fields--wrangle-comments',
       'base hook' => 'view',
     ],
   ];
@@ -207,7 +227,11 @@ function afrikaburn_registration_preprocess_views_view(&$variables){
     case 'wrangle_art':
     case 'wrangle_binnekring_events':
     case 'wrangle_mutant_vehicles':
-      if ($variables['display_id'] == 'dmv_book' || $variables['display_id'] == 'ranger_book') {
+      if (
+        in_array($variables['display_id'],
+          ['dmv_book', 'ranger_book', 'guide']
+        )
+      ) {
         $variables['view_array']['#attached']['library'][] = 'afrikaburn_registration/book';
       }
     case 'wrangle_theme_camps':
@@ -276,11 +300,14 @@ function afrikaburn_registration_field_group_pre_render(&$element, &$group, &$fo
     'group_sound' => 'field_prj_snd_sound',
   ];
   if (isset($book_groups[$group->group_name]) && isset($form['#node'])) {
-    $form[$group->group_name]['#access'] =
-      $form['#node']
-        ->get($book_groups[$group->group_name])
-        ->getValue()[0]['value']
-      == "1";
+    try{
+      $trigger = $form['#node']->get($book_groups[$group->group_name]);
+    } catch (Exception $e) {
+      $trigger = FALSE;
+    }
+    if ($trigger){
+      $form[$group->group_name]['#access'] = $trigger->getValue()[0]['value'] == "1";
+    }
   }
 
   if ($group->group_name == 'group_project_registration' && $form['#wizard']){
