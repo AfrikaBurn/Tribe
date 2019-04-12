@@ -29,6 +29,8 @@ dependencies:
     - field.field.node.performances.field_grt_transport
     - field.field.node.performances.field_lineup_request
     - field.field.node.performances.field_muncipal_district
+    - field.field.node.performances.field_prj_adm_latitude
+    - field.field.node.performances.field_prj_adm_longitude
     - field.field.node.performances.field_prj_adm_notes
     - field.field.node.performances.field_prj_adm_review
     - field.field.node.performances.field_prj_adm_wrangler
@@ -270,6 +272,22 @@ content:
     third_party_settings: {  }
   field_form_mode:
     weight: 42
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_prj_adm_latitude:
+    weight: 72
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_prj_adm_longitude:
+    weight: 73
     settings:
       size: 60
       placeholder: ''

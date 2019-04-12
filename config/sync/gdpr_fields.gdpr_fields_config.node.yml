@@ -996,6 +996,28 @@ bundles:
       notes: ''
       relationship: 0
       sars_filename: ''
+    field_prj_adm_latitude:
+      bundle: mutant_vehicles
+      name: field_prj_adm_latitude
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_adm_longitude:
+      bundle: mutant_vehicles
+      name: field_prj_adm_longitude
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   performances:
     field_prj_gen_description:
       enabled: false
@@ -1149,6 +1171,28 @@ bundles:
     field_api_content_type:
       bundle: performances
       name: field_api_content_type
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_adm_latitude:
+      bundle: performances
+      name: field_prj_adm_latitude
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_adm_longitude:
+      bundle: performances
+      name: field_prj_adm_longitude
       entity_type_id: node
       rtf: 'no'
       rta: 'no'

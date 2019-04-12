@@ -759,6 +759,7 @@ content:
 hidden:
   field_admin_comments: true
   field_allow_support_camp: true
+  field_api_content_type: true
   field_arteria_checkin: true
   field_form_mode: true
   field_grt_art_total: true

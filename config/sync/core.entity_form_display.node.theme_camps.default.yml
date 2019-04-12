@@ -430,6 +430,22 @@ content:
     third_party_settings: {  }
     type: number
     region: content
+  field_prj_adm_latitude:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_adm_longitude:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_adm_review:
     type: options_select
     weight: 2
@@ -1146,8 +1162,6 @@ hidden:
   field_lineup_request: true
   field_prj_adm_comms: true
   field_prj_adm_form_3: true
-  field_prj_adm_latitude: true
-  field_prj_adm_longitude: true
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
   field_prj_gen_year: true

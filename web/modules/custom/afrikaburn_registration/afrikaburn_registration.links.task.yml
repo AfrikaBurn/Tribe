@@ -1,3 +1,12 @@
+art.bench:
+  title: Workbench
+  route_name: afrikaburn_registration.wrangle_art
+  base_route: afrikaburn_registration.wrangle_art
+art.guide:
+  title: Mighty Art Guide
+  route_name: afrikaburn_registration.wrangle_art_guide
+  base_route: afrikaburn_registration.wrangle_art
+
 theme_camps.bench:
   title: Workbench
   route_name: afrikaburn_registration.wrangle_theme_camps
