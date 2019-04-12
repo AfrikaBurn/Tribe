@@ -538,6 +538,22 @@ content:
       display_label: true
     type: boolean_checkbox
     region: content
+  field_prj_adm_latitude:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_adm_longitude:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_adm_review:
     type: options_select
     weight: 4
@@ -1607,8 +1623,6 @@ hidden:
   field_grt_transport: true
   field_lineup_request: true
   field_lnt_intro: true
-  field_prj_adm_latitude: true
-  field_prj_adm_longitude: true
   field_prj_brn_time_adm: true
   field_prj_cost: true
   field_prj_gen_external: true

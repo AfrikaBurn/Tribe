@@ -89,7 +89,9 @@ function afrikaburn_registration_node_view(&$build, $entity, $display, $view_mod
           'field_prj_snd_level' => 'field_prj_snd_sound',
         ]
         as $field => $trigger
-      ) $build[$field]['#access'] = $entity->get($trigger)->getValue()[0]['value'] == "1";
+      ) isset($build[$field])
+        ? $build[$field]['#access'] = $entity->get($trigger)->getValue()[0]['value'] == "1"
+        : FALSE;
     }
   }
 }
@@ -241,7 +243,6 @@ function afrikaburn_registration_preprocess_views_view_table(&$variables) {
   switch ($variables['view']->id()){
     case 'wrangle_wtf':
       $comments = FALSE;
-      $merge = FALSE;
     case 'wrangle_art':
     case 'wrangle_binnekring_events':
     case 'wrangle_mutant_vehicles':

@@ -3623,7 +3623,6 @@ display:
           entity_field: title
           plugin_id: standard
       displays:
-        dmv_book: dmv_book
         ranger_book: ranger_book
       header:
         area_text_custom:
@@ -4052,7 +4051,6 @@ display:
             label: ''
           plugin_id: standard
       displays:
-        dmv_book: dmv_book
         ranger_book: ranger_book
       header:
         area_text_custom:
@@ -7483,7 +7481,6 @@ display:
           entity_field: title
           plugin_id: standard
       displays:
-        dmv_book: dmv_book
         ranger_book: ranger_book
       header:
         area_text_custom:

@@ -1,0 +1,25 @@
+uuid: 47349ae5-151d-4350-b657-0819e2346afa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_adm_longitude
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_prj_adm_longitude
+field_name: field_prj_adm_longitude
+entity_type: node
+bundle: mutant_vehicles
+label: 'Placement Location GPS – Longitude'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

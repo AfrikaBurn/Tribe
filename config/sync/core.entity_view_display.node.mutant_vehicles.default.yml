@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.mutant_vehicles.field_admin_comments
     - field.field.node.mutant_vehicles.field_allow_support_camp
+    - field.field.node.mutant_vehicles.field_api_content_type
     - field.field.node.mutant_vehicles.field_arteria_checkin
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
@@ -22,6 +23,8 @@ dependencies:
     - field.field.node.mutant_vehicles.field_lineup_request
     - field.field.node.mutant_vehicles.field_mutant_drivers
     - field.field.node.mutant_vehicles.field_mv_amount_worthy
+    - field.field.node.mutant_vehicles.field_prj_adm_latitude
+    - field.field.node.mutant_vehicles.field_prj_adm_longitude
     - field.field.node.mutant_vehicles.field_prj_adm_registration
     - field.field.node.mutant_vehicles.field_prj_adm_review
     - field.field.node.mutant_vehicles.field_prj_adm_wrangler
@@ -150,6 +153,11 @@ targetEntityType: node
 bundle: mutant_vehicles
 mode: default
 content:
+  drivers:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_allow_support_camp:
     weight: 13
     label: above
@@ -186,6 +194,22 @@ content:
     third_party_settings: {  }
     type: number_integer
     region: top
+  field_prj_adm_latitude:
+    weight: 101
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_prj_adm_longitude:
+    weight: 102
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
   field_prj_gen_concept:
     type: colorbox
     weight: 0
@@ -293,8 +317,19 @@ content:
     region: top
     settings: {  }
     third_party_settings: {  }
+  registrant:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  support_camp:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_admin_comments: true
+  field_api_content_type: true
   field_collective: true
   field_form_mode: true
   field_grt_art_total: true

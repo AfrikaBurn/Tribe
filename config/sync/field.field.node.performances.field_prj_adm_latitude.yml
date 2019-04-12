@@ -1,0 +1,25 @@
+uuid: f82422ef-9af1-4f6b-96c2-c14d63ea7999
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_adm_latitude
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.performances.field_prj_adm_latitude
+field_name: field_prj_adm_latitude
+entity_type: node
+bundle: performances
+label: 'Placement Location GPS – Latitude'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
