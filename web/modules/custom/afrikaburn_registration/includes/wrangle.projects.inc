@@ -69,7 +69,9 @@ function _editable($id){
       ],
 
       'wrangle_wtf' => [
-        'field_prj_wtf_short_copy'
+        'field_prj_wtf_short_copy',
+        'field_prj_adm_latitude',
+        'field_prj_adm_longitude',
       ],
     ]
   )[$id];
@@ -96,6 +98,11 @@ function _merge(){
       'field_grt_awarded',
       'field_mv_amount_worthy',
     ],
+    'edit' => [
+      'field_prj_wtf_short_copy',
+      'field_prj_adm_latitude',
+      'field_prj_adm_longitude',
+    ],
   ];
 }
 
@@ -113,6 +120,8 @@ function _title($field){
     'field_prj_snd_level' => 'Sound level',
     'field_grt_awarded' => FALSE,
     'field_mv_amount_worthy' => FALSE,
+    'field_prj_adm_latitude' => 'LAT',
+    'field_prj_adm_longitude' => 'LONG',
     ])[$field];
 }
 
@@ -342,6 +351,9 @@ function ab_insert_wrangler_view_rows(&$variables, $comments, $merge){
     }
 
     if ($merge) {
+
+      $merged = [];
+
       // Merge admin columns
       foreach (_merge() as $column=>$fields) {
         foreach($fields as $field){
@@ -351,19 +363,21 @@ function ab_insert_wrangler_view_rows(&$variables, $comments, $merge){
             ];
             unset($row['columns'][$field]);
             $row['columns'][$column]['attributes'] =  new \Drupal\Core\Template\Attribute(['class' => 'column-' . $column]);
+
+            $merged[$column] = $field;
           }
         }
       }
 
       // Unset admin column headers
-      foreach (_merge() as $index=>$fields) {
+      foreach (_merge() as $column=>$fields) {
         foreach($fields as $field){
           unset($variables['header'][$field]);
         }
       }
 
       // Set merged column headings
-      foreach (_merge() as $column=>$field) {
+      foreach ($merged as $column=>$field) {
         $label = $column;
         $label[0] = strtoupper($label[0]);
         $variables['header'][$column] = [

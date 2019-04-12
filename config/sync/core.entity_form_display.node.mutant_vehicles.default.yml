@@ -23,6 +23,8 @@ dependencies:
     - field.field.node.mutant_vehicles.field_lineup_request
     - field.field.node.mutant_vehicles.field_mutant_drivers
     - field.field.node.mutant_vehicles.field_mv_amount_worthy
+    - field.field.node.mutant_vehicles.field_prj_adm_latitude
+    - field.field.node.mutant_vehicles.field_prj_adm_longitude
     - field.field.node.mutant_vehicles.field_prj_adm_registration
     - field.field.node.mutant_vehicles.field_prj_adm_review
     - field.field.node.mutant_vehicles.field_prj_adm_wrangler
@@ -445,6 +447,22 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
+  field_prj_adm_latitude:
+    weight: 140
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_prj_adm_longitude:
+    weight: 141
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_prj_adm_notes:
     type: string_textarea
