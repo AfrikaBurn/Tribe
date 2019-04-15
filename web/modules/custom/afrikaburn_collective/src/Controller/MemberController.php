@@ -412,7 +412,7 @@ class MemberController extends ControllerBase {
 
     foreach($emails as $email){
 
-      if (preg_match('/[^@]+@[^\.]+\..+/', $email)){
+      if (preg_match('/[^@]+@[^\.]+\..+/', $email) && !preg_match('/[^a-z0-9\.\+\-\_\@]/', $email)){
 
         $email = trim($email);
         $index = self::inviteMailIndex($email, $collective);
