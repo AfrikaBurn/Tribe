@@ -98,6 +98,11 @@ body .wrangler-book-view h1{
 /* ----- Summary ----- */
 
 
+.wrangler-book-view article.user-full-name{
+  flex-wrap: wrap;
+}
+
+
 .wrangler-book-view main > section{
   box-sizing: border-box;
   width: 50%;
