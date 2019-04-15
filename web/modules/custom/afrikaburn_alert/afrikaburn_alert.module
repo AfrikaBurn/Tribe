@@ -38,6 +38,7 @@ function afrikaburn_alert_theme() {
  */
 function afrikaburn_alert_node_insert($entity){
   module_load_include('inc', 'afrikaburn_alert', 'includes/alert');
+  module_load_include('inc', 'afrikaburn_notification', 'includes/collective');
 
   $bundle = $entity->bundle();
   if (in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
