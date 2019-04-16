@@ -78,10 +78,13 @@ bundles:
       enabled: false
       rta: 'no'
       rtf: 'no'
-      anonymizer: ''
+      anonymizer: number_anonymizer
       notes: ''
       bundle: user
       name: field_id_number
+      entity_type_id: user
+      relationship: 0
+      sars_filename: ''
     field_date_of_birth:
       enabled: false
       rta: 'no'
