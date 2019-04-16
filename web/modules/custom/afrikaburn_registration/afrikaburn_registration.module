@@ -227,17 +227,13 @@ function afrikaburn_registration_preprocess_views_view(&$variables){
     case 'wrangle_art':
     case 'wrangle_binnekring_events':
     case 'wrangle_mutant_vehicles':
-      if (
-        in_array($variables['display_id'],
-          ['dmv_book', 'ranger_book', 'guide']
-        )
-      ) {
+      if (in_array($variables['display_id'], ['dmv_book', 'ranger_book', 'guide'])) {
         $variables['view_array']['#attached']['library'][] = 'afrikaburn_registration/book';
       }
     case 'wrangle_theme_camps':
     case 'wrangle_wtf':
       $variables['#attached']['library'][] = 'afrikaburn_registration/wrangle';
-      if (in_array($variables['display_id'], ['bench', 'tasks'])){
+      if (in_array($variables['display_id'], ['bench', 'tasks', 'engineering'])){
         module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
         ab_prepare_wrangler_view($variables);
       }
@@ -263,6 +259,7 @@ function afrikaburn_registration_preprocess_views_view_table(&$variables) {
 
   $comments = TRUE;
   $merge = TRUE;
+  $editable = TRUE;
 
   switch ($variables['view']->id()){
     case 'wrangle_wtf':
@@ -272,14 +269,18 @@ function afrikaburn_registration_preprocess_views_view_table(&$variables) {
     case 'wrangle_mutant_vehicles':
     case 'wrangle_theme_camps':
 
-      if ($variables['view']->current_display == 'tasks') {
+      if (in_array($variables['view']->current_display, ['tasks', 'engineering'])) {
         $comments = FALSE;
         $merge = FALSE;
       }
 
-      if (in_array($variables['view']->current_display, ['bench', 'tasks'])){
+      if (in_array($variables['view']->current_display, ['engineering'])) {
+        $editable = FALSE;
+      }
+
+      if (in_array($variables['view']->current_display, ['bench', 'tasks', 'engineering'])){
         module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
-        ab_insert_wrangler_view_rows($variables, $comments, $merge);
+        ab_insert_wrangler_view_rows($variables, $comments, $merge, $editable);
       }
     break;
   }
@@ -398,6 +399,8 @@ function afrikaburn_registration_form_views_exposed_form_alter(&$form, $form_sta
       break;
 
       default:
+        if (isset($form['tent-size-op'])) $form['tent-size-op']['#prefix'] = '<div>Tent area is</div>';
+        $form['tent-size-op']['#title'] = '';
         $form['search']['#placeholder'] = 'project, person or collective';
         $form['status']['#options']['All'] = t('- any review state -');
         module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
