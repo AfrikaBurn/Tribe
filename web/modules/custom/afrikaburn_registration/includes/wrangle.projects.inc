@@ -298,20 +298,21 @@ function ab_prepare_wrangler_view(&$variables){
 /**
  * Inserts wrangle view fields
  */
-function ab_insert_wrangler_view_rows(&$variables, $comments, $merge){
+function ab_insert_wrangler_view_rows(&$variables, $comments, $merge, $editable){
 
   $view = $variables['view'];
 
-  // Insert forms
   foreach($variables['rows'] as $index=>&$row){
 
     $nid = $view->result[$index]->_entity->id();
     $row['nid'] = $nid;
 
     // Move form
-    foreach(_editable($view->id()) as $field){
-      if ($view->field[$field]){
-        $row['columns'][$field]['content'][0]['field_output'] = $view->editor[$index][$field];
+    if ($editable){
+      foreach(_editable($view->id()) as $field){
+        if ($view->field[$field]){
+          $row['columns'][$field]['content'][0]['field_output'] = $view->editor[$index][$field];
+        }
       }
     }
 
