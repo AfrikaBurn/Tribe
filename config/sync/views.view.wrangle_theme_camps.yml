@@ -6473,10 +6473,10 @@ display:
           group: 1
           exposed: true
           expose:
-            operator_id: field_stretch_tent_dimen_value_op
-            label: 'Min Surface area'
+            operator_id: tent-size-op
+            label: 'Surface area'
             description: ''
-            use_operator: false
+            use_operator: true
             operator: field_stretch_tent_dimen_value_op
             identifier: tent-size
             required: false
