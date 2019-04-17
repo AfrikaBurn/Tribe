@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.node.book
     - field.field.node.mutant_vehicles.field_admin_comments
     - field.field.node.mutant_vehicles.field_allow_support_camp
+    - field.field.node.mutant_vehicles.field_api_content_type
     - field.field.node.mutant_vehicles.field_arteria_checkin
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
@@ -23,6 +24,8 @@ dependencies:
     - field.field.node.mutant_vehicles.field_lineup_request
     - field.field.node.mutant_vehicles.field_mutant_drivers
     - field.field.node.mutant_vehicles.field_mv_amount_worthy
+    - field.field.node.mutant_vehicles.field_prj_adm_latitude
+    - field.field.node.mutant_vehicles.field_prj_adm_longitude
     - field.field.node.mutant_vehicles.field_prj_adm_registration
     - field.field.node.mutant_vehicles.field_prj_adm_review
     - field.field.node.mutant_vehicles.field_prj_adm_wrangler
@@ -140,26 +143,25 @@ third_party_settings:
       ds_content:
         - group_header
         - node_title
-        - field_prj_lnt_representative
         - field_prj_brn_person
         - field_prj_snd_person
-        - field_prj_adm_registration
-        - field_prj_lnt_handled
-        - field_prj_brn_plan
+        - field_prj_lnt_representative
         - group_sub_header
         - field_prj_trl_describe
-        - field_prj_trl_capasity
-        - field_prj_gen_concept
-        - field_prj_snd_description
-        - group_overview
+        - field_prj_adm_registration
+        - field_prj_brn_plan
+        - field_prj_lnt_handled
         - field_prj_brn_desc
+        - field_prj_snd_description
+        - field_prj_gen_concept
+        - field_prj_trl_capasity
+        - group_overview
         - field_prj_snd_specs
-        - field_prj_adm_review
         - group_details
+        - field_prj_adm_review
         - field_prj_gen_base
-        - group_trailer
-        - drivers
         - field_prj_snd_safety
+        - group_trailer
         - group_flames
         - group_night_driving
         - group_sound
@@ -169,20 +171,21 @@ third_party_settings:
         - group_flags
         - field_prj_saf_passengers
         - field_prj_trl_passengers
-        - registrant
         - field_prj_lgh_night
+        - registrant
         - field_prj_brn_burning
         - field_prj_gen_lead
-        - field_prj_gen_owner
         - field_prj_trl_area
-        - field_prj_gen_contact
-        - field_prj_trl_size
+        - field_mutant_drivers
+        - field_prj_gen_owner
         - field_prj_lgh_lighter
-        - field_collective
+        - field_prj_trl_size
+        - field_prj_gen_contact
         - field_prj_snd_sound
         - field_prj_lgh_description
         - field_prj_lgh_projection
         - field_prj_snd_level
+        - field_collective
         - support_camp
         - field_prj_oth_associated
         - field_prj_adm_wrangler
@@ -234,7 +237,7 @@ third_party_settings:
       label: Overview
     group_details:
       children:
-        - drivers
+        - field_mutant_drivers
       parent_name: ''
       weight: 3
       format_type: html_element
@@ -439,7 +442,7 @@ content:
     third_party_settings: {  }
   field_collective:
     type: entity_reference_label
-    weight: 76
+    weight: 77
     region: ds_content
     label: above
     settings:
@@ -447,6 +450,19 @@ content:
     third_party_settings:
       empty_fields:
         handler: ''
+  field_mutant_drivers:
+    type: entity_reference_entity_view
+    weight: 74
+    region: ds_content
+    label: hidden
+    settings:
+      view_mode: full_name
+      link: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ds_limit: ''
   field_prj_adm_registration:
     type: string
     weight: 1
@@ -543,7 +559,7 @@ content:
         ds_limit: ''
   field_prj_gen_contact:
     type: entity_reference_entity_view
-    weight: 75
+    weight: 76
     region: ds_content
     label: above
     settings:
@@ -565,7 +581,7 @@ content:
         handler: ''
   field_prj_gen_owner:
     type: entity_reference_entity_view
-    weight: 74
+    weight: 75
     region: ds_content
     label: above
     settings:
@@ -631,7 +647,7 @@ content:
         handler: ''
   field_prj_oth_associated:
     type: entity_reference_label
-    weight: 78
+    weight: 79
     region: ds_content
     label: above
     settings:
@@ -752,7 +768,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   support_camp:
-    weight: 77
+    weight: 78
     region: ds_content
     settings: {  }
     third_party_settings: {  }
@@ -774,8 +790,9 @@ hidden:
   field_grt_total: true
   field_grt_transport: true
   field_lineup_request: true
-  field_mutant_drivers: true
   field_mv_amount_worthy: true
+  field_prj_adm_latitude: true
+  field_prj_adm_longitude: true
   field_prj_brn_agree: true
   field_prj_cll_collaborate: true
   field_prj_cll_contact: true

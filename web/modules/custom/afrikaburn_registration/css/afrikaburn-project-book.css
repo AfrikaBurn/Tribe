@@ -221,8 +221,7 @@ body .wrangler-book-view h1{
 
 @media print {
 
-  form#views-exposed-form-wrangler-book-view-dmv-book,
-  form#views-exposed-form-wrangler-book-view-ranger-book,
+  .wrangler-book-view form,
   .content-header{
     display: none;
   }
