@@ -6,6 +6,10 @@ art.guide:
   title: Mighty Art Guide
   route_name: afrikaburn_registration.wrangle_art_guide
   base_route: afrikaburn_registration.wrangle_art
+art.archive:
+  title: Archive
+  route_name: afrikaburn_registration.wrangle_art.archive
+  base_route: afrikaburn_registration.wrangle_art
 
 theme_camps.bench:
   title: Workbench
@@ -19,6 +23,10 @@ theme_camps.engineering:
   title: Engineering
   route_name: afrikaburn_registration.wrangle_theme_camps-engineering
   base_route: afrikaburn_registration.wrangle_theme_camps
+theme_camps.archive:
+  title: Archive
+  route_name: afrikaburn_registration.wrangle_theme_camps.archive
+  base_route: afrikaburn_registration.wrangle_theme_camps
 
 mutant_vehicles.bench:
   title: Workbench
@@ -31,6 +39,10 @@ mutant_vehicles.dmv_book:
 mutant_vehicles.ranger_book:
   title: Book by Type
   route_name: afrikaburn_registration.wrangle_mutant_vehicles-ranger_book
+  base_route: afrikaburn_registration.wrangle_mutant_vehicles
+mutant_vehicles.archive:
+  title: Archive
+  route_name: afrikaburn_registration.wrangle_mutant_vehicles.archive
   base_route: afrikaburn_registration.wrangle_mutant_vehicles
 
 wrangle.wtf:
