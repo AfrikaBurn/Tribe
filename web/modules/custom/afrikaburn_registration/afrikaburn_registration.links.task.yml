@@ -11,6 +11,15 @@ art.archive:
   route_name: afrikaburn_registration.wrangle_art.archive
   base_route: afrikaburn_registration.wrangle_art
 
+performance.bench:
+  title: Workbench
+  route_name: afrikaburn_registration.wrangle_performances
+  base_route: afrikaburn_registration.wrangle_performances
+performance.archive:
+  title: Archive
+  route_name: afrikaburn_registration.wrangle_performances.archive
+  base_route: afrikaburn_registration.wrangle_performances
+
 theme_camps.bench:
   title: Workbench
   route_name: afrikaburn_registration.wrangle_theme_camps
