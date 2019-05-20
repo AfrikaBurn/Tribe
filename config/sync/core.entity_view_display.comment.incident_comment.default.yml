@@ -1,0 +1,43 @@
+uuid: d3ebb4c2-4c0e-4026-b693-7f2159ec9826
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.incident_comment
+    - field.field.comment.incident_comment.field_body
+  module:
+    - ds
+third_party_settings:
+  ds:
+    layout:
+      id: layout_onecol
+      library: layout_discovery/onecol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - comment_user
+        - field_body
+    fields:
+      comment_user:
+        plugin_id: comment_user
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          entity_view_mode: full_name
+id: comment.incident_comment.default
+targetEntityType: comment
+bundle: incident_comment
+mode: default
+content:
+  field_body:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden:
+  links: true

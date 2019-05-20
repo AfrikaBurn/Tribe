@@ -1,14 +1,15 @@
-uuid: d4665ac4-e6d2-4449-bc4b-e3ee577cfb7d
+uuid: 801b7de8-eca2-4e96-bfbc-9fd21093a2ac
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_form_mode.node.grant
+    - field.field.node.art.field_admin_comments
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_form_mode
+    - field.field.node.art.field_grant_expense_header
     - field.field.node.art.field_grt_art_apply
-    - field.field.node.art.field_grt_art_comment
     - field.field.node.art.field_grt_art_reason
     - field.field.node.art.field_grt_art_total
     - field.field.node.art.field_grt_breakdown
@@ -27,19 +28,14 @@ dependencies:
     - field.field.node.art.field_grt_short_desc
     - field.field.node.art.field_grt_specify
     - field.field.node.art.field_grt_tec_apply
-    - field.field.node.art.field_grt_tec_comment
     - field.field.node.art.field_grt_tec_reason
     - field.field.node.art.field_grt_tec_total
     - field.field.node.art.field_grt_tool
     - field.field.node.art.field_grt_transport
     - field.field.node.art.field_muncipal_district
-    - field.field.node.art.field_prj_adm_comms
-    - field.field.node.art.field_prj_adm_form_2
     - field.field.node.art.field_prj_adm_form_3
-    - field.field.node.art.field_prj_adm_form_grant
-    - field.field.node.art.field_prj_adm_form_wtf
-    - field.field.node.art.field_prj_adm_notes
-    - field.field.node.art.field_prj_adm_ranger_comment
+    - field.field.node.art.field_prj_adm_latitude
+    - field.field.node.art.field_prj_adm_longitude
     - field.field.node.art.field_prj_adm_review
     - field.field.node.art.field_prj_adm_wrangler
     - field.field.node.art.field_prj_brn_agree
@@ -56,7 +52,7 @@ dependencies:
     - field.field.node.art.field_prj_cll_collaborate
     - field.field.node.art.field_prj_cll_contact
     - field.field.node.art.field_prj_cll_description
-    - field.field.node.art.field_prj_cll_thread
+    - field.field.node.art.field_prj_cost
     - field.field.node.art.field_prj_gen_bio
     - field.field.node.art.field_prj_gen_concept
     - field.field.node.art.field_prj_gen_contact
@@ -71,6 +67,7 @@ dependencies:
     - field.field.node.art.field_prj_gen_location
     - field.field.node.art.field_prj_gen_manager
     - field.field.node.art.field_prj_gen_story
+    - field.field.node.art.field_prj_grant_expenses
     - field.field.node.art.field_prj_lgh_agree
     - field.field.node.art.field_prj_lgh_description
     - field.field.node.art.field_prj_lgh_f1
@@ -79,13 +76,11 @@ dependencies:
     - field.field.node.art.field_prj_lgh_policy
     - field.field.node.art.field_prj_lgh_power
     - field.field.node.art.field_prj_lgh_projection
-    - field.field.node.art.field_prj_lnt_comments
     - field.field.node.art.field_prj_lnt_duration
     - field.field.node.art.field_prj_lnt_handled
     - field.field.node.art.field_prj_lnt_helpers
     - field.field.node.art.field_prj_lnt_historic
     - field.field.node.art.field_prj_lnt_images
-    - field.field.node.art.field_prj_lnt_publish
     - field.field.node.art.field_prj_lnt_representative
     - field.field.node.art.field_prj_lnt_score
     - field.field.node.art.field_prj_lnt_signoff
@@ -101,9 +96,7 @@ dependencies:
     - field.field.node.art.field_prj_prp_erection
     - field.field.node.art.field_prj_prp_start
     - field.field.node.art.field_prj_prp_transport
-    - field.field.node.art.field_prj_saf_comment
     - field.field.node.art.field_prj_snd_agree
-    - field.field.node.art.field_prj_snd_comment
     - field.field.node.art.field_prj_snd_description
     - field.field.node.art.field_prj_snd_f1
     - field.field.node.art.field_prj_snd_level
@@ -120,13 +113,11 @@ dependencies:
     - field.field.node.art.field_prj_stg_contact
     - field.field.node.art.field_prj_stg_description
     - field.field.node.art.field_prj_stg_stage
-    - field.field.node.art.field_prj_stg_tread
     - field.field.node.art.field_prj_stg_type
     - field.field.node.art.field_prj_sup_address
     - field.field.node.art.field_prj_sup_details
     - field.field.node.art.field_prj_sup_details_view
     - field.field.node.art.field_prj_sup_h1
-    - field.field.node.art.field_prj_total_cost
     - field.field.node.art.field_prj_wtf_categories
     - field.field.node.art.field_prj_wtf_image
     - field.field.node.art.field_prj_wtf_long
@@ -135,75 +126,121 @@ dependencies:
     - field.field.node.art.field_prj_wtf_short
     - field.field.node.art.field_prj_wtf_short_copy
     - field.field.node.art.field_prj_wtf_website
-    - field.field.node.art.field_sup_comment
+    - field.field.node.art.field_prjr_complete
     - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
     - field.field.node.art.field_vp_ea
+    - field.field.node.art.field_year_cycle
     - node.type.art
   module:
-    - computed_field
-    - content_moderation
     - field_group
+    - file
     - markup
-    - paragraphs
-    - path
 third_party_settings:
   field_group:
     group_project_registration:
       children:
         - group_grant
+        - group_expense_totals_by_type
+        - group_summary
+        - group_shortfall
+        - group_other
       parent_name: ''
-      weight: 5
-      format_type: accordion
+      weight: 1
+      format_type: tabs
       format_settings:
         label: 'Project Registration'
-        direction: vertical
+        direction: horizontal
         id: ''
-        classes: js-wizard
+        classes: ''
       label: 'Project Registration'
     group_grant:
       children:
-        - title
         - field_grt_f1
-        - field_grt_breakdown
-        - field_grt_contribution
-        - field_this_is_the_amount_of_mone
-        - field_grt_art_total
-        - field_grt_short
-        - field_grt_short_desc
-        - field_grt_more
       parent_name: group_project_registration
       weight: 6
-      format_type: accordion_item
+      format_type: tab
+      format_settings:
+        label: Intro
+        formatter: open
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Intro
+    group_expense_totals_by_type:
+      children:
+        - field_grant_expense_header
+        - field_prj_grant_expenses
+      parent_name: group_project_registration
+      weight: 7
+      format_type: tab
+      format_settings:
+        label: Expenses
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Expenses
+    group_administrative:
+      children:
+        - field_prjr_complete
+        - field_prj_adm_review
+        - field_prj_adm_wrangler
+        - field_collective
+        - field_form_mode
+      parent_name: ''
+      weight: 0
+      format_type: details
       format_settings:
         id: ''
         classes: ''
-        formatter: open
+        open: false
         required_fields: true
-        description: ''
-      label: Grant
-    group_expense_totals_by_type:
+      label: Administrative
+    group_shortfall:
       children:
-        - field_prj_total_cost
-        - field_grt_lighting
-        - field_grt_location
-        - field_grt_materials
-        - field_grt_pyrotechnics
-        - field_grt_services
-        - field_grt_specify
-        - field_grt_tool
-        - field_grt_total
-        - field_grt_transport
-      parent_name: ''
-      weight: 6
-      format_type: fieldset
+        - field_grt_short
+        - field_grt_short_desc
+        - field_this_is_the_amount_of_mone
+      parent_name: group_project_registration
+      weight: 9
+      format_type: tab
       format_settings:
-        label: 'Expense totals by type'
+        id: ''
+        classes: ''
+        formatter: closed
         description: ''
         required_fields: true
+      label: Shortfall
+    group_other:
+      children:
+        - field_grt_more
+      parent_name: group_project_registration
+      weight: 10
+      format_type: tab
+      format_settings:
         id: ''
-        classes: hidden
-      label: 'Expense totals by type'
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Other
+    group_summary:
+      children:
+        - field_prj_cost
+        - field_grt_art_total
+      parent_name: group_project_registration
+      weight: 8
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Summary
 _core:
   default_config_hash: ehnjrE-MS25SZlH5syS8NpyAb0kWLGl88OywWqUiYwM
 id: node.art.grant
@@ -211,46 +248,36 @@ targetEntityType: node
 bundle: art
 mode: grant
 content:
-  created:
-    type: datetime_timestamp
-    weight: 1
+  field_collective:
+    type: entity_reference_autocomplete
+    weight: 3
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_form_mode:
     type: string_textfield
-    weight: 0
+    weight: 4
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_grant_expense_header:
+    type: markup
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_grt_art_total:
-    weight: 5
+    type: number
+    weight: 99
+    region: content
     settings:
       placeholder: ''
     third_party_settings: {  }
-    type: number
-    region: content
-  field_grt_breakdown:
-    type: entity_reference_paragraphs
-    weight: 2
-    region: content
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
-  field_grt_contribution:
-    weight: 3
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
   field_grt_f1:
     weight: 1
     settings: {  }
@@ -258,7 +285,7 @@ content:
     type: markup
     region: content
   field_grt_more:
-    weight: 9
+    weight: 7
     settings:
       rows: 5
       placeholder: ''
@@ -266,13 +293,13 @@ content:
     type: string_textarea
     region: content
   field_grt_short:
-    weight: 6
+    weight: 4
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_grt_short_desc:
-    weight: 7
+    weight: 5
     settings:
       rows: 5
       placeholder: ''
@@ -285,12 +312,38 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_adm_review:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_prj_adm_wrangler:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_prj_brn_head:
     weight: 49
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_cost:
+    type: number
+    weight: 0
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_grant_expenses:
+    type: file_generic
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
   field_prj_hed_project:
     weight: 6
     settings: {  }
@@ -357,20 +410,20 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
-  field_prj_total_cost:
-    type: computed_number_widget
-    weight: 0
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_prj_wtf_area:
     weight: 67
     settings: {  }
     third_party_settings: {  }
     type: markup
     region: content
+  field_prjr_complete:
+    type: options_buttons
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_this_is_the_amount_of_mone:
-    weight: 4
+    weight: 6
     settings:
       rows: 5
       placeholder: ''
@@ -383,59 +436,15 @@ content:
     settings: {  }
     region: content
     third_party_settings: {  }
-  path:
-    type: path
-    weight: 4
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 2
-    region: content
-    third_party_settings: {  }
-  status:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 121
-    third_party_settings: {  }
-    region: content
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 3
-    region: content
-    third_party_settings: {  }
-  title:
-    type: string_textfield
-    weight: 0
-    region: content
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 0
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    region: content
-    third_party_settings: {  }
-  url_redirects:
-    weight: 50
-    region: content
 hidden:
+  created: true
+  field_admin_comments: true
   field_col_members: true
-  field_collective: true
   field_grt_art_apply: true
   field_grt_art_comment: true
   field_grt_art_reason: true
+  field_grt_breakdown: true
+  field_grt_contribution: true
   field_grt_health: true
   field_grt_lighting: true
   field_grt_location: true
@@ -461,8 +470,6 @@ hidden:
   field_prj_adm_longitude: true
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
-  field_prj_adm_review: true
-  field_prj_adm_wrangler: true
   field_prj_brn_agree: true
   field_prj_brn_burning: true
   field_prj_brn_desc: true
@@ -558,3 +565,11 @@ hidden:
   field_sup_comment: true
   field_sup_review: true
   field_vp_ea: true
+  field_year_cycle: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  title: true
+  uid: true
+  url_redirects: true

@@ -1,0 +1,29 @@
+uuid: 4887b763-75fe-4da1-bc99-541a57e87b76
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_est_camp_population
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.theme_camps.field_prj_est_camp_population
+field_name: field_prj_est_camp_population
+entity_type: node
+bundle: theme_camps
+label: 'How many people do you think your camp is going to accommodate?'
+description: 'If you don''t know exactly, a guestimate is fine.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

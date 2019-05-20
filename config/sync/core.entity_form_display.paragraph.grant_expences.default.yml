@@ -11,9 +11,6 @@ dependencies:
     - field.field.paragraph.grant_expences.field_price_total_
     - field.field.paragraph.grant_expences.field_type_of_expence
     - paragraphs.paragraphs_type.grant_expences
-  module:
-    - conditional_fields
-    - content_moderation
 id: paragraph.grant_expences.default
 targetEntityType: paragraph
 bundle: grant_expences
@@ -86,6 +83,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  moderation_state:
+    weight: 101
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
 hidden:
   created: true

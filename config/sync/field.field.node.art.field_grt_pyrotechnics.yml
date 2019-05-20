@@ -17,11 +17,9 @@ entity_type: node
 bundle: art
 label: Pyrotechnics
 description: ''
-required: false
+required: true
 translatable: false
-default_value:
-  -
-    value: -1
+default_value: {  }
 default_value_callback: ''
 settings:
   min: 0

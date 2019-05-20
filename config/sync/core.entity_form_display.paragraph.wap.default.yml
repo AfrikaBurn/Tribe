@@ -1,0 +1,42 @@
+uuid: 71ea3750-4c63-465f-9157-dd9e504d201b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.wap.field_estimated_date_of_arrival
+    - field.field.paragraph.wap.field_team_member
+    - field.field.paragraph.wap.field_year_cycle
+    - paragraphs.paragraphs_type.wap
+  module:
+    - computed_field
+    - datetime
+id: paragraph.wap.default
+targetEntityType: paragraph
+bundle: wap
+mode: default
+content:
+  field_estimated_date_of_arrival:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_team_member:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_year_cycle:
+    type: computed_number_widget
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -1,0 +1,240 @@
+@charset "utf-8";
+
+
+/* ----- Pages ----- */
+
+
+.wrangler-book-view h1.page,
+.wrangler-index,
+.wrangler-book-view .book-page{
+  clear: both;
+  width: 210mm;
+  min-height: 280mm;
+  box-sizing: border-box;
+  page-break-after: always;
+  page-break-inside: avoid;
+  padding: 5mm;
+  border: 1px solid #bbb;
+  margin: 5mm;
+}
+
+.wrangler-book-view h1.page{
+  padding-top: 103mm;
+  font-size: 1.25cm;
+  line-height: 1.5cm;
+}
+
+.wrangler-index table thead th{
+  color: #000;
+}
+
+.wrangler-book-view .wrangler-index h2{
+  margin: 0.5cm 0;
+}
+
+.wrangler-book-view .book-page{
+  font-size: 0.4cm;
+  line-height: 0.6cm;
+}
+
+.wrangler-book-view .book-page:last-child{
+  page-break-after: avoid;
+}
+
+.wrangler-book-view main{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+
+/* ----- Title ----- */
+
+
+body .wrangler-book-view .wrangler-index h1{
+  margin-bottom: 5mm;
+}
+
+body .wrangler-book-view h1,
+body .wrangler-book-view h2{
+  color: #333;
+  font-weight: bolder;
+  text-transform: uppercase;
+  display: flex;
+  justify-content: space-between;
+}
+body .wrangler-book-view h1{
+  font-size: 1cm;
+  margin: 0;
+}
+.wrangler-book-view h2{
+  margin: 0 0 1cm 0;
+}
+
+.wrangler-book-view h1 .field--name-field-prj-adm-registration{
+  text-align: right;
+}
+
+
+/* ----- Images ----- */
+
+
+.wrangler-book-view main .field--name-field-prj-gen-concept{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.wrangler-book-view main .field--name-field-prj-gen-concept .field__item{
+  box-sizing: border-box;
+  padding: 0 2mm 2mm 0;
+  width: 50%;
+}
+
+.wrangler-book-view main .field--name-field-prj-gen-concept .field__item:first-child{
+  width: 100%;
+}
+
+
+/* ----- Summary ----- */
+
+
+.wrangler-book-view article.user-full-name{
+  flex-wrap: wrap;
+}
+
+
+.wrangler-book-view main > section{
+  box-sizing: border-box;
+  width: 50%;
+}
+
+.wrangler-book-view main > section img{
+  display: block;
+  border-radius: 0.125cm;
+}
+
+.wrangler-book-view main > section.details{
+  width: 100%;
+}
+
+.wrangler-book-view main > section.inline-fields{
+  padding-left: 0.5cm;
+}
+
+.wrangler-book-view main > section.inline-fields > .field{
+  display: flex;
+}
+
+.wrangler-book-view main > section.inline-fields .field > div{
+  justify-content: space-between;
+  width: 40%;
+}
+
+.wrangler-book-view main > section.inline-fields .field > div.field__item{
+  width: 60%;
+}
+
+/* --- Flags --- */
+
+.wrangler-book-view main section.inline-fields .flags{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.wrangler-book-view main section.inline-fields .flags .field{
+  width: 50%;
+  text-transform: uppercase;
+  font-weight: bolder;
+}
+
+.wrangler-book-view main section.inline-fields .flags .field:nth-child(2n+2){
+  text-align: right;
+}
+
+/* --- Fields --- */
+
+.wrangler-book-view .user-full-name img{
+  display: none;
+}
+
+.wrangler-book-view main .user-full-name .first-name{
+  margin: 0;
+}
+
+
+/* ----- Sections ----- */
+
+
+.wrangler-book-view section{
+  page-break-inside: avoid;
+}
+
+.wrangler-book-view section.responsible article,
+.wrangler-book-view .views-field-rendered-entity .field-content > section h3{
+  border-bottom: 0.5mm solid #555;
+  margin: 1cm 0 5mm;
+}
+
+.wrangler-book-view section.responsible{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.wrangler-book-view section.responsible > *{
+  flex-basis: 100%;
+}
+
+.wrangler-book-view section.responsible h3,
+.wrangler-book-view section.responsible .field--name-field-prj-trl-size,
+.wrangler-book-view section.responsible .field--type-entity-reference{
+  flex-basis: 50%;
+}
+
+.wrangler-book-view .field--name-field-prj-trl-size,
+.wrangler-book-view section.responsible article{
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.wrangler-book-view .view-wrangle-mutant-drivers th{
+  height: auto;
+  color: #000;
+}
+
+.wrangler-index th{
+  width: 33%;
+}
+
+/* --- Spacing --- */
+
+.wrangler-book-view main section.inline-fields .flags,
+.wrangler-book-view main .field--name-field-prj-trl-passengers,
+.wrangler-book-view main .field--name-field-prj-gen-contact{
+  margin-bottom: 7.5mm;
+}
+
+
+/* ----- Print Overrides ----- */
+
+
+@media print {
+
+  .wrangler-book-view form,
+  .content-header{
+    display: none;
+  }
+
+  a{
+    color: #000 !important;;
+    text-decoration: none !important;
+  }
+
+  .wrangler-book-view h1.page,
+  .wrangler-index,
+  .wrangler-book-view .book-page{
+    border: none;
+    margin: 0;
+  }
+}

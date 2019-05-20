@@ -1,0 +1,34 @@
+@charset "utf-8";
+
+
+form details.field-group-details{
+  border: 1px solid #f26c55;
+  border-radius: 10px;
+  margin: 2em 0;
+}
+
+form details summary{
+  padding: 1em 2em;
+  cursor: pointer;
+  color: #f26c55;
+  outline: none;
+}
+
+form .details-wrapper{
+  padding: 1em 2em;
+}
+
+#edit-field-prj-stg-type .multiple-fields-remove-button,
+#edit-field-mutant-drivers .multiple-fields-remove-button{
+  display: none;
+}
+
+.field--name-field-prjr-complete{
+  float: right;
+}
+
+.field--name-field-prj-grant-expenses iframe{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}

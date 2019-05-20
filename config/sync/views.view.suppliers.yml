@@ -1,6 +1,6 @@
 uuid: 92ae0b00-39f2-442e-adec-0a5c0572ad7a
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.wrangler_supplier

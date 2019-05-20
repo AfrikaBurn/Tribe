@@ -1,0 +1,46 @@
+uuid: e84a810a-7a05-4101-9310-68c42dc2d18e
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_prjr_complete
+field_name: field_prjr_complete
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: form_1
+      label: 'Form 1'
+    -
+      value: form_2
+      label: 'Form 2'
+    -
+      value: form_3
+      label: 'Form 3'
+    -
+      value: grant
+      label: 'Grant application'
+    -
+      value: supplier
+      label: 'Supplier registration'
+    -
+      value: support_camp
+      label: 'Support camp registration'
+    -
+      value: waps
+      label: 'Work access and Vehicle passes'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

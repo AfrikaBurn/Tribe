@@ -1,0 +1,40 @@
+uuid: fb2e8d6f-e394-4b90-80c3-e28c529a0bdf
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.incident_type
+  module:
+    - collapsiblock
+    - php
+    - system
+    - views
+  theme:
+    - adminimal_theme
+third_party_settings:
+  collapsiblock:
+    collapse_action: '4'
+id: views_block__incident_type_top
+theme: adminimal_theme
+region: content
+weight: -1
+provider: null
+plugin: 'views_block:incident_type-top'
+settings:
+  id: 'views_block:incident_type-top'
+  label: 'Log an incident'
+  provider: views
+  label_display: visible
+  views_label: 'Log an incident'
+  items_per_page: none
+visibility:
+  php:
+    id: php
+    php: '<?php return \Drupal::request()->get(''types'') == null; ?>'
+    negate: false
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: /wrangle/incidents
+    negate: false
+    context_mapping: {  }

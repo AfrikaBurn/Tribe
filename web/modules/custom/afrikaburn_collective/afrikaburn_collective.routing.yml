@@ -1,0 +1,120 @@
+afrikaburn_collective.invite:
+  path: '/collective/{cid}/invite'
+  defaults:
+    _controller: '\Drupal\afrikaburn_collective\Controller\MemberController::invite'
+    _title: 'Invite member'
+  requirements:
+    _role: authenticated
+    cid: '^[0-9]+'
+    email: '^[a-zA-Z0-9_\.\@]+'
+    _is_collective_admin: 'TRUE'
+
+afrikaburn_collective.accept_invite:
+  path: '/collective/{cid}/accept'
+  defaults:
+    _controller: '\Drupal\afrikaburn_collective\Controller\MemberController::accept'
+    _title: 'Accept Invitation'
+  requirements:
+    _role: authenticated
+    cid: '^[0-9]+'
+
+afrikaburn_collective.ignore_invite:
+  path: '/collective/{cid}/ignore'
+  defaults:
+    _controller: '\Drupal\afrikaburn_collective\Controller\MemberController::ignore'
+    _title: 'Ignore Invitation'
+  requirements:
+    _role: authenticated
+    cid: '^[0-9]+'
+
+afrikaburn_collective.join:
+  path: '/collective/{cid}/join'
+  defaults:
+    _controller: '\Drupal\afrikaburn_collective\Controller\MemberController::join'
+    _title: 'Join collective'
+  requirements:
+    _role: authenticated
+    cid: '^[0-9]+'
+
+afrikaburn_collective.leave:
+  path: '/collective/{cid}/leave'
+  defaults:
+    _controller: '\Drupal\afrikaburn_collective\Controller\MemberController::leave'
+    _title: 'Join collective'
+  requirements:
+    _role: authenticated
+    cid: '^[0-9]+'
+
+afrikaburn_collective.approve:
+  path: '/collective/{cid}/approve/{uid}'
+  defaults:
+    _controller: '\Drupal\afrikaburn_collective\Controller\MemberController::approve'
+    _title: 'Approve Member'
+  requirements:
+    _role: authenticated
+    cid: '^[0-9]+'
+    uid: '^[0-9]+'
+    _is_collective_admin: 'TRUE'
+
+afrikaburn_collective.reject:
+  path: '/collective/{cid}/reject/{uid}'
+  defaults:
+    _controller: '\Drupal\afrikaburn_collective\Controller\MemberController::reject'
+    _title: 'Approve Member'
+  requirements:
+    _role: authenticated
+    cid: '^[0-9]+'
+    uid: '^[0-9]+'
+    _is_collective_admin: 'TRUE'
+
+afrikaburn_collective.boot:
+  path: '/collective/{cid}/boot/{uid}'
+  defaults:
+    _controller: '\Drupal\afrikaburn_collective\Controller\MemberController::boot'
+    _title: 'Boot Member'
+  requirements:
+    _role: authenticated
+    cid: '^[0-9]+'
+    uid: '^[0-9]+'
+    _is_collective_admin: 'TRUE'
+
+afrikaburn_collective.admin:
+  path: '/collective/{cid}/admin/{uid}'
+  defaults:
+    _controller: '\Drupal\afrikaburn_collective\Controller\MemberController::admin'
+    _title: 'Promote Member'
+  requirements:
+    _role: authenticated
+    cid: '^[0-9]+'
+    uid: '^[0-9]+'
+    _is_collective_admin: 'TRUE'
+
+afrikaburn_collective.strip:
+  path: '/collective/{cid}/strip/{uid}'
+  defaults:
+    _controller: '\Drupal\afrikaburn_collective\Controller\MemberController::strip'
+    _title: 'Strip Admin'
+  requirements:
+    _role: authenticated
+    cid: '^[0-9]+'
+    uid: '^[0-9]+'
+    _is_collective_admin: 'TRUE'
+
+afrikaburn_collective.wrangle_collectives:
+  path: '/wrangle/people/collectives'
+  options:
+    _admin_route: TRUE
+
+afrikaburn_collective.update:
+  path: 'admin/collectives/update'
+  defaults:
+    _controller: '\Drupal\afrikaburn_collective\Controller\UpdateController::update'
+  requirements:
+    _role: administrator
+
+afrikaburn_collective.resave:
+  path: 'admin/collectives/update'
+  defaults:
+    _controller: '\Drupal\afrikaburn_collective\Controller\UpdateController::resave'
+  requirements:
+    _role: administrator

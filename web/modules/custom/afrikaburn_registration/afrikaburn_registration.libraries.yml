@@ -1,7 +1,34 @@
-afrikaburn_registration:
+registration:
   version: 0.0
-  js:
-    js/afrikaburn-registration.js: {}
   css:
     theme:
-      css/afrikaburn-registration.css: {}
+      css/afrikaburn-project-registration.css: {}
+  js:
+    js/afrikaburn-project-registration.js: {}
+block:
+  version: 0.0
+  css:
+    theme:
+      css/afrikaburn-project-block.css: {}
+print:
+  version: 0.0
+  css:
+    theme:
+      css/afrikaburn-project-print.css: {}
+book:
+  version: 0.0
+  css:
+    theme:
+      css/afrikaburn-project-book.css: {}
+settings:
+  version: 0.0
+  css:
+    theme:
+      css/afrikaburn-project-settings.css: {}
+wrangle:
+  version: 0.0
+  css:
+    theme:
+      css/afrikaburn-project-wrangle.css: {}
+  js:
+    js/afrikaburn-project-registration-wrangle.js: {}

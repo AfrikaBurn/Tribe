@@ -5,41 +5,6 @@
  * Contains Afrikaburn Shared module.
  */
 
-use \Drupal\Core\Form\FormStateInterface;
-use \Drupal\Core\Entity\EntityInterface;
-use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
-use \Drupal\user\Entity\User;
-
-/**
- * Implements hook_form_alter().
- */
-function afrikaburn_shared_form_alter(&$form, $form_state, $form_id) {
-
-  // Redirect to front page after password reset
-  if ($form_id == 'user_form') {
-    if (preg_match('/user\/reset/', \Drupal::request()->server->get('HTTP_REFERER'))) {
-      $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
-      $response->send();
-    }
-  }
-
-  // On non-admin pages
-  if (!\Drupal::service('router.admin_context')->isAdminRoute(\Drupal::routeMatch()->getRouteObject())) {
-    module_load_include('inc', 'afrikaburn_shared', 'includes/form');
-
-    // Get Registration and Collective if applicable
-    list($registration, $registration_title) = _get_registration();
-    list($collective, $collective_title) = _get_collective($registration);
-
-    // Set titles and defaults
-    static $user;
-    $user = isset($user) ? $user : User::load(\Drupal::currentUser()->id());
-    _set_registration_form_title($form, $form_id, $collective_title, $registration_title);
-    _set_registration_form_defaults($form, $form_state, $form_id, $user, $collective);
-    _set_collective_defaults($form, $form_id, $user);
-  }
-
-}
 
 /**
  * Implements hook_user_login().
@@ -53,24 +18,55 @@ function afrikaburn_shared_user_login($account){
 }
 
 /**
- * Implements hook_views_pre_view().
- * Hooked to set collective on drop down view selects
- */
-function afrikaburn_shared_views_pre_view(\Drupal\views\ViewExecutable $view, $display_id, &$args){
-  if ($view->id() == 'collective_members' && $display_id == 'entity_reference_1'){
-    $node = \Drupal::routeMatch()->getParameter('node');
-    if ($node && $node->field_collective){
-      $args[0] = $node->field_collective->first()->getValue()['target_id'];
-    } else if ($cid = \Drupal::request()->query->get('field_collective')) {
-      $args[0] = $cid;
-    }
-  }
-}
-
-/**
  * Attach shared script
  */
 function afrikaburn_shared_page_attachments(array &$page) {
-  $page['#attached']['library'][] = 'afrikaburn_shared/afrikaburn_shared';
-  $page['#attached']['library'][] = 'afrikaburn_shared/afrikaburn_wizard';
+  $page['#attached']['library'][] = 'afrikaburn_shared/shared';
+  $page['#attached']['library'][] = 'afrikaburn_shared/wizard';
+  $page['#attached']['library'][] = 'afrikaburn_shared/wrangle';
+  $page['#attached']['drupalSettings']['widthBreakpoint'] = 1;
+}
+
+/**
+ * Computes event year cycle
+ */
+function computed_field_field_year_cycle_compute($entity_type_manager, $entity, $fields, $delta){
+
+  $next = strtotime(Drupal\Core\Site\Settings::get('afrikaburn.cycle')['end']);
+  $year_end = strtotime('31 dec ' . date('Y'));
+  $offset = ($year_end - $next) / 86400;
+  $year = date('Y', strtotime('+' . $offset .' days', $entity->get('created')->value));
+
+  return $year;
+}
+
+function computed_field_field_api_content_type_compute($entity_type_manager, $entity, $fields, $delta){
+  
+  echo "<script>console.log( 'Debug Objects: " . $entity->bundle() . "' );</script> fuckerty fuck fuck dgfdsg     ";
+  
+  switch ($entity->bundle()) {
+    case "theme_camps":
+      if ($entity->field_event_services->value == TRUE) {
+        $value="Event Service";
+      } else {
+        $value="Theme Camp";
+      } 
+      break;
+    case "art":
+      $value="Artwork";
+      break;
+    case "collective":
+      $value="Collective";
+      break;
+    case "performances":
+      $value="Binnekring Event";
+      break;
+    case "mutant_vehicles":
+      $value="Mutant Vehicle";
+      break;
+    default:
+      $value="not set" + implode( ", ", $entity->bundle());
+      break;
+  }
+  return $value;
 }

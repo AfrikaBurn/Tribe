@@ -1,6 +1,6 @@
 uuid: 02e798ea-a7f0-41af-933c-1aa7cea92c6f
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.paragraph.wrangler_overview

@@ -12,7 +12,7 @@ dependencies:
 id: afrikaburn_main_menu
 theme: afrikaburn
 region: main_menu
-weight: -19
+weight: -20
 provider: null
 plugin: 'system_menu_block:main'
 settings:

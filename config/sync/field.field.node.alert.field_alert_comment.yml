@@ -1,0 +1,34 @@
+uuid: bb45b1e9-55f6-49dc-a340-53e325ab1434
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.comment
+    - field.storage.node.field_alert_comment
+    - node.type.alert
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.alert.field_alert_comment
+field_name: field_alert_comment
+entity_type: node
+bundle: alert
+label: Comment
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:comment'
+  handler_settings:
+    target_bundles:
+      comment: comment
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

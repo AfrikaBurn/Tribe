@@ -13,6 +13,7 @@
 
 # Ignore Drupal's file directory
 /web/sites/*/files/
+/web/sites/*/services.yml
 
 # Ignore SimpleTest multi-site environment.
 /web/sites/simpletest
@@ -25,6 +26,15 @@
 
 # Tribe specific
 /config/sync/smtp.settings.yml
-/config/sync/afrikaburn_emails.settings.yml
+/config/sync/system.performance.yml
+/config/sync/afrikaburn_notification.address_settings.yml
 /config/sync/swiftmailer.transport.yml
- 
+/config/sync/afrikaburn_registration.settings.yml
+/config/sync/afrikaburn_shared.settings.yml
+/config/sync/cloudflare.settings.yml
+/config/sync/purge.logger_channels
+/config/sync/purge.plugins
+
+
+/private/
+/private/.htaccess

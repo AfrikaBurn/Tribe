@@ -1,0 +1,7 @@
+status: '1'
+pattern: '[node:author] [node:field_alert_action] [node:field_alert_subject] in [node:field_alert_collective] '
+php: 1
+escape: 0
+dependencies:
+  config:
+    - node.type.alert

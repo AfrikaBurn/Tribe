@@ -1,0 +1,136 @@
+@charset "utf-8";
+
+.view-id-alerts{
+  margin-bottom: 50px;
+}
+
+.alert header img{
+  border-radius: 30px;
+}
+
+.alert main img{
+  border-radius: 5px;
+  padding: 1px;
+}
+
+.alert{
+  margin: 1em 0;
+  background: #370c13;
+  border-radius: 10px;
+  padding: 10px;
+  position: relative;
+}
+
+.alert header {
+  display: flex;
+  align-items: center;
+}
+
+.alert header img{
+  margin: 0 5px 0 0;
+}
+
+.alert header div{
+  margin: 0 0 0 5px;
+}
+
+.alert .action-unflag{
+  visibility: hidden;
+}
+
+.alert:hover .flag{
+  visibility: visible;
+}
+
+.alert main{
+  margin: 0 0 20px 60px;
+}
+
+.alert div.images::after,
+.alert main::after{
+  display: block;
+  content: ".";
+  height: 0;
+  clear: both;
+  color: transparent;
+}
+
+.alert footer{
+  text-align: right;
+}
+
+.alert div.images{
+  width: 104px;
+  float: left;
+  margin-right: 10px;
+}
+
+.alert div.images img{
+  float: left;
+}
+
+.flag-bookmark a,
+.flag-unread a,
+.flag-mute a{
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: transparent !important;
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+}
+
+.flag .ajax-progress{
+  display: none;
+}
+
+.alert .flags{
+  display: flex;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.alert .flag,
+.alert .flag-waiting{
+  visibility: hidden;
+}
+.alert .flag:hover{
+  visibility: visible;
+}
+
+.flag-mute{
+  text-align: right;
+}
+.flag-mute a{
+  margin-bottom: 10px;
+}
+.flag-mute.action-unflag a:hover,
+.flag-mute.action-flag a{
+  background-image: url('../images/mute.svg');
+}
+.flag-mute.action-flag a:hover,
+.flag-mute.action-unflag a{
+  background-image: url('../images/unmute.svg');
+}
+
+.alert .flag-unread a{
+  background-image: url('../images/close.svg');
+}
+.flag-unread.action-flag a{
+  background-image: url('../images/undo.svg');
+}
+
+.alert .flag-bookmark a{
+  background-image: url('../images/unbookmark.svg');
+}
+.alert .flag-bookmark.action-unflag{
+  visibility: visible;
+}
+.alert .flag-bookmark.action-unflag a{
+  background-image: url('../images/bookmark.svg');
+}
+.alert .flag-bookmark.action-unflag a:hover{
+  background-image: url('../images/unbookmark.svg');
+}

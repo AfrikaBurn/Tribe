@@ -1,0 +1,34 @@
+afrikaburn_crew.update:
+  path: '/crew-application/update/{wid}/{sid}'
+  defaults:
+    _controller: '\Drupal\afrikaburn_crew\Controller\CrewController::update'
+  requirements:
+    cid: '^[0-9]+'
+    _role: sanctuary_wrangler + dpw
+
+afrikaburn_crew.wrangle.sanctuary:
+  path: '/wrangle/crew/sanctuary'
+  options:
+    _admin_route: TRUE
+afrikaburn_crew.wrangle.sanctuary-2019:
+  path: '/wrangle/crew/sanctuary/2019'
+  options:
+    _admin_route: TRUE
+afrikaburn_crew.wrangle.sanctuary-2018:
+  path: '/wrangle/crew/sanctuary/2018'
+  options:
+    _admin_route: TRUE
+afrikaburn_crew.wrangle.dpw:
+  path: '/wrangle/crew/dpw'
+  options:
+    _admin_route: TRUE
+
+afrikaburn_crew.wrangle.dpw-2019:
+  path: '/wrangle/crew/dpw/2019'
+  options:
+    _admin_route: TRUE
+
+afrikaburn_crew.wrangle.dpw-2018:
+  path: '/wrangle/crew/dpw/2018'
+  options:
+    _admin_route: TRUE

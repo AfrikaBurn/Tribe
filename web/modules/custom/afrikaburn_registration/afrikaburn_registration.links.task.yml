@@ -1,0 +1,64 @@
+art.bench:
+  title: Workbench
+  route_name: afrikaburn_registration.wrangle_art
+  base_route: afrikaburn_registration.wrangle_art
+art.guide:
+  title: Mighty Art Guide
+  route_name: afrikaburn_registration.wrangle_art_guide
+  base_route: afrikaburn_registration.wrangle_art
+art.archive:
+  title: Archive
+  route_name: afrikaburn_registration.wrangle_art.archive
+  base_route: afrikaburn_registration.wrangle_art
+
+performance.bench:
+  title: Workbench
+  route_name: afrikaburn_registration.wrangle_performances
+  base_route: afrikaburn_registration.wrangle_performances
+performance.archive:
+  title: Archive
+  route_name: afrikaburn_registration.wrangle_performances.archive
+  base_route: afrikaburn_registration.wrangle_performances
+
+theme_camps.bench:
+  title: Workbench
+  route_name: afrikaburn_registration.wrangle_theme_camps
+  base_route: afrikaburn_registration.wrangle_theme_camps
+theme_camps.tasks:
+  title: Tasks
+  route_name: afrikaburn_registration.wrangle_theme_camps-tasks
+  base_route: afrikaburn_registration.wrangle_theme_camps
+theme_camps.engineering:
+  title: Engineering
+  route_name: afrikaburn_registration.wrangle_theme_camps-engineering
+  base_route: afrikaburn_registration.wrangle_theme_camps
+theme_camps.archive:
+  title: Archive
+  route_name: afrikaburn_registration.wrangle_theme_camps.archive
+  base_route: afrikaburn_registration.wrangle_theme_camps
+
+mutant_vehicles.bench:
+  title: Workbench
+  route_name: afrikaburn_registration.wrangle_mutant_vehicles
+  base_route: afrikaburn_registration.wrangle_mutant_vehicles
+mutant_vehicles.dmv_book:
+  title: Book by Name
+  route_name: afrikaburn_registration.wrangle_mutant_vehicles-dmv_book
+  base_route: afrikaburn_registration.wrangle_mutant_vehicles
+mutant_vehicles.ranger_book:
+  title: Book by Type
+  route_name: afrikaburn_registration.wrangle_mutant_vehicles-ranger_book
+  base_route: afrikaburn_registration.wrangle_mutant_vehicles
+mutant_vehicles.archive:
+  title: Archive
+  route_name: afrikaburn_registration.wrangle_mutant_vehicles.archive
+  base_route: afrikaburn_registration.wrangle_mutant_vehicles
+
+wrangle.wtf:
+  title: Edit Copy
+  route_name: afrikaburn_registration.wrangle_wtf
+  base_route: afrikaburn_registration.wrangle_wtf
+wrangle.export:
+  title: Export
+  route_name: afrikaburn_registration.wrangle_wtf_export
+  base_route: afrikaburn_registration.wrangle_wtf

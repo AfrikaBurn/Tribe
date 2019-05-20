@@ -1,9 +1,10 @@
 uuid: 36a8fa52-f1ac-4bb2-a34e-600dfac81076
 langcode: en
-status: open
+status: closed
 dependencies: {  }
 open: null
 close: null
+weight: 0
 uid: 1
 template: false
 archive: false
@@ -11,15 +12,16 @@ id: green_dot_application
 title: 'Green Dot Application'
 description: ''
 category: Application
-elements: "criteria_page:\n  '#type': webform_wizard_page\n  '#title': Criteria\n  markup:\n    '#type': webform_markup\n    '#markup': 'Thank you offering to be of service as a Green Dot Ranger for Afrikaburn &ldquo;____________ Working Title&rdquo; 2018. To help the Green Dot Lead process your application, could you please answer the following questions:'\n  criteria:\n    '#type': checkboxes\n    '#title': 'The following are a list of criteria for volunteers applying to work as a Green Dot Ranger:'\n    '#description': 'The minimum requirement is <strong>at least 3 out of the list of 9</strong>'\n    '#options':\n      'I have had experience as a care giver in psychedelic crisis situations': 'I have had experience as a care giver in psychedelic crisis situations'\n      'I have had previous experience as a Ranger, in Sanctuary or giving psychological first aid': 'I have had previous experience as a Ranger, in Sanctuary or giving psychological first aid'\n      'I have had personal experience with psychedelic substances': 'I have had personal experience with psychedelic substances'\n      'I have a professional background in health or mental health services': 'I have a professional background in health or mental health services'\n      'I am linked to a harm reduction organisation': 'I am linked to a harm reduction organisation'\n      'I have had a prior experience volunteering (in any capacity) at a music festival or similar event': 'I have had a prior experience volunteering (in any capacity) at a music festival or similar event'\n      'I have attended a previous edition of any Burning Man event': 'I have attended a previous edition of any Burning Man event'\n      'I have attended Ranger/MAPS/Sanctuary/Zendo/Green Dot training (any of these…)': 'I have attended Ranger/MAPS/Sanctuary/Zendo/Green Dot training (any of these…)'\n      'I have been recommended by a previous member of a care service (add to the box below)': 'I have been recommended by a previous member of a care service (add to the box below)'\n    '#required': true\n  comments_clarification_and_referees_details:\n    '#type': textarea\n    '#title': 'Comments / Clarification (and referees details if applicable)'\npersonal_information:\n  '#type': webform_wizard_page\n  '#title': 'Personal information'\n  markup_01:\n    '#type': webform_markup\n    '#markup': '<em>Some of the information here is populated from your <a href=\"/user\" target=\"_blank\">Burner Bio</a>. If any information is incorrect please update your Bio and refresh this page.</em>'\n  markup_02:\n    '#type': processed_text\n    '#text': '<div class=\"form-item\"><label class=\"form-required\">Name</label></div>'\n    '#format': full_html\n  name:\n    '#type': webform_computed_token\n    '#value': '[webform_submission:user:field_first_name] [webform_submission:user:field_last_name]'\n  markup_03:\n    '#type': processed_text\n    '#text': '<label class=\"form-required\">Preferred calling name/ nickname/Burner or Ranger Name</label>'\n    '#format': full_html\n  nickname:\n    '#type': webform_computed_token\n    '#title_display': before\n    '#value': '[webform_submission:user:account-name]'\n    '#store': true\n  address:\n    '#type': textarea\n    '#title': Address\n    '#required': true\n  markup_04:\n    '#type': processed_text\n    '#text': '<label class=\"form-required\">Location</label>'\n    '#format': full_html\n  region:\n    '#type': webform_computed_token\n    '#value': '[webform_submission:user:field_location]'\n  zip_postal_code:\n    '#type': textfield\n    '#title': 'Zip / Postal code'\n    '#required': true\n  country:\n    '#type': textfield\n    '#title': Country\n    '#required': true\n  mail_label:\n    '#type': processed_text\n    '#text': '<div class=\"form-item\"><label class=\"form-required\">Email</label></div>'\n    '#format': full_html\n  mail:\n    '#type': webform_computed_token\n    '#mode': text\n    '#value': '[webform_submission:user:field_email]'\n  occupation:\n    '#type': textarea\n    '#title': 'Occupation: how do you spend most of your time?'\n    '#description': 'If a medical/health/therapy professional, include your registration body, your registration number, date of qualification, and speciality/ies'\n    '#required': true\n  languages:\n    '#type': textarea\n    '#title': 'Languages spoken: please indicate proficiency'\n    '#required': true\nmotivation:\n  '#type': webform_wizard_page\n  '#title': Motivation\n  how_drugs_relate:\n    '#type': textarea\n    '#title': 'Please explain in up to 500 words what your understanding is of how alcohol and other drugs relate to Green Dot Rangering'\n    '#required': true\n  key_skills:\n    '#type': textarea\n    '#title': 'Please describe 3 key skills that a Green Dot Ranger should possess'\n    '#required': true\n  support_experience:\n    '#type': textarea\n    '#title': 'Have you ever supported somebody through a difficult alcohol or drug experience? Summarise how you dealt with the situation'\n    '#required': true\n  anything_else:\n    '#type': textarea\n    '#title': 'Is there anything else you would like us to know? '\n"
+elements: "criteria_page:\n  '#type': webform_wizard_page\n  '#title': Criteria\n  markup:\n    '#type': webform_markup\n    '#markup': 'Thank you offering to be of service as a Green Dot Ranger for Afrikaburn &ldquo;____________ Working Title&rdquo; 2018. To help the Green Dot Lead process your application, could you please answer the following questions:'\n  criteria:\n    '#type': checkboxes\n    '#title': 'The following are a list of criteria for volunteers applying to work as a Green Dot Ranger:'\n    '#description': 'The minimum requirement is <strong>at least 3 out of the list of 9</strong>'\n    '#options':\n      'I have had experience as a care giver in psychedelic crisis situations': 'I have had experience as a care giver in psychedelic crisis situations'\n      'I have had previous experience as a Ranger, in Sanctuary or giving psychological first aid': 'I have had previous experience as a Ranger, in Sanctuary or giving psychological first aid'\n      'I have had personal experience with psychedelic substances': 'I have had personal experience with psychedelic substances'\n      'I have a professional background in health or mental health services': 'I have a professional background in health or mental health services'\n      'I am linked to a harm reduction organisation': 'I am linked to a harm reduction organisation'\n      'I have had a prior experience volunteering (in any capacity) at a music festival or similar event': 'I have had a prior experience volunteering (in any capacity) at a music festival or similar event'\n      'I have attended a previous edition of any Burning Man event': 'I have attended a previous edition of any Burning Man event'\n      'I have attended Ranger/MAPS/Sanctuary/Zendo/Green Dot training (any of these…)': 'I have attended Ranger/MAPS/Sanctuary/Zendo/Green Dot training (any of these…)'\n      'I have been recommended by a previous member of a care service (add to the box below)': 'I have been recommended by a previous member of a care service (add to the box below)'\n    '#required': true\n  comments_clarification_and_referees_details:\n    '#type': textarea\n    '#title': 'Comments / Clarification (and referees details if applicable)'\npersonal_information:\n  '#type': webform_wizard_page\n  '#title': 'Personal information'\n  markup_01:\n    '#type': webform_markup\n    '#markup': '<em>Some of the information here is populated from your <a href=\"/user\" target=\"_blank\">Burner Bio</a>. If any information is incorrect please update your Bio and refresh this page.</em>'\n  markup_02:\n    '#type': processed_text\n    '#text': '<div class=\"form-item\"><label class=\"form-required\">Name</label></div>'\n    '#format': full_html\n  name:\n    '#type': webform_computed_token\n    '#template': '[webform_submission:user:field_first_name] [webform_submission:user:field_last_name]'\n  markup_03:\n    '#type': processed_text\n    '#text': '<label class=\"form-required\">Preferred calling name/ nickname/Burner or Ranger Name</label>'\n    '#format': full_html\n  nickname:\n    '#type': webform_computed_token\n    '#title_display': before\n    '#store': true\n    '#template': '[webform_submission:user:account-name]'\n  address:\n    '#type': textarea\n    '#title': Address\n    '#required': true\n  markup_04:\n    '#type': processed_text\n    '#text': '<label class=\"form-required\">Location</label>'\n    '#format': full_html\n  region:\n    '#type': webform_computed_token\n    '#template': '[webform_submission:user:field_location]'\n  zip_postal_code:\n    '#type': textfield\n    '#title': 'Zip / Postal code'\n    '#required': true\n  country:\n    '#type': textfield\n    '#title': Country\n    '#required': true\n  mail_label:\n    '#type': processed_text\n    '#text': '<div class=\"form-item\"><label class=\"form-required\">Email</label></div>'\n    '#format': full_html\n  mail:\n    '#type': webform_computed_token\n    '#mode': text\n    '#template': '[webform_submission:user:field_email]'\n  occupation:\n    '#type': textarea\n    '#title': 'Occupation: how do you spend most of your time?'\n    '#description': 'If a medical/health/therapy professional, include your registration body, your registration number, date of qualification, and speciality/ies'\n    '#required': true\n  languages:\n    '#type': textarea\n    '#title': 'Languages spoken: please indicate proficiency'\n    '#required': true\nmotivation:\n  '#type': webform_wizard_page\n  '#title': Motivation\n  how_drugs_relate:\n    '#type': textarea\n    '#title': 'Please explain in up to 500 words what your understanding is of how alcohol and other drugs relate to Green Dot Rangering'\n    '#required': true\n  key_skills:\n    '#type': textarea\n    '#title': 'Please describe 3 key skills that a Green Dot Ranger should possess'\n    '#required': true\n  support_experience:\n    '#type': textarea\n    '#title': 'Have you ever supported somebody through a difficult alcohol or drug experience? Summarise how you dealt with the situation'\n    '#required': true\n  anything_else:\n    '#type': textarea\n    '#title': 'Is there anything else you would like us to know? '\n"
 css: ''
 javascript: ''
 settings:
   ajax: false
   ajax_scroll_top: form
   page: true
-  page_submit_path: ''
+  page_submit_path: /apply/green-dot
   page_confirm_path: ''
+  form_title: both
   form_submit_once: false
   form_exception_message: ''
   form_open_message: ''
@@ -27,6 +29,7 @@ settings:
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
+  form_remote_addr: true
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false
@@ -42,15 +45,26 @@ settings:
   form_submit_back: false
   form_autofocus: false
   form_details_toggle: false
-  form_login: false
-  form_login_message: ''
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
   submission_label: ''
   submission_log: false
+  submission_views: {  }
+  submission_views_replace: {  }
   submission_user_columns: {  }
-  submission_login: false
-  submission_login_message: ''
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
   submission_exception_message: ''
   submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
   previous_submission_message: ''
   previous_submissions_message: ''
   autofill: false
@@ -59,7 +73,9 @@ settings:
   wizard_progress_bar: true
   wizard_progress_pages: false
   wizard_progress_percentage: false
+  wizard_progress_link: false
   wizard_start_label: ''
+  wizard_preview_link: false
   wizard_confirmation: false
   wizard_confirmation_label: ''
   wizard_track: ''
@@ -89,9 +105,11 @@ settings:
   limit_total: null
   limit_total_interval: null
   limit_total_message: ''
+  limit_total_unique: false
   limit_user: null
   limit_user_interval: null
   limit_user_message: ''
+  limit_user_unique: false
   entity_limit_total: null
   entity_limit_total_interval: null
   entity_limit_user: null
@@ -153,6 +171,10 @@ access:
     roles: {  }
     users: {  }
     permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
 handlers:
   email:
     id: email
@@ -170,11 +192,11 @@ handlers:
       cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
-      from_mail: default
+      from_mail: _default
       from_options: {  }
-      from_name: default
-      subject: default
-      body: default
+      from_name: _default
+      subject: _default
+      body: _default
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
@@ -187,3 +209,4 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
+      theme_name: ''

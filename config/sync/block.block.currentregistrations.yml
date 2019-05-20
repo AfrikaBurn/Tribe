@@ -1,0 +1,38 @@
+uuid: bd1b89e3-7706-4003-80e6-b91e54c06b93
+langcode: en
+status: true
+dependencies:
+  module:
+    - afrikaburn_registration
+    - collapsiblock
+    - node
+    - php
+  theme:
+    - afrikaburn
+third_party_settings:
+  collapsiblock:
+    collapse_action: '2'
+id: currentregistrations
+theme: afrikaburn
+region: sidebar
+weight: -17
+provider: null
+plugin: registration_block
+settings:
+  id: registration_block
+  label: 'Current projects'
+  provider: afrikaburn_registration
+  label_display: visible
+visibility:
+  php:
+    id: php
+    php: "<?php \r\nmodule_load_include('inc', 'afrikaburn_collective', 'includes/util');\r\nreturn \r\n  afrikaburn_collective_current_projects() &&\r\n  (afrikaburn_collective_member() || !afrikaburn_collective_setting('private_projects'));\r\n?>"
+    negate: false
+    context_mapping: {  }
+  node_type:
+    id: node_type
+    bundles:
+      collective: collective
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

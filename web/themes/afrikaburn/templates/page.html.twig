@@ -50,21 +50,21 @@
  * @see html.html.twig
  */
 #}
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
+{# <div id="fb-root"></div> #}
+{# <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
   js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.10&appId=218398015032600";
   fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+}(document, 'script', 'facebook-jssdk'));</script> #}
 <div id="wrapper">
   <div id="top-bar">
     <div class="container-2">
       <div class="container-1">
         <div class='logo-container'>
           <a href="http://www.afrikaburn.com">
-          <img src="{{ base_path ~ directory }}/assets/images/date-badge-2018.png" />
+          <img src="{{ base_path ~ directory }}/assets/images/date-badge-2019.png" />
           </a>
         </div>
         {{ page.create_tickets }}
@@ -80,8 +80,8 @@
               <span class="user-icon-bar"></span>
             </div>
           </div>
-          <a href="#" class="my-collectives">My Collectives</a>
-          <div id="my-collectives-block">{{ page.collectives }}</div>
+          {# <a href="#" class="my-collectives">My Collectives</a>
+          <div id="my-collectives-block">{{ page.collectives }}</div> #}
         {% endif %}
 
         <div class='social-media-links hide-below-979px'>
@@ -124,53 +124,53 @@
         <div class="banners">
           {% if logged_in %}
             <div class="dummy">
-              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/dummy.png" />
+              <img src="https://s3-us-west-2.amazonaws.com/ab-tribe-dev/tribe_theme/dummy.png" />
             </div>
             <div class="slide current first">
-              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2008-Jonx-Pillemer-2.jpg" />
+              <img src="https://s3-us-west-2.amazonaws.com/ab-tribe-dev/tribe_theme/Home-2008-Jonx-Pillemer-2.jpg" />
             </div>
             <div class="slide">
-              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2008-Jonx-Pillemer.jpg" />
+              <img src="https://s3-us-west-2.amazonaws.com/ab-tribe-dev/tribe_theme/Home-2008-Jonx-Pillemer.jpg" />
             </div>
             <div class="slide">
-              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2010-Cameron-Richards.jpg" />
+              <img src="https://s3-us-west-2.amazonaws.com/ab-tribe-dev/tribe_theme/Home-2010-Cameron-Richards.jpg" />
             </div>
             <div class="slide">
-              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2016-Raul-Aragao.jpg" />
+              <img src="https://s3-us-west-2.amazonaws.com/ab-tribe-dev/tribe_theme/Home-2016-Raul-Aragao.jpg" />
             </div>
             <div class="slide">
-              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2017-Duncan-Rawlinson-2.jpg" />
+              <img src="https://s3-us-west-2.amazonaws.com/ab-tribe-dev/tribe_theme/Home-2017-Duncan-Rawlinson-2.jpg" />
             </div>
             <div class="slide">
-              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2017-Duncan-Rawlinson-3.jpg" />
+              <img src="https://s3-us-west-2.amazonaws.com/ab-tribe-dev/tribe_theme/Home-2017-Duncan-Rawlinson-3.jpg" />
             </div>
             <div class="slide">
-              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2017-Duncan-Rawlinson-4.jpg" />
-            </div>
+              <img src="https://s3-us-west-2.amazonaws.com/ab-tribe-dev/tribe_theme/Home-2017-Duncan-Rawlinson-4.jpg" />
+            </div>`
             <div class="slide">
-              <img src="{{ base_path ~ directory }}/assets/images/banners/logged-in/Home-2017-Duncan-Rawlinson.jpg" />
+              <img src="https://s3-us-west-2.amazonaws.com/ab-tribe-dev/tribe_theme/Home-2017-Duncan-Rawlinson.jpg" />
             </div>
           {% else %}
             <div class="dummy">
-              <img src="{{ base_path ~ directory }}/assets/images/banners/public/dummy.png" />
+              <img src="https://s3-us-west-2.amazonaws.com/ab-tribe-dev/tribe_theme/dummy.png" />
             </div>
             <div class="slide current first">
-              <img src="{{ base_path ~ directory }}/assets/images/banners/public/2011-Cameron-Richards-Home-3.jpg" />
+              <img src="https://s3-us-west-2.amazonaws.com/ab-tribe-dev/tribe_theme/2011-Cameron-Richards-Home-3.jpg" />
             </div>
             <div class="slide">
-              <img src="{{ base_path ~ directory }}/assets/images/banners/public/2014-Jonx-Pillemer-Home-4.jpg" />
+              <img src="https://s3-us-west-2.amazonaws.com/ab-tribe-dev/tribe_theme/2014-Jonx-Pillemer-Home-4.jpg" />
             </div>
             <div class="slide">
-              <img src="{{ base_path ~ directory }}/assets/images/banners/public/2015-Mia-Dyason-Home-1.jpg" />
+              <img src="https://s3-us-west-2.amazonaws.com/ab-tribe-dev/tribe_theme/2015-Mia-Dyason-Home-1.jpg" />
             </div>
             <div class="slide">
-              <img src="{{ base_path ~ directory }}/assets/images/banners/public/2016-Raul-Aragao-Home-2.jpg" />
+              <img src="https://s3-us-west-2.amazonaws.com/ab-tribe-dev/tribe_theme/2016-Raul-Aragao-Home-2.jpg" />
             </div>
             <div class="slide">
-              <img src="{{ base_path ~ directory }}/assets/images/banners/public/2016-Steven-Morrow-Home-6.jpg" />
+              <img src="https://s3-us-west-2.amazonaws.com/ab-tribe-dev/tribe_theme/2016-Steven-Morrow-Home-6.jpg" />
             </div>
             <div class="slide">
-              <img src="{{ base_path ~ directory }}/assets/images/banners/public/2017-Steven-Morrow-Home-5.jpg" />
+              <img src="https://s3-us-west-2.amazonaws.com/ab-tribe-dev/tribe_theme/2017-Steven-Morrow-Home-5.jpg" />
             </div>
           {% endif %}
         </div>
@@ -218,17 +218,28 @@
         <div class="body-content">
           {{ page.status_messages }}
           {{ page.featured }}
-          <div class='main-block'>
 
-            {{ page.tabs }}
+          {% if page.biobar %}
+          <div class="sidebar-outer biobar">
+            <div class="sidebar">
+              {{ page.biobar }}
+            </div>
+          </div>
+          {% endif %}
+
+          <div class='main-block'>
             <div class='clr'></div>
             {{ page.content }}
           </div>
-          <div class="sidebar-outer">
+
+          {% if page.sidebar %}
+          <div class="sidebar-outer collectivebar">
             <div class="sidebar">
               {{ page.sidebar }}
             </div>
           </div>
+          {% endif %}
+
           <div class='clr'></div>
         </div>
       </div>
@@ -256,7 +267,7 @@
             </div>
             <div class='block-outer'>
               <div class='block-inner'>
-                <div class="fb-page" data-href="https://www.facebook.com/afrikaburn/" data-tabs="timeline" data-height="322" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/afrikaburn/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/afrikaburn/">AfrikaBurn</a></blockquote></div>
+                {# <div class="fb-page" data-href="https://www.facebook.com/afrikaburn/" data-tabs="timeline" data-height="322" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/afrikaburn/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/afrikaburn/">AfrikaBurn</a></blockquote></div> #}
               </div>
             </div>
           </div>

@@ -19,7 +19,7 @@ field_name: field_prj_prp_start
 entity_type: node
 bundle: art
 label: 'When are you planning to start building offsite?'
-description: "We suggest that you construct and test your project as much as possible off site. This will help you to troubleshoot most problems in advance, and thus prepare properly for the setup of the artwork in Tankwa. \r\nBasically, start building offsite as soon as you can. Gates open on the 23 April 2018\r\n"
+description: "We suggest that you construct and test your project as much as possible off site. This will help you to troubleshoot most problems in advance, and thus prepare properly for the setup of the artwork in Tankwa. \r\nBasically, start building offsite as soon as you can.\r\n"
 required: true
 translatable: false
 default_value: {  }

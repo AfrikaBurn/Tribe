@@ -1,0 +1,25 @@
+sanctuary.stats:
+  route_name: afrikaburn_crew.wrangle.sanctuary
+  title: Stats
+  base_route: afrikaburn_crew.wrangle.sanctuary
+sanctuary.2019:
+  route_name: afrikaburn_crew.wrangle.sanctuary-2019
+  title: "2019"
+  base_route: afrikaburn_crew.wrangle.sanctuary
+sanctuary.2018:
+  route_name: afrikaburn_crew.wrangle.sanctuary-2018
+  title: "2018"
+  base_route: afrikaburn_crew.wrangle.sanctuary
+
+dpw.stats:
+  route_name: afrikaburn_crew.wrangle.dpw
+  title: Stats
+  base_route: afrikaburn_crew.wrangle.dpw
+dpw.2019:
+  route_name: afrikaburn_crew.wrangle.dpw-2019
+  title: "2019"
+  base_route: afrikaburn_crew.wrangle.dpw
+dpw.2018:
+  route_name: afrikaburn_crew.wrangle.dpw-2018
+  title: "2018"
+  base_route: afrikaburn_crew.wrangle.dpw

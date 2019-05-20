@@ -17,7 +17,7 @@ entity_type: paragraph
 bundle: grant_expences
 label: Description
 description: ''
-required: true
+required: false
 translatable: false
 default_value:
   -

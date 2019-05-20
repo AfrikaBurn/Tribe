@@ -17,8 +17,8 @@ id: node.performances.field_prj_oth_grant
 field_name: field_prj_oth_grant
 entity_type: node
 bundle: performances
-label: 'Are you applying for a Creative Grant?'
-description: "Please read everything about <a href=\"http://www.afrikaburn.com/participation-forms/apply-for-creative-grant\" target=\"_blank\">Creative Grants here.</a>\r\n"
+label: 'Are you interested in applying for a Creative Grant?'
+description: "If you have an orchestra, a parade, a roaming show, etc - You can apply for a creative grant.\r\nIf you are a DJ, gifting beer at an artwork, a one person band, etc, - You do NOT qualify for a creative grant. \r\nAll projects are assessed individually, but please you can use this basic guideline to assess your own project: AfrikaBurn does not pay performers/labour.  E.g.: If you are a DJ - that’s your gift to the Tankwa Town community - and you do not qualify for a creative grant. Please collaborate with other projects if you don’t have your own equipment.\r\nIf your income does not allow you to attend the event, you can apply for a <a href=\"https://www.afrikaburn.com/the-event/tickets\" target=\"_blank\">Low Income Ticket</a>, or a <a href=\"https://www.afrikaburn.com/latest-news/community-tickets-access-grants\" target=\"_blank\">Community Ticket and an Access Grant</a>. \r\n\r\nPlease read <a href=\"https://www.afrikaburn.com/the-event/artworks/creative-grants\" target=\"_blank\">everything about Creative Grants</a>, where you will also find instructions on how to apply.\r\n\r\n\r\n\r\n"
 required: false
 translatable: true
 default_value:

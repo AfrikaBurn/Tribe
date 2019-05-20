@@ -1,0 +1,10 @@
+uuid: 2131d34c-d014-48da-8c42-5d9d850bee98
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.form_3_mail
+label: 'Form 3 mail'
+targetEntityType: node
+cache: true

@@ -1,0 +1,58 @@
+uuid: 3c11b00e-a917-493d-9eac-afb4907e7322
+langcode: en
+status: true
+dependencies: {  }
+id: comment
+filenames:
+  incident_comment: ''
+bundles:
+  admin_comments:
+    field_body:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: admin_comments
+      name: field_body
+  post:
+    comment_body:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: post
+      name: comment_body
+  comment:
+    comment_body:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: comment
+      name: comment_body
+  incident_comment:
+    comment_body:
+      bundle: incident_comment
+      name: comment_body
+      entity_type_id: comment
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_body:
+      bundle: incident_comment
+      name: field_body
+      entity_type_id: comment
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''

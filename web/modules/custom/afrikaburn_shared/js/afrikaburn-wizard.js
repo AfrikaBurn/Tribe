@@ -25,27 +25,62 @@
 
     constructor(element){
 
-      this.root = $(element)
+      this.root = $(element).is('form')
+        ? $('.field-group-tabs-wrapper', element)
+        : $(element)
+
       this.root.addClass('js-wizard-processed')
       this.tabs = $('.vertical-tabs__menu, .horizontal-tabs-list', this.root).children()
       this.panels = $('.field-group-tab > .details-wrapper', this.root)
 
-      this.panels.each(
-      	(index, panel) => $(panel).prepend(
-      	  '<div class="pager">Step ' +
-      	  (index + 1) +
-      	  ' of ' +
-      	  this.panels.length +
-      	  '</div>'
-  	  	)
-  	  )
+      this.alter()
+      this.attachPrevious()
+      this.attachNext()
+      this.attachSubmit()
+      this.switchOnErrorClick()
+    }
+
+    // Hop to error clicked on in messages
+    switchOnErrorClick(){
+      $('.messages--error:not(.messages--error-processed)').each(
+        (index, messages) => {
+          $('a', messages).each(
+            (index, link) => {
+              $(link).click(
+                (event) => {
+                  var
+                    id = $(event.target).attr('href').match(/#.*/)[0],
+                    element = $(id + ',' + id + '-wrapper'),
+                    parentPanel = element.parents('.field-group-tab').children('.details-wrapper'),
+                    parentTab = $(this.tabs[this.panels.index(parentPanel)])
+                  parentTab.find('a').click()
+                }
+              )
+            }
+          )
+        }
+      )
+    }
+
+    // Move elements, Add step count
+    alter(){
 
       this.root.parents('form').find('.captcha').appendTo(this.panels.last())
       this.panels.append('<div class="wizard-actions"></div>')
       this.root.parents('form').find('.form-actions').appendTo(this.panels.last().find('.wizard-actions'))
-      this.attachPrevious()
-      this.attachNext()
-      this.attachSubmit()
+
+      this.panels.each(
+        (index, panel) => {
+          $(panel).prepend(
+            '<div class="pager">Step ' +
+            (index + 1) +
+            ' of ' +
+            this.panels.length +
+            '</div>'
+          )
+          $(this.tabs[index]).find('a .summary').html(index + 1)
+        }
+  	  )
     }
 
     // Attach the previous buttons and behaviours
@@ -83,7 +118,7 @@
 
     // Validate the current tab
     validate(){
-      var 
+      var
         activePanel = this.getActivePanel(),
         elementsToValidate = activePanel.find(toValidate)
       if ($.fn.valid && elementsToValidate.length) elementsToValidate.valid()
@@ -93,12 +128,18 @@
     // Go to first error
     showFirstError(){
 
-      var
-        firstErrorPanel = this.root.find('.error:visible').first().parents('.details-wrapper'),
-        firstErrorTab = this.tabs[this.panels.index(firstErrorPanel)],
-        link = $(firstErrorTab).find('a')
+      var thisObject = this
 
-      setTimeout(() => link.click(), 100)
+      setTimeout(
+        () => {
+          var
+            firstErrorPanel = thisObject.root.find('.error:visible').first().parents('.details-wrapper'),
+            firstErrorTab = thisObject.tabs[thisObject.panels.index(firstErrorPanel)],
+            link = $(firstErrorTab).find('a')
+          link.click()
+        },
+        100
+      )
     }
 
     // Scroll to top of element

@@ -24,6 +24,6 @@ default_value_callback: ''
 settings:
   min: null
   max: null
-  prefix: R
-  suffix: (ZAR)
+  prefix: ''
+  suffix: ''
 field_type: integer

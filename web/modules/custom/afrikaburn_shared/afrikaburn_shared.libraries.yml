@@ -1,4 +1,4 @@
-afrikaburn_shared:
+shared:
   version: 1.x
   js:
     js/afrikaburn-shared.js: {}
@@ -6,10 +6,16 @@ afrikaburn_shared:
     theme:
       css/afrikaburn-shared.css: {}
 
-afrikaburn_wizard:
+wizard:
   version: 1.x
   js:
     js/afrikaburn-wizard.js: {}
   css:
     theme:
       css/afrikaburn-wizard.css: {}
+
+wrangle:
+  version: 0.0
+  css:
+    theme:
+      css/afrikaburn-wrangle.css: {}

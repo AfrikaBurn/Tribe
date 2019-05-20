@@ -18,7 +18,7 @@ field_name: field_prj_cll_collaborate
 entity_type: node
 bundle: theme_camps
 label: 'Click this to have your project listed in our Community Directory.'
-description: 'The <a href="/community/joinproject">Community Directory</a> enables participants and volunteers to choose the project(s) that they feel they can contribute to.<br>Listing your project on the Community Directory means you''re open to being contacted by people interested in collaboration. You can choose to be removed from the Community Directory at any time.  '
+description: 'The <a href="/community/joinproject" target="_blank">Community Directory</a> enables participants and volunteers to choose the project(s) that they feel they can contribute to.<br>Listing your project on the Community Directory means you''re open to being contacted by people interested in collaboration. You can choose to be removed from the Community Directory at any time.  '
 required: false
 translatable: false
 default_value:

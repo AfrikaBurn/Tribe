@@ -1,0 +1,768 @@
+uuid: 5b3ab80f-be25-4319-a24e-ac2791014aa9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.node.support_camp
+    - field.field.node.theme_camps.field_admin_comments
+    - field.field.node.theme_camps.field_arteria_checkin
+    - field.field.node.theme_camps.field_collective
+    - field.field.node.theme_camps.field_field_prj_plc_marquis
+    - field.field.node.theme_camps.field_field_prj_plc_stretch_m
+    - field.field.node.theme_camps.field_final_placement
+    - field.field.node.theme_camps.field_form_mode
+    - field.field.node.theme_camps.field_ice_card
+    - field.field.node.theme_camps.field_lineup_request
+    - field.field.node.theme_camps.field_neighbours
+    - field.field.node.theme_camps.field_placed
+    - field.field.node.theme_camps.field_placement_card
+    - field.field.node.theme_camps.field_placement_letter_sent
+    - field.field.node.theme_camps.field_plot
+    - field.field.node.theme_camps.field_prj_adm_form_3
+    - field.field.node.theme_camps.field_prj_adm_latitude
+    - field.field.node.theme_camps.field_prj_adm_longitude
+    - field.field.node.theme_camps.field_prj_adm_review
+    - field.field.node.theme_camps.field_prj_adm_wrangler
+    - field.field.node.theme_camps.field_prj_cll_collaborate
+    - field.field.node.theme_camps.field_prj_cll_contact
+    - field.field.node.theme_camps.field_prj_cll_description
+    - field.field.node.theme_camps.field_prj_est_camp_population
+    - field.field.node.theme_camps.field_prj_gen_bio
+    - field.field.node.theme_camps.field_prj_gen_commodification
+    - field.field.node.theme_camps.field_prj_gen_concept
+    - field.field.node.theme_camps.field_prj_gen_contact
+    - field.field.node.theme_camps.field_prj_gen_description
+    - field.field.node.theme_camps.field_prj_gen_fundraiser
+    - field.field.node.theme_camps.field_prj_gen_fundraising
+    - field.field.node.theme_camps.field_prj_gen_header1
+    - field.field.node.theme_camps.field_prj_gen_header3
+    - field.field.node.theme_camps.field_prj_gen_history
+    - field.field.node.theme_camps.field_prj_gen_location
+    - field.field.node.theme_camps.field_prj_gen_profit
+    - field.field.node.theme_camps.field_prj_gen_story
+    - field.field.node.theme_camps.field_prj_gen_year
+    - field.field.node.theme_camps.field_prj_lgh_agree
+    - field.field.node.theme_camps.field_prj_lgh_description
+    - field.field.node.theme_camps.field_prj_lgh_policy
+    - field.field.node.theme_camps.field_prj_lgh_power
+    - field.field.node.theme_camps.field_prj_lnt_handled
+    - field.field.node.theme_camps.field_prj_lnt_historic
+    - field.field.node.theme_camps.field_prj_lnt_images
+    - field.field.node.theme_camps.field_prj_lnt_representative
+    - field.field.node.theme_camps.field_prj_lnt_score
+    - field.field.node.theme_camps.field_prj_lnt_signoff
+    - field.field.node.theme_camps.field_prj_lnt_type
+    - field.field.node.theme_camps.field_prj_ons_issues
+    - field.field.node.theme_camps.field_prj_ons_monday_b
+    - field.field.node.theme_camps.field_prj_ons_rating
+    - field.field.node.theme_camps.field_prj_ons_rest_b
+    - field.field.node.theme_camps.field_prj_ons_tuesday_b
+    - field.field.node.theme_camps.field_prj_ons_wednesay_d
+    - field.field.node.theme_camps.field_prj_ons_wednesday_b
+    - field.field.node.theme_camps.field_prj_oth_associated
+    - field.field.node.theme_camps.field_prj_oth_move
+    - field.field.node.theme_camps.field_prj_oth_mv
+    - field.field.node.theme_camps.field_prj_oth_unregistered
+    - field.field.node.theme_camps.field_prj_plc_artwork
+    - field.field.node.theme_camps.field_prj_plc_artwork_d
+    - field.field.node.theme_camps.field_prj_plc_artwork_w
+    - field.field.node.theme_camps.field_prj_plc_binnekring
+    - field.field.node.theme_camps.field_prj_plc_camp_d
+    - field.field.node.theme_camps.field_prj_plc_camp_w
+    - field.field.node.theme_camps.field_prj_plc_caravan
+    - field.field.node.theme_camps.field_prj_plc_cars
+    - field.field.node.theme_camps.field_prj_plc_fire
+    - field.field.node.theme_camps.field_prj_plc_flame_d
+    - field.field.node.theme_camps.field_prj_plc_flame_w
+    - field.field.node.theme_camps.field_prj_plc_frontage
+    - field.field.node.theme_camps.field_prj_plc_large
+    - field.field.node.theme_camps.field_prj_plc_layout
+    - field.field.node.theme_camps.field_prj_plc_location
+    - field.field.node.theme_camps.field_prj_plc_location_extra
+    - field.field.node.theme_camps.field_prj_plc_map
+    - field.field.node.theme_camps.field_prj_plc_motivation
+    - field.field.node.theme_camps.field_prj_plc_people
+    - field.field.node.theme_camps.field_prj_plc_portaloos
+    - field.field.node.theme_camps.field_prj_plc_public_d
+    - field.field.node.theme_camps.field_prj_plc_recreational
+    - field.field.node.theme_camps.field_prj_plc_showers
+    - field.field.node.theme_camps.field_prj_plc_sleep
+    - field.field.node.theme_camps.field_prj_plc_stretch_d
+    - field.field.node.theme_camps.field_prj_plc_stretch_w
+    - field.field.node.theme_camps.field_prj_plc_tanks
+    - field.field.node.theme_camps.field_prj_plc_tent_d
+    - field.field.node.theme_camps.field_prj_plc_tent_w
+    - field.field.node.theme_camps.field_prj_plc_trailers
+    - field.field.node.theme_camps.field_prj_saf_access
+    - field.field.node.theme_camps.field_prj_saf_cage
+    - field.field.node.theme_camps.field_prj_saf_extinguish
+    - field.field.node.theme_camps.field_prj_saf_gas
+    - field.field.node.theme_camps.field_prj_saf_guide
+    - field.field.node.theme_camps.field_prj_saf_mark
+    - field.field.node.theme_camps.field_prj_saf_markup
+    - field.field.node.theme_camps.field_prj_saf_person
+    - field.field.node.theme_camps.field_prj_snd_agree
+    - field.field.node.theme_camps.field_prj_snd_description
+    - field.field.node.theme_camps.field_prj_snd_genre
+    - field.field.node.theme_camps.field_prj_snd_level
+    - field.field.node.theme_camps.field_prj_snd_person
+    - field.field.node.theme_camps.field_prj_snd_rangers
+    - field.field.node.theme_camps.field_prj_snd_setup_date
+    - field.field.node.theme_camps.field_prj_snd_soop
+    - field.field.node.theme_camps.field_prj_snd_sound
+    - field.field.node.theme_camps.field_prj_snd_specs
+    - field.field.node.theme_camps.field_prj_stg_contact
+    - field.field.node.theme_camps.field_prj_stg_description
+    - field.field.node.theme_camps.field_prj_stg_stage
+    - field.field.node.theme_camps.field_prj_stg_type
+    - field.field.node.theme_camps.field_prj_sup_address
+    - field.field.node.theme_camps.field_prj_sup_details
+    - field.field.node.theme_camps.field_prj_sup_details_view
+    - field.field.node.theme_camps.field_prj_sup_h1
+    - field.field.node.theme_camps.field_prj_wtf_categories
+    - field.field.node.theme_camps.field_prj_wtf_image
+    - field.field.node.theme_camps.field_prj_wtf_long
+    - field.field.node.theme_camps.field_prj_wtf_planned
+    - field.field.node.theme_camps.field_prj_wtf_short
+    - field.field.node.theme_camps.field_prj_wtf_short_copy
+    - field.field.node.theme_camps.field_prj_wtf_website
+    - field.field.node.theme_camps.field_prjr_complete
+    - field.field.node.theme_camps.field_ranger_representative
+    - field.field.node.theme_camps.field_snd_bass_bins
+    - field.field.node.theme_camps.field_snd_playtime_mon_wed
+    - field.field.node.theme_camps.field_snd_playtime_thurs_sun
+    - field.field.node.theme_camps.field_stretch_tent_dimen
+    - field.field.node.theme_camps.field_sup_review
+    - field.field.node.theme_camps.field_supporting_project
+    - field.field.node.theme_camps.field_tc_type
+    - field.field.node.theme_camps.field_vp_ea
+    - field.field.node.theme_camps.field_waps
+    - field.field.node.theme_camps.field_waps_allowed
+    - field.field.node.theme_camps.field_year_cycle
+    - image.style.thumbnail
+    - node.type.theme_camps
+  module:
+    - comment
+    - computed_field
+    - field_group
+    - image
+    - markup
+third_party_settings:
+  field_group:
+    group_overview_new:
+      children:
+        - title
+        - field_prj_gen_contact
+        - field_prj_plc_people
+        - field_prj_gen_profit
+        - field_prj_snd_agree
+        - field_prj_oth_associated
+        - field_prj_gen_bio
+        - field_prj_gen_description
+        - field_prj_gen_fundraiser
+        - field_prj_gen_fundraising
+        - field_prj_gen_history
+        - field_prj_gen_location
+      parent_name: group_project_registration
+      weight: 6
+      format_type: tab
+      format_settings:
+        label: Overview
+        formatter: open
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Overview
+      region: content
+    group_leave_no_trace_new:
+      children:
+        - field_prj_lnt_historic
+        - field_prj_lnt_handled
+        - field_prj_lnt_representative
+      parent_name: group_project_registration
+      weight: 11
+      format_type: tab
+      format_settings:
+        label: 'Leave No Trace'
+        formatter: closed
+        required_fields: true
+        id: ''
+        classes: ''
+      label: 'Leave No Trace'
+      region: content
+    group_project_registration:
+      children:
+        - group_overview_new
+        - group_layout
+        - group_safety
+        - group_vehicles
+        - group_loca
+        - group_leave_no_trace_new
+      parent_name: ''
+      weight: 1
+      format_type: tabs
+      format_settings:
+        label: 'Overview registration'
+        direction: horizontal
+        id: ''
+        classes: ''
+      label: 'Overview registration'
+      region: content
+    group_safety:
+      children:
+        - field_prj_lgh_description
+        - field_prj_saf_access
+        - field_prj_saf_extinguish
+        - field_prj_saf_guide
+        - field_prj_saf_person
+        - field_prj_saf_markup
+        - field_prj_saf_gas
+        - field_prj_saf_mark
+        - field_prj_saf_cage
+        - field_prj_lgh_policy
+        - field_prj_lgh_agree
+      parent_name: group_project_registration
+      weight: 8
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Safety
+      region: content
+    group_layout:
+      children:
+        - field_prj_plc_layout
+        - field_prj_plc_stretch_w
+        - field_prj_plc_stretch_d
+        - field_field_prj_plc_stretch_m
+        - field_prj_plc_tanks
+        - field_prj_plc_showers
+        - field_prj_plc_portaloos
+        - field_prj_plc_large
+        - field_prj_lgh_power
+        - field_stretch_tent_dimen
+        - field_field_prj_plc_marquis
+        - field_prj_plc_camp_w
+        - field_prj_plc_camp_d
+      parent_name: group_project_registration
+      weight: 7
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Layout
+      region: content
+    group_loca:
+      children:
+        - field_prj_plc_map
+        - field_prj_plc_location_extra
+      parent_name: group_project_registration
+      weight: 10
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Location
+      region: content
+    group_vehicles:
+      children:
+        - field_prj_plc_cars
+        - field_prj_plc_sleep
+        - field_prj_plc_caravan
+        - field_prj_plc_recreational
+        - field_prj_plc_trailers
+      parent_name: group_project_registration
+      weight: 9
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        required_fields: true
+        description: ''
+      label: Vehicles
+      region: content
+    group_administrative:
+      children:
+        - field_year_cycle
+        - field_prjr_complete
+        - field_prj_adm_review
+        - field_prj_adm_wrangler
+        - field_collective
+        - field_form_mode
+        - field_admin_comments
+        - field_supporting_project
+        - field_final_placement
+        - field_ice_card
+        - field_neighbours
+        - field_placed
+        - field_placement_card
+        - field_placement_letter_sent
+        - field_plot
+        - field_prj_plc_binnekring
+      parent_name: ''
+      weight: 0
+      format_type: details
+      format_settings:
+        id: ''
+        classes: ''
+        open: false
+        required_fields: true
+      label: Administrative
+_core:
+  default_config_hash: eK-XnXl0Ey4pkRcWQtChSHR8xHGuez-kSqbaS81-qXg
+id: node.theme_camps.support_camp
+targetEntityType: node
+bundle: theme_camps
+mode: support_camp
+content:
+  field_admin_comments:
+    type: comment_default
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_collective:
+    type: entity_reference_autocomplete
+    weight: 4
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_field_prj_plc_marquis:
+    type: boolean_checkbox
+    weight: 11
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_field_prj_plc_stretch_m:
+    type: computed_number_widget
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_form_mode:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_adm_review:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_prj_adm_wrangler:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_prj_gen_contact:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_prj_gen_profit:
+    weight: 8
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_prj_lgh_agree:
+    type: boolean_checkbox
+    weight: 19
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_prj_lgh_description:
+    type: string_textarea
+    weight: 8
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_lgh_policy:
+    type: markup
+    weight: 18
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_prj_lgh_power:
+    type: string_textarea
+    weight: 9
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_lnt_handled:
+    type: string_textarea
+    weight: 3
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_lnt_historic:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_prj_lnt_representative:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_prj_oth_associated:
+    weight: 10
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_prj_plc_camp_d:
+    type: number
+    weight: 13
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_plc_camp_w:
+    type: number
+    weight: 12
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_plc_caravan:
+    type: number
+    weight: 15
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_plc_cars:
+    type: number
+    weight: 13
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_plc_large:
+    type: number
+    weight: 8
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_plc_layout:
+    type: image_image
+    weight: 1
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_prj_plc_location_extra:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_plc_map:
+    type: markup
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_prj_plc_people:
+    type: number
+    weight: 7
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_plc_portaloos:
+    type: number
+    weight: 7
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_plc_recreational:
+    type: number
+    weight: 16
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_plc_showers:
+    type: number
+    weight: 6
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_plc_sleep:
+    type: number
+    weight: 14
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_plc_stretch_d:
+    type: number
+    weight: 3
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_plc_stretch_w:
+    type: number
+    weight: 2
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_plc_tanks:
+    type: number
+    weight: 5
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_plc_trailers:
+    type: number
+    weight: 17
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_saf_access:
+    type: string_textarea
+    weight: 9
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_saf_cage:
+    type: boolean_checkbox
+    weight: 17
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_prj_saf_extinguish:
+    type: number
+    weight: 10
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_saf_gas:
+    type: boolean_checkbox
+    weight: 15
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_prj_saf_guide:
+    type: string_textarea
+    weight: 11
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_saf_mark:
+    type: markup
+    weight: 16
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_prj_saf_markup:
+    type: options_select
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_prj_saf_person:
+    type: options_select
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_prj_snd_agree:
+    type: boolean_checkbox
+    weight: 9
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_prjr_complete:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_stretch_tent_dimen:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: computed_number_widget
+    region: content
+  field_supporting_project:
+    type: entity_reference_autocomplete
+    weight: 7
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_year_cycle:
+    type: computed_number_widget
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  moderation_state:
+    weight: 38
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  title:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_arteria_checkin: true
+  field_final_placement: true
+  field_ice_card: true
+  field_lineup_request: true
+  field_neighbours: true
+  field_placed: true
+  field_placement_card: true
+  field_placement_letter_sent: true
+  field_plot: true
+  field_prj_adm_form_3: true
+  field_prj_adm_latitude: true
+  field_prj_adm_longitude: true
+  field_prj_cll_collaborate: true
+  field_prj_cll_contact: true
+  field_prj_cll_description: true
+  field_prj_est_camp_population: true
+  field_prj_gen_bio: true
+  field_prj_gen_commodification: true
+  field_prj_gen_concept: true
+  field_prj_gen_description: true
+  field_prj_gen_fundraiser: true
+  field_prj_gen_fundraising: true
+  field_prj_gen_header1: true
+  field_prj_gen_header3: true
+  field_prj_gen_history: true
+  field_prj_gen_location: true
+  field_prj_gen_story: true
+  field_prj_gen_year: true
+  field_prj_lnt_images: true
+  field_prj_lnt_score: true
+  field_prj_lnt_signoff: true
+  field_prj_lnt_type: true
+  field_prj_ons_issues: true
+  field_prj_ons_monday_b: true
+  field_prj_ons_rating: true
+  field_prj_ons_rest_b: true
+  field_prj_ons_tuesday_b: true
+  field_prj_ons_wednesay_d: true
+  field_prj_ons_wednesday_b: true
+  field_prj_oth_move: true
+  field_prj_oth_mv: true
+  field_prj_oth_unregistered: true
+  field_prj_plc_artwork: true
+  field_prj_plc_artwork_d: true
+  field_prj_plc_artwork_w: true
+  field_prj_plc_binnekring: true
+  field_prj_plc_fire: true
+  field_prj_plc_flame_d: true
+  field_prj_plc_flame_w: true
+  field_prj_plc_frontage: true
+  field_prj_plc_location: true
+  field_prj_plc_motivation: true
+  field_prj_plc_public_d: true
+  field_prj_plc_tent_d: true
+  field_prj_plc_tent_w: true
+  field_prj_snd_description: true
+  field_prj_snd_genre: true
+  field_prj_snd_level: true
+  field_prj_snd_person: true
+  field_prj_snd_rangers: true
+  field_prj_snd_setup_date: true
+  field_prj_snd_soop: true
+  field_prj_snd_sound: true
+  field_prj_snd_specs: true
+  field_prj_stg_contact: true
+  field_prj_stg_description: true
+  field_prj_stg_stage: true
+  field_prj_stg_type: true
+  field_prj_sup_address: true
+  field_prj_sup_details: true
+  field_prj_sup_details_view: true
+  field_prj_sup_h1: true
+  field_prj_wtf_categories: true
+  field_prj_wtf_image: true
+  field_prj_wtf_long: true
+  field_prj_wtf_planned: true
+  field_prj_wtf_short: true
+  field_prj_wtf_short_copy: true
+  field_prj_wtf_website: true
+  field_ranger_representative: true
+  field_snd_bass_bins: true
+  field_snd_playtime_mon_wed: true
+  field_snd_playtime_thurs_sun: true
+  field_sup_review: true
+  field_tc_type: true
+  field_vp_ea: true
+  field_waps: true
+  field_waps_allowed: true
+  moderation_state: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  uid: true
+  url_redirects: true

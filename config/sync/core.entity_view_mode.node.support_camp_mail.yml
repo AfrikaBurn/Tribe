@@ -1,0 +1,10 @@
+uuid: c45c97b2-00f0-4a11-87a4-34275cfeca98
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.support_camp_mail
+label: 'Support Camp Mail'
+targetEntityType: node
+cache: true

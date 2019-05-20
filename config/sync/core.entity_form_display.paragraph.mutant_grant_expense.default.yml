@@ -6,8 +6,6 @@ dependencies:
     - field.field.paragraph.mutant_grant_expense.field_grt_brk_description
     - field.field.paragraph.mutant_grant_expense.field_price_total_
     - paragraphs.paragraphs_type.mutant_grant_expense
-  module:
-    - content_moderation
 id: paragraph.mutant_grant_expense.default
 targetEntityType: paragraph
 bundle: mutant_grant_expense
@@ -27,6 +25,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
+  moderation_state:
+    weight: 101
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
 hidden:
   created: true

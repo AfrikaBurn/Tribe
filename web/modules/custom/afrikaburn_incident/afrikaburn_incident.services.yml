@@ -1,0 +1,10 @@
+services:
+
+  afrikaburn_incident.route_subscriber:
+    class: Drupal\afrikaburn_incident\Routing\AutocompleteRouteSubscriber
+    tags:
+      - { name: event_subscriber }
+
+  afrikaburn_incident.autocomplete_matcher:
+    class: Drupal\afrikaburn_incident\EntityAutocompleteMatcher
+    arguments: ['@plugin.manager.entity_reference_selection']

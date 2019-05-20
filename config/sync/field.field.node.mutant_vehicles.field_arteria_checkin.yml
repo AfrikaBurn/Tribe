@@ -1,0 +1,29 @@
+uuid: 55b798e6-4785-4ab0-a4e6-891d172002ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_arteria_checkin
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_arteria_checkin
+field_name: field_arteria_checkin
+entity_type: node
+bundle: mutant_vehicles
+label: 'We will check in with Arteria to confirm placement and SOOP representative check in'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

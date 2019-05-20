@@ -1,0 +1,1121 @@
+diff --git a/config/schema/page_manager.schema.yml b/config/schema/page_manager.schema.yml
+index 649a25f..1fe3464 100644
+--- a/config/schema/page_manager.schema.yml
++++ b/config/schema/page_manager.schema.yml
+@@ -102,6 +102,14 @@ page_manager.block_plugin.*:
+       sequence:
+         - type: string
+ 
++# @todo Move to core in https://www.drupal.org/node/2838130.
++display_variant.plugin.*:
++  type: display_variant.plugin
++  label: 'Variant settings'
++condition.plugin.*:
++  type: condition.plugin
++  label: 'Condition settings'
++
+ display_variant.plugin.block_display:
+   type: display_variant.plugin
+   label: 'Block variant plugin'
+diff --git a/page_manager.services.yml b/page_manager.services.yml
+index 43f99ab..b1669e7 100644
+--- a/page_manager.services.yml
++++ b/page_manager.services.yml
+@@ -19,9 +19,10 @@ services:
+       - { name: 'event_subscriber' }
+   page_manager.variant_route_filter:
+     class: Drupal\page_manager\Routing\VariantRouteFilter
+-    arguments: ['@entity_type.manager', '@path.current']
++    arguments: ['@entity_type.manager', '@path.current', '@request_stack']
+     tags:
+-      - { name: route_filter }
++      # Run as late as possible to allow all other filters to run first.
++      - { name: non_lazy_route_filter, priority: -1024 }
+       - { name: service_collector, tag: non_lazy_route_enhancer, call: addRouteEnhancer }
+   page_manager.route_name_response_subscriber:
+     class: Drupal\page_manager\EventSubscriber\RouteNameResponseSubscriber
+diff --git a/src/Entity/Page.php b/src/Entity/Page.php
+index f77ed26..6782fc7 100644
+--- a/src/Entity/Page.php
++++ b/src/Entity/Page.php
+@@ -367,7 +367,9 @@ public function getContexts() {
+           }
+           else {
+             $this->contexts[$machine_name]->getContextDefinition()->setDataType($configuration['type']);
+-            $this->contexts[$machine_name]->getContextDefinition()->setLabel($configuration['label']);
++            if (!empty($configuration['label'])) {
++              $this->contexts[$machine_name]->getContextDefinition()->setLabel($configuration['label']);
++            }
+           }
+         }
+       }
+diff --git a/src/EventSubscriber/RouteParamContext.php b/src/EventSubscriber/RouteParamContext.php
+index d7d279c..8680878 100644
+--- a/src/EventSubscriber/RouteParamContext.php
++++ b/src/EventSubscriber/RouteParamContext.php
+@@ -71,7 +71,7 @@ public function onPageContext(PageManagerContextEvent $event) {
+         }
+ 
+         $parameter = $page->getParameter($route_context_name);
+-        $context_name = $parameter['label'] ?: $this->t('{@name} from route', ['@name' => $route_context_name]);
++        $context_name = !empty($parameter['label']) ? $parameter['label'] : $this->t('{@name} from route', ['@name' => $route_context_name]);
+         if ($request->attributes->has($route_context_name)) {
+           $value = $request->attributes->get($route_context_name);
+         }
+diff --git a/src/Routing/PageManagerRoutes.php b/src/Routing/PageManagerRoutes.php
+index 793d3c8..7def0d8 100644
+--- a/src/Routing/PageManagerRoutes.php
++++ b/src/Routing/PageManagerRoutes.php
+@@ -60,20 +60,24 @@ protected function alterRoutes(RouteCollection $collection) {
+         continue;
+       }
+ 
++      $defaults = [];
+       $parameters = [];
+       $requirements = [];
+-      if ($route_name = $this->findPageRouteName($entity, $collection)) {
+-        $this->cacheTagsInvalidator->invalidateTags(["page_manager_route_name:$route_name"]);
+ 
+-        $collection_route = $collection->get($route_name);
++      $route_name = "page_manager.page_view_$entity_id";
++      if ($overridden_route_name = $this->findOverriddenRouteName($entity, $collection)) {
++        $base_route_name = $overridden_route_name;
++
++        $collection_route = $collection->get($overridden_route_name);
++
++        // Add the name of the overridden route for use during filtering.
++        $defaults['overridden_route_name'] = $overridden_route_name;
+         $path = $collection_route->getPath();
+         $parameters = $collection_route->getOption('parameters') ?: [];
+         $requirements = $collection_route->getRequirements();
+-
+-        $collection->remove($route_name);
+       }
+       else {
+-        $route_name = "page_manager.page_view_$entity_id";
++        $base_route_name = $route_name;
+         $path = $entity->getPath();
+       }
+ 
+@@ -84,26 +88,24 @@ protected function alterRoutes(RouteCollection $collection) {
+         }
+       }
+ 
++      // When adding multiple variants, the variant ID is added to the route
++      // name. In order to convey the base route name for this set of variants,
++      // add it as a parameter.
++      $defaults['base_route_name'] = $base_route_name;
++
++      $defaults['_entity_view'] = 'page_manager_page_variant';
++      $defaults['_title'] = $entity->label();
++      $defaults['page_manager_page'] = $entity->id();
+       $parameters['page_manager_page_variant']['type'] = 'entity:page_variant';
+       $parameters['page_manager_page']['type'] = 'entity:page';
+       $requirements['_page_access'] = 'page_manager_page.view';
+-
+-      $page_id = $entity->id();
+-      $first = TRUE;
+       foreach ($entity->getVariants() as $variant_id => $variant) {
+         // Construct and add a new route.
+         $route = new Route(
+           $path,
+-          [
+-            '_entity_view' => 'page_manager_page_variant',
+-            '_title' => $entity->label(),
++          $defaults + [
+             'page_manager_page_variant' => $variant_id,
+-            'page_manager_page' => $page_id,
+             'page_manager_page_variant_weight' => $variant->getWeight(),
+-            // When adding multiple variants, the variant ID is added to the
+-            // route name. In order to convey the base route name for this set
+-            // of variants, add it as a parameter.
+-            'base_route_name' => $route_name,
+           ],
+           $requirements,
+           [
+@@ -111,9 +113,12 @@ protected function alterRoutes(RouteCollection $collection) {
+             '_admin_route' => $entity->usesAdminTheme(),
+           ]
+         );
+-        $collection->add($first ? $route_name : $route_name . '_' . $variant_id, $route);
+-        $first = FALSE;
++        $collection->add($route_name . '_' . $variant_id, $route);
+       }
++
++      // Invalidate any page with the same base route name. See
++      // \Drupal\page_manager\EventSubscriber\RouteNameResponseSubscriber.
++      $this->cacheTagsInvalidator->invalidateTags(["page_manager_route_name:$base_route_name"]);
+     }
+   }
+ 
+@@ -128,7 +133,7 @@ protected function alterRoutes(RouteCollection $collection) {
+    * @return string|null
+    *   Either the route name if this is overriding an existing path, or NULL.
+    */
+-  protected function findPageRouteName(PageInterface $entity, RouteCollection $collection) {
++  protected function findOverriddenRouteName(PageInterface $entity, RouteCollection $collection) {
+     // Get the stored page path.
+     $path = $entity->getPath();
+ 
+@@ -139,7 +144,10 @@ protected function findPageRouteName(PageInterface $entity, RouteCollection $col
+       $route_path_outline = RouteCompiler::getPatternOutline($route_path);
+ 
+       // Match either the path or the outline, e.g., '/foo/{foo}' or '/foo/%'.
+-      if ($path === $route_path || $path === $route_path_outline) {
++      // The route must be a GET route and must not specify a format.
++      if (($path === $route_path || $path === $route_path_outline) &&
++        (!$collection_route->getMethods() || in_array('GET', $collection_route->getMethods())) &&
++        !$collection_route->hasRequirement('_format')) {
+         // Return the overridden route name.
+         return $name;
+       }
+diff --git a/src/Routing/VariantRouteFilter.php b/src/Routing/VariantRouteFilter.php
+index 6d2abcc..0c271d8 100644
+--- a/src/Routing/VariantRouteFilter.php
++++ b/src/Routing/VariantRouteFilter.php
+@@ -11,8 +11,10 @@
+ use Drupal\Component\Utility\NestedArray;
+ use Drupal\Core\Entity\EntityTypeManagerInterface;
+ use Drupal\Core\Path\CurrentPathStack;
+-use Drupal\Core\Routing\RouteFilterInterface;
++use Symfony\Cmf\Component\Routing\NestedMatcher\RouteFilterInterface;
++use Symfony\Cmf\Component\Routing\RouteObjectInterface;
+ use Symfony\Component\HttpFoundation\Request;
++use Symfony\Component\HttpFoundation\RequestStack;
+ use Symfony\Component\Routing\Route;
+ use Symfony\Component\Routing\RouteCollection;
+ 
+@@ -42,105 +44,135 @@ class VariantRouteFilter implements RouteFilterInterface {
+   protected $currentPath;
+ 
+   /**
++   * The current request stack.
++   *
++   * @var \Symfony\Component\HttpFoundation\RequestStack
++   */
++  protected $requestStack;
++
++  /**
+    * Constructs a new VariantRouteFilter.
+    *
+    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
+    *   The entity type manager.
+    * @param \Drupal\Core\Path\CurrentPathStack $current_path
+    *   The current path stack.
++   * @param \Symfony\Component\HttpFoundation\RequestStack $request_stack
++   *   The current request stack.
+    */
+-  public function __construct(EntityTypeManagerInterface $entity_type_manager, CurrentPathStack $current_path) {
++  public function __construct(EntityTypeManagerInterface $entity_type_manager, CurrentPathStack $current_path, RequestStack $request_stack) {
+     $this->pageVariantStorage = $entity_type_manager->getStorage('page_variant');
+     $this->currentPath = $current_path;
+-  }
+-
+-  /**
+-   * {@inheritdoc}
+-   */
+-  public function applies(Route $route) {
+-    $parameters = $route->getOption('parameters');
+-    return !empty($parameters['page_manager_page_variant']);
++    $this->requestStack = $request_stack;
+   }
+ 
+   /**
+    * {@inheritdoc}
+    *
+-   * Invalid page manager routes will be removed. Routes not controlled by page
+-   * manager will be moved to the end of the collection. Once a valid page
+-   * manager route has been found, all other page manager routes will also be
+-   * removed.
++   * Ensures only one page manager route remains in the collection.
+    */
+   public function filter(RouteCollection $collection, Request $request) {
+-    // Only proceed if the collection is non-empty.
+-    if (!$collection->count()) {
++    $routes = $collection->all();
++    // Only continue if at least one route has a page manager variant.
++    if (!array_filter($routes, function (Route $route) {
++      return $route->hasDefault('page_manager_page_variant');
++    })) {
+       return $collection;
+     }
+ 
++    // Sort routes by variant weight.
++    $routes = $this->sortRoutes($routes);
++
++    $variant_route_name = $this->getVariantRouteName($routes, $request);
++    foreach ($routes as $name => $route) {
++      if (!$route->hasDefault('page_manager_page_variant')) {
++        continue;
++      }
++
++      // If this page manager route isn't the one selected, remove it.
++      if ($variant_route_name !== $name) {
++        unset($routes[$name]);
++      }
++      // If the selected route is overriding another route, remove the
++      // overridden route.
++      elseif ($overridden_route_name = $route->getDefault('overridden_route_name')) {
++        unset($routes[$overridden_route_name]);
++      }
++    }
++
++    // Create a new route collection by iterating over the sorted routes, using
++    // the overridden_route_name if available.
++    $result_collection = new RouteCollection();
++    foreach ($routes as $name => $route) {
++      $overridden_route_name = $route->getDefault('overridden_route_name') ?: $name;
++      $result_collection->add($overridden_route_name, $route);
++    }
++    return $result_collection;
++  }
++
++  /**
++   * Gets the route name of the first valid variant.
++   *
++   * @param \Symfony\Component\Routing\Route[] $routes
++   *   An array of sorted routes.
++   * @param \Symfony\Component\HttpFoundation\Request $request
++   *   A current request.
++   *
++   * @return string|null
++   *   A route name, or NULL if none are found.
++   */
++  protected function getVariantRouteName(array $routes, Request $request) {
+     // Store the unaltered request attributes.
+     $original_attributes = $request->attributes->all();
+-
+-    // First get all routes and sort them by variant weight. Note that routes
+-    // without a weight will have an undefined order, they are ignored here.
+-    $routes = $collection->all();
+-    uasort($routes, [$this, 'routeWeightSort']);
+-
+-    // Find the first route that is accessible.
+-    $accessible_route_name = NULL;
+     foreach ($routes as $name => $route) {
+-      $attributes = $this->getRequestAttributes($route, $name, $request);
+-      // Add the enhanced attributes to the request.
+-      $request->attributes->add($attributes);
+-      if ($page_variant_id = $route->getDefault('page_manager_page_variant')) {
++      if (!$page_variant_id = $route->getDefault('page_manager_page_variant')) {
++        continue;
++      }
++
++      if ($attributes = $this->getRequestAttributes($route, $name, $request)) {
++        // Use the overridden route name if available.
++        $attributes[RouteObjectInterface::ROUTE_NAME] = $route->getDefault('overridden_route_name') ?: $name;
++        // Add the enhanced attributes to the request.
++        $request->attributes->add($attributes);
++        $this->requestStack->push($request);
++
+         if ($this->checkPageVariantAccess($page_variant_id)) {
+-          // Access granted, use this route. Do not restore request attributes
+-          // but keep those from this route by breaking out.
+-          $accessible_route_name = $name;
+-          break;
++          $this->requestStack->pop();
++          return $name;
+         }
+-      }
+-
+-      // Restore the original request attributes, this must be done in the loop
+-      // or the request attributes will not be calculated correctly for the
+-      // next route.
+-      $request->attributes->replace($original_attributes);
+-    }
+ 
+-    // Because the sort order of $routes is unreliable for a route without a
+-    // variant weight, rely on the original order of $collection here.
+-    foreach ($collection as $name => $route) {
+-      if ($route->getDefault('page_manager_page_variant')) {
+-        if ($accessible_route_name !== $name) {
+-          // Remove all other page manager routes.
+-          $collection->remove($name);
+-        }
+-      }
+-      else {
+-        // This is not page manager route, move it to the end of the collection,
+-        // those will only be used if there is no accessible variant route.
+-        $collection->add($name, $route);
++        // Restore the original request attributes, this must be done in the loop
++        // or the request attributes will not be calculated correctly for the
++        // next route.
++        $request->attributes->replace($original_attributes);
++        $this->requestStack->pop();
+       }
+     }
+-
+-    return $collection;
+   }
+ 
+   /**
+-   * Sort callback for routes based on the variant weight.
++   * Sorts routes based on the variant weight.
++   *
++   * @param \Symfony\Component\Routing\Route[] $unsorted_routes
++   *   An array of unsorted routes.
++   *
++   * @return \Symfony\Component\Routing\Route[]
++   *   An array of sorted routes.
+    */
+-  protected function routeWeightSort(Route $a, Route $b) {
+-    $a_weight = $a->getDefault('page_manager_page_variant_weight');
+-    $b_weight = $b->getDefault('page_manager_page_variant_weight');
+-    if ($a_weight === $b_weight) {
+-      return 0;
+-    }
+-    elseif ($a_weight === NULL) {
+-      return 1;
+-    }
+-    elseif ($b_weight === NULL) {
+-      return -1;
+-    }
++  protected function sortRoutes(array $unsorted_routes) {
++    // Create a mapping of route names to their weights.
++    $weights_by_key = array_map(function (Route $route) {
++      return $route->getDefault('page_manager_page_variant_weight') ?: 0;
++    }, $unsorted_routes);
+ 
+-    return ($a_weight < $b_weight) ? -1 : 1;
++    // Create an array holding the route names to be sorted.
++    $keys = array_keys($unsorted_routes);
++
++    // Sort $keys first by the weights and then by the original order.
++    array_multisort($weights_by_key, array_keys($keys), $keys);
++
++    // Return the routes using the sorted order of $keys.
++    return array_replace(array_combine($keys, $keys), $unsorted_routes);
+   }
+ 
+   /**
+@@ -181,8 +213,8 @@ protected function checkPageVariantAccess($page_variant_id) {
+    * @param \Symfony\Component\HttpFoundation\Request $request
+    *   The current request.
+    *
+-   * @return array
+-   *   An array of request attributes.
++   * @return array|false
++   *   An array of request attributes or FALSE if any route enhancers fail.
+    */
+   protected function getRequestAttributes(Route $route, $name, Request $request) {
+     // Extract the raw attributes from the current path. This performs the same
+@@ -195,7 +227,12 @@ protected function getRequestAttributes(Route $route, $name, Request $request) {
+     // Run the route enhancers on the raw attributes. This performs the same
+     // functionality as \Symfony\Cmf\Component\Routing\DynamicRouter::match().
+     foreach ($this->getRouteEnhancers() as $enhancer) {
+-      $attributes = $enhancer->enhance($attributes, $request);
++      try {
++        $attributes = $enhancer->enhance($attributes, $request);
++      }
++      catch (\Exception $e) {
++        return FALSE;
++      }
+     }
+ 
+     return $attributes;
+diff --git a/tests/modules/page_manager_routing_test/page_manager_routing_test.info.yml b/tests/modules/page_manager_routing_test/page_manager_routing_test.info.yml
+new file mode 100644
+index 0000000..c0e20c7
+--- /dev/null
++++ b/tests/modules/page_manager_routing_test/page_manager_routing_test.info.yml
+@@ -0,0 +1,4 @@
++type: module
++name: Page Manager Routing Test
++description: 'Required for Page Manager tests.'
++core: 8.x
+diff --git a/tests/modules/page_manager_routing_test/page_manager_routing_test.services.yml b/tests/modules/page_manager_routing_test/page_manager_routing_test.services.yml
+new file mode 100644
+index 0000000..e09db3b
+--- /dev/null
++++ b/tests/modules/page_manager_routing_test/page_manager_routing_test.services.yml
+@@ -0,0 +1,6 @@
++services:
++  page_manager_routing_test.subscriber:
++    class: Drupal\page_manager_routing_test\Routing\RouteSubscriber
++    arguments: ['@entity.manager']
++    tags:
++     - { name: event_subscriber }
+diff --git a/tests/modules/page_manager_routing_test/src/Plugin/Condition/EntityTestCondition.php b/tests/modules/page_manager_routing_test/src/Plugin/Condition/EntityTestCondition.php
+new file mode 100644
+index 0000000..eb37701
+--- /dev/null
++++ b/tests/modules/page_manager_routing_test/src/Plugin/Condition/EntityTestCondition.php
+@@ -0,0 +1,34 @@
++<?php
++
++namespace Drupal\page_manager_routing_test\Plugin\Condition;
++
++use Drupal\Core\Condition\ConditionPluginBase;
++
++/**
++ * @todo.
++ *
++ * @Condition(
++ *   id = "page_manager_routing_test__entity_test",
++ *   label = @Translation("Entity Test"),
++ *   context = {
++ *     "entity_test" = @ContextDefinition("entity:entity_test")
++ *   }
++ * )
++ */
++class EntityTestCondition extends ConditionPluginBase {
++
++  /**
++   * {@inheritdoc}
++   */
++  public function evaluate() {
++    return (bool) $this->getContext('entity_test');
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public function summary() {
++    return '';
++  }
++
++}
+diff --git a/tests/modules/page_manager_routing_test/src/Routing/RouteSubscriber.php b/tests/modules/page_manager_routing_test/src/Routing/RouteSubscriber.php
+new file mode 100644
+index 0000000..41ff7bc
+--- /dev/null
++++ b/tests/modules/page_manager_routing_test/src/Routing/RouteSubscriber.php
+@@ -0,0 +1,54 @@
++<?php
++
++namespace Drupal\page_manager_routing_test\Routing;
++
++use Drupal\Core\Routing\RouteBuildEvent;
++use Drupal\Core\Routing\RoutingEvents;
++use Symfony\Component\EventDispatcher\EventSubscriberInterface;
++use Symfony\Component\Routing\Route;
++
++/**
++ * Route subscriber for Page Manager Routing Test.
++ */
++class RouteSubscriber implements EventSubscriberInterface {
++
++  /**
++   * Alters the existing route collection.
++   *
++   * @param \Drupal\Core\Routing\RouteBuildEvent $event
++   *   The route build event.
++   */
++  public function beforePageManagerRoutes(RouteBuildEvent $event) {
++    $collection = $event->getRouteCollection();
++    $route = new Route('/entity_test/{entity_test}', [], ['_access' => 'TRUE']);
++    $route->setRequirement('_format', 'xml');
++    $collection->add('entity.entity_test.canonical.xml', $route);
++  }
++
++  /**
++   * Alters the existing route collection.
++   *
++   * @param \Drupal\Core\Routing\RouteBuildEvent $event
++   *   The route build event.
++   */
++  public function afterPageManagerRoutes(RouteBuildEvent $event) {
++    $collection = $event->getRouteCollection();
++    if ($original_route = $collection->get('entity.entity_test.canonical')) {
++      $route = new Route($original_route->getPath(), $original_route->getDefaults(), $original_route->getRequirements(), $original_route->getOptions());
++      $route->setRequirement('_format', 'json');
++      $collection->add('entity.entity_test.canonical.json', $route);
++    }
++  }
++
++  /**
++   * {@inheritdoc}
++   */
++  public static function getSubscribedEvents() {
++    // Run before PageManagerRoutes.
++    $events[RoutingEvents::ALTER][] = ['beforePageManagerRoutes', -155];
++    // Run after PageManagerRoutes.
++    $events[RoutingEvents::ALTER][] = ['afterPageManagerRoutes', -165];
++    return $events;
++  }
++
++}
+diff --git a/tests/src/Kernel/PageManagerRoutingTest.php b/tests/src/Kernel/PageManagerRoutingTest.php
+new file mode 100644
+index 0000000..6c07bed
+--- /dev/null
++++ b/tests/src/Kernel/PageManagerRoutingTest.php
+@@ -0,0 +1,154 @@
++<?php
++
++namespace Drupal\Tests\page_manager\Kernel;
++
++use Drupal\entity_test\Entity\EntityTest;
++use Drupal\KernelTests\Core\Entity\EntityKernelTestBase;
++use Drupal\page_manager\Entity\Page;
++use Drupal\page_manager\Entity\PageVariant;
++use Symfony\Cmf\Component\Routing\RouteObjectInterface;
++use Symfony\Component\HttpFoundation\Request;
++
++/**
++ * Integration test for Page Manager routing.
++ *
++ * @group PageManager
++ */
++class PageManagerRoutingTest extends EntityKernelTestBase {
++
++  /**
++   * {@inheritdoc}
++   */
++  public static $modules = ['page_manager', 'page_manager_routing_test'];
++
++  /**
++   * {@inheritdoc}
++   */
++  protected function setUp() {
++    parent::setUp();
++
++    $this->container->get('current_user')->setAccount($this->createUser([], ['view test entity']));
++    EntityTest::create()->save();
++
++    Page::create([
++      'id' => 'entity_test_view',
++      'path' => '/entity_test/{entity_test}',
++    ])->save();
++    PageVariant::create([
++      'id' => 'entity_test_view_variant',
++      'variant' => 'simple_page',
++      'page' => 'entity_test_view',
++    ])->save();
++
++    Page::create([
++      'id' => 'custom_entity_test_view',
++      'path' => '/custom/entity_test/{entity_test}',
++      'parameters' => [
++        'entity_test' => [
++          'type' => 'entity:entity_test',
++        ],
++      ],
++    ])->save();
++    $variant = PageVariant::create([
++      'id' => 'custom_entity_test_view_variant',
++      'variant' => 'simple_page',
++      'page' => 'custom_entity_test_view',
++    ]);
++    $variant->addSelectionCondition([
++      'id' => 'page_manager_routing_test__entity_test',
++    ]);
++    $variant->getPluginCollections();
++    $variant->save();
++
++    Page::create([
++      'id' => 'entity_test_edit',
++      'path' => '/entity_test/manage/{entity_test}/edit',
++    ])->save();
++    PageVariant::create([
++      'id' => 'entity_test_edit_variant',
++      'variant' => 'simple_page',
++      'page' => 'entity_test_edit',
++      // Add a selection condition that will never pass.
++      'selection_criteria' => [
++        'request_path' => [
++          'id' => 'request_path',
++          'pages' => 'invalid',
++        ],
++      ],
++    ])->save();
++
++    Page::create([
++      'id' => 'entity_test_delete',
++      'path' => '/entity_test/delete/entity_test/{entity_test}',
++      // Add an access condition that will never pass.
++      'access_conditions' => [
++        'request_path' => [
++          'id' => 'request_path',
++          'pages' => 'invalid',
++        ],
++      ],
++    ])->save();
++    PageVariant::create([
++      'id' => 'entity_test_delete_variant',
++      'variant' => 'simple_page',
++      'page' => 'entity_test_delete',
++    ])->save();
++  }
++
++  /**
++   * @covers \Drupal\page_manager\Routing\VariantRouteFilter
++   *
++   * @dataProvider providerTestRouteFilter
++   */
++  public function testRouteFilter($path, $expected) {
++    $request = Request::create($path);
++    try {
++      $parameters = $this->container->get('router')->matchRequest($request);
++    }
++    catch (\Exception $e) {
++      $parameters = [];
++    }
++
++    if ($expected) {
++      $this->assertArrayHasKey(RouteObjectInterface::ROUTE_NAME, $parameters);
++      $this->assertSame($expected, $parameters[RouteObjectInterface::ROUTE_NAME]);
++    }
++    else {
++      $this->assertEmpty($parameters);
++    }
++  }
++
++  public function providerTestRouteFilter() {
++    $data = [];
++    $data['custom'] = [
++      '/custom/entity_test/1',
++      'page_manager.page_view_custom_entity_test_view_custom_entity_test_view_variant',
++    ];
++    $data['no_format'] = [
++      '/entity_test/1',
++      'entity.entity_test.canonical',
++    ];
++    $data['format_added_after'] = [
++      '/entity_test/1?_format=json',
++      'entity.entity_test.canonical.json',
++    ];
++    $data['format_added_before'] = [
++      '/entity_test/1?_format=xml',
++      'entity.entity_test.canonical.xml',
++    ];
++    $data['same_pattern_no_match'] = [
++      '/entity_test/add',
++      'entity.entity_test.add_form',
++    ];
++    $data['failed_selection'] = [
++      '/entity_test/manage/1/edit',
++      'entity.entity_test.edit_form',
++    ];
++    $data['access_denied'] = [
++      '/entity_test/delete/entity_test/1',
++      NULL,
++    ];
++    return $data;
++  }
++
++}
+diff --git a/tests/src/Unit/PageManagerRoutesTest.php b/tests/src/Unit/PageManagerRoutesTest.php
+index fe6f005..d0fff14 100644
+--- a/tests/src/Unit/PageManagerRoutesTest.php
++++ b/tests/src/Unit/PageManagerRoutesTest.php
+@@ -126,8 +126,8 @@ public function testAlterRoutesWithStatus() {
+     $this->routeSubscriber->onAlterRoutes($route_event);
+ 
+     // Only the valid page should be in the collection.
+-    $this->assertSame(1, $collection->count());
+-    $route = $collection->get('page_manager.page_view_page1');
++    $this->assertSame(['page_manager.page_view_page1_variant1'], array_keys($collection->all()));
++    $route = $collection->get('page_manager.page_view_page1_variant1');
+     $expected_defaults = [
+       '_entity_view' => 'page_manager_page_variant',
+       '_title' => 'Page label',
+@@ -158,7 +158,7 @@ public function testAlterRoutesWithStatus() {
+    * Tests overriding an existing route.
+    *
+    * @covers ::alterRoutes
+-   * @covers ::findPageRouteName
++   * @covers ::findOverriddenRouteName
+    *
+    * @dataProvider providerTestAlterRoutesOverrideExisting
+    */
+@@ -191,23 +191,29 @@ public function testAlterRoutesOverrideExisting($page_path, $existing_route_path
+     $this->cacheTagsInvalidator->invalidateTags(["page_manager_route_name:$route_name"])->shouldBeCalledTimes(1);
+ 
+     $collection = new RouteCollection();
++    $collection->add("$route_name.POST", new Route($existing_route_path, ['default_exists' => 'default_value'], $requirements, ['parameters' => ['foo' => ['type' => 'bar']]], '', [], ['POST']));
++    $collection->add("$route_name.POST_with_format", new Route($existing_route_path, ['default_exists' => 'default_value'], $requirements + ['_format' => 'json'], ['parameters' => ['foo' => ['type' => 'bar']]], '', [], ['GET', 'POST']));
+     $collection->add($route_name, new Route($existing_route_path, ['default_exists' => 'default_value'], $requirements, ['parameters' => ['foo' => ['type' => 'bar']]]));
+     $route_event = new RouteBuildEvent($collection);
+     $this->routeSubscriber->onAlterRoutes($route_event);
+ 
+-    // The normal route name is not used, the existing route name is instead.
+-    $this->assertSame(1, $collection->count());
+-    $this->assertNull($collection->get('page_manager.page_view_page1'));
+-    $this->assertNull($collection->get('page_manager.page_view_page1_variant1'));
++    // The existing route name is not overridden.
++    $this->assertSame([
++      'test_route.POST',
++      'test_route.POST_with_format',
++      'test_route',
++      'page_manager.page_view_page1_variant1',
++      ], array_keys($collection->all()));
+ 
+-    $route = $collection->get($route_name);
++    $route = $collection->get('page_manager.page_view_page1_variant1');
+     $expected_defaults = [
+       '_entity_view' => 'page_manager_page_variant',
+       '_title' => NULL,
+       'page_manager_page_variant' => 'variant1',
+       'page_manager_page' => 'page1',
+       'page_manager_page_variant_weight' => 0,
+-      'base_route_name' => $route_name,
++      'overridden_route_name' => 'test_route',
++      'base_route_name' => 'test_route',
+     ];
+     $expected_requirements = $requirements + ['_page_access' => 'page_manager_page.view'];
+     $expected_options = [
+@@ -270,16 +276,32 @@ public function testAlterRoutesMultipleVariantsDifferentRequirements() {
+     $route_event = new RouteBuildEvent($collection);
+     $this->routeSubscriber->onAlterRoutes($route_event);
+ 
+-    $this->assertSame(2, $collection->count());
++    $this->assertSame([
++      'test_route',
++      'page_manager.page_view_page1_variant1',
++      'page_manager.page_view_page2_variant2',
++      ], array_keys($collection->all()));
+     $expected = [
+       'test_route' => [
+         'path' => '/test_route1',
+         'defaults' => [
++        ],
++        'requirements' => [
++          '_access' => 'TRUE',
++        ],
++        'options' => [
++          'compiler_class' => 'Symfony\Component\Routing\RouteCompiler',
++        ],
++      ],
++      'page_manager.page_view_page1_variant1' => [
++        'path' => '/test_route1',
++        'defaults' => [
+           '_entity_view' => 'page_manager_page_variant',
+           '_title' => 'Page 1',
+           'page_manager_page_variant' => 'variant1',
+           'page_manager_page' => 'page1',
+           'page_manager_page_variant_weight' => 0,
++          'overridden_route_name' => 'test_route',
+           'base_route_name' => 'test_route',
+         ],
+         'requirements' => [
+@@ -299,7 +321,7 @@ public function testAlterRoutesMultipleVariantsDifferentRequirements() {
+           '_admin_route' => FALSE,
+         ],
+       ],
+-      'page_manager.page_view_page2' => [
++      'page_manager.page_view_page2_variant2' => [
+         'path' => '/test_route2',
+         'defaults' => [
+           '_entity_view' => 'page_manager_page_variant',
+@@ -335,7 +357,7 @@ public function testAlterRoutesMultipleVariantsDifferentRequirements() {
+    * Tests overriding an existing route with configured parameters.
+    *
+    * @covers ::alterRoutes
+-   * @covers ::findPageRouteName
++   * @covers ::findOverriddenRouteName
+    *
+    * @dataProvider providerTestAlterRoutesOverrideExisting
+    */
+@@ -368,7 +390,8 @@ public function testAlterRoutesOverrideExistingWithConfiguredParameters($page_pa
+       'page_manager_page_variant' => 'variant1',
+       'page_manager_page' => 'page1',
+       'page_manager_page_variant_weight' => 0,
+-      'base_route_name' => $route_name,
++      'overridden_route_name' => $route_name,
++      'base_route_name' => 'test_route',
+     ];
+     $expected_requirements = $requirements + ['_page_access' => 'page_manager_page.view'];
+     $expected_options = [
+@@ -387,7 +410,11 @@ public function testAlterRoutesOverrideExistingWithConfiguredParameters($page_pa
+       ],
+       '_admin_route' => FALSE,
+     ];
+-    $this->assertMatchingRoute($collection->get($route_name), $existing_route_path, $expected_defaults, $expected_requirements, $expected_options);
++    $this->assertSame([
++      'test_route',
++      'page_manager.page_view_page1_variant1',
++    ], array_keys($collection->all()));
++    $this->assertMatchingRoute($collection->get('page_manager.page_view_page1_variant1'), $existing_route_path, $expected_defaults, $expected_requirements, $expected_options);
+   }
+ 
+   /**
+diff --git a/tests/src/Unit/VariantRouteFilterTest.php b/tests/src/Unit/VariantRouteFilterTest.php
+index dbcf0f3..1664fbb 100644
+--- a/tests/src/Unit/VariantRouteFilterTest.php
++++ b/tests/src/Unit/VariantRouteFilterTest.php
+@@ -16,6 +16,7 @@
+ use Drupal\Tests\UnitTestCase;
+ use Symfony\Cmf\Component\Routing\Enhancer\RouteEnhancerInterface;
+ use Symfony\Component\HttpFoundation\Request;
++use Symfony\Component\HttpFoundation\RequestStack;
+ use Symfony\Component\Routing\Route;
+ use Symfony\Component\Routing\RouteCollection;
+ 
+@@ -54,6 +55,13 @@ class VariantRouteFilterTest extends UnitTestCase {
+   protected $routeFilter;
+ 
+   /**
++   * The request stack.
++   *
++   * @var \Symfony\Component\HttpFoundation\RequestStack
++   */
++  protected $requestStack;
++
++  /**
+    * {@inheritdoc}
+    */
+   protected function setUp() {
+@@ -63,26 +71,18 @@ protected function setUp() {
+     $this->entityTypeManager->getStorage('page_variant')
+       ->willReturn($this->pageVariantStorage);
+     $this->currentPath = $this->prophesize(CurrentPathStack::class);
++    $this->requestStack = new RequestStack();
+ 
+-    $this->routeFilter = new VariantRouteFilter($this->entityTypeManager->reveal(), $this->currentPath->reveal());
++    $this->routeFilter = new VariantRouteFilter($this->entityTypeManager->reveal(), $this->currentPath->reveal(), $this->requestStack);
+   }
+ 
+   /**
+-   * @covers ::applies
+-   *
+-   * @dataProvider providerTestApplies
++   * {@inheritdoc}
+    */
+-  public function testApplies($options, $expected) {
+-    $route = new Route('/path/with/{slug}', [], [], $options);
+-    $result = $this->routeFilter->applies($route);
+-    $this->assertSame($expected, $result);
+-  }
+-
+-  public function providerTestApplies() {
+-    $data = [];
+-    $data['no_options'] = [[], FALSE];
+-    $data['with_options'] = [['parameters' => ['page_manager_page_variant' => TRUE]], TRUE];
+-    return $data;
++  protected function tearDown() {
++    // The request stack begins empty, ensure it is empty after filtering.
++    $this->assertNull($this->requestStack->getCurrentRequest());
++    parent::tearDown();
+   }
+ 
+   /**
+@@ -102,6 +102,7 @@ public function testFilterEmptyCollection() {
+ 
+   /**
+    * @covers ::filter
++   * @covers ::getVariantRouteName
+    * @covers ::checkPageVariantAccess
+    */
+   public function testFilterContextException() {
+@@ -125,6 +126,7 @@ public function testFilterContextException() {
+ 
+   /**
+    * @covers ::filter
++   * @covers ::getVariantRouteName
+    */
+   public function testFilterNonMatchingRoute() {
+     $route_collection = new RouteCollection();
+@@ -143,6 +145,7 @@ public function testFilterNonMatchingRoute() {
+ 
+   /**
+    * @covers ::filter
++   * @covers ::getVariantRouteName
+    * @covers ::checkPageVariantAccess
+    */
+   public function testFilterDeniedAccess() {
+@@ -166,6 +169,7 @@ public function testFilterDeniedAccess() {
+ 
+   /**
+    * @covers ::filter
++   * @covers ::getVariantRouteName
+    * @covers ::checkPageVariantAccess
+    */
+   public function testFilterAllowedAccess() {
+@@ -194,14 +198,15 @@ public function testFilterAllowedAccess() {
+ 
+   /**
+    * @covers ::filter
++   * @covers ::getVariantRouteName
+    */
+   public function testFilterAllowedAccessTwoRoutes() {
+     $route_collection = new RouteCollection();
+     $request = new Request();
+ 
+-    // Add route2 first to ensure that the routes are sorted by weight.
+-    $route1 = new Route('/path/with/{slug}', ['page_manager_page_variant' => 'variant_1', 'page_manager_page_variant_weight' => 1]);
++    $route1 = new Route('/path/with/{slug}', ['page_manager_page_variant' => 'variant_1', 'page_manager_page_variant_weight' => 0]);
+     $route2 = new Route('/path/with/{slug}', ['page_manager_page_variant' => 'variant_2', 'page_manager_page_variant_weight' => 2]);
++    // Add route2 first to ensure that the routes get sorted by weight.
+     $route_collection->add('route_2', $route2);
+     $route_collection->add('route_1', $route1);
+ 
+@@ -217,7 +222,7 @@ public function testFilterAllowedAccessTwoRoutes() {
+     $this->assertSame($expected, $result->all());
+     $expected_attributes = [
+       'page_manager_page_variant' => 'variant_1',
+-      'page_manager_page_variant_weight' => 1,
++      'page_manager_page_variant_weight' => 0,
+       '_route_object' => $route1,
+       '_route' => 'route_1',
+     ];
+@@ -226,14 +231,20 @@ public function testFilterAllowedAccessTwoRoutes() {
+ 
+   /**
+    * @covers ::filter
++   * @covers ::getVariantRouteName
+    */
+   public function testFilterAllowedAccessSecondRoute() {
+     $route_collection = new RouteCollection();
+     $request = new Request();
+ 
+-    // Add route2 first to ensure that the routes are sorted by weight.
+     $route1 = new Route('/path/with/{slug}', ['page_manager_page_variant' => 'variant_1', 'page_manager_page_variant_weight' => 1]);
+-    $route2 = new Route('/path/with/{slug}', ['page_manager_page_variant' => 'variant_2', 'page_manager_page_variant_weight' => 2]);
++    $defaults = [
++      'page_manager_page_variant' => 'variant_2',
++      'page_manager_page_variant_weight' => 2,
++      'overridden_route_name' => 'overridden_route_name_for_selected_route',
++    ];
++    $route2 = new Route('/path/with/{slug}', $defaults);
++    // Add route2 first to ensure that the routes get sorted by weight.
+     $route_collection->add('route_2', $route2);
+     $route_collection->add('route_1', $route1);
+ 
+@@ -247,20 +258,19 @@ public function testFilterAllowedAccessSecondRoute() {
+     $this->pageVariantStorage->load('variant_2')->willReturn($page_variant2->reveal())->shouldBeCalled();
+ 
+     $result = $this->routeFilter->filter($route_collection, $request);
+-    $expected = ['route_2' => $route2];
++    $expected = ['overridden_route_name_for_selected_route' => $route2];
+     $this->assertSame($expected, $result->all());
+-    $expected_attributes = [
+-      'page_manager_page_variant' => 'variant_2',
+-      'page_manager_page_variant_weight' => 2,
++    $expected_attributes = $defaults + [
+       '_route_object' => $route2,
+-      '_route' => 'route_2',
++      '_route' => 'overridden_route_name_for_selected_route',
+     ];
+     $this->assertSame($expected_attributes, $request->attributes->all());
+   }
+ 
+   /**
+    * @covers ::filter
+-   * @covers ::routeWeightSort
++   * @covers ::getVariantRouteName
++   * @covers ::sortRoutes
+    *
+    * Tests when the first page_manager route is allowed, but other
+    * non-page_manager routes are also present.
+@@ -269,11 +279,17 @@ public function testFilterAllowedAccessFirstRoute() {
+     $route_collection = new RouteCollection();
+     $request = new Request();
+ 
+-    // Add routes in different order to test sorting.
++    // The selected route specifies a different base route.
++    $defaults = [
++      'page_manager_page_variant' => 'variant1',
++      'page_manager_page_variant_weight' => -2,
++      'overridden_route_name' => 'route_1',
++    ];
+     $route1 = new Route('/path/with/{slug}');
+-    $route2 = new Route('/path/with/{slug}', ['page_manager_page_variant' => 'variant1', 'page_manager_page_variant_weight' => 1]);
+-    $route3 = new Route('/path/with/{slug}', ['page_manager_page_variant' => 'variant2', 'page_manager_page_variant_weight' => 2]);
++    $route2 = new Route('/path/with/{slug}', $defaults);
++    $route3 = new Route('/path/with/{slug}', ['page_manager_page_variant' => 'variant2', 'page_manager_page_variant_weight' => -1]);
+     $route4 = new Route('/path/with/{slug}');
++    // Add routes in different order to test sorting.
+     $route_collection->add('route_3', $route3);
+     $route_collection->add('route_2', $route2);
+     $route_collection->add('route_1', $route1);
+@@ -288,19 +304,19 @@ public function testFilterAllowedAccessFirstRoute() {
+     $this->pageVariantStorage->load('variant1')->willReturn($page_variant1->reveal())->shouldBeCalled();
+ 
+     $result = $this->routeFilter->filter($route_collection, $request);
+-    $expected = ['route_2' => $route2, 'route_1' => $route1, 'route_4' => $route4];
++    $expected = ['route_1' => $route2, 'route_4' => $route4];
+     $this->assertSame($expected, $result->all());
+-    $expected_attributes = [
+-      'page_manager_page_variant' => 'variant1',
+-      'page_manager_page_variant_weight' => 1,
++    $expected_attributes = $defaults + [
+       '_route_object' => $route2,
+-      '_route' => 'route_2',
++      '_route' => 'route_1',
+     ];
+     $this->assertSame($expected_attributes, $request->attributes->all());
+   }
+ 
+   /**
+    * @covers ::filter
++   * @covers ::getVariantRouteName
++   * @covers ::getRequestAttributes
+    */
+   public function testFilterRequestAttributes() {
+     $route_collection = new RouteCollection();
+@@ -341,6 +357,74 @@ public function testFilterRequestAttributes() {
+   }
+ 
+   /**
++   * @covers ::filter
++   * @covers ::getVariantRouteName
++   * @covers ::getRequestAttributes
++   */
++  public function testFilterRequestAttributesException() {
++    $route_collection = new RouteCollection();
++    $original_attributes = ['foo' => 'bar', 'slug' => 2];
++    $request = new Request([], [], $original_attributes);
++
++    $route = new Route('/path/with/{slug}', ['page_manager_page_variant' => 'a_variant']);
++    $route_collection->add('a_route', $route);
++
++    $page_variant = $this->prophesize(PageVariantInterface::class);
++    $page_variant->access('view')->willReturn(TRUE);
++
++    $this->currentPath->getPath($request)->willReturn('/path/with/1');
++    $this->pageVariantStorage->load('a_variant')->willReturn($page_variant->reveal());
++
++    $route_enhancer = $this->prophesize(RouteEnhancerInterface::class);
++    $this->routeFilter->addRouteEnhancer($route_enhancer->reveal());
++    $expected_enhance_attributes = [
++      'foo' => 'bar',
++      'slug' => '1',
++      'page_manager_page_variant' => 'a_variant',
++      '_route_object' => $route,
++      '_route' => 'a_route',
++    ];
++    $route_enhancer->enhance($expected_enhance_attributes, $request)->willThrow(new \Exception('A route enhancer failed'));
++
++    $result = $this->routeFilter->filter($route_collection, $request);
++    $this->assertEmpty($result->all());
++    $this->assertSame($original_attributes, $request->attributes->all());
++  }
++
++  /**
++   * @covers ::filter
++   * @covers ::sortRoutes
++   */
++  public function testFilterPreservingBaseRouteName() {
++    $route_collection = new RouteCollection();
++    $request = new Request();
++
++    // Add routes in different order to also test order preserving.
++    $route1 = new Route('/path/with/{slug}', ['page_manager_page_variant' => 'variant1', 'page_manager_page_variant_weight' => -10, 'overridden_route_name' => 'preserved_route_name']);
++    $route2 = new Route('/path/with/{slug}', ['page_manager_page_variant' => 'variant2', 'page_manager_page_variant_weight' => -5]);
++    $route3 = new Route('/path/with/{slug}', []);
++    $route4 = new Route('/path/with/{slug}', []);
++    $route_collection->add('route_4', $route4);
++    $route_collection->add('route_3', $route3);
++    $route_collection->add('route_1', $route1);
++    $route_collection->add('route_2', $route2);
++
++    $page_variant1 = $this->prophesize(PageVariantInterface::class);
++    $page_variant1->access('view')->willReturn(TRUE);
++    $page_variant2 = $this->prophesize(PageVariantInterface::class);
++    $page_variant2->access('view')->willReturn(FALSE);
++
++    $this->currentPath->getPath($request)->willReturn('');
++    $this->pageVariantStorage->load('variant1')->willReturn($page_variant1->reveal())->shouldBeCalled();
++    $this->pageVariantStorage->load('variant2')->shouldNotBeCalled();
++
++    $result = $this->routeFilter->filter($route_collection, $request);
++
++    $expected = ['preserved_route_name' => $route1, 'route_4' => $route4, 'route_3' => $route3];
++    $this->assertSame($expected, $result->all());
++  }
++
++  /**
+    * @covers ::getRequestAttributes
+    */
+   public function testGetRequestAttributes() {

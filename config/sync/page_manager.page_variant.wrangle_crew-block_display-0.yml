@@ -1,0 +1,47 @@
+uuid: e81f514d-6f4c-4c7f-8be5-18b1b7aba279
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.wrangle_crew
+    - views.view.wrangle_dpw
+    - views.view.wrangle_sanctuary
+  module:
+    - views
+id: wrangle_crew-block_display-0
+label: Stats
+variant: block_display
+variant_settings:
+  blocks:
+    f4b8714e-5211-4365-b6f0-bc72f1e66cda:
+      id: 'views_block:wrangle_sanctuary-stats_block'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: top
+      weight: 0
+      uuid: f4b8714e-5211-4365-b6f0-bc72f1e66cda
+      context_mapping: {  }
+    cabd75d0-eec0-4cc9-9492-e613a22ee42c:
+      id: 'views_block:wrangle_dpw-stats_block'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: top
+      weight: 0
+      uuid: cabd75d0-eec0-4cc9-9492-e613a22ee42c
+      context_mapping: {  }
+  id: block_display
+  uuid: 3c48a3c8-52f3-43a2-a13a-f148e77b3a2d
+  label: null
+  weight: 0
+  page_title: Crew
+page: wrangle_crew
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

@@ -1,0 +1,31 @@
+uuid: 8fc00d8f-4824-47bf-98fd-b67b3bc086ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_year_cycle
+    - paragraphs.paragraphs_type.wap
+  module:
+    - computed_field
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.wap.field_year_cycle
+field_name: field_year_cycle
+entity_type: paragraph
+bundle: wap
+label: 'Year Cycle'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  code: '$value = 0;'
+  prefix: ''
+  suffix: ''
+field_type: computed_integer

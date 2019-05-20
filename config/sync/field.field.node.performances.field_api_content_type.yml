@@ -1,0 +1,29 @@
+uuid: 53453a5d-1c45-4224-a8bd-cf63a7da58c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_api_content_type
+    - node.type.performances
+  module:
+    - computed_field
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.performances.field_api_content_type
+field_name: field_api_content_type
+entity_type: node
+bundle: performances
+label: 'API Content Type'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings:
+  code: '$value = '''';'
+field_type: computed_string

@@ -1,0 +1,12 @@
+incidents.stats:
+  route_name: afrikaburn_incident.stats
+  title: Stats
+  base_route: afrikaburn_incident.stats
+incidents.current:
+  route_name: afrikaburn_incident.current
+  title: "Current"
+  base_route: afrikaburn_incident.stats
+incidents.archive:
+  route_name: afrikaburn_incident.archive
+  title: "Archive"
+  base_route: afrikaburn_incident.stats

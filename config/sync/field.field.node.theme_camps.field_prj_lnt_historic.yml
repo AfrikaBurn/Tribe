@@ -18,8 +18,8 @@ id: node.theme_camps.field_prj_lnt_historic
 field_name: field_prj_lnt_historic
 entity_type: node
 bundle: theme_camps
-label: 'What was your moop map score in 2017'
-description: "If you were part of a Theme Camp in 2016 what was your MOOP map rating?<br>\r\nRed, Yellow, Green"
+label: 'What was your last moop map score?'
+description: "If you were part of a Theme Camp before, what was your MOOP map rating?<br />\r\nRed, Yellow, Green"
 required: true
 translatable: false
 default_value: {  }

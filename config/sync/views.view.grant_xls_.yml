@@ -1,6 +1,6 @@
 uuid: 9f089e5f-44c2-4995-912c-ac7ad4b1fc02
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - field.storage.paragraph.field_cost_type

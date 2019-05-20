@@ -1,0 +1,43 @@
+uuid: 9538f393-03a4-42ff-a154-7cb90419a8bb
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_alert_action
+field_name: field_alert_action
+entity_type: node
+type: list_integer
+settings:
+  allowed_values:
+    -
+      value: 0
+      label: posted
+    -
+      value: 1
+      label: 'commented on'
+    -
+      value: 2
+      label: 'created the'
+    -
+      value: 3
+      label: 'updated the'
+    -
+      value: 4
+      label: 'deleted a project'
+    -
+      value: 5
+      label: 'completed the'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,7 @@
+afrikaburn_shared.admin_config:
+  title: 'AfrikaBurn'
+  description: 'Settings for Afrikaburn'
+  parent: system.admin_config
+  route_name: afrikaburn_shared.settings
+  weight: -100
+  menu_name: afrikaburn

@@ -1,0 +1,46 @@
+uuid: 3cc5f5ef-7267-4879-962d-1fc902e3d8a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.wrangle_incidents
+    - views.view.stats_incidents
+  module:
+    - views
+id: wrangle_incidents-block_display-0
+label: 'Block page'
+variant: block_display
+variant_settings:
+  blocks:
+    7c62893d-a21e-4cda-82b6-c87e6107b040:
+      id: 'views_block:stats_incidents-block_1'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: top
+      weight: 0
+      uuid: 7c62893d-a21e-4cda-82b6-c87e6107b040
+      context_mapping: {  }
+    80d0b3e7-5575-4950-bfa5-af9abc788732:
+      id: 'views_block:stats_incidents-block_2'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: top
+      weight: 0
+      uuid: 80d0b3e7-5575-4950-bfa5-af9abc788732
+      context_mapping: {  }
+  id: block_display
+  uuid: 4c379e2e-ed73-4ad0-bda5-bfd02797f7af
+  label: null
+  weight: 0
+  page_title: Incidents
+page: wrangle_incidents
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

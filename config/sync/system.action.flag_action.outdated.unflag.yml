@@ -1,0 +1,13 @@
+uuid: e5ea7a9d-d5cb-4af2-819c-cfff44763771
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.outdated.unflag
+label: 'Up to date'
+type: user
+plugin: 'flag_action:outdated.unflag'
+configuration:
+  flag_id: outdated
+  flag_action: unflag

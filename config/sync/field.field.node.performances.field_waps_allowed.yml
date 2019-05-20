@@ -1,0 +1,29 @@
+uuid: a510477e-08a8-4bc0-8803-8049304aac1f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_waps_allowed
+    - node.type.performances
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.performances.field_waps_allowed
+field_name: field_waps_allowed
+entity_type: node
+bundle: performances
+label: 'WAPs allocated'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

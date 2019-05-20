@@ -1,0 +1,55 @@
+uuid: 185d8527-cb33-4fcd-a662-c9cdfafb2251
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.wap.field_estimated_date_of_arrival
+    - field.field.paragraph.wap.field_team_member
+    - field.field.paragraph.wap.field_year_cycle
+    - paragraphs.paragraphs_type.wap
+  module:
+    - datetime
+    - ds
+    - empty_fields
+third_party_settings:
+  ds:
+    layout:
+      id: layout_twocol
+      library: layout_discovery/twocol
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      first:
+        - field_estimated_date_of_arrival
+      second:
+        - field_team_member
+id: paragraph.wap.default
+targetEntityType: paragraph
+bundle: wap
+mode: default
+content:
+  field_estimated_date_of_arrival:
+    weight: 0
+    label: hidden
+    settings:
+      timezone_override: ''
+      date_format: d/m/Y
+    third_party_settings:
+      empty_fields:
+        handler: ''
+    type: datetime_custom
+    region: first
+  field_team_member:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: full_name
+      link: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+    type: entity_reference_entity_view
+    region: second
+hidden:
+  field_year_cycle: true

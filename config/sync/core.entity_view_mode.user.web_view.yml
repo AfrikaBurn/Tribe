@@ -1,0 +1,10 @@
+uuid: 2bd981da-2e57-437b-9fa4-299060903cee
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.web_view
+label: 'Web view'
+targetEntityType: user
+cache: true

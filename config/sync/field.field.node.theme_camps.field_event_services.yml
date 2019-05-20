@@ -1,0 +1,29 @@
+uuid: 779e9231-cc09-456f-9d79-2ce2962004d3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_services
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.theme_camps.field_event_services
+field_name: field_event_services
+entity_type: node
+bundle: theme_camps
+label: 'Event Services'
+description: 'Is this an event service'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

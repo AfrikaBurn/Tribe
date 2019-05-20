@@ -7,7 +7,7 @@ dependencies:
     - node.type.theme_camps
     - taxonomy.vocabulary.wrangler_review
   content:
-    - 'taxonomy_term:wrangler_review:1d358cd6-c398-4830-b495-28ebd0eaf305'
+    - 'taxonomy_term:wrangler_review:2c96af3a-dd21-4e19-9643-11767e41a17e'
   module:
     - custom_add_another
 third_party_settings:
@@ -22,11 +22,11 @@ entity_type: node
 bundle: theme_camps
 label: Review
 description: ''
-required: true
+required: false
 translatable: false
 default_value:
   -
-    target_uuid: 1d358cd6-c398-4830-b495-28ebd0eaf305
+    target_uuid: 2c96af3a-dd21-4e19-9643-11767e41a17e
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

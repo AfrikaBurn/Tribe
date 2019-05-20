@@ -4,6 +4,8 @@ status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.announcement.field_body
+    - field.field.node.announcement.field_pin_to_top
     - field.field.node.announcement.field_publish_on
     - field.field.node.announcement.field_unpublish_on
     - node.type.announcement
@@ -25,5 +27,7 @@ content:
     settings: {  }
     third_party_settings: {  }
 hidden:
+  field_body: true
+  field_pin_to_top: true
   field_publish_on: true
   field_unpublish_on: true

@@ -1,0 +1,81 @@
+uuid: 805cedc2-fb18-4e1b-81b0-67ecbc642254
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.incident.field_comments
+    - field.field.node.incident.field_date_and_time
+    - field.field.node.incident.field_description
+    - field.field.node.incident.field_incident_reporter
+    - field.field.node.incident.field_incident_state
+    - field.field.node.incident.field_incident_type
+    - field.field.node.incident.field_people
+    - field.field.node.incident.field_projects
+    - field.field.node.incident.field_related_incident
+    - field.field.node.incident.field_related_incidents
+    - field.field.node.incident.field_relates_to_view
+    - node.type.incident
+  module:
+    - datetime
+    - ds
+    - empty_fields
+    - taxonomy
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: layout_threecol_33_34_33
+      library: layout_discovery/threecol_33_34_33
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      first:
+        - node_title
+        - field_date_and_time
+        - field_incident_type
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+        settings:
+          link: true
+          wrapper: ''
+          class: ''
+id: node.incident.teaser
+targetEntityType: node
+bundle: incident
+mode: teaser
+content:
+  field_date_and_time:
+    type: datetime_custom
+    weight: 1
+    region: first
+    label: hidden
+    settings:
+      timezone_override: ''
+      date_format: 'H:i l j-M-Y'
+    third_party_settings:
+      empty_fields:
+        handler: ''
+  field_incident_type:
+    type: entity_reference_rss_category
+    weight: 2
+    region: first
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_comments: true
+  field_description: true
+  field_incident_reporter: true
+  field_incident_state: true
+  field_people: true
+  field_projects: true
+  field_related_incident: true
+  field_related_incidents: true
+  field_relates_to_view: true
+  links: true

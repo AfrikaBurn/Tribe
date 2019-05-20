@@ -1,0 +1,224 @@
+uuid: 123806d4-b3f1-44c2-8458-6368a4af9979
+langcode: en
+status: closed
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: dpw_application_form_2019
+title: 'DPW Application 2019'
+description: ''
+category: Application
+elements: "intro:\n  '#type': webform_wizard_page\n  '#title': 'Fair warning'\n  markup:\n    '#type': webform_markup\n    '#markup': \"<br />\\r\\nThe Afrikaburn Department of Public Works (DPW) is an on-site working crew. We are on site for around 2 months setting up and breaking down the event. The conditions are harsh, the work is hard, the food is fantastic and the people are incredible. It is an experience that is guaranteed to change your life.<br />\\r\\n<br />\\r\\n<strong>If you aren&#39;t up for hard graft, please do not apply.<br />\\r\\n<br />\\r\\nIf you&#39;d rather join the DPW kitchen, please <a href=\\\"/apply/kitchen\\\">fill in this form instead</a>.</strong>\"\nabout_you:\n  '#type': webform_wizard_page\n  '#title': 'About you'\n  update:\n    '#type': webform_markup\n    '#markup': '<em>Some of the information here is populated from your <a href=\"/user\" target=\"_blank\">Burner Bio</a>. If any information is incorrect please update your Bio and refresh this page.</em>'\n  first_name:\n    '#type': webform_computed_token\n    '#title': Name\n    '#mode': html\n    '#store': true\n    '#template': '[webform_submission:user:field_first_name] [webform_submission:user:field_last_name]'\n  mobile:\n    '#type': webform_computed_token\n    '#title': Mobile\n    '#store': true\n    '#template': '[webform_submission:user:field_mobile]'\n  email:\n    '#type': webform_computed_token\n    '#title': Mail\n    '#store': true\n    '#template': '[webform_submission:user:field_email]'\n  id_passport:\n    '#type': webform_computed_token\n    '#title': ID\n    '#store': true\n    '#template': '[webform_submission:user:field_id_number]'\n  location:\n    '#type': webform_computed_token\n    '#title': Location\n    '#store': true\n    '#template': '[webform_submission:user:field_location]'\n  what_name_do_you_like_to_go_by_:\n    '#type': textfield\n    '#title': 'What name do you like to go by?'\n    '#default_value': '[current-user:display-name]'\n    '#description': '<strong id=\"docs-internal-guid-5386f4b8-73f0-1119-1e5b-112ef6d8da68\">Nickname, &#39;playa&#39; name etc. </strong>'\n    '#title_display': before\n    '#description_display': before\n    '#placeholder': 'Fluffy Rider'\n  please_attach_a_picture_of_yourself_preferably_in_drag_:\n    '#type': webform_image_file\n    '#title': 'Please attach a picture of yourself (preferably in drag):'\n    '#description': |\n      <strong id=\"docs-internal-guid-5386f4b8-7410-ef48-d9f1-6edaa94004fd\">Files must be less than 2 MB.<br />\n      Allowed file types: png jpg jpeg.<br />\n      Images must be smaller than 250x250 pixels.</strong>\n      \n    '#title_display': before\n    '#description_display': before\n    '#required': true\n    '#max_filesize': '2'\n    '#file_extensions': 'jpg png jpeg'\n  do_you_suffer_from_any_mental_disorders_phobias_addictions_other:\n    '#type': radios\n    '#title': 'Do you suffer from any ''mental disorders''/phobias/addictions/other interesting quirks?'\n    '#default_value': 'No'\n    '#title_display': before\n    '#description_display': before\n    '#options': yes_no\n    '#required': true\n  medical_issues_allergies_anything_we_need_to_know_about_how_your:\n    '#type': textarea\n    '#title': 'Medical issues/allergies/anything we need to know about how your body works?'\n    '#title_display': before\n    '#description_display': before\n    '#required': true\nyour_rapsheet:\n  '#type': webform_wizard_page\n  '#title': 'Your Rep'\n  have_you_worked_with_dpw_at_afrikaburn_before_:\n    '#type': radios\n    '#title': 'Have you worked with DPW at AfrikaBurn before? '\n    '#default_value': 'No'\n    '#title_display': before\n    '#description_display': before\n    '#options': yes_no\n    '#required': true\n  which_crews_have_you_worked_with_and_which_years_:\n    '#type': textarea\n    '#title': 'Which crews have you worked with and which years?'\n    '#title_display': before\n    '#description_display': before\n    '#states':\n      invisible:\n        ':input[name=\"have_you_worked_with_dpw_at_afrikaburn_before_\"]':\n          empty: true\n          '!value': 'Yes'\n      visible:\n        ':input[name=\"have_you_worked_with_dpw_at_afrikaburn_before_\"]':\n          value: 'Yes'\n      required:\n        ':input[name=\"have_you_worked_with_dpw_at_afrikaburn_before_\"]':\n          value: 'Yes'\n  have_you_worked_with_dpw_or_a_similar_crew_at_another_burn_:\n    '#type': radios\n    '#title': 'Have you worked with DPW or a similar crew at another burn?'\n    '#default_value': 'No'\n    '#title_display': before\n    '#description_display': after\n    '#options': yes_no\n    '#required': true\n    '#states':\n      visible:\n        ':input[name=\"have_you_worked_with_dpw_at_afrikaburn_before_\"]':\n          value: 'No'\n      invisible:\n        - ':input[name=\"have_you_worked_with_dpw_at_afrikaburn_before_\"]':\n            empty: true\n        - or\n        - ':input[name=\"have_you_worked_with_dpw_at_afrikaburn_before_\"]':\n            value: 'Yes'\n  details_please_:\n    '#type': textarea\n    '#title': 'Details please:'\n    '#title_display': before\n    '#description_display': before\n    '#required': true\n    '#states':\n      invisible:\n        - ':input[name=\"have_you_worked_with_dpw_at_afrikaburn_before_\"]':\n            value: 'Yes'\n        - or\n        - ':input[name=\"have_you_worked_with_dpw_or_a_similar_crew_at_another_burn_\"]':\n            empty: true\n        - or\n        - ':input[name=\"have_you_worked_with_dpw_or_a_similar_crew_at_another_burn_\"]':\n            value: 'No'\n      visible:\n        ':input[name=\"have_you_worked_with_dpw_or_a_similar_crew_at_another_burn_\"]':\n          value: 'Yes'\n  when_you_re_not_in_the_desert_what_s_your_real_job_or_previous_w:\n    '#type': textarea\n    '#title': 'When you''re not in the desert, what''s your “real job” or previous work experience?'\n    '#title_display': before\n    '#description_display': before\n    '#required': true\n  please_explain_justify_or_boast_:\n    '#type': textarea\n    '#title': 'Please explain, justify, or boast?'\n    '#title_display': before\n    '#description_display': before\n    '#required': true\n    '#states':\n      visible:\n        ':input[name=\"do_you_suffer_from_any_mental_disorders_phobias_addictions_other\"]':\n          value: 'Yes'\n      invisible:\n        - ':input[name=\"do_you_suffer_from_any_mental_disorders_phobias_addictions_other\"]':\n            empty: true\n        - or\n        - ':input[name=\"do_you_suffer_from_any_mental_disorders_phobias_addictions_other\"]':\n            value: 'No'\nlogistics:\n  '#type': webform_wizard_page\n  '#title': Logistics\n  how_long_before_the_event_are_you_available_:\n    '#type': date\n    '#title': 'How long before the event are you available?'\n    '#description': '<strong id=\"docs-internal-guid-5386f4b8-73f3-75f9-0111-a0e921d4297b\">First crew lift to site is on 31 March 2019.</strong>'\n    '#title_display': before\n    '#description_display': before\n    '#required': true\n    '#datepicker': true\n    '#date_date_min': '31 March 2019'\n    '#date_date_max': 'May 20 2019'\n  how_long_after_:\n    '#type': date\n    '#title': 'How long after?'\n    '#description': '<strong id=\"docs-internal-guid-5386f4b8-73f4-b24e-5753-060ff9e2c5a2\">Last crew to leave by 20 May 2019.</strong>'\n    '#title_display': before\n    '#description_display': before\n    '#required': true\n    '#datepicker': true\n    '#date_date_min': '1 May 2019'\n    '#date_date_max': '20 May 2019'\n  do_you_plan_to_camp_work_with_dpw_during_the_event_:\n    '#type': radios\n    '#title': 'Do you plan to camp/work with DPW during the event?'\n    '#title_display': before\n    '#description_display': before\n    '#options': yes_no\n    '#required': true\n  will_you_need_to_be_transported_to_and_from_site_:\n    '#type': radios\n    '#title': 'Will you need to be transported to and from site?'\n    '#title_display': before\n    '#description_display': before\n    '#options': yes_no\n    '#required': true\n  are_you_interested_in_helping_at_work_weekends_in_cape_town_thro:\n    '#type': radios\n    '#title': 'Are you interested in helping at work weekends in Cape Town throughout the year, at special events, braais, et cet te raaaa?'\n    '#title_display': before\n    '#description_display': before\n    '#options':\n      'Yes': 'Yes'\n      'No': 'No'\n      N/A: N/A\ndpw_and_you:\n  '#type': webform_wizard_page\n  '#title': 'DPW and you'\n  which_crew_would_you_ultimately_want_to_work_with_:\n    '#type': textfield\n    '#title': 'Which crew would you ultimately want to work with?'\n    '#title_display': before\n    '#description_display': before\n  are_you_skilled_to_work_in_any_of_the_below_sub_departments_:\n    '#type': webform_checkboxes_other\n    '#title': 'Are you skilled to work in any of the below sub-departments?'\n    '#title_display': before\n    '#description_display': before\n    '#options':\n      Carpentry: Carpentry\n      'Comms ': 'Comms  -- As in IT, radios, etc.'\n      'Demarcation / Surveying': 'Demarcation / Surveying'\n      'Electrics & Lights': 'Electrics & Lights'\n      'Health & Safety': 'Health & Safety'\n      'Heavy Equipment & Transport': 'Heavy Equipment & Transport'\n      Kitchen: 'Kitchen -- Catering and scullery.'\n      Logistics: Logistics\n      Mechanical: Mechanical\n      Metalwork: Metalwork\n      Rigging: Rigging\n      'Scenic & Paint shop': 'Scenic & Paint shop'\n      Signage: Signage\n      WASH: 'WASH -- Waste & Sanitation: recycling, plumbing, MOOP'\n    '#other__title': 'Other?'\n    '#required': true\n  please_give_us_more_details_about_your_skills_as_selected_above_:\n    '#type': textarea\n    '#title': 'Please give us more details about your skills as selected above:'\n    '#title_display': before\n    '#description_display': before\n    '#required': true\n  why_is_dpw_the_crew_for_you_:\n    '#type': textarea\n    '#title': 'Why is DPW the crew for you? '\n    '#title_display': before\n    '#description_display': before\n    '#required': true\n  are_you_fine_with_us_sharing_the_information_you_ve_provided_in_:\n    '#type': radios\n    '#title': 'Are you fine with us sharing the information you''ve provided in this form to fellow crew members who join us out there?'\n    '#title_display': before\n    '#description_display': before\n    '#options': yes_no\n    '#required': true\n  comment_:\n    '#type': textarea\n    '#title': 'Comment?'\n    '#title_display': before\n    '#description_display': before\n    '#access_create_roles':\n      - art_wrangler\n      - art_admin\n      - communications_wrangler\n      - communications_admin\n      - leave_no_trace_moop\n      - mutant_vehicle_viewer\n      - mutant_vehicle_wrangler\n      - mutant_vehicle_admin\n      - outreach_wrangler\n      - outreach_admin\n      - administrator\n      - support_wrangler\n      - support_admin\n      - theme_camp_wrangler\n      - theme\n      - supplier\n    '#access_update_roles':\n      - art_wrangler\n      - art_admin\n      - communications_wrangler\n      - communications_admin\n      - leave_no_trace_moop\n      - mutant_vehicle_viewer\n      - mutant_vehicle_wrangler\n      - mutant_vehicle_admin\n      - outreach_wrangler\n      - outreach_admin\n      - administrator\n      - support_wrangler\n      - support_admin\n      - theme_camp_wrangler\n      - theme\n      - supplier\n    '#access_view_roles':\n      - art_wrangler\n      - art_admin\n      - communications_wrangler\n      - communications_admin\n      - leave_no_trace_moop\n      - mutant_vehicle_viewer\n      - mutant_vehicle_wrangler\n      - mutant_vehicle_admin\n      - outreach_wrangler\n      - outreach_admin\n      - administrator\n      - support_wrangler\n      - support_admin\n      - theme_camp_wrangler\n      - theme\n      - supplier\nassigned:\n  '#type': select\n  '#title': 'Assigned to'\n  '#title_display': before\n  '#description_display': before\n  '#options':\n    Carpentry: Carpentry\n    'Comms ': Comms\n    Demarcation: Demarcation\n    'Electrics & Lights': 'Electrics & Lights'\n    'Health & Safety': 'Health & Safety'\n    HEAT: HEAT\n    Kitchen: Kitchen\n    Logistics: Logistics\n    Mechanical: Mechanical\n    Metalwork: Metalwork\n    Rigging: Rigging\n    'Scenic & Paint shop': 'Scenic & Paint shop'\n    Signage: Signage\n    WASH: WASH\n  '#other__title': 'Other?'\n  '#access_create_roles':\n    - administrator\n    - dpw\n  '#access_update_roles':\n    - administrator\n    - dpw\n  '#access_view_roles':\n    - administrator\n    - dpw"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  page: true
+  page_submit_path: apply/dpw
+  page_confirm_path: ''
+  form_title: source_entity_webform
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: 'Oh no! You missed it, DPW applications are now closed!'
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_remote_addr: true
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: false
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  confirmation_type: page
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+access:
+  create:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles:
+      - art_admin
+      - communications_admin
+      - leave_no_trace_moop
+      - mutant_vehicle_admin
+      - outreach_admin
+      - administrator
+      - support_wrangler
+      - support_admin
+      - theme
+      - supplier
+      - dpw
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles:
+      - administrator
+      - support_wrangler
+      - support_admin
+      - dpw
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles:
+      - administrator
+      - dpw
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles:
+      - administrator
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles:
+      - administrator
+      - dpw
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  email:
+    id: email
+    label: Email
+    handler_id: email
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: '[current-user:field_email]'
+      to_options: {  }
+      cc_mail: dpw@afrikaburn.com
+      cc_options: {  }
+      bcc_mail: shared@afrikaburn.com
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: 'AfrikaBurn DPW Submission for [current-user:field_first_name] [current-user:field_last_name]'
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''

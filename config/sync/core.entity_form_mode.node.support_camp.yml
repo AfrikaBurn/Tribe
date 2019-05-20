@@ -1,0 +1,10 @@
+uuid: 19afbbf5-938d-4815-9879-98b7c09a0b44
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.support_camp
+label: 'Support Camp'
+targetEntityType: node
+cache: true

@@ -1,0 +1,7 @@
+afrikaburn_notification.admin_config:
+  title: 'Notifications'
+  description: 'Settings for Afrikaburn notifications'
+  parent: afrikaburn_shared.admin_config
+  route_name: afrikaburn_notification.settings
+  weight: 10
+  menu_name: afrikaburn

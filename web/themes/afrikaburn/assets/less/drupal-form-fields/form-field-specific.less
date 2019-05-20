@@ -253,6 +253,68 @@ form.node-form span.fieldset-legend {
 	}
 }
 
+//  Comments
 
+article.comment.js-comment {
+	margin-bottom: 20px;
+}
+
+.comment__meta {
+	border: 1px solid #111;
+	background: lighten(@ab-light-maroon, 10%);
+	padding: 0 20px;
+	article, p {
+		display: inline-block;
+		margin-right: 20px;
+	}
+	a {
+		color: @body-content-link-hover-color;
+		text-decoration: none;
+	}
+	a:hover {
+		text-decoration: underline;
+	}
+}
+.comment__content {
+	background: @ab-light-maroon;
+	margin-left: 40px;
+	padding: 20px;
+	border: 1px solid #111;
+	border-top-width: 0;
+	position: relative;
+	ul.links {
+		list-style: none;
+		margin: 0;
+		li {
+			display: inline;
+			margin: 0 15px 0 0;
+			padding: 0;
+		}
+	}
+}
+
+	div.comment__content:before,
+	div.comment__content:after  {
+		border: solid transparent;
+		content: " ";
+		height: 0;
+		width: 0;
+		position: absolute;
+		pointer-events: none;
+		bottom: 100%;
+		left: 7px;
+	}
+
+	div.comment__content:after {
+		border-color: transparent;
+		border-width: 8px;
+		border-bottom-color: @ab-light-maroon;
+	}
+	div.comment__content:before {
+		border-color: transparent;
+		border-width: 9px;
+		border-bottom-color: inherit;
+		margin-left: -1px;
+	}
 
 

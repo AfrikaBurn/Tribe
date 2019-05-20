@@ -1,0 +1,30 @@
+uuid: 7026f7d8-83ee-4bbf-abaf-f9ca315deee7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: unread
+label: Unread
+bundles:
+  - alert
+entity_type: node
+global: false
+weight: 0
+flag_short: 'Oops, Undo!'
+flag_long: 'Oops, Undo!'
+flag_message: ''
+unflag_short: Dismiss
+unflag_long: 'Dismiss this'
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+linkTypeConfig: {  }

@@ -1,0 +1,24 @@
+uuid: c8d763bc-5a2c-498a-9744-afbc58852f98
+langcode: en
+status: true
+dependencies:
+  module:
+    - datetime_range
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_snd_playtime_thurs_sun
+field_name: field_snd_playtime_thurs_sun
+entity_type: node
+type: daterange
+settings:
+  datetime_type: datetime
+module: datetime_range
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,7 @@
+alert:
+  version: 1.x
+  js:
+    js/afrikaburn-alert.js: {}
+  css:
+    theme:
+      css/afrikaburn-alert.css: {}

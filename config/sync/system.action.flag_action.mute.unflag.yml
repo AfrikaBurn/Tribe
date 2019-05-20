@@ -1,0 +1,13 @@
+uuid: 5b5675a1-e775-47c3-b218-fa0edf536a71
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.mute.unflag
+label: Unmute
+type: node
+plugin: 'flag_action:mute.unflag'
+configuration:
+  flag_id: mute
+  flag_action: unflag

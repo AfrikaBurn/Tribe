@@ -1,0 +1,29 @@
+uuid: b95ceddf-8580-4fe3-a045-cf46fcf07ffd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_snd_setup_date
+    - node.type.art
+  module:
+    - custom_add_another
+    - datetime
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.art.field_prj_snd_setup_date
+field_name: field_prj_snd_setup_date
+entity_type: node
+bundle: art
+label: 'When will you be setting up your sound?'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

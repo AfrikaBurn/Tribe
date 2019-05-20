@@ -1,0 +1,30 @@
+uuid: 60416d00-c18f-4234-a5b6-51c6af5c6689
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lineup_request
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_lineup_request
+field_name: field_lineup_request
+entity_type: node
+bundle: mutant_vehicles
+label: 'Lineup request'
+description: ''
+required: false
+translatable: true
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<div class=\"delete messages messages--warning\">If you're gifting music or performances that are out of this world, make sure that you keep the element of surprise on your side. We ask that you <strong>don't publish any line-up or DJ schedule</strong> prior to the event in order to ensure that our 2019 Ephemeropolis is filled with surprises.</div>\r\n"
+    format: full_html
+field_type: markup

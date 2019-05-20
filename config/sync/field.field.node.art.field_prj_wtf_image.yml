@@ -20,7 +20,7 @@ entity_type: node
 bundle: art
 label: 'Public Project image, used on the website and app'
 description: 'This will appear on the Community Directory page. </br> This is a space for community members to find additional talent or other Collectives and spaces to join. '
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''

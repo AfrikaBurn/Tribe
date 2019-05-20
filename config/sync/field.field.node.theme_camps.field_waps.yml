@@ -1,0 +1,54 @@
+uuid: ec5faee3-d2d1-452c-aa1d-1c978da872e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_waps
+    - node.type.theme_camps
+    - paragraphs.paragraphs_type.wap
+  module:
+    - custom_add_another
+    - entity_reference_revisions
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.theme_camps.field_waps
+field_name: field_waps
+entity_type: node
+bundle: theme_camps
+label: WAPs
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      wap: wap
+    target_bundles_drag_drop:
+      early_access_and_vehicle_passes:
+        weight: 8
+        enabled: false
+      grant_expences:
+        weight: 9
+        enabled: false
+      minors:
+        weight: 10
+        enabled: false
+      mutant_grant_expense:
+        weight: 11
+        enabled: false
+      outreach_grant_applicant:
+        weight: 12
+        enabled: false
+      supplier_details:
+        weight: 13
+        enabled: false
+      wap:
+        enabled: true
+        weight: 14
+field_type: entity_reference_revisions

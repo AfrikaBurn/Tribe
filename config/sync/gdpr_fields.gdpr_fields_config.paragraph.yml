@@ -1,0 +1,88 @@
+uuid: e1e2e4bc-769f-4d8a-b281-d33db6a41ffa
+langcode: en
+status: true
+dependencies: {  }
+id: paragraph
+filenames:
+  mutant_grant_expense: ''
+  wap: ''
+bundles:
+  grant_expences:
+    field_grt_brk_description:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: grant_expences
+      name: field_grt_brk_description
+    field_field_specifications:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: grant_expences
+      name: field_field_specifications
+    field_type_of_expence:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: grant_expences
+      name: field_type_of_expence
+    field_cost_type:
+      enabled: false
+      rta: 'no'
+      rtf: 'no'
+      anonymizer: ''
+      notes: ''
+      bundle: grant_expences
+      name: field_cost_type
+  mutant_grant_expense:
+    field_price_total_:
+      bundle: mutant_grant_expense
+      name: field_price_total_
+      entity_type_id: paragraph
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+  wap:
+    field_estimated_date_of_arrival:
+      bundle: wap
+      name: field_estimated_date_of_arrival
+      entity_type_id: paragraph
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_team_member:
+      bundle: wap
+      name: field_team_member
+      entity_type_id: paragraph
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_year_cycle:
+      bundle: wap
+      name: field_year_cycle
+      entity_type_id: paragraph
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''

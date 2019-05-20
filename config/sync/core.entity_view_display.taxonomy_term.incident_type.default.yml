@@ -1,0 +1,32 @@
+uuid: f04f7079-9d5d-47b4-aa7e-5f5b503a4c0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.incident_type.field_icon
+    - taxonomy.vocabulary.incident_type
+  module:
+    - image
+    - text
+id: taxonomy_term.incident_type.default
+targetEntityType: taxonomy_term
+bundle: incident_type
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_icon:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden: {  }

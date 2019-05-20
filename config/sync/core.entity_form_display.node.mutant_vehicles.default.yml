@@ -3,9 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.mutant_vehicles.field_admin_comments
+    - field.field.node.mutant_vehicles.field_allow_support_camp
+    - field.field.node.mutant_vehicles.field_api_content_type
+    - field.field.node.mutant_vehicles.field_arteria_checkin
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
-    - field.field.node.mutant_vehicles.field_grt_art_comment
     - field.field.node.mutant_vehicles.field_grt_art_total
     - field.field.node.mutant_vehicles.field_grt_awarded
     - field.field.node.mutant_vehicles.field_grt_contribution
@@ -17,12 +20,11 @@ dependencies:
     - field.field.node.mutant_vehicles.field_grt_status
     - field.field.node.mutant_vehicles.field_grt_total
     - field.field.node.mutant_vehicles.field_grt_transport
+    - field.field.node.mutant_vehicles.field_lineup_request
     - field.field.node.mutant_vehicles.field_mutant_drivers
-    - field.field.node.mutant_vehicles.field_prj_adm_comms
-    - field.field.node.mutant_vehicles.field_prj_adm_form_grant
-    - field.field.node.mutant_vehicles.field_prj_adm_form_wtf
-    - field.field.node.mutant_vehicles.field_prj_adm_notes
-    - field.field.node.mutant_vehicles.field_prj_adm_ranger_comment
+    - field.field.node.mutant_vehicles.field_mv_amount_worthy
+    - field.field.node.mutant_vehicles.field_prj_adm_latitude
+    - field.field.node.mutant_vehicles.field_prj_adm_longitude
     - field.field.node.mutant_vehicles.field_prj_adm_registration
     - field.field.node.mutant_vehicles.field_prj_adm_review
     - field.field.node.mutant_vehicles.field_prj_adm_wrangler
@@ -34,7 +36,6 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_cll_collaborate
     - field.field.node.mutant_vehicles.field_prj_cll_contact
     - field.field.node.mutant_vehicles.field_prj_cll_description
-    - field.field.node.mutant_vehicles.field_prj_cll_thread
     - field.field.node.mutant_vehicles.field_prj_gen_base
     - field.field.node.mutant_vehicles.field_prj_gen_concept
     - field.field.node.mutant_vehicles.field_prj_gen_contact
@@ -54,12 +55,10 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_lgh_night
     - field.field.node.mutant_vehicles.field_prj_lgh_projection
     - field.field.node.mutant_vehicles.field_prj_lnt_agree
-    - field.field.node.mutant_vehicles.field_prj_lnt_comments
     - field.field.node.mutant_vehicles.field_prj_lnt_f1
     - field.field.node.mutant_vehicles.field_prj_lnt_handled
     - field.field.node.mutant_vehicles.field_prj_lnt_historic
     - field.field.node.mutant_vehicles.field_prj_lnt_images
-    - field.field.node.mutant_vehicles.field_prj_lnt_publish
     - field.field.node.mutant_vehicles.field_prj_lnt_representative
     - field.field.node.mutant_vehicles.field_prj_lnt_score
     - field.field.node.mutant_vehicles.field_prj_lnt_signoff
@@ -70,23 +69,21 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_oth_other
     - field.field.node.mutant_vehicles.field_prj_oth_unregistered
     - field.field.node.mutant_vehicles.field_prj_saf_access
-    - field.field.node.mutant_vehicles.field_prj_saf_comment
     - field.field.node.mutant_vehicles.field_prj_saf_guide
     - field.field.node.mutant_vehicles.field_prj_saf_mark
     - field.field.node.mutant_vehicles.field_prj_saf_other
     - field.field.node.mutant_vehicles.field_prj_saf_passengers
     - field.field.node.mutant_vehicles.field_prj_snd_agree
-    - field.field.node.mutant_vehicles.field_prj_snd_comment
     - field.field.node.mutant_vehicles.field_prj_snd_description
     - field.field.node.mutant_vehicles.field_prj_snd_level
     - field.field.node.mutant_vehicles.field_prj_snd_person
     - field.field.node.mutant_vehicles.field_prj_snd_safety
     - field.field.node.mutant_vehicles.field_prj_snd_soop
     - field.field.node.mutant_vehicles.field_prj_snd_sound
+    - field.field.node.mutant_vehicles.field_prj_snd_specs
     - field.field.node.mutant_vehicles.field_prj_stg_contact
     - field.field.node.mutant_vehicles.field_prj_stg_description
     - field.field.node.mutant_vehicles.field_prj_stg_stage
-    - field.field.node.mutant_vehicles.field_prj_stg_tread
     - field.field.node.mutant_vehicles.field_prj_stg_type
     - field.field.node.mutant_vehicles.field_prj_sup_address
     - field.field.node.mutant_vehicles.field_prj_sup_details
@@ -106,46 +103,54 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_wtf_short
     - field.field.node.mutant_vehicles.field_prj_wtf_short_copy
     - field.field.node.mutant_vehicles.field_prj_wtf_website
-    - field.field.node.mutant_vehicles.field_sup_comment
+    - field.field.node.mutant_vehicles.field_prjr_complete
+    - field.field.node.mutant_vehicles.field_snd_bass_bins
+    - field.field.node.mutant_vehicles.field_snd_playtime_mon_wed
+    - field.field.node.mutant_vehicles.field_snd_playtime_thurs_sun
     - field.field.node.mutant_vehicles.field_sup_review
     - field.field.node.mutant_vehicles.field_vp_ea
+    - field.field.node.mutant_vehicles.field_waps
+    - field.field.node.mutant_vehicles.field_waps_allowed
+    - field.field.node.mutant_vehicles.field_year_cycle
     - image.style.thumbnail
     - node.type.mutant_vehicles
   module:
+    - comment
+    - computed_field
     - conditional_fields
-    - cshs
+    - entity_reference_views_select
     - field_group
     - file
     - image
     - link
     - markup
     - paragraphs
-    - path
+    - time_range
 third_party_settings:
   field_group:
-    group_acc_project_overview:
+    group_project_registration:
       children:
-        - group_the_overview
-        - group_acc_the_project
-        - group_acc_safety
-        - group_acc_night_driving
-        - group_acc_sound
-        - group_acc_flame_effects
-        - group_acc_trailer
-        - group_acc_moop
-        - group_acc_wtf_guide
-        - group_acc_almost_done
+        - group_intro
+        - group_overview
+        - group_safety
+        - group_night
+        - group_sound
+        - group_flames
+        - group_trailer
+        - group_moop
+        - group_wtf_guide
+        - group_other
       parent_name: ''
-      weight: 5
-      format_type: accordion
+      weight: 2
+      format_type: tabs
       format_settings:
-        label: 'Project Overview'
-        effect: none
+        label: Intro
+        direction: horizontal
         id: ''
         classes: ''
-      label: 'Project Overview'
+      label: Intro
       region: content
-    group_acc_the_project:
+    group_overview:
       children:
         - field_prj_gen_description
         - field_prj_gen_story
@@ -153,27 +158,27 @@ third_party_settings:
         - field_prj_gen_mutating
         - field_prj_gen_concept
         - field_prj_gen_doc
-      parent_name: group_acc_project_overview
+      parent_name: group_project_registration
       weight: 4
-      format_type: accordion_item
+      format_type: tab
       format_settings:
-        label: 'The Project'
+        label: Overview
         formatter: closed
         required_fields: true
         id: ''
         classes: ''
-      label: 'The Project'
+      label: Overview
       region: content
-    group_acc_safety:
+    group_safety:
       children:
         - field_prj_saf_guide
         - field_prj_saf_passengers
         - field_prj_saf_access
         - field_prj_saf_other
         - field_prj_saf_mark
-      parent_name: group_acc_project_overview
+      parent_name: group_project_registration
       weight: 5
-      format_type: accordion_item
+      format_type: tab
       format_settings:
         id: ''
         classes: ''
@@ -182,24 +187,25 @@ third_party_settings:
         description: ''
       label: Safety
       region: content
-    group_acc_night_driving:
+    group_night:
       children:
         - field_prj_lgh_f1
         - field_prj_lgh_night
         - field_prj_lgh_description
         - field_prj_lgh_lighter
-      parent_name: group_acc_project_overview
+      parent_name: group_project_registration
       weight: 6
-      format_type: accordion_item
+      format_type: tab
       format_settings:
+        label: 'At night'
+        formatter: closed
+        description: ''
+        required_fields: true
         id: ''
         classes: ''
-        formatter: closed
-        required_fields: true
-        description: ''
-      label: 'Night Driving'
+      label: 'At night'
       region: content
-    group_acc_sound:
+    group_sound:
       children:
         - field_prj_snd_sound
         - field_prj_snd_level
@@ -208,36 +214,37 @@ third_party_settings:
         - field_prj_snd_soop
         - field_prj_snd_agree
         - field_prj_snd_person
-      parent_name: group_acc_project_overview
-      weight: 7
-      format_type: accordion_item
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: closed
-        required_fields: true
-        description: ''
-      label: Sound
-      region: content
-    group_acc_flame_effects:
-      children:
         - field_prj_brn_burning
         - field_prj_brn_plan
         - field_prj_brn_person
         - field_prj_brn_desc
         - field_prj_brn_agree
-      parent_name: group_acc_project_overview
+      parent_name: group_project_registration
+      weight: 7
+      format_type: tab
+      format_settings:
+        label: Effects
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Effects
+      region: content
+    group_flames:
+      children: {  }
+      parent_name: group_project_registration
       weight: 8
-      format_type: accordion_item
+      format_type: tab
       format_settings:
         id: ''
         classes: ''
         formatter: closed
         required_fields: true
         description: ''
-      label: 'Flame effects'
+      label: Flames
       region: content
-    group_acc_trailer:
+    group_trailer:
       children:
         - field_prj_trl_area
         - field_prj_trl_describe
@@ -248,9 +255,9 @@ third_party_settings:
         - field_prj_trl_communicate
         - field_prj_trl_markup
         - field_prj_lgh_projection
-      parent_name: group_acc_project_overview
+      parent_name: group_project_registration
       weight: 9
-      format_type: accordion_item
+      format_type: tab
       format_settings:
         id: ''
         classes: ''
@@ -259,16 +266,15 @@ third_party_settings:
         description: ''
       label: Trailer
       region: content
-    group_acc_moop:
+    group_moop:
       children:
         - field_prj_lnt_f1
         - field_prj_lnt_handled
-        - field_prj_lnt_historic
         - field_prj_lnt_representative
         - field_prj_lnt_agree
-      parent_name: group_acc_project_overview
+      parent_name: group_project_registration
       weight: 10
-      format_type: accordion_item
+      format_type: tab
       format_settings:
         id: ''
         classes: ''
@@ -277,72 +283,88 @@ third_party_settings:
         description: ''
       label: Moop
       region: content
-    group_acc_wtf_guide:
+    group_wtf_guide:
       children:
         - field_prj_wtf_short
         - field_prj_wtf_long
-        - field_prj_wtf_image
-        - field_prj_wtf_categories
         - field_prj_wtf_website
         - field_prj_cll_collaborate
         - field_prj_cll_description
         - field_prj_cll_contact
-        - field_prj_stg_stage
-        - field_prj_stg_type
-        - field_prj_stg_description
-        - field_prj_stg_contact
-      parent_name: group_acc_project_overview
+      parent_name: group_project_registration
       weight: 11
-      format_type: accordion_item
+      format_type: tab
       format_settings:
+        label: 'WTF Guide'
+        formatter: closed
+        description: ''
+        required_fields: true
         id: ''
         classes: ''
-        formatter: closed
-        required_fields: true
-        description: ''
-      label: 'WTF Guide and Activities'
+      label: 'WTF Guide'
       region: content
-    group_acc_almost_done:
+    group_other:
       children:
         - field_prj_oth_other
         - field_prj_oth_associated
         - field_prj_oth_unregistered
         - field_prj_oth_agree
         - field_prj_oth_grant
-      parent_name: group_acc_project_overview
+      parent_name: group_project_registration
       weight: 12
-      format_type: accordion_item
+      format_type: tab
       format_settings:
+        label: Other
+        formatter: closed
+        description: ''
+        required_fields: true
         id: ''
         classes: ''
-        formatter: closed
-        required_fields: true
-        description: ''
-      label: 'Almost done!'
+      label: Other
       region: content
-    group_the_overview:
+    group_intro:
       children:
         - title
         - field_prj_gen_contact
-        - promote
         - field_prj_gen_lead
-        - sticky
         - field_prj_gen_owner
-        - field_prj_gen_fundraising
-        - field_prj_gen_fundraiser
-        - field_prj_gen_location
         - field_mutant_drivers
-      parent_name: group_acc_project_overview
+      parent_name: group_project_registration
       weight: 1
-      format_type: accordion_item
+      format_type: tab
+      format_settings:
+        label: Intro
+        formatter: open
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Intro
+      region: content
+    group_administrative:
+      children:
+        - field_admin_comments
+        - field_prjr_complete
+        - field_prj_adm_review
+        - field_prj_adm_wrangler
+        - field_prj_adm_registration
+        - field_collective
+        - field_form_mode
+        - field_year_cycle
+        - field_mv_amount_worthy
+        - field_grt_awarded
+        - field_allow_support_camp
+        - field_waps_allowed
+        - field_waps
+      parent_name: ''
+      weight: 0
+      format_type: details
       format_settings:
         id: ''
         classes: ''
-        formatter: open
+        open: false
         required_fields: true
-        description: ''
-      label: 'The overview'
-      region: content
+      label: Administrative
 _core:
   default_config_hash: FHLYUGK-mQGVYzvIKsUSwq4IdPmIgOzk9wE9K3NHGck
 id: node.mutant_vehicles.default
@@ -350,77 +372,128 @@ targetEntityType: node
 bundle: mutant_vehicles
 mode: default
 content:
-  created:
-    type: datetime_timestamp
+  field_admin_comments:
     weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: comment_default
+    region: content
+  field_allow_support_camp:
+    weight: 131
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_api_content_type:
+    weight: 139
+    settings: {  }
+    third_party_settings: {  }
+    type: computed_string_widget
+    region: content
+  field_arteria_checkin:
+    weight: 134
+    settings:
+      display_label: true
+    third_party_settings:
+      conditional_fields:
+        67bbaa24-6506-43d2-89f7-9f2076762e40:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    type: boolean_checkbox
+    region: content
+  field_collective:
+    type: options_select
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_collective:
-    type: entity_reference_autocomplete
-    weight: 2
-    region: content
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
   field_form_mode:
     type: string_textfield
-    weight: 0
+    weight: 9
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  field_grt_dmv_budget:
-    type: entity_reference_paragraphs
-    weight: 6
+  field_grt_awarded:
+    type: number
+    weight: 12
     region: content
     settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
+      placeholder: ''
     third_party_settings: {  }
   field_mutant_drivers:
     weight: 18
     settings: {  }
     third_party_settings: {  }
-    type: options_buttons
+    type: erviews_options_buttons
+    region: content
+  field_mv_amount_worthy:
+    weight: 11
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_prj_adm_latitude:
+    weight: 140
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_prj_adm_longitude:
+    weight: 141
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_prj_adm_notes:
     type: string_textarea
-    weight: 9
+    weight: 2
     region: content
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
   field_prj_adm_registration:
-    weight: 11
+    type: string_textfield
+    weight: 7
+    region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: string_textfield
-    region: content
   field_prj_adm_review:
     type: options_select
-    weight: 8
+    weight: 5
     region: content
     settings: {  }
     third_party_settings: {  }
   field_prj_adm_wrangler:
-    type: options_select
-    weight: 7
+    type: erviews_options_select
+    weight: 6
     region: content
     settings: {  }
     third_party_settings: {  }
   field_prj_brn_agree:
-    weight: 13
+    weight: 19
     settings:
       display_label: true
     third_party_settings:
@@ -460,14 +533,14 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_brn_burning:
-    weight: 9
+    weight: 15
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_brn_desc:
-    weight: 12
+    weight: 18
     settings:
       rows: 5
       placeholder: ''
@@ -505,10 +578,27 @@ content:
             selector: ''
           entity_type: node
           bundle: mutant_vehicles
+        fc98b972-291c-42f6-94e6-9d9bdd578402:
+          dependee: field_prj_snd_level
+          settings:
+            state: required
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                target_id: '407'
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
     type: string_textarea
     region: content
   field_prj_brn_person:
-    weight: 11
+    weight: 17
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -544,10 +634,10 @@ content:
             selector: ''
           entity_type: node
           bundle: mutant_vehicles
-    type: options_select
+    type: erviews_options_select
     region: content
   field_prj_brn_plan:
-    weight: 10
+    weight: 16
     settings:
       rows: 5
       placeholder: ''
@@ -631,7 +721,7 @@ content:
             selector: ''
           entity_type: node
           bundle: mutant_vehicles
-    type: options_select
+    type: erviews_options_select
     region: content
   field_prj_cll_description:
     weight: 6
@@ -692,7 +782,7 @@ content:
     weight: 10
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: erviews_options_select
     region: content
   field_prj_gen_description:
     weight: 27
@@ -709,66 +799,11 @@ content:
     third_party_settings: {  }
     type: file_generic
     region: content
-  field_prj_gen_fundraiser:
-    weight: 16
-    settings: {  }
-    third_party_settings:
-      conditional_fields:
-        ade8a9e0-a6e7-4b69-8fa9-4ea78d2ba3cf:
-          dependee: field_prj_gen_fundraising
-          settings:
-            state: '!visible'
-            condition: value
-            grouping: OR
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              value: 1
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: mutant_vehicles
-        f4bd23b1-bc93-4576-93c3-ce46373870b4:
-          dependee: field_prj_gen_fundraising
-          settings:
-            state: required
-            condition: value
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              value: 1
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: mutant_vehicles
-    type: options_select
-    region: content
-  field_prj_gen_fundraising:
-    weight: 15
-    settings:
-      display_label: true
-    third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
   field_prj_gen_lead:
     weight: 12
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
-  field_prj_gen_location:
-    weight: 17
-    settings:
-      force_deepest: '1'
-      parent: '0'
-      level_labels: ''
-    third_party_settings: {  }
-    type: cshs
+    type: erviews_options_select
     region: content
   field_prj_gen_mutating:
     weight: 30
@@ -782,7 +817,7 @@ content:
     weight: 14
     settings: {  }
     third_party_settings: {  }
-    type: options_select
+    type: erviews_options_select
     region: content
   field_prj_gen_story:
     weight: 28
@@ -791,13 +826,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
-    region: content
-  field_prj_gen_year:
-    weight: 4
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
     region: content
   field_prj_lgh_description:
     weight: 124
@@ -883,7 +911,7 @@ content:
             selector: ''
           entity_type: node
           bundle: mutant_vehicles
-    type: options_select
+    type: erviews_options_select
     region: content
   field_prj_lgh_night:
     weight: 123
@@ -935,7 +963,7 @@ content:
     type: string_textarea
     region: content
   field_prj_lnt_agree:
-    weight: 131
+    weight: 130
     settings:
       display_label: true
     third_party_settings: {  }
@@ -955,17 +983,11 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
-  field_prj_lnt_historic:
+  field_prj_lnt_representative:
     weight: 129
     settings: {  }
     third_party_settings: {  }
-    type: options_select
-    region: content
-  field_prj_lnt_representative:
-    weight: 130
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
+    type: erviews_options_select
     region: content
   field_prj_oth_agree:
     weight: 25
@@ -1200,7 +1222,7 @@ content:
             selector: ''
           entity_type: node
           bundle: mutant_vehicles
-    type: options_select
+    type: erviews_options_select
     region: content
   field_prj_snd_safety:
     weight: 11
@@ -1273,115 +1295,13 @@ content:
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
-  field_prj_stg_contact:
-    weight: 11
-    settings: {  }
-    third_party_settings:
-      conditional_fields:
-        42056e83-004c-4046-996e-3bb81173bee7:
-          dependee: field_prj_stg_stage
-          settings:
-            state: '!visible'
-            condition: value
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              value: 1
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: mutant_vehicles
-        ce2a9274-713a-4fa1-bd35-9b90718b7785:
-          dependee: field_prj_stg_stage
-          settings:
-            state: required
-            condition: value
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              value: 1
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: mutant_vehicles
-    type: options_select
-    region: content
-  field_prj_stg_description:
-    weight: 10
+  field_prj_snd_specs:
+    weight: 135
     settings:
       rows: 5
       placeholder: ''
-    third_party_settings:
-      conditional_fields:
-        3eea6d01-f297-44cd-8966-8e72d8354643:
-          dependee: field_prj_stg_stage
-          settings:
-            state: '!visible'
-            condition: value
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              value: 1
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: mutant_vehicles
-        f63e0eb3-b9d0-45ce-873a-319b868d6387:
-          dependee: field_prj_stg_stage
-          settings:
-            state: required
-            condition: value
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              value: 1
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: mutant_vehicles
-    type: string_textarea
-    region: content
-  field_prj_stg_stage:
-    weight: 8
-    settings:
-      display_label: true
     third_party_settings: {  }
-    type: boolean_checkbox
-    region: content
-  field_prj_stg_type:
-    weight: 9
-    settings: {  }
-    third_party_settings:
-      conditional_fields:
-        a5aceb6a-4b67-4895-b571-a2cf62ead0af:
-          dependee: field_prj_stg_stage
-          settings:
-            state: '!visible'
-            condition: value
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              value: 1
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: mutant_vehicles
-    type: options_buttons
+    type: string_textarea
     region: content
   field_prj_trl_area:
     weight: 6
@@ -1655,18 +1575,28 @@ content:
           bundle: mutant_vehicles
     type: boolean_checkbox
     region: content
-  field_prj_wtf_categories:
-    weight: 3
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
-    region: content
   field_prj_wtf_image:
-    weight: 2
+    third_party_settings:
+      conditional_fields:
+        8a9c4164-d607-46fd-8b48-52a413cceac0:
+          dependee: field_prj_cll_collaborate
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    weight: 3
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
-    third_party_settings: {  }
     type: image_image
     region: content
   field_prj_wtf_long:
@@ -1693,25 +1623,108 @@ content:
     third_party_settings: {  }
     type: link_default
     region: content
-  path:
-    type: path
-    weight: 1
-    region: content
+  field_prjr_complete:
+    weight: 4
     settings: {  }
     third_party_settings: {  }
-  promote:
-    type: boolean_checkbox
+    type: options_buttons
+    region: content
+  field_snd_bass_bins:
+    weight: 136
     settings:
       display_label: true
-    weight: 11
+    third_party_settings:
+      conditional_fields:
+        e84093b6-0b64-4eb8-a475-4adce6253c2d:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    type: boolean_checkbox
     region: content
+  field_snd_playtime_mon_wed:
+    weight: 137
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        2f2ad493-c281-4205-aec7-f09dac366a85:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    type: time_range
+    region: content
+  field_snd_playtime_thurs_sun:
+    weight: 138
+    settings: {  }
+    third_party_settings:
+      conditional_fields:
+        c9daddd9-eb1c-4aee-b2d6-56db9ac06047:
+          dependee: field_prj_snd_sound
+          settings:
+            state: visible
+            condition: checked
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form: {  }
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: mutant_vehicles
+    type: time_range
+    region: content
+  field_waps:
+    weight: 133
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
     third_party_settings: {  }
-  sticky:
-    type: boolean_checkbox
-    settings:
-      display_label: true
-    weight: 13
+    type: entity_reference_paragraphs
     region: content
+  field_waps_allowed:
+    weight: 132
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  field_year_cycle:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: computed_number_widget
+    region: content
+  flag:
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
   title:
     type: string_textfield
@@ -1721,25 +1734,11 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  uid:
-    type: entity_reference_autocomplete
-    weight: 0
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
-    region: content
-    third_party_settings: {  }
-  url_redirects:
-    weight: 10
-    region: content
-    settings: {  }
-    third_party_settings: {  }
 hidden:
-  field_grt_art_comment: true
+  created: true
   field_grt_art_total: true
-  field_grt_awarded: true
   field_grt_contribution: true
+  field_grt_dmv_budget: true
   field_grt_materials: true
   field_grt_other: true
   field_grt_other_description: true
@@ -1747,27 +1746,38 @@ hidden:
   field_grt_status: true
   field_grt_total: true
   field_grt_transport: true
-  field_prj_adm_comms: true
-  field_prj_adm_form_grant: true
-  field_prj_adm_form_wtf: true
+  field_lineup_request: true
   field_prj_adm_ranger_comment: true
   field_prj_cll_thread: true
+  field_prj_gen_fundraiser: true
+  field_prj_gen_fundraising: true
+  field_prj_gen_location: true
+  field_prj_gen_year: true
   field_prj_lnt_comments: true
+  field_prj_lnt_historic: true
   field_prj_lnt_images: true
-  field_prj_lnt_publish: true
   field_prj_lnt_score: true
   field_prj_lnt_signoff: true
   field_prj_lnt_type: true
   field_prj_saf_comment: true
   field_prj_snd_comment: true
+  field_prj_stg_contact: true
+  field_prj_stg_description: true
+  field_prj_stg_stage: true
   field_prj_stg_tread: true
+  field_prj_stg_type: true
   field_prj_sup_address: true
   field_prj_sup_details: true
   field_prj_sup_details_view: true
   field_prj_sup_h1: true
+  field_prj_wtf_categories: true
   field_prj_wtf_short_copy: true
-  field_sup_comment: true
   field_sup_review: true
   field_vp_ea: true
   moderation_state: true
+  path: true
+  promote: true
   status: true
+  sticky: true
+  uid: true
+  url_redirects: true
