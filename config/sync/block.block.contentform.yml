@@ -1,0 +1,38 @@
+uuid: 9d1b3e1b-6ae5-4c7f-a34a-eb4986828ffb
+langcode: en
+status: false
+dependencies:
+  module:
+    - collapsiblock
+    - node
+    - php
+    - system
+  theme:
+    - adminimal_theme
+third_party_settings:
+  collapsiblock:
+    collapse_action: '1'
+id: contentform
+theme: adminimal_theme
+region: content
+weight: -2
+provider: null
+plugin: formblock_node
+settings:
+  id: formblock_node
+  label: 'Log an incident'
+  provider: node
+  label_display: visible
+  type: incident
+  show_help: 0
+visibility:
+  request_path:
+    id: request_path
+    pages: /wrangle/incidents
+    negate: false
+    context_mapping: {  }
+  php:
+    id: php
+    php: '<?php return \Drupal::request()->get(''types'') != null; ?>'
+    negate: false
+    context_mapping: {  }

@@ -2,12 +2,18 @@ uuid: 32d1a98b-0656-4c0d-9915-79313d46f4f3
 langcode: en
 status: true
 dependencies:
+  module:
+    - collapsiblock
+    - ctools
   theme:
     - afrikaburn
+third_party_settings:
+  collapsiblock:
+    collapse_action: '0'
 id: afrikaburn_local_tasks
 theme: afrikaburn
-region: tabs
-weight: -15
+region: content
+weight: -20
 provider: null
 plugin: local_tasks_block
 settings:
@@ -17,4 +23,15 @@ settings:
   label_display: '0'
   primary: true
   secondary: true
-visibility: {  }
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      art: art
+      collective: collective
+      mutant_vehicles: mutant_vehicles
+      performances: performances
+      theme_camps: theme_camps
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'

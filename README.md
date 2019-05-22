@@ -10,11 +10,12 @@ This guide currently only covers Ubuntu but should be almost identical on Window
 # Quick install
 The quick installer assumes you have a working lamp server and git. 
 
-To replicate our lamp server install, please go [![here](https://github.com/AfrikaBurn/tribe/blob/master/docs/lamp.md)].
+To replicate our lamp server install, please go here.
 
 ## Composer
 Composer is a package manager used by Drupal to handle public extension modules.
 
+Ubuntu
 ```
 sudo apt install composer 
 ```
@@ -28,28 +29,12 @@ Note: We have had issues with Composer installing Drush, so advise the use of th
 ## Tribe
 Clone the git repository to your local. The final tribe is the folder name so can be named as you need. 
 
-On a default Ubuntu install we work in the www folder
 ```
-cd /var/www
 git clone https://github.com/AfrikaBurn/tribe.git tribe
 ```
+Then enter the folder and do a composer install, to add all external modules. 
 
-Add a secure folder.
 ```
-mkdir tribe_secure
-```
+cd tribe_media/
 
-Edit git config to ignore file mode changes
-```
-cd tribe
-vim .git/config
-```
-Set file mode to false
-```
-filemode = false
-```
-
-Composer install will add all external modules. 
-```
-composer install
 ```

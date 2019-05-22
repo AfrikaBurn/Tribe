@@ -5,34 +5,78 @@ dependencies:
   config:
     - field.field.node.collective.field_col_admins
     - field.field.node.collective.field_col_description
+    - field.field.node.collective.field_col_invite_mail
+    - field.field.node.collective.field_col_invite_token
     - field.field.node.collective.field_col_invitee
     - field.field.node.collective.field_col_members
     - field.field.node.collective.field_col_posts
+    - field.field.node.collective.field_col_requests
     - field.field.node.collective.field_picture
-    - image.style.thumbnail
+    - field.field.node.collective.field_settings
+    - image.style.collective_preview
     - node.type.collective
   module:
-    - content_moderation
     - field_group
     - image
     - text
 third_party_settings:
   field_group:
-    group_optional:
+    group_collective:
       children:
-        - field_col_mem_writeup
-        - field_col_description
-        - field_picture
+        - group_about
+        - group_how_it_works
+        - group_members
       parent_name: ''
-      weight: 2
-      format_type: details
+      weight: 0
+      format_type: tabs
       format_settings:
-        label: 'Click to add a description and picture (You can do this later, too)'
+        label: Collective
+        direction: horizontal
+        id: ''
+        classes: js-wizard
+      label: Collective
+    group_how_it_works:
+      children:
+        - field_settings
+      parent_name: group_collective
+      weight: 21
+      format_type: tab
+      format_settings:
         id: ''
         classes: ''
-        open: false
-        required_fields: false
-      label: 'Click to add a description and picture (You can do this later, too)'
+        formatter: open
+        description: ''
+        required_fields: true
+      label: 'How it works'
+    group_about:
+      children:
+        - title
+        - field_col_description
+        - field_picture
+      parent_name: group_collective
+      weight: 20
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: open
+        description: ''
+        required_fields: true
+      label: About
+    group_members:
+      children:
+        - field_col_admins
+        - field_col_members
+      parent_name: group_collective
+      weight: 22
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: open
+        description: ''
+        required_fields: true
+      label: Members
 id: node.collective.default
 targetEntityType: node
 bundle: collective
@@ -40,7 +84,7 @@ mode: default
 content:
   field_col_admins:
     type: entity_reference_autocomplete
-    weight: 3
+    weight: 5
     region: content
     settings:
       match_operator: CONTAINS
@@ -48,24 +92,16 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_col_description:
-    weight: 4
+    weight: 2
     settings:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
     region: content
-  field_col_invitee:
-    weight: 1
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: email_default
-    region: content
   field_col_members:
     type: entity_reference_autocomplete
-    weight: 4
+    weight: 6
     region: content
     settings:
       match_operator: CONTAINS
@@ -73,41 +109,45 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_picture:
-    weight: 5
+    weight: 3
     settings:
+      preview_image_style: collective_preview
       progress_indicator: throbber
-      preview_image_style: thumbnail
     third_party_settings: {  }
     type: image_image
     region: content
-  moderation_state:
-    type: moderation_state_default
-    weight: 100
+  field_settings:
+    weight: 3
     settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
     region: content
-    third_party_settings: {  }
-  status:
-    type: boolean_checkbox
+  moderation_state:
+    weight: 122
     settings:
-      display_label: true
-    weight: 121
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
+    type: string_textfield
     region: content
   title:
     type: string_textfield
-    weight: 0
+    weight: 1
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
-  url_redirects:
-    weight: 50
-    region: content
 hidden:
   created: true
+  field_col_invite_mail: true
+  field_col_invite_token: true
+  field_col_invitee: true
   field_col_posts: true
+  field_col_requests: true
   path: true
   promote: true
+  status: true
   sticky: true
   uid: true
+  url_redirects: true

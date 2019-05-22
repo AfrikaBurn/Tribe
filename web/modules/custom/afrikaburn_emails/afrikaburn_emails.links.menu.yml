@@ -1,7 +1,0 @@
-afrikaburn_emails.admin:
-  title: 'AfrikaBurn Emails'
-  description: 'Settings for Afrikaburn Emails'
-  parent: system.admin_config
-  route_name: afrikaburn_emails.admin_settings
-  weight: -100
-  menu_name: afrikaburn 

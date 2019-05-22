@@ -1,0 +1,8 @@
+uuid: 57f0a652-3cce-435e-9d36-16d2284688db
+langcode: en
+status: true
+dependencies: {  }
+id: incident_comment
+label: 'Incident comment'
+target_entity_type_id: node
+description: ''

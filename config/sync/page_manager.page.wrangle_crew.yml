@@ -1,0 +1,40 @@
+uuid: 9d637a88-25c8-477e-a29d-3a9b0c2ab239
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: wrangle_crew
+label: 'Wrangle: Crew'
+description: ''
+use_admin_theme: true
+path: /wrangle/crew
+access_logic: and
+access_conditions:
+  -
+    id: user_role
+    roles:
+      art_wrangler: art_wrangler
+      art_admin: art_admin
+      communications_wrangler: communications_wrangler
+      communications_admin: communications_admin
+      leave_no_trace_moop: leave_no_trace_moop
+      mutant_vehicle_viewer: mutant_vehicle_viewer
+      mutant_vehicle_wrangler: mutant_vehicle_wrangler
+      mutant_vehicle_admin: mutant_vehicle_admin
+      outreach_wrangler: outreach_wrangler
+      outreach_admin: outreach_admin
+      administrator: administrator
+      support_wrangler: support_wrangler
+      support_admin: support_admin
+      theme_camp_wrangler: theme_camp_wrangler
+      theme: theme
+      supplier: supplier
+      dpw: dpw
+      volunteer_admin: volunteer_admin
+      ranger_admin: ranger_admin
+      sanctuary_admin: sanctuary_admin
+    negate: false
+    context_mapping:
+      user: current_user
+parameters: {  }

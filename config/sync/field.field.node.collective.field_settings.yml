@@ -1,0 +1,34 @@
+uuid: 2de7dcd4-876c-44a3-a546-4870a055b17e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_settings
+    - node.type.collective
+  module:
+    - custom_add_another
+    - options
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.collective.field_settings
+field_name: field_settings
+entity_type: node
+bundle: collective
+label: Settings
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: public
+  -
+    value: open
+  -
+    value: projects
+  -
+    value: emails
+default_value_callback: ''
+settings: {  }
+field_type: list_string

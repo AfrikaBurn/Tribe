@@ -1,0 +1,99 @@
+diff --git a/ds.module b/ds.module
+index 7f24685..1d6d54f 100644
+--- a/ds.module
++++ b/ds.module
+@@ -87,6 +87,12 @@ function ds_theme_registry_alter(&$theme_registry) {
+   // layout is using the Display Suite layout class.
+   foreach ($theme_registry as $theme_hook => $info) {
+     if (in_array($theme_hook, $layout_theme_hooks) || (!empty($info['base hook']) && in_array($info['base hook'], $layout_theme_hooks))) {
++
++      // @todo Remove once https://www.drupal.org/node/2861840 is resolved.
++      if (!in_array('template_preprocess_layout', $theme_registry[$theme_hook]['preprocess functions'])) {
++        $theme_registry[$theme_hook]['preprocess functions'][] = 'template_preprocess_layout';
++      }
++
+       $theme_registry[$theme_hook]['preprocess functions'][] = 'ds_preprocess_ds_layout';
+     }
+   }
+diff --git a/src/Tests/EntitiesTest.php b/src/Tests/EntitiesTest.php
+index 69b0ab7..45f852d 100644
+--- a/src/Tests/EntitiesTest.php
++++ b/src/Tests/EntitiesTest.php
+@@ -34,6 +34,10 @@ class EntitiesTest extends FastTestBase {
+     \Drupal::configFactory()->getEditable('ds.settings')
+       ->set('field_template', TRUE)
+       ->save();
++
++    $this->container->get('theme_installer')->install(['ds_test_layout_theme']);
++    $config = \Drupal::configFactory()->getEditable('system.theme');
++    $config->set('default', 'ds_test_layout_theme')->save();
+   }
+ 
+   /**
+@@ -213,6 +217,29 @@ class EntitiesTest extends FastTestBase {
+     $edit = [$title_key => $this->randomMachineName()];
+     $this->drupalPostForm('node/add/article', $edit, t('Preview'));
+     $this->assertText($edit[$title_key], 'Title visible in preview');
++
++    // Convert layout from test theme.
++    // Configure teaser layout.
++    $test_theme_template = array(
++      'layout' => 'ds_test_layout_theme',
++    );
++    $test_theme_template_assert = array(
++      'regions' => array(
++        'ds_content' => '<td colspan="8">' . t('Content') . '</td>',
++      ),
++    );
++    $this->dsSelectLayout($test_theme_template, $test_theme_template_assert, 'admin/structure/types/manage/page/display');
++    // Tests using the title field
++    $edit = array(
++      'fields[node_title][region]' => 'ds_content',
++    );
++    $this->dsConfigureUi($edit, 'admin/structure/types/manage/page/display');
++    $node = $this->drupalCreateNode(['type' => 'page']);
++    $this->drupalGet('node/' . $node->id());
++    $this->assertRaw('test-template-defined-in-theme-class');
++    $this->assertText($node->get('body')->value);
++    $this->assertRaw('div class="ds-content-wrapper"');
++
+   }
+ 
+ }
+diff --git a/tests/themes/ds_test_layout_theme/ds_test_layout_theme.info.yml b/tests/themes/ds_test_layout_theme/ds_test_layout_theme.info.yml
+new file mode 100644
+index 0000000..c0e927a
+--- /dev/null
++++ b/tests/themes/ds_test_layout_theme/ds_test_layout_theme.info.yml
+@@ -0,0 +1,6 @@
++name: 'DS Test layout theme'
++type: theme
++description: 'Theme for testing a theme-provided layout'
++version: VERSION
++base theme: classy
++core: 8.x
+diff --git a/tests/themes/ds_test_layout_theme/ds_test_layout_theme.layouts.yml b/tests/themes/ds_test_layout_theme/ds_test_layout_theme.layouts.yml
+new file mode 100644
+index 0000000..d333e38
+--- /dev/null
++++ b/tests/themes/ds_test_layout_theme/ds_test_layout_theme.layouts.yml
+@@ -0,0 +1,8 @@
++ds_test_layout_theme:
++  label: 'DS Test Layout - Theme'
++  category: 'Test Layout Theme'
++  template: templates/ds-test-layout-theme
++  class: '\Drupal\ds\Plugin\DsLayout'
++  regions:
++    ds_content:
++      label: Content
+diff --git a/tests/themes/ds_test_layout_theme/templates/ds-test-layout-theme.html.twig b/tests/themes/ds_test_layout_theme/templates/ds-test-layout-theme.html.twig
+new file mode 100644
+index 0000000..22b0c4b
+--- /dev/null
++++ b/tests/themes/ds_test_layout_theme/templates/ds-test-layout-theme.html.twig
+@@ -0,0 +1,5 @@
++<{{ outer_wrapper }} class="test-template-defined-in-theme-class">
++  <{{ ds_content_wrapper }} class="ds-content-wrapper">
++    {{ ds_content }}
++  </{{ ds_content_wrapper }}>
++</{{ outer_wrapper }}>

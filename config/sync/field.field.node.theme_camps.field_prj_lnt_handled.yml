@@ -18,7 +18,7 @@ field_name: field_prj_lnt_handled
 entity_type: node
 bundle: theme_camps
 label: 'How are you thinking about handling your MOOP?'
-description: "<p>D.E.A.R. is our newest department that deals with Leave No Trace and Matter Out of Place (MOOP).<br>\r\nPlease read up more on D-E-A-R and MOOP here: <a href=\"https://www.afrikaburn.com/community/d-e-a-r\">https://www.afrikaburn.com/community/d-e-a-r</a>.</p>\r\n<p>Theme Camps famously attract other people's MOOP (matter out of place). So you may very well have more than your own waste to deal with - especially if you're creating a party space. Bring extra trash bags (Preferably stronger bags than the usual plastic one’s) and make sure you have space to transport trash back to town. </p>"
+description: "<p>D.E.A.R. is our newest department that deals with Leave No Trace and Matter Out of Place (MOOP).<br>\r\n<a href=\"https://www.afrikaburn.com/community/d-e-a-r\" target=\"_blank\">Please read up more on D-E-A-R and MOOP here</a>.</p>\r\n<p>Theme Camps famously attract other people's MOOP (matter out of place). So you may very well have more than your own waste to deal with - especially if you're creating a party space. Bring extra trash bags (Preferably stronger bags than the usual plastic one’s) and make sure you have space to transport trash back to town. </p>"
 required: true
 translatable: false
 default_value: {  }

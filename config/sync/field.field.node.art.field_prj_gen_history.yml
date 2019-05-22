@@ -18,7 +18,7 @@ field_name: field_prj_gen_history
 entity_type: node
 bundle: art
 label: 'Year and name of previous projects'
-description: ''
+description: "List other projects you've worked on or generated in the default world and/or at AfrikaBurn.\r\n"
 required: false
 translatable: true
 default_value: {  }

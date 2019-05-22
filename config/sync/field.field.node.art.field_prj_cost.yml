@@ -1,0 +1,29 @@
+uuid: 749fa96e-fb8e-4f01-b1d4-5bac8624d3ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_cost
+    - node.type.art
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.art.field_prj_cost
+field_name: field_prj_cost
+entity_type: node
+bundle: art
+label: 'Total project cost'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: 'R '
+  suffix: ' ZAR (South African Rands)'
+field_type: integer

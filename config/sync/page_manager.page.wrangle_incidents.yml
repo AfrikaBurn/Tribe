@@ -1,0 +1,12 @@
+uuid: 709b5921-bab3-45eb-afcc-ab65920b2295
+langcode: en
+status: true
+dependencies: {  }
+id: wrangle_incidents
+label: 'Wrangle: Incidents'
+description: ''
+use_admin_theme: true
+path: /wrangle/incidents
+access_logic: and
+access_conditions: {  }
+parameters: {  }

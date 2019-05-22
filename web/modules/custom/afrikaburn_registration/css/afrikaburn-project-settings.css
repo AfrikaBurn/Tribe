@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+
+#afrikaburn-registration-settings{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#afrikaburn-registration-settings fieldset{
+  flex-basis: 25%;
+  box-sizing: border-box;
+}
+
+#afrikaburn-registration-settings .form-actions{
+  flex-basis: 100%;
+}

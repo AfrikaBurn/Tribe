@@ -1,0 +1,31 @@
+uuid: 5cca5a2f-9afe-4545-abd0-92df69134cdc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_col_requests
+    - node.type.collective
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: 'Add another request'
+    custom_remove: ''
+id: node.collective.field_col_requests
+field_name: field_col_requests
+entity_type: node
+bundle: collective
+label: 'Membership Requests'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: collective_new_members
+      display_name: burner_select
+      arguments: {  }
+field_type: entity_reference

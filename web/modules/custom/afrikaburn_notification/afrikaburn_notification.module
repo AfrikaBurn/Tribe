@@ -1,0 +1,107 @@
+<?php
+
+/**
+ * @file Contains afrikaburn notification module.
+ */
+
+use \Drupal\user\Entity\User;
+
+
+/* ----- Entity hooks ----- */
+
+
+/**
+ * Implements hook_ENTITY_TYPE_insert.
+ */
+function afrikaburn_notification_user_insert($entity){
+  module_load_include('inc', 'afrikaburn_notification', 'includes/account');
+  _notify_account($entity);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert.
+ */
+function afrikaburn_notification_user_delete($entity){
+  module_load_include('inc', 'afrikaburn_notification', 'includes/account');
+  _notify_delete($entity);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert.
+ */
+function afrikaburn_notification_node_insert($entity){
+
+  $bundle = $entity->bundle();
+
+  if ($entity->isPublished() && in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
+    module_load_include('inc', 'afrikaburn_notification', 'includes/registration');
+    _notify_registration($entity);
+  }
+
+  if ($bundle == 'collective'){
+    module_load_include('inc', 'afrikaburn_notification', 'includes/collective');
+    _notify_collective($entity);
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update.
+ * Notify users on updates.
+ */
+function afrikaburn_notification_node_update($entity){
+
+  $bundle = $entity->bundle();
+
+  if ($entity->isPublished() && in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps', 'collective'])){
+
+    module_load_include('inc', 'afrikaburn_notification', 'includes/util');
+
+    // Don't mail while wrangling or on no changes
+    if (
+      preg_match('/^\/registration\/update/', \Drupal::service('path.current')->getPath()) ||
+      !_diff($entity)
+    ) return;
+
+    afrikaburn_notification_node_insert($entity);
+  }
+}
+
+
+/* ----- Mail hooks ----- */
+
+
+/**
+ * Implements hook_mail().
+ * Replaces render, node and user tokens
+ */
+function afrikaburn_notification_mail($key, &$message, $params) {
+
+  $node = $params['node'];
+
+  if ($key == 'afrikaburn_notification'){
+
+    $user = User::load(\Drupal::currentUser()->id());
+    $tokens = ['node' => $node, 'user' => $user];
+
+    $subject = $params['subject'];
+    $message['body'] = [];
+    $body = $params['message'];
+
+    _entity_render($node, $body);
+    _entity_diff($node, $body);
+    _email_images($message, $body);
+
+    $body = \Drupal::token()->replace($body, $tokens, ['clear' => true]);
+    $subject = \Drupal::token()->replace($subject, $tokens, ['clear' => true]);
+
+    $message['headers']['Content-Type'] = 'text/html; charset=UTF-8; format=flowed; delsp=yes';
+    $message['headers']['bcc'] = $params['bcc'];
+
+    $message['headers']['from'] = $params['from'];
+    $message['headers']['reply-to'] = $params['from'];
+
+    $message['subject'] = $subject;
+    $message['body'][] = $body;
+
+  }
+}

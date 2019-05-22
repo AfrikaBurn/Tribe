@@ -1,0 +1,30 @@
+uuid: 713da02b-38d4-43e2-8c7b-f47eef870b86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_grant_expense_header
+    - node.type.art
+  module:
+    - custom_add_another
+    - markup
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.art.field_grant_expense_header
+field_name: field_grant_expense_header
+entity_type: node
+bundle: art
+label: 'Grant Expense Header'
+description: ''
+required: false
+translatable: false
+default_value:
+  - {  }
+default_value_callback: ''
+settings:
+  markup:
+    value: "<h4>Breakdown of expenses</h4>\r\n\r\n<p dir=\"ltr\">Please list everything that is going into your project. This is important to help you making a realistic budget and &nbsp;give us an idea of the real cost of the project. Be as thorough as you can.</p>\r\n\r\n<p dir=\"ltr\">Some of the items, that you need for your project, do not add an extra financial burden on your project.<br />\r\nFor example: You have access to a working space where you can build your project, this has a value. If you had to rent this workspace, how much would it cost?<br />\r\nYou can borrow your friend’s uncle’s cordless drill for your project. How much would it cost you to rent it? Your team has agreed that all transport costs would be shared by every team member. Etc.<br />\r\n- Please include items like these in your Breakdown of Expenses and mark them as your OWN.<br />\r\n- This means that they are part of the total cost of the project, but are not considered in the amount that you are applying for.</p>\r\n"
+    format: full_html
+field_type: markup

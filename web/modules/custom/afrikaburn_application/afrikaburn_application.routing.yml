@@ -1,0 +1,32 @@
+afrikaburn_application.update:
+  path: '/application/update/{wid}/{sid}'
+  defaults:
+    _controller: '\Drupal\afrikaburn_application\Controller\ApplicationController::update'
+  requirements:
+    cid: '^[0-9]+'
+    _role: supplier + outreach_wrangler + anathi
+
+afrikaburn_application.wrangle.subsidised:
+  path: '/wrangle/applications/subsidised'
+  options:
+    _admin_route: TRUE
+afrikaburn_application.wrangle.subsidised-2019:
+  path: '/wrangle/applications/subsidised/2019'
+  options:
+    _admin_route: TRUE
+afrikaburn_application.wrangle.subsidised-2018:
+  path: '/wrangle/applications/subsidised/2018'
+  options:
+    _admin_route: TRUE
+afrikaburn_application.wrangle.anathi:
+  path: '/wrangle/applications/anathi-tickets-and-access-grants'
+  options:
+    _admin_route: TRUE
+afrikaburn_application.wrangle.anathi-2019:
+  path: '/wrangle/applications/anathi-tickets-and-access-grants/2019'
+  options:
+    _admin_route: TRUE
+afrikaburn_application.wrangle.anathi-2018:
+  path: '/wrangle/applications/anathi-tickets-and-access-grants/2018'
+  options:
+    _admin_route: TRUE

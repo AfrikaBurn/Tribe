@@ -1,6 +1,6 @@
 uuid: 10da6729-7882-455b-acdd-3dab7d7037fa
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - field.storage.user.user_picture

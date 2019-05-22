@@ -1,0 +1,21 @@
+bio:
+  version: 0.0
+  js:
+    js/afrikaburn-bio.js: {}
+  css:
+    theme:
+      css/afrikaburn-bio.css: {}
+registration:
+  version: 0.0
+  js:
+    js/afrikaburn-bio-registration.js: {}
+  css:
+    theme:
+      css/afrikaburn-bio-registration.css: {}
+wrangle:
+  version: 0.0
+  css:
+    theme:
+      css/afrikaburn-people-wrangle.css: {}
+  js:
+    js/afrikaburn-people-wrangle.js: {}

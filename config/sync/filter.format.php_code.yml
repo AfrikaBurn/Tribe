@@ -1,15 +1,21 @@
-uuid: 367beb35-fe9f-44d3-900c-68f352d912c1
-langcode: und
+uuid: c448df79-02cf-4b32-8759-48b2131afeea
+langcode: en
 status: true
 dependencies:
   module:
     - php
-_core:
-  default_config_hash: Uzs32y0rKovH-85ozWT6iSgF1rtXhi_68XNWRbvgppE
-name: 'PHP code'
+    - token_filter
+name: php_code
 format: php_code
-weight: 11
+weight: 0
 filters:
+  token_filter:
+    id: token_filter
+    provider: token_filter
+    status: false
+    weight: 0
+    settings:
+      replace_empty: '0'
   php_code:
     id: php_code
     provider: php

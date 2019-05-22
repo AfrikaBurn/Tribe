@@ -4,6 +4,19 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.subsidised_ticket.field_sub_comment
+    - field.field.node.subsidised_ticket.field_sub_contributions
+    - field.field.node.subsidised_ticket.field_sub_expenses
+    - field.field.node.subsidised_ticket.field_sub_funding
+    - field.field.node.subsidised_ticket.field_sub_gift
+    - field.field.node.subsidised_ticket.field_sub_history
+    - field.field.node.subsidised_ticket.field_sub_id
+    - field.field.node.subsidised_ticket.field_sub_income
+    - field.field.node.subsidised_ticket.field_sub_motivation
+    - field.field.node.subsidised_ticket.field_sub_personal
+    - field.field.node.subsidised_ticket.field_sub_proof_of_income
+    - field.field.node.subsidised_ticket.field_sub_review
+    - field.field.node.subsidised_ticket.field_sub_transferable
     - node.type.subsidised_ticket
   module:
     - user
@@ -15,6 +28,8 @@ content:
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_sub_comment: true
   field_sub_contributions: true

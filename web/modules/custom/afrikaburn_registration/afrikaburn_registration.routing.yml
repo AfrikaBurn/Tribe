@@ -1,0 +1,96 @@
+afrikaburn_registration.admin:
+  path: '/admin/config/afrikaburn/registration'
+  defaults:
+    _form: '\Drupal\afrikaburn_registration\Forms\RegistrationSettings'
+    _title: 'Project Registration'
+  requirements:
+   _permission: 'administer site configuration'
+
+afrikaburn_registration.reuse:
+  path: '/registration/{nid}/reuse'
+  defaults:
+    _controller: '\Drupal\afrikaburn_registration\Controller\RegistrationController::reuse'
+  requirements:
+    _is_collective_admin: 'TRUE'
+    _role: authenticated
+    cid: '^[0-9]+'
+afrikaburn_registration.update:
+  path: '/registration/update/{nid}'
+  defaults:
+    _controller: '\Drupal\afrikaburn_registration\Controller\RegistrationController::update'
+  requirements:
+    cid: '^[0-9]+'
+    _is_collective_admin: 'TRUE'
+
+afrikaburn_registration.wrangle_art:
+  path: '/wrangle/projects/art'
+  options:
+    _admin_route: TRUE
+afrikaburn_registration.wrangle_art.archive:
+  path: '/wrangle/projects/art/archive'
+  options:
+    _admin_route: TRUE
+afrikaburn_registration.wrangle_art_guide:
+  path: '/wrangle/projects/art/guide'
+  options:
+    _admin_route: TRUE
+
+afrikaburn_registration.wrangle_performances:
+  path: '/wrangle/projects/performances'
+  options:
+    _admin_route: TRUE
+afrikaburn_registration.wrangle_performances.archive:
+  path: '/wrangle/projects/performances/archive'
+  options:
+    _admin_route: TRUE
+
+afrikaburn_registration.wrangle_mutant_vehicles:
+  path: '/wrangle/projects/mutant_vehicles'
+  options:
+    _admin_route: TRUE
+afrikaburn_registration.wrangle_mutant_vehicles.archive:
+  path: '/wrangle/projects/mutant_vehicles/archive'
+  options:
+    _admin_route: TRUE
+afrikaburn_registration.wrangle_mutant_vehicles-dmv_book:
+  path: '/wrangle/projects/mutant_vehicles/dmv_book'
+  options:
+    _admin_route: TRUE
+afrikaburn_registration.wrangle_mutant_vehicles-ranger_book:
+  path: '/wrangle/projects/mutant_vehicles/ranger_book'
+  options:
+    _admin_route: TRUE
+
+afrikaburn_registration.wrangle_theme_camps:
+  path: '/wrangle/projects/theme_camps'
+  options:
+    _admin_route: TRUE
+afrikaburn_registration.wrangle_theme_camps.archive:
+  path: '/wrangle/projects/theme_camps/archive'
+  options:
+    _admin_route: TRUE
+afrikaburn_registration.wrangle_theme_camps-tasks:
+  path: '/wrangle/projects/theme_camps/tasks'
+  options:
+    _admin_route: TRUE
+afrikaburn_registration.wrangle_theme_camps-engineering:
+  path: '/wrangle/projects/theme_camps/engineering'
+  options:
+    _admin_route: TRUE
+
+afrikaburn_registration.wrangle_waps:
+  path: '/wrangle/projects/waps'
+  options:
+    _admin_route: TRUE
+afrikaburn_registration.wrangle_sound:
+  path: '/wrangle/projects/sound'
+  options:
+    _admin_route: TRUE
+afrikaburn_registration.wrangle_wtf:
+  path: '/wrangle/projects/wtf'
+  options:
+    _admin_route: TRUE
+afrikaburn_registration.wrangle_wtf_export:
+  path: '/wrangle/projects/wtf/export'
+  options:
+    _admin_route: TRUE

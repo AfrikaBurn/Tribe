@@ -18,7 +18,7 @@ field_name: field_prj_gen_bio
 entity_type: node
 bundle: art
 label: 'Who are you? Provide a brief bio.'
-description: ''
+description: 'We''re not looking for your CV just a general idea what you do in the default world.'
 required: true
 translatable: true
 default_value: {  }

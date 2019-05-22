@@ -58,6 +58,8 @@ settings:
       styles: ''
     linkit:
       linkit_profile: link_
+    tokenbrowser:
+      token_types: {  }
 image_upload:
   status: true
   scheme: public

@@ -1,0 +1,35 @@
+uuid: 746f72f3-6676-4921-9f08-2d5a3bdb9727
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_incident_state
+    - node.type.incident
+  content:
+    - 'taxonomy_term:incident_type:90a23f67-bd3e-42d4-9cf3-f7a85e77d9b7'
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.incident.field_incident_state
+field_name: field_incident_state
+entity_type: node
+bundle: incident
+label: State
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    target_uuid: 90a23f67-bd3e-42d4-9cf3-f7a85e77d9b7
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: wrangle_incident_state
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

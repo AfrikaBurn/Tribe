@@ -1,0 +1,37 @@
+uuid: 92de7c5e-6879-4864-96f6-c3a5bf8d7a1f
+langcode: en
+status: true
+dependencies:
+  module:
+    - collapsiblock
+    - php
+    - system
+  theme:
+    - adminimal_theme
+third_party_settings:
+  collapsiblock:
+    collapse_action: '0'
+_core:
+  default_config_hash: 8by5KRsb7ZpmjHj0ms1d7xAG_xH54AWsOX6spDLJ59U
+id: adminimal_theme_breadcrumbs
+theme: adminimal_theme
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  provider: system
+  label_display: '0'
+visibility:
+  php:
+    id: php
+    negate: true
+    php: ''
+    context_mapping: {  }
+  request_path:
+    id: request_path
+    pages: '/wrangle/*'
+    negate: true
+    context_mapping: {  }

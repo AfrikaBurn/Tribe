@@ -1,0 +1,29 @@
+uuid: b23095bf-61cb-4dd0-a9f6-4893c47d4b2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_api_content_type
+    - node.type.theme_camps
+  module:
+    - computed_field
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.theme_camps.field_api_content_type
+field_name: field_api_content_type
+entity_type: node
+bundle: theme_camps
+label: 'API Content Type'
+description: 'Used to display the content type in the API.'
+required: false
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings:
+  code: '$value = '''''
+field_type: computed_string

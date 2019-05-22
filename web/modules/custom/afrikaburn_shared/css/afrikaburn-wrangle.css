@@ -1,0 +1,218 @@
+@charset "utf-8";
+
+
+.region-header nav{
+  float: left;
+}
+
+.region-header nav h2{
+  color: orange;
+  font-size: 270%;
+  margin: 6px;
+}
+
+.region-header nav .collapsiblock{
+  background: none;
+  position: relative;
+  padding: 0 10px 0 20px;
+}
+
+.region-header nav .collapsiblock:after{
+  border: 10px solid;
+  border-color: transparent transparent orange transparent;
+  content: '.';
+  color: transparent;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -14px;
+  width: 0;
+  height: 0;
+}
+
+.region-header nav .collapsiblock.collapsiblockCollapsed:after{
+  border-color: orange transparent transparent transparent;
+  margin-top: -2px;
+}
+
+.region-header .menu--wrangle a{
+  color: #ddd;
+  text-decoration: none;
+  position: relative;
+}
+
+.region-header .menu--wrangle a.is-active{
+  color: #fff;
+  font-weight: bold;
+}
+
+.region-header .menu--wrangle a.is-active:after{
+  border: 5px solid;
+  border-color: transparent transparent transparent #fff;
+  content: '.';
+  color: transparent;
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  margin-top: -5px;
+  width: 0;
+  height: 0;
+}
+
+.region-header nav ul.menu{
+  padding: 10px 20px;
+}
+
+.region-header nav ul.menu li{
+  list-style-type: none;
+  list-style-image: none;
+}
+
+#block-adminimal-theme-primary-local-tasks{
+  clear: left;
+}
+
+.path-wrangle .block-region-content{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.path-wrangle .block-region-content .block{
+  flex-basis: 150px;
+  padding: 40px 20px;
+}
+
+.path-wrangle .block-region-content .block table td{
+  width: 50%;
+}
+
+.path-wrangle .block-region-content .block table tr td:last-child{
+  text-align: right;
+}
+
+/* ----- Wrangler views ----- */
+
+.wrangler-view table td{
+  vertical-align: top;
+}
+
+.wrangler-view table .form-type-checkbox{
+  margin: 10px 0 0;
+}
+
+/* Headers */
+
+.wrangler-view > table th{
+  position: relative;
+  height: 128px;
+  padding: 0 0 0 5px;
+  vertical-align: bottom;
+  border: none !important;
+  background: #fafafa !important;
+}
+
+.wrangler-view > table th span.label{
+  position: absolute;
+  transform: rotate(-45deg);
+  transform-origin: top left;
+  z-index: 1;
+  white-space: nowrap;
+  height: 20px;
+  border-top: 1px solid;
+  padding-left: 2em;
+  width: 150px;
+  left: 0;
+}
+
+.wrangler-view > table th:first-child span{
+  display: none;
+}
+
+.wrangler-view table .tablesort{
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  right: 50%;
+  margin-right: -7.5px;
+  top: -9px;
+}
+
+.wrangler-view table th{
+  border-left: 1px solid transparent;
+}
+.wrangler-view table td{
+  border-left: 1px solid #efefef;
+}
+
+
+/* Misc */
+
+.wrangler-view details summary{
+  padding: 0;
+}
+
+.wrangler-view .details-wrapper{
+  padding: 0;
+  margin: 0;
+}
+
+
+/* No results */
+
+.wrangler-view .messages{
+  clear: both;
+}
+
+
+/* Filter form */
+
+.wrangler-view .form--inline{
+  float: left;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 45px 0;
+}
+.wrangler-view .view-filters:after{
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.wrangler-view .form--inline .form-item{
+  margin: 0;
+  padding: 0;
+  float: none;
+  width: 140px;
+}
+
+.wrangler-view .form--inline .form-item-wrangler,
+.wrangler-view .form--inline .form-item.form-type-textfield{
+  width: 200px;
+}
+
+.wrangler-view .form--inline .form-actions *,
+.wrangler-view .form--inline .form-item *{
+  display: inline-block;
+  box-sizing: border-box;
+  height: 32px;
+  padding: 6px;
+  font-size: 90%;
+  margin-right: 20px;
+}
+
+.wrangler-view .form--inline .form-item *{
+  width: 90%;
+}
+
+
+.wrangler-view .form--inline .form-actions{
+  clear: none;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+.wrangler-view .form--inline .form-text{
+  padding: 6px;
+}

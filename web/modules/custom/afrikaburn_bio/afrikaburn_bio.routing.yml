@@ -1,0 +1,20 @@
+afrikaburn_bio.wrangle_people:
+  path: '/wrangle/people/accounts'
+  options:
+    _admin_route: TRUE
+afrikaburn_bio.update:
+  path: '/people/update/{uid}'
+  defaults:
+    _controller: '\Drupal\afrikaburn_bio\Controller\PeopleController::update'
+  requirements:
+    _role: authenticated
+    uid: '^[0-9]+'
+    _is_collective_admin: 'TRUE'
+afrikaburn_bio.reset:
+  path: '/people/reset/{uid}'
+  defaults:
+    _controller: '\Drupal\afrikaburn_bio\Controller\PeopleController::reset'
+  requirements:
+    _role: authenticated
+    uid: '^[0-9]+'
+    _is_collective_admin: 'TRUE'

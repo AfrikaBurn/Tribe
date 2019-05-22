@@ -1,0 +1,55 @@
+uuid: 2a7199b9-af8f-44fd-9768-dd74636e69a2
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_settings
+field_name: field_settings
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: public
+      label: 'Anyone can see the name, picture and description of the Collective.'
+    -
+      value: public_members
+      label: 'Anyone can see who the Collective members are.'
+    -
+      value: privare_members
+      label: 'Members can see who the Collective members are.'
+    -
+      value: open
+      label: 'Anyone may join or request to join.'
+    -
+      value: vetted
+      label: 'Membership requires Admin approval.'
+    -
+      value: projects
+      label: 'Admins may register projects.'
+    -
+      value: private_projects
+      label: 'Only members can see project registrations.'
+    -
+      value: private_discussion
+      label: 'Only members may see discussions.'
+    -
+      value: privileged_discussion
+      label: 'Only members may participate in discussions.'
+    -
+      value: emails
+      label: 'Members receive email notifications.'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

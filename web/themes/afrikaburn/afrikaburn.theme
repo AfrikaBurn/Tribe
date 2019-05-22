@@ -14,24 +14,18 @@ use Drupal\Core\Template\Attribute;
  * Adds body classes if certain regions have content.
  */
 function afrikaburn_preprocess_html(&$variables) {
-  // Add information about the number of sidebars.
-  // if (!empty($variables['page']['sidebar_first']) && !empty($variables['page']['sidebar_second'])) {
-  //   $variables['attributes']['class'][] = 'layout-two-sidebars';
-  // }
-  // elseif (!empty($variables['page']['sidebar_first'])) {
-  //   $variables['attributes']['class'][] = 'layout-one-sidebar';
-  //   $variables['attributes']['class'][] = 'layout-sidebar-first';
-  // }
-  // elseif (!empty($variables['page']['sidebar_second'])) {
-  //   $variables['attributes']['class'][] = 'layout-one-sidebar';
-  //   $variables['attributes']['class'][] = 'layout-sidebar-second';
-  // }
-  // else {
-  //   $variables['attributes']['class'][] = 'layout-no-sidebars';
-  // }
 
-  if (empty($variables['page']['sidebar'])) {
+  if (empty($variables['page']['biobar']) && empty($variables['page']['sidebar'])) {
     $variables['attributes']['class'][] = 'layout-no-sidebars';
+  }
+  if (isset($variables['page']['biobar'])){
+    $variables['attributes']['class'][] = 'layout-biobar';
+  }
+  if (isset($variables['page']['sidebar'])){
+    $variables['attributes']['class'][] = 'layout-sidebar';
+  }
+  if (isset($variables['page']['sidebar']) && isset($variables['page']['biobar'])){
+    $variables['attributes']['class'][] = 'layout-both-bars';
   }
 
   if (!empty($variables['page']['featured_top'])) {
@@ -127,4 +121,24 @@ function afrikaburn_form_alter(&$form, FormStateInterface $form_state, $form_id)
     $form[$key]['submit']['#attributes']->addClass('search-form__submit');
   }
 
+}
+
+/**
+ * Implements hook_theme_suggestions_alter()
+ */
+function afrikaburn_theme_suggestions_alter(&$suggestions, $variables, $hook) {
+  switch ($hook){
+    case 'field':
+      $suggestions[] = $variables['theme_hook_original'] . '__' . $variables['element']['#view_mode'];
+    break;
+    case 'fieldset':
+      $view_mode = false;
+      foreach($variables['element'] as $key => $child){
+        if ($key[0] != '#') {
+          $view_mode = @$child['#view_mode'];
+          if ($view_mode) break;
+        }
+      }
+      $suggestions[] = $variables['theme_hook_original'] . '__' . $view_mode;
+  }
 }

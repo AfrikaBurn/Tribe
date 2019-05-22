@@ -1,0 +1,18 @@
+uuid: 7ff325bc-c7a3-4311-a9ed-1d91b6b8821f
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Incident
+type: incident
+description: 'An incident report that forms part of the event log.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

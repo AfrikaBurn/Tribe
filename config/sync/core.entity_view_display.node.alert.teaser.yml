@@ -1,0 +1,30 @@
+uuid: 598741bf-c0fe-4fb4-9bf0-fda7c8114e97
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - node.type.alert
+  module:
+    - user
+id: node.alert.teaser
+targetEntityType: node
+bundle: alert
+mode: teaser
+content:
+  flag_unread:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_alert_action: true
+  field_alert_collective: true
+  field_alert_comment: true
+  field_alert_post: true
+  field_alert_project: true

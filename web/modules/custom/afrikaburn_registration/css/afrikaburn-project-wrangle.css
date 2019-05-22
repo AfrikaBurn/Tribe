@@ -1,0 +1,200 @@
+@charset "utf-8";
+
+
+/* Columns */
+
+.wrangler-view table .views-field-field-prj-gen-concept{
+  text-align: center;
+  width: 102px;
+}
+
+.wrangler-view table .views-field-title,
+.wrangler-view table .views-field-prj-stc-safety,
+.wrangler-view table .views-field-nothing{
+  width: 200px;
+}
+
+.wrangler-view > table td.views-field-title,
+.wrangler-view > table td.column-process,
+.wrangler-view > table td.views-field-field-prj-plc-location,
+.wrangler-view > table td.views-field-field-prj-plc-camp-d{
+  padding-top: 20px;
+}
+
+.wrangler-view table td.views-field-field-prj-plc-location{
+  max-width: 200px;
+}
+
+.wrangler-view table .column-administrative,
+.wrangler-view table .column-process{
+  max-width: 220px;
+  width: 220px;
+}
+
+.wrangler-view .views-field-field-prj-brn-burning,
+.wrangler-view .views-field-field-prj-cll-collaborate,
+.wrangler-view .views-field-field-ice-card,
+.wrangler-view .views-field-field-prj-plc-binnekring,
+.wrangler-view .views-field-field-placed,
+.wrangler-view .views-field-field-placement-card,
+.wrangler-view .views-field-field-placement-letter-sent,
+.wrangler-view .views-field-field-ice-card,
+.wrangler-view .views-field-field-prj-snd-sound{
+  width: 15px;
+}
+
+
+/* Images */
+
+.wrangler-view table td.views-field-field-prj-gen-concept img{
+  display: block;
+  float: left;
+  margin: 1px 0;
+}
+
+
+/* Mass mailing */
+
+.mass-mail{
+  float: right;
+  margin: 30px 10px;
+}
+
+.adminimal .mass-mail > *{
+  display: block;
+  float: left;
+  margin: 0 20px 0 0;
+}
+
+
+/* Editor fields */
+
+.editor-parent {
+  position: relative;
+}
+
+.editor-parent input{
+  min-width: 15px;
+}
+
+.editor-parent label{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.editor-parent div.description{
+  position: absolute;
+  top: 0;
+  right: 0;
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.editor-parent div.description a{
+  padding: 0 5px;
+  background: #fff;
+  border: 1px solid #888;
+  border-radius: 10px;
+  padding: 0 5px;
+}
+
+.editor-parent:hover div.description{
+  visibility: visible;
+}
+
+.editor-busy:before {
+  background-image: url(/core/modules/quickedit/images/icon-throbber.gif);
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  content: '';
+  z-index: 1;
+  background-size: cover;
+  top: 50%;
+  right: -10px;
+  margin: -10px 0 0 -10px;
+}
+
+.editor-error{
+  background-color: #e85157;
+  border: 2px solid #802727;
+}
+
+.editor-parent.form-item-field-prj-snd-level label{
+  content: 'Sound level';
+}
+
+
+.editor-parent.form-item-field-prj-adm-wrangler,
+.editor-parent.form-item-field-prj-adm-review{
+  margin: 0 0 1em 0;
+}
+.editor-parent.form-item-field-prj-adm-wrangler select,
+.editor-parent.form-item-field-prj-adm-review select,
+.editor-parent.form-type-textfield input{
+  width: 100%;
+}
+
+
+/* Comments */
+
+.wrangler-view .view-wrangle-comments{
+  margin: 2em 0 1em;
+}
+
+.wrangler-view article.admin-comment{
+  margin-bottom: 10px;
+}
+
+.wrangler-view article.admin-comment main{
+  display: flex;
+}
+
+.wrangler-view article.admin-comment main .image{
+  min-width: 30px;
+  flex-basis: 30px;
+  margin-top: 10px;
+}
+
+.wrangler-view article.admin-comment main .image img{
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.wrangler-view article.admin-comment main .comment{
+  background: #fafaff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  flex-grow: 1;
+  padding: 10px;
+}
+
+.wrangler-view article.admin-comment footer{
+  text-align: right;
+}
+
+.wrangler-view article.admin-comment footer a{
+  padding: 0 5px;
+}
+
+.wrangler-view details{
+  border: none;
+  padding: 0;
+}
+
+.wrangler-view .form--inline .form-actions .edit-actions{
+  width: 100%;
+}
+
+.wrangle-wtf .views-field-title{ width: 20%;}
+.wrangle-wtf .views-field-field-prj-wtf-short,
+.wrangle-wtf .views-field-field-prj-wtf-short-copy{
+  width: 40%;
+}
+
+.wrangle-wtf .views-row{
+  clear: both;
+  margin: 10px 0;
+}

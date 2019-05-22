@@ -1,0 +1,23 @@
+uuid: a08ee5f6-384d-49dc-a1c4-0b354b3a4161
+langcode: en
+status: true
+dependencies:
+  config:
+    - comment.type.incident_comment
+    - field.field.comment.incident_comment.field_body
+id: comment.incident_comment.default
+targetEntityType: comment
+bundle: incident_comment
+mode: default
+content:
+  field_body:
+    weight: 3
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+hidden:
+  author: true
+  subject: true

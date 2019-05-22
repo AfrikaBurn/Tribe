@@ -1,0 +1,30 @@
+uuid: ccdbf76d-b2e5-4559-9c07-1d3470e14451
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: wap_ban
+label: 'WAP ban'
+bundles: {  }
+entity_type: user
+global: true
+weight: 0
+flag_short: 'WAP capable'
+flag_long: 'Click to ban user from receiving a WAP'
+flag_message: ''
+unflag_short: 'WAP banned'
+unflag_long: 'Click to allow user to receive WAP'
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:user'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+  show_on_profile: true
+linkTypeConfig: {  }

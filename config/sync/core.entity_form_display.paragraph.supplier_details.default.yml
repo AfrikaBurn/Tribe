@@ -14,7 +14,6 @@ dependencies:
     - field.field.paragraph.supplier_details.field_sup_website
     - paragraphs.paragraphs_type.supplier_details
   module:
-    - content_moderation
     - file
     - link
     - telephone
@@ -92,11 +91,13 @@ content:
     type: link_default
     region: content
   moderation_state:
-    type: moderation_state_default
-    weight: 100
-    settings: {  }
-    region: content
+    weight: 110
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
+    type: string_textfield
+    region: content
 hidden:
   created: true
   status: true

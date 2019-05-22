@@ -1,0 +1,31 @@
+uuid: 7fa7dd4f-7e3c-476d-9403-333d7c1d2c02
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_year_cycle
+    - node.type.art
+  module:
+    - computed_field
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.art.field_year_cycle
+field_name: field_year_cycle
+entity_type: node
+bundle: art
+label: 'Year cycle'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  code: '$value = date(''Y'', strtotime(''+8 months'', $entity->get(''created'')->value));'
+  prefix: ''
+  suffix: ''
+field_type: computed_integer

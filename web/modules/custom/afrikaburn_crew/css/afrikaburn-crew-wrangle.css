@@ -1,0 +1,96 @@
+@charset "utf-8";
+
+
+/* Columns */
+
+/* Images */
+
+/* Editor fields */
+
+.editor-parent {
+  position: relative;
+}
+
+.editor-parent input{
+  min-width: 15px;
+}
+
+.editor-parent label{
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.editor-parent div.description{
+  position: absolute;
+  top: 0;
+  right: 0;
+  visibility: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+.editor-parent div.description a{
+  padding: 0 5px;
+  background: #fff;
+  border: 1px solid #888;
+  border-radius: 10px;
+  padding: 0 5px;
+}
+
+.editor-parent:hover div.description{
+  visibility: visible;
+}
+
+.editor-busy:before {
+  background-image: url(/core/modules/quickedit/images/icon-throbber.gif);
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  content: '';
+  z-index: 1;
+  background-size: cover;
+  top: 50%;
+  right: -10px;
+  margin: -10px 0 0 -10px;
+}
+
+.editor-error{
+  background-color: #e85157;
+  border: 2px solid #802727;
+}
+
+.editor-parent.form-item-field-prj-snd-level label{
+  content: 'Sound level';
+}
+
+
+.editor-parent.form-item-field-prj-adm-wrangler,
+.editor-parent.form-item-field-prj-adm-review{
+  margin: 0 0 1em 0;
+}
+.editor-parent.form-item-field-prj-adm-wrangler select,
+.editor-parent.form-item-field-prj-adm-review select,
+.editor-parent.form-type-textfield input,
+{
+  width: 100%;
+}
+
+
+/* Mass mailing */
+
+.mass-mail{
+  float: right;
+  margin: 30px 10px;
+}
+
+.adminimal .mass-mail > *{
+  display: block;
+  float: left;
+  margin: 0 20px 0 0;
+}
+
+.wrangler-view details {
+  border: none;
+  padding: 0;
+}

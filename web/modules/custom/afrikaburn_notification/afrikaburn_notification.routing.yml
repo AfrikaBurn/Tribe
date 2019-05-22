@@ -1,0 +1,7 @@
+afrikaburn_notification.settings:
+  path: '/admin/config/afrikaburn/notification'
+  defaults:
+    _form: '\Drupal\afrikaburn_notification\Forms\NotificationSettings'
+    _title: 'AfrikaBurn notification settings'
+  requirements:
+   _permission: 'administer site configuration'

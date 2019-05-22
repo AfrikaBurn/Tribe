@@ -1,40 +1,39 @@
 <?php
-
 /**
  * @file
  * Contains quicket utility functions
  */
 
-use \Drupal\Core\Site\Settings;
+use Drupal\Core\Site\Settings;
 use Drupal\Component\Serialization\Json;
 
 /**
- * Makes a request from quicket
+ * Sends WAP request to quicket
+ * @param array $waps array of users:
+ *   [
+ *    'FirstName': $first_name,
+ *    'Surname': $last_name,
+ *    'Email': $email,
+ *   ]
  */
-function _quicket($method, $id_number, $teens, $kids, $quicket_id = FALSE){
+function _send_WAPs($waps){
 
   $settings = Settings::get('afrikaburn.quicket');
 
-  $ticket_types = array_filter(
-    [
-      $settings['ticket_codes']['general'],
-      $settings['ticket_codes']['mayday'],
-      $kids ? $settings['ticket_codes']['kids'] : 0,
-      $teens ? $settings['ticket_codes']['teens'] : 0
-    ]
-  );
+  $ticket = [
+    'TicketId' => $settings['wap_code'],
+    'NumTickets' => 1
+  ];
+
+  foreach($waps as &$wap){
+    $wap['OrderItems'] = [$ticket];
+  }
 
   $data = json_encode(
     [
-      'EventId' => $settings['event_id'],
-      'TicketTypes' =>  $ticket_types,
-      'IsPercentage' => FALSE,
-      'DiscountAmount' => 0.0,
-      'NumUses' => 2 + $kids + $teens,
-      'ValidFrom' => $settings['valid_from'],
-      'ValidTo' => $settings['valid_to'],
-      'IsAccessCode' => TRUE,
-      'Email' => str_replace(' ', '', $id_number),
+      'Guests' => $waps,
+      'IsRsvp' => FALSE,
+      'SendMails' => TRUE,
     ]
   );
 
@@ -48,30 +47,25 @@ function _quicket($method, $id_number, $teens, $kids, $quicket_id = FALSE){
   ];
 
   try{
+
     $client = \Drupal::httpClient();
-    $response = $client->request(
-      $method,
-      'https://api.quicket.co.za/api/codes' . ($quicket_id ? '/' . $quicket_id : '') . '?api_key=' . $settings['api_key'],
+
+    \Drupal::logger('WAPs')->debug('Payload:<br /><pre>' . var_export($options, TRUE) . '</pre>');
+    $response = $client->post(
+      'https://api.quicket.co.za/api/events/' . $settings['event_id'] . '/orders/complimentaries?api_key=' . $settings['api_key'],
+      // 'http://127.0.0.1:3000/' . $settings['event_id'] . '/orders/complimentaries?api_key=' . $settings['api_key'],
       $options
     );
-    \Drupal::logger('afrikaburn_shared')->debug('<pre>' . var_export($response, TRUE) . '</pre>');
 
     if ($response && $response->getStatusCode() == 200){
-
-      $result = json_decode($response->getBody()->getContents())->result;
-      \Drupal::logger('afrikaburn_shared')->debug('<pre>' . var_export($result, TRUE) . '</pre>');
-
-      return [
-        'code' => $result->CodeValue,
-        'id' => $result->CodeId,
-      ];
-    } else {
-      \Drupal::logger('afrikaburn_shared')->error('An unexpected response has been received from quicket! ' . var_export($response, TRUE));
-      return FALSE;
+      return TRUE;
     }
 
+    \Drupal::logger('WAPs')->debug('Quicket call failure!<br /><pre>' . var_export($result, TRUE) . '</pre>');
+    return FALSE;
+
   } catch (Exception $e){
-    \Drupal::logger('afrikaburn_shared')->error('A request to quicket failed! ' . $e);
+    \Drupal::logger('WAPs')->debug('Quicket call failure!<br /><pre>' . $e . '</pre>');
     return FALSE;
   }
 }

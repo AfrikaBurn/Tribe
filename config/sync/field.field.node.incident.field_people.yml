@@ -1,0 +1,31 @@
+uuid: d2c9c1a1-5bdb-428c-a6ec-178b93018d45
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_people
+    - node.type.incident
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: 'Add another person'
+    custom_remove: ''
+id: node.incident.field_people
+field_name: field_people
+entity_type: node
+bundle: incident
+label: People
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: incident_user
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

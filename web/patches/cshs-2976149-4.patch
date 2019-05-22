@@ -1,0 +1,41 @@
+diff --git a/src/CshsOptionsFromHelper.php b/src/CshsOptionsFromHelper.php
+index 1d38259..d6336ae 100644
+--- a/src/CshsOptionsFromHelper.php
++++ b/src/CshsOptionsFromHelper.php
+@@ -95,8 +95,10 @@ trait CshsOptionsFromHelper {
+     $options = [];
+ 
+     // Build options for parent select field.
+-    foreach ($this->getOptions($vocabulary->id()) as $key => $value) {
+-      $options[$key] = $value['name'];
++    if (!empty($vocabulary)) {
++      foreach ($this->getOptions($vocabulary->id()) as $key => $value) {
++        $options[$key] = $value['name'];
++      }
+     }
+ 
+     $element['force_deepest'] = [
+@@ -136,11 +138,22 @@ trait CshsOptionsFromHelper {
+     $vocabulary = $this->getVocabulary();
+     $settings = $this->getSettings();
+ 
++    $options = [
++      CSHS_DEFAULT_NONE_VALUE => [
++        // @codingStandardsIgnoreStart
++        'name' => $this->t(CSHS_DEFAULT_NONE_LABEL),
++        // @codingStandardsIgnoreEnd
++        'parent_tid' => 0,
++      ],
++    ];
++
++    $options = !empty($vocabulary) ? $this->getOptions($vocabulary->id(), $settings['parent'], CSHS_DEFAULT_NONE_VALUE) : $options;
++
+     return [
+       '#type' => 'cshs',
+       '#labels' => $this->getTranslatedLevelLabels(FALSE),
+       '#parent' => $settings['parent'],
+-      '#options' => $this->getOptions($vocabulary->id(), $settings['parent'], CSHS_DEFAULT_NONE_VALUE),
++      '#options' => $options,
+       '#vocabulary' => $vocabulary,
+       '#none_value' => CSHS_DEFAULT_NONE_VALUE,
+       '#force_deepest' => $settings['force_deepest'],

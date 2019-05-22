@@ -1,0 +1,151 @@
+
+.path-user article.profile .field{
+  align-items: top;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 300px;
+  padding-bottom: 2em;
+  position: relative;
+}
+
+.path-user article.profile .field *{
+  flex-basis: 45%;
+}
+
+.path-user article.profile .field__item .field_label{
+  display: block;
+  flex-basis: 100%;
+}
+
+.user-form .form-item .select-wrapper,
+.user-form .form-item.form-type-checkbox *,
+.user-form .form-item.form-type-radio *{
+  min-width: auto;
+  flex-basis: auto;
+}
+
+@media (min-width: 600px) {
+
+  .path-user article.profile .field--name-user-picture{
+    float: right;
+    width: 50%;
+  }
+
+}
+
+.path-user article.profile .field--name-user-picture{
+  text-align: center;
+}
+
+.path-user article.profile .field--name-user-picture a{
+  flex-basis: 100%;
+}
+
+.user-login-form details summary,
+.user-login-form details .details-description{
+  display: none;
+}
+
+#block-ticketblock .button.bio-update,
+#block-ticketblock .button.bio-tickets{
+  background: #88BA1D;
+  color: #fff;
+  font-weight: bold;
+  border-color: #e3f8b8;
+  border-width: 2px;
+}
+
+#block-ticketblock .button.bio-tickets{
+  height: auto;
+  line-height: 100%;
+  padding: 10px;
+}
+
+#block-ticketblock .button.bio-update{
+  margin-bottom: 5px;
+  font-size: 90%;
+}
+
+#block-entityviewuser img{
+  width: 25px;
+  display: block;
+  margin: 5px 5px 0 0;
+}
+
+#block-entityviewuser .layout__region{
+  display: flex;
+  height: 35px;
+  align-items: center;
+}
+
+#block-bioblock .content a{
+  display: block;
+}
+#block-bioblock .content a:hover{
+  background-color: #370c13;
+}
+
+article.user{
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+article.user div{
+  margin: 0 0 0 0.25em;
+}
+
+.account-actions{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.account-actions > a,
+.account-actions .flag a {
+  background-position: 10px center;
+  background-repeat: no-repeat;
+  background-color: #00000055;
+  background-size: 18px;
+  border-radius: 10px;
+  color: #ffefb6 !important;
+  display: inline-block;
+  line-height: 24px;
+  margin: 0 0 20px 10px;
+  padding: 7px 10px 5px 34px;
+  text-decoration: none;
+  text-align: left;
+  width: auto;
+  height: 24px;
+  outline: none;
+}
+
+.account-actions > a{
+  background-image: url(../images/masquerade.svg);
+}
+
+.account-actions a.contact{
+  background-image: url(../images/mail.svg);
+}
+.account-actions a.no-contact{
+  background-image: url(../images/no-mail.svg);
+  cursor: default;
+  text-decoration: line-through;
+}
+.account-actions a.edit{
+  background-image: url(../images/edit.svg);
+}
+.account-actions .flag-outdated.action-flag a{
+  background-image: url(../images/updated.svg);
+}
+.account-actions .flag-outdated.action-unflag a{
+  background-image: url(../images/outdated.svg);
+}
+
+.account-actions .flag-wap-ban.action-flag a{
+  background-image: url(../images/wap.svg);
+}
+.account-actions .flag-wap-ban.action-unflag a{
+  background-image: url(../images/no-wap.svg);
+}

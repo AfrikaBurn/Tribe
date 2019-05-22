@@ -1,6 +1,6 @@
 uuid: 407244cc-f6d6-460e-96ab-6f52904b9ddf
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.print
@@ -238,11 +238,9 @@ display:
       tags:
         - 'config:core.entity_view_display.node.agreement.default'
         - 'config:core.entity_view_display.node.agreement.teaser'
+        - 'config:core.entity_view_display.node.announcement.default'
+        - 'config:core.entity_view_display.node.announcement.teaser'
         - 'config:core.entity_view_display.node.art.default'
-        - 'config:core.entity_view_display.node.art.notification'
-        - 'config:core.entity_view_display.node.art.print'
-        - 'config:core.entity_view_display.node.art.teaser'
-        - 'config:core.entity_view_display.node.art.wrangler_overview'
         - 'config:core.entity_view_display.node.article.default'
         - 'config:core.entity_view_display.node.article.notification'
         - 'config:core.entity_view_display.node.article.rss'
@@ -250,19 +248,11 @@ display:
         - 'config:core.entity_view_display.node.collective.default'
         - 'config:core.entity_view_display.node.collective.full'
         - 'config:core.entity_view_display.node.collective.teaser'
-        - 'config:core.entity_view_display.node.mutant_vehicles.default'
-        - 'config:core.entity_view_display.node.mutant_vehicles.notification'
-        - 'config:core.entity_view_display.node.mutant_vehicles.teaser'
         - 'config:core.entity_view_display.node.page.default'
         - 'config:core.entity_view_display.node.page.teaser'
-        - 'config:core.entity_view_display.node.performances.default'
-        - 'config:core.entity_view_display.node.performances.notification'
-        - 'config:core.entity_view_display.node.performances.teaser'
-        - 'config:core.entity_view_display.node.performances.wrangler_overview'
-        - 'config:core.entity_view_display.node.theme_camps.default'
-        - 'config:core.entity_view_display.node.theme_camps.notification'
-        - 'config:core.entity_view_display.node.theme_camps.teaser'
-        - 'config:core.entity_view_display.node.theme_camps.wrangler_overview'
+        - 'config:core.entity_view_display.node.subsidised_ticket.default'
+        - 'config:core.entity_view_display.node.subsidised_ticket.teaser'
+        - 'config:core.entity_view_display.node.subsidised_ticket.wrangler_overview'
   page:
     display_plugin: page
     id: page
@@ -282,11 +272,9 @@ display:
       tags:
         - 'config:core.entity_view_display.node.agreement.default'
         - 'config:core.entity_view_display.node.agreement.teaser'
+        - 'config:core.entity_view_display.node.announcement.default'
+        - 'config:core.entity_view_display.node.announcement.teaser'
         - 'config:core.entity_view_display.node.art.default'
-        - 'config:core.entity_view_display.node.art.notification'
-        - 'config:core.entity_view_display.node.art.print'
-        - 'config:core.entity_view_display.node.art.teaser'
-        - 'config:core.entity_view_display.node.art.wrangler_overview'
         - 'config:core.entity_view_display.node.article.default'
         - 'config:core.entity_view_display.node.article.notification'
         - 'config:core.entity_view_display.node.article.rss'
@@ -294,16 +282,8 @@ display:
         - 'config:core.entity_view_display.node.collective.default'
         - 'config:core.entity_view_display.node.collective.full'
         - 'config:core.entity_view_display.node.collective.teaser'
-        - 'config:core.entity_view_display.node.mutant_vehicles.default'
-        - 'config:core.entity_view_display.node.mutant_vehicles.notification'
-        - 'config:core.entity_view_display.node.mutant_vehicles.teaser'
         - 'config:core.entity_view_display.node.page.default'
         - 'config:core.entity_view_display.node.page.teaser'
-        - 'config:core.entity_view_display.node.performances.default'
-        - 'config:core.entity_view_display.node.performances.notification'
-        - 'config:core.entity_view_display.node.performances.teaser'
-        - 'config:core.entity_view_display.node.performances.wrangler_overview'
-        - 'config:core.entity_view_display.node.theme_camps.default'
-        - 'config:core.entity_view_display.node.theme_camps.notification'
-        - 'config:core.entity_view_display.node.theme_camps.teaser'
-        - 'config:core.entity_view_display.node.theme_camps.wrangler_overview'
+        - 'config:core.entity_view_display.node.subsidised_ticket.default'
+        - 'config:core.entity_view_display.node.subsidised_ticket.teaser'
+        - 'config:core.entity_view_display.node.subsidised_ticket.wrangler_overview'

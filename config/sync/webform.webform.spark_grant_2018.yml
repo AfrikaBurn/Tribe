@@ -1,9 +1,10 @@
 uuid: 13c99781-f971-4f1c-922a-7e1773e39555
 langcode: en
-status: open
+status: closed
 dependencies: {  }
 open: null
 close: null
+weight: 0
 uid: 1
 template: false
 archive: false
@@ -11,15 +12,16 @@ id: spark_grant_2018
 title: 'Spark Grant 2018'
 description: ''
 category: Application
-elements: "introduction:\n  '#type': webform_wizard_page\n  '#title': Introduction\n  markup:\n    '#type': webform_markup\n    '#markup': \"AfrikaBurn Outreach is offering grants of up to R5000 to spark a project that effects our guiding principles in the default world. Anyone can apply for a Spark Grant, but the project needs to be nominated (in addition to the applicant) by a participant of WORKING TITLE (AfrikaBurn 2018).<br />\\n<br />\\nYou will need&nbsp;the ID or passport number; cell phone number; and email address of a nominator.<br />\\n<br />\\nGeneral criteria:\\n<ul>\\n\\t<li>Projects need to take place within the Republic of South Africa</li>\\n\\t<li>All projects are ordinarily to be completed between 1 August 2018 and 31 January 2019</li>\\n\\t<li>Spark Grants can not be used for salaries or stipends.</li>\\n\\t<li>Successful applicants will be required to sign a grant agreement and account for their expenditure.</li>\\n\\t<li>Previous applicants may not apply for the same project.</li>\\n</ul>\\n<br />\\nApplication deadline: 30 June 2018&nbsp;12h00 (GMT+2).\\n<p>AfrikaBurn Outreach is under no obligation to disburse funds.</p>\\n\"\nabout_you:\n  '#type': webform_wizard_page\n  '#title': 'About you'\n  intro:\n    '#type': webform_markup\n    '#markup': '<em>Some of the information here is populated from your <a href=\"/user\" target=\"_blank\">Burner Bio</a>. If any information is incorrect please update your Bio and refresh this page.</em>'\n  your_name:\n    '#type': webform_computed_token\n    '#title': 'Your name'\n    '#value': '[webform_submission:user:field_first_name] [webform_submission:user:field_last_name]'\n  cell_phone_number:\n    '#type': webform_computed_token\n    '#title': 'Cell phone number'\n    '#value': '[webform_submission:user:field_mobile]'\n  email:\n    '#type': webform_computed_token\n    '#title': Email\n    '#value': '[webform_submission:user:field_email]'\n  id_passport_number:\n    '#type': webform_computed_token\n    '#title': 'Id/Passport number'\n    '#value': '[webform_submission:user:field_id_number]'\n  established_participant:\n    '#type': checkbox\n    '#title': 'I participated at AfrikaBurn 2018 WORKING TITLE'\n  nominator_name:\n    '#type': textfield\n    '#title': 'Nominator''s name'\n    '#required': true\n  nominator_mobile:\n    '#type': textfield\n    '#title': 'Nominator''s cell number'\n    '#required': true\n  nominator_email:\n    '#type': textfield\n    '#title': 'Nominator''s email address'\n    '#required': true\n  nominator_id:\n    '#type': textfield\n    '#title': 'Nominator''s Id/Passport number'\n    '#states': null\n    '#required': true\nabout_your_project:\n  '#type': webform_wizard_page\n  '#title': 'About your Project'\n  project_name:\n    '#type': textfield\n    '#title': 'Project name'\n    '#required': true\n  project_location:\n    '#type': textfield\n    '#title': 'Project Location'\n    '#required': true\n  amount_requested:\n    '#type': number\n    '#title': 'Amount requested'\n    '#required': true\n  principles:\n    '#type': radios\n    '#title': 'Which of the 11 guiding principles does your project effect?'\n    '#options':\n      'Radical inclusion': 'Radical inclusion'\n      Gifting: Gifting\n      Decommodification: Decommodification\n      'Radical self-reliance': 'Radical self-reliance'\n      'Radical self-expression': 'Radical self-expression'\n      'Communal effort': 'Communal effort'\n      'Leave no trace': 'Leave no trace'\n      'Civic responsibility': 'Civic responsibility'\n      Immediacy: Immediacy\n      Participation: Participation\n      'Each one teach one': 'Each one teach one'\n    '#required': true\n  project_addresses_challenges:\n    '#type': textarea\n    '#title': 'What real world challenges does the project seek to address?'\n    '#required': true\n    '#counter_type': character\n    '#counter_maximum': '500'\n  project_goals:\n    '#type': textarea\n    '#title': 'Please describe the goals of the project?'\n    '#required': true\n    '#counter_type': character\n    '#counter_maximum': '1000'\nproject_impact:\n  '#type': webform_wizard_page\n  '#title': 'Project Impact'\n  project_effect_guiding_principle:\n    '#type': textarea\n    '#title': 'How does your project effect your chosen guiding principle in the default world?'\n    '#required': true\n    '#counter_type': character\n    '#counter_maximum': '500'\n  project_invent_anew:\n    '#type': textarea\n    '#title': 'How does this project invent the world anew?'\n    '#required': true\n    '#counter_type': character\n    '#counter_maximum': '500'\n  project_positive_impact:\n    '#type': textarea\n    '#title': 'What lasting positive impact can the project have?'\n    '#required': true\n    '#counter_type': character\n    '#counter_maximum': '500'\n  project_beneficiaries:\n    '#type': textarea\n    '#title': 'Please describe who will benefit from the project and how?'\n    '#required': true\n    '#counter_type': character\n    '#counter_maximum': '500'\nimplementation:\n  '#type': webform_wizard_page\n  '#title': Implementation\n  project_previous_community_project:\n    '#type': textarea\n    '#title': 'If you have implemented/actualized a community project in the default world before, please elaborate'\n    '#required': true\n  project_allocation:\n    '#type': textarea\n    '#title': 'How would you allocate the Spark Grant funds?'\n    '#required': true\n    '#counter_type': character\n    '#counter_maximum': '500'\n  project_other_resource_mobilisation:\n    '#type': textarea\n    '#title': 'How will you mobilize other resources to actualize the project?'\n    '#required': true\n    '#counter_type': character\n    '#counter_maximum': '500'\n  project_other_information:\n    '#type': textarea\n    '#title': 'Is there any other information you''d like to add to your application?'\n    '#required': true\n    '#counter_type': character\n    '#counter_maximum': '1000'\n"
+elements: "introduction:\n  '#type': webform_wizard_page\n  '#title': Introduction\n  markup:\n    '#type': webform_markup\n    '#markup': \"AfrikaBurn Outreach is offering grants of up to R5000 to spark a project that effects our guiding principles in the default world. Anyone can apply for a Spark Grant, but the project needs to be nominated (in addition to the applicant) by a participant of WORKING TITLE (AfrikaBurn 2018).<br />\\n<br />\\nYou will need&nbsp;the ID or passport number; cell phone number; and email address of a nominator.<br />\\n<br />\\nGeneral criteria:\\n<ul>\\n\\t<li>Projects need to take place within the Republic of South Africa</li>\\n\\t<li>All projects are ordinarily to be completed between 1 August 2018 and 31 January 2019</li>\\n\\t<li>Spark Grants can not be used for salaries or stipends.</li>\\n\\t<li>Successful applicants will be required to sign a grant agreement and account for their expenditure.</li>\\n\\t<li>Previous applicants may not apply for the same project.</li>\\n</ul>\\n<br />\\nApplication deadline: 30 June 2018&nbsp;12h00 (GMT+2).\\n<p>AfrikaBurn Outreach is under no obligation to disburse funds.</p>\\n\"\nabout_you:\n  '#type': webform_wizard_page\n  '#title': 'About you'\n  intro:\n    '#type': webform_markup\n    '#markup': '<em>Some of the information here is populated from your <a href=\"/user\" target=\"_blank\">Burner Bio</a>. If any information is incorrect please update your Bio and refresh this page.</em>'\n  your_name:\n    '#type': webform_computed_token\n    '#title': 'Your name'\n    '#template': '[webform_submission:user:field_first_name] [webform_submission:user:field_last_name]'\n  cell_phone_number:\n    '#type': webform_computed_token\n    '#title': 'Cell phone number'\n    '#template': '[webform_submission:user:field_mobile]'\n  email:\n    '#type': webform_computed_token\n    '#title': Email\n    '#template': '[webform_submission:user:field_email]'\n  id_passport_number:\n    '#type': webform_computed_token\n    '#title': 'Id/Passport number'\n    '#template': '[webform_submission:user:field_id_number]'\n  established_participant:\n    '#type': checkbox\n    '#title': 'I participated at AfrikaBurn 2018 WORKING TITLE'\n  nominator_name:\n    '#type': textfield\n    '#title': 'Nominator''s name'\n    '#required': true\n  nominator_mobile:\n    '#type': textfield\n    '#title': 'Nominator''s cell number'\n    '#required': true\n  nominator_email:\n    '#type': textfield\n    '#title': 'Nominator''s email address'\n    '#required': true\n  nominator_id:\n    '#type': textfield\n    '#title': 'Nominator''s Id/Passport number'\n    '#states': null\n    '#required': true\nabout_your_project:\n  '#type': webform_wizard_page\n  '#title': 'About your Project'\n  project_name:\n    '#type': textfield\n    '#title': 'Project name'\n    '#required': true\n  project_location:\n    '#type': textfield\n    '#title': 'Project Location'\n    '#required': true\n  amount_requested:\n    '#type': number\n    '#title': 'Amount requested'\n    '#required': true\n  principles:\n    '#type': radios\n    '#title': 'Which of the 11 guiding principles does your project effect?'\n    '#options':\n      'Radical inclusion': 'Radical inclusion'\n      Gifting: Gifting\n      Decommodification: Decommodification\n      'Radical self-reliance': 'Radical self-reliance'\n      'Radical self-expression': 'Radical self-expression'\n      'Communal effort': 'Communal effort'\n      'Leave no trace': 'Leave no trace'\n      'Civic responsibility': 'Civic responsibility'\n      Immediacy: Immediacy\n      Participation: Participation\n      'Each one teach one': 'Each one teach one'\n    '#required': true\n  project_addresses_challenges:\n    '#type': textarea\n    '#title': 'What real world challenges does the project seek to address?'\n    '#required': true\n    '#counter_type': character\n    '#counter_maximum': '500'\n  project_goals:\n    '#type': textarea\n    '#title': 'Please describe the goals of the project?'\n    '#required': true\n    '#counter_type': character\n    '#counter_maximum': '1000'\nproject_impact:\n  '#type': webform_wizard_page\n  '#title': 'Project Impact'\n  project_effect_guiding_principle:\n    '#type': textarea\n    '#title': 'How does your project effect your chosen guiding principle in the default world?'\n    '#required': true\n    '#counter_type': character\n    '#counter_maximum': '500'\n  project_invent_anew:\n    '#type': textarea\n    '#title': 'How does this project invent the world anew?'\n    '#required': true\n    '#counter_type': character\n    '#counter_maximum': '500'\n  project_positive_impact:\n    '#type': textarea\n    '#title': 'What lasting positive impact can the project have?'\n    '#required': true\n    '#counter_type': character\n    '#counter_maximum': '500'\n  project_beneficiaries:\n    '#type': textarea\n    '#title': 'Please describe who will benefit from the project and how?'\n    '#required': true\n    '#counter_type': character\n    '#counter_maximum': '500'\nimplementation:\n  '#type': webform_wizard_page\n  '#title': Implementation\n  project_previous_community_project:\n    '#type': textarea\n    '#title': 'If you have implemented/actualized a community project in the default world before, please elaborate'\n    '#required': true\n  project_allocation:\n    '#type': textarea\n    '#title': 'How would you allocate the Spark Grant funds?'\n    '#required': true\n    '#counter_type': character\n    '#counter_maximum': '500'\n  project_other_resource_mobilisation:\n    '#type': textarea\n    '#title': 'How will you mobilize other resources to actualize the project?'\n    '#required': true\n    '#counter_type': character\n    '#counter_maximum': '500'\n  project_other_information:\n    '#type': textarea\n    '#title': 'Is there any other information you''d like to add to your application?'\n    '#required': true\n    '#counter_type': character\n    '#counter_maximum': '1000'\n"
 css: ''
 javascript: ''
 settings:
   ajax: true
   ajax_scroll_top: form
   page: true
-  page_submit_path: ''
+  page_submit_path: /apply/spark-grant
   page_confirm_path: ''
+  form_title: both
   form_submit_once: false
   form_exception_message: ''
   form_open_message: ''
@@ -27,6 +29,7 @@ settings:
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
+  form_remote_addr: true
   form_convert_anonymous: false
   form_prepopulate: false
   form_prepopulate_source_entity: false
@@ -42,15 +45,26 @@ settings:
   form_submit_back: false
   form_autofocus: true
   form_details_toggle: false
-  form_login: false
-  form_login_message: ''
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
   submission_label: ''
   submission_log: false
+  submission_views: {  }
+  submission_views_replace: {  }
   submission_user_columns: {  }
-  submission_login: false
-  submission_login_message: ''
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
   submission_exception_message: ''
   submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
   previous_submission_message: ''
   previous_submissions_message: ''
   autofill: false
@@ -59,7 +73,9 @@ settings:
   wizard_progress_bar: true
   wizard_progress_pages: false
   wizard_progress_percentage: false
+  wizard_progress_link: false
   wizard_start_label: ''
+  wizard_preview_link: false
   wizard_confirmation: false
   wizard_confirmation_label: ''
   wizard_track: ''
@@ -89,9 +105,11 @@ settings:
   limit_total: null
   limit_total_interval: null
   limit_total_message: ''
+  limit_total_unique: false
   limit_user: null
   limit_user_interval: null
   limit_user_message: ''
+  limit_user_unique: false
   entity_limit_total: null
   entity_limit_total_interval: null
   entity_limit_user: null
@@ -147,6 +165,10 @@ access:
     roles: {  }
     users: {  }
     permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
 handlers:
   notification:
     id: email
@@ -164,11 +186,11 @@ handlers:
       cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
-      from_mail: default
+      from_mail: _default
       from_options: {  }
-      from_name: default
+      from_name: _default
       subject: 'New Spark Grant application received '
-      body: default
+      body: _default
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true
@@ -181,6 +203,7 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
+      theme_name: ''
   confirmation:
     id: email
     label: Confirmation
@@ -197,9 +220,9 @@ handlers:
       cc_options: {  }
       bcc_mail: ''
       bcc_options: {  }
-      from_mail: default
+      from_mail: _default
       from_options: {  }
-      from_name: default
+      from_name: _default
       subject: 'Spark grant application received!'
       body: "Thank you! \nWe have received your Spark grant application and will be in contact shortly.\nAfrikBurn Outreach"
       excluded_elements: {  }
@@ -214,3 +237,4 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
+      theme_name: ''

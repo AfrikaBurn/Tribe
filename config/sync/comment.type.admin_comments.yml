@@ -1,0 +1,8 @@
+uuid: 071a638d-a7aa-4f32-b125-c32b2e563575
+langcode: en
+status: true
+dependencies: {  }
+id: admin_comments
+label: 'Admin Comments'
+target_entity_type_id: node
+description: ''

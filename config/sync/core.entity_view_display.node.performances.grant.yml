@@ -1,9 +1,13 @@
-uuid: cf57e3b5-5624-4435-8296-cf3cff9af946
+uuid: f6ef5c34-1684-41e1-969c-2055dc541881
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.node.grant
+    - core.entity_view_mode.node.grant
+    - field.field.node.performances.field_admin_comments
+    - field.field.node.performances.field_bke_day
+    - field.field.node.performances.field_bke_location
+    - field.field.node.performances.field_bke_time
     - field.field.node.performances.field_collective
     - field.field.node.performances.field_form_mode
     - field.field.node.performances.field_grt_art_total
@@ -23,9 +27,7 @@ dependencies:
     - field.field.node.performances.field_grt_total
     - field.field.node.performances.field_grt_transport
     - field.field.node.performances.field_muncipal_district
-    - field.field.node.performances.field_prj_adm_comms
     - field.field.node.performances.field_prj_adm_notes
-    - field.field.node.performances.field_prj_adm_ranger_comment
     - field.field.node.performances.field_prj_adm_review
     - field.field.node.performances.field_prj_adm_wrangler
     - field.field.node.performances.field_prj_brn_agree
@@ -52,6 +54,7 @@ dependencies:
     - field.field.node.performances.field_prj_gen_manager
     - field.field.node.performances.field_prj_gen_story
     - field.field.node.performances.field_prj_gen_year
+    - field.field.node.performances.field_prj_grant_expenses
     - field.field.node.performances.field_prj_lgh_agree
     - field.field.node.performances.field_prj_lgh_description
     - field.field.node.performances.field_prj_lgh_f1
@@ -65,7 +68,6 @@ dependencies:
     - field.field.node.performances.field_prj_lnt_helpers
     - field.field.node.performances.field_prj_lnt_historic
     - field.field.node.performances.field_prj_lnt_images
-    - field.field.node.performances.field_prj_lnt_publish
     - field.field.node.performances.field_prj_lnt_representative
     - field.field.node.performances.field_prj_lnt_score
     - field.field.node.performances.field_prj_lnt_signoff
@@ -95,6 +97,10 @@ dependencies:
     - field.field.node.performances.field_prj_stc_safety
     - field.field.node.performances.field_prj_stc_structural
     - field.field.node.performances.field_prj_stc_weight
+    - field.field.node.performances.field_prj_sup_address
+    - field.field.node.performances.field_prj_sup_details
+    - field.field.node.performances.field_prj_sup_details_view
+    - field.field.node.performances.field_prj_sup_h1
     - field.field.node.performances.field_prj_total_cost
     - field.field.node.performances.field_prj_wtf_categories
     - field.field.node.performances.field_prj_wtf_image
@@ -105,207 +111,351 @@ dependencies:
     - field.field.node.performances.field_prj_wtf_short
     - field.field.node.performances.field_prj_wtf_short_copy
     - field.field.node.performances.field_prj_wtf_website
+    - field.field.node.performances.field_prjr_complete
+    - field.field.node.performances.field_sup_review
     - field.field.node.performances.field_this_is_the_amount_of_mone
+    - field.field.node.performances.field_vp_ea
+    - field.field.node.performances.field_year_cycle
     - node.type.performances
   module:
-    - computed_field
-    - content_moderation
     - field_group
+    - file
     - markup
-    - paragraphs
-    - path
+    - options
+    - taxonomy
+    - user
 third_party_settings:
   field_group:
-    group_project:
+    group_project_registration:
       children:
         - group_grant
+        - group_expense_totals_by_type
+        - group_summary
+        - group_shortfall
+        - group_other
       parent_name: ''
-      weight: 5
-      format_type: accordion
+      weight: 1
+      format_type: tabs
       format_settings:
         label: 'Project Registration'
-        effect: none
+        direction: horizontal
         id: ''
         classes: ''
       label: 'Project Registration'
     group_grant:
       children:
-        - title
         - field_grt_f1
-        - field_grt_breakdown
-        - field_grt_total
-        - field_grt_contribution
-        - field_this_is_the_amount_of_mone
-        - group_expense_totals_by_type
-        - field_grt_art_total
-        - field_grt_short
-        - field_grt_short_desc
-        - field_grt_more
-      parent_name: group_project
-      weight: 20
-      format_type: accordion_item
+      parent_name: group_project_registration
+      weight: 6
+      format_type: tab
+      format_settings:
+        label: Intro
+        formatter: open
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Intro
+    group_expense_totals_by_type:
+      children:
+        - field_prj_grant_expenses
+      parent_name: group_project_registration
+      weight: 7
+      format_type: tab
+      format_settings:
+        label: Expenses
+        formatter: closed
+        description: ''
+        required_fields: true
+        id: ''
+        classes: ''
+      label: Expenses
+    group_administrative:
+      children:
+        - field_prjr_complete
+        - field_prj_adm_review
+        - field_prj_adm_wrangler
+        - field_collective
+        - field_form_mode
+      parent_name: ''
+      weight: 0
+      format_type: details
       format_settings:
         id: ''
         classes: ''
-        formatter: open
+        open: false
         required_fields: true
-        description: ''
-      label: Grant
-    group_expense_totals_by_type:
+      label: Administrative
+    group_shortfall:
       children:
-        - field_grt_lighting
-        - field_grt_location
-        - field_grt_materials
-        - field_grt_pyrotechnics
-        - field_grt_services
-        - field_grt_specify
-        - field_grt_tool
-        - field_grt_transport
-      parent_name: group_grant
-      weight: 6
-      format_type: fieldset
+        - field_grt_short
+        - field_grt_short_desc
+        - field_this_is_the_amount_of_mone
+      parent_name: group_project_registration
+      weight: 9
+      format_type: tab
       format_settings:
-        label: 'Expense totals by type'
+        id: ''
+        classes: ''
+        formatter: closed
         description: ''
         required_fields: true
+      label: Shortfall
+    group_other:
+      children:
+        - field_grt_more
+      parent_name: group_project_registration
+      weight: 10
+      format_type: tab
+      format_settings:
         id: ''
-        classes: hidden
-      label: 'Expense totals by type'
-_core:
-  default_config_hash: GszY5o7FPcrv2Z8_LMFChqNpGZCA9kaS3WAz3lVtB0o
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Other
+    group_summary:
+      children:
+        - field_grt_art_total
+      parent_name: group_project_registration
+      weight: 8
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Summary
 id: node.performances.grant
 targetEntityType: node
 bundle: performances
 mode: grant
 content:
-  field_grt_art_total:
-    type: number_integer
-    weight: 7
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_grt_breakdown:
-    type: basic_string
-    weight: 2
-    region: content
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
-  field_grt_contribution:
-    type: number_integer
-    weight: 4
-    region: content
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-  field_grt_f1:
-    type: markup
-    weight: 1
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_grt_more:
-    type: basic_string
-    weight: 10
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_grt_short:
-    type: basic_string
-    weight: 8
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_grt_short_desc:
-    type: basic_string
-    weight: 9
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_grt_total:
-    type: number_integer
+  field_collective:
     weight: 3
     region: content
     settings:
-      placeholder: ''
+      link: true
     third_party_settings: {  }
-  field_prj_total_cost:
-    type: number_integer
+    type: entity_reference_label
+    label: above
+  field_form_mode:
+    weight: 4
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    label: above
+  field_grant_expense_header:
     weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_this_is_the_amount_of_mone:
-    type: basic_string
-    weight: 5
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  links:
-    weight: 100
-    region: content
-  path:
-    type: path
-    weight: 4
+  field_grt_art_total:
+    weight: 99
     region: content
     settings: {  }
     third_party_settings: {  }
-  promote:
-    type: boolean
+    type: number_unformatted
+    label: above
+  field_grt_f1:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: markup
+    label: above
+  field_grt_more:
+    weight: 7
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: basic_string
+    label: above
+  field_grt_short:
+    weight: 4
     settings:
-      display_label: true
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    region: content
+    type: boolean
+    label: above
+  field_grt_short_desc:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: basic_string
+    label: above
+  field_prj_adm_area:
+    weight: 78
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_prj_adm_review:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+    type: entity_reference_rss_category
+    label: above
+  field_prj_adm_wrangler:
     weight: 2
     region: content
+    settings: {  }
     third_party_settings: {  }
-  status:
-    type: boolean
-    settings:
-      display_label: true
-    weight: 121
+    type: author
+    label: above
+  field_prj_brn_head:
+    weight: 49
+    settings: {  }
     third_party_settings: {  }
     region: content
-  sticky:
-    type: boolean
+  field_prj_cost:
+    weight: 0
+    region: content
     settings:
-      display_label: true
-    weight: 3
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_grant_expenses:
+    weight: 1
+    region: content
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    type: file_table
+    label: above
+  field_prj_hed_project:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_prj_lgh_area:
+    weight: 37
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_prj_lnt_area:
+    weight: 57
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_prj_oth_area:
+    weight: 74
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_prj_plc_area:
+    weight: 35
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_prj_prp_area:
+    weight: 27
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_prj_prp_offsite:
+    weight: 28
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_prj_prp_onsite:
+    weight: 32
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_prj_snd_area:
+    weight: 43
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_prj_stc_dimensions:
+    weight: 18
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_prj_stc_header:
+    weight: 17
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_prj_wtf_area:
+    weight: 67
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_prjr_complete:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+    type: list_key
+    label: above
+  field_this_is_the_amount_of_mone:
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+    type: basic_string
+    label: above
+  moderation_state:
+    weight: 100
+    settings: {  }
     region: content
     third_party_settings: {  }
 hidden:
-  field_collective: true
-  field_form_mode: true
+  field_admin_comments: true
+  field_bke_day: true
+  field_bke_location: true
+  field_bke_time: true
+  field_col_members: true
+  field_grt_art_apply: true
+  field_grt_art_comment: true
+  field_grt_art_reason: true
+  field_grt_breakdown: true
+  field_grt_contribution: true
+  field_grt_health: true
   field_grt_lighting: true
   field_grt_location: true
   field_grt_materials: true
+  field_grt_other: true
+  field_grt_other_description: true
   field_grt_pyrotechnics: true
   field_grt_services: true
   field_grt_specify: true
+  field_grt_tec_apply: true
+  field_grt_tec_comment: true
+  field_grt_tec_reason: true
+  field_grt_tec_total: true
   field_grt_tool: true
+  field_grt_total: true
   field_grt_transport: true
   field_muncipal_district: true
   field_prj_adm_comms: true
+  field_prj_adm_form_2: true
+  field_prj_adm_form_3: true
+  field_prj_adm_form_grant: true
+  field_prj_adm_form_wtf: true
+  field_prj_adm_latitude: true
+  field_prj_adm_longitude: true
   field_prj_adm_notes: true
   field_prj_adm_ranger_comment: true
-  field_prj_adm_review: true
-  field_prj_adm_wrangler: true
   field_prj_brn_agree: true
   field_prj_brn_burning: true
+  field_prj_brn_desc: true
+  field_prj_brn_f1: true
   field_prj_brn_f2: true
   field_prj_brn_motivation: true
+  field_prj_brn_perimeter: true
   field_prj_brn_person: true
   field_prj_brn_plan: true
+  field_prj_brn_time: true
+  field_prj_brn_time_adm: true
   field_prj_cll_collaborate: true
   field_prj_cll_contact: true
   field_prj_cll_description: true
@@ -319,6 +469,7 @@ hidden:
   field_prj_gen_fundraiser: true
   field_prj_gen_fundraising: true
   field_prj_gen_history: true
+  field_prj_gen_immortal: true
   field_prj_gen_lead: true
   field_prj_gen_location: true
   field_prj_gen_manager: true
@@ -331,6 +482,8 @@ hidden:
   field_prj_lgh_lighter: true
   field_prj_lgh_night: true
   field_prj_lgh_policy: true
+  field_prj_lgh_power: true
+  field_prj_lgh_projection: true
   field_prj_lnt_comments: true
   field_prj_lnt_duration: true
   field_prj_lnt_handled: true
@@ -348,6 +501,8 @@ hidden:
   field_prj_oth_other: true
   field_prj_oth_relationship: true
   field_prj_oth_unregistered: true
+  field_prj_plc_f1: true
+  field_prj_plc_location_extra: true
   field_prj_prp_duration: true
   field_prj_prp_erection: true
   field_prj_prp_start: true
@@ -356,6 +511,7 @@ hidden:
   field_prj_snd_agree: true
   field_prj_snd_comment: true
   field_prj_snd_description: true
+  field_prj_snd_f1: true
   field_prj_snd_level: true
   field_prj_snd_person: true
   field_prj_snd_sound: true
@@ -365,12 +521,19 @@ hidden:
   field_prj_stc_materials: true
   field_prj_stc_physical: true
   field_prj_stc_safety: true
+  field_prj_stc_size: true
   field_prj_stc_structural: true
   field_prj_stc_weight: true
+  field_prj_stg_contact: true
+  field_prj_stg_description: true
+  field_prj_stg_stage: true
+  field_prj_stg_tread: true
+  field_prj_stg_type: true
   field_prj_sup_address: true
   field_prj_sup_details: true
   field_prj_sup_details_view: true
   field_prj_sup_h1: true
+  field_prj_total_cost: true
   field_prj_wtf_categories: true
   field_prj_wtf_image: true
   field_prj_wtf_long: true
@@ -383,3 +546,10 @@ hidden:
   field_sup_comment: true
   field_sup_review: true
   field_vp_ea: true
+  field_year_cycle: true
+  links: true
+  path: true
+  promote: true
+  status: true
+  sticky: true
+  url_redirects: true

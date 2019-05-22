@@ -1,0 +1,176 @@
+uuid: 06afa5a3-12a8-4edb-b548-1d48ce447d44
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.incident_comment.default
+    - field.field.node.incident.field_comments
+    - field.field.node.incident.field_date_and_time
+    - field.field.node.incident.field_description
+    - field.field.node.incident.field_incident_reporter
+    - field.field.node.incident.field_incident_state
+    - field.field.node.incident.field_incident_type
+    - field.field.node.incident.field_people
+    - field.field.node.incident.field_projects
+    - field.field.node.incident.field_related_incident
+    - field.field.node.incident.field_related_incidents
+    - field.field.node.incident.field_relates_to_view
+    - node.type.incident
+  module:
+    - comment
+    - datetime
+    - ds
+    - empty_fields
+    - user
+    - viewfield
+third_party_settings:
+  ds:
+    layout:
+      id: ds_2col_stacked
+      library: ds/ds_2col_stacked
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          header: div
+          left: div
+          right: div
+          footer: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      left:
+        - field_date_and_time
+        - field_incident_status
+        - field_incident_type
+      right:
+        - user
+        - field_incident_reporter
+        - field_projects
+        - field_people
+      footer:
+        - field_description
+        - field_relates_to_view
+        - field_related_incidents
+        - field_comments
+    fields:
+      user:
+        plugin_id: user
+        weight: 3
+        label: inline
+        formatter: default
+        settings:
+          entity_view_mode: full_name
+id: node.incident.default
+targetEntityType: node
+bundle: incident
+mode: default
+content:
+  field_comments:
+    weight: 10
+    label: above
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    type: comment_default
+    region: footer
+  field_date_and_time:
+    weight: 0
+    label: inline
+    settings:
+      timezone_override: ''
+      date_format: 'H:i l j-M-Y'
+    third_party_settings:
+      empty_fields:
+        handler: ''
+    type: datetime_custom
+    region: left
+  field_description:
+    weight: 7
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: footer
+  field_incident_reporter:
+    weight: 4
+    label: inline
+    settings:
+      view_mode: full_name
+      link: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+    type: entity_reference_entity_view
+    region: right
+  field_incident_state:
+    weight: 11
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_incident_type:
+    weight: 2
+    label: inline
+    settings:
+      link: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ds_limit: ''
+    type: entity_reference_label
+    region: left
+  field_people:
+    weight: 6
+    label: above
+    settings:
+      view_mode: full_name
+      link: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+      ds:
+        ds_limit: ''
+    type: entity_reference_entity_view
+    region: right
+  field_projects:
+    weight: 5
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: right
+  field_related_incidents:
+    weight: 9
+    label: above
+    settings:
+      view_title: above
+      empty_view_title: hidden
+      always_build_output: 0
+    third_party_settings:
+      empty_fields:
+        handler: ''
+    type: viewfield_default
+    region: footer
+  field_relates_to_view:
+    weight: 8
+    label: above
+    settings:
+      view_title: hidden
+      always_build_output: 0
+      empty_view_title: hidden
+    third_party_settings: {  }
+    type: viewfield_default
+    region: footer
+hidden:
+  field_related_incident: true
+  links: true

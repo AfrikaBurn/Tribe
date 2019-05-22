@@ -1,0 +1,24 @@
+uuid: 3a605d1f-7734-41d3-b4de-b7fc56c2acc6
+langcode: en
+status: true
+dependencies:
+  module:
+    - comment
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_alert_comment
+field_name: field_alert_comment
+entity_type: node
+type: entity_reference
+settings:
+  target_type: comment
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

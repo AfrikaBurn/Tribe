@@ -1,0 +1,54 @@
+uuid: bf36588a-459d-44f2-9e64-edfcd0f42abe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_waps
+    - node.type.mutant_vehicles
+    - paragraphs.paragraphs_type.wap
+  module:
+    - custom_add_another
+    - entity_reference_revisions
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_waps
+field_name: field_waps
+entity_type: node
+bundle: mutant_vehicles
+label: WAPs
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      wap: wap
+    target_bundles_drag_drop:
+      early_access_and_vehicle_passes:
+        weight: 8
+        enabled: false
+      grant_expences:
+        weight: 9
+        enabled: false
+      minors:
+        weight: 10
+        enabled: false
+      mutant_grant_expense:
+        weight: 11
+        enabled: false
+      outreach_grant_applicant:
+        weight: 12
+        enabled: false
+      supplier_details:
+        weight: 13
+        enabled: false
+      wap:
+        enabled: true
+        weight: 14
+field_type: entity_reference_revisions

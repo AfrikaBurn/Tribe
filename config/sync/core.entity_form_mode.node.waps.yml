@@ -1,0 +1,10 @@
+uuid: 8426fe41-137b-4555-b4d9-954033452a47
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.waps
+label: WAPs
+targetEntityType: node
+cache: true

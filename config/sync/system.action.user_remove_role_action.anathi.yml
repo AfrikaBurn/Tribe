@@ -1,0 +1,14 @@
+uuid: ecb8bb28-8a64-4037-8fc1-c30a21a729ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.anathi
+  module:
+    - user
+id: user_remove_role_action.anathi
+label: 'Remove the Anathi role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: anathi

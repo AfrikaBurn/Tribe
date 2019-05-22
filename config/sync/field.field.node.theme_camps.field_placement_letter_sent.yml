@@ -1,0 +1,29 @@
+uuid: 012603c4-ae71-40ea-9e05-1a6f6c94f3bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_placement_letter_sent
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.theme_camps.field_placement_letter_sent
+field_name: field_placement_letter_sent
+entity_type: node
+bundle: theme_camps
+label: 'Placement letter sent'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Done
+  off_label: 'To do'
+field_type: boolean

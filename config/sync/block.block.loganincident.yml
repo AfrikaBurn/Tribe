@@ -1,0 +1,30 @@
+uuid: f7bb1eac-c131-4873-b563-7f256d90f84e
+langcode: en
+status: true
+dependencies:
+  module:
+    - afrikaburn_incident
+    - collapsiblock
+    - system
+  theme:
+    - adminimal_theme
+third_party_settings:
+  collapsiblock:
+    collapse_action: '1'
+id: loganincident
+theme: adminimal_theme
+region: content
+weight: -5
+provider: null
+plugin: new_incident_block
+settings:
+  id: new_incident_block
+  label: 'Log an Incident'
+  provider: afrikaburn_incident
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '/wrangle/incidents*'
+    negate: false
+    context_mapping: {  }

@@ -1,0 +1,375 @@
+<?php
+
+use \Drupal\user\Entity\User;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+
+/* ----- Module Hooks ----- */
+
+
+/**
+ * Implements hook_page_attachments().
+ * Attach bio libraries.
+ */
+function afrikaburn_bio_page_attachments(&$page) {
+  $page['#attached']['library'][] = 'afrikaburn_bio/bio';
+
+  $uid = \Drupal::currentUser()->id();
+  $account = \Drupal\user\Entity\User::load($uid);
+  $flag_service = \Drupal::service('flag');
+  $flag = $flag_service->getFlagById('outdated');
+  $outdated = $flag_service->getFlagging($flag, $account);
+
+  if ($outdated){
+    drupal_set_message(
+      t(
+        'Your Bio is out of date! Please <a href="@link">update your bio</a>!',
+        ['@link' => '/user/' . $uid . '/edit/update']
+      ),
+      'warning',
+      TRUE
+    );
+  }
+}
+
+
+/* ----- Form Hooks ----- */
+
+
+/**
+ * Implements hook_form_FOMR_ID_alter().
+ * Sets form titles, Add validation, Add submission handlers
+ */
+function afrikaburn_bio_form_user_form_alter(&$form, $form_state, $form_id){
+
+  $form['#attached']['library'][] = 'afrikaburn_bio/bio';
+  $target = $form_state->getFormObject()->getEntity();
+  $user = User::load(\Drupal::currentUser()->id());
+
+  // Set form title, attach quicket handlers, set redirects
+  switch($form_id){
+    case 'user_update_form':
+      $form['#title'] = 'Updating my Bio';
+    break;
+    case 'user_form':
+      $form['#title'] = 'Editing my Bio';
+      if (preg_match('/user\/reset/', \Drupal::request()->server->get('HTTP_REFERER'))) {
+        $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
+        $response->send();
+      }
+      $form['account']['status']['#type'] = 'checkbox';
+    break;
+    case 'user_register_form':
+      $form['#title'] = 'Create a Bio';
+      $form['#attached']['library'][] = 'afrikaburn_bio/registration';
+      break;
+  }
+
+  // Fix gender validation
+  $options = &$form['field_gender']['widget']['#options'];
+  if ($options && array_key_exists( '_none', $options)) {
+    $keys = array_keys($options);
+    $keys[0] = '';
+    $options = array_combine( $keys, $options);
+  }
+
+  // Require picture of users if they are editing themselves
+  // $form['user_picture']['widget'][0]['#required'] = $user->id() == 0 || $user->id() == $target->id();
+
+  // Hide email retype on user create
+  $form['field_email_retype']['#access'] = \Drupal::currentUser()->isAnonymous();
+
+  // Add ID, email validation
+  if (in_array($form_id, ['user_form', 'user_register_form'])) {
+    $form['#validate'][] = 'afrikaburn_bio_user_id_validate';
+    if (\Drupal::currentUser()->isAnonymous()) $form['#validate'][] = 'afrikaburn_bio_mail_validate';
+  }
+
+  // Add Updated flag to new and updated accounts
+  $form['actions']['submit']['#submit'][] = 'afrikaburn_bio_updated';
+}
+
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ * Alters dashboard filter form.
+ */
+function afrikaburn_bio_form_views_exposed_form_alter(&$form, $form_state, $form_id) {
+
+  $view = $form_state->getStorage('view')['view'];
+
+  if ($view->storage->get('id') == 'wrangle_people') {
+    module_load_include('inc', 'afrikaburn_bio', 'includes/wrangle.people');
+    _prepare_wrangler_filter($form);
+  }
+}
+
+
+/* ---- Account updating  ---- */
+
+
+/**
+ * Implements hook_entity_delete().
+ * Redirect on account deletion.
+ */
+function afrikaburn_bio_entity_delete($entity){
+  if ($entity->getEntityTypeId() == 'user' && \Drupal::currentUser()->id() == $entity->id()){
+    $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
+    $response->send();
+  }
+}
+
+/**
+ * Flag accounts edited by their owners as updated.
+ */
+function afrikaburn_bio_updated($form, &$form_state){
+
+  $account = $form_state->getFormObject()->getEntity();
+  $account_id = $account->id();
+  $editor_id = \Drupal::currentUser()->id();
+  $sanghoma =   $user = User::load(1);
+
+  if ($account_id == $editor_id || $editor_id == 0){
+    $flag_service = \Drupal::service('flag');
+    $flag = $flag_service->getFlagById('outdated');
+
+    if ($flag_service->getFlagging($flag, $account)){
+      $flagging = $flag_service->unflag($flag, $account, $sanghoma);
+    }
+
+    if ($editor_id != 0) {
+      drupal_set_message('Thank you for keeping your information up to date!', 'status', true);
+    }
+  }
+}
+
+
+/* ---- Validators ---- */
+
+
+/**
+ * ID number validation
+ */
+function afrikaburn_bio_user_id_validate($form, &$form_state) {
+
+  $id = $form_state->getValue('field_id_number')[0]['value'];
+  if (isset($id)) {
+
+    if (!preg_match('/^[a-zA-Z0-9]+$/', $id)){
+      $form_state->setErrorByName('field_id_number', t('Only numbers and letters are allowed.'));
+    }
+
+    if ($user = $form_state->getFormObject()->getEntity()){
+
+      $existing = db_query(
+        '
+          SELECT COUNT(entity_id)
+          FROM {user__field_id_number}
+          WHERE entity_id != :uid AND field_id_number_value = :id
+        ',
+        [
+          ':uid' => $user->id(),
+          ':id' => $id,
+        ]
+      )->fetchField();
+
+      if ($existing) {
+        $form_state->setErrorByName('field_id_number', t('This number is already in use.'));
+      }
+
+    } else {
+
+      $existing = db_query(
+        '
+          SELECT COUNT(entity_id)
+          FROM {user__field_id_number}
+          WHERE field_id_number_value = :id
+        ',
+        [
+          ':id' => $form_state->getValue('field_id_number')[0]['value'],
+        ]
+      )->fetchField();
+
+      if ($existing) {
+        $form_state->setErrorByName('field_id_number', t('This number is already in use.'));
+      }
+
+    }
+  }
+}
+
+/**
+ * Email retype validation
+ */
+function afrikaburn_bio_mail_validate($form, &$form_state) {
+
+  $mail = $form_state->getValue('mail');
+  $retype = $form_state->getValue('field_email_retype')[0]['value'];
+
+  if ($mail != $retype) {
+    $form_state->setErrorByName('mail', t('Email address and Retype Email address should match!'));
+    $form_state->setErrorByName('field_email_retype', t('Email address and Retype Email address should match!'));
+  }
+}
+
+
+/* ----- Theme hooks ----- */
+
+
+/**
+ * Implements hook_theme().
+ * Views Customizaton.
+ */
+function afrikaburn_bio_theme(){
+  return [
+
+    'views_view_table__wrangle_people' => [
+      'base hook' => 'view',
+    ],
+
+    'user__full_name' => [
+      'template' => 'user--full-name',
+      'base hook' => 'user',
+    ],
+    'field__full_name' => [
+      'template' => 'field--user',
+      'base hook' => 'field',
+    ],
+
+    'user__web_view' => [
+      'template' => 'user--web-view',
+      'base hook' => 'user',
+    ],
+    'field__web_view' => [
+      'template' => 'field--user',
+      'base hook' => 'field',
+    ],
+
+  ];
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter
+ */
+function afrikaburn_bio_theme_suggestions_user_alter(array &$suggestions, array $variables, $hook) {
+  $suggestions[] = $variables['theme_hook_original'] . '__' . str_replace('-', '_', $variables['elements']['#view_mode']);
+  return $suggestions;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter
+ */
+function afrikaburn_bio_theme_suggestions_field_alter(&$suggestions, $variables) {
+  $suggestions[] =
+    'field__' .
+    $variables['element']['#view_mode'];
+}
+
+
+/* ----- Field Hooks ----- */
+
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function afrikaburn_bio_entity_extra_field_info() {
+  $extra = [];
+
+  $extra['user']['user']['display']['edit'] = array(
+    'label' => t('Edit account'),
+    'description' => t('Link to edit account'),
+    'weight' => 100,
+    'visible' => TRUE,
+  );
+
+  $extra['user']['user']['display']['username'] =[
+    'label' => t('Username'),
+    'description' => t('The users chosen username'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
+  $extra['user']['user']['display']['contact'] =[
+    'label' => t('Contact link'),
+    'description' => t('Link to user contact form'),
+    'weight' => 100,
+    'visible' => TRUE,
+  ];
+
+  return $extra;
+}
+
+/**
+ * Implements hook_user_view().
+ */
+function afrikaburn_bio_user_view(&$build, $user, $display, $mode) {
+
+  $uid = $user->uid->value;
+  $current_uid = \Drupal::currentUser()->id();
+  $current_user = User::load($current_uid);
+
+  if ($display->getComponent('username')) {
+    $build['username'] = [
+      '#markup' => $user->link($user->name->value),
+    ];
+  }
+
+  if ($display->getComponent('contact') && $current_uid != $uid) {
+    if (\Drupal::service('user.data')->get('contact', $uid, 'enabled')){
+      $build['contact'] = [
+        '#markup' => '<a class="contact" title="Contact this participant" href="' .
+          \Drupal\Core\Url::fromRoute('entity.user.contact_form', ['user' => $uid])->toString() .
+        '">Contact</a>',
+      ];
+    } else {
+      $build['contact'] = [
+        '#markup' => '<a class="no-contact" title="Participant rejects contact">No contact</a>',
+      ];
+    }
+  }
+
+  if ($display->getComponent('edit') && ($current_uid == $uid || $current_user->hasRole('administrator'))){
+    $build['edit'] = [
+      '#markup' =>
+        '<a class="edit" title="Edit this Account" href="/user/' .
+        $uid .
+        '/edit">Edit</a>',
+    ];
+  }
+}
+
+
+/* ----- Preprocessing hooks ----- */
+
+
+/**
+ * Implements hook_preprocess_views_view().
+ */
+function afrikaburn_bio_preprocess_views_view(&$variables){
+  if($variables['id'] == 'wrangle_people'){
+    $variables['#attached']['library'][] = 'afrikaburn_bio/wrangle';
+    module_load_include('inc', 'afrikaburn_bio', 'includes/wrangle.people');
+    _prepare_wrangler_view($variables);
+  }
+}
+
+/**
+ * Implements hook_preprocess_views_view_table().
+ */
+function afrikaburn_bio_preprocess_views_view_table(&$variables) {
+  if($variables['view']->id() == 'wrangle_people'){
+    module_load_include('inc', 'afrikaburn_bio', 'includes/wrangle.people');
+    _insert_wrangler_view_rows($variables);
+  }
+}
+
+/**
+ * Implements hook_entity_presave().
+ * Force calculation of year cycle.
+ */
+function afrikaburn_bio_user_presave($entity){
+  if (!count($entity->get('field_year_cycle')->getValue())){
+    module_load_include('module', 'afrikaburn_shared', 'afrikaburn_shared');
+    $entity->set('field_year_cycle', computed_field_field_year_cycle_compute(null, $entity, null, null));
+  }
+}
