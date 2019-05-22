@@ -264,6 +264,9 @@ content:
 hidden:
   created: true
   field_admin_comments: true
+  field_api_content_type: true
+  field_arteria_checkin: true
+  field_event_services: true
   field_field_prj_plc_marquis: true
   field_field_prj_plc_stretch_m: true
   field_final_placement: true
@@ -389,6 +392,9 @@ hidden:
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
   field_ranger_representative: true
+  field_snd_bass_bins: true
+  field_snd_playtime_mon_wed: true
+  field_snd_playtime_thurs_sun: true
   field_stretch_tent_dimen: true
   field_sup_comment: true
   field_sup_review: true

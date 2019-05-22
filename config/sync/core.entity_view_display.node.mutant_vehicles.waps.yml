@@ -140,9 +140,20 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  registrant:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  support_camp:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_admin_comments: true
   field_allow_support_camp: true
+  field_api_content_type: true
   field_arteria_checkin: true
   field_collective: true
   field_form_mode: true
@@ -160,6 +171,8 @@ hidden:
   field_lineup_request: true
   field_mutant_drivers: true
   field_mv_amount_worthy: true
+  field_prj_adm_latitude: true
+  field_prj_adm_longitude: true
   field_prj_adm_ranger_comment: true
   field_prj_adm_registration: true
   field_prj_adm_review: true

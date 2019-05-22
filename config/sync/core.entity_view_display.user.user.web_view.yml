@@ -41,6 +41,16 @@ targetEntityType: user
 bundle: user
 mode: web_view
 content:
+  contact:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  edit:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_guardian_doc:
     weight: 10
     label: above
@@ -57,6 +67,16 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: content
+  flag_outdated:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  flag_wap_ban:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
     region: content
   user_picture:
     type: image
@@ -99,5 +119,6 @@ hidden:
   field_quicket_id: true
   field_secondary_mail: true
   field_terms_and_conditions: true
+  field_year_cycle: true
   masquerade: true
   member_for: true

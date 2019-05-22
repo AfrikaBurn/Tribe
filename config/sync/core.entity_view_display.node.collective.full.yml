@@ -44,6 +44,11 @@ targetEntityType: node
 bundle: collective
 mode: full
 content:
+  edit:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_col_description:
     type: text_default
     weight: 1
@@ -59,6 +64,21 @@ content:
       image_style: ''
     third_party_settings: {  }
     type: image
+    region: content
+  flag_mute:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  join:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  leave:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
     region: content
   post_something:
     weight: 2
@@ -77,4 +97,6 @@ hidden:
   field_col_invitee: true
   field_col_members: true
   field_col_posts: true
+  field_col_requests: true
+  field_settings: true
   links: true

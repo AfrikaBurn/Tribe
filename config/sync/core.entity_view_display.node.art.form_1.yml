@@ -1014,6 +1014,7 @@ content:
 hidden:
   field_admin_comments: true
   field_allow_support_camp: true
+  field_api_content_type: true
   field_arteria_checkin: true
   field_burn_can_be_denied: true
   field_col_members: true

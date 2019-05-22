@@ -705,6 +705,9 @@ content:
     third_party_settings: {  }
     region: content
 hidden:
+  field_api_content_type: true
+  field_arteria_checkin: true
+  field_event_services: true
   field_final_placement: true
   field_ice_card: true
   field_lineup_request: true
@@ -763,8 +766,11 @@ hidden:
   field_prj_snd_genre: true
   field_prj_snd_level: true
   field_prj_snd_person: true
+  field_prj_snd_rangers: true
+  field_prj_snd_setup_date: true
   field_prj_snd_soop: true
   field_prj_snd_sound: true
+  field_prj_snd_specs: true
   field_prj_stg_contact: true
   field_prj_stg_description: true
   field_prj_stg_stage: true
@@ -781,9 +787,14 @@ hidden:
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
   field_ranger_representative: true
+  field_snd_bass_bins: true
+  field_snd_playtime_mon_wed: true
+  field_snd_playtime_thurs_sun: true
   field_sup_review: true
   field_tc_type: true
   field_vp_ea: true
+  field_waps: true
+  field_waps_allowed: true
   links: true
   moderation_state: true
   path: true

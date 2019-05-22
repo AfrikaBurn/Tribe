@@ -255,6 +255,11 @@ content:
     third_party_settings: {  }
     type: number_unformatted
     label: above
+  flag_mute:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   links:
     weight: 100
     region: content
@@ -265,13 +270,30 @@ content:
     settings: {  }
     region: content
     third_party_settings: {  }
+  registrant:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  support_camp:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_admin_comments: true
+  field_allow_support_camp: true
+  field_api_content_type: true
+  field_arteria_checkin: true
   field_collective: true
   field_form_mode: true
   field_grt_awarded: true
   field_grt_status: true
+  field_lineup_request: true
   field_mutant_drivers: true
+  field_mv_amount_worthy: true
+  field_prj_adm_latitude: true
+  field_prj_adm_longitude: true
   field_prj_adm_registration: true
   field_prj_adm_review: true
   field_prj_adm_wrangler: true
@@ -327,6 +349,7 @@ hidden:
   field_prj_snd_safety: true
   field_prj_snd_soop: true
   field_prj_snd_sound: true
+  field_prj_snd_specs: true
   field_prj_stg_contact: true
   field_prj_stg_description: true
   field_prj_stg_stage: true
@@ -350,8 +373,13 @@ hidden:
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
   field_prjr_complete: true
+  field_snd_bass_bins: true
+  field_snd_playtime_mon_wed: true
+  field_snd_playtime_thurs_sun: true
   field_sup_review: true
   field_vp_ea: true
+  field_waps: true
+  field_waps_allowed: true
   field_year_cycle: true
   path: true
   promote: true
