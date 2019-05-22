@@ -176,8 +176,10 @@ content:
     region: content
 hidden:
   field_admin_comments: true
+  field_api_content_type: true
   field_arteria_checkin: true
   field_collective: true
+  field_event_services: true
   field_field_prj_plc_marquis: true
   field_field_prj_plc_stretch_m: true
   field_final_placement: true

@@ -1542,9 +1542,21 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  registrant:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  support_camp:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_admin_comments: true
   field_allow_support_camp: true
+  field_api_content_type: true
+  field_arteria_checkin: true
   field_grt_art_total: true
   field_grt_awarded: true
   field_grt_contribution: true
@@ -1558,6 +1570,8 @@ hidden:
   field_grt_transport: true
   field_lineup_request: true
   field_mv_amount_worthy: true
+  field_prj_adm_latitude: true
+  field_prj_adm_longitude: true
   field_prj_adm_ranger_comment: true
   field_prj_cll_thread: true
   field_prj_gen_fundraiser: true
@@ -1572,6 +1586,7 @@ hidden:
   field_prj_lnt_type: true
   field_prj_saf_comment: true
   field_prj_snd_comment: true
+  field_prj_snd_specs: true
   field_prj_stg_contact: true
   field_prj_stg_description: true
   field_prj_stg_stage: true
@@ -1583,8 +1598,13 @@ hidden:
   field_prj_sup_h1: true
   field_prj_wtf_categories: true
   field_prj_wtf_short_copy: true
+  field_snd_bass_bins: true
+  field_snd_playtime_mon_wed: true
+  field_snd_playtime_thurs_sun: true
   field_sup_review: true
   field_vp_ea: true
+  field_waps: true
+  field_waps_allowed: true
   field_year_cycle: true
   links: true
   moderation_state: true

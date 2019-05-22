@@ -394,6 +394,8 @@ content:
 hidden:
   field_admin_comments: true
   field_allow_support_camp: true
+  field_api_content_type: true
+  field_arteria_checkin: true
   field_burn_can_be_denied: true
   field_col_members: true
   field_grant_expense_header: true
@@ -492,7 +494,10 @@ hidden:
   field_prj_snd_level: true
   field_prj_snd_more_later: true
   field_prj_snd_person: true
+  field_prj_snd_rangers: true
+  field_prj_snd_setup_date: true
   field_prj_snd_sound: true
+  field_prj_snd_specs: true
   field_prj_stc_attributes: true
   field_prj_stc_footprint: true
   field_prj_stc_height: true
@@ -510,10 +515,15 @@ hidden:
   field_prj_sup_h1: true
   field_prj_wtf_scheduled: true
   field_prj_wtf_short_copy: true
+  field_snd_bass_bins: true
+  field_snd_playtime_mon_wed: true
+  field_snd_playtime_thurs_sun: true
   field_sup_comment: true
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
+  field_waps: true
+  field_waps_allowed: true
   field_year_cycle: true
   moderation_state: true
   path: true

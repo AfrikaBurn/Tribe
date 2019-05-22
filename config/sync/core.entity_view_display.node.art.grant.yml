@@ -439,6 +439,11 @@ content:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
+  flag_mute:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   moderation_state:
     weight: 100
     settings: {  }
@@ -446,6 +451,10 @@ content:
     third_party_settings: {  }
 hidden:
   field_admin_comments: true
+  field_allow_support_camp: true
+  field_api_content_type: true
+  field_arteria_checkin: true
+  field_burn_can_be_denied: true
   field_col_members: true
   field_grt_art_apply: true
   field_grt_art_comment: true
@@ -467,6 +476,8 @@ hidden:
   field_grt_tec_total: true
   field_grt_tool: true
   field_grt_transport: true
+  field_lineup_request: true
+  field_lnt_intro: true
   field_muncipal_district: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
@@ -542,8 +553,12 @@ hidden:
   field_prj_snd_description: true
   field_prj_snd_f1: true
   field_prj_snd_level: true
+  field_prj_snd_more_later: true
   field_prj_snd_person: true
+  field_prj_snd_rangers: true
+  field_prj_snd_setup_date: true
   field_prj_snd_sound: true
+  field_prj_snd_specs: true
   field_prj_stc_attributes: true
   field_prj_stc_footprint: true
   field_prj_stc_height: true
@@ -569,9 +584,14 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
+  field_snd_bass_bins: true
+  field_snd_playtime_mon_wed: true
+  field_snd_playtime_thurs_sun: true
   field_sup_comment: true
   field_sup_review: true
   field_vp_ea: true
+  field_waps: true
+  field_waps_allowed: true
   links: true
   path: true
   promote: true
