@@ -689,8 +689,17 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  flag_mute:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_admin_comments: true
+  field_allow_support_camp: true
+  field_api_content_type: true
+  field_arteria_checkin: true
+  field_burn_can_be_denied: true
   field_col_members: true
   field_collective: true
   field_form_mode: true
@@ -714,6 +723,8 @@ hidden:
   field_grt_tec_total: true
   field_grt_tool: true
   field_grt_transport: true
+  field_lineup_request: true
+  field_lnt_intro: true
   field_muncipal_district: true
   field_prj_adm_form_3: true
   field_prj_adm_latitude: true
@@ -775,6 +786,9 @@ hidden:
   field_prj_snd_f1: true
   field_prj_snd_more_later: true
   field_prj_snd_person: true
+  field_prj_snd_rangers: true
+  field_prj_snd_setup_date: true
+  field_prj_snd_specs: true
   field_prj_stc_size: true
   field_prj_stc_structural: true
   field_prj_stg_contact: true
@@ -794,9 +808,14 @@ hidden:
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
   field_prjr_complete: true
+  field_snd_bass_bins: true
+  field_snd_playtime_mon_wed: true
+  field_snd_playtime_thurs_sun: true
   field_sup_comment: true
   field_sup_review: true
   field_vp_ea: true
+  field_waps: true
+  field_waps_allowed: true
   field_year_cycle: true
   flag_archived: true
   links: true

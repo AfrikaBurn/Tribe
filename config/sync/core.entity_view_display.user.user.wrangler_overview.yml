@@ -93,6 +93,16 @@ targetEntityType: user
 bundle: user
 mode: wrangler_overview
 content:
+  contact:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  edit:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   field_agreements:
     type: entity_reference_label
     weight: 13
@@ -190,6 +200,16 @@ content:
     third_party_settings:
       empty_fields:
         handler: nbsp
+  flag_outdated:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  flag_wap_ban:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   masquerade:
     weight: 14
     region: content
@@ -211,6 +231,11 @@ content:
       empty_fields:
         handler: ''
     label: hidden
+  username:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_date_of_birth: true
   field_district: true
@@ -226,3 +251,4 @@ hidden:
   field_participation: true
   field_quicket_id: true
   field_terms_and_conditions: true
+  field_year_cycle: true

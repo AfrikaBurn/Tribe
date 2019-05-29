@@ -231,6 +231,7 @@ content:
 hidden:
   field_admin_comments: true
   field_allow_support_camp: true
+  field_api_content_type: true
   field_bke_day: true
   field_bke_location: true
   field_bke_time: true
@@ -252,6 +253,8 @@ hidden:
   field_grt_transport: true
   field_lineup_request: true
   field_muncipal_district: true
+  field_prj_adm_latitude: true
+  field_prj_adm_longitude: true
   field_prj_adm_notes: true
   field_prj_adm_review: true
   field_prj_brn_agree: true

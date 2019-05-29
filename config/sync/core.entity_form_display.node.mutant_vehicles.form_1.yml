@@ -1585,6 +1585,7 @@ hidden:
   created: true
   field_admin_comments: true
   field_allow_support_camp: true
+  field_api_content_type: true
   field_grt_art_total: true
   field_grt_contribution: true
   field_grt_dmv_budget: true
@@ -1595,6 +1596,8 @@ hidden:
   field_grt_status: true
   field_grt_total: true
   field_grt_transport: true
+  field_prj_adm_latitude: true
+  field_prj_adm_longitude: true
   field_prj_adm_ranger_comment: true
   field_prj_cll_thread: true
   field_prj_gen_fundraiser: true
