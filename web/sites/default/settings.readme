@@ -1,0 +1,19 @@
+Settings.php must include the following:
+
+/**
+ * Quicket specific settings
+ */
+$settings['afrikaburn.quicket'] = [
+  'api_key'      => 'some-random-characters-from-quicket',
+  'user_token'   => 'more-random-characters-from-quicket',
+  'event_id'     => '012345',
+  'valid_from'   => '2017-10-15T00:00:00Z',
+  'valid_to'     => '2018-04-30T00:00:00Z',
+  'ticket_codes' => [
+    'general' => '0123',
+    'mayday' => '0123',
+    'teens' => '0123',
+    'kids' => '0123',
+  ],
+];
+
