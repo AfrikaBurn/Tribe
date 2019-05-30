@@ -28,6 +28,7 @@ dependencies:
     - field.field.user.user.field_quicket_id
     - field.field.user.user.field_secondary_mail
     - field.field.user.user.field_terms_and_conditions
+    - field.field.user.user.field_year_cycle
     - field.field.user.user.user_picture
     - image.style.thumbnail
   module:
@@ -301,6 +302,7 @@ hidden:
   field_links: true
   field_quicket_code: true
   field_quicket_id: true
+  field_year_cycle: true
   google_analytics: true
   language: true
   path: true

@@ -1,9 +1,9 @@
-uuid: 2ae38008-b67e-478f-aea5-e38945e52d00
+uuid: 6135f5dd-005e-44b1-8dd5-469d177def3e
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.form_1
+    - core.entity_form_mode.node.wtf_quick_create
     - field.field.node.performances.field_admin_comments
     - field.field.node.performances.field_allow_support_camp
     - field.field.node.performances.field_api_content_type
@@ -125,18 +125,12 @@ dependencies:
     - field.field.node.performances.field_year_cycle
     - node.type.performances
   module:
-    - conditional_fields
-    - empty_fields
     - field_group
-    - link
-    - options
-    - responsive_image
-    - taxonomy
-    - user
 third_party_settings:
   field_group:
-    group_project:
+    group_project_registration:
       children:
+        - group_introduction
         - group_overview
         - group_wtf
       parent_name: ''
@@ -151,49 +145,54 @@ third_party_settings:
       region: content
     group_overview:
       children:
-        - field_prj_gen_lead
-        - field_prj_gen_description
-        - field_prj_wtf_short
-        - field_prj_wtf_categories
-        - field_bke_location
         - field_bke_day
+        - field_bke_location
         - field_bke_time
-        - field_prj_wtf_image
+        - field_prj_gen_lead
         - field_prj_oth_grant
-      parent_name: group_project
-      weight: 20
+        - field_prj_wtf_categories
+      parent_name: group_project_registration
+      weight: 21
       format_type: tab
       format_settings:
-        formatter: closed
-        description: ''
-        classes: ''
+        label: Overview
+        formatter: open
+        required_fields: true
         id: ''
+        classes: ui-accordion-header
       label: Overview
       region: content
     group_wtf:
       children:
         - field_prj_cll_collaborate
-        - field_prj_gen_contact
         - field_prj_cll_description
+        - field_prj_gen_contact
         - field_prj_wtf_website
-      parent_name: group_project
-      weight: 27
+      parent_name: group_project_registration
+      weight: 22
       format_type: tab
       format_settings:
+        label: 'Community and Collaboration'
         formatter: closed
         description: ''
-        classes: ''
+        required_fields: true
         id: ''
-      label: 'Community & Collaboration'
+        classes: ''
+      label: 'Community and Collaboration'
       region: content
     group_administrative:
       children:
-        - field_prjr_complete
-        - field_prj_adm_wrangler
+        - created
+        - field_allow_support_camp
         - field_collective
         - field_form_mode
+        - field_prj_adm_wrangler
+        - field_prjr_complete
+        - field_waps
+        - field_waps_allowed
+        - field_year_cycle
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: details
       format_settings:
         id: ''
@@ -201,207 +200,37 @@ third_party_settings:
         open: false
         required_fields: true
       label: Administrative
-id: node.performances.form_1
+    group_introduction:
+      children:
+        - field_prj_wtf_image
+        - field_prj_wtf_short
+      parent_name: group_project_registration
+      weight: 20
+      format_type: tab
+      format_settings:
+        id: ''
+        classes: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+      label: Introduction
+_core:
+  default_config_hash: GszY5o7FPcrv2Z8_LMFChqNpGZCA9kaS3WAz3lVtB0o
+id: node.performances.wtf_quick_create
 targetEntityType: node
 bundle: performances
-mode: form_1
+mode: wtf_quick_create
 content:
-  field_bke_day:
-    weight: 7
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-    type: list_key
-    label: above
-  field_bke_location:
-    weight: 6
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    region: content
-    type: string
-    label: above
-  field_bke_time:
-    weight: 8
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    region: content
-    type: string
-    label: above
-  field_collective:
-    weight: 41
-    region: content
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    label: above
-  field_form_mode:
-    weight: 42
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    region: content
-    type: string
-    label: above
-  field_prj_adm_wrangler:
-    weight: 39
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-    type: author
-    label: above
-  field_prj_cll_collaborate:
-    weight: 6
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings:
-      conditional_fields: {  }
-    region: content
-    type: boolean
-    label: above
-  field_prj_cll_description:
-    weight: 8
-    settings: {  }
-    third_party_settings:
-      conditional_fields:
-        7d992704-c12c-47bd-89f2-13bc8402b835:
-          dependee: field_prj_cll_collaborate
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              value: 1
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: performances
-        61159702-6f81-4238-b094-2d1998f5711d:
-          dependee: field_prj_cll_collaborate
-          settings:
-            state: required
-            condition: value
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              value: 1
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: performances
-    region: content
-    type: basic_string
-    label: above
-  field_prj_gen_contact:
-    type: entity_reference_label
-    weight: 7
-    region: content
-    label: above
-    settings:
-      link: false
-    third_party_settings:
-      empty_fields:
-        handler: ''
   field_prj_gen_description:
-    weight: 2
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-    type: basic_string
-    label: above
-  field_prj_gen_lead:
     weight: 1
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-    type: author
-    label: above
-  field_prj_oth_grant:
-    weight: 10
-    region: content
     settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
-    type: boolean
-    label: above
-  field_prj_wtf_categories:
-    weight: 5
+    type: string_textarea
     region: content
-    settings: {  }
-    third_party_settings: {  }
-    type: entity_reference_rss_category
-    label: above
-  field_prj_wtf_image:
-    weight: 9
-    settings:
-      responsive_image_style: ''
-      image_link: ''
-    third_party_settings: {  }
-    region: content
-    type: responsive_image
-    label: above
-  field_prj_wtf_short:
-    weight: 4
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    label: above
-  field_prj_wtf_website:
-    weight: 9
-    settings:
-      trim_length: 80
-      rel: ''
-      target: ''
-      url_only: false
-      url_plain: false
-    third_party_settings:
-      conditional_fields:
-        ec7b9752-a8bc-4b1f-9c43-855ea1539f4f:
-          dependee: field_prj_cll_collaborate
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form: {  }
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: performances
-    region: content
-    type: link_separate
-    label: above
-  field_prjr_complete:
-    weight: 38
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-    type: list_key
-    label: above
   flag:
     weight: 8
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  flag_mute:
-    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -411,11 +240,26 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+    type: string_textfield
     region: content
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
+  created: true
   field_admin_comments: true
   field_allow_support_camp: true
   field_api_content_type: true
+  field_bke_day: true
+  field_bke_location: true
+  field_bke_time: true
+  field_collective: true
+  field_form_mode: true
   field_grt_art_total: true
   field_grt_breakdown: true
   field_grt_contribution: true
@@ -438,21 +282,26 @@ hidden:
   field_prj_adm_longitude: true
   field_prj_adm_notes: true
   field_prj_adm_review: true
+  field_prj_adm_wrangler: true
   field_prj_brn_agree: true
   field_prj_brn_burning: true
   field_prj_brn_f2: true
   field_prj_brn_motivation: true
   field_prj_brn_person: true
   field_prj_brn_plan: true
+  field_prj_cll_collaborate: true
   field_prj_cll_contact: true
+  field_prj_cll_description: true
   field_prj_cll_thread: true
   field_prj_gen_bio: true
   field_prj_gen_concept: true
+  field_prj_gen_contact: true
   field_prj_gen_doc: true
   field_prj_gen_external: true
   field_prj_gen_fundraiser: true
   field_prj_gen_fundraising: true
   field_prj_gen_history: true
+  field_prj_gen_lead: true
   field_prj_gen_location: true
   field_prj_gen_manager: true
   field_prj_gen_story: true
@@ -476,6 +325,7 @@ hidden:
   field_prj_lnt_signoff: true
   field_prj_lnt_type: true
   field_prj_oth_associated: true
+  field_prj_oth_grant: true
   field_prj_oth_mv: true
   field_prj_oth_other: true
   field_prj_oth_relationship: true
@@ -504,20 +354,25 @@ hidden:
   field_prj_sup_details_view: true
   field_prj_sup_h1: true
   field_prj_total_cost: true
+  field_prj_wtf_categories: true
+  field_prj_wtf_image: true
   field_prj_wtf_long: true
   field_prj_wtf_plan: true
   field_prj_wtf_planned: true
   field_prj_wtf_scheduled: true
+  field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
+  field_prj_wtf_website: true
+  field_prjr_complete: true
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
   field_waps: true
   field_waps_allowed: true
   field_year_cycle: true
-  links: true
   path: true
   promote: true
   status: true
   sticky: true
+  uid: true
   url_redirects: true

@@ -4,6 +4,11 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
+    - field.field.node.alert.field_alert_action
+    - field.field.node.alert.field_alert_collective
+    - field.field.node.alert.field_alert_comment
+    - field.field.node.alert.field_alert_post
+    - field.field.node.alert.field_alert_project
     - node.type.alert
   module:
     - user

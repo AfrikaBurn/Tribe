@@ -6,6 +6,7 @@ dependencies:
     - core.entity_form_mode.node.grant
     - field.field.node.performances.field_admin_comments
     - field.field.node.performances.field_allow_support_camp
+    - field.field.node.performances.field_api_content_type
     - field.field.node.performances.field_bke_day
     - field.field.node.performances.field_bke_location
     - field.field.node.performances.field_bke_time
@@ -29,6 +30,8 @@ dependencies:
     - field.field.node.performances.field_grt_transport
     - field.field.node.performances.field_lineup_request
     - field.field.node.performances.field_muncipal_district
+    - field.field.node.performances.field_prj_adm_latitude
+    - field.field.node.performances.field_prj_adm_longitude
     - field.field.node.performances.field_prj_adm_notes
     - field.field.node.performances.field_prj_adm_review
     - field.field.node.performances.field_prj_adm_wrangler
@@ -428,6 +431,7 @@ hidden:
   created: true
   field_admin_comments: true
   field_allow_support_camp: true
+  field_api_content_type: true
   field_bke_day: true
   field_bke_location: true
   field_bke_time: true

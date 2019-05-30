@@ -5,5 +5,4 @@ dependencies: {  }
 name: 'Incident type'
 vid: incident_type
 description: 'Type of a reported incident'
-hierarchy: 1
 weight: 0

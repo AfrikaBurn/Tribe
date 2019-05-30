@@ -5,6 +5,8 @@ dependencies:
   config:
     - core.entity_view_mode.node.grant_print
     - field.field.node.performances.field_admin_comments
+    - field.field.node.performances.field_allow_support_camp
+    - field.field.node.performances.field_api_content_type
     - field.field.node.performances.field_bke_day
     - field.field.node.performances.field_bke_location
     - field.field.node.performances.field_bke_time
@@ -26,7 +28,10 @@ dependencies:
     - field.field.node.performances.field_grt_tool
     - field.field.node.performances.field_grt_total
     - field.field.node.performances.field_grt_transport
+    - field.field.node.performances.field_lineup_request
     - field.field.node.performances.field_muncipal_district
+    - field.field.node.performances.field_prj_adm_latitude
+    - field.field.node.performances.field_prj_adm_longitude
     - field.field.node.performances.field_prj_adm_notes
     - field.field.node.performances.field_prj_adm_review
     - field.field.node.performances.field_prj_adm_wrangler
@@ -115,6 +120,8 @@ dependencies:
     - field.field.node.performances.field_sup_review
     - field.field.node.performances.field_this_is_the_amount_of_mone
     - field.field.node.performances.field_vp_ea
+    - field.field.node.performances.field_waps
+    - field.field.node.performances.field_waps_allowed
     - field.field.node.performances.field_year_cycle
     - image.style.max_325x325
     - node.type.performances
@@ -377,6 +384,7 @@ content:
 hidden:
   field_admin_comments: true
   field_allow_support_camp: true
+  field_api_content_type: true
   field_bke_day: true
   field_bke_location: true
   field_bke_time: true
@@ -396,6 +404,8 @@ hidden:
   field_grt_transport: true
   field_lineup_request: true
   field_muncipal_district: true
+  field_prj_adm_latitude: true
+  field_prj_adm_longitude: true
   field_prj_adm_notes: true
   field_prj_adm_review: true
   field_prj_adm_wrangler: true

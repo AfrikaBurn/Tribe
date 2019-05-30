@@ -1,9 +1,9 @@
-uuid: 62538054-e878-426c-8342-932f03de04ad
+uuid: 121778b4-1afd-4e0e-bb0f-358a339e4e0b
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_form_mode.node.form_3
+    - core.entity_view_mode.node.wtf_quick_create
     - field.field.node.art.field_admin_comments
     - field.field.node.art.field_allow_support_camp
     - field.field.node.art.field_api_content_type
@@ -146,290 +146,98 @@ dependencies:
     - field.field.node.art.field_waps
     - field.field.node.art.field_waps_allowed
     - field.field.node.art.field_year_cycle
-    - image.style.thumbnail
     - node.type.art
   module:
-    - entity_reference_views_select
-    - field_group
-    - image
-    - link
-    - markup
-third_party_settings:
-  field_group:
-    group_administrative:
-      children:
-        - field_prjr_complete
-        - field_prj_adm_review
-        - field_prj_adm_wrangler
-        - field_prj_stc_size
-        - field_collective
-        - field_form_mode
-      parent_name: ''
-      weight: 0
-      format_type: details
-      format_settings:
-        id: ''
-        classes: ''
-        open: false
-        required_fields: true
-      label: Administrative
-    group_project_registration:
-      children:
-        - group_wtf_guide
-        - group_app_and_web
-      parent_name: ''
-      weight: 8
-      format_type: tabs
-      format_settings:
-        label: 'WTF Guide and Community update'
-        direction: horizontal
-        id: ''
-        classes: ''
-      label: 'WTF Guide and Community update'
-    group_wtf_guide:
-      children:
-        - field_prj_wtf_short
-        - field_prj_wtf_categories
-        - field_prj_wtf_planned
-      parent_name: group_project_registration
-      weight: 20
-      format_type: tab
-      format_settings:
-        id: ''
-        classes: ''
-        formatter: open
-        description: ''
-        required_fields: true
-      label: 'WTF Guide'
-    group_app_and_web:
-      children:
-        - field_prj_wtf_long
-        - field_prj_wtf_image
-        - field_prj_wtf_website
-      parent_name: group_project_registration
-      weight: 21
-      format_type: tab
-      format_settings:
-        label: 'App and Web'
-        formatter: open
-        description: ''
-        required_fields: true
-        id: ''
-        classes: ''
-      label: 'App and Web'
-_core:
-  default_config_hash: ehnjrE-MS25SZlH5syS8NpyAb0kWLGl88OywWqUiYwM
-id: node.art.form_3
+    - computed_field
+    - datetime
+    - user
+id: node.art.wtf_quick_create
 targetEntityType: node
 bundle: art
-mode: form_3
+mode: wtf_quick_create
 content:
   field_collective:
-    type: entity_reference_autocomplete
-    weight: 7
+    type: entity_reference_entity_view
+    weight: 0
     region: content
+    label: above
     settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+      view_mode: default
+      link: false
     third_party_settings: {  }
-  field_form_mode:
-    type: string_textfield
-    weight: 8
+  field_prj_adm_latitude:
+    type: string
+    weight: 0
     region: content
+    label: above
     settings:
-      size: 60
-      placeholder: ''
+      link_to_entity: false
     third_party_settings: {  }
-  field_lineup_request:
-    type: markup
-    weight: -100
+  field_prj_adm_longitude:
+    type: string
+    weight: 0
     region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_prj_adm_area:
-    weight: 78
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_adm_review:
-    type: options_select
-    weight: 4
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_prj_adm_wrangler:
-    type: erviews_options_select
-    weight: 5
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_prj_brn_head:
-    weight: 49
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_gen_header2:
-    type: markup
-    weight: 6
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_prj_gen_header3:
-    type: markup
-    weight: 7
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_prj_hed_project:
-    weight: 6
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_lgh_area:
-    weight: 37
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_lnt_area:
-    weight: 57
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_oth_area:
-    weight: 74
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_plc_area:
-    weight: 35
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_prp_area:
-    weight: 27
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_prp_offsite:
-    weight: 28
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_prp_onsite:
-    weight: 32
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_snd_area:
-    weight: 43
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_stc_dimensions:
-    weight: 18
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_stc_header:
-    weight: 17
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_stc_size:
-    type: options_select
-    weight: 6
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_prj_wtf_area:
-    weight: 67
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: content
-  field_prj_wtf_categories:
-    weight: 26
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
-    region: content
-  field_prj_wtf_image:
-    weight: 31
+    label: above
     settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+      link_to_entity: false
     third_party_settings: {  }
-    type: image_image
+  field_prj_brn_time_adm:
+    type: datetime_custom
+    weight: 0
     region: content
+    label: above
+    settings:
+      date_format: 'Y-m-d\TH:i:s'
+      timezone_override: ''
+    third_party_settings: {  }
+  field_prj_snd_sound:
+    type: boolean
+    weight: 0
+    region: content
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
   field_prj_wtf_long:
-    type: string_textarea
-    weight: 30
+    type: basic_string
+    weight: 0
     region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_prj_wtf_short_copy:
+    type: basic_string
+    weight: 0
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_year_cycle:
+    type: computed_integer
+    weight: 0
+    region: content
+    label: above
     settings:
-      rows: 5
-      placeholder: ''
+      cache_unit: -1
+      cache_duration: 1
+      thousand_separator: ''
+      prefix_suffix: true
     third_party_settings: {  }
-  field_prj_wtf_planned:
-    type: options_buttons
-    weight: 27
+  flag_approved:
+    weight: 2
     region: content
     settings: {  }
-    third_party_settings: {  }
-  field_prj_wtf_short:
-    type: string_textarea
-    weight: 25
-    region: content
-    settings:
-      rows: 5
-      placeholder: ''
-    third_party_settings: {  }
-  field_prj_wtf_website:
-    weight: 32
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link_default
-    region: content
-  field_prjr_complete:
-    weight: 3
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
-    region: content
-  flag:
-    weight: 9
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  moderation_state:
-    type: moderation_state_default
-    weight: 100
-    settings: {  }
-    region: content
     third_party_settings: {  }
 hidden:
-  created: true
   field_admin_comments: true
   field_allow_support_camp: true
   field_api_content_type: true
   field_arteria_checkin: true
   field_burn_can_be_denied: true
   field_col_members: true
+  field_form_mode: true
   field_grant_expense_header: true
   field_grt_art_apply: true
   field_grt_art_reason: true
@@ -454,11 +262,12 @@ hidden:
   field_grt_tec_total: true
   field_grt_tool: true
   field_grt_transport: true
+  field_lineup_request: true
   field_lnt_intro: true
   field_muncipal_district: true
   field_prj_adm_form_3: true
-  field_prj_adm_latitude: true
-  field_prj_adm_longitude: true
+  field_prj_adm_review: true
+  field_prj_adm_wrangler: true
   field_prj_brn_agree: true
   field_prj_brn_burning: true
   field_prj_brn_desc: true
@@ -469,7 +278,6 @@ hidden:
   field_prj_brn_person: true
   field_prj_brn_plan: true
   field_prj_brn_time: true
-  field_prj_brn_time_adm: true
   field_prj_cll_collaborate: true
   field_prj_cll_contact: true
   field_prj_cll_description: true
@@ -502,7 +310,6 @@ hidden:
   field_prj_lnt_helpers: true
   field_prj_lnt_historic: true
   field_prj_lnt_images: true
-  field_prj_lnt_publish: true
   field_prj_lnt_representative: true
   field_prj_lnt_score: true
   field_prj_lnt_signoff: true
@@ -518,9 +325,7 @@ hidden:
   field_prj_prp_erection: true
   field_prj_prp_start: true
   field_prj_prp_transport: true
-  field_prj_saf_comment: true
   field_prj_snd_agree: true
-  field_prj_snd_comment: true
   field_prj_snd_description: true
   field_prj_snd_f1: true
   field_prj_snd_level: true
@@ -528,13 +333,13 @@ hidden:
   field_prj_snd_person: true
   field_prj_snd_rangers: true
   field_prj_snd_setup_date: true
-  field_prj_snd_sound: true
   field_prj_snd_specs: true
   field_prj_stc_attributes: true
   field_prj_stc_footprint: true
   field_prj_stc_height: true
   field_prj_stc_materials: true
   field_prj_stc_safety: true
+  field_prj_stc_size: true
   field_prj_stc_structural: true
   field_prj_stc_weight: true
   field_prj_stg_contact: true
@@ -545,23 +350,21 @@ hidden:
   field_prj_sup_details: true
   field_prj_sup_details_view: true
   field_prj_sup_h1: true
+  field_prj_wtf_categories: true
+  field_prj_wtf_image: true
+  field_prj_wtf_planned: true
   field_prj_wtf_scheduled: true
-  field_prj_wtf_short_copy: true
+  field_prj_wtf_short: true
+  field_prj_wtf_website: true
+  field_prjr_complete: true
   field_snd_bass_bins: true
   field_snd_playtime_mon_wed: true
   field_snd_playtime_thurs_sun: true
-  field_sup_comment: true
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
   field_waps: true
   field_waps_allowed: true
-  field_year_cycle: true
-  moderation_state: true
-  path: true
-  promote: true
-  status: true
-  sticky: true
-  title: true
-  uid: true
-  url_redirects: true
+  flag_archived: true
+  flag_mute: true
+  links: true

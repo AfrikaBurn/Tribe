@@ -11,6 +11,8 @@ dependencies:
     - field.field.paragraph.grant_expences.field_price_total_
     - field.field.paragraph.grant_expences.field_type_of_expence
     - paragraphs.paragraphs_type.grant_expences
+  module:
+    - conditional_fields
 id: paragraph.grant_expences.default
 targetEntityType: paragraph
 bundle: grant_expences
