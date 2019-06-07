@@ -90,9 +90,21 @@ FLUSH PRIVILEGES;
 EXIT;
 ```
 
+May 2019
+There is 1 patch that needs to be installed and can be found in web/patches:
+* collapsiblock
+
+Apply these patches by:
+```
+cd web/modules/contrib/collapsiblock/
+patch -p0 < ../../../patches/fix-collapsiblock.patch
+patch -p0 < ../../../patches/collapsiblock-null-blocks-2992043-2.patch
+cd ../../../..
+```
+
 To install it's much quicker to use Drush but you can also go to your localhost and install through the user interface. This also crashed for me on the last page, though the install did work. ("drush uli" generated the a password reset link)
 ```
-drush site-install --verbose config_installer
+drush site-install config_installer
 ```
 Note: I an error message when installing, more details in the full installation guide [!here](docs/install.md)].
 
@@ -103,7 +115,7 @@ You can also do a password reset with:
 drush uli
 ```
 
-If your login works, we going to ensure everything imported with drush cim:
+If your login works, we going to import final elements with cim:
 ```
 drush cim
 ```
