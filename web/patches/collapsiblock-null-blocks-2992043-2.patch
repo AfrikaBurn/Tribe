@@ -1,0 +1,13 @@
+diff --git a/collapsiblock.module b/collapsiblock.module
+index dfa49c4..c002412 100644
+--- a/collapsiblock.module
++++ b/collapsiblock.module
+@@ -75,7 +75,7 @@ function collapsiblock_block_form_form_builder($entity_type, Block $block, &$for
+  * Implements hook_block_view_alter().
+  */
+ function collapsiblock_block_view_alter(array &$build, \Drupal\Core\Block\BlockPluginInterface $block) {
+-
++  if (empty($build['#block'])) return;
+   $block_entity = $build['#block'];
+   $action = $block_entity->getThirdPartySetting('collapsiblock', 'collapse_action');
+ 
