@@ -106,7 +106,7 @@ To install it's much quicker to use Drush but you can also go to your localhost 
 ```
 drush site-install config_installer
 ```
-Note: I an error message when installing, more details in the full installation guide [!here](docs/install.md)].
+Note: I an error message when installing, more details in the [full installation guide](docs/install.md).
 
 Goto your localhost and check that it worked. You should have received a username and login in the command.
 
