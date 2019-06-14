@@ -51,12 +51,17 @@ class AfrikaBurnSettings extends ConfigFormBase {
 
     $form['actions'][] = [
       '#type' => 'submit',
-      '#value' => 'Add tribe members'
+      '#value' => 'Resave Users'
     ];
 
     $form['actions'][] = [
       '#type' => 'submit',
-      '#value' => 'Resave Users'
+      '#value' => 'Migrate Collectives'
+    ];
+
+    $form['actions'][] = [
+      '#type' => 'submit',
+      '#value' => 'Add AfrikBurn Members'
     ];
 
     return parent::buildForm($form, $form_state);
@@ -70,11 +75,14 @@ class AfrikaBurnSettings extends ConfigFormBase {
     $values = $form_state->getValues();
 
     switch($values['op']){
-      case 'Add tribe members':
-        \Drupal\afrikaburn_collective\Controller\UpdateController::update();
-      break;
       case 'Resave Users':
-        \Drupal\afrikaburn_collective\Controller\UpdateController::resave();
+        \Drupal\afrikaburn_collective\Controller\UpdateController::resaveUsers();
+      break;
+      case 'Migrate Collectives':
+        \Drupal\afrikaburn_collective\Controller\UpdateController::migrateCollectives();
+      break;
+      case 'Add AfrikBurn Members':
+        \Drupal\afrikaburn_collective\Controller\UpdateController::addTribeMembers();
       break;
       default:
         $this

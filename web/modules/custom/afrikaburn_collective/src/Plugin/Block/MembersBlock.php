@@ -41,9 +41,7 @@ class MembersBlock extends BlockBase {
         '#title' => $title,
         '#type' => 'view',
         '#name' => 'collective_members',
-        '#display_id' => \Drupal::service('access_manager')->checkNamedRoute('afrikaburn_collective.admin', ['cid' => $collective->id()], $user)
-          ? 'admin_block'
-          : 'members_block',
+        '#display_id' => 'members_block',
         '#cache' => [
           'max-age' => 0,
         ],

@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.announcement.field_unpublish_on
     - node.type.announcement
   module:
+    - ds
     - text
     - user
 third_party_settings:

@@ -1,0 +1,30 @@
+uuid: f188b9ba-fd8a-4f81-849d-b3a1d0152586
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: invite
+label: Invite
+bundles:
+  - collective
+entity_type: node
+global: false
+weight: -4
+flag_short: 'Set invite'
+flag_long: ''
+flag_message: ''
+unflag_short: 'Unset invite'
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: false
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+linkTypeConfig: {  }

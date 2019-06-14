@@ -31,7 +31,7 @@ class CollectiveAdminCheck implements AccessInterface {
     static $user;
     $uid = \Drupal::currentUser()->id();
     $user = isset($user) ? $user : User::load($uid);
-    $node = \Drupal::routeMatch()->getParameter('node');
+    $node = \Drupal::routeMatch()->getParameter('nid');
     $bundle = $node ? $node->bundle() : FALSE;
 
     $roles = [

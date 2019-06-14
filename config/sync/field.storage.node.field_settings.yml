@@ -28,6 +28,9 @@ settings:
       value: open
       label: 'Anyone may join or request to join.'
     -
+      value: members_invite
+      label: 'Members may invite others.'
+    -
       value: vetted
       label: 'Membership requires Admin approval.'
     -

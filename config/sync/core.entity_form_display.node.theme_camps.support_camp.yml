@@ -5,8 +5,10 @@ dependencies:
   config:
     - core.entity_form_mode.node.support_camp
     - field.field.node.theme_camps.field_admin_comments
+    - field.field.node.theme_camps.field_api_content_type
     - field.field.node.theme_camps.field_arteria_checkin
     - field.field.node.theme_camps.field_collective
+    - field.field.node.theme_camps.field_event_services
     - field.field.node.theme_camps.field_field_prj_plc_marquis
     - field.field.node.theme_camps.field_field_prj_plc_stretch_m
     - field.field.node.theme_camps.field_final_placement

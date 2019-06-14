@@ -14,56 +14,34 @@ function _alert($action, $collective, $subject){
 
   if (function_exists($user_func)){
 
-    // Users to notify (minus current user)
-    $users = user_load_multiple(
+    $flag = \Drupal::service('flag');
+    $unread = $flag->getFlagById('unread');
+    $alertRecipients = user_load_multiple(
       array_diff(
         $user_func($action, $collective, $subject),
         [\Drupal::currentUser()->id()]
       )
     );
-
-    $source = [
-      'type' => 'alert',
-      'field_alert_action' => [
-        array_search(
-          $action,
-          [
-            'post',
-            'comment',
-            'create',
-            'update',
-            'delete',
-            // 'complete',
-          ]
-        )
-      ],
-      'field_alert_collective' => [$collective],
-    ];
-
-    switch($action){
-      case 'post':
-        $source['field_alert_post'] = $subject;
-      break;
-      case 'comment':
-        $source['field_alert_comment'] = $subject;
-        $source['field_alert_post'] = $subject->getParentComment();
-      break;
-      case 'update':
-      case 'create':
-      case 'delete':
-        $source['field_alert_project'] = $subject;
-    }
+    $source = _construct($action, $collective, $subject);
+    $existingAlerts = _existingAlerts($source);
 
     $alert = \Drupal::entityTypeManager()
       ->getStorage('node')
       ->create($source);
     $alert->save();
 
-    $flag = \Drupal::service('flag');
-    $unread = $flag->getFlagById('unread');
-    foreach($users as $user){
-      if (!$flag->getFlagging($unread, $alert, $user)) {
-        $flag->flag($unread, $alert, $user);
+    foreach($alertRecipients as $alertRecipient){
+
+      // "Unread" existing alerts
+      foreach($existingAlerts as $existingAlert){
+        if ($flag->getFlagging($unread, $existingAlert, $alertRecipient)) {
+          $flag->unflag($unread, $existingAlert, $alertRecipient);
+        }
+      }
+
+      // Tag recipients on new alert
+      if (!$flag->getFlagging($unread, $alert, $alertRecipient)) {
+        $flag->flag($unread, $alert, $alertRecipient);
       }
     }
   }
@@ -71,6 +49,71 @@ function _alert($action, $collective, $subject){
 
 
 /* ----- Utility functions ----- */
+
+
+/**
+ * Constructs a new alert node
+ */
+function _construct($action, $collective, $subject){
+  $source = [
+    'type' => 'alert',
+    'field_alert_action' => [
+      array_search(
+        $action,
+        [
+          'post',
+          'comment',
+          'create',
+          'update',
+          'delete',
+          // 'complete',
+        ]
+      )
+    ],
+    'field_alert_collective' => [$collective],
+  ];
+
+  switch($action){
+    case 'post':
+      $source['field_alert_post'] = $subject;
+    break;
+    case 'comment':
+      $source['field_alert_comment'] = $subject;
+      $source['field_alert_post'] = $subject->getParentComment();
+    break;
+    case 'update':
+    case 'create':
+    case 'delete':
+      $source['field_alert_project'] = $subject;
+  }
+
+  return $source;
+}
+
+/**
+ * Finds existing alerts
+ */
+function _existingAlerts($source){
+
+  $query = \Drupal::entityQuery('node')->condition('type', 'alert');
+
+  foreach($source as $field => $value){
+
+    $safe = is_array($value) ? $value[0] : $value;
+    $value = is_object($safe) ? $safe->id() : $safe;
+
+    $query->condition(
+      $field,
+      $value
+    );
+  }
+  $aids = $query->execute();
+  $existingAlerts = \Drupal::entityTypeManager()
+    ->getStorage('node')
+    ->loadMultiple($aids);
+
+  return $existingAlerts;
+}
 
 
 /**

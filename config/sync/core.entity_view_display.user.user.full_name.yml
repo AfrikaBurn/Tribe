@@ -30,7 +30,7 @@ dependencies:
     - field.field.user.user.field_terms_and_conditions
     - field.field.user.user.field_year_cycle
     - field.field.user.user.user_picture
-    - image.style.small_50x50
+    - image.style.tiny_25x25
   module:
     - empty_fields
     - image
@@ -42,6 +42,11 @@ targetEntityType: user
 bundle: user
 mode: full_name
 content:
+  contact:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_first_name:
     type: string
     weight: 1
@@ -81,7 +86,7 @@ content:
     region: content
     label: hidden
     settings:
-      image_style: small_50x50
+      image_style: tiny_25x25
       image_link: ''
     third_party_settings:
       empty_fields:

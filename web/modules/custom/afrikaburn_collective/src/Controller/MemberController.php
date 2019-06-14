@@ -17,6 +17,7 @@ class MemberController extends ControllerBase {
 
   /* ----- Joining ----- */
 
+
   /**
    * Join a group
    */

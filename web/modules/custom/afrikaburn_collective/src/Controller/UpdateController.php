@@ -16,98 +16,13 @@ use Drupal\node\Entity\Node;
 class UpdateController extends ControllerBase {
 
 
-  /* ----- AB collective ----- */
-
-
-  /**
-   * Add users to AB collective
-   */
-  public static function update(){
-
-    $batch = array(
-      'title' => t('Populating AfrikaBurn...'),
-      'operations' => [],
-      'progress_message' => t('Processed @current out of @total.'),
-      'error_message'    => t('An error occurred during processing'),
-      'finished' => '\Drupal\afrikaburn_collective\Controller\UpdateController::updateFinished',
-    );
-
-    $cid = array_shift(\Drupal::entityQuery('node')
-      ->condition('type', 'collective')
-      ->condition('title', 'AfrikaBurn')
-      ->execute());
-
-    $uid_count = (int) db_query(
-      "SELECT
-          COUNT(uid)
-        FROM
-          d8_newusers LEFT JOIN d8_newnode__field_col_members
-          ON
-            uid = field_col_members_target_id
-            AND entity_id = ?
-        WHERE
-          d8_newnode__field_col_members.field_col_members_target_id IS NULL
-          AND uid > 0
-        LIMIT 100
-      ", [$cid]
-    )->fetchCol('COUNT(uid)')[0];
-
-    for($page = 0; $page <= $uid_count / 100; $page++) {
-
-      $uids = db_query(
-        "SELECT
-            uid
-          FROM
-            d8_newusers LEFT JOIN d8_newnode__field_col_members
-            ON
-              uid = field_col_members_target_id
-              AND entity_id = ?
-          WHERE
-            d8_newnode__field_col_members.field_col_members_target_id IS NULL
-            AND uid > 0
-          LIMIT 100
-        ", [$cid]
-      )->fetchCol('uid');
-
-      $batch['operations'][] = [
-        'Drupal\afrikaburn_collective\Controller\UpdateController::addUser',
-        [$cid, $uids]
-      ];
-    }
-
-    batch_set($batch);
-  }
-  public static function addUser($cid, $uid, &$context){
-    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
-
-    foreach($uids as $uid){
-      $collective->field_col_members[] = [
-        'target_id' => $uid
-      ];
-    }
-
-    $collective->save();
-    $context['results'][] = 1;
-  }
-  public static function updateFinished($success, $results, $operations) {
-    drupal_set_message(
-      $success
-        ? \Drupal::translation()->formatPlural(
-            count($results),
-            'One user added.', '@count batch of users processed.'
-          )
-        : t('Finished with errors.')
-    );
-  }
-
-
   /* ----- Resave users ----- */
 
 
   /**
    * Resave all user records
    */
-  public static function resave(){
+  public static function resaveUsers(){
     $uids = db_query('SELECT uid FROM {users} WHERE uid != 0')->fetchCol();
     $batch = [
       'title' => t('Resaving all users...'),
@@ -124,16 +39,129 @@ class UpdateController extends ControllerBase {
     }
     batch_set($batch);
   }
+
   public static function resaveUser($uid, &$context) {
     $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid)->save();
     $context['results'][] = 1;
   }
+
   public static function usersResaved($success, $results, $operations) {
     drupal_set_message(
       $success
         ? \Drupal::translation()->formatPlural(
             count($results),
             'One user resaved.', '@count users resaved.'
+          )
+        : t('Finished with errors.')
+    );
+  }
+
+
+  /* ----- Resave users ----- */
+
+
+  /**
+   * Resave all user records
+   */
+  public static function addTribeMembers(){
+
+    $cid = array_shift(\Drupal::entityQuery('node')
+      ->condition('type', 'collective')
+      ->condition('title', 'AfrikaBurn')
+      ->execute());
+    $uids = db_query('SELECT uid FROM {users} WHERE uid != 0')->fetchCol();
+    $batch = [
+      'title' => t('Adding all users to AfrikaBurn...'),
+      'operations' => [],
+      'progress_message' => t('Resaving @current out of @total.'),
+      'error_message'    => t('An error occurred during processing'),
+      'finished' => '\Drupal\afrikaburn_collective\Controller\UpdateController::tribeMembersAdded',
+    ];
+
+    foreach($uids as $uid){
+      $batch['operations'][] = [
+        '\Drupal\afrikaburn_collective\Controller\UpdateController::addTribeMember',
+        [$cid, $uid]
+      ];
+    }
+
+    batch_set($batch);
+  }
+
+  public static function addTribeMember($cid, $uid, &$context) {
+
+    $flag_service = \Drupal::service('flag');
+    $flag = $flag_service->getFlagById('member');
+    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+    $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
+
+    if (!$flag_service->getFlagging($flag, $collective, $user)){
+      $flag_service->flag($flag, $collective, $user);
+    }
+
+    $context['results'][] = 1;
+  }
+
+  public static function tribeMembersAdded($success, $results, $operations) {
+    drupal_set_message(
+      $success
+        ? \Drupal::translation()->formatPlural(
+            count($results),
+            'One user resaved.', '@count users added.'
+          )
+        : t('Finished with errors.')
+    );
+  }
+
+  /* ----- Migrate members ----- */
+
+
+  public static function migrateCollectives(){
+    $cids = db_query("SELECT nid FROM {node} WHERE {node}.type = 'collective'")->fetchCol();
+    $batch = [
+      'title' => t('Migrating collectives...'),
+      'operations' => [],
+      'progress_message' => t('Migrating @current out of @total.'),
+      'error_message'    => t('An error occurred during processing'),
+      'finished' => '\Drupal\afrikaburn_collective\Controller\UpdateController::collectivesMigrated',
+    ];
+    foreach($cids as $cid){
+      $batch['operations'][] = [
+        '\Drupal\afrikaburn_collective\Controller\UpdateController::migrateCollective',
+        [$cid]
+      ];
+    }
+    batch_set($batch);
+  }
+
+  public static function migrateCollective($cid, &$context) {
+
+    $flag_service = \Drupal::service('flag');
+    $flag = $flag_service->getFlagById('member');
+    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+    $members = [
+      'members' => array_column($collective->get('field_col_members')->getValue(), 'target_id'),
+      'admins' => array_column($collective->get('field_col_admins')->getValue(), 'target_id'),
+    ];
+
+    foreach($members as $role){
+      foreach($role as $uid){
+        $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
+        if (!$flag_service->getFlagging($flag, $collective, $user)){
+          $flag_service->flag($flag, $collective, $user);
+        }
+      }
+    }
+
+    $context['results'][] = 1;
+  }
+
+  public static function collectivesMigrated($success, $results, $operations) {
+    drupal_set_message(
+      $success
+        ? \Drupal::translation()->formatPlural(
+            count($results),
+            'One collective migrated.', '@count collectives migrated.'
           )
         : t('Finished with errors.')
     );

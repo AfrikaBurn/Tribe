@@ -9,6 +9,13 @@
   width: auto;
 }
 
+body div.body-content {
+  color: #ddd;
+}
+
+body div.sidebar {
+  color: #ccc;
+}
 
 /*button,
 .button,

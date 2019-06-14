@@ -6,6 +6,38 @@
 
 
 use \Drupal\Component\Utility\UrlHelper;
+use \Drupal\afrikaburn_collective\Controller\CollectiveController;
+use \Drupal\user\Entity\User;
+
+
+/* --- Collectives views --- */
+
+
+function _reply_form(&$variables){
+
+  $row = $variables['row'];
+  $cid = $row->_entity->get('cid')->value;
+  $nid = $variables['view']->args[0];
+
+  $form =  \Drupal::service('entity.form_builder')->getForm(
+    \Drupal::entityTypeManager()->getStorage('comment')->create(
+      [
+        'entity_type'  => 'node',
+        'entity_id'    => $nid,
+        'field_name'   => 'field_col_posts',
+        'comment_type' => 'comment',
+        'pid' => $cid,
+      ]
+    )
+  );
+  unset($form['comment_body']['widget'][0]['value']['#title']);
+  $form['pid']['#value'] = $cid;
+
+  $variables['fields']['replyto_comment']['content'] = render($form);
+}
+
+
+/* --- Collectives views --- */
 
 
 /**
@@ -106,6 +138,117 @@ function _build_edit(&$build, $display, $uid, $nid, $is_admin, $is_member){
         '<a class="edit" title="Edit this Collective" href="/node/' .
         $nid .
         '/edit">Edit</a>',
+    ];
+  }
+}
+
+
+/* --- Membership links --- */
+
+
+/**
+ * Builds user admin links
+ */
+function _user_admin_links(&$variables){
+
+  $user = User::load(\Drupal::currentUser()->id());
+  $member = $variables['row']->_relationship_entities['uid'];
+  $collective = \Drupal::entityTypeManager()->getStorage('node')->load(
+    $variables['view']->args[0]
+  );
+
+  if ($collective){
+    $variables['fields']['admin']['content'] = _build_admin(
+      $user,
+      $member,
+      $collective
+    );
+    $variables['fields']['ban']['content'] = _build_ban(
+      $user,
+      $member,
+      $collective
+    );
+    $variables['fields']['boot']['content'] = _build_boot(
+      $user,
+      $member,
+      $collective
+    );
+    $variables['fields']['strip']['content'] = _build_strip(
+      $user,
+      $member,
+      $collective
+    );
+  }
+}
+
+/**
+ * Builds an admin link
+ */
+function _build_admin($user, $member, $collective){
+  if (
+    CollectiveController::isAdmin($collective, $user) &&
+    !CollectiveController::isAdmin($collective, $member)
+  ){
+    return [
+      '#markup' =>
+        '<a class="admin admin-admin" href="/collective/' .
+        $collective->id() .
+        '/admin/' .
+        $member->id() .
+        '">Promote to Admin</a>',
+    ];
+  }
+}
+
+/**
+ * Builds a ban link
+ */
+function _build_ban($user, $member, $collective){
+  if (
+    CollectiveController::isAdmin($collective, $user)
+  ){
+    return [
+      '#markup' =>
+        '<a class="admin admin-ban" href="/collective/' .
+        $collective->id() .
+        '/ban/' .
+        $member->id() .
+        '">Ban from collective</a>',
+    ];
+  }
+}
+
+/**
+ * Builds a boot link
+ */
+function _build_boot($user, $member, $collective){
+  if (CollectiveController::isAdmin($collective, $user)){
+    return [
+      '#markup' =>
+        '<a class="admin admin-boot" href="/collective/' .
+        $collective->id() .
+        '/boot/' .
+        $member->id() .
+        '">Boot from collective</a>',
+    ];
+  }
+}
+
+/**
+ * Builds a strip link
+ */
+function _build_strip($user, $member, $collective){
+  if (
+    CollectiveController::isAdmin($collective, $user) &&
+    CollectiveController::isAdmin($collective, $member)
+  ){
+    return [
+      '#markup' =>
+        '<a class="admin admin-strip" href="/collective/' .
+        $collective->id() .
+        '/strip/' .
+        $member->id() .
+        '">Strip admin privileges</a>',
     ];
   }
 }

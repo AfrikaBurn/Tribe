@@ -30,7 +30,7 @@ class CollectiveMemberCheck implements AccessInterface {
 
     static $user;
     $user = isset($user) ? $user : User::load(\Drupal::currentUser()->id());
-    $node = \Drupal::routeMatch()->getParameter('node');
+    $node = \Drupal::routeMatch()->getParameter('nid');
     $bundle = $node ? $node->bundle() : FALSE;
 
     $roles = [

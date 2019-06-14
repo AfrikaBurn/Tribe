@@ -1,0 +1,13 @@
+uuid: 72118090-fee6-4d35-b200-3f180dd174f5
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.admin.flag
+label: 'Flag this item'
+type: node
+plugin: 'flag_action:admin.flag'
+configuration:
+  flag_id: admin
+  flag_action: flag
