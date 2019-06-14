@@ -3,7 +3,7 @@ This is our legacy platform, which currently handles user and project registrati
 
 Our actively developed platform is [TMI](https://github.com/AfrikaBurn/TMI) and is where all tasks from this system will be migrated to. 
 
-The Tribe platform was built in a reactively to handle the practical needs of AfrikaBurn with little to no design time before implementation. 
+The Tribe platform was built reactively to handle the practical needs of AfrikaBurn with little to no design time before implementation. 
 
 This guide currently only covers Ubuntu but should be almost identical on Windows.
 
