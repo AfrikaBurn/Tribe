@@ -12,6 +12,7 @@ use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Access\AccessResult;
 use Drupal\user\Entity\User;
 use Drupal\afrikaburn_collective\Controller\CollectiveController;
+use Drupal\afrikaburn_collective\Utils;
 
 class MayJoin implements AccessInterface {
 
@@ -25,37 +26,29 @@ class MayJoin implements AccessInterface {
   /**
    * Implements access().
    */
-  public function access(AccountInterface $user) {
+  public function access(AccountInterface $account) {
 
-    $uid = \Drupal::routeMatch()->getParameter('uid');
-    $cid = \Drupal::routeMatch()->getParameter('cid');
+    $user = Utils::getUser($account);
+    $candidate = Utils::getCandidate();
+    $collective = Utils::currentCollective();
     $error = false;
 
     switch(true){
-      case CollectiveController::isMember($cid, $uid):
+      case CollectiveController::isMember($collective, $candidate):
         $error = '@user already a member!';
         break;
-      case CollectiveController::isBanned($cid, $uid):
+      case CollectiveController::isBanned($collective, $candidate):
         $error = '@user banned from this collective!';
         break;
       case !(
-          CollectiveController::setting($cid, 'open') ||
-          CollectiveController::isAdmin($cid, $uid)
+          CollectiveController::setting($collective, 'open') ||
+          CollectiveController::isAdmin($collective, $user)
         ):
         $error = 'This collective is not open to participants joining!';
     }
 
     if ($error){
-      drupal_set_message(
-        t(
-          $error,
-          ['@user' => $user->get('id') == $uid
-            ? 'You are'
-            : 'The participant is'
-          ]
-        ),
-        'error'
-      );
+      Utils::showError($error, $user, $candidate);
       return AccessResult::forbidden();
     }
 

@@ -11,6 +11,7 @@ use Drupal\Core\Routing\Access\AccessInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Access\AccessResult;
 use Drupal\afrikaburn_collective\Controller\CollectiveController;
+use Drupal\afrikaburn_collective\Utils;
 
 class IsAdmin implements AccessInterface {
 
@@ -26,13 +27,20 @@ class IsAdmin implements AccessInterface {
    */
   public function access(AccountInterface $account) {
 
-    $user = \Drupal\user\Entity\User::load($account->id());
+    $user = Utils::getUser($account);
+    $collective = Utils::currentCollective();
 
-    return CollectiveController::isAdmin(
-      CollectiveController::currentCollective(),
-      $account
-    )
-      ? AccessResult::allowed()
-      : AccessResult::forbidden();
+    switch(true){
+      case !CollectiveController::isAdmin($collective, $user):
+        $error = 'You are not an administrator of this collective!';
+        break;
+    }
+
+    if ($error){
+      Utils::showError($error, $user, $candidate);
+      return AccessResult::forbidden();
+    }
+
+    return AccessResult::allowed();
   }
 }

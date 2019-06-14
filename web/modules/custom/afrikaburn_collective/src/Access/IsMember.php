@@ -11,6 +11,7 @@ use Drupal\Core\Routing\Access\AccessInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Access\AccessResult;
 use Drupal\afrikaburn_collective\Controller\CollectiveController;
+use Drupal\afrikaburn_collective\Utils;
 
 class IsMember implements AccessInterface {
 
@@ -26,13 +27,21 @@ class IsMember implements AccessInterface {
    */
   public function access(AccountInterface $account) {
 
-    $user = \Drupal\user\Entity\User::load($account->id());
+    $user = Utils::getUser($account);
+    $candidate = Utils::getCandidate();
+    $collective = Utils::currentCollective();
 
-    return CollectiveController::isMember(
-      CollectiveController::currentCollective(),
-      $user
-    )
-      ? AccessResult::allowed()
-      : AccessResult::forbidden();
+    switch(true){
+      case !CollectiveController::isMember($collective, $user):
+        $error = 'You are not a member of this collective!';
+        break;
+    }
+
+    if ($error){
+      Utils::showError($error, $user, $candidate);
+      return AccessResult::forbidden();
+    }
+
+    return AccessResult::allowed();
   }
 }

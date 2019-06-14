@@ -10,6 +10,7 @@ use \Drupal\Core\Entity\EntityInterface;
 use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use \Drupal\user\Entity\User;
 use \Drupal\afrikaburn_collective\Controller\CollectiveController;
+use \Drupal\afrikaburn_collective\Utils;
 use Drupal\Core\Access\AccessResult;
 
 
@@ -248,6 +249,9 @@ function afrikaburn_collective_form_views_exposed_form_alter(&$form, $form_state
   if ($view->get('id') == "collectives_browse"){
     $form['options']['#type'] = 'checkboxes';
   }
+
+  $form['collective']['#attributes']['autocomplete'] = 'off';
+  $form['combine']['#attributes']['autocomplete'] = 'off';
 }
 
 
@@ -349,10 +353,13 @@ function afrikaburn_collective_preprocess_views_view_fields(&$variables) {
     _user_admin_links($variables);
   }
 
+  $user = Utils::currentUser();
+  $collective = Utils::currentCollective();
+
   if (
     $view->id() == 'collective_posts' &&
     $view->current_display == 'posts' &&
-    (afrikaburn_collective_member() || !afrikaburn_collective_setting('privileged_discussion'))
+    (CollectiveController::isMember($collective, $user) || !CollectiveController::setting('privileged_discussion'))
   ) {
     _reply_form($variables);
   }

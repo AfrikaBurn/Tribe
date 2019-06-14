@@ -59,9 +59,11 @@
             }
           ).addClass('filter-processed')
 
-          var filter = $('.form-text', context).focus();
-          filter[0] ? filter[0].setSelectionRange(100, 100) : false;
 
+          if (context != document){
+            var filter = $('.form-text', context).focus();
+            filter[0] ? filter[0].setSelectionRange(100, 100) : false;
+          }
         }
       )
 

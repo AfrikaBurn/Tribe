@@ -12,6 +12,7 @@ use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Access\AccessResult;
 use Drupal\user\Entity\User;
 use Drupal\afrikaburn_collective\Controller\CollectiveController;
+use Drupal\afrikaburn_collective\Utils;
 
 class MayIgnore implements AccessInterface {
 
@@ -25,29 +26,24 @@ class MayIgnore implements AccessInterface {
   /**
    * Implements access().
    */
-  public function access(AccountInterface $user) {
+  public function access(AccountInterface $account) {
 
-    $uid = \Drupal::routeMatch()->getParameter('uid');
-    $cid = \Drupal::routeMatch()->getParameter('cid');
+    $user = Utils::getUser($account);
+    $candidate = Utils::getCandidate();
+    $collective = Utils::currentCollective();
     $error = false;
 
     switch(true){
-      case !CollectiveController::isInvited($cid, $uid):
+      case $user->id() != $candidate->id():
+        $error = 'How rude, this isn\'t you! Who the fuck are you?';
+        break;
+      case !CollectiveController::isInvited($collective, $candidate):
         $error = '@user not invited to join this collective!';
         break;
     }
 
     if ($error){
-      drupal_set_message(
-        t(
-          $error,
-          ['@user' => $user->get('id') == $uid
-            ? 'You are'
-            : 'The participant is'
-          ]
-        ),
-        'error'
-      );
+      Utils::showError($error, $user, $candidate);
       return AccessResult::forbidden();
     }
 

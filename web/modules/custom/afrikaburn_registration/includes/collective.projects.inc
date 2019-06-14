@@ -4,6 +4,9 @@
  * Contains collective project view preprocessors.
  */
 
+use Drupal\afrikaburn_collective\Controller\CollectiveController;
+use \Drupal\user\Entity\User;
+use \Drupal\node\Entity\Node;
 
 /**
  * Adds form states to collective projects view.
@@ -12,9 +15,9 @@ function ar_prepare_collective_projects(&$variables){
 
   $view = $variables['view'];
 
-  $view->group_admin = Drupal\afrikaburn_collective\Access\CollectiveAdminCheck::isAdmin(
-    \Drupal::currentUser()->id(),
-    node_load($view->argument['field_collective_target_id']->value[0])
+  $view->group_admin = CollectiveController::isAdmin(
+    Node::load($view->argument['field_collective_target_id']->value[0]),
+    User::load(\Drupal::currentUser()->id())
   );
 
   module_load_include('inc', 'afrikaburn_registration', 'includes/form');
@@ -52,7 +55,7 @@ function ar_prepare_project_links(&$variables) {
   if (in_array($display, ['current', 'past'])){
 
     $nid = $variables['row']->nid;
-    $registration = \Drupal::entityTypeManager()->getStorage('node')->load($nid);
+    $registration = Node::load($nid);
     $type = $registration->get('type')->getValue()[0]['target_id'];
     $completed = array_column($registration->get('field_prjr_complete')->getValue(), 'value');
     $completed = array_combine($completed, $completed);

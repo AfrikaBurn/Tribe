@@ -12,6 +12,7 @@ use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Access\AccessResult;
 use Drupal\user\Entity\User;
 use Drupal\afrikaburn_collective\Controller\CollectiveController;
+use Drupal\afrikaburn_collective\Utils;
 
 class MayAccept implements AccessInterface {
 
@@ -27,33 +28,28 @@ class MayAccept implements AccessInterface {
    */
   public function access(AccountInterface $account) {
 
-    $uid = \Drupal::routeMatch()->getParameter('uid');
-    $cid = \Drupal::routeMatch()->getParameter('cid');
+    $user = Utils::getUser($account);
+    $candidate = Utils::getCandidate();
+    $collective = Utils::currentCollective();
     $error = false;
 
     switch(true){
-      case CollectiveController::isBanned($cid, $uid):
+      case $user->id() != $candidate->id():
+        $error = 'How rude, this isn\'t you! Who the fuck are you?';
+        break;
+      case CollectiveController::isBanned($candidate, $candidate):
         $error = '@user banned from this collective!';
         break;
-      case !CollectiveController::isInvited($cid, $uid):
+      case !CollectiveController::isInvited($candidate, $candidate):
         $error = '@user not invited to join this collective!';
         break;
-      case CollectiveController::isMember($cid, $uid):
+      case CollectiveController::isMember($candidate, $candidate):
         $error = '@user already a member!';
         break;
     }
 
     if ($error){
-      drupal_set_message(
-        t(
-          $error,
-          ['@user' => $user->get('id') == $account
-            ? 'You are'
-            : 'The participant is'
-          ]
-        ),
-        'error'
-      );
+      Utils::showError($error, $user, $candidate);
       return AccessResult::forbidden();
     }
 

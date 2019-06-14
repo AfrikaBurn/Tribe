@@ -12,6 +12,7 @@ use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Access\AccessResult;
 use Drupal\user\Entity\User;
 use Drupal\afrikaburn_collective\Controller\CollectiveController;
+use Drupal\afrikaburn_collective\Utils;
 
 class MayStrip implements AccessInterface {
 
@@ -25,32 +26,27 @@ class MayStrip implements AccessInterface {
   /**
    * Implements access().
    */
-  public function access(AccountInterface $user) {
+  public function access(AccountInterface $account) {
 
-    list($collective, $member) = CollectiveController::pathParams();
-    $user = \Drupal\user\Entity\User::load($account->id());
+    $user = Utils::getUser($account);
+    $candidate = Utils::getCandidate();
+    $collective = Utils::currentCollective();
     $error = false;
 
     switch(true){
-      case !CollectiveController::isAdmin($collective, $user):
+      case !CollectiveController::isAdmin($collective, $candidate):
         $error = '@user already not an admin!';
         break;
       case !CollectiveController::isAdmin($collective, $user):
         $error = 'You are not an administrator of this collective!';
         break;
+      case $user->id() == $candidate->id():
+        $error = 'You may not strip yourself!';
+        break;
     }
 
     if ($error){
-      drupal_set_message(
-        t(
-          $error,
-          ['@user' => $user->get('id') == $uid
-            ? 'You are'
-            : 'The participant is'
-          ]
-        ),
-        'error'
-      );
+      Utils::showError($error, $user, $candidate);
       return AccessResult::forbidden();
     }
 

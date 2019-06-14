@@ -3,6 +3,8 @@
 namespace Drupal\afrikaburn_registration\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
+use \Drupal\afrikaburn_collective\Controller\CollectiveController;
+use \Drupal\afrikaburn_collective\Utils;
 
 
 /**
@@ -21,14 +23,12 @@ class PastRegistrationBlock extends BlockBase {
    */
   public function build() {
 
-    module_load_include('inc', 'afrikaburn_collective', 'includes/util');
-
-    $user = \Drupal::currentUser();
-    $collective = \Drupal::routeMatch()->getParameter('node');
-
+    $user = Utils::currentUser();
+    $collective = Utils::currentCollective();
 
     return
-      afrikaburn_collective_member() || !afrikaburn_collective_setting('private_projects')
+      CollectiveController::isMember($collective, $user) ||
+      !CollectiveController::setting($collective, 'private_projects')
       ? [
           '#type' => 'view',
           '#name' => 'collective_projects',

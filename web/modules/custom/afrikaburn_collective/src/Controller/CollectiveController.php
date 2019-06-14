@@ -9,6 +9,7 @@ namespace Drupal\afrikaburn_collective\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\afrikaburn_collective\Utils;
 
 
 class CollectiveController extends ControllerBase {
@@ -225,6 +226,58 @@ class CollectiveController extends ControllerBase {
   }
 
 
+  /* --- Projects checking --- */
+
+
+  /**
+   * Checks collective has current projects
+   */
+  public static function hasCurrentProjects(){
+
+    $collective = Utils::currentCollective();
+
+    return $collective
+      ? db_query("
+          SELECT
+            COUNT({node_field_data}.nid) as rows
+          FROM
+            {node_field_data}
+            LEFT JOIN {flagging} ON {node_field_data}.nid = {flagging}.entity_id AND {flagging}.flag_id = 'archived',
+            {node__field_collective}
+          WHERE {node_field_data}.type IN ('art', 'theme_camps', 'mutant_vehicles', 'performances')
+            AND {node__field_collective}.entity_id = {node_field_data}.nid
+            AND {node__field_collective}.field_collective_target_id = ?
+            AND {flagging}.entity_id IS NULL
+          ", [$collective->id()]
+        )->fetchCol('rows')[0]
+      : 0;
+  }
+
+  /**
+   * Checks collective has past projects
+   */
+  public static function hasPastProjects(){
+
+    $collective = Utils::currentCollective();
+
+    return $collective
+      ? db_query("
+          SELECT
+            COUNT({node_field_data}.nid) as rows
+          FROM
+            {node_field_data}
+            LEFT JOIN {flagging} ON {node_field_data}.nid = {flagging}.entity_id AND {flagging}.flag_id = 'archived',
+            {node__field_collective}
+          WHERE {node_field_data}.type IN ('art', 'theme_camps', 'mutant_vehicles', 'performances')
+            AND {node__field_collective}.entity_id = {node_field_data}.nid
+            AND {node__field_collective}.field_collective_target_id = ?
+            AND {flagging}.entity_id IS NOT NULL
+          ", [$collective->id()]
+        )->fetchCol('rows')[0]
+      : 0;
+  }
+
+
   /* --- Settings checking --- */
 
 
@@ -304,35 +357,5 @@ class CollectiveController extends ControllerBase {
       \Drupal::entityTypeManager()->getStorage('node')->load($cid),
       \Drupal\user\Entity\User::load($uid ? $uid : \Drupal::currentUser()->id())
     ];
-  }
-
-
-  /* --- Collective utility --- */
-
-
-  /**
-   * Returns a collective associated with the current path or project, if any.
-   * @return object collective associated with the current path or false if none.
-   */
-  public static function currentCollective(){
-
-    $cid = array_shift(
-        array_filter(
-          [
-            \Drupal::routeMatch()->getParameter('cid'),
-            \Drupal::routeMatch()->getParameter('node'),
-          ]
-        )
-    );
-    $node = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
-
-    return
-      $node
-      ? ($node->bundle() == 'collective'
-        ? $node : ($node->get('field_collective')
-            ? $node->get('field_collective')->value
-            : false
-          )
-      ) : false;
   }
 }
