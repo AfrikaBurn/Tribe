@@ -33,6 +33,15 @@
             }
           )
 
+          // Close membership popup
+          $('.collective-actions details section a.cancel').click(
+            function(event){
+              $(this).parents('details').removeAttr('open')
+              event.stopPropagation()
+              return false
+            }
+          )
+
           // Make member filter autosubmit
           $('.view-collective-members .views-exposed-form .form-text,\
              .view-my-collectives .views-exposed-form .form-text')

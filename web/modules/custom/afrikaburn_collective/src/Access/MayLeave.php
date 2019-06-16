@@ -28,14 +28,14 @@ class MayLeave implements AccessInterface {
    */
   public function access(AccountInterface $account) {
 
-    $user = Utils::getUser($account);
+    $user = Utils::currentUser($account);
     $candidate = Utils::getCandidate();
     $collective = Utils::currentCollective();
     $error = false;
 
     switch(true){
-      case CollectiveController::isMember($collective, $candidate):
-        $error = '@user already left!';
+      case !CollectiveController::isMember($collective, $candidate):
+        $error = '@user already gone!';
         break;
       case $user->id() != $candidate->id():
         $error = 'How rude, this isn\'t you! Who the fuck are you?';

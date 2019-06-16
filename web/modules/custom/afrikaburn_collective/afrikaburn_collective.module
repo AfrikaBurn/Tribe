@@ -117,6 +117,27 @@ function afrikaburn_collective_entity_extra_field_info() {
     'visible' => TRUE,
   );
 
+  $extra['node']['collective']['display']['accept'] = array(
+    'label' => t('Accept invitation to join'),
+    'description' => t('Link to accept invitation to a collective'),
+    'weight' => 100,
+    'visible' => TRUE,
+  );
+
+  $extra['node']['collective']['display']['ignore'] = array(
+    'label' => t('Ignore invitation to join'),
+    'description' => t('Link to ignore invitation to a collective'),
+    'weight' => 100,
+    'visible' => TRUE,
+  );
+
+  $extra['node']['collective']['display']['request'] = array(
+    'label' => t('Request to join'),
+    'description' => t('Link to request to join a collective'),
+    'weight' => 100,
+    'visible' => TRUE,
+  );
+
   return $extra;
 }
 
@@ -134,18 +155,19 @@ function afrikaburn_collective_node_view(&$build, $entity, $display, $view_mode)
     $uid = \Drupal::currentUser()->id();
     $user = User::load($uid);
 
-    $is_admin =
-      $entity->bundle() == 'collective' &&
-      (CollectiveController::isAdmin($entity, $user) || $user->hasRole('administrator'));
-    $is_member =
-      $entity->bundle() == 'collective' &&
-      (CollectiveController::isMember($entity, $user));
+    $admin = CollectiveController::isAdmin($entity, $user, TRUE);
+    $member = CollectiveController::isMember($entity, $user, TRUE);
+    $sys_admin = CollectiveController::isAdmin($entity, $user);
+    $sys_member = CollectiveController::isAdmin($entity, $user);
 
-    _build_post_form($build, $display, $uid, $nid, $is_admin, $is_member);
-    _build_post_view($build, $display, $uid, $nid, $is_admin, $is_member);
-    _build_join($build, $display, $uid, $nid, $is_admin, $is_member);
-    _build_leave($build, $display, $uid, $nid, $is_admin, $is_member);
-    _build_edit($build, $display, $uid, $nid, $is_admin, $is_member);
+    _build_post_form($build, $display, $uid, $nid, $sys_admin, $sys_member);
+    _build_post_view($build, $display, $uid, $nid, $sys_admin, $sys_member);
+    _build_join($build, $display, $uid, $nid, $admin, $member);
+    _build_request($build, $display, $uid, $nid, $admin, $member);
+    _build_accept($build, $display, $uid, $nid, $admin, $member);
+    _build_ignore($build, $display, $uid, $nid, $admin, $member);
+    _build_leave($build, $display, $uid, $nid, $admin, $member);
+    _build_edit($build, $display, $uid, $nid, $sys_admin, $sys_member);
   }
 }
 
@@ -189,7 +211,7 @@ function afrikaburn_collective_flag_action_access($action, $flag, $account, $col
 
     $user = User::load(\Drupal::currentUser()->id());
 
-    return CollectiveController::isMember($collective, $user)
+    return CollectiveController::isMember($collective, $user, TRUE)
       ? AccessResult::neutral()
       : AccessResult::forbidden();
   }
@@ -359,9 +381,20 @@ function afrikaburn_collective_preprocess_views_view_fields(&$variables) {
   if (
     $view->id() == 'collective_posts' &&
     $view->current_display == 'posts' &&
-    (CollectiveController::isMember($collective, $user) || !CollectiveController::setting('privileged_discussion'))
+    (CollectiveController::isMember($collective, $user) || !CollectiveController::setting($collective, 'privileged_discussion'))
   ) {
     _reply_form($variables);
+  }
+}
+
+/**
+ * Implements hook_views_views_pre_render().
+ */
+function afrikaburn_collective_views_pre_render(&$view) {
+  if ($view->storage->id() == 'my_collectives' && $view->current_display == 'joined') {
+    if (empty($view->result) && empty($view->getExposedInput())) {
+      $view->exposed_widgets = NULL;
+    }
   }
 }
 

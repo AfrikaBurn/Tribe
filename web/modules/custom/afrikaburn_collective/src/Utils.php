@@ -58,18 +58,38 @@ class Utils {
   }
 
   /**
-   * Loads current user.
+   * Shows an error.
    */
   public static function showError($error, $user, $candidate) {
     drupal_set_message(
       t(
         $error,
-        ['@user' => $user->get('id') == $candidate->get('id')
+        ['@user' => $user->id() == $candidate->id()
           ? 'You are'
           : 'The participant is'
         ]
       ),
       'error'
+    );
+  }
+
+  /**
+   * Shows a status.
+   */
+  public static function showStatus($error, $user, $candidate) {
+    drupal_set_message(
+      t(
+        $error,
+        [
+          '@user' => $user && $user->id() == $candidate->id()
+            ? 'You are'
+            : 'The participant is',
+          '@username' => $user && $user->id() == $candidate->id()
+            ? 'You are'
+            : $candidate->get('name')->value . ' is'
+        ]
+      ),
+      'status'
     );
   }
 }

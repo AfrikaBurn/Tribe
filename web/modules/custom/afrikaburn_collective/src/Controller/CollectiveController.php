@@ -6,11 +6,10 @@
 
 namespace Drupal\afrikaburn_collective\Controller;
 
-
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Drupal\afrikaburn_collective\Utils;
-
+use \Drupal\Core\Cache\Cache;
 
 class CollectiveController extends ControllerBase {
 
@@ -26,6 +25,7 @@ class CollectiveController extends ControllerBase {
   public static function join(){
     list($collective, $user) = CollectiveController::pathParams();
     CollectiveController::set('member', $collective, $user);
+    Utils::showStatus('@username now a member', Utils::currentUser(), $user);
     return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
   }
 
@@ -37,6 +37,8 @@ class CollectiveController extends ControllerBase {
   public static function invite(){
     list($collective, $user) = CollectiveController::pathParams();
     CollectiveController::set('invite', $collective, $user);
+    Utils::showStatus('@username now invited', Utils::currentUser(), $user);
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
   }
 
   /**
@@ -48,6 +50,8 @@ class CollectiveController extends ControllerBase {
     list($collective, $user) = CollectiveController::pathParams();
     CollectiveController::set('member', $collective, $user);
     CollectiveController::clear('invite', $collective, $user);
+    Utils::showStatus('@username now a member', Utils::currentUser(), $user);
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
   }
 
   /**
@@ -58,6 +62,8 @@ class CollectiveController extends ControllerBase {
   public static function ignore(){
     list($collective, $user) = CollectiveController::pathParams();
     CollectiveController::clear('invite', $collective, $user);
+    Utils::showStatus('Invitation ignored', Utils::currentUser(), $user);
+    return new RedirectResponse(\Drupal\Core\Url::fromUserInput(\Drupal::destination()->get()));
   }
 
   /**
@@ -68,6 +74,8 @@ class CollectiveController extends ControllerBase {
   public static function request(){
     list($collective, $user) = CollectiveController::pathParams();
     CollectiveController::set('join', $collective, $user);
+    Utils::showStatus('Membership requested', Utils::currentUser(), $user);
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
   }
 
   /**
@@ -78,6 +86,8 @@ class CollectiveController extends ControllerBase {
   public static function withdraw(){
     list($collective, $user) = CollectiveController::pathParams();
     CollectiveController::clear('join', $collective, $user);
+    Utils::showStatus('Membership request revoked', Utils::currentUser(), $user);
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
   }
 
   /**
@@ -89,6 +99,8 @@ class CollectiveController extends ControllerBase {
     list($collective, $user) = CollectiveController::pathParams();
     CollectiveController::clear('join', $collective, $user);
     CollectiveController::set('member', $collective, $user);
+    Utils::showStatus('@username now a member', Utils::currentUser(), $user);
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
   }
 
   /**
@@ -99,6 +111,8 @@ class CollectiveController extends ControllerBase {
   public static function reject(){
     list($collective, $user) = CollectiveController::pathParams();
     CollectiveController::clear('join', $collective, $user);
+    Utils::showStatus('Membership request rejected', Utils::currentUser(), $user);
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
   }
 
 
@@ -114,6 +128,8 @@ class CollectiveController extends ControllerBase {
     list($collective, $user) = CollectiveController::pathParams();
     CollectiveController::clear('admin', $collective, $user);
     CollectiveController::clear('member', $collective, $user);
+    Utils::showStatus('@username no longer a member', Utils::currentUser(), $user);
+    return new RedirectResponse(\Drupal::url('<front>'));
   }
 
 
@@ -128,6 +144,8 @@ class CollectiveController extends ControllerBase {
   public static function boot(){
     list($collective, $user) = CollectiveController::pathParams();
     CollectiveController::leave($collective, $user);
+    Utils::showStatus('@username no longer a member', Utils::currentUser(), $user);
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
   }
 
   /**
@@ -140,6 +158,8 @@ class CollectiveController extends ControllerBase {
     CollectiveController::clear('admin', $collective, $user);
     CollectiveController::clear('member', $collective, $user);
     CollectiveController::set('ban', $collective, $user);
+    Utils::showStatus('@username now banned', Utils::currentUser(), $user);
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
   }
 
   /**
@@ -150,6 +170,8 @@ class CollectiveController extends ControllerBase {
   public static function admin(){
     list($collective, $user) = CollectiveController::pathParams();
     CollectiveController::set('admin', $collective, $user);
+    Utils::showStatus('@username now an Admin', Utils::currentUser(), $user);
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
   }
 
   /**
@@ -160,6 +182,8 @@ class CollectiveController extends ControllerBase {
   public static function strip(){
     list($collective, $user) = CollectiveController::pathParams();
     CollectiveController::clear('admin', $collective, $user);
+    Utils::showStatus('@username no longer an Admin', Utils::currentUser(), $user);
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
   }
 
 
@@ -188,32 +212,36 @@ class CollectiveController extends ControllerBase {
    * Checks whether a participant is a member of a collective
    * @param $collective Collective to check membership against
    * @param $user       User to check membership against
+   * @param $stealth    Ignore system admin status
    */
-  public static function isMember($collective, $user){
+  public static function isMember($collective, $user, $stealth = FALSE){
     return
-      $user->hasRole('administrator') ||
-      $user->hasRole('art_wrangler') ||
-      $user->hasRole('mutant_vehicle_wrangler') ||
-      $user->hasRole('theme_camp_wrangler') ||
-      $user->hasRole('communications_wrangler') ||
-      $user->hasRole('support_wrangler') ||
-      CollectiveController::get('member', $collective, $user);
+      !$stealth && (
+        $user->hasRole('administrator') ||
+        $user->hasRole('art_wrangler') ||
+        $user->hasRole('mutant_vehicle_wrangler') ||
+        $user->hasRole('theme_camp_wrangler') ||
+        $user->hasRole('communications_wrangler') ||
+        $user->hasRole('support_wrangler')
+      ) || CollectiveController::get('member', $collective, $user);
   }
 
   /**
    * Checks whether a participant is an admin of a collective
    * @param $collective Collective to check administratorship against
    * @param $user       User to check administratorship against
+   * @param $stealth    Ignore system admin status
    */
   public static function isAdmin($collective, $user){
     return
-      $user->hasRole('administrator') ||
-      $user->hasRole('art_wrangler') ||
-      $user->hasRole('mutant_vehicle_wrangler') ||
-      $user->hasRole('theme_camp_wrangler') ||
-      $user->hasRole('communications_wrangler') ||
-      $user->hasRole('support_wrangler') ||
-      CollectiveController::get('admin', $collective, $user);
+      !$stealth && (
+        $user->hasRole('administrator') ||
+        $user->hasRole('art_wrangler') ||
+        $user->hasRole('mutant_vehicle_wrangler') ||
+        $user->hasRole('theme_camp_wrangler') ||
+        $user->hasRole('communications_wrangler') ||
+        $user->hasRole('support_wrangler')
+       ) || CollectiveController::get('admin', $collective, $user);
   }
 
   /**
@@ -308,9 +336,10 @@ class CollectiveController extends ControllerBase {
    */
   public static function set($flag_id, $collective, $user){
     $flag_service = \Drupal::service('flag');
-    $flag = $flag_service->getFlagById($fid);
+    $flag = $flag_service->getFlagById($flag_id);
     if (!$flag_service->getFlagging($flag, $collective, $user)){
       $flag_service->flag($flag, $collective, $user);
+      Cache::invalidateTags($collective->getCacheTags());
     }
   }
 
@@ -322,9 +351,10 @@ class CollectiveController extends ControllerBase {
    */
   public static function clear($flag_id, $collective, $user){
     $flag_service = \Drupal::service('flag');
-    $flag = $flag_service->getFlagById($fid);
+    $flag = $flag_service->getFlagById($flag_id);
     if ($flag_service->getFlagging($flag, $collective, $user)){
       $flag_service->unflag($flag, $collective, $user);
+      Cache::invalidateTags($collective->getCacheTags());
     }
   }
 
@@ -355,7 +385,7 @@ class CollectiveController extends ControllerBase {
 
     return [
       \Drupal::entityTypeManager()->getStorage('node')->load($cid),
-      \Drupal\user\Entity\User::load($uid ? $uid : \Drupal::currentUser()->id())
+      \Drupal\user\Entity\User::load($uid ? $uid : Utils::currentUser()->id())
     ];
   }
 }

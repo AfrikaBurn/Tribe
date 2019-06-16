@@ -37,9 +37,10 @@ third_party_settings:
         - field_picture
         - field_col_description
         - group_actions
+        - join
+        - request
         - edit
         - flag_mute
-        - join
         - leave
     fields:
       node_title:
@@ -54,9 +55,10 @@ third_party_settings:
   field_group:
     group_actions:
       children:
+        - join
+        - request
         - edit
         - flag_mute
-        - join
         - leave
       parent_name: ''
       weight: 3
@@ -78,7 +80,7 @@ bundle: collective
 mode: teaser
 content:
   edit:
-    weight: 17
+    weight: 21
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -104,7 +106,7 @@ content:
       empty_fields:
         handler: ''
   flag_mute:
-    weight: 18
+    weight: 22
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -114,6 +116,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   leave:
+    weight: 23
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  request:
     weight: 20
     region: content
     settings: {  }

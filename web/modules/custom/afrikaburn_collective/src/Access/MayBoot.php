@@ -28,7 +28,7 @@ class MayBoot implements AccessInterface {
    */
   public function access(AccountInterface $account) {
 
-    $user = Utils::getUser($account);
+    $user = Utils::currentUser($account);
     $candidate = Utils::getCandidate();
     $collective = Utils::currentCollective();
     $error = false;
@@ -37,7 +37,7 @@ class MayBoot implements AccessInterface {
       case $user->id() == $candidate->id():
         $error = 'You may not boot yourself!';
         break;
-      case CollectiveController::isMember($collective, $candidate):
+      case !CollectiveController::isMember($collective, $candidate):
         $error = '@user already not a member!';
         break;
       case !CollectiveController::isAdmin($collective, $user):

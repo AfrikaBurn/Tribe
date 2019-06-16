@@ -27,7 +27,7 @@ class IsAdmin implements AccessInterface {
    */
   public function access(AccountInterface $account) {
 
-    $user = Utils::getUser($account);
+    $user = Utils::currentUser($account);
     $collective = Utils::currentCollective();
 
     switch(true){

@@ -27,7 +27,7 @@ class IsMember implements AccessInterface {
    */
   public function access(AccountInterface $account) {
 
-    $user = Utils::getUser($account);
+    $user = Utils::currentUser($account);
     $candidate = Utils::getCandidate();
     $collective = Utils::currentCollective();
 

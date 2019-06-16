@@ -28,7 +28,7 @@ class MayWithdraw implements AccessInterface {
    */
   public function access(AccountInterface $account) {
 
-    $user = Utils::getUser($account);
+    $user = Utils::currentUser($account);
     $candidate = Utils::getCandidate();
     $collective = Utils::currentCollective();
     $error = false;
@@ -37,8 +37,8 @@ class MayWithdraw implements AccessInterface {
       case $user->id() != $candidate->id():
         $error = 'How rude, this isn\'t you! Who the fuck are you?';
         break;
-      case !CollectiveController::isInvited($collective, $candidate):
-        $error = '@user not requested to join this collective!';
+      case !CollectiveController::isRequested($collective, $candidate):
+        $error = '@user not awaiting approval to join this collective!';
         break;
     }
 

@@ -47,9 +47,12 @@ third_party_settings:
         - field_col_description
         - group_collective
         - field_settings
+        - request
         - edit
         - flag_mute
         - leave
+        - accept
+        - ignore
         - post_something
         - posts
         - group_discussion
@@ -58,9 +61,12 @@ third_party_settings:
     group_actions:
       children:
         - join
+        - request
         - edit
         - flag_mute
         - leave
+        - accept
+        - ignore
       parent_name: ''
       weight: 0
       format_type: html_element
@@ -118,8 +124,13 @@ targetEntityType: node
 bundle: collective
 mode: default
 content:
+  accept:
+    weight: 7
+    region: ds_content
+    settings: {  }
+    third_party_settings: {  }
   edit:
-    weight: 3
+    weight: 4
     region: ds_content
     settings: {  }
     third_party_settings: {  }
@@ -155,7 +166,12 @@ content:
     settings: {  }
     third_party_settings: {  }
   flag_mute:
-    weight: 4
+    weight: 5
+    region: ds_content
+    settings: {  }
+    third_party_settings: {  }
+  ignore:
+    weight: 8
     region: ds_content
     settings: {  }
     third_party_settings: {  }
@@ -165,7 +181,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   leave:
-    weight: 5
+    weight: 6
     region: ds_content
     settings: {  }
     third_party_settings: {  }
@@ -176,6 +192,11 @@ content:
     third_party_settings: {  }
   posts:
     weight: 16
+    region: ds_content
+    settings: {  }
+    third_party_settings: {  }
+  request:
+    weight: 3
     region: ds_content
     settings: {  }
     third_party_settings: {  }

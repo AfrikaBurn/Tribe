@@ -334,14 +334,28 @@ article.collective-post header a{
   visibility: visible;
 }
 
+
+/* ---- Actions ---- */
+
+
 .collective-actions{
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 20px;
+  position: relative;
+  right: 0;
+  left: 0;
+}
+
+
+.view-collectives-find .collective-actions{
+  position: absolute;
+  bottom: -55px;
 }
 
 .collective-actions > a,
 .collective-actions .flag a,
-.collective-actions details{
+.collective-actions summary{
   background-position: 10px center;
   background-repeat: no-repeat;
   background-color: #00000055;
@@ -350,55 +364,55 @@ article.collective-post header a{
   color: #ffefb6 !important;
   display: inline-block;
   line-height: 24px;
-  margin: 0 0 20px 10px;
+  margin: 0 0 0 10px;
   padding: 7px 10px 5px 34px;
   text-decoration: none;
   text-align: left;
   width: auto;
   height: 24px;
   outline: none;
-}
-
-.collective-actions details summary::-webkit-details-marker {
-  display:none;
-}
-
-.collective-actions details.leave-collective{
   cursor: pointer;
-  text-align: center;
-  position: relative;
 }
 
-.collective-actions details{
-  background-image: url(../images/exit.svg);
-}
+.collective-actions .edit{ background-image: url(../images/edit.svg);}
+.collective-actions .withdraw,
+.collective-actions .request,
+.collective-actions .join{ background-image: url(../images/join.svg);}
+.collective-actions .leave{ background-image: url(../images/exit.svg);}
 
-.collective-actions details a{
-  background: #961116;
-  padding: 10px 20px;
-  border: 1px solid #fff;
-  border-radius: 5px;
-  position: absolute;
-  width: 100px;
-  z-index: 10;
-  top: 100%;
-  right: 0;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.collective-actions a.edit{
-  background-image: url(../images/edit.svg);
-}
-
-.collective-actions a.join{
-  background-image: url(../images/join.svg);
-}
 .collective-actions a.join.requested{
   text-decoration: none;
   opacity: 0.8;
   cursor: not-allowed;
 }
+
+.collective-actions details summary::-webkit-details-marker {
+  display: none;
+}
+
+.collective-actions details section{
+  position: absolute;
+  z-index: 100;
+  background-color: #000000dd;
+  left: 0; top: 100%;
+  padding: 10px 40px;
+  right: 0;
+  border-radius: 5px;
+}
+
+.view-collectives-find .collective-actions details section{
+  bottom: 0;
+  top: auto;
+}
+
+.collective-actions details .links{
+  display: flex;
+  justify-content: space-around;
+}
+
+
+/* ---- Right column ---- */
+
 
 .sidebar-outer.collectivebar .sidebar{
   margin-top: 48px;
@@ -459,12 +473,6 @@ article.collective-post header a{
 .view-collectives-find .view-content .views-row .layout__region--content{
   height: 100%;
   position: relative;
-}
-
-.view-collectives-find .view-content .views-row .collective-actions{
-  position: absolute;
-  bottom: -55px;
-  right: 0;
 }
 
 .ajax-progress-fullscreen{

@@ -28,12 +28,15 @@ class MayRequest implements AccessInterface {
    */
   public function access(AccountInterface $account) {
 
-    $user = Utils::getUser($account);
+    $user = Utils::currentUser($account);
     $candidate = Utils::getCandidate();
     $collective = Utils::currentCollective();
     $error = false;
 
     switch(true){
+      case CollectiveController::isRequested($collective, $candidate):
+        $error = '@user already requested!';
+        break;
       case CollectiveController::isBanned($collective, $candidate):
         $error = '@user banned from this collective!';
         break;

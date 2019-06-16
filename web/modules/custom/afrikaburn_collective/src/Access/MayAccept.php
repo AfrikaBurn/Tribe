@@ -28,7 +28,7 @@ class MayAccept implements AccessInterface {
    */
   public function access(AccountInterface $account) {
 
-    $user = Utils::getUser($account);
+    $user = Utils::currentUser($account);
     $candidate = Utils::getCandidate();
     $collective = Utils::currentCollective();
     $error = false;
@@ -37,13 +37,13 @@ class MayAccept implements AccessInterface {
       case $user->id() != $candidate->id():
         $error = 'How rude, this isn\'t you! Who the fuck are you?';
         break;
-      case CollectiveController::isBanned($candidate, $candidate):
+      case CollectiveController::isBanned($collective, $candidate):
         $error = '@user banned from this collective!';
         break;
-      case !CollectiveController::isInvited($candidate, $candidate):
+      case !CollectiveController::isInvited($collective, $candidate):
         $error = '@user not invited to join this collective!';
         break;
-      case CollectiveController::isMember($candidate, $candidate):
+      case CollectiveController::isMember($collective, $candidate, TRUE):
         $error = '@user already a member!';
         break;
     }
