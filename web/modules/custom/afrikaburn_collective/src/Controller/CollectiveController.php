@@ -25,6 +25,7 @@ class CollectiveController extends ControllerBase {
   public static function join(){
     list($collective, $user) = CollectiveController::pathParams();
     CollectiveController::set('member', $collective, $user);
+    CollectiveController::clear('invite', $collective, $user);
     Utils::showStatus('@username now a member', Utils::currentUser(), $user);
     return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
   }
@@ -86,6 +87,7 @@ class CollectiveController extends ControllerBase {
   public static function withdraw(){
     list($collective, $user) = CollectiveController::pathParams();
     CollectiveController::clear('join', $collective, $user);
+    CollectiveController::clear('invite', $collective, $user);
     Utils::showStatus('Membership request revoked', Utils::currentUser(), $user);
     return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
   }
@@ -99,9 +101,14 @@ class CollectiveController extends ControllerBase {
     list($collective, $user) = CollectiveController::pathParams();
     CollectiveController::clear('join', $collective, $user);
     CollectiveController::set('member', $collective, $user);
+    CollectiveController::clear('invite', $collective, $user);
     Utils::showStatus('@username now a member', Utils::currentUser(), $user);
     return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
   }
+
+
+  /* --- Snubbing --- */
+
 
   /**
    * Reject a request to join a collective
@@ -111,6 +118,7 @@ class CollectiveController extends ControllerBase {
   public static function reject(){
     list($collective, $user) = CollectiveController::pathParams();
     CollectiveController::clear('join', $collective, $user);
+    CollectiveController::clear('invite', $collective, $user);
     Utils::showStatus('Membership request rejected', Utils::currentUser(), $user);
     return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
   }

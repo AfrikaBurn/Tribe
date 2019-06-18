@@ -82,7 +82,7 @@
   border-radius: 15px 0 0 15px;
 }
 
-#block-views-block-my-collectives-invitations .button{
+body .view.view-my-collectives .button{
   font-size: 80%;
   width: 50%;
   padding: 5px 10px;
@@ -91,26 +91,31 @@
   height: 20px;
   border-color: #000;
 }
-#block-views-block-my-collectives-invitations .button:first-child{
+body .view.view-my-collectives .button:first-child{
   border-radius: 15px 0 0 15px;
 }
-#block-views-block-my-collectives-invitations .button:last-child{
+body .view.view-my-collectives .button:last-child{
   border-radius: 0 15px 15px 0;
 }
 
-#block-views-block-my-collectives-invitations .views-field-nothing{
+body .view.view-my-collectives .my-collective-actions{
+  display: flex;
   justify-content: center;
   width: 100%;
+  margin: 0 auto;
+}
+body .view.view-my-collectives.view-display-id-invitations .my-collective-actions{
+  width: 80%;
 }
 
-#block-views-block-my-collectives-joined a.button{
+/* body .view.view-my-collectives .view-content a.button{
   font-size: 80%;
   width: 100%;
   padding: 5px 0;
   line-height: 20px;
   margin: 20px 0 0;
   height: 30px;
-}
+} */
 
 
 /* ---- Pager ---- */
@@ -335,6 +340,14 @@ article.collective-post header a{
 }
 
 
+/* ---- Settings form ---- */
+
+
+#edit-field-settings input[disabled]{
+  opacity: 0.5;
+}
+
+
 /* ---- Actions ---- */
 
 
@@ -347,6 +360,13 @@ article.collective-post header a{
   left: 0;
 }
 
+div.invitation{
+  background: #ffefb622;
+  padding: 10px 0 50px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0 0 -35px;
+}
 
 .view-collectives-find .collective-actions{
   position: absolute;
@@ -358,7 +378,11 @@ article.collective-post header a{
 .collective-actions summary{
   background-position: 10px center;
   background-repeat: no-repeat;
-  background-color: #00000055;
+  background-color: #ffefb622;
+  padding: 10px 0 50px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0 0 -35px;;
   background-size: 18px;
   border-radius: 10px;
   color: #ffefb6 !important;
@@ -369,15 +393,24 @@ article.collective-post header a{
   text-decoration: none;
   text-align: left;
   width: auto;
-  height: 24px;
+  height: 25px;
   outline: none;
   cursor: pointer;
+}
+
+.collective-actions > a:hover,
+.collective-actions .flag a:hover,
+.collective-actions summary:hover{
+  color: #fff;
+  background-color: #ffefb655;
 }
 
 .collective-actions .edit{ background-image: url(../images/edit.svg);}
 .collective-actions .withdraw,
 .collective-actions .request,
 .collective-actions .join{ background-image: url(../images/join.svg);}
+.collective-actions .accept{ background-image: url(../images/accept.svg);}
+.collective-actions .ignore{ background-image: url(../images/ignore.svg);}
 .collective-actions .leave{ background-image: url(../images/exit.svg);}
 
 .collective-actions a.join.requested{
@@ -407,7 +440,29 @@ article.collective-post header a{
 
 .collective-actions details .links{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+}
+
+
+.collective-actions details .links .button{
+  font-size: 90%;
+  padding: 10px 5px;
+  line-height: 1em;
+  letter-spacing: unset;
+  height: auto;
+  border-color: #000;
+}
+.collective-actions details .links .button:first-child{
+  border-radius: 15px 0 0 15px;
+  padding-left: 10px;
+}
+.collective-actions details .links .button:last-child{
+  border-radius: 0 15px 15px 0;
+  padding-right: 10px;
+  background-color: #88BA1D;
+}
+.collective-actions details .links .button:active{
+  opacity: .5;
 }
 
 
@@ -433,10 +488,13 @@ article.collective-post header a{
   margin: 5px 10px 0 0;
 }
 
+#block-views-block-my-collectives-invitations .form-actions,
 #block-views-block-my-collectives-joined .form-actions,
 #block-membersblock .form-actions{
   display: none;
 }
+#block-views-block-my-collectives-invitations .form-item,
+#block-views-block-my-collectives-invitations input,
 #block-views-block-my-collectives-joined .form-item,
 #block-views-block-my-collectives-joined input,
 #block-membersblock .form-item,
@@ -444,6 +502,7 @@ article.collective-post header a{
   max-width: 100%;
   width: 100%;
 }
+#block-views-block-my-collectives-invitations input.busy,
 #block-views-block-my-collectives-joined input.busy,
 #block-membersblock input.busy{
     background: #fff url(/core/modules/quickedit/images/icon-throbber.gif) no-repeat 98% center;
@@ -527,7 +586,7 @@ article.collective-post header a{
   min-height: 40px;
   z-index: 10;
   top: 10px;
-  right: 50px;;
+  right: 50px;
   left: 10px;
 }
 

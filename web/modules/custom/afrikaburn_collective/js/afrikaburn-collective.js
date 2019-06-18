@@ -33,6 +33,13 @@
             }
           )
 
+          // Close other membership popups
+          $('.collective-actions details summary').click(
+            function(event){
+              $('.collective-actions details').not($(this).parent()).removeAttr('open')
+            }
+          )
+
           // Close membership popup
           $('.collective-actions details section a.cancel').click(
             function(event){
@@ -44,7 +51,7 @@
 
           // Make member filter autosubmit
           $('.view-collective-members .views-exposed-form .form-text,\
-             .view-my-collectives .views-exposed-form .form-text')
+             .view-my-collectives .views-exposed-form .form-text', context)
             .not('.filter-processed')
             .keyup(
 
@@ -68,11 +75,40 @@
             }
           ).addClass('filter-processed')
 
+          $('.view-collective-members,\
+             .view-my-collectives', context)
+            .not('.filter-hide-processed')
+            .each(
+              (index, element) => {
+                if ($('nav.pager', element).length == 0){
+                  $('.view-filters', element).hide()
+                }
+              }
+            ).addClass('filter-hide-processed')
+
 
           if (context != document){
             var filter = $('.form-text', context).focus();
             filter[0] ? filter[0].setSelectionRange(100, 100) : false;
           }
+
+
+          // Form settings
+          function checkOptions(){
+
+            $('#edit-field-settings-public', context).is(':checked')
+              ? $('#edit-field-settings-public-members').removeAttr('disabled')
+              : $('#edit-field-settings-public-members').attr('disabled', 'disabled').prop('checked', false)
+
+            $('#edit-field-settings-public-members', context).is(':checked')
+              ? $('#edit-field-settings-private-members').attr('disabled', 'disabled').prop('checked', false)
+              : $('#edit-field-settings-private-members').removeAttr('disabled')
+
+            }
+          $('#edit-field-settings input').click(checkOptions)
+          checkOptions()
+
+
         }
       )
 

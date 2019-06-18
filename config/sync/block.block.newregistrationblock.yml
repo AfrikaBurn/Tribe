@@ -35,7 +35,7 @@ visibility:
   php:
     id: php
     negate: false
-    php: "<?php\r\nuse \\Drupal\\afrikaburn_collective\\Controller\\CollectiveController;\r\nuse \\Drupal\\afrikaburn_collective\\Utils;\r\n\r\n$user = Utils::currentUser($account);\r\n$collective = Utils::currentCollective();\r\n\r\nCollectiveController::isAdmin($collective, $user) && \r\nCollectiveController::setting($collective, 'projects');\r\n?>"
+    php: "<?php\r\nuse \\Drupal\\afrikaburn_collective\\Controller\\CollectiveController;\r\nuse \\Drupal\\afrikaburn_collective\\Utils;\r\n\r\n$user = Utils::currentUser($account);\r\n$collective = Utils::currentCollective();\r\n\r\nreturn $collective && (\r\n  CollectiveController::isAdmin($collective, $user) && \r\n  CollectiveController::setting($collective, 'projects')\r\n);\r\n?>"
     context_mapping: {  }
   request_path:
     id: request_path

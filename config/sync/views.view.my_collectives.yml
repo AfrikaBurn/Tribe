@@ -375,20 +375,9 @@ display:
             label: ''
           granularity: second
           plugin_id: date
-      title: 'My Collectives'
+      title: Collectives
       header: {  }
-      footer:
-        area_text_custom:
-          id: area_text_custom
-          table: views
-          field: area_text_custom
-          relationship: none
-          group_type: group
-          admin_label: ''
-          empty: true
-          tokenize: false
-          content: "<a href=\"/collectives\" class=\"button\">Find collectives</a>\r\n<a href=\"/node/add/collective\" class=\"button\">Create a collective</a>\r\n"
-          plugin_id: text_custom
+      footer: {  }
       empty: {  }
       relationships:
         flag_relationship:
@@ -682,14 +671,14 @@ display:
             trim: false
             preserve_tags: ''
             html: false
-          element_type: ''
-          element_class: ''
+          element_type: div
+          element_class: my-collective-actions
           element_label_type: ''
           element_label_class: ''
           element_label_colon: false
-          element_wrapper_type: ''
+          element_wrapper_type: '0'
           element_wrapper_class: ''
-          element_default_classes: true
+          element_default_classes: false
           empty: ''
           hide_empty: false
           empty_zero: false
@@ -728,6 +717,22 @@ display:
       display_extenders: {  }
       block_description: Joined
       display_description: ''
+      header:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: "<div class=\"my-collective-actions\">\r\n<a href=\"/collectives\" class=\"button\">Explore</a>\r\n<a href=\"/node/add/collective\" class=\"button\">Create</a>\r\n</div>"
+            format: php_code
+          plugin_id: text
+      defaults:
+        header: false
     cache_metadata:
       max-age: -1
       contexts:

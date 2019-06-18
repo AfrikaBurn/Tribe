@@ -44,7 +44,6 @@ function _reply_form(&$variables){
  * Builds a post listing view
  */
 function _build_post_view(&$build, $display, $uid, $nid, $is_admin, $is_member){
-
   if (
     $display->getComponent('posts') &&
     ($is_member || !CollectiveController::setting($build['#node'], 'private_discussion'))
@@ -116,15 +115,15 @@ function _build_join(&$build, $display, $uid, $nid, $is_admin, $is_member){
     $exposure = _exposure($public, $vetted, $public_members, $private_members, $open);
 
     $link = $exposure
-      ? '<a href="/collective/' . $nid . '/join/' . $uid . '">Join anyway</a>'
-      : '<a href="/collective/' . $nid . '/join/' . $uid . '" class="join">Join</a>';
+      ? _build_link('Join anyway', 'join', $nid, $uid, $exposure, FALSE)
+      : _build_link('Join', 'join', $nid, $uid, $popup, FALSE);
 
     $element = [
       'prefix' => $exposure ? '<details><summary class="join">Join</summary><section>' : '',
       'exposing' => $exposure,
       'confirm' => $exposure ? '<p class="links">' .
         $link .
-        '<a href="' . \Drupal::request()->getRequestUri() . '" class="cancel">No thanks</a>
+        '<a class="button cancel" href="' . \Drupal::request()->getRequestUri() . '">No thanks</a>
       </p>' : $link,
       'suffix' => $exposure ? '</section></details>' : '',
     ];
@@ -142,10 +141,11 @@ function _build_request(&$build, $display, $uid, $nid, $is_admin, $is_member){
 
   $open = CollectiveController::setting($build['#node'], 'open');
   $vetted = CollectiveController::setting($build['#node'], 'vetted');
+  $invited = CollectiveController::isInvited($build['#node'], $user);
 
   if (
     $display->getComponent('request') &&
-    !$is_member && $open && $vetted
+    !$is_member && !$invited && $open && $vetted
   ){
 
     $user = User::load(\Drupal::currentUser()->id());
@@ -156,13 +156,10 @@ function _build_request(&$build, $display, $uid, $nid, $is_admin, $is_member){
     $requested = NULL !== CollectiveController::isRequested($build['#node'], $user);
 
     $link = $requested
-      ? ($exposure
-        ? '<a href="/collective/' . $nid . '/withdraw/' . $uid . '">Withdraw request</a>'
-        : '<a href="/collective/' . $nid . '/withdraw/' . $uid . '" class="withdraw">Withdraw request</a>'
-      )
+      ? _build_link('Withdraw request', 'withdraw', $nid, $uid, $exposure)
       : ($exposure
-        ? '<a href="/collective/' . $nid . '/request/' . $uid . '">Request anyway</a>'
-        : '<a href="/collective/' . $nid . '/request/' . $uid . '" class="request">Request to join</a>'
+        ? _build_link('Request anyway', 'request', $nid, $uid, $exposure, FALSE)
+        : _build_link('Request to join', 'withdraw', $nid, $uid, $exposure, FALSE)
       );
 
     $element = [
@@ -174,7 +171,7 @@ function _build_request(&$build, $display, $uid, $nid, $is_admin, $is_member){
       'exposing' => $exposure,
       'confirm' => $exposure
         ? '<p class="links">' . $link .
-            '<a href="' . \Drupal::request()->getRequestUri() . '" class="cancel">' .
+            '<a class="button cancel" href="' . \Drupal::request()->getRequestUri() . '">' .
               ($requested ? 'Ok then' : 'No thanks') .
             '</a>' .
           '</p>'
@@ -208,17 +205,18 @@ function _build_accept(&$build, $display, $uid, $nid, $is_admin, $is_member){
     $public_members = CollectiveController::setting($build['#node'], 'public_members');
     $private_members = CollectiveController::setting($build['#node'], 'private_members');
     $exposure = _exposure($public, $vetted, $public_members, $private_members, $open, $invited);
+    $destination = '?destination=' . \Drupal::destination()->get();
 
     $link = $exposure
-      ? '<a href="/collective/' . $nid . '/accept/' . $uid . '">Accept anyway</a>'
-      : '<a href="/collective/' . $nid . '/accept/' . $uid . '" class="accept">Accept</a>';
+      ? '<a class="button" href="/collective/' . $nid . '/accept/' . $uid . $destination . '">Accept anyway</a>'
+      : '<a href="/collective/' . $nid . '/accept/' . $uid . $destination . '" class="accept">Accept</a>';
 
     $element = [
-      'prefix' => $exposure ? '<details><summary class="accept">Accept invitation</summary><section>' : '',
+      'prefix' => $exposure ? '<details><summary class="accept">Accept</summary><section>' : '',
       'exposing' => $exposure,
       'confirm' => $exposure ? '<p class="links">' .
         $link .
-        '<a href="' . \Drupal::request()->getRequestUri() . '" class="cancel">Close</a>
+        '<a class="button cancel" href="' . \Drupal::request()->getRequestUri() . '">Close</a>
       </p>' : $link,
       'suffix' => $exposure ? '</section></details>' : '',
     ];
@@ -242,7 +240,8 @@ function _build_ignore(&$build, $display, $uid, $nid, $is_admin, $is_member){
     !$is_member && $invited
   ){
 
-    $link = '<a href="/collective/' . $nid . '/ignore/' . $uid . '" class="ignore">Ignore</a>';
+    $destination = '?destination=' . \Drupal::destination()->get();
+    $link = '<a href="/collective/' . $nid . '/ignore/' . $uid . $destination . '" class="ignore">Ignore</a>';
 
     $build['ignore'] = [
       '#markup' => $link
@@ -257,13 +256,16 @@ function _build_leave(&$build, $display, $uid, $nid, $is_admin, $is_member){
 
   if ($display->getComponent('leave') && $is_member){
 
+    $destination = '?destination=' . \Drupal::destination()->get();
+
     $build['leave'] = [
       '#markup' => '<details>
         <summary class="leave">Leave</summary>
         <section>
+          <p>Are you sure?</p>
           <p class="links">
-            <a href="/collective/' . $nid . '/leave/' . $uid . '">YES, let me out!</a>
-            <a href="' . \Drupal::request()->getRequestUri() . '" class="cancel">Never mind</a>
+            <a class="button" href="/collective/' . $nid . '/leave/' . $uid . $destination . '">YES, let me out!</a>
+            <a class="button cancel" href="' . \Drupal::request()->getRequestUri() . '">Never mind</a>
             </p>
           <section>
       </details>',
@@ -281,6 +283,29 @@ function _build_edit(&$build, $display, $uid, $nid, $is_admin, $is_member){
         '<a class="edit" title="Edit this Collective" href="/node/' .
         $nid .
         '/edit">Edit</a>',
+    ];
+  }
+}
+
+
+/* --- Indicators --- */
+
+
+/**
+ * Builds an initation indicator
+ */
+function _build_invited(&$build, $display, $uid, $nid, $is_admin, $is_member){
+
+  $user = User::load(\Drupal::currentUser()->id());
+  $invited = CollectiveController::isInvited($build['#node'], $user);
+
+  if (
+    $display->getComponent('invited') &&
+    !$is_member && $invited
+  ){
+
+    $build['invited'] = [
+      '#markup' => '<div class="invitation">' . t('You\'ve been invited to this collective!') . '</div>'
     ];
   }
 }
@@ -401,6 +426,34 @@ function _build_strip($user, $member, $collective){
 
 
 /**
+ * Build a collective action link tag.
+ * @param $label Link display label.
+ * @param $action action part of the URL.
+ * @param $nid Node ID of the collective.
+ * @param $uid user ID of the action user.
+ * @param $popup Whether this link is to be displayed in a popup.
+ * @param $destination whether to create a destination param, defaults to TRUE.
+ */
+function _build_link($label, $action, $nid, $uid, $popup, $destination = TRUE){
+
+  $url =
+    '/collective/' . $nid . '/' . $action . '/' . $uid .
+    ($destination ? '?destination=' . \Drupal::destination()->get() : '');
+  $class = ' class="' . @implode(
+    ' ',
+    array_filter(
+      [
+        $popup ? 'button' : FALSE,
+        !$popup ? $action : FALSE
+      ]
+    )
+  ) . '"';
+
+  return '<a href="' . $url . '"' . $class . '>' . $label . '</a>';
+}
+
+
+/**
  * Calculates a users' exposure should they join a collective.
  */
 function _exposure($public, $vetted, $public_members, $private_members, $open, $invited = FALSE){
@@ -421,26 +474,26 @@ function _exposure($public, $vetted, $public_members, $private_members, $open, $
         ? t('membership requires admin approval') : FALSE,
     ]
   );
-  $exposure = @array_filter(
-    [
-      $public_members || $private_members
-        ? 'Your <strong>picture, username, first</strong> and <strong>last name</strong> will be visible to '
-        : FALSE,
-      $public_members || $private_members && $open &&!$vetted ? t('<strong>anyone with a Bio</strong>') : FALSE,
-      $private_members && ($open || $invited) && $vetted ? t('<strong>other members of the collective</strong>') : FALSE,
-    ]
+
+  $exposed_to = @implode(' and ',
+    array_filter(
+      [
+        $private_members && ($open || $invited) && $vetted ? t('<strong>the other members of the collective</strong>') : FALSE,
+        t('<strong>admins of the collective</strong>'),
+        $public_members || $private_members && $open &&!$vetted ? t('<strong>anyone with a Bio</strong>') : FALSE,
+      ]
+    )
   );
 
   return @implode(
-    array_filter(
-      [
-        $exposing
-          ? '<p>' . array_shift($exposing) . implode(' and ', $exposing) . '.</p>'
-          : FALSE,
-        $exposure
-          ? '<p>' . array_shift($exposure) . implode(' and ', $exposure) . '.</p>'
-          : FALSE
-      ]
-    )
+    [
+      $exposing
+        ? '<p>' . array_shift($exposing) . implode(' and ', $exposing) . '.</p>'
+        : FALSE,
+      '<p>',
+      'Your <strong>picture, username, first</strong> and <strong>last name</strong> will be visible to ',
+      $exposed_to,
+      '</p>'
+    ]
   );
 }
