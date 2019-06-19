@@ -108,14 +108,9 @@ body .view.view-my-collectives.view-display-id-invitations .my-collective-action
   width: 80%;
 }
 
-/* body .view.view-my-collectives .view-content a.button{
-  font-size: 80%;
-  width: 100%;
-  padding: 5px 0;
-  line-height: 20px;
-  margin: 20px 0 0;
-  height: 30px;
-} */
+.view-my-collectives .view-header{
+  margin-bottom: 20px;
+}
 
 
 /* ---- Pager ---- */
@@ -473,6 +468,10 @@ div.invitation{
   margin-top: 48px;
 }
 
+
+/* ---- Members view ---- */
+
+
 .node--type-collective .field--name-field-picture{
   width: 100%;
   border-radius: 10px;
@@ -487,6 +486,10 @@ div.invitation{
   float: left;
   margin: 5px 10px 0 0;
 }
+
+
+/* ---- Collectives views ---- */
+
 
 #block-views-block-my-collectives-invitations .form-actions,
 #block-views-block-my-collectives-joined .form-actions,
@@ -571,7 +574,7 @@ div.invitation{
 }
 
 
-/* --- User listing --- */
+/* --- Member listing --- */
 
 
 .view-collective-members .views-row{
