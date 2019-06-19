@@ -46,8 +46,8 @@ function afrikaburn_collective_user_insert($user){
 
   if ($cid){
     $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
-    $collective->field_col_members->appendItem($user);
-    $collective->save();
+    CollectiveController::set('member', $collective, $user);
+    CollectiveController::clear('invite', $collective, $user);
   }
 }
 
@@ -57,14 +57,12 @@ function afrikaburn_collective_user_insert($user){
  */
 function afrikaburn_collective_node_insert($node){
   if ($node->bundle() == 'collective'){
+
     $user = User::load(\Drupal::currentUser()->id());
 
     foreach(['member', 'admin'] as $fid){
-      $flag_service = \Drupal::service('flag');
-      $flag = $flag_service->getFlagById($fid);
-      if (!$flag_service->getFlagging($flag, $node, $user)){
-        $flag_service->flag($flag, $node, $user);
-      }
+      CollectiveController::set('member', $node, $user);
+      CollectiveController::set('admin', $node, $user);
     }
   }
 }
