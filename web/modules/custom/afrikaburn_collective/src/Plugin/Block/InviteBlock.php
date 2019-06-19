@@ -2,7 +2,11 @@
 
 namespace Drupal\afrikaburn_collective\Plugin\Block;
 
+
 use Drupal\Core\Block\BlockBase;
+use \Drupal\afrikaburn_collective\Controller\CollectiveController;
+use \Drupal\afrikaburn_collective\Utils;
+
 
 /**
  * Provides a group invitation block.
@@ -20,14 +24,12 @@ class InviteBlock extends BlockBase {
    */
   public function build() {
 
-    module_load_include('inc', 'afrikaburn_collective', 'includes/util');
-
-    $user = \Drupal::currentUser();
-    $collective = \Drupal::routeMatch()->getParameter('node');
+    $user = Utils::currentUser();
+    $collective = Utils::currentCollective();
 
     return
-      afrikaburn_collective_admin() ||
-      afrikaburn_collective_setting('open') && !afrikaburn_collective_setting('vetted')
+      CollectiveController::isAdmin($collective, $user) ||
+      CollectiveController::setting($collective, 'open') && !CollectiveController::setting($collective, 'vetted')
       ? [
         '#type' => 'form',
         '#action' => '/collective/' . $collective->id() . '/invite',

@@ -36,10 +36,14 @@ third_party_settings:
         - node_title
         - field_picture
         - field_col_description
+        - invited
         - group_actions
-        - edit
-        - flag_mute
         - join
+        - request
+        - accept
+        - ignore
+        - flag_mute
+        - edit
         - leave
     fields:
       node_title:
@@ -54,12 +58,15 @@ third_party_settings:
   field_group:
     group_actions:
       children:
-        - edit
-        - flag_mute
         - join
+        - request
+        - accept
+        - ignore
+        - flag_mute
+        - edit
         - leave
       parent_name: ''
-      weight: 3
+      weight: 4
       format_type: html_element
       format_settings:
         label: Actions
@@ -77,8 +84,13 @@ targetEntityType: node
 bundle: collective
 mode: teaser
 content:
+  accept:
+    weight: 21
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   edit:
-    weight: 17
+    weight: 24
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -104,7 +116,17 @@ content:
       empty_fields:
         handler: ''
   flag_mute:
-    weight: 18
+    weight: 23
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  ignore:
+    weight: 22
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  invited:
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -114,6 +136,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   leave:
+    weight: 25
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  request:
     weight: 20
     region: content
     settings: {  }

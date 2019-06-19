@@ -1,6 +1,9 @@
 @charset "utf-8";
 
 
+/* ---- My collectives ----  */
+
+
 .view-my-collectives{
   margin-bottom: 0;
 }
@@ -79,7 +82,7 @@
   border-radius: 15px 0 0 15px;
 }
 
-#block-views-block-my-collectives-invitations .button{
+body .view.view-my-collectives .button{
   font-size: 80%;
   width: 50%;
   padding: 5px 10px;
@@ -88,28 +91,85 @@
   height: 20px;
   border-color: #000;
 }
-#block-views-block-my-collectives-invitations .button:first-child{
+body .view.view-my-collectives .button:first-child{
   border-radius: 15px 0 0 15px;
 }
-#block-views-block-my-collectives-invitations .button:last-child{
+body .view.view-my-collectives .button:last-child{
   border-radius: 0 15px 15px 0;
 }
 
-#block-views-block-my-collectives-invitations .views-field-nothing{
+body .view.view-my-collectives .my-collective-actions{
+  display: flex;
   justify-content: center;
   width: 100%;
+  margin: 0 auto;
+}
+body .view.view-my-collectives.view-display-id-invitations .my-collective-actions{
+  width: 80%;
 }
 
-#block-views-block-my-collectives-joined a.button{
-  font-size: 80%;
-  width: 100%;
-  padding: 5px 0;
-  line-height: 20px;
-  margin: 20px 0 0;
-  height: 30px;
+.view-my-collectives .view-header{
+  margin-bottom: 20px;
 }
 
-/* Comments */
+
+/* ---- Pager ---- */
+
+
+.sidebar-outer nav.pager .pager__items{
+  display: flex;
+  justify-content: center;
+}
+
+.sidebar-outer nav.pager .pager__items li{
+  border: none;
+}
+
+.sidebar-outer nav.pager .pager__items li a{
+  border-radius: 10px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+}
+
+.sidebar-outer nav.pager .pager__items li.is-active a,
+.sidebar-outer nav.pager .pager__items li a:hover{
+  background-color: #961116;
+}
+
+.sidebar-outer nav.pager .pager__items li.pager__item--first a,
+.sidebar-outer nav.pager .pager__items li.pager__item--previous a,
+.sidebar-outer nav.pager .pager__items li.pager__item--next a,
+.sidebar-outer nav.pager .pager__items li.pager__item--last a{
+  background-size: 60px;
+  background-image: url(../images/pager.svg);
+  background-repeat: no-repeat;
+}
+
+.sidebar-outer nav.pager .pager__items li.pager__item--first span,
+.sidebar-outer nav.pager .pager__items li.pager__item--previous span,
+.sidebar-outer nav.pager .pager__items li.pager__item--next span,
+.sidebar-outer nav.pager .pager__items li.pager__item--last span{
+  display: none;
+}
+
+.sidebar-outer nav.pager .pager__items li.pager__item--first a{
+  background-position: left top;
+}
+.sidebar-outer nav.pager .pager__items li.pager__item--previous a{
+  background-position: left bottom;
+}
+.sidebar-outer nav.pager .pager__items li.pager__item--next a{
+  background-position: right bottom;
+}
+.sidebar-outer nav.pager .pager__items li.pager__item--last a{
+  background-position: right top;
+}
+
+
+/* ---- Comments ---- */
+
 
 .view-collective-posts.view-display-id-posts{
   margin: 2em 0 1em;
@@ -274,75 +334,143 @@ article.collective-post header a{
   visibility: visible;
 }
 
+
+/* ---- Settings form ---- */
+
+
+#edit-field-settings input[disabled]{
+  opacity: 0.5;
+}
+
+
+/* ---- Actions ---- */
+
+
 .collective-actions{
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 20px;
+  position: relative;
+  right: 0;
+  left: 0;
+}
+
+div.invitation{
+  background: #ffefb622;
+  padding: 10px 0 50px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0 0 -35px;
+}
+
+.view-collectives-find .collective-actions{
+  position: absolute;
+  bottom: -55px;
 }
 
 .collective-actions > a,
 .collective-actions .flag a,
-.collective-actions details{
+.collective-actions summary{
   background-position: 10px center;
   background-repeat: no-repeat;
-  background-color: #00000055;
+  background-color: #ffefb622;
+  padding: 10px 0 50px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0 0 -35px;;
   background-size: 18px;
   border-radius: 10px;
   color: #ffefb6 !important;
   display: inline-block;
   line-height: 24px;
-  margin: 0 0 20px 10px;
+  margin: 0 0 0 10px;
   padding: 7px 10px 5px 34px;
   text-decoration: none;
   text-align: left;
   width: auto;
-  height: 24px;
+  height: 25px;
   outline: none;
-}
-
-.collective-actions details summary::-webkit-details-marker {
-  display:none;
-}
-
-.collective-actions details.leave-collective{
   cursor: pointer;
-  text-align: center;
-  position: relative;
 }
 
-.collective-actions details{
-  background-image: url(../images/exit.svg);
+.collective-actions > a:hover,
+.collective-actions .flag a:hover,
+.collective-actions summary:hover{
+  color: #fff;
+  background-color: #ffefb655;
 }
 
-.collective-actions details a{
-  background: #961116;
-  padding: 10px 20px;
-  border: 1px solid #fff;
-  border-radius: 5px;
-  position: absolute;
-  width: 100px;
-  z-index: 10;
-  top: 100%;
-  right: 0;
-  text-decoration: none;
-  font-weight: bold;
-}
+.collective-actions .edit{ background-image: url(../images/edit.svg);}
+.collective-actions .withdraw,
+.collective-actions .request,
+.collective-actions .join{ background-image: url(../images/join.svg);}
+.collective-actions .accept{ background-image: url(../images/accept.svg);}
+.collective-actions .ignore{ background-image: url(../images/ignore.svg);}
+.collective-actions .leave{ background-image: url(../images/exit.svg);}
 
-.collective-actions a.edit{
-  background-image: url(../images/edit.svg);
-}
-
-.collective-actions a.join{
-  background-image: url(../images/join.svg);
-}
 .collective-actions a.join.requested{
   text-decoration: none;
   opacity: 0.8;
   cursor: not-allowed;
 }
 
+.collective-actions details summary::-webkit-details-marker {
+  display: none;
+}
+
+.collective-actions details section{
+  position: absolute;
+  z-index: 100;
+  background-color: #000000dd;
+  left: 0; top: 100%;
+  padding: 10px 40px;
+  right: 0;
+  border-radius: 5px;
+}
+
+.view-collectives-find .collective-actions details section{
+  bottom: 0;
+  top: auto;
+}
+
+.collective-actions details .links{
+  display: flex;
+  justify-content: center;
+}
+
+
+.collective-actions details .links .button{
+  font-size: 90%;
+  padding: 10px 5px;
+  line-height: 1em;
+  letter-spacing: unset;
+  height: auto;
+  border-color: #000;
+}
+.collective-actions details .links .button:first-child{
+  border-radius: 15px 0 0 15px;
+  padding-left: 10px;
+}
+.collective-actions details .links .button:last-child{
+  border-radius: 0 15px 15px 0;
+  padding-right: 10px;
+  background-color: #88BA1D;
+}
+.collective-actions details .links .button:active{
+  opacity: .5;
+}
+
+
+/* ---- Right column ---- */
+
+
 .sidebar-outer.collectivebar .sidebar{
   margin-top: 48px;
 }
+
+
+/* ---- Members view ---- */
+
 
 .node--type-collective .field--name-field-picture{
   width: 100%;
@@ -359,15 +487,28 @@ article.collective-post header a{
   margin: 5px 10px 0 0;
 }
 
+
+/* ---- Collectives views ---- */
+
+
+#block-views-block-my-collectives-invitations .form-actions,
+#block-views-block-my-collectives-joined .form-actions,
 #block-membersblock .form-actions{
   display: none;
 }
+#block-views-block-my-collectives-invitations .form-item,
+#block-views-block-my-collectives-invitations input,
+#block-views-block-my-collectives-joined .form-item,
+#block-views-block-my-collectives-joined input,
 #block-membersblock .form-item,
 #block-membersblock input{
+  max-width: 100%;
   width: 100%;
 }
+#block-views-block-my-collectives-invitations input.busy,
+#block-views-block-my-collectives-joined input.busy,
 #block-membersblock input.busy{
-  background: #fff url(/core/modules/quickedit/images/icon-throbber.gif) no-repeat 98% center;
+    background: #fff url(/core/modules/quickedit/images/icon-throbber.gif) no-repeat 98% center;
 }
 
 .view-collectives-find #edit-options--wrapper .form-type-checkbox{
@@ -394,12 +535,6 @@ article.collective-post header a{
 .view-collectives-find .view-content .views-row .layout__region--content{
   height: 100%;
   position: relative;
-}
-
-.view-collectives-find .view-content .views-row .collective-actions{
-  position: absolute;
-  bottom: -55px;
-  right: 0;
 }
 
 .ajax-progress-fullscreen{
@@ -436,4 +571,77 @@ article.collective-post header a{
 #edit-field-col-members input{
   height: 30px;
   line-height: 100%;
+}
+
+
+/* --- Member listing --- */
+
+
+.view-collective-members .views-row{
+  margin-bottom: 1px;
+  padding: 5px;
+  min-height: 40px;
+  position: relative;
+}
+
+.view-collective-members .views-row article{
+  position: absolute;
+  min-height: 40px;
+  z-index: 10;
+  top: 10px;
+  right: 50px;
+  left: 10px;
+}
+
+.view-collective-members .views-row .name{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.view-collective-members .views-row:first-child{
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.view-collective-members .views-row:last-child{
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.view-collective-members details{
+  position: relative;
+  border-radius: 5px;
+  padding-top: 60px;
+}
+
+.view-collective-members details[open]{
+  background: #761928;
+}
+
+.view-collective-members details a{
+  display: block;
+  padding: 5px 15px;
+}
+
+.view-collective-members details a:hover{
+  background: #ffefb622
+}
+
+.view-collective-members summary{
+  display: block;
+  position: absolute;
+  color: transparent;
+  width: 40px;
+  height: 40px;
+  background: url(../images/settings.svg) no-repeat center;
+  right: 0;
+  top: 5px;
+  cursor: pointer;
+  outline: transparent;
+  z-index: 100;
+}
+
+.view-collective-members summary::-webkit-details-marker {
+  display: none;
 }

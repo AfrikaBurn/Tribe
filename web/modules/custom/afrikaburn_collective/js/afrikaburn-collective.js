@@ -19,22 +19,101 @@
       //   }
       // )
 
-      // Make member filter autosubmit
       $('.view-posts form').attr('action', '?post=all')
-      $('.view-collective-members .views-exposed-form .form-text').not('.processed').keyup(
-        function() {
-          clearTimeout($(this).data('timeout'))
-          $(this).data('timeout', setTimeout(() => $('.view-collective-members .form-submit').click(), 500))
-          $('.view-collective-members .views-exposed-form .form-text').addClass('busy')
-        }
-      ).addClass('processed')
-
-      if ($(context).hasClass('view-id-collective_members')){
-        $('.form-text', context).focus()[0].setSelectionRange(100, 100);
-      }
 
       $(
         () => {
+
+          // Fade on paging
+          $('.view-collective-projects .pager__item a,\
+             .view-collective-members .pager__item a,\
+             .view-my-collectives .pager__item a').click(
+            function(){
+              $('.view-content', $(this).parents('.view')).animate({ opacity: 0.5})
+            }
+          )
+
+          // Close other membership popups
+          $('.collective-actions details summary').click(
+            function(event){
+              $('.collective-actions details').not($(this).parent()).removeAttr('open')
+            }
+          )
+
+          // Close membership popup
+          $('.collective-actions details section a.cancel').click(
+            function(event){
+              $(this).parents('details').removeAttr('open')
+              event.stopPropagation()
+              return false
+            }
+          )
+
+          // Make member filter autosubmit
+          $('.view-collective-members .views-exposed-form .form-text,\
+             .view-my-collectives .views-exposed-form .form-text', context)
+            .not('.filter-processed')
+            .keyup(
+
+            function() {
+
+              clearTimeout($(this).data('timeout'))
+              $(this).data('timeout',
+                setTimeout(
+                  () => {
+                    $('.form-submit', $(this).parents('.views-exposed-form')).click()
+                  },
+                  500
+                )
+              )
+
+              $(this)
+                .addClass('busy')
+                .parents('.view')
+                .find('.view-content')
+                .animate({ opacity: 0.5})
+            }
+          ).addClass('filter-processed')
+
+          $('.view-collective-members,\
+             .view-my-collectives', context)
+            .not('.filter-hide-processed')
+            .each(
+              (index, element) => {
+                if ($('nav.pager', element).length == 0){
+                  $('.view-filters', element).hide()
+                }
+              }
+            ).addClass('filter-hide-processed')
+
+
+          if (context != document){
+            var filter = $('.form-text', context).focus();
+            filter[0] ? filter[0].setSelectionRange(100, 100) : false;
+          }
+
+
+          // Form settings
+          function checkOptions(){
+
+            $('#edit-field-settings-public', context).is(':checked')
+              ? $('#edit-field-settings-public-members').removeAttr('disabled')
+              : $('#edit-field-settings-public-members').attr('disabled', 'disabled').prop('checked', false)
+
+            $('#edit-field-settings-public-members', context).is(':checked')
+              ? $('#edit-field-settings-private-members').attr('disabled', 'disabled').prop('checked', false)
+              : $('#edit-field-settings-private-members').removeAttr('disabled')
+
+            }
+          $('#edit-field-settings input').click(checkOptions)
+          checkOptions()
+
+
+        }
+      )
+
+      // $(
+      //   () => {
 
           // if (context == document) {
 
@@ -51,8 +130,8 @@
           //   )
 
           // }
-        }
-      )
+      //   }
+      // )
     }
   }
 })(jQuery)

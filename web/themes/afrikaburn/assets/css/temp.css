@@ -9,6 +9,13 @@
   width: auto;
 }
 
+body div.body-content {
+  color: #ddd;
+}
+
+body div.sidebar {
+  color: #ccc;
+}
 
 /*button,
 .button,
@@ -61,7 +68,7 @@ body.layout-both-bars .main-block{
   }
 }
 
-div.sidebar-outer.sidebar-outer.biobar .sidebar{
+div.sidebar-outer.biobar .sidebar{
   background: #000;
   padding: 5px;
 }

@@ -1,0 +1,30 @@
+uuid: ab481b54-346d-49b9-9d7a-d502c26eb5bc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: admin
+label: Admin
+bundles:
+  - collective
+entity_type: node
+global: false
+weight: 0
+flag_short: 'Become admin'
+flag_long: ''
+flag_message: ''
+unflag_short: 'Leave admin'
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: false
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+linkTypeConfig: {  }

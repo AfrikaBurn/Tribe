@@ -5,6 +5,7 @@
  */
 
 use \Drupal\user\Entity\User;
+use \Drupal\afrikaburn_collective\Controller\CollectiveController;
 
 
 /**
@@ -37,13 +38,11 @@ function _notify_collective($entity){
  */
 function _notify_collective_changes($entity, $state, $meta_collective, $settings, $address_settings){
 
-  module_load_include('inc', 'afrikaburn_collective', 'includes/util');
-
   // Notify collective
   if (
     $settings->get("collective-collective-$state-collective-enabled") &&
-    afrikaburn_collective_setting('emails', $entity)
-) {
+    CollectiveController::setting($entity, 'emails')
+  ) {
     _notify(
       'no-reply@afrikaburn.com',
       $settings->get('collective-label'), $address_settings->get('collective-address'),

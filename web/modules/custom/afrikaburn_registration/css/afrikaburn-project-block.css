@@ -14,6 +14,7 @@ div.body-content .block .view-id-collective_projects table ul{
 
 div.body-content .block .view-id-collective_projects table td{
   padding: 0;
+  background: transparent;
 }
 
 div.body-content .block .view-id-collective_projects table td.image{

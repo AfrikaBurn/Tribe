@@ -26,7 +26,7 @@ settings:
 visibility:
   php:
     id: php
-    php: "<?php \r\nmodule_load_include('inc', 'afrikaburn_collective', 'includes/util');\r\nreturn\r\n  afrikaburn_collective_past_projects() &&\r\n  (afrikaburn_collective_member() || !afrikaburn_collective_setting('private_projects'));\r\n?>"
+    php: "<?php \r\nuse \\Drupal\\afrikaburn_collective\\Controller\\CollectiveController;\r\nuse \\Drupal\\afrikaburn_collective\\Utils;\r\n\r\n$user = Utils::currentUser();\r\n$collective = Utils::currentCollective();\r\n\r\nreturn $collective && (\r\n  CollectiveController::hasCurrentProjects() &&\r\n  (\r\n    CollectiveController::isMember($collective, $user) || \r\n    !CollectiveController::setting($collective, 'private_projects')\r\n  )\r\n);\r\n?>"
     negate: false
     context_mapping: {  }
   node_type:

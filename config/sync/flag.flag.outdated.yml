@@ -9,7 +9,7 @@ label: Outdated
 bundles: {  }
 entity_type: user
 global: true
-weight: 0
+weight: -7
 flag_short: 'Up to date'
 flag_long: 'This bio is up to date. Click to encourage the user to update their bio.'
 flag_message: ''

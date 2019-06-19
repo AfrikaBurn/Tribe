@@ -10,7 +10,7 @@ bundles:
   - alert
 entity_type: node
 global: false
-weight: 0
+weight: -8
 flag_short: 'Oops, Undo!'
 flag_long: 'Oops, Undo!'
 flag_message: ''

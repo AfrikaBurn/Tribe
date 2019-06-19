@@ -11,7 +11,9 @@ dependencies:
     - field.field.node.collective.field_col_invitee
     - field.field.node.collective.field_col_members
     - field.field.node.collective.field_col_posts
+    - field.field.node.collective.field_col_requests
     - field.field.node.collective.field_picture
+    - field.field.node.collective.field_settings
     - node.type.collective
   module:
     - ds

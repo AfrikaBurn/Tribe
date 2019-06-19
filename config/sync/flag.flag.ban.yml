@@ -1,0 +1,30 @@
+uuid: 5dbcfbe1-85dc-4445-8f9a-a0983734a703
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: ban
+label: Ban
+bundles:
+  - collective
+entity_type: node
+global: false
+weight: -2
+flag_short: 'Be banned from'
+flag_long: ''
+flag_message: ''
+unflag_short: 'Be unbanned from'
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: false
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+linkTypeConfig: {  }

@@ -1,0 +1,13 @@
+uuid: ad28ca10-e14a-4afa-97cc-26442758d00a
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.invite.unflag
+label: 'Unflag this item'
+type: node
+plugin: 'flag_action:invite.unflag'
+configuration:
+  flag_id: invite
+  flag_action: unflag

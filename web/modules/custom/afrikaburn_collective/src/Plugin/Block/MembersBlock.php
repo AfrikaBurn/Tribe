@@ -4,6 +4,9 @@ namespace Drupal\afrikaburn_collective\Plugin\Block;
 
 use Drupal\Core\Block\BlockBase;
 use Drupal\views\Views;
+use \Drupal\afrikaburn_collective\Controller\CollectiveController;
+use \Drupal\afrikaburn_collective\Utils;
+
 
 /**
  * Provides a group invitation block.
@@ -21,13 +24,14 @@ class MembersBlock extends BlockBase {
    */
   public function build() {
 
-    module_load_include('inc', 'afrikaburn_collective', 'includes/util');
+    $user = Utils::currentUser();
+    $collective = Utils::currentCollective();
 
-    $user = \Drupal::currentUser();
-    $collective = \Drupal::routeMatch()->getParameter('node');
-    $admin = afrikaburn_collective_admin();
-
-    if ($admin) {
+    if (
+      CollectiveController::setting($collective, 'public_members') ||
+      CollectiveController::setting($collective, 'private_members') && CollectiveController::isMember($collective, $user) ||
+      CollectiveController::isAdmin($collective, $user)
+    ) {
       $view = Views::getView('collective_members');
       $view->execute('requests');
       $requests = count($view->result);
@@ -41,9 +45,7 @@ class MembersBlock extends BlockBase {
         '#title' => $title,
         '#type' => 'view',
         '#name' => 'collective_members',
-        '#display_id' => \Drupal::service('access_manager')->checkNamedRoute('afrikaburn_collective.admin', ['cid' => $collective->id()], $user)
-          ? 'admin_block'
-          : 'members_block',
+        '#display_id' => 'members_block',
         '#cache' => [
           'max-age' => 0,
         ],
