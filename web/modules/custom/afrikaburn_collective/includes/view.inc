@@ -139,6 +139,7 @@ function _build_join(&$build, $display, $uid, $nid, $is_admin, $is_member){
  */
 function _build_request(&$build, $display, $uid, $nid, $is_admin, $is_member){
 
+  $user = User::load(\Drupal::currentUser()->id());
   $open = CollectiveController::setting($build['#node'], 'open');
   $vetted = CollectiveController::setting($build['#node'], 'vetted');
   $invited = CollectiveController::isInvited($build['#node'], $user);
@@ -148,7 +149,6 @@ function _build_request(&$build, $display, $uid, $nid, $is_admin, $is_member){
     !$is_member && !$invited && $open && $vetted
   ){
 
-    $user = User::load(\Drupal::currentUser()->id());
     $public = CollectiveController::setting($build['#node'], 'public');
     $public_members = CollectiveController::setting($build['#node'], 'public_members');
     $private_members = CollectiveController::setting($build['#node'], 'private_members');

@@ -396,7 +396,7 @@ function afrikaburn_collective_preprocess_views_view_fields(&$variables) {
 /**
  * Implements hook_views_views_pre_render().
  */
-function afrikaburn_collective_views_pre_render(&$view) {
+function afrikaburn_collective_views_pre_render($view) {
   if ($view->storage->id() == 'my_collectives' && $view->current_display == 'joined') {
     if (empty($view->result) && empty($view->getExposedInput())) {
       $view->exposed_widgets = NULL;

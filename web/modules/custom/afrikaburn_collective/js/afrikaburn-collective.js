@@ -48,7 +48,7 @@
               return false
             }
           )
-
+alert()
           // Make member filter autosubmit
           $('.view-collective-members .views-exposed-form .form-text,\
              .view-my-collectives .views-exposed-form .form-text', context)
