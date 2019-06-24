@@ -57,11 +57,11 @@ class UpdateController extends ControllerBase {
   }
 
 
-  /* ----- Resave users ----- */
+  /* ----- Add all users to the Afrikaburn collective ----- */
 
 
   /**
-   * Resave all user records
+   * Add all members to the tribe collective
    */
   public static function addTribeMembers(){
 
@@ -113,9 +113,14 @@ class UpdateController extends ControllerBase {
     );
   }
 
-  /* ----- Migrate members ----- */
+
+  /* ----- Migrate collective members ----- */
 
 
+  /**
+   * Migrate all members from fields to flags,
+   * fix privare member typo
+   */
   public static function migrateCollectives(){
     $cids = db_query("SELECT nid FROM {node} WHERE {node}.type = 'collective'")->fetchCol();
     $batch = [
@@ -139,6 +144,17 @@ class UpdateController extends ControllerBase {
     $flag_service = \Drupal::service('flag');
     $flag = $flag_service->getFlagById('member');
     $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+
+    // Move settings
+    $settings = array_column($collective->get('field_settings')->getValue(), 'value');
+    $privare = array_search('privare_members', $settings);
+    if ($privare !== FALSE) {
+      unset($settings[$privare]);
+      $settings = array_unique(array_merge($settings, ['private_members']));
+      $collective->set('field_settings', $settings);
+    }
+
+    // Move members
     $members = [
       'members' => array_column($collective->get('field_col_members')->getValue(), 'target_id'),
       'admins' => array_column($collective->get('field_col_admins')->getValue(), 'target_id'),
@@ -152,6 +168,9 @@ class UpdateController extends ControllerBase {
         }
       }
     }
+    $collective->set('field_col_members', []);
+    $collective->set('field_col_admins', []);
+    $collective->save();
 
     $context['results'][] = 1;
   }

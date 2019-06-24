@@ -342,6 +342,10 @@ article.collective-post header a{
   opacity: 0.5;
 }
 
+#edit-field-settings .form-item-field-settings-privare-members{
+  display: none;
+}
+
 
 /* ---- Actions ---- */
 

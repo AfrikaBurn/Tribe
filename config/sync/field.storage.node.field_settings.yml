@@ -25,6 +25,9 @@ settings:
       value: private_members
       label: 'Members can see who the Collective members are.'
     -
+      value: privare_members
+      label: Discontinued
+    -
       value: open
       label: 'Anyone may join or request to join.'
     -

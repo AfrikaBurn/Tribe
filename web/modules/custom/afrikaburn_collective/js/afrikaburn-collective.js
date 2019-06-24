@@ -48,33 +48,39 @@
               return false
             }
           )
-alert()
+
           // Make member filter autosubmit
-          $('.view-collective-members .views-exposed-form .form-text,\
-             .view-my-collectives .views-exposed-form .form-text', context)
+          var filtered = context == document
+            ? $(
+                '.view-collective-members, .view-my-collectives',
+                context
+              )
+            : $(context).filter('.view-collective-members, .view-my-collectives')
+          $('.views-exposed-form .form-text', filtered)
             .not('.filter-processed')
             .keyup(
 
-            function() {
+              function() {
 
-              clearTimeout($(this).data('timeout'))
-              $(this).data('timeout',
-                setTimeout(
-                  () => {
-                    $('.form-submit', $(this).parents('.views-exposed-form')).click()
-                  },
-                  500
+                clearTimeout($(this).data('timeout'))
+                $(this).data('timeout',
+                  setTimeout(
+                    () => {
+                      $('.form-submit', $(this).parents('.views-exposed-form')).click()
+                    },
+                    500
+                  )
                 )
-              )
 
-              $(this)
-                .addClass('busy')
-                .parents('.view')
-                .find('.view-content')
-                .animate({ opacity: 0.5})
-            }
-          ).addClass('filter-processed')
+                $(this)
+                  .addClass('busy')
+                  .parents('.view')
+                  .find('.view-content')
+                  .animate({ opacity: 0.5})
+              }
+            ).addClass('filter-processed')
 
+          // Hide filters on single page views
           $('.view-collective-members,\
              .view-my-collectives', context)
             .not('.filter-hide-processed')

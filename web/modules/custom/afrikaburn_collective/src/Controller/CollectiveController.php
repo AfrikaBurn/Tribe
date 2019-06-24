@@ -64,11 +64,13 @@ class CollectiveController extends ControllerBase {
 
       if (preg_match('/[^@]+@[^\.]+\..+/', $email) && !preg_match('/[^a-z0-9\.\+\-\_\@]/', $email)){
 
+        // Find users based on email
         $query = \Drupal::entityQuery('user', 'OR')
           ->condition('field_email', $email)
           ->condition('field_secondary_mail', $email);
         $uids = $query->execute();
 
+        // Invite existing
         if (count($uids)){
 
           foreach(\Drupal\user\Entity\User::loadMultiple($uids) as $user){
@@ -76,6 +78,7 @@ class CollectiveController extends ControllerBase {
           }
           $results['invited']++;
 
+        // Mail non-existing
         } else {
           $index = array_search($email, array_column($collective->get('field_col_invite_mail')->getValue(), 'value'));
           if ($index === FALSE) {
@@ -122,6 +125,24 @@ class CollectiveController extends ControllerBase {
    */
   public static function accept(){
     list($collective, $user) = CollectiveController::pathParams();
+
+    $token = \Drupal::request()->get('token');
+    if ($token) {
+      $token_index = @array_search($token, array_column($collective->get('field_col_invite_token')->getValue(), 'value'));
+      if ($token_index !== FALSE) {
+        $collective->get('field_col_invite_mail')->removeItem($token_index);
+        $collective->get('field_col_invite_token')->removeItem($token_index);
+        $collective->save();
+      } else {
+        drupal_set_message(
+          t('Oh no! Your invitation is no longer valid!'),
+          'warning',
+          TRUE
+        );
+        return new RedirectResponse(\Drupal::url('<front>'));
+      }
+    }
+
     CollectiveController::set('member', $collective, $user);
     CollectiveController::clear('invite', $collective, $user);
     Utils::showStatus('@username now a member', Utils::currentUser(), $user);

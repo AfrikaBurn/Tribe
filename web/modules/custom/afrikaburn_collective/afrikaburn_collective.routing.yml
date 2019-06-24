@@ -32,9 +32,25 @@ afrikaburn_collective.accept:
   requirements:
     _role: authenticated
     _may_accept: 'TRUE'
+afrikaburn_collective.accept:
+  path: '/collective/{cid}/accept'
+  defaults:
+    _controller: '\Drupal\afrikaburn_collective\Controller\CollectiveController::accept'
+    _title: 'Accept Invitation'
+  requirements:
+    _role: authenticated
+    _may_accept: 'TRUE'
 
 afrikaburn_collective.ignore:
   path: '/collective/{cid}/ignore/{uid}'
+  defaults:
+    _controller: '\Drupal\afrikaburn_collective\Controller\CollectiveController::ignore'
+    _title: 'Ignore Invitation'
+  requirements:
+    _role: authenticated
+    _may_ignore: 'TRUE'
+afrikaburn_collective.ignore:
+  path: '/collective/{cid}/ignore'
   defaults:
     _controller: '\Drupal\afrikaburn_collective\Controller\CollectiveController::ignore'
     _title: 'Ignore Invitation'
