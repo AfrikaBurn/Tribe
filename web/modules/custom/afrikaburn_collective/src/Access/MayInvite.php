@@ -34,13 +34,13 @@ class MayInvite implements AccessInterface {
     $error = false;
 
     switch(true){
-      case CollectiveController::isBanned($collective, $candidate):
+      case $candidate && CollectiveController::isBanned($collective, $candidate):
         $error = '@user banned from this collective!';
         break;
-      case CollectiveController::isInvited($collective, $candidate):
+      case $candidate && CollectiveController::isInvited($collective, $candidate):
         $error = '@user already invited!';
         break;
-      case CollectiveController::isMember($collective, $candidate):
+      case $candidate && CollectiveController::isMember($collective, $candidate):
         $error = '@user already a member!';
         break;
       case !(

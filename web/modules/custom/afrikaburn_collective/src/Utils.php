@@ -14,9 +14,19 @@ class Utils {
    * Loads member from URL().
    */
   public static function getCandidate() {
+
+    $uid = @array_shift(
+      array_filter(
+        [
+          \Drupal::routeMatch()->getParameter('uid'),
+          Utils::currentUser()->id(),
+        ]
+      )
+    );
+
     return
       \Drupal\user\Entity\User::load(
-        \Drupal::routeMatch()->getParameter('uid')
+        $uid
       );
   }
 

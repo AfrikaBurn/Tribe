@@ -36,7 +36,6 @@ class InviteBlock extends BlockBase {
 
         'emails' => [
           '#type' => 'textfield',
-          '#required' => true,
           '#attributes' => [
             'size' => 34,
             'maxlength' => 2147483646,

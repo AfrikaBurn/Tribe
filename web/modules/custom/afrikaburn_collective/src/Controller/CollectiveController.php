@@ -19,8 +19,6 @@ class CollectiveController extends ControllerBase {
 
   /**
    * Invite a participant to a collective
-   * @param $collective Collective to join user to
-   * @param $user       User to join
    */
   public static function join(){
     list($collective, $user) = CollectiveController::pathParams();
@@ -43,12 +41,108 @@ class CollectiveController extends ControllerBase {
   }
 
   /**
+   * Invite a participant to a collective
+   */
+  public static function bulkInvite(){
+
+    $collective = Utils::currentCollective();
+    $emails = preg_split(
+      '/[;, ]+/',
+      strtolower(str_replace(
+        ['[', ']', '<', '>'],
+        '',
+        \Drupal::request()->request->get('emails')
+      ))
+    );
+
+    $results = [
+      'invited' => 0,
+      'reminded' => 0,
+    ];
+
+    foreach($emails as $email){
+
+      if (preg_match('/[^@]+@[^\.]+\..+/', $email) && !preg_match('/[^a-z0-9\.\+\-\_\@]/', $email)){
+
+        // Find users based on email
+        $query = \Drupal::entityQuery('user', 'OR')
+          ->condition('field_email', $email)
+          ->condition('field_secondary_mail', $email);
+        $uids = $query->execute();
+
+        // Invite existing
+        if (count($uids)){
+
+          foreach(\Drupal\user\Entity\User::loadMultiple($uids) as $user){
+            CollectiveController::set('invite', $collective, $user);
+          }
+          $results['invited']++;
+
+        // Mail non-existing
+        } else {
+          $index = array_search($email, array_column($collective->get('field_col_invite_mail')->getValue(), 'value'));
+          if ($index === FALSE) {
+            $collective->get('field_col_invite_mail')->appendItem(trim($email));
+            $collective->get('field_col_invite_token')->appendItem(md5($collective->getTitle() . $email . time()));
+            $results['invited']++;
+          } else {
+            $collective->get('field_col_invite_token')->set($index, md5($collective->getTitle() . $email . time()));
+            $results['reminded']++;
+          }
+
+          $collective->save();
+        }
+
+      } else {
+        if ($email) {
+          drupal_set_message(
+            $email .
+            t(' does not seem to be a valid email address, please check it and try again.'), 'warning', TRUE
+          );
+        }
+      }
+    }
+
+    if ($results['invited'] || $results['reminded']){
+      drupal_set_message(
+        implode(
+          ', ',
+          array_filter(
+            [
+              $results['invited'] ? $results['invited'] . ' people invited.' : FALSE,
+              $results['reminded'] ? $results['reminded'] . ' people reminded.' : FALSE
+            ]
+          )
+        )
+      );
+    }
+
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
+  }
+
+  /**
    * Accept an invitation to a collective
-   * @param $collective Collective invitation to accept
-   * @param $user       Invited user
    */
   public static function accept(){
     list($collective, $user) = CollectiveController::pathParams();
+
+    $token = \Drupal::request()->get('token');
+    if ($token) {
+      $token_index = @array_search($token, array_column($collective->get('field_col_invite_token')->getValue(), 'value'));
+      if ($token_index !== FALSE) {
+        $collective->get('field_col_invite_mail')->removeItem($token_index);
+        $collective->get('field_col_invite_token')->removeItem($token_index);
+        $collective->save();
+      } else {
+        drupal_set_message(
+          t('Oh no! Your invitation is no longer valid!'),
+          'warning',
+          TRUE
+        );
+        return new RedirectResponse(\Drupal::url('<front>'));
+      }
+    }
+
     CollectiveController::set('member', $collective, $user);
     CollectiveController::clear('invite', $collective, $user);
     Utils::showStatus('@username now a member', Utils::currentUser(), $user);
@@ -57,8 +151,6 @@ class CollectiveController extends ControllerBase {
 
   /**
    * Ignore an invitation to a collective
-   * @param $collective Collective invitation to ignore
-   * @param $user       Invited user
    */
   public static function ignore(){
     list($collective, $user) = CollectiveController::pathParams();
@@ -69,8 +161,6 @@ class CollectiveController extends ControllerBase {
 
   /**
    * Request to join a collective
-   * @param $collective Collective to request membership to
-   * @param $user       User to request membership against
    */
   public static function request(){
     list($collective, $user) = CollectiveController::pathParams();
@@ -81,8 +171,6 @@ class CollectiveController extends ControllerBase {
 
   /**
    * Withdraw a request to join a collective
-   * @param $collective Collective membership request to withdraw
-   * @param $user       User that requested membership
    */
   public static function withdraw(){
     list($collective, $user) = CollectiveController::pathParams();
@@ -94,8 +182,6 @@ class CollectiveController extends ControllerBase {
 
   /**
    * Approve a request to join a collective
-   * @param $collective Collective to approve membership against
-   * @param $user       User to approve membership against
    */
   public static function approve(){
     list($collective, $user) = CollectiveController::pathParams();
@@ -112,8 +198,6 @@ class CollectiveController extends ControllerBase {
 
   /**
    * Reject a request to join a collective
-   * @param $collective Collective to deny membership to
-   * @param $user       User to deny membership against
    */
   public static function reject(){
     list($collective, $user) = CollectiveController::pathParams();
@@ -129,8 +213,6 @@ class CollectiveController extends ControllerBase {
 
   /**
    * Boot a participant from a collective
-   * @param $collective Collective to boot user from
-   * @param $user       User to boot
    */
   public static function leave(){
     list($collective, $user) = CollectiveController::pathParams();
@@ -146,8 +228,6 @@ class CollectiveController extends ControllerBase {
 
   /**
    * Boot a participant from a collective
-   * @param $collective Collective to boot user from
-   * @param $user       User to boot
    */
   public static function boot(){
     list($collective, $user) = CollectiveController::pathParams();
@@ -158,8 +238,6 @@ class CollectiveController extends ControllerBase {
 
   /**
    * Ban a participant from a collective
-   * @param $collective Collective to ban user from
-   * @param $user       User to ban
    */
   public static function ban(){
     list($collective, $user) = CollectiveController::pathParams();
@@ -172,8 +250,6 @@ class CollectiveController extends ControllerBase {
 
   /**
    * Promote a member to admin a collective
-   * @param $collective Collective to promote user to admin in
-   * @param $user       User to promote to admin
    */
   public static function admin(){
     list($collective, $user) = CollectiveController::pathParams();
@@ -184,8 +260,6 @@ class CollectiveController extends ControllerBase {
 
   /**
    * Strip a member from admining a collective
-   * @param $collective Collective in which to strip user admin privileges
-   * @param $user       User to strip admin privileges from
    */
   public static function strip(){
     list($collective, $user) = CollectiveController::pathParams();
@@ -224,7 +298,7 @@ class CollectiveController extends ControllerBase {
    */
   public static function isMember($collective, $user, $stealth = FALSE){
     return
-      !$stealth && (
+      @!$stealth && (
         $user->hasRole('administrator') ||
         $user->hasRole('art_wrangler') ||
         $user->hasRole('mutant_vehicle_wrangler') ||
@@ -242,7 +316,7 @@ class CollectiveController extends ControllerBase {
    */
   public static function isAdmin($collective, $user){
     return
-      !$stealth && (
+      @!$stealth && (
         $user->hasRole('administrator') ||
         $user->hasRole('art_wrangler') ||
         $user->hasRole('mutant_vehicle_wrangler') ||
