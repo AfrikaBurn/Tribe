@@ -20,16 +20,16 @@ settings:
       label: 'Anyone can see the name, picture and description of the Collective.'
     -
       value: public_members
-      label: 'Anyone can see who the Collective members are.'
+      label: 'Anyone can see who the members are.'
     -
       value: private_members
-      label: 'Members can see who the Collective members are.'
+      label: 'Only members may see who the members are.'
     -
       value: public_admins
-      label: 'Anyone can see who the Collective admins are.'
+      label: 'Anyone can see who the admins are.'
     -
       value: private_admins
-      label: 'Members can see who the Collective admins are.'
+      label: 'Only members may see who the admins are.'
     -
       value: privare_members
       label: Discontinued
@@ -47,7 +47,7 @@ settings:
       label: 'Admins may register projects.'
     -
       value: private_projects
-      label: 'Only members can see project registrations.'
+      label: 'Only members may see project registrations.'
     -
       value: private_discussion
       label: 'Only members may see discussions.'
@@ -56,7 +56,7 @@ settings:
       label: 'Only members may participate in discussions.'
     -
       value: emails
-      label: 'Members receive email notifications.'
+      label: 'Members receive eMail updates (that they may opt out of).'
   allowed_values_function: ''
 module: options
 locked: false

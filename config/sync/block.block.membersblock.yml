@@ -8,7 +8,6 @@ dependencies:
     - ctools
     - node
     - php
-    - system
   theme:
     - afrikaburn
 third_party_settings:
@@ -43,10 +42,5 @@ visibility:
   php:
     id: php
     negate: false
-    php: "<?php\r\nuse \\Drupal\\afrikaburn_collective\\Controller\\CollectiveController;\r\nuse \\Drupal\\afrikaburn_collective\\Utils;\r\n\r\n$user = Utils::currentUser($account);\r\n$collective = Utils::currentCollective();\r\n\r\nreturn  $collective && (\r\nCollectiveController::isAdmin($collective, $user) ||\r\nCollectiveController::isMember($collective, $user) && \r\nCollectiveController::setting($collective, 'private_members') || \r\nCollectiveController::setting($collective, 'public_members')\r\n);\r\n?>"
-    context_mapping: {  }
-  request_path:
-    id: request_path
-    pages: '/node/add/*'
-    negate: true
+    php: "<?php\r\nuse \\Drupal\\afrikaburn_collective\\Controller\\CollectiveController;\r\nuse \\Drupal\\afrikaburn_collective\\Utils;\r\n\r\n$user = Utils::currentUser($account);\r\n$collective = Utils::currentCollective();\r\n\r\nreturn  $collective && (\r\n  CollectiveController::isAdmin($collective, $user) ||\r\n  CollectiveController::isMember($collective, $user) && \r\n  CollectiveController::setting($collective, 'private_members') || \r\n  CollectiveController::setting($collective, 'public_members')\r\n);\r\n?>"
     context_mapping: {  }

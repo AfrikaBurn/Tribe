@@ -38,7 +38,15 @@
     <div>({{ fields.field_first_name.content }} {{ fields.field_last_name.content}})</div>
   </div>
 </article>
-{% if (fields.admin.content or fields.strip.content or fields.boot.content or fields.ban.content) %}
+{% if (
+  fields.admin.content or
+  fields.strip.content or
+  fields.boot.content or
+  fields.approve.content or
+  fields.reject.content or
+  fields.ban.content or
+  fields.unban.content
+  ) %}
 <details>
   <summary></summary>
   {{ fields.admin.content }}
@@ -47,5 +55,6 @@
   {{ fields.approve.content }}
   {{ fields.reject.content }}
   {{ fields.ban.content }}
+  {{ fields.unban.content }}
 </details>
 {% endif %}

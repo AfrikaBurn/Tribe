@@ -123,7 +123,7 @@ function _build_join(&$build, $display, $uid, $nid, $is_admin, $is_member){
       'exposing' => $exposure,
       'confirm' => $exposure ? '<p class="links">' .
         $link .
-        '<a class="button cancel" href="' . \Drupal::request()->getRequestUri() . '">No thanks</a>
+        '<a class="button cancel" href="' . \Drupal::request()->getRequestUri() . '">Nope</a>
       </p>' : $link,
       'suffix' => $exposure ? '</section></details>' : '',
     ];
@@ -172,7 +172,7 @@ function _build_request(&$build, $display, $uid, $nid, $is_admin, $is_member){
       'confirm' => $exposure
         ? '<p class="links">' . $link .
             '<a class="button cancel" href="' . \Drupal::request()->getRequestUri() . '">' .
-              ($requested ? 'Ok then' : 'No thanks') .
+              ($requested ? 'Ok then' : 'Nope') .
             '</a>' .
           '</p>'
         : $link,
@@ -264,7 +264,7 @@ function _build_leave(&$build, $display, $uid, $nid, $is_admin, $is_member){
         <section>
           <p>Are you sure?</p>
           <p class="links">
-            <a class="button" href="/collective/' . $nid . '/leave/' . $uid . $destination . '">YES, let me out!</a>
+            <a class="button" href="/collective/' . $nid . '/leave/' . $uid . $destination . '">Let me out!</a>
             <a class="button cancel" href="' . \Drupal::request()->getRequestUri() . '">Never mind</a>
           </p>
         </section>
@@ -342,6 +342,11 @@ function _user_admin_links(&$variables){
       $collective
     );
     $variables['fields']['ban']['content'] = _build_ban(
+      $user,
+      $member,
+      $collective
+    );
+    $variables['fields']['unban']['content'] = _build_unban(
       $user,
       $member,
       $collective
@@ -442,7 +447,8 @@ function _build_reject($user, $member, $collective){
  */
 function _build_ban($user, $member, $collective){
   if (
-    CollectiveController::isAdmin($collective, $user)
+    CollectiveController::isAdmin($collective, $user) &&
+    !CollectiveController::isBanned($collective, $member)
   ){
     return [
       '#markup' =>
@@ -456,12 +462,31 @@ function _build_ban($user, $member, $collective){
 }
 
 /**
+ * Builds an unban link
+ */
+function _build_unban($user, $member, $collective){
+  if (
+    CollectiveController::isAdmin($collective, $user) &&
+    CollectiveController::isBanned($collective, $member)
+  ){
+    return [
+      '#markup' =>
+        '<a class="admin admin-unban" href="/collective/' .
+        $collective->id() .
+        '/unban/' .
+        $member->id() .
+        '">Lift ban</a>',
+    ];
+  }
+}
+
+/**
  * Builds a boot link
  */
 function _build_boot($user, $member, $collective){
   if (
     CollectiveController::isAdmin($collective, $user) &&
-    CollectiveController::isMember($collective, $member)
+    CollectiveController::isMember($collective, $member, TRUE)
   ){
     return [
       '#markup' =>

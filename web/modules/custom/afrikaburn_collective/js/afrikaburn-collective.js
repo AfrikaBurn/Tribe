@@ -29,7 +29,7 @@
              .view-collective-members .pager__item a,\
              .view-my-collectives .pager__item a').click(
             function(){
-              $('.view-content', $(this).parents('.view')).animate({ opacity: 0.5})
+              $('.view-content', $(this).closest('.view')).animate({ opacity: 0.5})
             }
           )
 
@@ -74,7 +74,7 @@
 
                 $(this)
                   .addClass('busy')
-                  .parents('.view')
+                  .closest('.view')
                   .find('.view-content')
                   .animate({ opacity: 0.5})
               }
@@ -97,6 +97,13 @@
             var filter = $('.form-text', context).focus();
             filter[0] ? filter[0].setSelectionRange(100, 100) : false;
           }
+
+          // Close other member popups
+          $('.view-collective-members details summary').click(
+            function(event){
+              $('.view-collective-members details').not($(this).parent()).removeAttr('open')
+            }
+          )
 
           // Collective form settings
           function checkOptions(){

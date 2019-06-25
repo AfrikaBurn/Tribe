@@ -141,8 +141,6 @@ class UpdateController extends ControllerBase {
 
   public static function migrateCollective($cid, &$context) {
 
-    $flag_service = \Drupal::service('flag');
-    $flag = $flag_service->getFlagById('member');
     $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
 
     // Move settings
@@ -155,12 +153,15 @@ class UpdateController extends ControllerBase {
     }
 
     // Move members
+    $flag_service = \Drupal::service('flag');
     $members = [
-      'members' => array_column($collective->get('field_col_members')->getValue(), 'target_id'),
-      'admins' => array_column($collective->get('field_col_admins')->getValue(), 'target_id'),
+      'member' => array_column($collective->get('field_col_members')->getValue(), 'target_id'),
+      'admin' => array_column($collective->get('field_col_admins')->getValue(), 'target_id'),
+      'join' => array_column($collective->get('field_col_requests')->getValue(), 'target_id'),
     ];
 
-    foreach($members as $role){
+    foreach($members as $flag_id=>$role){
+      $flag = $flag_service->getFlagById($flag_id);
       foreach($role as $uid){
         $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
         if (!$flag_service->getFlagging($flag, $collective, $user)){
@@ -170,6 +171,7 @@ class UpdateController extends ControllerBase {
     }
     $collective->set('field_col_members', []);
     $collective->set('field_col_admins', []);
+    $collective->set('field_col_requests', []);
     $collective->save();
 
     $context['results'][] = 1;

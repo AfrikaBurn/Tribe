@@ -33,15 +33,17 @@ class MembersBlock extends BlockBase {
         CollectiveController::setting($collective, 'public_members') ||
         CollectiveController::setting($collective, 'private_members') && CollectiveController::isMember($collective, $user) ||
         CollectiveController::isAdmin($collective, $user),
+      'invite' =>
+        CollectiveController::isAdmin($collective, $user) ||
+        CollectiveController::setting($collective, 'open') && !CollectiveController::setting($collective, 'vetted'),
+      'requests' =>
+        CollectiveController::isAdmin($collective, $user),
       'admins' =>
         CollectiveController::setting($collective, 'public_admins') ||
         CollectiveController::setting($collective, 'private_admins') && CollectiveController::isMember($collective, $user) ||
         CollectiveController::isAdmin($collective, $user),
-      'requests' =>
+      'banned' =>
         CollectiveController::isAdmin($collective, $user),
-      'invite' =>
-        CollectiveController::isAdmin($collective, $user) ||
-        CollectiveController::setting($collective, 'open') && !CollectiveController::setting($collective, 'vetted'),
     ];
 
     foreach(array_filter($show) as $display=>$visible){
@@ -76,6 +78,7 @@ class MembersBlock extends BlockBase {
         case $display == 'requests':
         case $display == 'members':
         case $display == 'admins':
+        case $display == 'banned':
 
           $view = Views::getView('collective_members');
           $view->execute($display);
@@ -97,9 +100,10 @@ class MembersBlock extends BlockBase {
       if ($content) {
         $tabs[$group_name] = [
           '#title' => [
-            'invite' => 'Invite people',
+            'invite' => 'Invite',
             'members' => 'All',
             'admins' => 'Admins',
+            'banned' => 'Banned',
             'requests' => \Drupal::translation()->formatPlural($count, '1 Request', ':count Requests', [':count' => $count]),
           ][$display],
           '#type' => 'details',

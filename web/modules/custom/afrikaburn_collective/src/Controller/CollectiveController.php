@@ -247,6 +247,15 @@ class CollectiveController extends ControllerBase {
     Utils::showStatus('@username now banned', Utils::currentUser(), $user);
     return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
   }
+  /**
+   * Unban a participant from a collective
+   */
+  public static function unban(){
+    list($collective, $user) = CollectiveController::pathParams();
+    CollectiveController::clear('ban', $collective, $user);
+    Utils::showStatus('@username now unbanned', Utils::currentUser(), $user);
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
+  }
 
   /**
    * Promote a member to admin a collective

@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Checks whether a user may ban users.
+ * Checks whether a user may unban users.
  */
 
 namespace Drupal\afrikaburn_collective\Access;
@@ -14,13 +14,13 @@ use Drupal\user\Entity\User;
 use Drupal\afrikaburn_collective\Controller\CollectiveController;
 use Drupal\afrikaburn_collective\Utils;
 
-class MayBan implements AccessInterface {
+class MayUnban implements AccessInterface {
 
   /**
    * Implements appliesTo().
    */
   public function appliesTo() {
-    return '_may_ban';
+    return '_may_unban';
   }
 
   /**
@@ -38,7 +38,7 @@ class MayBan implements AccessInterface {
         $error = 'You are not an administrator of this collective!';
         break;
       case $user->id() == $candidate->id():
-        $error = 'You may not ban yourself!';
+        $error = 'You may not unban yourself!';
         break;
     }
 

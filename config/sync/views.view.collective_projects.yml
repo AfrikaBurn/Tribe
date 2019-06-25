@@ -79,7 +79,7 @@ display:
             items_per_page_options_all_label: '- All -'
             offset: false
             offset_label: Offset
-          quantity: 9
+          quantity: 5
       style:
         type: default
         options:
@@ -619,7 +619,7 @@ display:
               sanctuary_admin: '0'
               logger: '0'
               anathi: '0'
-            placeholder: Filter
+            placeholder: 'Filter projects'
           is_grouped: false
           group_info:
             label: ''

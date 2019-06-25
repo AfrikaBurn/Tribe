@@ -6,6 +6,7 @@ dependencies:
     - field.storage.node.field_col_admins
     - field.storage.node.field_col_members
     - field.storage.user.field_email
+    - flag.flag.member
     - node.type.art
     - node.type.collective
     - node.type.mutant_vehicles
@@ -33,6 +34,7 @@ dependencies:
     - user.role.volunteer_admin
   module:
     - computed_field
+    - flag
     - node
     - rest
     - serialization
@@ -1022,7 +1024,7 @@ display:
           id: uid
           table: users_field_data
           field: uid
-          relationship: field_col_members
+          relationship: uid
           group_type: group
           admin_label: ''
           label: ''
@@ -1088,7 +1090,7 @@ display:
           id: uid_1
           table: users_field_data
           field: uid
-          relationship: field_col_members
+          relationship: uid
           group_type: count_distinct
           admin_label: ''
           label: Members
@@ -1204,7 +1206,7 @@ display:
           empty_zero: false
           hide_alter_empty: true
           view: collective_members
-          display: admin_block
+          display: members
           arguments: '{{ raw_fields.nid }}'
           plugin_id: view
         nid_1:
@@ -1352,15 +1354,6 @@ display:
         pager: false
       path: wrangle/people/collectives
       relationships:
-        field_col_members:
-          id: field_col_members
-          table: node__field_col_members
-          field: field_col_members
-          relationship: none
-          group_type: group
-          admin_label: Members
-          required: false
-          plugin_id: standard
         reverse__node__field_collective:
           id: reverse__node__field_collective
           table: node_field_data
@@ -1371,6 +1364,29 @@ display:
           required: false
           entity_type: node
           plugin_id: entity_reverse
+        flag_relationship:
+          id: flag_relationship
+          table: node_field_data
+          field: flag_relationship
+          relationship: none
+          group_type: group
+          admin_label: Membership
+          required: false
+          flag: member
+          user_scope: any
+          entity_type: node
+          plugin_id: flag_relationship
+        uid:
+          id: uid
+          table: flagging
+          field: uid
+          relationship: flag_relationship
+          group_type: group
+          admin_label: Member
+          required: false
+          entity_type: flagging
+          entity_field: uid
+          plugin_id: standard
       display_description: ''
       menu:
         type: normal

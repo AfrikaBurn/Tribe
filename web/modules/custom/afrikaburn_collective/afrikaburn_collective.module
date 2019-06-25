@@ -235,11 +235,10 @@ function afrikaburn_collective_flag_action_access($action, $flag, $account, $col
  */
 function afrikaburn_collective_form_alter(&$form, $form_state, $form_id) {
   if (preg_match('/^node_collective/', $form_id)) {
-
     $user = User::load(\Drupal::currentUser()->id());
     $form['field_col_admins']['#access'] = false;
     $form['field_col_members']['#access'] = false;
-    $form['field_col_requests']['#access'] = $user->hasRole('administrator');
+    $form['field_col_requests']['#access'] = false;
     $form['field_col_invite_mail']['#access'] = $user->hasRole('administrator');
     $form['field_col_invite_token']['#access'] = $user->hasRole('administrator');
     $form['field_settings']['widget']['#title'] = '';
@@ -376,7 +375,7 @@ function afrikaburn_collective_preprocess_views_view_fields(&$variables) {
 
   if (
     $view->id() == 'collective_members' &&
-    in_array($view->current_display, ['members', 'admins', 'requests'])
+    in_array($view->current_display, ['members', 'admins', 'requests', 'banned'])
   ){
     _user_admin_links($variables);
   }

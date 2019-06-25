@@ -18,7 +18,7 @@ body .js-wizard .horizontal-tabs .horizontal-tabs-list li{
   border: 1px solid #000;
   border-radius: 10px;
   padding: 0;
-  margin: 0 15px 0 0;
+  margin: 0 15px 0 0 !important;
   min-width: 65px;
   position: relative;
 }
@@ -106,6 +106,7 @@ body .js-wizard .horizontal-tabs .horizontal-tabs-list li:after{
 
 .js-wizard .wizard-actions .form-actions{
   width: 50% !important;
+  margin-top: 0 !important;
 }
 
 .js-wizard .wizard-actions .js-next,

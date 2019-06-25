@@ -348,6 +348,30 @@ article.collective-post header a{
   display: none;
 }
 
+#edit-field-settings .form-item:first-child:before{
+  margin-top: 0;
+}
+
+#edit-field-settings .form-item:before{
+  display: block;
+  margin: 20px 0 10px;
+  font-size: 110%;
+  font-weight: bold;
+}
+
+#edit-field-settings .form-item-field-settings-public:before{
+  content: 'Privacy';
+}
+#edit-field-settings .form-item-field-settings-open:before{
+  content: 'Membership';
+}
+#edit-field-settings .form-item-field-settings-projects:before{
+  content: 'Projects';
+}
+#edit-field-settings .form-item-field-settings-emails:before{
+  content: 'Notification';
+}
+
 
 /* ---- Actions ---- */
 
@@ -450,19 +474,19 @@ div.invitation{
 
 
 .collective-actions details .links .button{
-  font-size: 90%;
-  padding: 10px 5px;
-  line-height: 1em;
+  font-size: 1em;
+  padding: 0.25em 1em;
+  line-height: 1.5em;
   letter-spacing: unset;
   height: auto;
   border-color: #000;
 }
 .collective-actions details .links .button:first-child{
-  border-radius: 15px 0 0 15px;
+  border-radius: 2em 0 0 2em;
   padding-left: 10px;
 }
 .collective-actions details .links .button:last-child{
-  border-radius: 0 15px 15px 0;
+  border-radius: 0 2em 2em 0;
   padding-right: 10px;
   background-color: #88BA1D;
 }
@@ -479,7 +503,8 @@ div.invitation{
 }
 
 .sidebar-outer.collectivebar .sidebar .horizontal-tabs-list a{
-  padding: 1px;
+  padding: 2px 2px 0 2px;
+  font-size: 85%;
 }
 
 .sidebar-outer.collectivebar .sidebar .horizontal-tabs-list li{
@@ -637,20 +662,45 @@ div.invitation{
 .view-collective-members details{
   position: relative;
   border-radius: 5px;
-  padding-top: 60px;
+  padding-top: 50px;
 }
 
 .view-collective-members details[open]{
   background: #761928;
+  padding-top: 60px;
+  padding-bottom: 15px;
 }
 
 .view-collective-members details a{
   display: block;
-  padding: 5px 15px;
+  padding: 5px 15px 5px 65px;
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: 40px center;
 }
-
 .view-collective-members details a:hover{
-  background: #ffefb622
+  background-color: #ffefb622
+}
+.view-collective-members details a.admin-admin{
+  background-image: url(../images/admin.svg);
+}
+.view-collective-members details a.admin-strip{
+  background-image: url(../images/unadmin.svg);
+}
+.view-collective-members details a.admin-boot{
+  background-image: url(../images/exit.svg);
+}
+.view-collective-members details a.admin-ban{
+  background-image: url(../images/ban.svg);
+}
+.view-collective-members details a.admin-unban{
+  background-image: url(../images/unban.svg);
+}
+.view-collective-members details a.admin-grant{
+  background-image: url(../images/accept.svg);
+}
+.view-collective-members details a.admin-deny{
+  background-image: url(../images/ignore.svg);
 }
 
 .view-collective-members summary{
