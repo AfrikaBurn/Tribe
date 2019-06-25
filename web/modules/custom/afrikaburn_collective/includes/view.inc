@@ -92,7 +92,7 @@ function _build_post_form(&$build, $display, $uid, $nid, $is_admin, $is_member){
 }
 
 
-/* --- Links --- */
+/* --- Collective links --- */
 
 
 /**
@@ -266,8 +266,8 @@ function _build_leave(&$build, $display, $uid, $nid, $is_admin, $is_member){
           <p class="links">
             <a class="button" href="/collective/' . $nid . '/leave/' . $uid . $destination . '">YES, let me out!</a>
             <a class="button cancel" href="' . \Drupal::request()->getRequestUri() . '">Never mind</a>
-            </p>
-          <section>
+          </p>
+        </section>
       </details>',
     ];
   }
@@ -331,6 +331,16 @@ function _user_admin_links(&$variables){
       $member,
       $collective
     );
+    $variables['fields']['approve']['content'] = _build_approve(
+      $user,
+      $member,
+      $collective
+    );
+    $variables['fields']['reject']['content'] = _build_reject(
+      $user,
+      $member,
+      $collective
+    );
     $variables['fields']['ban']['content'] = _build_ban(
       $user,
       $member,
@@ -355,7 +365,8 @@ function _user_admin_links(&$variables){
 function _build_admin($user, $member, $collective){
   if (
     CollectiveController::isAdmin($collective, $user) &&
-    !CollectiveController::isAdmin($collective, $member)
+    !CollectiveController::isAdmin($collective, $member, TRUE) &&
+    CollectiveController::isMember($collective, $member, TRUE)
   ){
     return [
       '#markup' =>
@@ -364,6 +375,64 @@ function _build_admin($user, $member, $collective){
         '/admin/' .
         $member->id() .
         '">Promote to Admin</a>',
+    ];
+  }
+}
+
+/**
+ * Builds a strip link
+ */
+function _build_strip($user, $member, $collective){
+  if (
+    CollectiveController::isAdmin($collective, $user) &&
+    CollectiveController::isAdmin($collective, $member, TRUE) &&
+    CollectiveController::isMember($collective, $member, TRUE)
+  ){
+    return [
+      '#markup' =>
+        '<a class="admin admin-strip" href="/collective/' .
+        $collective->id() .
+        '/strip/' .
+        $member->id() .
+        '">Strip admin privileges</a>',
+    ];
+  }
+}
+
+/**
+ * Builds a grant link
+ */
+function _build_approve($user, $member, $collective){
+  if (
+    CollectiveController::isAdmin($collective, $user) &&
+    CollectiveController::isRequested($collective, $member)
+  ){
+    return [
+      '#markup' =>
+        '<a class="admin admin-grant" href="/collective/' .
+        $collective->id() .
+        '/approve/' .
+        $member->id() .
+        '">Approve request</a>',
+    ];
+  }
+}
+
+/**
+ * Builds a reject link
+ */
+function _build_reject($user, $member, $collective){
+  if (
+    CollectiveController::isAdmin($collective, $user) &&
+    CollectiveController::isRequested($collective, $member)
+  ){
+    return [
+      '#markup' =>
+        '<a class="admin admin-deny" href="/collective/' .
+        $collective->id() .
+        '/reject/' .
+        $member->id() .
+        '">Reject request</a>',
     ];
   }
 }
@@ -390,7 +459,10 @@ function _build_ban($user, $member, $collective){
  * Builds a boot link
  */
 function _build_boot($user, $member, $collective){
-  if (CollectiveController::isAdmin($collective, $user)){
+  if (
+    CollectiveController::isAdmin($collective, $user) &&
+    CollectiveController::isMember($collective, $member)
+  ){
     return [
       '#markup' =>
         '<a class="admin admin-boot" href="/collective/' .
@@ -398,25 +470,6 @@ function _build_boot($user, $member, $collective){
         '/boot/' .
         $member->id() .
         '">Boot from collective</a>',
-    ];
-  }
-}
-
-/**
- * Builds a strip link
- */
-function _build_strip($user, $member, $collective){
-  if (
-    CollectiveController::isAdmin($collective, $user) &&
-    CollectiveController::isAdmin($collective, $member)
-  ){
-    return [
-      '#markup' =>
-        '<a class="admin admin-strip" href="/collective/' .
-        $collective->id() .
-        '/strip/' .
-        $member->id() .
-        '">Strip admin privileges</a>',
     ];
   }
 }

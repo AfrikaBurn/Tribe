@@ -40,9 +40,6 @@ class MayApprove implements AccessInterface {
       case !CollectiveController::isInvited($collective, $candidate):
         $error = '@user not invited or already approved!';
         break;
-      case CollectiveController::isMember($collective, $candidate):
-        $error = '@user already a member!';
-        break;
       case !CollectiveController::isAdmin($collective, $user):
         $error = 'You are not an administrator of this collective!';
         break;

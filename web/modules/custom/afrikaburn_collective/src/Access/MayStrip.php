@@ -34,9 +34,6 @@ class MayStrip implements AccessInterface {
     $error = false;
 
     switch(true){
-      case !CollectiveController::isAdmin($collective, $candidate):
-        $error = '@user already not an admin!';
-        break;
       case !CollectiveController::isAdmin($collective, $user):
         $error = 'You are not an administrator of this collective!';
         break;

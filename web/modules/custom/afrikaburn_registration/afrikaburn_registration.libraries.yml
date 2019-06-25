@@ -10,6 +10,8 @@ block:
   css:
     theme:
       css/afrikaburn-project-block.css: {}
+  js:
+    js/afrikaburn-project-registration-block.js: {}
 print:
   version: 0.0
   css:

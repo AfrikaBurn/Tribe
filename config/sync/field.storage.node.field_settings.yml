@@ -25,6 +25,12 @@ settings:
       value: private_members
       label: 'Members can see who the Collective members are.'
     -
+      value: public_admins
+      label: 'Anyone can see who the Collective admins are.'
+    -
+      value: private_admins
+      label: 'Members can see who the Collective admins are.'
+    -
       value: privare_members
       label: Discontinued
     -

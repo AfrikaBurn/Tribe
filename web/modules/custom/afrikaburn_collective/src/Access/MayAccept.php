@@ -43,9 +43,6 @@ class MayAccept implements AccessInterface {
       case !CollectiveController::isInvited($collective, $candidate):
         $error = '@user not invited to join this collective!';
         break;
-      case CollectiveController::isMember($collective, $candidate, TRUE):
-        $error = '@user already a member!';
-        break;
     }
 
     if ($error){

@@ -30,11 +30,13 @@ div.body-content .block .view-id-collective_projects table td.image img{
 }
 
 div.body-content .block .view-id-collective_projects table td.name{
-  padding: 5px 10px;
+  padding: 5px 0;
   border-top: 10px solid #350b04;
 }
 div.body-content .block .view-id-collective_projects table td.name > a{
   float: left;
+  font-size: 90%;
+  text-transform: uppercase;
 }
 div.body-content .block .view-id-collective_projects table td.name .flag-mute a{
   height: 15px;
@@ -65,7 +67,7 @@ div.body-content .block .view-id-collective_projects li.messages{
 }
 
 div.body-content .block .view-id-collective_projects li.messages{
-  background-color: #550000;
+  background-color: transparent;
 }
 
 div.body-content .block .view-id-collective_projects li.messages:hover{
@@ -148,7 +150,22 @@ div.body-content .block .view-id-collective_projects .messages--archive:before{
   line-height: 110%;
 }
 
-
 div.body-content table th {
   text-align: left !important;
+}
+
+.block-registration-block .form-actions{
+  display: none;
+}
+.block-registration-block .form-item,
+.block-registration-block input{
+  max-width: 100%;
+  width: 100%;
+}
+.block-registration-block input.busy{
+  background: #fff url(/core/modules/quickedit/images/icon-throbber.gif) no-repeat 98% center;
+}
+
+.block-registration-block .new-project{
+  padding-left: 20px;
 }

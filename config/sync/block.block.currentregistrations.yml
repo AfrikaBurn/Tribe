@@ -20,13 +20,13 @@ provider: null
 plugin: registration_block
 settings:
   id: registration_block
-  label: 'Current projects'
+  label: Projects
   provider: afrikaburn_registration
   label_display: visible
 visibility:
   php:
     id: php
-    php: "<?php \r\nuse \\Drupal\\afrikaburn_collective\\Controller\\CollectiveController;\r\nuse \\Drupal\\afrikaburn_collective\\Utils;\r\n\r\n$user = Utils::currentUser();\r\n$collective = Utils::currentCollective();\r\n\r\nreturn $collective && (\r\n  CollectiveController::hasCurrentProjects() &&\r\n  (\r\n    CollectiveController::isMember($collective, $user) || \r\n    !CollectiveController::setting($collective, 'private_projects')\r\n  )\r\n);\r\n?>"
+    php: "<?php \r\nuse \\Drupal\\afrikaburn_collective\\Controller\\CollectiveController;\r\nuse \\Drupal\\afrikaburn_collective\\Utils;\r\n\r\n$user = Utils::currentUser();\r\n$collective = Utils::currentCollective();\r\n\r\nreturn \r\n  $collective && \r\n  CollectiveController::isAdmin($collective, $user) ||\r\n  (\r\n    CollectiveController::isMember($collective, $user) && \r\n    CollectiveController::setting($collective, 'private_projects')\r\n  ) ||\r\n  !CollectiveController::setting($collective, 'private_projects'\r\n);\r\n?>"
     negate: false
     context_mapping: {  }
   node_type:

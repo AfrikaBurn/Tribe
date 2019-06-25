@@ -34,9 +34,6 @@ class MayReject implements AccessInterface {
     $error = false;
 
     switch(true){
-      case !CollectiveController::isInvited($collective, $candidate):
-        $error = '@user not invited or already vetted!';
-        break;
       case !CollectiveController::isAdmin($collective, $user):
         $error = 'You are not an administrator of this collective!';
         break;

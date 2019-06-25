@@ -14,13 +14,13 @@ function _project_form_modes(){
     'art' => [
       'title' => 'Artwork',
       'modes' => [
-        'form_1' => 'Registration form 1',
-        'form_2' => 'Registration form 2',
-        'form_3' => 'Registration form 3',
+        'form_1' => 'Introduction',
+        'form_2' => 'Specification',
+        'form_3' => 'Publishing',
         'grant' => 'Grant application',
         'support_camp' => 'Support camp',
         'supplier' => 'Supplier registration',
-        'waps' => 'Work access passes',
+        'waps' => 'Work Access Passes',
       ],
     ],
 
@@ -31,7 +31,7 @@ function _project_form_modes(){
         'grant' => 'Grant application',
         'support_camp' => 'Support camp',
         'supplier' => 'Supplier registration',
-        'waps' => 'Work access passes',
+        'waps' => 'Work Access Passes',
       ],
     ],
 
@@ -42,19 +42,19 @@ function _project_form_modes(){
         'grant' => 'Grant application',
         'support_camp' => 'Support camp',
         'supplier' => 'Supplier registration',
-        'waps' => 'Work access passes',
+        'waps' => 'Work Access Passes',
       ],
     ],
 
     'theme_camps' => [
       'title' => 'Theme Camp',
       'modes' => [
-        'form_1' => 'Registration form 1',
-        'form_2' => 'Registration form 2',
-        'form_3' => 'Registration form 3',
+        'form_1' => 'Introduction',
+        'form_2' => 'Specification',
+        'form_3' => 'Publishing',
         'support_camp' => 'Support camp',
         'supplier' => 'Supplier registration',
-        'waps' => 'Work access passes',
+        'waps' => 'Work Access Passes',
       ],
     ],
   ];
@@ -81,19 +81,19 @@ function _project_form_config() {
     ],
     'node_art_form_1_form' => [
       'mode' => 'form_1',
-      'title' => 'Registering: %title',
+      'title' => 'Introduction: %title',
       'type' => 'an Artwork',
       'wrangler' => 'art_wrangler'
     ],
     'node_art_form_2_form' => [
       'mode' => 'form_2',
-      'title' => 'Continuing registration: %title',
+      'title' => 'Specification: %title',
       'type' => 'an Artwork',
       'wrangler' => 'art_wrangler'
     ],
     'node_art_form_3_form' => [
       'mode' => 'form_3',
-      'title' => 'Completing registration: %title',
+      'title' => 'Publishing: %title',
       'type' => 'an Artwork',
       'wrangler' => 'art_wrangler'
     ],
@@ -127,7 +127,7 @@ function _project_form_config() {
     ],
     'node_performances_form_1_form' => [
       'mode' => 'form_1',
-      'title' => 'Registering: %title',
+      'title' => 'Introduction: %title',
       'type' => 'a Binnekring event',
       'wrangler' => 'art_wrangler'
     ],
@@ -161,7 +161,7 @@ function _project_form_config() {
     ],
     'node_mutant_vehicles_form_1_form' => [
       'mode' => 'form_1',
-      'title' => 'Registering: %title',
+      'title' => 'Introduction: %title',
       'type' => 'a Mutant Vehicle',
       'wrangler' => 'mutant_vehicle_wrangler'
     ],
@@ -195,25 +195,25 @@ function _project_form_config() {
     ],
     'node_theme_camps_form_1_form' => [
       'mode' => 'form_1',
-      'title' => 'Registering: %title',
+      'title' => 'Introduction: %title',
       'type' => 'a Theme Camp',
       'wrangler' => 'theme_camp_wrangler'
     ],
     'node_theme_camps_form_2_form' => [
       'mode' => 'form_2',
-      'title' => 'Continuing registration: %title',
+      'title' => 'Specification: %title',
       'type' => 'a Theme Camp',
       'wrangler' => 'theme_camp_wrangler'
     ],
     'node_theme_camps_form_3_form' => [
       'mode' => 'form_3',
-      'title' => 'Completing registration: %title',
+      'title' => 'Publishing: %title',
       'type' => 'a Theme Camp',
       'wrangler' => 'theme_camp_wrangler'
     ],
     'node_theme_camps_support_camp_form' => [
       'mode' => 'support_camp',
-      'title' => 'Registering: %title',
+      'title' => 'Introduction: %title',
       'type' => 'a Support Camp',
       'wrangler' => 'theme_camp_wrangler'
     ],

@@ -34,9 +34,6 @@ class MayRequest implements AccessInterface {
     $error = false;
 
     switch(true){
-      case CollectiveController::isRequested($collective, $candidate):
-        $error = '@user already requested!';
-        break;
       case CollectiveController::isBanned($collective, $candidate):
         $error = '@user banned from this collective!';
         break;

@@ -376,7 +376,7 @@ function afrikaburn_collective_preprocess_views_view_fields(&$variables) {
 
   if (
     $view->id() == 'collective_members' &&
-    $view->current_display == 'members_block'
+    in_array($view->current_display, ['members', 'admins', 'requests'])
   ){
     _user_admin_links($variables);
   }

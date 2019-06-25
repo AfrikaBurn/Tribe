@@ -34,9 +34,6 @@ class MayJoin implements AccessInterface {
     $error = false;
 
     switch(true){
-      case CollectiveController::isMember($collective, $candidate, TRUE):
-        $error = '@user already a member!';
-        break;
       case CollectiveController::isBanned($collective, $candidate):
         $error = '@user banned from this collective!';
         break;

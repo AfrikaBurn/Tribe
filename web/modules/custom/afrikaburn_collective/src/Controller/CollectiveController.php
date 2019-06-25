@@ -156,7 +156,7 @@ class CollectiveController extends ControllerBase {
     list($collective, $user) = CollectiveController::pathParams();
     CollectiveController::clear('invite', $collective, $user);
     Utils::showStatus('Invitation ignored', Utils::currentUser(), $user);
-    return new RedirectResponse(\Drupal\Core\Url::fromUserInput(\Drupal::destination()->get()));
+    return new RedirectResponse(\Drupal::url('<front>'));
   }
 
   /**
@@ -314,7 +314,7 @@ class CollectiveController extends ControllerBase {
    * @param $user       User to check administratorship against
    * @param $stealth    Ignore system admin status
    */
-  public static function isAdmin($collective, $user){
+  public static function isAdmin($collective, $user, $stealth = FALSE){
     return
       @!$stealth && (
         $user->hasRole('administrator') ||
@@ -397,7 +397,7 @@ class CollectiveController extends ControllerBase {
    * @param $setting    Setting to check
    */
   public static function setting($collective, $setting){
-    return @array_fill_keys(
+    return $collective && @array_fill_keys(
       array_column(
         $collective->field_settings->getValue(),
         'value'

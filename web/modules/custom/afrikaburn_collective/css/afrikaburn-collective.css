@@ -123,6 +123,8 @@ body .view.view-my-collectives.view-display-id-invitations .my-collective-action
 
 .sidebar-outer nav.pager .pager__items li{
   border: none;
+  padding: 0;
+  margin: 0 5px;
 }
 
 .sidebar-outer nav.pager .pager__items li a{
@@ -130,7 +132,7 @@ body .view.view-my-collectives.view-display-id-invitations .my-collective-action
   cursor: pointer;
   width: 20px;
   height: 20px;
-  display: inline-block;
+  display: block;
 }
 
 .sidebar-outer nav.pager .pager__items li.is-active a,
@@ -351,12 +353,16 @@ article.collective-post header a{
 
 
 .collective-actions{
+  background-color: #000b;
+  border-radius: 5px 5px 0 0;
   display: flex;
   justify-content: flex-end;
   margin-bottom: 20px;
-  position: relative;
+  position: absolute;
   right: 0;
   left: 0;
+  overflow: hidden;
+  height: 40px;
 }
 
 div.invitation{
@@ -369,7 +375,8 @@ div.invitation{
 
 .view-collectives-find .collective-actions{
   position: absolute;
-  bottom: -55px;
+  bottom: -60px;
+  border-radius: 0 0 5px 5px;
 }
 
 .collective-actions > a,
@@ -377,31 +384,30 @@ div.invitation{
 .collective-actions summary{
   background-position: 10px center;
   background-repeat: no-repeat;
-  background-color: #ffefb622;
   padding: 10px 0 50px;
   text-align: center;
-  border-radius: 10px;
-  margin: 0 0 -35px;;
+  margin: 0 0 -35px;
   background-size: 18px;
-  border-radius: 10px;
   color: #ffefb6 !important;
   display: inline-block;
-  line-height: 24px;
-  margin: 0 0 0 10px;
-  padding: 7px 10px 5px 34px;
+  line-height: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 5px 20px 5px 34px;
   text-decoration: none;
   text-align: left;
   width: auto;
-  height: 25px;
+  height: 30px;
   outline: none;
   cursor: pointer;
 }
 
-.collective-actions > a:hover,
+.collective-actions a:hover,
 .collective-actions .flag a:hover,
-.collective-actions summary:hover{
-  color: #fff;
-  background-color: #ffefb655;
+.collective-actions summary:hover,
+.collective-actions details[open] summary{
+  background-color: #0009;
+  color: #fff !important;
 }
 
 .collective-actions .edit{ background-image: url(../images/edit.svg);}
@@ -429,7 +435,7 @@ div.invitation{
   left: 0; top: 100%;
   padding: 10px 40px;
   right: 0;
-  border-radius: 5px;
+  border-radius: 0 0 5px 5px;
 }
 
 .view-collectives-find .collective-actions details section{
@@ -472,23 +478,30 @@ div.invitation{
   margin-top: 48px;
 }
 
+.sidebar-outer.collectivebar .sidebar .horizontal-tabs-list a{
+  padding: 1px;
+}
 
-/* ---- Members view ---- */
+.sidebar-outer.collectivebar .sidebar .horizontal-tabs-list li{
+  border-bottom-color: #350b04;
+}
+
+/* ---- Collective view ---- */
 
 
 .node--type-collective .field--name-field-picture{
   width: 100%;
-  border-radius: 10px;
+  border-radius: 5px;
   overflow: hidden;
+  min-height: 40px;
+  margin-bottom: 20px;
+}
+.node--type-collective .field--name-field-picture img{
+  display: block;
 }
 
 .node--type-collective .field--name-field-settings{
   margin: 40px 0;
-}
-
-#block-membersblock .colorbox{
-  float: left;
-  margin: 5px 10px 0 0;
 }
 
 
@@ -534,6 +547,10 @@ div.invitation{
   margin-top: 10px;
 }
 
+.view-collectives-find .view-content .views-row img{
+  display: block;
+  border-radius: 5px 5px 0 0;
+}
 
 .view-collectives-find .view-content .views-row .layout,
 .view-collectives-find .view-content .views-row .layout__region--content{
@@ -586,6 +603,10 @@ div.invitation{
   padding: 5px;
   min-height: 40px;
   position: relative;
+}
+
+.view-collective-members {
+  margin-bottom: 40px;
 }
 
 .view-collective-members .views-row article{

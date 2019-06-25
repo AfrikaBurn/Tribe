@@ -14,7 +14,7 @@ body .horizontal-tabs ul.horizontal-tabs-list{
 body .horizontal-tabs .horizontal-tabs-list li{
   background: none;
   border: none;
-  margin: 5px 0 -3px;
+  margin: 5px 0 -3px !important;
 }
 
 body .horizontal-tabs .horizontal-tabs-list li a:hover{
@@ -43,7 +43,7 @@ body .horizontal-tabs .horizontal-tabs-list:after{
 }
 
 body .horizontal-tabs .horizontal-tabs-list li{
-  padding: 0 10px;
+  padding: 0 5px !important;
 }
 
 body .horizontal-tabs .horizontal-tabs-list li.selected{

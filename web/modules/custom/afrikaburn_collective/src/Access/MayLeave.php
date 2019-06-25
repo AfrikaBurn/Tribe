@@ -34,9 +34,6 @@ class MayLeave implements AccessInterface {
     $error = false;
 
     switch(true){
-      case !CollectiveController::isMember($collective, $candidate):
-        $error = '@user already gone!';
-        break;
       case $user->id() != $candidate->id():
         $error = 'How rude, this isn\'t you! Who the fuck are you?';
         break;

@@ -6,6 +6,8 @@ dependencies:
     - field.storage.user.field_first_name
     - field.storage.user.field_last_name
     - field.storage.user.user_picture
+    - flag.flag.admin
+    - flag.flag.join
     - flag.flag.member
     - image.style.tiny_25x25
   module:
@@ -345,7 +347,21 @@ display:
           field_api_classes: false
           plugin_id: field
       filters: {  }
-      sorts: {  }
+      sorts:
+        name:
+          id: name
+          table: users_field_data
+          field: name
+          relationship: uid
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          entity_type: user
+          entity_field: name
+          plugin_id: standard
       header: {  }
       footer: {  }
       empty: {  }
@@ -428,6 +444,124 @@ display:
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
         - 'config:field.storage.user.user_picture'
+  admins:
+    display_plugin: embed
+    id: admins
+    display_title: Admins
+    position: 3
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      filters:
+        combine:
+          id: combine
+          table: views
+          field: combine
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: combine_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: combine_op
+            identifier: combine
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              art_wrangler: '0'
+              art_admin: '0'
+              communications_wrangler: '0'
+              communications_admin: '0'
+              leave_no_trace_moop: '0'
+              mutant_vehicle_viewer: '0'
+              mutant_vehicle_wrangler: '0'
+              mutant_vehicle_admin: '0'
+              outreach_wrangler: '0'
+              outreach_admin: '0'
+              administrator: '0'
+              support_wrangler: '0'
+              support_admin: '0'
+              theme_camp_wrangler: '0'
+              theme: '0'
+              supplier: '0'
+              dpw: '0'
+              volunteer_admin: '0'
+              ranger_admin: '0'
+              sanctuary_admin: '0'
+              logger: '0'
+              anathi: '0'
+            placeholder: 'Filter members'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          fields:
+            name: name
+            field_first_name: field_first_name
+            field_last_name: field_last_name
+          plugin_id: combine
+      defaults:
+        filters: false
+        filter_groups: false
+        relationships: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      relationships:
+        flag_relationship:
+          id: flag_relationship
+          table: node_field_data
+          field: flag_relationship
+          relationship: none
+          group_type: group
+          admin_label: Admins
+          required: true
+          flag: admin
+          user_scope: any
+          entity_type: node
+          plugin_id: flag_relationship
+        uid:
+          id: uid
+          table: flagging
+          field: uid
+          relationship: flag_relationship
+          group_type: group
+          admin_label: Admin
+          required: true
+          entity_type: flagging
+          entity_field: uid
+          plugin_id: standard
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.user.field_first_name'
+        - 'config:field.storage.user.field_last_name'
+        - 'config:field.storage.user.user_picture'
   entity_reference_1:
     display_plugin: entity_reference
     id: entity_reference_1
@@ -464,9 +598,9 @@ display:
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
         - 'config:field.storage.user.user_picture'
-  members_block:
-    display_plugin: block
-    id: members_block
+  members:
+    display_plugin: embed
+    id: members
     display_title: Members
     position: 1
     display_options:
@@ -544,6 +678,124 @@ display:
         operator: AND
         groups:
           1: AND
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.user.field_first_name'
+        - 'config:field.storage.user.field_last_name'
+        - 'config:field.storage.user.user_picture'
+  requests:
+    display_plugin: embed
+    id: requests
+    display_title: Requests
+    position: 4
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      filters:
+        combine:
+          id: combine
+          table: views
+          field: combine
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: combine_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: combine_op
+            identifier: combine
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              art_wrangler: '0'
+              art_admin: '0'
+              communications_wrangler: '0'
+              communications_admin: '0'
+              leave_no_trace_moop: '0'
+              mutant_vehicle_viewer: '0'
+              mutant_vehicle_wrangler: '0'
+              mutant_vehicle_admin: '0'
+              outreach_wrangler: '0'
+              outreach_admin: '0'
+              administrator: '0'
+              support_wrangler: '0'
+              support_admin: '0'
+              theme_camp_wrangler: '0'
+              theme: '0'
+              supplier: '0'
+              dpw: '0'
+              volunteer_admin: '0'
+              ranger_admin: '0'
+              sanctuary_admin: '0'
+              logger: '0'
+              anathi: '0'
+            placeholder: 'Filter members'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          fields:
+            name: name
+            field_first_name: field_first_name
+            field_last_name: field_last_name
+          plugin_id: combine
+      defaults:
+        filters: false
+        filter_groups: false
+        relationships: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      relationships:
+        flag_relationship:
+          id: flag_relationship
+          table: node_field_data
+          field: flag_relationship
+          relationship: none
+          group_type: group
+          admin_label: Requests
+          required: true
+          flag: join
+          user_scope: any
+          entity_type: node
+          plugin_id: flag_relationship
+        uid:
+          id: uid
+          table: flagging
+          field: uid
+          relationship: flag_relationship
+          group_type: group
+          admin_label: Prospective
+          required: true
+          entity_type: flagging
+          entity_field: uid
+          plugin_id: standard
     cache_metadata:
       max-age: -1
       contexts:

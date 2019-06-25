@@ -37,9 +37,6 @@ class MayBoot implements AccessInterface {
       case $user->id() == $candidate->id():
         $error = 'You may not boot yourself!';
         break;
-      case !CollectiveController::isMember($collective, $candidate):
-        $error = '@user already not a member!';
-        break;
       case !CollectiveController::isAdmin($collective, $user):
         $error = 'You are not an administrator of this collective!';
         break;

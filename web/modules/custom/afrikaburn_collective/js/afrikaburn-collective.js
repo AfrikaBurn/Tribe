@@ -92,29 +92,33 @@
               }
             ).addClass('filter-hide-processed')
 
-
+          // Focus filter box
           if (context != document){
             var filter = $('.form-text', context).focus();
             filter[0] ? filter[0].setSelectionRange(100, 100) : false;
           }
 
-
-          // Form settings
+          // Collective form settings
           function checkOptions(){
 
             $('#edit-field-settings-public', context).is(':checked')
-              ? $('#edit-field-settings-public-members').removeAttr('disabled')
-              : $('#edit-field-settings-public-members').attr('disabled', 'disabled').prop('checked', false)
+              ? $('#edit-field-settings-public-members, #edit-field-settings-public-admins').removeAttr('disabled')
+              : $('#edit-field-settings-public-members, #edit-field-settings-public-admins').attr('disabled', 'disabled').prop('checked', false)
 
             $('#edit-field-settings-public-members', context).is(':checked')
               ? $('#edit-field-settings-private-members').attr('disabled', 'disabled').prop('checked', false)
               : $('#edit-field-settings-private-members').removeAttr('disabled')
 
-            }
+            $('#edit-field-settings-public-admins', context).is(':checked')
+              ? $('#edit-field-settings-private-admins').attr('disabled', 'disabled').prop('checked', false)
+              : $('#edit-field-settings-private-admins').removeAttr('disabled')
+
+          }
           $('#edit-field-settings input').click(checkOptions)
           checkOptions()
 
-
+          // Go directly to membership requests
+          if (context == document) $('#block-membersblock a[href="#group_requests"]').click()
         }
       )
 
