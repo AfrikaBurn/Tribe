@@ -6,10 +6,12 @@ dependencies:
     - core.entity_form_mode.node.grant
     - field.field.node.performances.field_admin_comments
     - field.field.node.performances.field_allow_support_camp
+    - field.field.node.performances.field_api_content_type
     - field.field.node.performances.field_bke_day
     - field.field.node.performances.field_bke_location
     - field.field.node.performances.field_bke_time
     - field.field.node.performances.field_collective
+    - field.field.node.performances.field_expenses_header
     - field.field.node.performances.field_form_mode
     - field.field.node.performances.field_grt_art_total
     - field.field.node.performances.field_grt_breakdown
@@ -29,6 +31,8 @@ dependencies:
     - field.field.node.performances.field_grt_transport
     - field.field.node.performances.field_lineup_request
     - field.field.node.performances.field_muncipal_district
+    - field.field.node.performances.field_prj_adm_latitude
+    - field.field.node.performances.field_prj_adm_longitude
     - field.field.node.performances.field_prj_adm_notes
     - field.field.node.performances.field_prj_adm_review
     - field.field.node.performances.field_prj_adm_wrangler
@@ -80,6 +84,7 @@ dependencies:
     - field.field.node.performances.field_prj_oth_other
     - field.field.node.performances.field_prj_oth_relationship
     - field.field.node.performances.field_prj_oth_unregistered
+    - field.field.node.performances.field_prj_process_work
     - field.field.node.performances.field_prj_prp_duration
     - field.field.node.performances.field_prj_prp_erection
     - field.field.node.performances.field_prj_prp_start
@@ -120,11 +125,13 @@ dependencies:
     - field.field.node.performances.field_waps
     - field.field.node.performances.field_waps_allowed
     - field.field.node.performances.field_year_cycle
+    - image.style.thumbnail
     - node.type.performances
   module:
     - entity_reference_views_select
     - field_group
     - file
+    - image
     - markup
 third_party_settings:
   field_group:
@@ -147,6 +154,13 @@ third_party_settings:
     group_grant:
       children:
         - field_grt_f1
+        - field_prj_gen_bio
+        - field_prj_gen_location
+        - field_prj_gen_history
+        - field_prj_wtf_scheduled
+        - field_prj_gen_story
+        - field_prj_gen_concept
+        - field_prj_gen_doc
       parent_name: group_project_registration
       weight: 6
       format_type: tab
@@ -160,9 +174,10 @@ third_party_settings:
       label: Intro
     group_expense_totals_by_type:
       children:
+        - field_expenses_header
         - field_prj_grant_expenses
       parent_name: group_project_registration
-      weight: 7
+      weight: 8
       format_type: tab
       format_settings:
         label: Expenses
@@ -194,7 +209,7 @@ third_party_settings:
         - field_grt_short_desc
         - field_this_is_the_amount_of_mone
       parent_name: group_project_registration
-      weight: 9
+      weight: 10
       format_type: tab
       format_settings:
         id: ''
@@ -205,9 +220,10 @@ third_party_settings:
       label: Shortfall
     group_other:
       children:
+        - field_prj_process_work
         - field_grt_more
       parent_name: group_project_registration
-      weight: 10
+      weight: 11
       format_type: tab
       format_settings:
         id: ''
@@ -220,7 +236,7 @@ third_party_settings:
       children:
         - field_grt_art_total
       parent_name: group_project_registration
-      weight: 8
+      weight: 9
       format_type: tab
       format_settings:
         id: ''
@@ -244,6 +260,12 @@ content:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+  field_expenses_header:
+    type: markup
+    weight: 2
+    region: content
+    settings: {  }
     third_party_settings: {  }
   field_form_mode:
     type: string_textfield
@@ -273,7 +295,7 @@ content:
     type: markup
     region: content
   field_grt_more:
-    weight: 7
+    weight: 5
     settings:
       rows: 5
       placeholder: ''
@@ -281,13 +303,13 @@ content:
     type: string_textarea
     region: content
   field_grt_short:
-    weight: 4
+    weight: 5
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_grt_short_desc:
-    weight: 5
+    weight: 6
     settings:
       rows: 5
       placeholder: ''
@@ -325,9 +347,57 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
+  field_prj_gen_bio:
+    type: string_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_gen_concept:
+    type: image_image
+    weight: 8
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_prj_gen_doc:
+    type: file_generic
+    weight: 9
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_prj_gen_history:
+    type: string_textarea
+    weight: 5
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_gen_location:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_prj_gen_story:
+    type: string_textarea
+    weight: 7
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_prj_grant_expenses:
     type: file_generic
-    weight: 1
+    weight: 3
     region: content
     settings:
       progress_indicator: throbber
@@ -362,6 +432,12 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_process_work:
+    type: options_buttons
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_prj_prp_area:
     weight: 27
     settings: {  }
@@ -404,6 +480,14 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_wtf_scheduled:
+    type: string_textarea
+    weight: 6
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   field_prjr_complete:
     type: options_buttons
     weight: 0
@@ -411,7 +495,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_this_is_the_amount_of_mone:
-    weight: 6
+    weight: 7
     settings:
       rows: 5
       placeholder: ''
@@ -480,20 +564,14 @@ hidden:
   field_prj_cll_contact: true
   field_prj_cll_description: true
   field_prj_cll_thread: true
-  field_prj_gen_bio: true
-  field_prj_gen_concept: true
   field_prj_gen_contact: true
   field_prj_gen_description: true
-  field_prj_gen_doc: true
   field_prj_gen_external: true
   field_prj_gen_fundraiser: true
   field_prj_gen_fundraising: true
-  field_prj_gen_history: true
   field_prj_gen_immortal: true
   field_prj_gen_lead: true
-  field_prj_gen_location: true
   field_prj_gen_manager: true
-  field_prj_gen_story: true
   field_prj_gen_year: true
   field_prj_lgh_agree: true
   field_prj_lgh_description: true
@@ -559,7 +637,6 @@ hidden:
   field_prj_wtf_long: true
   field_prj_wtf_plan: true
   field_prj_wtf_planned: true
-  field_prj_wtf_scheduled: true
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true

@@ -10,6 +10,10 @@ dependencies:
     - field.field.node.art.field_burn_can_be_denied
     - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
+    - field.field.node.art.field_footprint_diameter
+    - field.field.node.art.field_footprint_length
+    - field.field.node.art.field_footprint_specification
+    - field.field.node.art.field_footprint_width
     - field.field.node.art.field_form_mode
     - field.field.node.art.field_grant_expense_header
     - field.field.node.art.field_grt_art_apply
@@ -38,6 +42,7 @@ dependencies:
     - field.field.node.art.field_lineup_request
     - field.field.node.art.field_lnt_intro
     - field.field.node.art.field_muncipal_district
+    - field.field.node.art.field_prj_actualising
     - field.field.node.art.field_prj_adm_form_3
     - field.field.node.art.field_prj_adm_latitude
     - field.field.node.art.field_prj_adm_longitude
@@ -97,6 +102,7 @@ dependencies:
     - field.field.node.art.field_prj_oth_unregistered
     - field.field.node.art.field_prj_plc_f1
     - field.field.node.art.field_prj_plc_location_extra
+    - field.field.node.art.field_prj_process_work
     - field.field.node.art.field_prj_prp_duration
     - field.field.node.art.field_prj_prp_erection
     - field.field.node.art.field_prj_prp_start
@@ -491,6 +497,87 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_footprint_diameter:
+    weight: 88
+    settings:
+      placeholder: ''
+    third_party_settings:
+      conditional_fields:
+        84cfde8a-4d42-4b2b-a90f-d214eac6fbb0:
+          dependee: field_footprint_specification
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: Round
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    type: number
+    region: content
+  field_footprint_length:
+    weight: 87
+    settings:
+      placeholder: ''
+    third_party_settings:
+      conditional_fields:
+        fb296e34-fcb5-4bb4-a6b1-30e6463ab99b:
+          dependee: field_footprint_specification
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: Rectangular
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    type: number
+    region: content
+  field_footprint_specification:
+    weight: 85
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_footprint_width:
+    weight: 86
+    settings:
+      placeholder: ''
+    third_party_settings:
+      conditional_fields:
+        22617e79-2532-4320-8ec6-3c9c707a0fe9:
+          dependee: field_footprint_specification
+          settings:
+            state: visible
+            condition: value
+            grouping: AND
+            values_set: 1
+            value: ''
+            values: {  }
+            value_form:
+              -
+                value: Rectangular
+            effect: show
+            effect_options: {  }
+            selector: ''
+          entity_type: node
+          bundle: art
+    type: number
+    region: content
   field_form_mode:
     type: string_textfield
     weight: 8
@@ -524,6 +611,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_prj_actualising:
+    weight: 83
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
   field_prj_adm_area:
     weight: 78
     settings: {  }
@@ -1055,6 +1148,12 @@ content:
       rows: 5
       placeholder: ''
     type: string_textarea
+    region: content
+  field_prj_process_work:
+    weight: 84
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
     region: content
   field_prj_prp_area:
     weight: 27
