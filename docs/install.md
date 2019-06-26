@@ -39,7 +39,24 @@ git clone https://github.com/AfrikaBurn/tribe.git tribe
 Add a secure folder.
 ```
 mkdir tribe_secure
-sudo chown www-data:www-data tribe
+mkdir tribe_secure/suppliers
+mkdir tribe_secure/subsidised_tickets
+mkdir tribe_secure/mutant_vehicles
+mkdir tribe_secure/theme-camps
+mkdir tribe_secure/theme-camps/concept
+mkdir tribe_secure/moop
+mkdir tribe_secure/lnt
+mkdir tribe_secure/lnt/theme_camps
+mkdir tribe_secure/default_images
+mkdir tribe_secure/artwork
+mkdir tribe_secure/artwork/docs
+mkdir tribe_secure/artwork/concept
+mkdir tribe_secure/performance
+mkdir tribe_secure/Theme_Camp
+mkdir tribe_secure/Theme_Camp/Layout
+
+sudo chown www-data:www-data -R tribe tribe_secure
+sudo chmod 777 -R tribe tribe_secure
 ```
 
 Edit git config to ignore file mode changes
