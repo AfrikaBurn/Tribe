@@ -1,0 +1,31 @@
+uuid: 98296d11-1322-41d8-a58c-12aec0b5de40
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_footprint_specification
+field_name: field_footprint_specification
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Rectangular
+      label: Rectangular
+    -
+      value: Round
+      label: Round
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

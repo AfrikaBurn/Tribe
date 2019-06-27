@@ -1,0 +1,28 @@
+uuid: 3559b145-2b36-425b-b0e8-61b6d5ca112f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prj_actualising
+    - node.type.art
+  module:
+    - custom_add_another
+    - options
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.art.field_prj_actualising
+field_name: field_prj_actualising
+entity_type: node
+bundle: art
+label: 'When are you planning on bringing your artwork'
+description: 'We realise projects can take more than a single year to actualise, so you can start registering so long and even apply for a grant this year already.'
+required: true
+translatable: false
+default_value:
+  -
+    value: 'This very next burn'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

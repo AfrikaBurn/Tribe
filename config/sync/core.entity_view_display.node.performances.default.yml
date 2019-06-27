@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.performances.field_bke_location
     - field.field.node.performances.field_bke_time
     - field.field.node.performances.field_collective
+    - field.field.node.performances.field_expenses_header
     - field.field.node.performances.field_form_mode
     - field.field.node.performances.field_grt_art_total
     - field.field.node.performances.field_grt_breakdown
@@ -82,6 +83,7 @@ dependencies:
     - field.field.node.performances.field_prj_oth_other
     - field.field.node.performances.field_prj_oth_relationship
     - field.field.node.performances.field_prj_oth_unregistered
+    - field.field.node.performances.field_prj_process_work
     - field.field.node.performances.field_prj_prp_duration
     - field.field.node.performances.field_prj_prp_erection
     - field.field.node.performances.field_prj_prp_start
@@ -130,6 +132,7 @@ dependencies:
     - empty_fields
     - entity_reference_revisions
     - markup
+    - options
     - user
 third_party_settings:
   ds:
@@ -166,6 +169,13 @@ content:
     third_party_settings: {  }
     type: boolean
     region: top
+  field_expenses_header:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
   field_lineup_request:
     weight: 1
     label: above
@@ -214,6 +224,13 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+  field_prj_process_work:
+    weight: 11
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   field_prj_wtf_image:
     type: colorbox
     weight: 6

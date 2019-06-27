@@ -210,10 +210,13 @@ bundles:
       enabled: false
       rta: 'no'
       rtf: 'no'
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       bundle: art
       name: field_prj_grant_expenses
+      entity_type_id: node
+      relationship: 0
+      sars_filename: ''
     field_prj_cost:
       enabled: false
       rta: 'no'
@@ -505,6 +508,83 @@ bundles:
     field_api_content_type:
       bundle: art
       name: field_api_content_type
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_actualising:
+      bundle: art
+      name: field_prj_actualising
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_process_work:
+      bundle: art
+      name: field_prj_process_work
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_footprint_specification:
+      bundle: art
+      name: field_footprint_specification
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_footprint_width:
+      bundle: art
+      name: field_footprint_width
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_footprint_length:
+      bundle: art
+      name: field_footprint_length
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_footprint_diameter:
+      bundle: art
+      name: field_footprint_diameter
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_lnt_historic:
+      bundle: art
+      name: field_prj_lnt_historic
       entity_type_id: node
       rtf: 'no'
       rta: 'no'
@@ -1198,6 +1278,39 @@ bundles:
       rta: 'no'
       enabled: false
       anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_expenses_header:
+      bundle: performances
+      name: field_expenses_header
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_grt_f1:
+      bundle: performances
+      name: field_grt_f1
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_process_work:
+      bundle: performances
+      name: field_prj_process_work
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''
