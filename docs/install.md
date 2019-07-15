@@ -123,6 +123,11 @@ Make sure the memory limit is at least 512MB
 ```
 memory_limit = 512M
 ```
+Restart Apache
+```
+sudo systemctl restart apache2
+```
+
 
 ## Install Drupal
 
