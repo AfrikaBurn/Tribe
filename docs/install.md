@@ -93,7 +93,7 @@ Note: if you install via the command line, password special characters do not wo
 ```
 CREATE DATABASE my_database;
 CREATE USER 'my_user'@'localhost' IDENTIFIED BY 'my_password';
-GRANT ALL PRIVILEGES ON my_user.* TO 'my_database'@'%' IDENTIFIED BY 'my_password' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON tribe_alt_database.* TO 'tribe_alt_user'@'%' IDENTIFIED BY 'tribe_alt_password' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 EXIT;
 ```
