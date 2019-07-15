@@ -117,7 +117,7 @@ EXIT;
 ## PHP Setup
 The instalation uses a faid amount of memory and so you will need to boost PHP.
 ```
-sudo vim /etc/php/7.2/apache2/php.ini
+sudo vim /etc/php/7.2/fpm/php.ini
 ```
 Make sure the memory limit is at least 512MB
 ```
