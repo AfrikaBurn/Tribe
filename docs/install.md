@@ -110,9 +110,18 @@ Note: if you install via the command line, password special characters do not wo
 ```
 CREATE DATABASE my_database;
 CREATE USER 'my_user'@'localhost' IDENTIFIED BY 'my_password';
-GRANT ALL PRIVILEGES ON my_user.* TO 'my_database'@'%' IDENTIFIED BY 'my_password' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON tribe_alt_database.* TO 'tribe_alt_user'@'%' IDENTIFIED BY 'tribe_alt_password' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 EXIT;
+```
+## PHP Setup
+The instalation uses a faid amount of memory and so you will need to boost PHP.
+```
+sudo vim /etc/php/7.2/apache2/php.ini
+```
+Make sure the memory limit is at least 512MB
+```
+memory_limit = 512M
 ```
 
 ## Install Drupal
