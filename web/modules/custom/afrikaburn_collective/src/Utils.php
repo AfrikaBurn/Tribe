@@ -43,18 +43,15 @@ class Utils {
         ]
       )
     );
-    $node = is_object($cid)
+    $node = @is_object($cid)
       ? $cid
       : \Drupal::entityTypeManager()->getStorage('node')->load($cid);
 
-    return
-      $node
-      ? ($node->bundle() == 'collective'
-        ? $node : ($node->get('field_collective')
-            ? $node->get('field_collective')->value
-            : false
-          )
-      ) : false;
+    switch(TRUE){
+      case $node && $node->bundle() == 'collective': return $node;
+      case $node && $node->get('field_collective'): return $node->field_collective->entity;
+      default: return FALSE;
+    }
   }
 
   /**

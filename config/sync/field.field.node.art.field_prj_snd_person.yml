@@ -27,7 +27,7 @@ settings:
   handler: views
   handler_settings:
     view:
-      view_name: collective_members
-      display_name: entity_reference_1
+      view_name: collective_member_select
+      display_name: member_select
       arguments: {  }
 field_type: entity_reference

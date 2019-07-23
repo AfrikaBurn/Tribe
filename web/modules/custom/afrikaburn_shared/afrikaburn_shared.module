@@ -6,6 +6,9 @@
  */
 
 
+use Drupal\views\Plugin\views\join;
+
+
 /**
  * Implements hook_user_login().
  * Hooked to redirect users to the home page
@@ -18,6 +21,7 @@ function afrikaburn_shared_user_login($account){
 }
 
 /**
+ * Imlements hook_page_attachments.
  * Attach shared script
  */
 function afrikaburn_shared_page_attachments(array &$page) {
@@ -27,7 +31,12 @@ function afrikaburn_shared_page_attachments(array &$page) {
   $page['#attached']['drupalSettings']['widthBreakpoint'] = 1;
 }
 
+
+/* ---- Computed fields ---- */
+
+
 /**
+ * Implements computed_field_FIELD_NAME_compute.
  * Computes event year cycle
  */
 function computed_field_field_year_cycle_compute($entity_type_manager, $entity, $fields, $delta){
@@ -40,17 +49,19 @@ function computed_field_field_year_cycle_compute($entity_type_manager, $entity, 
   return $year;
 }
 
+/**
+ * Implements computed_field_FIELD_NAME_compute.
+ * Computes pretty content type lables for API.
+ */
 function computed_field_field_api_content_type_compute($entity_type_manager, $entity, $fields, $delta){
-  
-  echo "<script>console.log( 'Debug Objects: " . $entity->bundle() . "' );</script> fuckerty fuck fuck dgfdsg     ";
-  
+
   switch ($entity->bundle()) {
     case "theme_camps":
       if ($entity->field_event_services->value == TRUE) {
         $value="Event Service";
       } else {
         $value="Theme Camp";
-      } 
+      }
       break;
     case "art":
       $value="Artwork";
@@ -70,3 +81,5 @@ function computed_field_field_api_content_type_compute($entity_type_manager, $en
   }
   return $value;
 }
+
+

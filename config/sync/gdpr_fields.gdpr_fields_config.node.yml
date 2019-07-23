@@ -513,6 +513,127 @@ bundles:
       notes: ''
       relationship: 0
       sars_filename: ''
+    field_prj_gen_contact:
+      bundle: art
+      name: field_prj_gen_contact
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_gen_lead:
+      bundle: art
+      name: field_prj_gen_lead
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_gen_fundraiser:
+      bundle: art
+      name: field_prj_gen_fundraiser
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_brn_person:
+      bundle: art
+      name: field_prj_brn_person
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_gen_manager:
+      bundle: art
+      name: field_prj_gen_manager
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_cll_contact:
+      bundle: art
+      name: field_prj_cll_contact
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_stg_contact:
+      bundle: art
+      name: field_prj_stg_contact
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_lgh_lighter:
+      bundle: art
+      name: field_prj_lgh_lighter
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_snd_person:
+      bundle: art
+      name: field_prj_snd_person
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_stc_structural:
+      bundle: art
+      name: field_prj_stc_structural
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_lnt_representative:
+      bundle: art
+      name: field_prj_lnt_representative
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   theme_camps:
     field_prj_est_camp_population:
       enabled: false
@@ -791,6 +912,94 @@ bundles:
       notes: ''
       relationship: 0
       sars_filename: ''
+    field_prj_gen_contact:
+      bundle: theme_camps
+      name: field_prj_gen_contact
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_saf_markup:
+      bundle: theme_camps
+      name: field_prj_saf_markup
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_saf_person:
+      bundle: theme_camps
+      name: field_prj_saf_person
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_gen_fundraiser:
+      bundle: theme_camps
+      name: field_prj_gen_fundraiser
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_cll_contact:
+      bundle: theme_camps
+      name: field_prj_cll_contact
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_stg_contact:
+      bundle: theme_camps
+      name: field_prj_stg_contact
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_snd_person:
+      bundle: theme_camps
+      name: field_prj_snd_person
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_lnt_representative:
+      bundle: theme_camps
+      name: field_prj_lnt_representative
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   mutant_vehicles:
     field_mutant_drivers:
       enabled: false
@@ -1018,6 +1227,61 @@ bundles:
       notes: ''
       relationship: 0
       sars_filename: ''
+    field_prj_gen_lead:
+      bundle: mutant_vehicles
+      name: field_prj_gen_lead
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_gen_contact:
+      bundle: mutant_vehicles
+      name: field_prj_gen_contact
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_stg_contact:
+      bundle: mutant_vehicles
+      name: field_prj_stg_contact
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_cll_contact:
+      bundle: mutant_vehicles
+      name: field_prj_cll_contact
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_gen_owner:
+      bundle: mutant_vehicles
+      name: field_prj_gen_owner
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   performances:
     field_prj_gen_description:
       enabled: false
@@ -1193,6 +1457,72 @@ bundles:
     field_prj_adm_longitude:
       bundle: performances
       name: field_prj_adm_longitude
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_gen_contact:
+      bundle: performances
+      name: field_prj_gen_contact
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_gen_lead:
+      bundle: performances
+      name: field_prj_gen_lead
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_gen_fundraiser:
+      bundle: performances
+      name: field_prj_gen_fundraiser
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_gen_manager:
+      bundle: performances
+      name: field_prj_gen_manager
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_lgh_lighter:
+      bundle: performances
+      name: field_prj_lgh_lighter
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_lnt_representative:
+      bundle: performances
+      name: field_prj_lnt_representative
       entity_type_id: node
       rtf: 'no'
       rta: 'no'

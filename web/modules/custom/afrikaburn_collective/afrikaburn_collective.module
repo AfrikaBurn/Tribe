@@ -206,7 +206,7 @@ function afrikaburn_collective_theme(){
 }
 
 
-/* ----- Flag access ----- */
+/* ----- Flag hooks ----- */
 
 
 /**
@@ -222,6 +222,40 @@ function afrikaburn_collective_flag_action_access($action, $flag, $account, $col
       : AccessResult::forbidden();
   }
   return AccessResult::neutral();
+}
+
+/**
+ * Implements hook_views_data_alter().
+ * Limit view to only list members
+ */
+function afrikaburn_collective_views_query_alter($view, $query) {
+  if ($view->id() == 'collective_member_select'){
+
+    $current = Utils::currentCollective();
+    $cid = count($view->args)
+      ? $view->args[0]
+      : $current ? $current->id() : false;
+
+    if ($cid){
+      $query->addRelationship(
+        'flagging',
+         \Drupal\views\Views::pluginManager('join')->createInstance(
+          'standard',
+          [
+            'table' => 'flagging',
+            'field' => 'uid',
+            'left_table' => 'users_field_data',
+            'left_field' => 'uid',
+            'operator' => '='
+          ]
+          ),
+          'users_field_data'
+      );
+
+      $query->addWhere(0, 'flagging.flag_id', 'member', '=');
+      $query->addWhere(0, 'flagging.entity_id', $cid, '=');
+    }
+  }
 }
 
 

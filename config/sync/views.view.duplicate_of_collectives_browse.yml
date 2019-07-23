@@ -1,6 +1,6 @@
 uuid: d59a8cf2-9f1e-4af4-bc66-cbaa089bd3c0
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
@@ -569,6 +569,7 @@ display:
         - 'config:core.entity_view_display.node.alert.teaser'
         - 'config:core.entity_view_display.node.announcement.default'
         - 'config:core.entity_view_display.node.announcement.teaser'
+        - 'config:core.entity_view_display.node.art.book'
         - 'config:core.entity_view_display.node.art.default'
         - 'config:core.entity_view_display.node.art.form_1'
         - 'config:core.entity_view_display.node.art.form_1_mail'
@@ -589,6 +590,7 @@ display:
         - 'config:core.entity_view_display.node.collective.teaser'
         - 'config:core.entity_view_display.node.incident.default'
         - 'config:core.entity_view_display.node.incident.teaser'
+        - 'config:core.entity_view_display.node.mutant_vehicles.book'
         - 'config:core.entity_view_display.node.mutant_vehicles.default'
         - 'config:core.entity_view_display.node.mutant_vehicles.form_1'
         - 'config:core.entity_view_display.node.mutant_vehicles.form_1_mail'
@@ -648,6 +650,7 @@ display:
         - 'config:core.entity_view_display.node.alert.teaser'
         - 'config:core.entity_view_display.node.announcement.default'
         - 'config:core.entity_view_display.node.announcement.teaser'
+        - 'config:core.entity_view_display.node.art.book'
         - 'config:core.entity_view_display.node.art.default'
         - 'config:core.entity_view_display.node.art.form_1'
         - 'config:core.entity_view_display.node.art.form_1_mail'
@@ -668,6 +671,7 @@ display:
         - 'config:core.entity_view_display.node.collective.teaser'
         - 'config:core.entity_view_display.node.incident.default'
         - 'config:core.entity_view_display.node.incident.teaser'
+        - 'config:core.entity_view_display.node.mutant_vehicles.book'
         - 'config:core.entity_view_display.node.mutant_vehicles.default'
         - 'config:core.entity_view_display.node.mutant_vehicles.form_1'
         - 'config:core.entity_view_display.node.mutant_vehicles.form_1_mail'

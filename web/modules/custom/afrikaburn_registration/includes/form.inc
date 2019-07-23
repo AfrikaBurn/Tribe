@@ -399,28 +399,41 @@ function _verify_link(&$form, $collective, $mode, $supporting_project){
 function _wap_form(&$form, $collective, $registration, $mode){
   if ($mode == 'waps'){
 
+    $form['intro'] = [
+      '#type' => 'markup',
+      '#markup' =>
+        '<div class="messages messages--warning">' .
+        '* If a member of your collective does not appear in the dropdown, they have likely been assigned one elsewhere already.<br />' .
+        '* Once assigned, WAPs can only be transfered through Quicket.<br />' .
+        '* You do not have to assign all WAPs in one go, you can assign WAPs until April 15th.' .
+        '</div>',
+    ];
+
     $allowed = (int)$registration->field_waps_allowed->value;
     $assigned = count($registration->field_waps);
     $uids = \Drupal::database()->query("
       SELECT
-        members.field_col_members_target_id as uid
+        members.uid as uid
       FROM
-        {node__field_col_members} AS members
+        {flagging} AS members
       LEFT JOIN
-        {paragraph__field_team_member} AS wap_member ON members.field_col_members_target_id = wap_member.field_team_member_target_id
+        {paragraph__field_team_member} AS wap_member ON members.uid = wap_member.field_team_member_target_id
       LEFT JOIN
         {paragraphs_item_field_data} as wap ON wap.id = wap_member.entity_id
       LEFT JOIN
         {flagging} AS archived ON archived.entity_id = wap.parent_id AND archived.flag_id = 'archived'
       LEFT JOIN
-        {flagging} AS banned ON banned.entity_id = members.field_col_members_target_id AND banned.flag_id = 'wap_ban'
+        {flagging} AS banned ON banned.entity_id = members.uid AND banned.flag_id = 'wap_ban'
       WHERE
-        members.entity_id = " . $collective->nid->value . " AND
+        members.flag_id = 'member' AND
+        members.entity_id = :cid AND
         (
           (archived.flag_id = 'archived' AND wap.parent_id IS NOT NULL) OR
           (archived.flag_id IS NULL AND wap.parent_id IS NULL)
-        ) AND banned.flag_id IS NULL"
+        ) AND banned.flag_id IS NULL",
+      [':cid' => $collective->nid->value]
     )->fetchCol();
+
     $users = \Drupal::entityTypeManager()->getStorage('user')->loadMultiple($uids);
     $options = ['-- Unassigned --'];
     foreach($users as $user){
@@ -483,15 +496,5 @@ function _wap_form(&$form, $collective, $registration, $mode){
     $form['#validate'][] = 'afrikaburn_registration_wap_validate';
     $form['#validate'][] = 'afrikaburn_registration_wap_quicket';
     $form['#attached']['library'][] = 'afrikaburn_registration/registration';
-
-    $form['outtro'] = [
-      '#type' => 'markup',
-      '#markup' =>
-        '<div class="messages messages--warning">' .
-        '* If a member of your collective does not appear in the dropdown, they have likely been assigned one elsewhere already.<br />' .
-        '* Once assigned, WAPs can only be transfered through Quicket.<br />' .
-        '* You do not have to assign all WAPs in one go, you can assign WAPs until April 15th.' .
-        '</div>',
-    ];
   }
 }
