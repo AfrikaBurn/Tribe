@@ -160,8 +160,8 @@ class AfrikaBurnSettings extends ConfigFormBase {
         'content' => [
           '#type' => 'list',
           ['#type' => 'submit', '#value' => 'Resave Users', '#prefix' => '<br />'],
-          ['#type' => 'submit', '#value' => 'Wipe Quicket information', '#prefix' => '<br />'],
-          ['#type' => 'submit', '#value' => 'Regenerate Quicket information', '#prefix' => '<br />'],
+          ['#type' => 'submit', '#value' => 'Wipe Quicket data', '#prefix' => '<br />'],
+          ['#type' => 'submit', '#value' => 'Regenerate Quicket data', '#prefix' => '<br />'],
           ['#type' => 'submit', '#value' => 'Migrate Collectives', '#prefix' => '<br />'],
           ['#type' => 'submit', '#value' => 'Add AfrikBurn Members', '#prefix' => '<br />'],
         ],
@@ -199,19 +199,19 @@ class AfrikaBurnSettings extends ConfigFormBase {
 
     switch($values['op']){
       case 'Resave Users':
-        \Drupal\afrikaburn_collective\Controller\UpdateController::resaveUsers();
+        \Drupal\afrikaburn_shared\Controller\UpdateController::resaveUsers();
       break;
-      case 'Wipe Quicket information':
-        \Drupal\afrikaburn_collective\Controller\UpdateController::wipeQuicket();
+      case 'Wipe Quicket data':
+        \Drupal\afrikaburn_shared\Controller\UpdateController::wipeQuicket();
       break;
-      case 'Regenerate Quicket information':
-        \Drupal\afrikaburn_collective\Controller\UpdateController::regenerateQuicket();
+      case 'Regenerate Quicket data':
+        \Drupal\afrikaburn_shared\Controller\UpdateController::regenerateQuicket();
       break;
       case 'Migrate Collectives':
-        \Drupal\afrikaburn_collective\Controller\UpdateController::migrateCollectives();
+        \Drupal\afrikaburn_shared\Controller\UpdateController::migrateCollectives();
       break;
       case 'Add AfrikBurn Members':
-        \Drupal\afrikaburn_collective\Controller\UpdateController::addTribeMembers();
+        \Drupal\afrikaburn_shared\Controller\UpdateController::addTribeMembers();
       break;
       default:
         $this

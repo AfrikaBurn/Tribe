@@ -1,10 +1,10 @@
 <?php
 /**
  * @file
- * Contains \Drupal\afrikaburn_collective\UpdateController.
+ * Contains \Drupal\afrikaburn_shared\UpdateController.
  */
 
-namespace Drupal\afrikaburn_collective\Controller;
+namespace Drupal\afrikaburn_shared\Controller;
 
 
 use Drupal\Core\Controller\ControllerBase;
@@ -29,11 +29,11 @@ class UpdateController extends ControllerBase {
       'operations' => [],
       'progress_message' => t('Resaving @current out of @total.'),
       'error_message'    => t('An error occurred during processing'),
-      'finished' => '\Drupal\afrikaburn_collective\Controller\UpdateController::usersResaved',
+      'finished' => '\Drupal\afrikaburn_shared\Controller\UpdateController::usersResaved',
     ];
     foreach($uids as $uid){
       $batch['operations'][] = [
-        '\Drupal\afrikaburn_collective\Controller\UpdateController::resaveUser',
+        '\Drupal\afrikaburn_shared\Controller\UpdateController::resaveUser',
         [$uid]
       ];
     }
@@ -57,6 +57,23 @@ class UpdateController extends ControllerBase {
   }
 
 
+  /* ----- Wipe quicket Data ----- */
+
+
+  /**
+   * Resave all user records
+   */
+  public static function wipeQuicket(){
+
+    db_query("TRUNCATE {user__field_quicket_code");
+    db_query("TRUNCATE {user__field_quicket_id}");
+
+    drupal_set_message('Quicket data wiped', 'status');
+
+    return new RedirectResponse(\Drupal::url('afrikaburn_shared.settings'));
+  }
+
+
   /* ----- Add all users to the Afrikaburn collective ----- */
 
 
@@ -75,12 +92,12 @@ class UpdateController extends ControllerBase {
       'operations' => [],
       'progress_message' => t('Resaving @current out of @total.'),
       'error_message'    => t('An error occurred during processing'),
-      'finished' => '\Drupal\afrikaburn_collective\Controller\UpdateController::tribeMembersAdded',
+      'finished' => '\Drupal\afrikaburn_shared\Controller\UpdateController::tribeMembersAdded',
     ];
 
     foreach($uids as $uid){
       $batch['operations'][] = [
-        '\Drupal\afrikaburn_collective\Controller\UpdateController::addTribeMember',
+        '\Drupal\afrikaburn_shared\Controller\UpdateController::addTribeMember',
         [$cid, $uid]
       ];
     }
@@ -128,11 +145,11 @@ class UpdateController extends ControllerBase {
       'operations' => [],
       'progress_message' => t('Migrating @current out of @total.'),
       'error_message'    => t('An error occurred during processing'),
-      'finished' => '\Drupal\afrikaburn_collective\Controller\UpdateController::collectivesMigrated',
+      'finished' => '\Drupal\afrikaburn_shared\Controller\UpdateController::collectivesMigrated',
     ];
     foreach($cids as $cid){
       $batch['operations'][] = [
-        '\Drupal\afrikaburn_collective\Controller\UpdateController::migrateCollective',
+        '\Drupal\afrikaburn_shared\Controller\UpdateController::migrateCollective',
         [$cid]
       ];
     }
