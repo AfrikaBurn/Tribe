@@ -205,7 +205,7 @@ class AfrikaBurnSettings extends ConfigFormBase {
         \Drupal\afrikaburn_shared\Controller\UpdateController::wipeQuicket();
       break;
       case 'Regenerate Quicket data':
-        \Drupal\afrikaburn_shared\Controller\UpdateController::regenerateQuicket();
+        \Drupal\afrikaburn_shared\Controller\UpdateController::regenerateQuicketData();
       break;
       case 'Migrate Collectives':
         \Drupal\afrikaburn_shared\Controller\UpdateController::migrateCollectives();

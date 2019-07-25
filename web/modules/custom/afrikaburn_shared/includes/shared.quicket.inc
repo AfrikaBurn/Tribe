@@ -39,11 +39,13 @@ function quicket_request($method, $endpoint, $body = FALSE){
     if ($response && $response->getStatusCode() == 200){
 
       $response_string = $response->getBody()->getContents();
+      $response_object = json_decode($response_string);
 
       return @array_shift(
         array_filter(
           [
-            json_decode($response_string)->result,
+            $response_object->result,
+            $response_object->results,
             $response_string
           ]
         )

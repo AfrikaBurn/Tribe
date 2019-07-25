@@ -1,0 +1,37 @@
+uuid: f369b2a0-eea5-4417-a48f-0d11ac06a543
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: disclose
+label: Disclose
+bundles:
+  - collective
+entity_type: node
+global: false
+weight: 0
+flag_short: Privacy
+flag_long: 'Manage privacy in this collective'
+flag_message: ''
+unflag_short: Privacy
+unflag_long: 'From this collective?'
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: field_entry
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: owner
+linkTypeConfig:
+  flag_confirmation: 'Information to share with the [collective]'
+  unflag_confirmation: 'Unshare all your info'
+  flag_create_button: Share
+  flag_delete_button: Unshare
+  form_behavior: default
+  edit_flagging: 'Information to share with the [collective]'
+  flag_update_button: Update

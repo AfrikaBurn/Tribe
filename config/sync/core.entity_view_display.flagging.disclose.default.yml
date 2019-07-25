@@ -1,0 +1,30 @@
+uuid: 85eea5f4-bd80-48fa-9497-fe9d2597056e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.flagging.disclose.field_admins
+    - field.field.flagging.disclose.field_members_list
+    - flag.flag.disclose
+  module:
+    - options
+id: flagging.disclose.default
+targetEntityType: flagging
+bundle: disclose
+mode: default
+content:
+  field_admins:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_members_list:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+hidden: {  }

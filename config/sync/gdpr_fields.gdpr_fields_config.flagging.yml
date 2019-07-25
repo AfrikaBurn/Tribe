@@ -1,0 +1,53 @@
+uuid: 0f397a09-bdda-4aa8-998c-f24dc657c56d
+langcode: en
+status: true
+dependencies: {  }
+id: flagging
+filenames:
+  disclose: ''
+bundles:
+  disclose:
+    field_field:
+      bundle: disclose
+      name: field_field
+      entity_type_id: flagging
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_anyone_who_may_see_who_the:
+      bundle: disclose
+      name: field_anyone_who_may_see_who_the
+      entity_type_id: flagging
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_members_list:
+      bundle: disclose
+      name: field_members_list
+      entity_type_id: flagging
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_admins:
+      bundle: disclose
+      name: field_admins
+      entity_type_id: flagging
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''

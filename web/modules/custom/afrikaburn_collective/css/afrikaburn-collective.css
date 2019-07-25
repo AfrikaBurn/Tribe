@@ -397,6 +397,10 @@ div.invitation{
   margin: 0 0 -35px;
 }
 
+.view-collectives-find div.invitation{
+  border-radius: 0;
+}
+
 .view-collectives-find .collective-actions{
   position: absolute;
   bottom: -60px;
@@ -417,7 +421,7 @@ div.invitation{
   line-height: 30px;
   height: 30px;
   margin: 0;
-  padding: 5px 20px 5px 34px;
+  padding: 5px 10px 5px 32px;
   text-decoration: none;
   text-align: left;
   width: auto;
@@ -434,13 +438,26 @@ div.invitation{
   color: #fff !important;
 }
 
+.view-collectives-find .collective-actions .flag-mute a,
+.view-collectives-find .collective-actions .flag-disclose a,
+.view-collectives-find .collective-actions .leave,
+.view-collectives-find .collective-actions .edit{
+  width: 0px;
+  overflow: hidden;
+  padding: 5px 0 5px 34px;
+}
+
 .collective-actions .edit{ background-image: url(../images/edit.svg);}
 .collective-actions .withdraw,
 .collective-actions .request,
 .collective-actions .join{ background-image: url(../images/join.svg);}
 .collective-actions .accept{ background-image: url(../images/accept.svg);}
-.collective-actions .ignore{ background-image: url(../images/ignore.svg);}
+.collective-actions .ignore{ background-image: url(../images/reject.svg);}
 .collective-actions .leave{ background-image: url(../images/exit.svg);}
+.collective-actions .flag-disclose.action-unflag a:hover,
+.collective-actions .flag-disclose a{ background-image: url(../images/info.svg);}
+.collective-actions .flag-disclose a:hover,
+.collective-actions .flag-disclose.action-unflag a{ background-image: url(../images/alert.svg);}
 
 .collective-actions a.join.requested{
   text-decoration: none;
@@ -662,7 +679,7 @@ div.invitation{
 .view-collective-members details{
   position: relative;
   border-radius: 5px;
-  padding-top: 50px;
+  padding-top: 40px;
 }
 
 .view-collective-members details[open]{
@@ -691,16 +708,22 @@ div.invitation{
   background-image: url(../images/exit.svg);
 }
 .view-collective-members details a.admin-ban{
-  background-image: url(../images/ban.svg);
+  background-image: url(../images/lock.svg);
 }
 .view-collective-members details a.admin-unban{
-  background-image: url(../images/unban.svg);
+  background-image: url(../images/unlock.svg);
 }
 .view-collective-members details a.admin-grant{
   background-image: url(../images/accept.svg);
 }
 .view-collective-members details a.admin-deny{
-  background-image: url(../images/ignore.svg);
+  background-image: url(../images/reject.svg);
+}
+.view-collective-members details a.admin-show-name{
+  background-image: url(../images/info.svg);
+}
+.view-collective-members details a.admin-hide-name{
+  background-image: url(../images/alert.svg);
 }
 
 .view-collective-members summary{

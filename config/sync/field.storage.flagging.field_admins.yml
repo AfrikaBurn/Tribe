@@ -1,0 +1,40 @@
+uuid: 6fbfb87d-834d-4b28-8523-a18f66ad3cb3
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - flag
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: flagging.field_admins
+field_name: field_admins
+entity_type: flagging
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: field_date_of_birth
+      label: 'Date of birth'
+    -
+      value: field_email
+      label: 'Email address'
+    -
+      value: field_mobile
+      label: Mobile
+    -
+      value: field_country
+      label: Country
+    -
+      value: field_location
+      label: Location
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

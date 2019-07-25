@@ -86,9 +86,12 @@ function _notify_collective_invites($entity, $diff, $settings, $address_settings
   $changed = array_diff($diff['Invite Token'][1], $diff['Invite Token'][0]);
   foreach($changed as $token){
     $remind[] = $mails[
-      \Drupal\afrikaburn_collective\Controller\MemberController::inviteTokenIndex(
+      array_search(
         $token,
-        $entity
+        array_column(
+          $entity->get('field_col_invite_token')->getValue(),
+          'value'
+        )
       )
     ];
   }

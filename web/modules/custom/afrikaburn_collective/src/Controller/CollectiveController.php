@@ -277,6 +277,26 @@ class CollectiveController extends ControllerBase {
     return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
   }
 
+  /**
+   * Show name in a collective
+   */
+  public static function showName(){
+    list($collective, $user) = CollectiveController::pathParams();
+    CollectiveController::set('show_name', $collective, $user);
+    Utils::showStatus('@username now showing a real name to the collective', Utils::currentUser(), $user);
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
+  }
+
+  /**
+   * Hide name in a collective
+   */
+  public static function hideName(){
+    list($collective, $user) = CollectiveController::pathParams();
+    CollectiveController::clear('show_name', $collective, $user);
+    Utils::showStatus('@username now hiding real name from the collective', Utils::currentUser(), $user);
+    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
+  }
+
 
   /* --- Role checking --- */
 

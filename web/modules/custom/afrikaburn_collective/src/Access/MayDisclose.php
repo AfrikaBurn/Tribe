@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Checks whether a user may promote members to admins in a collective.
+ * Checks whether a user may be invited to a collective.
  */
 
 namespace Drupal\afrikaburn_collective\Access;
@@ -14,13 +14,13 @@ use Drupal\user\Entity\User;
 use Drupal\afrikaburn_collective\Controller\CollectiveController;
 use Drupal\afrikaburn_collective\Utils;
 
-class MayAdmin implements AccessInterface {
+class MayDisclose implements AccessInterface {
 
   /**
    * Implements appliesTo().
    */
   public function appliesTo() {
-    return '_may_admin';
+    return '_may_disclose';
   }
 
   /**
@@ -34,11 +34,11 @@ class MayAdmin implements AccessInterface {
     $error = false;
 
     switch(true){
-      case !CollectiveController::isMember($collective, $candidate):
-        $error = '@user not a member!';
+      case $user->id() != $candidate->id():
+        $error = "You may not change another users' visibility settings!";
         break;
-      case !CollectiveController::isAdmin($collective, $user):
-        $error = 'You are not an administrator of this collective!';
+      case CollectiveController::isMember($collective, $candidate):
+        $error = '@user is not a member of this collective!';
         break;
     }
 

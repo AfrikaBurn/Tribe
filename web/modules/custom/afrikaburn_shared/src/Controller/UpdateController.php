@@ -61,16 +61,86 @@ class UpdateController extends ControllerBase {
 
 
   /**
-   * Resave all user records
+   * Remove all quicket data
    */
   public static function wipeQuicket(){
 
-    db_query("TRUNCATE {user__field_quicket_code");
+    db_query("TRUNCATE {user__field_quicket_code}");
     db_query("TRUNCATE {user__field_quicket_id}");
 
     drupal_set_message('Quicket data wiped', 'status');
 
     return new RedirectResponse(\Drupal::url('afrikaburn_shared.settings'));
+  }
+
+  /**
+   * Regenerate quicket data
+   */
+  public static function regenerateQuicketData(){
+
+    $BATCH_SIZE = 500;
+
+    $total = db_query('
+      SELECT COUNT({users}.uid)
+      FROM {users}
+      LEFT JOIN {user__field_quicket_id}
+      ON {user__field_quicket_id}.entity_id = {users}.uid
+      LEFT JOIN {user__field_quicket_code}
+      ON {user__field_quicket_code}.entity_id = {users}.uid
+      WHERE
+      field_quicket_id_value IS NULL OR
+      field_quicket_code_value IS NULL AND
+      {users}.uid > 0'
+    )->fetchField() + 0;
+    $batch = [
+      'title' => t('Generating quicket data for users...'),
+      'operations' => [],
+      'progress_message' => t(
+        'Processing @current of @total batches of %batch_size users.',
+        ['%batch_size' => $BATCH_SIZE]
+      ),
+      'error_message'    => t('An error occurred during processing'),
+      'finished' => '\Drupal\afrikaburn_shared\Controller\UpdateController::quicketDataRegenerated',
+    ];
+
+    for ($offset = 0; $offset < $total; $offset += $BATCH_SIZE){
+      $uids = db_query("
+        SELECT {users}.uid
+        FROM {users}
+        LEFT JOIN {user__field_quicket_id}
+        ON {user__field_quicket_id}.entity_id = {users}.uid
+        LEFT JOIN {user__field_quicket_code}
+        ON {user__field_quicket_code}.entity_id = {users}.uid
+        WHERE
+        field_quicket_id_value IS NULL OR
+        field_quicket_code_value IS NULL AND
+        {users}.uid > 0
+        LIMIT $BATCH_SIZE OFFSET $offset"
+      )->fetchCol();
+      $batch['operations'][] = [
+        '\Drupal\afrikaburn_shared\Controller\UpdateController::regenerateQuicketDatum',
+        [$uids]
+      ];
+    }
+
+    batch_set($batch);
+  }
+
+  public static function regenerateQuicketDatum($uids, &$context) {
+    $users = \Drupal::entityTypeManager()->getStorage('user')->loadMultiple($uids);
+    foreach($users as $user) $user->save();
+    $context['results'][] = 1;
+  }
+
+  public static function quicketDataRegenerated($success, $results, $operations){
+    drupal_set_message(
+      $success
+        ? \Drupal::translation()->formatPlural(
+            count($results),
+            'One batch of users processed.', '@count batches processed.'
+          )
+        : t('Finished with errors.')
+    );
   }
 
 
@@ -86,7 +156,7 @@ class UpdateController extends ControllerBase {
       ->condition('type', 'collective')
       ->condition('title', 'AfrikaBurn')
       ->execute());
-    $uids = db_query('SELECT uid FROM {users} WHERE uid != 0')->fetchCol();
+    $uids = db_query('SELECT uid FROM {users} WHERE uid > 0')->fetchCol();
     $batch = [
       'title' => t('Adding all users to AfrikaBurn...'),
       'operations' => [],

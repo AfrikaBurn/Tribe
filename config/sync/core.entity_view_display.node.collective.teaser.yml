@@ -42,8 +42,9 @@ third_party_settings:
         - request
         - accept
         - ignore
-        - flag_mute
         - edit
+        - flag_disclose
+        - flag_mute
         - leave
     fields:
       node_title:
@@ -62,8 +63,9 @@ third_party_settings:
         - request
         - accept
         - ignore
-        - flag_mute
         - edit
+        - flag_disclose
+        - flag_mute
         - leave
       parent_name: ''
       weight: 4
@@ -90,7 +92,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   edit:
-    weight: 24
+    weight: 23
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -115,8 +117,13 @@ content:
     third_party_settings:
       empty_fields:
         handler: ''
+  flag_disclose:
+    weight: 24
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   flag_mute:
-    weight: 23
+    weight: 25
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -136,7 +143,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   leave:
-    weight: 25
+    weight: 26
     region: content
     settings: {  }
     third_party_settings: {  }

@@ -72,7 +72,8 @@ display:
             sanctuary_admin: sanctuary_admin
             anathi: anathi
       cache:
-        type: tag
+        type: none
+        options: {  }
       query:
         type: views_query
         options:

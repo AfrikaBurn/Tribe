@@ -10,6 +10,7 @@ use \Drupal\Core\Entity\EntityInterface;
 use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use \Drupal\user\Entity\User;
 use \Drupal\afrikaburn_collective\Controller\CollectiveController;
+use \Drupal\afrikaburn_collective\Controller\PrivacyController;
 use \Drupal\afrikaburn_collective\Utils;
 use Drupal\Core\Access\AccessResult;
 
@@ -213,7 +214,7 @@ function afrikaburn_collective_theme(){
  * Implements hook_flag_action_access().
  */
 function afrikaburn_collective_flag_action_access($action, $flag, $account, $collective = NULL) {
-  if ($collective->bundle() == 'collective' && $flag->id == "mute"){
+  if ($collective->bundle() == 'collective' && in_array($flag->id, ['mute', 'disclose'])){
 
     $user = User::load(\Drupal::currentUser()->id());
 
@@ -266,6 +267,7 @@ function afrikaburn_collective_views_query_alter($view, $query) {
  * Implements hook_form_alter().
  * Hide inappropriate elements on collective form,
  * Add unique name validation.
+ * Change privacy flagging form title
  */
 function afrikaburn_collective_form_alter(&$form, $form_state, $form_id) {
   if (preg_match('/^node_collective/', $form_id)) {
@@ -277,6 +279,19 @@ function afrikaburn_collective_form_alter(&$form, $form_state, $form_id) {
     $form['field_col_invite_token']['#access'] = $user->hasRole('administrator');
     $form['field_settings']['widget']['#title'] = '';
     $form['#validate'][] = 'afrikaburn_collective_unique_name';
+  }
+
+  if (preg_match('/^flagging_disclose/', $form_id)) {
+    $form['#title'] = [
+      '#type' => 'markup',
+      '#markup' =>
+        ($form_id == 'flagging_disclose_add_form' ? 'Share my information' : 'My information shared').
+        ' <div class="subtitle">With the ' .
+        \Drupal::entityTypeManager()->getStorage('node')->load(
+          \Drupal::routeMatch()->getParameter('entity_id')
+        )->title->value .
+      ' Collective</div>',
+    ];
   }
 }
 
@@ -406,16 +421,33 @@ function afrikaburn_collective_preprocess_views_view_fields(&$variables) {
   module_load_include('inc', 'afrikaburn_collective', 'includes/view');
 
   $view = $variables['view'];
+  $user = Utils::currentUser();
+  $member = $variables['row']->_relationship_entities['uid'];
+  $collective = \Drupal::entityTypeManager()->getStorage('node')->load(
+    $variables['view']->args[0]
+  );
 
   if (
     $view->id() == 'collective_members' &&
     in_array($view->current_display, ['members', 'admins', 'requests', 'banned'])
   ){
-    _user_admin_links($variables);
-  }
+    _user_admin_links($variables, $collective, $user, $member);
 
-  $user = Utils::currentUser();
-  $collective = Utils::currentCollective();
+    $disclose = CollectiveController::get('disclose', $collective, $member);
+    if ($disclose){
+      $fields = array_column($disclose->get('field_members_list')->getValue(), 'value');
+      foreach($fields as $field){
+        $variables['display'][$field] = $variables['fields'][$field]->content;
+      }
+
+      if (CollectiveController::isAdmin($collective, $user)){
+        $fields = array_column($disclose->get('field_admins')->getValue(), 'value');
+        foreach($fields as $field){
+          $variables['display'][$field] = $variables['fields'][$field]['content'];
+        }
+      }
+    }
+  }
 
   if (
     $view->id() == 'collective_posts' &&
@@ -443,5 +475,3 @@ function afrikaburn_collective_views_pre_render($view) {
 function computed_field_field_col_invite_token_compute($entity_type_manager, $entity, $fields, $delta){
   return $entity;
 }
-
-

@@ -9,6 +9,9 @@
 use Drupal\views\Plugin\views\join;
 
 
+/* ---- System hooks ---- */
+
+
 /**
  * Implements hook_user_login().
  * Hooked to redirect users to the home page
@@ -19,6 +22,10 @@ function afrikaburn_shared_user_login($account){
     $response->send();
   }
 }
+
+
+/* ---- Page hooks ---- */
+
 
 /**
  * Imlements hook_page_attachments.

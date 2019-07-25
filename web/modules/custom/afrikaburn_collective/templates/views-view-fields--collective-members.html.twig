@@ -32,10 +32,14 @@
  */
 #}
 <article class="user user-listing">
-  <div class="picture">{{ fields.user_picture.content }}</div>
+{% if display.user_picture %}
+  <div class="picture">{{ display.user_picture }}</div>
+{% endif %}
   <div class="name">
     <div>{{ fields.name.content }}</div>
-    <div>({{ fields.field_first_name.content }} {{ fields.field_last_name.content}})</div>
+    {% if display.field_first_name or display.field_last_name %}
+    <div>({{ [display.field_first_name, display.field_last_name]|join(' ')|trim }})</div>
+    {% endif %}
   </div>
 </article>
 {% if (
@@ -45,7 +49,10 @@
   fields.approve.content or
   fields.reject.content or
   fields.ban.content or
-  fields.unban.content
+  fields.unban.content or
+  fields.show_name.content or
+  fields.hide_name.content or
+  fields.disclose.content
   ) %}
 <details>
   <summary></summary>
@@ -56,5 +63,8 @@
   {{ fields.reject.content }}
   {{ fields.ban.content }}
   {{ fields.unban.content }}
+  {{ fields.show_name.content }}
+  {{ fields.hide_name.content }}
+  {{ fields.disclose.content }}
 </details>
 {% endif %}

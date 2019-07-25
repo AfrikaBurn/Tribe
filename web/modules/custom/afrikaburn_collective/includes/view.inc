@@ -8,6 +8,7 @@
 use \Drupal\Component\Utility\UrlHelper;
 use \Drupal\afrikaburn_collective\Controller\CollectiveController;
 use \Drupal\user\Entity\User;
+use \Drupal\afrikaburn_collective\Utils;
 
 
 /* --- Comments  --- */
@@ -108,7 +109,7 @@ function _build_join(&$build, $display, $uid, $nid, $is_admin, $is_member){
     !$is_member && $open && !$vetted
   ){
 
-    $user = User::load(\Drupal::currentUser()->id());
+    $user = Utils::currentUser();
     $public = CollectiveController::setting($build['#node'], 'public');
     $public_members = CollectiveController::setting($build['#node'], 'public_members');
     $private_members = CollectiveController::setting($build['#node'], 'private_members');
@@ -139,7 +140,7 @@ function _build_join(&$build, $display, $uid, $nid, $is_admin, $is_member){
  */
 function _build_request(&$build, $display, $uid, $nid, $is_admin, $is_member){
 
-  $user = User::load(\Drupal::currentUser()->id());
+  $user = Utils::currentUser();
   $open = CollectiveController::setting($build['#node'], 'open');
   $vetted = CollectiveController::setting($build['#node'], 'vetted');
   $invited = CollectiveController::isInvited($build['#node'], $user);
@@ -190,7 +191,7 @@ function _build_request(&$build, $display, $uid, $nid, $is_admin, $is_member){
  */
 function _build_accept(&$build, $display, $uid, $nid, $is_admin, $is_member){
 
-  $user = User::load(\Drupal::currentUser()->id());
+  $user = Utils::currentUser();
   $open = CollectiveController::setting($build['#node'], 'open');
   $vetted = CollectiveController::setting($build['#node'], 'vetted');
   $invited = CollectiveController::isInvited($build['#node'], $user);
@@ -200,7 +201,7 @@ function _build_accept(&$build, $display, $uid, $nid, $is_admin, $is_member){
     !$is_member && $invited
   ){
 
-    $user = User::load(\Drupal::currentUser()->id());
+    $user = Utils::currentUser();
     $public = CollectiveController::setting($build['#node'], 'public');
     $public_members = CollectiveController::setting($build['#node'], 'public_members');
     $private_members = CollectiveController::setting($build['#node'], 'private_members');
@@ -212,7 +213,7 @@ function _build_accept(&$build, $display, $uid, $nid, $is_admin, $is_member){
       : '<a href="/collective/' . $nid . '/accept/' . $uid . $destination . '" class="accept">Accept</a>';
 
     $element = [
-      'prefix' => $exposure ? '<details><summary class="accept">Accept</summary><section>' : '',
+      'prefix' => $exposure ? '<details><summary class="accept" title="Accept the invitation to join this collective">Accept</summary><section>' : '',
       'exposing' => $exposure,
       'confirm' => $exposure ? '<p class="links">' .
         $link .
@@ -232,7 +233,7 @@ function _build_accept(&$build, $display, $uid, $nid, $is_admin, $is_member){
  */
 function _build_ignore(&$build, $display, $uid, $nid, $is_admin, $is_member){
 
-  $user = User::load(\Drupal::currentUser()->id());
+  $user = Utils::currentUser();
   $invited = CollectiveController::isInvited($build['#node'], $user);
 
   if (
@@ -241,7 +242,7 @@ function _build_ignore(&$build, $display, $uid, $nid, $is_admin, $is_member){
   ){
 
     $destination = '?destination=' . \Drupal::destination()->get();
-    $link = '<a href="/collective/' . $nid . '/ignore/' . $uid . $destination . '" class="ignore">Ignore</a>';
+    $link = '<a href="/collective/' . $nid . '/ignore/' . $uid . $destination . '" class="ignore" title="Ignore the invitation to join this collective">Ignore</a>';
 
     $build['ignore'] = [
       '#markup' => $link
@@ -260,7 +261,7 @@ function _build_leave(&$build, $display, $uid, $nid, $is_admin, $is_member){
 
     $build['leave'] = [
       '#markup' => '<details>
-        <summary class="leave">Leave</summary>
+        <summary class="leave" title="Leave this collective">Leave</summary>
         <section>
           <p>Are you sure?</p>
           <p class="links">
@@ -296,7 +297,7 @@ function _build_edit(&$build, $display, $uid, $nid, $is_admin, $is_member){
  */
 function _build_invited(&$build, $display, $uid, $nid, $is_admin, $is_member){
 
-  $user = User::load(\Drupal::currentUser()->id());
+  $user = Utils::currentUser();
   $invited = CollectiveController::isInvited($build['#node'], $user);
 
   if (
@@ -305,7 +306,7 @@ function _build_invited(&$build, $display, $uid, $nid, $is_admin, $is_member){
   ){
 
     $build['invited'] = [
-      '#markup' => '<div class="invitation">' . t('You\'ve been invited to this collective!') . '</div>'
+      '#markup' => '<div class="invitation">' . t('You\'ve been invited to join this collective!') . '</div>'
     ];
   }
 }
@@ -317,50 +318,26 @@ function _build_invited(&$build, $display, $uid, $nid, $is_admin, $is_member){
 /**
  * Builds user admin links
  */
-function _user_admin_links(&$variables){
-
-  $user = User::load(\Drupal::currentUser()->id());
-  $member = $variables['row']->_relationship_entities['uid'];
-  $collective = \Drupal::entityTypeManager()->getStorage('node')->load(
-    $variables['view']->args[0]
-  );
+function _user_admin_links(&$variables, $collective, $user, $member){
 
   if ($collective){
-    $variables['fields']['admin']['content'] = _build_admin(
-      $user,
-      $member,
-      $collective
-    );
-    $variables['fields']['approve']['content'] = _build_approve(
-      $user,
-      $member,
-      $collective
-    );
-    $variables['fields']['reject']['content'] = _build_reject(
-      $user,
-      $member,
-      $collective
-    );
-    $variables['fields']['ban']['content'] = _build_ban(
-      $user,
-      $member,
-      $collective
-    );
-    $variables['fields']['unban']['content'] = _build_unban(
-      $user,
-      $member,
-      $collective
-    );
-    $variables['fields']['boot']['content'] = _build_boot(
-      $user,
-      $member,
-      $collective
-    );
-    $variables['fields']['strip']['content'] = _build_strip(
-      $user,
-      $member,
-      $collective
-    );
+
+    foreach(
+      [
+        'admin', 'strip',
+        'approve', 'reject',
+        'ban', 'unban',
+        'boot',
+      ] as $action
+    ) {
+
+      $function = '_build_' . $action;
+      $variables['fields'][$action]['content'] = $function(
+        $user,
+        $member,
+        $collective
+      );
+    }
   }
 }
 
@@ -399,7 +376,7 @@ function _build_strip($user, $member, $collective){
         $collective->id() .
         '/strip/' .
         $member->id() .
-        '">Strip admin privileges</a>',
+        '">Remove admin privileges</a>',
     ];
   }
 }
@@ -499,6 +476,44 @@ function _build_boot($user, $member, $collective){
   }
 }
 
+/**
+ * Builds a show name link
+ */
+function _build_show_name($user, $member, $collective){
+  if (
+    $member->id() == $user->id() &&
+    !CollectiveController::isNameShown($collective, $member)
+  ) {
+    return [
+      '#markup' =>
+        '<a class="admin admin-show-name" href="/collective/' .
+        $collective->id() .
+        '/show-name/' .
+        $member->id() .
+        '">Show my real name here</a>',
+    ];
+  }
+}
+
+/**
+ * Builds a hide name link
+ */
+function _build_hide_name($user, $member, $collective){
+  if (
+    $member->id() == $user->id() &&
+    CollectiveController::isNameShown($collective, $member)
+  ) {
+    return [
+      '#markup' =>
+        '<a class="admin admin-hide-name" href="/collective/' .
+        $collective->id() .
+        '/hide-name/' .
+        $member->id() .
+        '">Hide my real name here</a>',
+    ];
+  }
+}
+
 
 /* --- Link utilities --- */
 
@@ -569,7 +584,7 @@ function _exposure($public, $vetted, $public_members, $private_members, $open, $
         ? '<p>' . array_shift($exposing) . implode(' and ', $exposing) . '.</p>'
         : FALSE,
       '<p>',
-      'Your <strong>picture, username, first</strong> and <strong>last name</strong> will be visible to ',
+      'Your <strong>picture and username</strong> will be visible to ',
       $exposed_to,
       '</p>'
     ]

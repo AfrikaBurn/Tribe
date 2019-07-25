@@ -1,0 +1,13 @@
+uuid: 6d8cfeae-7ef8-4272-ae27-e20e9d4ed909
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.disclose.unflag
+label: Hide
+type: node
+plugin: 'flag_action:disclose.unflag'
+configuration:
+  flag_id: disclose
+  flag_action: unflag
