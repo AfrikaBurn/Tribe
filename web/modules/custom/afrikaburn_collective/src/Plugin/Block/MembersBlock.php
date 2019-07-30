@@ -63,7 +63,7 @@ class MembersBlock extends BlockBase {
 
     $tab_count = count($tabs);
     $cache = [
-      'max-age' => 0,
+      // 'max-age' => 0,
       'tags' => $collective->getCacheTags()
     ];
     $alert = $tabs['requests'] && $tabs['requests']['content']['#count']
