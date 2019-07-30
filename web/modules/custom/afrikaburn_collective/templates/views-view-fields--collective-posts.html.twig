@@ -31,7 +31,14 @@
  * @ingroup themeable
  */
 #}
-
+{%
+  set display_name = [
+    display.field_first_name ? fields.field_first_name.content : '',
+    display.field_last_name ? fields.field_last_name.content : ''
+  ]|join(' ')|trim
+%}{%
+  set show_name = display_name != ''
+%}
 <article class="collective-post">
   <a name="comment-{{ fields.cid.content|striptags|trim }}"></a>
   <header>
@@ -40,9 +47,14 @@
     {{ fields.delete_comment.content }}
   </header>
   <main>
+    {% if display.user_picture %}
     <div class="image">{{ fields.user_picture.content }}</div>
+    {% endif %}
     <div class="comment">
       {{ fields.name.content }}
+      {% if show_name %}
+      <br />({{ display_name }})
+      {% endif %}
       {{ fields.comment_body.content }}
     </div>
   </main>

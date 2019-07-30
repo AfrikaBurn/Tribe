@@ -35,7 +35,7 @@ class MayAccept implements AccessInterface {
 
     switch(true){
       case $user->id() != $candidate->id():
-        $error = 'How rude, this isn\'t you! Who the fuck are you?';
+        $error = 'How rude, this isn\'t you! Who are you?';
         break;
       case CollectiveController::isBanned($collective, $candidate):
         $error = '@user banned from this collective!';

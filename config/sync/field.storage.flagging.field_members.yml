@@ -1,4 +1,4 @@
-uuid: 06a5b089-11fc-495b-be41-7c08ccd3b8f8
+uuid: 1ca752eb-6813-449a-a62c-828368f6db9b
 langcode: en
 status: true
 dependencies:
@@ -9,8 +9,8 @@ dependencies:
 third_party_settings:
   field_permissions:
     permission_type: public
-id: flagging.field_members_list
-field_name: field_members_list
+id: flagging.field_members
+field_name: field_members
 entity_type: flagging
 type: list_string
 settings:
@@ -24,6 +24,18 @@ settings:
     -
       value: field_last_name
       label: 'Last name'
+    -
+      value: field_date_of_birth
+      label: 'Date of birth'
+    -
+      value: field_email
+      label: 'Email address'
+    -
+      value: field_mobile
+      label: Mobile
+    -
+      value: field_location
+      label: Location
   allowed_values_function: ''
 module: options
 locked: false

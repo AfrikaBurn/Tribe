@@ -4,7 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.flagging.disclose.field_admins
-    - field.field.flagging.disclose.field_members_list
+    - field.field.flagging.disclose.field_members
     - flag.flag.disclose
   module:
     - options
@@ -20,8 +20,8 @@ content:
     third_party_settings: {  }
     type: list_default
     region: content
-  field_members_list:
-    weight: 1
+  field_members:
+    weight: 3
     label: above
     settings: {  }
     third_party_settings: {  }

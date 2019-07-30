@@ -646,7 +646,7 @@ display:
           exclude: false
           alter:
             alter_text: true
-            text: '<a class="button" href="/collective/{{ nid }}/accept">Accept</a><a class="button" href="/collective/{{ nid }}/ignore">Ignore</a>'
+            text: '<a class="button" href="/collective/{{ nid }}/ignore">Ignore</a>'
             make_link: false
             path: ''
             absolute: false

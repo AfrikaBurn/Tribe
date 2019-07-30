@@ -16,6 +16,15 @@ type: list_string
 settings:
   allowed_values:
     -
+      value: user_picture
+      label: Picture
+    -
+      value: field_first_name
+      label: 'First name'
+    -
+      value: field_last_name
+      label: 'Last name'
+    -
       value: field_date_of_birth
       label: 'Date of birth'
     -
@@ -24,9 +33,6 @@ settings:
     -
       value: field_mobile
       label: Mobile
-    -
-      value: field_country
-      label: Country
     -
       value: field_location
       label: Location

@@ -37,9 +37,6 @@ class MayStrip implements AccessInterface {
       case !CollectiveController::isAdmin($collective, $user):
         $error = 'You are not an administrator of this collective!';
         break;
-      case $user->id() == $candidate->id():
-        $error = 'You may not strip yourself!';
-        break;
     }
 
     if ($error){

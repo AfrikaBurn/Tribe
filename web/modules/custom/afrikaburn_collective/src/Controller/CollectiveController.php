@@ -127,6 +127,7 @@ class CollectiveController extends ControllerBase {
     list($collective, $user) = CollectiveController::pathParams();
 
     $token = \Drupal::request()->get('token');
+
     if ($token) {
       $token_index = @array_search($token, array_column($collective->get('field_col_invite_token')->getValue(), 'value'));
       if ($token_index !== FALSE) {
@@ -143,9 +144,16 @@ class CollectiveController extends ControllerBase {
       }
     }
 
-    CollectiveController::set('member', $collective, $user);
-    CollectiveController::clear('invite', $collective, $user);
-    Utils::showStatus('@username now a member', Utils::currentUser(), $user);
+    if (CollectiveController::setting($collective, 'vetted')){
+      CollectiveController::set('join', $collective, $user);
+      CollectiveController::clear('invite', $collective, $user);
+      Utils::showStatus('Invitation Accepted, but membership still requires administrator approval. Look out for a notification soon!', Utils::currentUser(), $user);
+    } else {
+      CollectiveController::set('member', $collective, $user);
+      CollectiveController::clear('invite', $collective, $user);
+      Utils::showStatus('@username now a member', Utils::currentUser(), $user);
+    }
+
     return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
   }
 
@@ -478,7 +486,9 @@ class CollectiveController extends ControllerBase {
   public static function get($flag_id, $collective, $user){
     $flag_service = \Drupal::service('flag');
     $flag = $flag_service->getFlagById($flag_id);
-    return $flag_service->getFlagging($flag, $collective, $user);
+    return $user->id()
+      ? $flag_service->getFlagging($flag, $collective, $user)
+      : FALSE;
   }
 
 

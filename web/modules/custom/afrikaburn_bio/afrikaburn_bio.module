@@ -12,23 +12,27 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  * Attach bio libraries.
  */
 function afrikaburn_bio_page_attachments(&$page) {
+
   $page['#attached']['library'][] = 'afrikaburn_bio/bio';
 
   $uid = \Drupal::currentUser()->id();
   $account = \Drupal\user\Entity\User::load($uid);
-  $flag_service = \Drupal::service('flag');
-  $flag = $flag_service->getFlagById('outdated');
-  $outdated = $flag_service->getFlagging($flag, $account);
 
-  if ($outdated){
-    drupal_set_message(
-      t(
-        'Your Bio is out of date! Please <a href="@link">update your bio</a>!',
-        ['@link' => '/user/' . $uid . '/edit/update']
-      ),
-      'warning',
-      TRUE
-    );
+  if (!\Drupal::currentUser()->isAnonymous()) {
+    $flag_service = \Drupal::service('flag');
+    $flag = $flag_service->getFlagById('outdated');
+    $outdated = $flag_service->getFlagging($flag, $account);
+
+    if ($outdated){
+      drupal_set_message(
+        t(
+          'Your Bio is out of date! Please <a href="@link">update your bio</a>!',
+          ['@link' => '/user/' . $uid . '/edit/update']
+        ),
+        'warning',
+        TRUE
+      );
+    }
   }
 }
 

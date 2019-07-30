@@ -16,7 +16,7 @@ id: flagging.disclose.field_admins
 field_name: field_admins
 entity_type: flagging
 bundle: disclose
-label: 'The collective admins'
+label: Admins
 description: ''
 required: false
 translatable: false

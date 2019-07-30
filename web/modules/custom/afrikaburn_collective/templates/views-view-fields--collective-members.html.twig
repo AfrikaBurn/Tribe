@@ -31,40 +31,55 @@
  * @ingroup themeable
  */
 #}
+{% set show_fields =
+    display.field_date_of_birth or
+    display.field_email or
+    display.field_mobile or
+    display.field_location
+%}{%
+  set display_name = [
+    display.field_first_name ? fields.field_first_name.content : '',
+    display.field_last_name ? fields.field_last_name.content : ''
+  ]|join(' ')|trim
+%}{%
+  set show_name = display_name != ''
+%}
 <article class="user user-listing">
 {% if display.user_picture %}
-  <div class="picture">{{ display.user_picture }}</div>
+  <div class="picture">{{ fields.user_picture.content }}</div>
 {% endif %}
   <div class="name">
     <div>{{ fields.name.content }}</div>
-    {% if display.field_first_name or display.field_last_name %}
-    <div>({{ [display.field_first_name, display.field_last_name]|join(' ')|trim }})</div>
+    {% if show_name %}
+    <div>({{ display_name }})</div>
     {% endif %}
   </div>
 </article>
-{% if (
-  fields.admin.content or
-  fields.strip.content or
-  fields.boot.content or
-  fields.approve.content or
-  fields.reject.content or
-  fields.ban.content or
-  fields.unban.content or
-  fields.show_name.content or
-  fields.hide_name.content or
-  fields.disclose.content
-  ) %}
+{% if (show_fields or has_admin_links) %}
 <details>
   <summary></summary>
-  {{ fields.admin.content }}
-  {{ fields.strip.content }}
-  {{ fields.boot.content }}
-  {{ fields.approve.content }}
-  {{ fields.reject.content }}
-  {{ fields.ban.content }}
-  {{ fields.unban.content }}
-  {{ fields.show_name.content }}
-  {{ fields.hide_name.content }}
-  {{ fields.disclose.content }}
+
+  {% if (show_fields) %}
+  <ul class="admin-fields">
+    {% for field_name in
+      [
+        'field_date_of_birth',
+        'field_email',
+        'field_mobile',
+        'field_location'
+      ]
+    %}
+      {% set field = fields[field_name] %}
+      {% if display[field_name] %}<li>{% if field.label %}<label>{{ field.label }}</label> {% endif %}{{ field.content }}</li>{% endif %}
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% if (has_admin_links) %}
+    {% for field in member_admin_links %}
+      {{ field.content }}
+    {% endfor %}
+  {% endif %}
+
 </details>
 {% endif %}

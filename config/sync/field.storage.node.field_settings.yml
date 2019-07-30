@@ -31,6 +31,12 @@ settings:
       value: private_admins
       label: 'Only members may see who the admins are.'
     -
+      value: private_discussion
+      label: 'Only members may see discussions.'
+    -
+      value: privileged_discussion
+      label: 'Only members may participate in discussions.'
+    -
       value: privare_members
       label: Discontinued
     -
@@ -48,12 +54,6 @@ settings:
     -
       value: private_projects
       label: 'Only members may see project registrations.'
-    -
-      value: private_discussion
-      label: 'Only members may see discussions.'
-    -
-      value: privileged_discussion
-      label: 'Only members may participate in discussions.'
     -
       value: emails
       label: 'Members receive eMail updates (that they may opt out of).'

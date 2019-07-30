@@ -20,19 +20,14 @@ class CollectiveRoutes extends RouteSubscriberBase {
    */
   protected function alterRoutes(RouteCollection $collection) {
 
-    // Node views
-    if ($route = $collection->get('entity.node.canonical')) {
-      $route->setRequirement('_is_collective_member', 'TRUE');
-    }
-
     // Node Edits
     if ($route = $collection->get('entity.node.edit_form')) {
-      $route->setRequirement('_is_collective_admin', 'TRUE');
+      $route->setRequirement('_is_admin', 'TRUE');
     }
 
     // Node deletes
     if ($route = $collection->get('entity.node.delete_form')) {
-      $route->setRequirement('_is_collective_admin', 'TRUE');
+      $route->setRequirement('_is_admin', 'TRUE');
     }
 
   }

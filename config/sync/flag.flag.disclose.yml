@@ -12,10 +12,10 @@ entity_type: node
 global: false
 weight: 0
 flag_short: Privacy
-flag_long: 'Manage privacy in this collective'
+flag_long: 'Share information with members of this collective'
 flag_message: ''
 unflag_short: Privacy
-unflag_long: 'From this collective?'
+unflag_long: 'Change what information is shared with members of this collective'
 unflag_message: ''
 unflag_denied_text: ''
 flag_type: 'entity:node'
@@ -26,7 +26,7 @@ flagTypeConfig:
   show_on_form: false
   show_contextual_link: false
   extra_permissions:
-    owner: owner
+    owner: '0'
 linkTypeConfig:
   flag_confirmation: 'Information to share with the [collective]'
   unflag_confirmation: 'Unshare all your info'

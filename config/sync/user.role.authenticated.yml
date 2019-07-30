@@ -113,6 +113,7 @@ permissions:
   - 'edit own subsidised_ticket content'
   - 'edit own theme_camps content'
   - 'flag bookmark'
+  - 'flag disclose'
   - 'flag invite'
   - 'flag join'
   - 'flag member'
@@ -123,6 +124,7 @@ permissions:
   - 'search content'
   - 'skip comment approval'
   - 'unflag bookmark'
+  - 'unflag disclose'
   - 'unflag form_1_completed'
   - 'unflag invite'
   - 'unflag join'
@@ -180,12 +182,16 @@ permissions:
   - userprotect.account.edit
   - userprotect.mail.edit
   - userprotect.pass.edit
+  - 'view field_date_of_birth'
   - 'view field_department'
+  - 'view field_email'
   - 'view field_eml_adm_desc'
   - 'view field_first_name'
   - 'view field_grt_art_total'
   - 'view field_grt_breakdown'
   - 'view field_last_name'
+  - 'view field_location'
+  - 'view field_mobile'
   - 'view field_prj_adm_wrangler'
   - 'view field_prj_gen_concept'
   - 'view field_prj_gen_doc'

@@ -75,7 +75,7 @@ afrikaburn_collective.approve:
     _controller: '\Drupal\afrikaburn_collective\Controller\CollectiveController::approve'
   requirements:
     _role: authenticated
-    _may_accept: 'TRUE'
+    _may_approve: 'TRUE'
 
 afrikaburn_collective.reject:
   path: '/collective/{cid}/reject/{uid}'

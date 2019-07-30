@@ -68,6 +68,9 @@ class Utils {
    * Shows an error.
    */
   public static function showError($error, $user, $candidate) {
+
+    if ($user->isAnonymous()) return;
+
     drupal_set_message(
       t(
         $error,

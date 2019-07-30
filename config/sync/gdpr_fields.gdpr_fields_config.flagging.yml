@@ -36,7 +36,7 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''
@@ -47,7 +47,18 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_members:
+      bundle: disclose
+      name: field_members
+      entity_type_id: flagging
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''

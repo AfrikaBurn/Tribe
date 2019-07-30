@@ -4,18 +4,23 @@ status: true
 dependencies:
   config:
     - field.field.flagging.disclose.field_admins
-    - field.field.flagging.disclose.field_members_list
+    - field.field.flagging.disclose.field_members
     - flag.flag.disclose
 id: flagging.disclose.default
 targetEntityType: flagging
 bundle: disclose
 mode: default
 content:
-  field_members_list:
+  field_admins:
+    type: options_buttons
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_members:
     weight: 0
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
-hidden:
-  field_admins: true
+hidden: {  }

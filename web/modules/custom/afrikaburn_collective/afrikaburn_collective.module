@@ -13,9 +13,10 @@ use \Drupal\afrikaburn_collective\Controller\CollectiveController;
 use \Drupal\afrikaburn_collective\Controller\PrivacyController;
 use \Drupal\afrikaburn_collective\Utils;
 use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Cache\Cache;
 
 
-/* ----- Module hooks ----- */
+/* ----- Page hooks ----- */
 
 
 /**
@@ -27,7 +28,7 @@ function afrikaburn_collective_page_attachments(&$page) {
 }
 
 
-/* ----- Create hooks ----- */
+/* ----- Entity hooks ----- */
 
 
 /**
@@ -68,9 +69,36 @@ function afrikaburn_collective_node_insert($node){
   }
 }
 
+/**
+ * Implements hook_ENTITY_insert().
+ * Invalidates user cache on privacy change.
+ */
+function afrikaburn_collective_flagging_insert($flagging) {
+  if (in_array($flagging->bundle(), ['disclose', 'admin', 'member'])){
+    Cache::invalidateTags(
+      [
+        'user:' . $flagging->uid->target_id,
+        'collective:' . $flagging->entity_id->value,
+      ]
+    );
+  }
+}
 
-/* ----- View hooks ----- */
+/**
+ * Implements hook_ENTITY_insert().
+ * Invalidates user cache on privacy change.
+ */
+function afrikaburn_collective_flagging_update($flagging) {
+  afrikaburn_collective_flagging_insert($flagging);
+}
 
+/**
+ * Implements hook_ENTITY_insert().
+ * Invalidates user cache on privacy change.
+ */
+function afrikaburn_collective_flagging_delete($flagging) {
+  afrikaburn_collective_flagging_insert($flagging);
+}
 
 /**
  * Implements hook_entity_extra_field_info().
@@ -149,6 +177,8 @@ function afrikaburn_collective_entity_extra_field_info() {
 
 /**
  * Implements hook_ENTITY_TYPE_view().
+ * Builds collective post / comment forms
+ * Builds collective action links
  */
 function afrikaburn_collective_node_view(&$build, $entity, $display, $view_mode) {
 
@@ -176,6 +206,79 @@ function afrikaburn_collective_node_view(&$build, $entity, $display, $view_mode)
     _build_leave($build, $display, $uid, $nid, $admin, $member);
     _build_edit($build, $display, $uid, $nid, $sys_admin, $sys_member);
   }
+}
+
+
+/* ----- Access hooks ----- */
+
+
+/**
+ * Implements hook_entity_field_access.
+ * Enforces user privacy by checking field access.
+ */
+function afrikaburn_collective_entity_field_access($op, $definition, $user, $items){
+
+  $subject = $items ? $items->getParent()->getEntity() : FALSE;
+
+  if (
+    $subject && $subject->id() != $user->id() &&
+    $definition instanceOf Drupal\field\Entity\FieldConfig &&
+    $definition->get('entity_type') == 'user' &&
+    $op == 'view' &&
+    in_array(
+      $definition->get('field_name'),
+      [
+        'user_picture',
+        'field_first_name',
+        'field_last_name',
+        'field_date_of_birth',
+        'field_email',
+        'field_mobile',
+        'field_location',
+      ]
+    )
+  ){
+
+    return in_array(
+      $definition->get('field_name'),
+      PrivacyController::maySee($user, $subject)['all']
+    )
+      ? AccessResult::neutral()
+      : AccessResult::forbidden();
+  }
+
+  return AccessResult::neutral();
+}
+
+/**
+ * Implements hook_node_access.
+ * Implemented to enforce collective access.
+ */
+function afrikaburn_collective_node_access($collective, $op, $user){
+
+  if ($collective->bundle() == 'collective'){
+    return CollectiveController::setting($collective, 'public')
+      ? AccessResult::neutral()
+      : AccessResult::forbidden();
+  }
+
+  return AccessResult::neutral();
+}
+
+
+/**
+ * Implements hook_flag_action_access().
+ */
+function afrikaburn_collective_flag_action_access($action, $flag, $account, $collective = NULL) {
+  if ($collective->bundle() == 'collective' && in_array($flag->id, ['mute', 'disclose'])){
+
+    $user = User::load(\Drupal::currentUser()->id());
+
+    return CollectiveController::isMember($collective, $user, TRUE)
+      ? AccessResult::neutral()
+      : AccessResult::forbidden();
+  }
+  return AccessResult::neutral();
 }
 
 
@@ -207,59 +310,6 @@ function afrikaburn_collective_theme(){
 }
 
 
-/* ----- Flag hooks ----- */
-
-
-/**
- * Implements hook_flag_action_access().
- */
-function afrikaburn_collective_flag_action_access($action, $flag, $account, $collective = NULL) {
-  if ($collective->bundle() == 'collective' && in_array($flag->id, ['mute', 'disclose'])){
-
-    $user = User::load(\Drupal::currentUser()->id());
-
-    return CollectiveController::isMember($collective, $user, TRUE)
-      ? AccessResult::neutral()
-      : AccessResult::forbidden();
-  }
-  return AccessResult::neutral();
-}
-
-/**
- * Implements hook_views_data_alter().
- * Limit view to only list members
- */
-function afrikaburn_collective_views_query_alter($view, $query) {
-  if ($view->id() == 'collective_member_select'){
-
-    $current = Utils::currentCollective();
-    $cid = count($view->args)
-      ? $view->args[0]
-      : $current ? $current->id() : false;
-
-    if ($cid){
-      $query->addRelationship(
-        'flagging',
-         \Drupal\views\Views::pluginManager('join')->createInstance(
-          'standard',
-          [
-            'table' => 'flagging',
-            'field' => 'uid',
-            'left_table' => 'users_field_data',
-            'left_field' => 'uid',
-            'operator' => '='
-          ]
-          ),
-          'users_field_data'
-      );
-
-      $query->addWhere(0, 'flagging.flag_id', 'member', '=');
-      $query->addWhere(0, 'flagging.entity_id', $cid, '=');
-    }
-  }
-}
-
-
 /* ----- Form Alters ----- */
 
 
@@ -270,6 +320,7 @@ function afrikaburn_collective_views_query_alter($view, $query) {
  * Change privacy flagging form title
  */
 function afrikaburn_collective_form_alter(&$form, $form_state, $form_id) {
+
   if (preg_match('/^node_collective/', $form_id)) {
     $user = User::load(\Drupal::currentUser()->id());
     $form['field_col_admins']['#access'] = false;
@@ -286,12 +337,13 @@ function afrikaburn_collective_form_alter(&$form, $form_state, $form_id) {
       '#type' => 'markup',
       '#markup' =>
         ($form_id == 'flagging_disclose_add_form' ? 'Share my information' : 'My information shared').
-        ' <div class="subtitle">With the ' .
+        ' <div class="subtitle">With members of the ' .
         \Drupal::entityTypeManager()->getStorage('node')->load(
           \Drupal::routeMatch()->getParameter('entity_id')
         )->title->value .
       ' Collective</div>',
     ];
+    $form['#attached']['library'][] = 'afrikaburn_collective/privacy';
   }
 }
 
@@ -407,6 +459,45 @@ function afrikaburn_collective_comment_redirect(&$form, $form_state){
 }
 
 
+/* ----- Views hooks ----- */
+
+
+/**
+ * Implements hook_views_data_alter().
+ * Limit view to only list members
+ * (users that have flagged the collective with the member flag)
+ */
+function afrikaburn_collective_views_query_alter($view, $query) {
+  if ($view->id() == 'collective_member_select'){
+
+    $current = Utils::currentCollective();
+    $cid = count($view->args)
+      ? $view->args[0]
+      : $current ? $current->id() : false;
+
+    if ($cid){
+      $query->addRelationship(
+        'flagging',
+         \Drupal\views\Views::pluginManager('join')->createInstance(
+          'standard',
+          [
+            'table' => 'flagging',
+            'field' => 'uid',
+            'left_table' => 'users_field_data',
+            'left_field' => 'uid',
+            'operator' => '='
+          ]
+          ),
+          'users_field_data'
+      );
+
+      $query->addWhere(0, 'flagging.flag_id', 'member', '=');
+      $query->addWhere(0, 'flagging.entity_id', $cid, '=');
+    }
+  }
+}
+
+
 /* ----- Preprocessors ----- */
 
 
@@ -422,6 +513,7 @@ function afrikaburn_collective_preprocess_views_view_fields(&$variables) {
 
   $view = $variables['view'];
   $user = Utils::currentUser();
+
   $member = $variables['row']->_relationship_entities['uid'];
   $collective = \Drupal::entityTypeManager()->getStorage('node')->load(
     $variables['view']->args[0]
@@ -432,21 +524,7 @@ function afrikaburn_collective_preprocess_views_view_fields(&$variables) {
     in_array($view->current_display, ['members', 'admins', 'requests', 'banned'])
   ){
     _user_admin_links($variables, $collective, $user, $member);
-
-    $disclose = CollectiveController::get('disclose', $collective, $member);
-    if ($disclose){
-      $fields = array_column($disclose->get('field_members_list')->getValue(), 'value');
-      foreach($fields as $field){
-        $variables['display'][$field] = $variables['fields'][$field]->content;
-      }
-
-      if (CollectiveController::isAdmin($collective, $user)){
-        $fields = array_column($disclose->get('field_admins')->getValue(), 'value');
-        foreach($fields as $field){
-          $variables['display'][$field] = $variables['fields'][$field]['content'];
-        }
-      }
-    }
+    $variables["display"] = PrivacyController::maySee($user, $member)['all'];
   }
 
   if (
@@ -455,6 +533,7 @@ function afrikaburn_collective_preprocess_views_view_fields(&$variables) {
     (CollectiveController::isMember($collective, $user) || !CollectiveController::setting($collective, 'privileged_discussion'))
   ) {
     _reply_form($variables);
+    $variables["display"] = PrivacyController::maySee($user, $member)['all'];
   }
 }
 

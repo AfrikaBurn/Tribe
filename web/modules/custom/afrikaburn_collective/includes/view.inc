@@ -312,7 +312,7 @@ function _build_invited(&$build, $display, $uid, $nid, $is_admin, $is_member){
 }
 
 
-/* --- Membership links --- */
+/* --- User admin links --- */
 
 
 /**
@@ -332,12 +332,14 @@ function _user_admin_links(&$variables, $collective, $user, $member){
     ) {
 
       $function = '_build_' . $action;
-      $variables['fields'][$action]['content'] = $function(
+      $variables['member_admin_links'][$action]['content'] = $function(
         $user,
         $member,
         $collective
       );
     }
+
+    $variables['has_admin_links'] = count(array_filter(array_column($variables['member_admin_links'], 'content'))) > 0;
   }
 }
 
@@ -551,10 +553,10 @@ function _build_link($label, $action, $nid, $uid, $popup, $destination = TRUE){
  */
 function _exposure($public, $vetted, $public_members, $private_members, $open, $invited = FALSE){
 
+
+  $prefix = ($public_members || $private_members) ? t('This collective allows ') : '';
   $exposing = @array_filter(
     [
-      $public_members || $private_members
-        ? t('This collective allows ') : '',
       $public_members
         ? t('non-members to see who members are') : FALSE,
       $private_members
@@ -568,25 +570,8 @@ function _exposure($public, $vetted, $public_members, $private_members, $open, $
     ]
   );
 
-  $exposed_to = @implode(' and ',
-    array_filter(
-      [
-        $private_members && ($open || $invited) && $vetted ? t('<strong>the other members of the collective</strong>') : FALSE,
-        t('<strong>admins of the collective</strong>'),
-        $public_members || $private_members && $open &&!$vetted ? t('<strong>anyone with a Bio</strong>') : FALSE,
-      ]
-    )
-  );
-
-  return @implode(
-    [
-      $exposing
-        ? '<p>' . array_shift($exposing) . implode(' and ', $exposing) . '.</p>'
-        : FALSE,
-      '<p>',
-      'Your <strong>picture and username</strong> will be visible to ',
-      $exposed_to,
-      '</p>'
-    ]
-  );
+  return $prefix .
+    (count($exposing)
+      ? '<ul><li>' . implode($exposing, '</li><li>') . '</ul>'
+      : '');
 }
