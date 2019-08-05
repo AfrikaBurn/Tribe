@@ -114,6 +114,13 @@ GRANT ALL PRIVILEGES ON my_database.* TO 'my_user'@'%' IDENTIFIED BY 'my_passwor
 FLUSH PRIVILEGES;
 EXIT;
 ```
+
+If you wish to test your settings you can type the following with your information included.
+```
+mysql -h localhost -P 3306 -u tribe_user -p tribe_database
+```
+The system will ask you for your password, and if all is correct you can log in to MySQL. Type EXIT to leave MySQL.
+
 ## PHP Setup
 The instalation uses a faid amount of memory and so you will need to boost PHP.
 ```
@@ -136,6 +143,20 @@ To install it's much quicker to use Drush but you can also go to your localhost 
 drush site-install config_installer
 ```
 It takes a while to complete.
+
+Next edit 
+```
+web/sites/default/settings.php
+```
+to point to your secure folder
+
+```
+# $settings['file_private_path'] = '';
+$settings['file_private_path'] = '/var/www/tribe_secure';
+```
+
+## First Login
+Note: that if have not followed the the [![LAMP server setup](https://github.com/AfrikaBurn/tribe/blob/master/docs/lamp.md)] you may need to check that your local settings match.
 
 Once complete it spits out a user name and password. 
 Now go to your browser:
@@ -163,6 +184,7 @@ http://tribe.localhost/user/reset/1/1558539055/mxVEGSTdLjU4_i_iTUjiH7uEus9mL2yy2
 You will see a content missing an error message. As there is no content currently on the system
 
 If your login works, we going to ensure everything imported with drush content import. Some features will only trigger after installation is complete.
+
 ```
 drush cim
 ```
