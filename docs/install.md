@@ -93,10 +93,16 @@ Note: if you install via the command line, password special characters do not wo
 ```
 CREATE DATABASE my_database;
 CREATE USER 'my_user'@'localhost' IDENTIFIED BY 'my_password';
-GRANT ALL PRIVILEGES ON tribe_alt_database.* TO 'tribe_alt_user'@'%' IDENTIFIED BY 'tribe_password' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON tribe_database.* TO 'tribe_user'@'%' IDENTIFIED BY 'tribe_password' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
 EXIT;
 ```
+
+If you wish to test your settings you can type the following with your information included.
+```
+mysql -h localhost -P 3306 -u tribe_user -p tribe_database
+```
+The system will ask you for your password, and if all is correct you can log in to MySQL. Type EXIT to leave MySQL.
 
 ## Install Drupal
 
