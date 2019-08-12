@@ -18,8 +18,8 @@ id: node.art.field_prj_lnt_historic
 field_name: field_prj_lnt_historic
 entity_type: node
 bundle: art
-label: 'Moop Map score in 2017'
-description: 'If you were part of a Creative Project in 2017 what was your MOOP map rating?<br>Red, Yellow, Green'
+label: 'Last Moop Map score'
+description: 'If you were previously part of a Creative Project what was your most recent MOOP map rating?<br>Red, Yellow, Green'
 required: false
 translatable: true
 default_value: {  }

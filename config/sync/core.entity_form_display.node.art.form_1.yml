@@ -10,6 +10,10 @@ dependencies:
     - field.field.node.art.field_arteria_checkin
     - field.field.node.art.field_burn_can_be_denied
     - field.field.node.art.field_collective
+    - field.field.node.art.field_footprint_diameter
+    - field.field.node.art.field_footprint_length
+    - field.field.node.art.field_footprint_specification
+    - field.field.node.art.field_footprint_width
     - field.field.node.art.field_form_mode
     - field.field.node.art.field_grant_expense_header
     - field.field.node.art.field_grt_art_apply
@@ -38,6 +42,7 @@ dependencies:
     - field.field.node.art.field_lineup_request
     - field.field.node.art.field_lnt_intro
     - field.field.node.art.field_muncipal_district
+    - field.field.node.art.field_prj_actualising
     - field.field.node.art.field_prj_adm_form_3
     - field.field.node.art.field_prj_adm_latitude
     - field.field.node.art.field_prj_adm_longitude
@@ -97,6 +102,7 @@ dependencies:
     - field.field.node.art.field_prj_oth_unregistered
     - field.field.node.art.field_prj_plc_f1
     - field.field.node.art.field_prj_plc_location_extra
+    - field.field.node.art.field_prj_process_work
     - field.field.node.art.field_prj_prp_duration
     - field.field.node.art.field_prj_prp_erection
     - field.field.node.art.field_prj_prp_start
@@ -161,6 +167,7 @@ third_party_settings:
   field_group:
     group_intro:
       children:
+        - field_prj_actualising
         - title
         - field_prj_gen_contact
         - field_prj_gen_manager
@@ -168,8 +175,6 @@ third_party_settings:
         - field_prj_gen_location
         - field_prj_gen_bio
         - field_prj_gen_history
-        - field_prj_gen_fundraising
-        - field_prj_gen_fundraiser
       parent_name: group_project_registration
       weight: 7
       format_type: tab
@@ -220,6 +225,10 @@ third_party_settings:
     group_dimensions:
       children:
         - field_prj_stc_height
+        - field_footprint_specification
+        - field_footprint_length
+        - field_footprint_width
+        - field_footprint_diameter
         - field_prj_stc_footprint
         - field_prj_stc_weight
         - field_prj_stc_attributes
@@ -432,6 +441,33 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_footprint_diameter:
+    type: number
+    weight: 12
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_footprint_length:
+    type: number
+    weight: 10
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+  field_footprint_specification:
+    type: options_select
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_footprint_width:
+    type: number
+    weight: 11
+    region: content
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
   field_form_mode:
     type: string_textfield
     weight: 11
@@ -442,6 +478,12 @@ content:
     third_party_settings: {  }
   field_muncipal_district:
     type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_prj_actualising:
+    type: options_buttons
     weight: 0
     region: content
     settings: {  }
@@ -571,7 +613,7 @@ content:
           bundle: art
   field_prj_gen_bio:
     type: string_textarea
-    weight: 13
+    weight: 6
     region: content
     settings:
       rows: 5
@@ -587,7 +629,7 @@ content:
     third_party_settings: {  }
   field_prj_gen_contact:
     type: erviews_options_select
-    weight: 8
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -606,39 +648,9 @@ content:
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
-  field_prj_gen_fundraiser:
-    type: erviews_options_select
-    weight: 16
-    region: content
-    settings: {  }
-    third_party_settings:
-      conditional_fields:
-        e6199359-f834-4e5f-ae3c-6f11651bc00a:
-          dependee: field_prj_gen_fundraising
-          settings:
-            state: visible
-            condition: checked
-            grouping: AND
-            values_set: 1
-            value: ''
-            values: {  }
-            value_form:
-              value: false
-            effect: show
-            effect_options: {  }
-            selector: ''
-          entity_type: node
-          bundle: art
-  field_prj_gen_fundraising:
-    type: boolean_checkbox
-    weight: 15
-    region: content
-    settings:
-      display_label: true
-    third_party_settings: {  }
   field_prj_gen_history:
     type: string_textarea
-    weight: 14
+    weight: 7
     region: content
     settings:
       rows: 5
@@ -654,13 +666,13 @@ content:
     third_party_settings: {  }
   field_prj_gen_lead:
     type: erviews_options_select
-    weight: 10
+    weight: 4
     region: content
     settings: {  }
     third_party_settings: {  }
   field_prj_gen_location:
     type: cshs
-    weight: 11
+    weight: 5
     region: content
     settings:
       parent: 0
@@ -669,7 +681,7 @@ content:
     third_party_settings: {  }
   field_prj_gen_manager:
     type: erviews_options_select
-    weight: 9
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -854,7 +866,7 @@ content:
     third_party_settings: {  }
   field_prj_stc_attributes:
     type: string_textarea
-    weight: 11
+    weight: 15
     region: content
     settings:
       rows: 5
@@ -868,7 +880,7 @@ content:
     region: content
   field_prj_stc_footprint:
     type: number
-    weight: 9
+    weight: 13
     region: content
     settings:
       placeholder: ''
@@ -888,7 +900,7 @@ content:
     third_party_settings: {  }
   field_prj_stc_materials:
     type: string_textarea
-    weight: 12
+    weight: 16
     region: content
     settings:
       rows: 5
@@ -896,7 +908,7 @@ content:
     third_party_settings: {  }
   field_prj_stc_safety:
     type: string_textarea
-    weight: 13
+    weight: 17
     region: content
     settings:
       rows: 5
@@ -910,13 +922,13 @@ content:
     third_party_settings: {  }
   field_prj_stc_structural:
     type: erviews_options_select
-    weight: 14
+    weight: 18
     region: content
     settings: {  }
     third_party_settings: {  }
   field_prj_stc_weight:
     type: number
-    weight: 10
+    weight: 14
     region: content
     settings:
       placeholder: ''
@@ -988,7 +1000,7 @@ content:
     third_party_settings: {  }
   title:
     type: string_textfield
-    weight: 7
+    weight: 1
     region: content
     settings:
       size: 60
@@ -1039,6 +1051,8 @@ hidden:
   field_prj_brn_time_adm: true
   field_prj_cost: true
   field_prj_gen_external: true
+  field_prj_gen_fundraiser: true
+  field_prj_gen_fundraising: true
   field_prj_grant_expenses: true
   field_prj_lgh_agree: true
   field_prj_lgh_description: true
@@ -1058,6 +1072,7 @@ hidden:
   field_prj_oth_unregistered: true
   field_prj_plc_f1: true
   field_prj_plc_location_extra: true
+  field_prj_process_work: true
   field_prj_saf_comment: true
   field_prj_snd_agree: true
   field_prj_snd_comment: true

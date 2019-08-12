@@ -38,6 +38,7 @@ dependencies:
     - field.field.node.art.field_lineup_request
     - field.field.node.art.field_lnt_intro
     - field.field.node.art.field_muncipal_district
+    - field.field.node.art.field_prj_actualising
     - field.field.node.art.field_prj_adm_form_3
     - field.field.node.art.field_prj_adm_latitude
     - field.field.node.art.field_prj_adm_longitude
@@ -97,6 +98,7 @@ dependencies:
     - field.field.node.art.field_prj_oth_unregistered
     - field.field.node.art.field_prj_plc_f1
     - field.field.node.art.field_prj_plc_location_extra
+    - field.field.node.art.field_prj_process_work
     - field.field.node.art.field_prj_prp_duration
     - field.field.node.art.field_prj_prp_erection
     - field.field.node.art.field_prj_prp_start
@@ -230,6 +232,7 @@ third_party_settings:
       label: Shortfall
     group_other:
       children:
+        - field_prj_process_work
         - field_grt_more
       parent_name: group_project_registration
       weight: 10
@@ -299,7 +302,7 @@ content:
     type: markup
     region: content
   field_grt_more:
-    weight: 7
+    weight: 9
     settings:
       rows: 5
       placeholder: ''
@@ -388,6 +391,12 @@ content:
     third_party_settings: {  }
     type: markup
     region: content
+  field_prj_process_work:
+    type: options_buttons
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_prj_prp_area:
     weight: 27
     settings: {  }
@@ -480,6 +489,7 @@ hidden:
   field_lineup_request: true
   field_lnt_intro: true
   field_muncipal_district: true
+  field_prj_actualising: true
   field_prj_adm_comms: true
   field_prj_adm_form_2: true
   field_prj_adm_form_3: true

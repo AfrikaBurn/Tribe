@@ -7,6 +7,8 @@ dependencies:
     - field.storage.node.field_publish_on
     - field.storage.node.field_unpublish_on
     - node.type.announcement
+    - user.role.communications_admin
+    - user.role.communications_wrangler
   module:
     - datetime
     - node
@@ -371,22 +373,22 @@ display:
       tags:
         - 'config:core.entity_view_display.node.agreement.default'
         - 'config:core.entity_view_display.node.agreement.teaser'
+        - 'config:core.entity_view_display.node.alert.default'
+        - 'config:core.entity_view_display.node.alert.teaser'
         - 'config:core.entity_view_display.node.announcement.default'
         - 'config:core.entity_view_display.node.announcement.teaser'
-        - 'config:core.entity_view_display.node.art.app_editing'
+        - 'config:core.entity_view_display.node.art.book'
         - 'config:core.entity_view_display.node.art.default'
-        - 'config:core.entity_view_display.node.art.early_access_and_vehicle_passes'
+        - 'config:core.entity_view_display.node.art.form_1'
+        - 'config:core.entity_view_display.node.art.form_1_mail'
+        - 'config:core.entity_view_display.node.art.form_2'
+        - 'config:core.entity_view_display.node.art.form_2_mail'
+        - 'config:core.entity_view_display.node.art.form_3'
+        - 'config:core.entity_view_display.node.art.form_3_mail'
         - 'config:core.entity_view_display.node.art.grant'
-        - 'config:core.entity_view_display.node.art.location'
-        - 'config:core.entity_view_display.node.art.mail'
-        - 'config:core.entity_view_display.node.art.notification'
-        - 'config:core.entity_view_display.node.art.print'
-        - 'config:core.entity_view_display.node.art.project_overview'
-        - 'config:core.entity_view_display.node.art.supplier'
-        - 'config:core.entity_view_display.node.art.teaser'
-        - 'config:core.entity_view_display.node.art.wrangler_overview'
-        - 'config:core.entity_view_display.node.art.wrangler_supplier'
-        - 'config:core.entity_view_display.node.art.wtf_guide_and_app'
+        - 'config:core.entity_view_display.node.art.grant_mail'
+        - 'config:core.entity_view_display.node.art.grant_print'
+        - 'config:core.entity_view_display.node.art.waps'
         - 'config:core.entity_view_display.node.article.default'
         - 'config:core.entity_view_display.node.article.notification'
         - 'config:core.entity_view_display.node.article.rss'
@@ -394,40 +396,41 @@ display:
         - 'config:core.entity_view_display.node.collective.default'
         - 'config:core.entity_view_display.node.collective.full'
         - 'config:core.entity_view_display.node.collective.teaser'
-        - 'config:core.entity_view_display.node.mutant_vehicles.app_editing'
+        - 'config:core.entity_view_display.node.incident.default'
+        - 'config:core.entity_view_display.node.incident.teaser'
+        - 'config:core.entity_view_display.node.mutant_vehicles.book'
         - 'config:core.entity_view_display.node.mutant_vehicles.default'
-        - 'config:core.entity_view_display.node.mutant_vehicles.early_access_and_vehicle_passes'
-        - 'config:core.entity_view_display.node.mutant_vehicles.notification'
-        - 'config:core.entity_view_display.node.mutant_vehicles.teaser'
-        - 'config:core.entity_view_display.node.mutant_vehicles.wrangler_overview'
-        - 'config:core.entity_view_display.node.mutant_vehicles.wrangler_supplier'
+        - 'config:core.entity_view_display.node.mutant_vehicles.form_1'
+        - 'config:core.entity_view_display.node.mutant_vehicles.form_1_mail'
+        - 'config:core.entity_view_display.node.mutant_vehicles.grant'
+        - 'config:core.entity_view_display.node.mutant_vehicles.grant_mail'
+        - 'config:core.entity_view_display.node.mutant_vehicles.grant_print'
+        - 'config:core.entity_view_display.node.mutant_vehicles.waps'
         - 'config:core.entity_view_display.node.page.default'
         - 'config:core.entity_view_display.node.page.teaser'
-        - 'config:core.entity_view_display.node.performances.app_editing'
         - 'config:core.entity_view_display.node.performances.default'
-        - 'config:core.entity_view_display.node.performances.early_access_and_vehicle_passes'
-        - 'config:core.entity_view_display.node.performances.notification'
-        - 'config:core.entity_view_display.node.performances.print'
-        - 'config:core.entity_view_display.node.performances.teaser'
-        - 'config:core.entity_view_display.node.performances.wrangler_overview'
-        - 'config:core.entity_view_display.node.performances.wrangler_supplier'
+        - 'config:core.entity_view_display.node.performances.form_1'
+        - 'config:core.entity_view_display.node.performances.form_1_mail'
+        - 'config:core.entity_view_display.node.performances.form_2'
+        - 'config:core.entity_view_display.node.performances.form_2_mail'
+        - 'config:core.entity_view_display.node.performances.grant'
+        - 'config:core.entity_view_display.node.performances.grant_mail'
+        - 'config:core.entity_view_display.node.performances.grant_print'
+        - 'config:core.entity_view_display.node.performances.waps'
         - 'config:core.entity_view_display.node.subsidised_ticket.default'
         - 'config:core.entity_view_display.node.subsidised_ticket.teaser'
         - 'config:core.entity_view_display.node.subsidised_ticket.wrangler_overview'
-        - 'config:core.entity_view_display.node.theme_camps.app_editing'
         - 'config:core.entity_view_display.node.theme_camps.default'
-        - 'config:core.entity_view_display.node.theme_camps.early_access_and_vehicle_passes'
-        - 'config:core.entity_view_display.node.theme_camps.form_'
-        - 'config:core.entity_view_display.node.theme_camps.location'
-        - 'config:core.entity_view_display.node.theme_camps.notification'
-        - 'config:core.entity_view_display.node.theme_camps.open_camps'
-        - 'config:core.entity_view_display.node.theme_camps.project_overview'
-        - 'config:core.entity_view_display.node.theme_camps.supplier'
-        - 'config:core.entity_view_display.node.theme_camps.support_camps'
-        - 'config:core.entity_view_display.node.theme_camps.teaser'
-        - 'config:core.entity_view_display.node.theme_camps.wrangler_overview'
-        - 'config:core.entity_view_display.node.theme_camps.wrangler_supplier'
-        - 'config:core.entity_view_display.node.theme_camps.wtf_guide_and_app'
+        - 'config:core.entity_view_display.node.theme_camps.form_1'
+        - 'config:core.entity_view_display.node.theme_camps.form_1_mail'
+        - 'config:core.entity_view_display.node.theme_camps.form_2'
+        - 'config:core.entity_view_display.node.theme_camps.form_2_mail'
+        - 'config:core.entity_view_display.node.theme_camps.form_3'
+        - 'config:core.entity_view_display.node.theme_camps.form_3_mail'
+        - 'config:core.entity_view_display.node.theme_camps.layout_print'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp_mail'
+        - 'config:core.entity_view_display.node.theme_camps.waps'
   block_1:
     display_plugin: block
     id: block_1
@@ -445,22 +448,22 @@ display:
       tags:
         - 'config:core.entity_view_display.node.agreement.default'
         - 'config:core.entity_view_display.node.agreement.teaser'
+        - 'config:core.entity_view_display.node.alert.default'
+        - 'config:core.entity_view_display.node.alert.teaser'
         - 'config:core.entity_view_display.node.announcement.default'
         - 'config:core.entity_view_display.node.announcement.teaser'
-        - 'config:core.entity_view_display.node.art.app_editing'
+        - 'config:core.entity_view_display.node.art.book'
         - 'config:core.entity_view_display.node.art.default'
-        - 'config:core.entity_view_display.node.art.early_access_and_vehicle_passes'
+        - 'config:core.entity_view_display.node.art.form_1'
+        - 'config:core.entity_view_display.node.art.form_1_mail'
+        - 'config:core.entity_view_display.node.art.form_2'
+        - 'config:core.entity_view_display.node.art.form_2_mail'
+        - 'config:core.entity_view_display.node.art.form_3'
+        - 'config:core.entity_view_display.node.art.form_3_mail'
         - 'config:core.entity_view_display.node.art.grant'
-        - 'config:core.entity_view_display.node.art.location'
-        - 'config:core.entity_view_display.node.art.mail'
-        - 'config:core.entity_view_display.node.art.notification'
-        - 'config:core.entity_view_display.node.art.print'
-        - 'config:core.entity_view_display.node.art.project_overview'
-        - 'config:core.entity_view_display.node.art.supplier'
-        - 'config:core.entity_view_display.node.art.teaser'
-        - 'config:core.entity_view_display.node.art.wrangler_overview'
-        - 'config:core.entity_view_display.node.art.wrangler_supplier'
-        - 'config:core.entity_view_display.node.art.wtf_guide_and_app'
+        - 'config:core.entity_view_display.node.art.grant_mail'
+        - 'config:core.entity_view_display.node.art.grant_print'
+        - 'config:core.entity_view_display.node.art.waps'
         - 'config:core.entity_view_display.node.article.default'
         - 'config:core.entity_view_display.node.article.notification'
         - 'config:core.entity_view_display.node.article.rss'
@@ -468,40 +471,41 @@ display:
         - 'config:core.entity_view_display.node.collective.default'
         - 'config:core.entity_view_display.node.collective.full'
         - 'config:core.entity_view_display.node.collective.teaser'
-        - 'config:core.entity_view_display.node.mutant_vehicles.app_editing'
+        - 'config:core.entity_view_display.node.incident.default'
+        - 'config:core.entity_view_display.node.incident.teaser'
+        - 'config:core.entity_view_display.node.mutant_vehicles.book'
         - 'config:core.entity_view_display.node.mutant_vehicles.default'
-        - 'config:core.entity_view_display.node.mutant_vehicles.early_access_and_vehicle_passes'
-        - 'config:core.entity_view_display.node.mutant_vehicles.notification'
-        - 'config:core.entity_view_display.node.mutant_vehicles.teaser'
-        - 'config:core.entity_view_display.node.mutant_vehicles.wrangler_overview'
-        - 'config:core.entity_view_display.node.mutant_vehicles.wrangler_supplier'
+        - 'config:core.entity_view_display.node.mutant_vehicles.form_1'
+        - 'config:core.entity_view_display.node.mutant_vehicles.form_1_mail'
+        - 'config:core.entity_view_display.node.mutant_vehicles.grant'
+        - 'config:core.entity_view_display.node.mutant_vehicles.grant_mail'
+        - 'config:core.entity_view_display.node.mutant_vehicles.grant_print'
+        - 'config:core.entity_view_display.node.mutant_vehicles.waps'
         - 'config:core.entity_view_display.node.page.default'
         - 'config:core.entity_view_display.node.page.teaser'
-        - 'config:core.entity_view_display.node.performances.app_editing'
         - 'config:core.entity_view_display.node.performances.default'
-        - 'config:core.entity_view_display.node.performances.early_access_and_vehicle_passes'
-        - 'config:core.entity_view_display.node.performances.notification'
-        - 'config:core.entity_view_display.node.performances.print'
-        - 'config:core.entity_view_display.node.performances.teaser'
-        - 'config:core.entity_view_display.node.performances.wrangler_overview'
-        - 'config:core.entity_view_display.node.performances.wrangler_supplier'
+        - 'config:core.entity_view_display.node.performances.form_1'
+        - 'config:core.entity_view_display.node.performances.form_1_mail'
+        - 'config:core.entity_view_display.node.performances.form_2'
+        - 'config:core.entity_view_display.node.performances.form_2_mail'
+        - 'config:core.entity_view_display.node.performances.grant'
+        - 'config:core.entity_view_display.node.performances.grant_mail'
+        - 'config:core.entity_view_display.node.performances.grant_print'
+        - 'config:core.entity_view_display.node.performances.waps'
         - 'config:core.entity_view_display.node.subsidised_ticket.default'
         - 'config:core.entity_view_display.node.subsidised_ticket.teaser'
         - 'config:core.entity_view_display.node.subsidised_ticket.wrangler_overview'
-        - 'config:core.entity_view_display.node.theme_camps.app_editing'
         - 'config:core.entity_view_display.node.theme_camps.default'
-        - 'config:core.entity_view_display.node.theme_camps.early_access_and_vehicle_passes'
-        - 'config:core.entity_view_display.node.theme_camps.form_'
-        - 'config:core.entity_view_display.node.theme_camps.location'
-        - 'config:core.entity_view_display.node.theme_camps.notification'
-        - 'config:core.entity_view_display.node.theme_camps.open_camps'
-        - 'config:core.entity_view_display.node.theme_camps.project_overview'
-        - 'config:core.entity_view_display.node.theme_camps.supplier'
-        - 'config:core.entity_view_display.node.theme_camps.support_camps'
-        - 'config:core.entity_view_display.node.theme_camps.teaser'
-        - 'config:core.entity_view_display.node.theme_camps.wrangler_overview'
-        - 'config:core.entity_view_display.node.theme_camps.wrangler_supplier'
-        - 'config:core.entity_view_display.node.theme_camps.wtf_guide_and_app'
+        - 'config:core.entity_view_display.node.theme_camps.form_1'
+        - 'config:core.entity_view_display.node.theme_camps.form_1_mail'
+        - 'config:core.entity_view_display.node.theme_camps.form_2'
+        - 'config:core.entity_view_display.node.theme_camps.form_2_mail'
+        - 'config:core.entity_view_display.node.theme_camps.form_3'
+        - 'config:core.entity_view_display.node.theme_camps.form_3_mail'
+        - 'config:core.entity_view_display.node.theme_camps.layout_print'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp'
+        - 'config:core.entity_view_display.node.theme_camps.support_camp_mail'
+        - 'config:core.entity_view_display.node.theme_camps.waps'
   page_1:
     display_plugin: page
     id: page_1
@@ -577,6 +581,10 @@ display:
         style: false
         row: false
         fields: false
+        filters: false
+        filter_groups: false
+        empty: false
+        access: false
       row:
         type: fields
         options:
@@ -846,7 +854,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          label: ''
+          label: Actions
           exclude: false
           alter:
             alter_text: false
@@ -945,13 +953,46 @@ display:
           absolute: false
           entity_type: node
           plugin_id: entity_link_delete
+      filters:
+        type:
+          id: type
+          table: node_field_data
+          field: type
+          value:
+            announcement: announcement
+          entity_type: node
+          entity_field: type
+          plugin_id: bundle
+          group: 1
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      empty:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content: 'Nope, Nada, Fokol here'
+          plugin_id: text_custom
+      access:
+        type: role
+        options:
+          role:
+            communications_wrangler: communications_wrangler
+            communications_admin: communications_admin
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - 'user.node_grants:view'
-        - user.permissions
+        - user.roles
       tags:
         - 'config:field.storage.node.field_body'
         - 'config:field.storage.node.field_publish_on'

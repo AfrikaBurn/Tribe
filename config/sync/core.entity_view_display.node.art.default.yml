@@ -9,6 +9,10 @@ dependencies:
     - field.field.node.art.field_arteria_checkin
     - field.field.node.art.field_burn_can_be_denied
     - field.field.node.art.field_collective
+    - field.field.node.art.field_footprint_diameter
+    - field.field.node.art.field_footprint_length
+    - field.field.node.art.field_footprint_specification
+    - field.field.node.art.field_footprint_width
     - field.field.node.art.field_form_mode
     - field.field.node.art.field_grant_expense_header
     - field.field.node.art.field_grt_art_apply
@@ -37,6 +41,7 @@ dependencies:
     - field.field.node.art.field_lineup_request
     - field.field.node.art.field_lnt_intro
     - field.field.node.art.field_muncipal_district
+    - field.field.node.art.field_prj_actualising
     - field.field.node.art.field_prj_adm_form_3
     - field.field.node.art.field_prj_adm_latitude
     - field.field.node.art.field_prj_adm_longitude
@@ -96,6 +101,7 @@ dependencies:
     - field.field.node.art.field_prj_oth_unregistered
     - field.field.node.art.field_prj_plc_f1
     - field.field.node.art.field_prj_plc_location_extra
+    - field.field.node.art.field_prj_process_work
     - field.field.node.art.field_prj_prp_duration
     - field.field.node.art.field_prj_prp_erection
     - field.field.node.art.field_prj_prp_start
@@ -154,6 +160,7 @@ dependencies:
     - empty_fields
     - entity_reference_revisions
     - markup
+    - options
     - user
 id: node.art.default
 targetEntityType: node
@@ -180,6 +187,47 @@ content:
     third_party_settings: {  }
     type: boolean
     region: content
+  field_footprint_diameter:
+    weight: 23
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_footprint_length:
+    weight: 22
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_footprint_specification:
+    weight: 20
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
+  field_footprint_width:
+    weight: 21
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  field_prj_actualising:
+    weight: 18
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   field_prj_gen_concept:
     type: colorbox
     weight: 0
@@ -205,6 +253,13 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+  field_prj_process_work:
+    weight: 19
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
+    region: content
   field_prj_snd_more_later:
     weight: 3
     label: above

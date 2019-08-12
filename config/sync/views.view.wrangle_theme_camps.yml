@@ -7081,7 +7081,7 @@ display:
             description: ''
             use_operator: false
             operator: field_year_cycle_value_op
-            identifier: year_cycle
+            identifier: year
             required: false
             remember: false
             multiple: false
@@ -7110,7 +7110,7 @@ display:
               sanctuary_admin: '0'
               logger: '0'
               anathi: '0'
-            placeholder: Year
+            placeholder: 'Year cycle'
             min_placeholder: ''
             max_placeholder: ''
           is_grouped: false

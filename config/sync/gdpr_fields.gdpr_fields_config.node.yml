@@ -211,10 +211,13 @@ bundles:
       enabled: false
       rta: 'no'
       rtf: 'no'
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       bundle: art
       name: field_prj_grant_expenses
+      entity_type_id: node
+      relationship: 0
+      sars_filename: ''
     field_prj_cost:
       enabled: false
       rta: 'no'
