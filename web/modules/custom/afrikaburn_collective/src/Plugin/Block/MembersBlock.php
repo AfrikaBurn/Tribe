@@ -5,7 +5,7 @@ namespace Drupal\afrikaburn_collective\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\views\Views;
 use \Drupal\afrikaburn_collective\Controller\CollectiveController;
-use \Drupal\afrikaburn_collective\Utils;
+use \Drupal\afrikaburn_shared\Utils;
 use Drupal\Core\Access\AccessResult;
 
 

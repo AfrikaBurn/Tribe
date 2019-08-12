@@ -47,9 +47,11 @@
     {{ fields.delete_comment.content }}
   </header>
   <main>
+    <div class="image">
     {% if display.user_picture %}
-    <div class="image">{{ fields.user_picture.content }}</div>
+    {{ fields.user_picture.content }}
     {% endif %}
+    </div>
     <div class="comment">
       {{ fields.name.content }}
       {% if show_name %}

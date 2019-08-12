@@ -8,7 +8,7 @@ namespace Drupal\afrikaburn_collective\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Drupal\afrikaburn_collective\Utils;
+use Drupal\afrikaburn_shared\Utils;
 use \Drupal\Core\Cache\Cache;
 
 class PrivacyController extends ControllerBase {

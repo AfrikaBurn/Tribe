@@ -16,8 +16,8 @@ id: user.user.field_email
 field_name: field_email
 entity_type: user
 bundle: user
-label: 'Display eMail'
-description: 'Display email address'
+label: 'Primary email address'
+description: ''
 required: false
 translatable: false
 default_value:

@@ -532,20 +532,19 @@ display:
           reduce_duplicates: false
           plugin_id: list_field
       sorts:
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          order: ASC
-          entity_type: node
-          entity_field: title
-          plugin_id: standard
+        last_comment_timestamp:
+          id: last_comment_timestamp
+          table: comment_entity_statistics
+          field: last_comment_timestamp
           relationship: none
           group_type: group
           admin_label: ''
+          order: DESC
           exposed: false
           expose:
             label: ''
+          granularity: second
+          plugin_id: date
       title: 'Explore Collectives'
       header: {  }
       footer: {  }

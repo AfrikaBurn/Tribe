@@ -635,55 +635,6 @@ display:
           entity_type: node
           entity_field: nid
           plugin_id: field
-        nothing:
-          id: nothing
-          table: views
-          field: nothing
-          relationship: none
-          group_type: group
-          admin_label: ''
-          label: ''
-          exclude: false
-          alter:
-            alter_text: true
-            text: '<a class="button" href="/collective/{{ nid }}/ignore">Ignore</a>'
-            make_link: false
-            path: ''
-            absolute: false
-            external: false
-            replace_spaces: false
-            path_case: none
-            trim_whitespace: false
-            alt: ''
-            rel: ''
-            link_class: ''
-            prefix: ''
-            suffix: ''
-            target: ''
-            nl2br: false
-            max_length: 0
-            word_boundary: true
-            ellipsis: true
-            more_link: false
-            more_link_text: ''
-            more_link_path: ''
-            strip_tags: false
-            trim: false
-            preserve_tags: ''
-            html: false
-          element_type: div
-          element_class: my-collective-actions
-          element_label_type: ''
-          element_label_class: ''
-          element_label_colon: false
-          element_wrapper_type: '0'
-          element_wrapper_class: ''
-          element_default_classes: false
-          empty: ''
-          hide_empty: false
-          empty_zero: false
-          hide_alter_empty: false
-          plugin_id: custom
       relationships:
         flag_relationship:
           id: flag_relationship
@@ -717,7 +668,11 @@ display:
       display_extenders: {  }
       block_description: Joined
       display_description: ''
-      header:
+      header: {  }
+      defaults:
+        header: false
+        footer: false
+      footer:
         area:
           id: area
           table: views
@@ -725,14 +680,12 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          empty: true
+          empty: false
           tokenize: false
           content:
             value: "<div class=\"my-collective-actions\">\r\n<a href=\"/collectives\" class=\"button\">Explore</a>\r\n<a href=\"/node/add/collective\" class=\"button\">Create</a>\r\n</div>"
-            format: php_code
+            format: full_html
           plugin_id: text
-      defaults:
-        header: false
     cache_metadata:
       max-age: -1
       contexts:

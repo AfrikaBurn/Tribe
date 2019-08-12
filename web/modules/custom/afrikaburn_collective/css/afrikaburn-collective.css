@@ -75,7 +75,7 @@
 
 .view-my-collectives .view-content .views-field-title{
   padding-top: 2.5px;
-  width: 110px;
+  width: 100px;
 }
 .view-my-collectives .view-content .views-row:hover{
   background-color: #370c13;
@@ -113,63 +113,6 @@ body .view.view-my-collectives.view-display-id-invitations .my-collective-action
 
 .view-my-collectives .view-header{
   margin-bottom: 20px;
-}
-
-
-/* ---- Pager ---- */
-
-
-.sidebar-outer nav.pager .pager__items{
-  display: flex;
-  justify-content: center;
-}
-
-.sidebar-outer nav.pager .pager__items li{
-  border: none;
-  padding: 0;
-  margin: 0 5px;
-}
-
-.sidebar-outer nav.pager .pager__items li a{
-  border-radius: 10px;
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
-  display: block;
-}
-
-.sidebar-outer nav.pager .pager__items li.is-active a,
-.sidebar-outer nav.pager .pager__items li a:hover{
-  background-color: #961116;
-}
-
-.sidebar-outer nav.pager .pager__items li.pager__item--first a,
-.sidebar-outer nav.pager .pager__items li.pager__item--previous a,
-.sidebar-outer nav.pager .pager__items li.pager__item--next a,
-.sidebar-outer nav.pager .pager__items li.pager__item--last a{
-  background-size: 60px;
-  background-image: url(../images/pager.svg);
-  background-repeat: no-repeat;
-}
-
-.sidebar-outer nav.pager .pager__items li.pager__item--first span,
-.sidebar-outer nav.pager .pager__items li.pager__item--previous span,
-.sidebar-outer nav.pager .pager__items li.pager__item--next span,
-.sidebar-outer nav.pager .pager__items li.pager__item--last span{
-  display: none;
-}
-
-.sidebar-outer nav.pager .pager__items li.pager__item--first a{
-  background-position: left top;
-}
-.sidebar-outer nav.pager .pager__items li.pager__item--previous a{
-  background-position: left bottom;
-}
-.sidebar-outer nav.pager .pager__items li.pager__item--next a{
-  background-position: right bottom;
-}
-.sidebar-outer nav.pager .pager__items li.pager__item--last a{
-  background-position: right top;
 }
 
 
@@ -366,6 +309,9 @@ article.collective-post header a{
 #edit-field-settings .form-item-field-settings-public:before{
   content: 'Privacy';
 }
+#edit-field-settings .form-item-field-settings-restricted-posts:before{
+  content: 'Discussion';
+}
 #edit-field-settings .form-item-field-settings-open:before{
   content: 'Membership';
 }
@@ -432,6 +378,11 @@ div.invitation{
   height: 30px;
   outline: none;
   cursor: pointer;
+  text-transform: uppercase;
+}
+
+.collective-actions .edit{
+  flex-grow: 1;
 }
 
 .collective-actions a:hover,
@@ -772,4 +723,55 @@ div.invitation{
 form.flagging-form .field--type-list-string{
   float: left;
   width: 50%;
+}
+
+.view-privacy details .form-type-checkbox{
+  float: none;
+}
+
+.view-privacy details{
+  clear: both;
+  margin-bottom: 50px;
+}
+
+.view-privacy summary{
+  cursor: pointer;
+}
+
+.view-privacy details{
+  display: flex;
+}
+
+.view-privacy .form-actions{
+  float: right;
+  margin: 0;
+  padding: 0;
+}
+
+div.body-content .view-privacy img{
+  border-radius: 5px;
+  display: block;
+  width: 100%;
+}
+
+.view-privacy .collective-actions{
+  bottom: 0;
+  margin-bottom: 0;
+  border-radius: 0 0 5px 5px;
+}
+
+#main-content-strip div.container-1{
+  min-height: 750px;
+}
+
+.view-privacy .views-field-rendered-entity{
+  width: 50%;
+}
+.view-privacy .views-field-field-admins,
+.view-privacy .views-field-field-members{
+  width: 25%;
+}
+
+.view-privacy .field--name-field-picture{
+  min-height: 40px;
 }

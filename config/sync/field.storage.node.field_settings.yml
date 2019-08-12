@@ -31,6 +31,9 @@ settings:
       value: private_admins
       label: 'Only members may see who the admins are.'
     -
+      value: restricted_posts
+      label: 'Only admins may post.'
+    -
       value: private_discussion
       label: 'Only members may see discussions.'
     -

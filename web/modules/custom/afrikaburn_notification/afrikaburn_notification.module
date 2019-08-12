@@ -5,6 +5,7 @@
  */
 
 use \Drupal\user\Entity\User;
+use \Drupal\afrikaburn_shared\Utils;
 
 
 /* ----- Entity hooks ----- */
@@ -59,7 +60,7 @@ function afrikaburn_notification_node_update($entity){
     // Don't mail while wrangling or on no changes
     if (
       preg_match('/^\/registration\/update/', \Drupal::service('path.current')->getPath()) ||
-      !_diff($entity)
+      !Utils::diff($entity)
     ) return;
 
     afrikaburn_notification_node_insert($entity);

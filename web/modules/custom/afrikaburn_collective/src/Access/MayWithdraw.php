@@ -12,7 +12,7 @@ use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Access\AccessResult;
 use Drupal\user\Entity\User;
 use Drupal\afrikaburn_collective\Controller\CollectiveController;
-use Drupal\afrikaburn_collective\Utils;
+use Drupal\afrikaburn_shared\Utils;
 
 class MayWithdraw implements AccessInterface {
 
@@ -35,10 +35,10 @@ class MayWithdraw implements AccessInterface {
 
     switch(true){
       case $user->id() != $candidate->id():
-        $error = 'How rude, this isn\'t you! Who the fuck are you?';
+        $error = 'How rude, this isn\'t you! Who are you?';
         break;
       case !CollectiveController::isRequested($collective, $candidate):
-        $error = '@user not awaiting approval to join this collective!';
+        $error = '@user now awaiting approval to join this collective!';
         break;
     }
 

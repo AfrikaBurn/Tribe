@@ -8,6 +8,8 @@ dependencies:
     - field.field.node.alert.field_alert_comment
     - field.field.node.alert.field_alert_post
     - field.field.node.alert.field_alert_project
+    - field.field.node.alert.field_alert_project_mode
+    - field.field.node.alert.field_alert_user
     - node.type.alert
   module:
     - path
@@ -57,6 +59,23 @@ content:
     region: content
   field_alert_project:
     weight: 125
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_alert_project_mode:
+    weight: 128
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_alert_user:
+    weight: 127
     settings:
       match_operator: CONTAINS
       size: 60

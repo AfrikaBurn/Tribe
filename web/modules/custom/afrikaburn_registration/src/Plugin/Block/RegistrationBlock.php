@@ -5,7 +5,8 @@ namespace Drupal\afrikaburn_registration\Plugin\Block;
 use Drupal\Core\Block\BlockBase;
 use Drupal\views\Views;
 use \Drupal\afrikaburn_collective\Controller\CollectiveController;
-use \Drupal\afrikaburn_collective\Utils;
+use \Drupal\afrikaburn_shared\Utils;
+use Drupal\Core\Access\AccessResult;
 
 
 /**
@@ -22,10 +23,47 @@ class RegistrationBlock extends BlockBase {
   /**
    * {@inheritdoc}
    */
+  public function access($account, $return_as_object = FALSE) {
+
+    module_load_include('inc', 'afrikaburn_registration', 'includes/form');
+
+    $user = Utils::currentUser();
+    $collective = Utils::currentCollective();
+    $config = \Drupal::config('afrikaburn_registration.settings');
+    $open = array_reduce(
+      array_keys(_project_form_modes()),
+      function($carry, $item) {
+        $carry['open'] = $carry['open'] || isset($carry['config']->get($item . '/form_1')['open']);
+        return $carry;
+      },
+      ['config' => $config, 'open' => FALSE]
+    )['open'];
+
+    return (
+      $collective &&
+      (
+        CollectiveController::hasCurrentProjects($collective) ||
+        CollectiveController::hasPastProjects($collective) ||
+        $open
+      ) && (
+        CollectiveController::isAdmin($collective, $user) ||
+        !CollectiveController::setting($collective, 'private_projects') ||
+        CollectiveController::isMember($collective, $user) &&
+        CollectiveController::setting($collective, 'private_projects')
+      )
+    )
+    ? AccessResult::allowed()
+    : AccessResult::forbidden();
+  }
+
+  /**
+   * {@inheritdoc}
+   */
   public function build() {
 
     $user = Utils::currentUser();
     $collective = Utils::currentCollective();
+    $config = \Drupal::config('afrikaburn_registration.settings');
     $show = [
       'current' =>
         CollectiveController::isAdmin($collective, $user) ||
@@ -45,14 +83,13 @@ class RegistrationBlock extends BlockBase {
         switch (TRUE){
 
           case $display == 'new':
-            $config = \Drupal::config('afrikaburn_registration.settings');
 
             foreach(_project_form_modes() as $key=>$map){
               $project = $map['title'];
               $modes = $map['modes'];
               if ($config->get($key . '/form_1')['open']){
                 $links[] =
-                  '<a href="/node/add/' . $key . '/form_1?field_collective=' . $cid .
+                  '<a href="/node/add/' . $key . '/form_1?field_collective=' . $collective->nid->value .
                   '" target="_blank">' . $project . '</a>';
               }
             }

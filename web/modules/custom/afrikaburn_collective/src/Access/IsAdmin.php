@@ -11,7 +11,7 @@ use Drupal\Core\Routing\Access\AccessInterface;
 use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Access\AccessResult;
 use Drupal\afrikaburn_collective\Controller\CollectiveController;
-use Drupal\afrikaburn_collective\Utils;
+use Drupal\afrikaburn_shared\Utils;
 
 class IsAdmin implements AccessInterface {
 

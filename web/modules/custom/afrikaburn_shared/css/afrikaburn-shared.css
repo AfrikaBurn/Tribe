@@ -92,3 +92,60 @@ body .horizontal-tabs .horizontal-tab-button {
   height: 0;
   visibility: hidden;
 }
+
+
+/* ---- Pager ---- */
+
+
+nav.pager .pager__items{
+  display: flex;
+  justify-content: center;
+}
+
+nav.pager .pager__items li{
+  border: none;
+  padding: 0 !important;
+  margin: 0 5px !important;
+}
+
+nav.pager .pager__items li a{
+  border-radius: 10px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+nav.pager .pager__items li.is-active a,
+nav.pager .pager__items li a:hover{
+  background-color: #961116;
+}
+
+nav.pager .pager__items li.pager__item--first a,
+nav.pager .pager__items li.pager__item--previous a,
+nav.pager .pager__items li.pager__item--next a,
+nav.pager .pager__items li.pager__item--last a{
+  background-size: 60px;
+  background-image: url(../images/pager.svg);
+  background-repeat: no-repeat;
+}
+
+nav.pager .pager__items li.pager__item--first span,
+nav.pager .pager__items li.pager__item--previous span,
+nav.pager .pager__items li.pager__item--next span,
+nav.pager .pager__items li.pager__item--last span{
+  display: none;
+}
+
+nav.pager .pager__items li.pager__item--first a{
+  background-position: left top;
+}
+nav.pager .pager__items li.pager__item--previous a{
+  background-position: left bottom;
+}
+nav.pager .pager__items li.pager__item--next a{
+  background-position: right bottom;
+}
+nav.pager .pager__items li.pager__item--last a{
+  background-position: right top;
+}

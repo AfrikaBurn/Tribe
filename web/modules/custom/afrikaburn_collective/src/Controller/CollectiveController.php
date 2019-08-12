@@ -8,7 +8,7 @@ namespace Drupal\afrikaburn_collective\Controller;
 
 use Drupal\Core\Controller\ControllerBase;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Drupal\afrikaburn_collective\Utils;
+use Drupal\afrikaburn_shared\Utils;
 use \Drupal\Core\Cache\Cache;
 
 class CollectiveController extends ControllerBase {
@@ -41,7 +41,7 @@ class CollectiveController extends ControllerBase {
   }
 
   /**
-   * Invite a participant to a collective
+   * Invite participant(s) to a collective
    */
   public static function bulkInvite(){
 
@@ -184,7 +184,7 @@ class CollectiveController extends ControllerBase {
     list($collective, $user) = CollectiveController::pathParams();
     CollectiveController::clear('join', $collective, $user);
     CollectiveController::clear('invite', $collective, $user);
-    Utils::showStatus('Membership request revoked', Utils::currentUser(), $user);
+    Utils::showStatus('Membership request withdrawn', Utils::currentUser(), $user);
     return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
   }
 
@@ -285,24 +285,24 @@ class CollectiveController extends ControllerBase {
     return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
   }
 
+
+  /* --- Role retrieval --- */
+
+
   /**
-   * Show name in a collective
+   * Returns members of a collective.
+   * @param $collective Collective to get members for
    */
-  public static function showName(){
-    list($collective, $user) = CollectiveController::pathParams();
-    CollectiveController::set('show_name', $collective, $user);
-    Utils::showStatus('@username now showing a real name to the collective', Utils::currentUser(), $user);
-    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
+  public static function getMembers($collective){
+    return CollectiveController::getFlaggingUsers('member', $collective);
   }
 
   /**
-   * Hide name in a collective
+   * Returns admins of a collective.
+   * @param $collective Collective to get admins for
    */
-  public static function hideName(){
-    list($collective, $user) = CollectiveController::pathParams();
-    CollectiveController::clear('show_name', $collective, $user);
-    Utils::showStatus('@username now hiding real name from the collective', Utils::currentUser(), $user);
-    return new RedirectResponse(\Drupal::url('entity.node.canonical', ['node' => $collective->id()]));
+  public static function getAdmins($collective){
+    return CollectiveController::getFlaggingUsers('admin', $collective);
   }
 
 
@@ -448,7 +448,7 @@ class CollectiveController extends ControllerBase {
 
 
   /**
-   * Sets a flag
+   * Sets a flagging
    * @param $fid  Flag ID
    * @param $user User to flag for
    * @param $user Collective to flag
@@ -463,7 +463,7 @@ class CollectiveController extends ControllerBase {
   }
 
   /**
-   * Clears a flag
+   * Clears a flagging
    * @param $fid  Flag ID
    * @param $user User to flag for
    * @param $user Collective to flag
@@ -478,7 +478,7 @@ class CollectiveController extends ControllerBase {
   }
 
   /**
-   * Returns a flag
+   * Returns a flagging
    * @param $fid  Flag ID
    * @param $user User to return flagging for
    * @param $user Collective to return flagging for
@@ -489,6 +489,17 @@ class CollectiveController extends ControllerBase {
     return $user->id()
       ? $flag_service->getFlagging($flag, $collective, $user)
       : FALSE;
+  }
+
+  /**
+   * Returns Flagging users
+   * @param $fid  Flag ID
+   * @param $user Collective to return flagging for
+   */
+  public static function getFlaggingUsers($flag_id, $collective){
+    $flag_service = \Drupal::service('flag');
+    $flag = $flag_service->getFlagById($flag_id);
+    return $flag_service->getFlaggingUsers($collective, $flag);
   }
 
 

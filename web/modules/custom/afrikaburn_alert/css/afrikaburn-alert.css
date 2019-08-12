@@ -4,26 +4,35 @@
   margin-bottom: 50px;
 }
 
-.alert header img{
+.alert {
+  position: relative;
+}
+
+.alert main {
+  display: flex;
+  margin: 10px 0 0px 10px;
+}
+
+.alert .image img{
   border-radius: 30px;
 }
 
 .alert main img{
   border-radius: 5px;
   padding: 1px;
+  min-width: 30px;
 }
 
-.alert{
-  margin: 1em 0;
+.alert main .image{
+  padding: 10px 10px 0 0;
+}
+
+.alert main .comment{
   background: #370c13;
   border-radius: 10px;
   padding: 10px;
   position: relative;
-}
-
-.alert header {
-  display: flex;
-  align-items: center;
+  flex-grow: 1;
 }
 
 .alert header img{
@@ -42,31 +51,27 @@
   visibility: visible;
 }
 
-.alert main{
-  margin: 0 0 20px 60px;
-}
-
-.alert div.images::after,
-.alert main::after{
-  display: block;
-  content: ".";
-  height: 0;
-  clear: both;
-  color: transparent;
-}
-
 .alert footer{
   text-align: right;
 }
 
-.alert div.images{
-  width: 104px;
-  float: left;
-  margin-right: 10px;
+.alert .action{
+  margin-top: 0;
 }
 
-.alert div.images img{
-  float: left;
+.alert .preview{
+  display: flex;
+  align-items: center;
+  margin: 20px;
+}
+
+.alert .preview .profile{
+  width: 100%;
+}
+
+.alert .preview div:first-child{
+  min-width: 30%;
+  margin-right: 20px;
 }
 
 .flag-bookmark a,
@@ -85,11 +90,12 @@
   display: none;
 }
 
-.alert .flags{
+.alert header{
   display: flex;
   position: absolute;
   top: 5px;
   right: 10px;
+  z-index: 10;
 }
 
 .alert .flag,
@@ -119,7 +125,7 @@
   background-image: url('../images/close.svg');
 }
 .flag-unread.action-flag a{
-  background-image: url('../images/undo.svg');
+  background-image: url('../images/unread.svg');
 }
 
 .alert .flag-bookmark a{
@@ -133,4 +139,31 @@
 }
 .alert .flag-bookmark.action-unflag a:hover{
   background-image: url('../images/unbookmark.svg');
+}
+
+.alert .links{
+  display: flex;
+  justify-content: flex-end;
+}
+
+.alert .links .button{
+  font-size: 1em;
+  padding: 0.25em 1em;
+  line-height: 1.5em;
+  letter-spacing: unset;
+  height: auto;
+}
+.alert .links .button:first-child{
+  background-color: #88BA1D;
+  border-radius: 2em 0 0 2em;
+  border-right: 1px solid #fff;
+  padding-left: 10px;
+}
+.alert .links .button:last-child{
+  border-radius: 0 2em 2em 0;
+  border-left: 1px solid #fff;
+  padding-right: 10px;
+}
+.alert .links .button:active{
+  opacity: .5;
 }

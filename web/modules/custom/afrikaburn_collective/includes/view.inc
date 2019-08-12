@@ -8,7 +8,87 @@
 use \Drupal\Component\Utility\UrlHelper;
 use \Drupal\afrikaburn_collective\Controller\CollectiveController;
 use \Drupal\user\Entity\User;
-use \Drupal\afrikaburn_collective\Utils;
+use \Drupal\afrikaburn_shared\Utils;
+
+
+/* --- Posts --- */
+
+
+/**
+ * Builds a post listing view
+ */
+function _build_post_view(&$build, $display, $uid, $nid, $is_admin, $is_member){
+
+  $collective = $build['#node'];
+  $user = Utils::currentUser();
+  $banned = CollectiveController::isBanned($collective, $user);
+
+  if (
+    $display->getComponent('posts') && !$banned &&
+    (
+      $is_member ||
+      !CollectiveController::setting($build['#node'], 'private_discussion')
+    )
+  ){
+    $build['posts'] = views_embed_view('collective_posts', 'posts', $nid);
+  }
+}
+
+/**
+ * Builds a new post form
+ */
+function _build_post_form(&$build, $display, $uid, $nid, $is_admin, $is_member){
+
+  if ($display->getComponent('post_something')) {
+
+    $collective = $build['#node'];
+    $user = Utils::currentUser();
+    $banned = CollectiveController::isBanned($collective, $user);
+
+    if (
+      !$banned && (
+        $is_admin &&
+        CollectiveController::setting($collective, 'restricted_posts')
+        ||
+        $is_member &&
+        CollectiveController::setting($collective, 'privileged_discussion') &&
+        !CollectiveController::setting($collective, 'restricted_posts')
+        ||
+        !CollectiveController::setting($collective, 'restricted_posts') &&
+        !CollectiveController::setting($collective, 'private_discussion') &&
+        !CollectiveController::setting($collective, 'privileged_discussion')
+      )
+    ){
+
+      $form = \Drupal::service('entity.form_builder')->getForm(
+        \Drupal::entityTypeManager()->getStorage('comment')->create(
+          [
+            'entity_type'  => 'node',
+            'entity_id'    => $nid,
+            'field_name'   => 'field_col_posts',
+            'comment_type' => 'post',
+            'pid' => NULL,
+          ]
+        )
+      );
+
+      unset($form['comment_body']['widget'][0]['value']['#title']);
+      $form['actions']['submit']['#value'] = t('Post it!');
+
+      $form['#action'] .= '?destination=' .
+        UrlHelper::encodePath(
+          drupal_get_destination()['destination']
+        );
+
+      $build['post_something'] = [
+        '#type' => 'markup',
+        '#markup' => render($form),
+        '#prefix' => '<details class="comment-form"><summary class="button">Post something</summary>',
+        '#suffix' => '</details>',
+      ];
+    }
+  }
+}
 
 
 /* --- Comments  --- */
@@ -38,61 +118,6 @@ function _reply_form(&$variables){
 }
 
 
-/* --- Posts --- */
-
-
-/**
- * Builds a post listing view
- */
-function _build_post_view(&$build, $display, $uid, $nid, $is_admin, $is_member){
-  if (
-    $display->getComponent('posts') &&
-    ($is_member || !CollectiveController::setting($build['#node'], 'private_discussion'))
-  ){
-    $build['posts'] = views_embed_view('collective_posts', 'posts', $nid);
-  }
-}
-
-/**
- * Builds a new post form
- */
-function _build_post_form(&$build, $display, $uid, $nid, $is_admin, $is_member){
-
-  if (
-    $display->getComponent('post_something') &&
-    ($is_member || !CollectiveController::setting($build['#node'], 'privileged_discussion'))
-  ){
-
-    $form = \Drupal::service('entity.form_builder')->getForm(
-      \Drupal::entityTypeManager()->getStorage('comment')->create(
-        [
-          'entity_type'  => 'node',
-          'entity_id'    => $nid,
-          'field_name'   => 'field_col_posts',
-          'comment_type' => 'post',
-          'pid' => NULL,
-        ]
-      )
-    );
-
-    unset($form['comment_body']['widget'][0]['value']['#title']);
-    $form['actions']['submit']['#value'] = t('Post it!');
-
-    $form['#action'] .= '?destination=' .
-      UrlHelper::encodePath(
-        drupal_get_destination()['destination']
-      );
-
-    $build['post_something'] = [
-      '#type' => 'markup',
-      '#markup' => render($form),
-      '#prefix' => '<details class="comment-form"><summary class="button">Post something</summary>',
-      '#suffix' => '</details>',
-    ];
-  }
-}
-
-
 /* --- Collective links --- */
 
 
@@ -101,18 +126,22 @@ function _build_post_form(&$build, $display, $uid, $nid, $is_admin, $is_member){
  */
 function _build_join(&$build, $display, $uid, $nid, $is_admin, $is_member){
 
-  $open = CollectiveController::setting($build['#node'], 'open');
-  $vetted = CollectiveController::setting($build['#node'], 'vetted');
+  $user = Utils::currentUser();
+  $collective = $build['#node'];
+  $open = CollectiveController::setting($collective, 'open');
+  $vetted = CollectiveController::setting($collective, 'vetted');
+  $banned = CollectiveController::isBanned($collective, $user);
 
   if (
     $display->getComponent('join') &&
-    !$is_member && $open && !$vetted
+    !$is_member && !$banned &&
+    $open && !$vetted
   ){
 
     $user = Utils::currentUser();
-    $public = CollectiveController::setting($build['#node'], 'public');
-    $public_members = CollectiveController::setting($build['#node'], 'public_members');
-    $private_members = CollectiveController::setting($build['#node'], 'private_members');
+    $public = CollectiveController::setting($collective, 'public');
+    $public_members = CollectiveController::setting($collective, 'public_members');
+    $private_members = CollectiveController::setting($collective, 'private_members');
     $exposure = _exposure($public, $vetted, $public_members, $private_members, $open);
 
     $link = $exposure
@@ -141,26 +170,29 @@ function _build_join(&$build, $display, $uid, $nid, $is_admin, $is_member){
 function _build_request(&$build, $display, $uid, $nid, $is_admin, $is_member){
 
   $user = Utils::currentUser();
-  $open = CollectiveController::setting($build['#node'], 'open');
-  $vetted = CollectiveController::setting($build['#node'], 'vetted');
-  $invited = CollectiveController::isInvited($build['#node'], $user);
+  $collective = $build['#node'];
+  $banned = CollectiveController::isBanned($collective, $user);
+  $open = CollectiveController::setting($collective, 'open');
+  $vetted = CollectiveController::setting($collective, 'vetted');
+  $invited = CollectiveController::isInvited($collective, $user);
 
   if (
     $display->getComponent('request') &&
-    !$is_member && !$invited && $open && $vetted
+    !$banned && !$is_member && !$invited &&
+    $open && $vetted
   ){
 
-    $public = CollectiveController::setting($build['#node'], 'public');
-    $public_members = CollectiveController::setting($build['#node'], 'public_members');
-    $private_members = CollectiveController::setting($build['#node'], 'private_members');
+    $public = CollectiveController::setting($collective, 'public');
+    $public_members = CollectiveController::setting($collective, 'public_members');
+    $private_members = CollectiveController::setting($collective, 'private_members');
     $exposure = _exposure($public, $vetted, $public_members, $private_members, $open);
-    $requested = NULL !== CollectiveController::isRequested($build['#node'], $user);
+    $requested = NULL !== CollectiveController::isRequested($collective, $user);
 
     $link = $requested
       ? _build_link('Withdraw request', 'withdraw', $nid, $uid, $exposure)
       : ($exposure
         ? _build_link('Request anyway', 'request', $nid, $uid, $exposure, FALSE)
-        : _build_link('Request to join', 'withdraw', $nid, $uid, $exposure, FALSE)
+        : _build_link('Request to join', 'request', $nid, $uid, $exposure, FALSE)
       );
 
     $element = [
@@ -192,19 +224,21 @@ function _build_request(&$build, $display, $uid, $nid, $is_admin, $is_member){
 function _build_accept(&$build, $display, $uid, $nid, $is_admin, $is_member){
 
   $user = Utils::currentUser();
-  $open = CollectiveController::setting($build['#node'], 'open');
-  $vetted = CollectiveController::setting($build['#node'], 'vetted');
-  $invited = CollectiveController::isInvited($build['#node'], $user);
+  $collective = $build['#node'];
+  $banned = CollectiveController::isBanned($collective, $user);
+  $open = CollectiveController::setting($collective, 'open');
+  $vetted = CollectiveController::setting($collective, 'vetted');
+  $invited = CollectiveController::isInvited($collective, $user);
 
   if (
     $display->getComponent('accept') &&
-    !$is_member && $invited
+    !$banned && !$is_member && $invited
   ){
 
     $user = Utils::currentUser();
-    $public = CollectiveController::setting($build['#node'], 'public');
-    $public_members = CollectiveController::setting($build['#node'], 'public_members');
-    $private_members = CollectiveController::setting($build['#node'], 'private_members');
+    $public = CollectiveController::setting($collective, 'public');
+    $public_members = CollectiveController::setting($collective, 'public_members');
+    $private_members = CollectiveController::setting($collective, 'private_members');
     $exposure = _exposure($public, $vetted, $public_members, $private_members, $open, $invited);
     $destination = '?destination=' . \Drupal::destination()->get();
 
@@ -234,7 +268,8 @@ function _build_accept(&$build, $display, $uid, $nid, $is_admin, $is_member){
 function _build_ignore(&$build, $display, $uid, $nid, $is_admin, $is_member){
 
   $user = Utils::currentUser();
-  $invited = CollectiveController::isInvited($build['#node'], $user);
+  $collective = $build['#node'];
+  $invited = CollectiveController::isInvited($collective, $user);
 
   if (
     $display->getComponent('ignore') &&
@@ -298,7 +333,8 @@ function _build_edit(&$build, $display, $uid, $nid, $is_admin, $is_member){
 function _build_invited(&$build, $display, $uid, $nid, $is_admin, $is_member){
 
   $user = Utils::currentUser();
-  $invited = CollectiveController::isInvited($build['#node'], $user);
+  $collective = $build['#node'];
+  $invited = CollectiveController::isInvited($collective, $user);
 
   if (
     $display->getComponent('invited') &&

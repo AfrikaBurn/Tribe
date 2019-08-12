@@ -12,7 +12,7 @@ use Drupal\Core\Session\AccountInterface;
 use Drupal\Core\Access\AccessResult;
 use Drupal\user\Entity\User;
 use Drupal\afrikaburn_collective\Controller\CollectiveController;
-use Drupal\afrikaburn_collective\Utils;
+use Drupal\afrikaburn_shared\Utils;
 
 class MayBoot implements AccessInterface {
 
@@ -34,9 +34,6 @@ class MayBoot implements AccessInterface {
     $error = false;
 
     switch(true){
-      case $user->id() == $candidate->id():
-        $error = 'You may not boot yourself!';
-        break;
       case !CollectiveController::isAdmin($collective, $user):
         $error = 'You are not an administrator of this collective!';
         break;

@@ -5,6 +5,8 @@
  */
 
 use \Drupal\user\Entity\User;
+use \Drupal\afrikaburn_collective\Controller\CollectiveController;
+
 
 /**
  * Notifies registration stakeholders if needed
@@ -30,7 +32,7 @@ function _notify_registration($entity){
   // Mail collective
   if (
     $settings->get("$bundle-$stage-$state-collective-enabled") &&
-    afrikaburn_collective_setting('emails', $collective['collective'])
+    CollectiveController::setting($collective['collective'], 'emails')
   ) {
     _notify(
       'no-reply@afrikaburn.com',

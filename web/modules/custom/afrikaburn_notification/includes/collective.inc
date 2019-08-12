@@ -6,21 +6,19 @@
 
 use \Drupal\user\Entity\User;
 use \Drupal\afrikaburn_collective\Controller\CollectiveController;
-
+use \Drupal\afrikaburn_shared\Utils;
 
 /**
  * Notifies collective stakeholders if needed
  */
 function _notify_collective($entity){
 
-  module_load_include('inc', 'afrikaburn_notification', 'includes/util');
-
   $settings = \Drupal::config('afrikaburn_notification.settings');
   $address_settings = \Drupal::config('afrikaburn_notification.address_settings');
 
   $state = $entity->original ? 'update' : 'new';
   $meta_collective = _meta_collective($entity);
-  $diff = _diff($entity);
+  $diff = Utils::diff($entity);
   $notify_collective = count(
     array_diff(
       array_keys($diff),

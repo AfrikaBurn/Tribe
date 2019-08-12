@@ -27,9 +27,10 @@ dependencies:
     - field.field.user.user.field_quicket_id
     - field.field.user.user.field_secondary_mail
     - field.field.user.user.field_terms_and_conditions
+    - field.field.user.user.field_volunteering
     - field.field.user.user.field_year_cycle
     - field.field.user.user.user_picture
-    - image.style.thumbnail
+    - image.style.medium
   module:
     - colorbox
     - computed_field
@@ -39,6 +40,7 @@ dependencies:
     - link
     - options
     - user
+    - viewfield
 third_party_settings:
   field_group:
     group_root:
@@ -49,7 +51,7 @@ third_party_settings:
         - group_contact
         - group_location
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: tabs
       format_settings:
         label: Root
@@ -60,12 +62,11 @@ third_party_settings:
       region: content
     group_identity:
       children:
-        - user_picture
         - field_first_name
         - field_last_name
         - field_gender
-        - field_id_number
         - field_date_of_birth
+        - field_id_number
       parent_name: group_root
       weight: 5
       format_type: tab
@@ -78,7 +79,6 @@ third_party_settings:
       region: content
     group_account:
       children:
-        - field_email
         - field_location
         - field_year_cycle
       parent_name: group_root
@@ -107,7 +107,9 @@ third_party_settings:
       region: content
     group_history:
       children:
+        - member_for
         - field_participation
+        - field_volunteering
         - field_other_burns
       parent_name: group_root
       weight: 7
@@ -122,6 +124,7 @@ third_party_settings:
     group_contact:
       children:
         - field_mobile
+        - field_email
         - field_secondary_mail
         - field_links
       parent_name: group_root
@@ -142,7 +145,7 @@ third_party_settings:
         - flag_wap_ban
         - masquerade
       parent_name: ''
-      weight: 0
+      weight: 1
       format_type: html_element
       format_settings:
         label: 'Account Actions'
@@ -174,16 +177,18 @@ content:
     third_party_settings: {  }
   field_date_of_birth:
     type: datetime_custom
-    weight: 107
+    weight: 106
     region: content
     label: above
     settings:
-      date_format: 'Y-m-d\TH:i:s'
       timezone_override: ''
-    third_party_settings: {  }
+      date_format: 'd M Y'
+    third_party_settings:
+      empty_fields:
+        handler: ''
   field_email:
     type: computed_string
-    weight: 6
+    weight: 9
     region: content
     label: above
     settings:
@@ -215,7 +220,7 @@ content:
     region: content
   field_id_number:
     type: string
-    weight: 106
+    weight: 107
     region: content
     label: above
     settings:
@@ -231,7 +236,7 @@ content:
     third_party_settings: {  }
   field_links:
     type: link
-    weight: 3
+    weight: 11
     region: content
     label: above
     settings:
@@ -253,7 +258,7 @@ content:
         handler: ''
   field_mobile:
     type: string
-    weight: 1
+    weight: 8
     region: content
     label: above
     settings:
@@ -261,7 +266,7 @@ content:
     third_party_settings: {  }
   field_newsletter:
     type: boolean
-    weight: 4
+    weight: 1
     region: content
     label: above
     settings:
@@ -271,7 +276,7 @@ content:
     third_party_settings: {  }
   field_other_burns:
     type: basic_string
-    weight: 4
+    weight: 3
     region: content
     label: above
     settings: {  }
@@ -288,20 +293,20 @@ content:
     region: content
   field_participation:
     type: basic_string
-    weight: 3
+    weight: 1
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
   field_secondary_mail:
     type: basic_string
-    weight: 2
+    weight: 10
     region: content
     label: above
     settings: {  }
     third_party_settings: {  }
   field_terms_and_conditions:
-    weight: 5
+    weight: 2
     label: above
     settings:
       format: yes-no
@@ -311,6 +316,16 @@ content:
       empty_fields:
         handler: ''
     type: boolean
+    region: content
+  field_volunteering:
+    weight: 2
+    label: above
+    settings:
+      view_title: hidden
+      always_build_output: 0
+      empty_view_title: hidden
+    third_party_settings: {  }
+    type: viewfield_default
     region: content
   field_year_cycle:
     weight: 8
@@ -337,12 +352,17 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  member_for:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   user_picture:
     type: colorbox
-    weight: 101
+    weight: 0
     region: content
     settings:
-      colorbox_node_style: thumbnail
+      colorbox_node_style: medium
       colorbox_node_style_first: ''
       colorbox_image_style: ''
       colorbox_gallery: none
@@ -364,5 +384,4 @@ hidden:
   field_kids_and_teens: true
   field_quicket_code: true
   field_quicket_id: true
-  member_for: true
   username: true

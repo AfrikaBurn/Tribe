@@ -1,0 +1,378 @@
+uuid: 837e3adc-4dc9-46d6-a129-873620e52b87
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.preview
+    - field.field.user.user.field_agreements
+    - field.field.user.user.field_country
+    - field.field.user.user.field_date_of_birth
+    - field.field.user.user.field_district
+    - field.field.user.user.field_email
+    - field.field.user.user.field_email_retype
+    - field.field.user.user.field_emr_email
+    - field.field.user.user.field_emr_name
+    - field.field.user.user.field_emr_telephone
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_gender
+    - field.field.user.user.field_id_number
+    - field.field.user.user.field_kids_and_teens
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_links
+    - field.field.user.user.field_location
+    - field.field.user.user.field_mobile
+    - field.field.user.user.field_newsletter
+    - field.field.user.user.field_other_burns
+    - field.field.user.user.field_participation
+    - field.field.user.user.field_quicket_code
+    - field.field.user.user.field_quicket_id
+    - field.field.user.user.field_secondary_mail
+    - field.field.user.user.field_terms_and_conditions
+    - field.field.user.user.field_volunteering
+    - field.field.user.user.field_year_cycle
+    - field.field.user.user.user_picture
+    - image.style.thumbnail
+  module:
+    - colorbox
+    - computed_field
+    - datetime
+    - empty_fields
+    - field_group
+    - link
+    - options
+    - user
+    - viewfield
+third_party_settings:
+  field_group:
+    group_root:
+      children:
+        - group_identity
+        - group_account
+        - group_history
+        - group_contact
+        - group_location
+      parent_name: ''
+      weight: 2
+      format_type: tabs
+      format_settings:
+        label: Root
+        direction: horizontal
+        id: ''
+        classes: ''
+      label: Root
+      region: content
+    group_identity:
+      children:
+        - field_first_name
+        - field_last_name
+        - field_gender
+        - field_date_of_birth
+        - field_id_number
+      parent_name: group_root
+      weight: 5
+      format_type: tab
+      format_settings:
+        formatter: closed
+        description: ''
+        classes: ''
+        id: ''
+      label: Identity
+      region: content
+    group_account:
+      children:
+        - username
+        - field_location
+      parent_name: group_root
+      weight: 6
+      format_type: tab
+      format_settings:
+        formatter: closed
+        description: ''
+        classes: ''
+        id: ''
+      label: Account
+      region: content
+    group_location:
+      children:
+        - field_newsletter
+        - field_terms_and_conditions
+      parent_name: group_root
+      weight: 10
+      format_type: tab
+      format_settings:
+        formatter: closed
+        description: ''
+        classes: ''
+        id: ''
+      label: 'Terms of use'
+      region: content
+    group_history:
+      children:
+        - field_year_cycle
+        - field_volunteering
+        - field_participation
+        - field_other_burns
+      parent_name: group_root
+      weight: 7
+      format_type: tab
+      format_settings:
+        formatter: closed
+        description: ''
+        classes: ''
+        id: ''
+      label: History
+      region: content
+    group_contact:
+      children:
+        - field_email
+        - field_secondary_mail
+        - field_mobile
+        - field_links
+      parent_name: group_root
+      weight: 8
+      format_type: tab
+      format_settings:
+        formatter: closed
+        description: ''
+        classes: ''
+        id: ''
+      label: Contact
+      region: content
+    group_account_actions:
+      children:
+        - contact
+        - edit
+        - masquerade
+      parent_name: ''
+      weight: 1
+      format_type: html_element
+      format_settings:
+        label: 'Account Actions'
+        element: div
+        show_label: false
+        label_element: h3
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: account-actions
+      label: 'Account Actions'
+_core:
+  default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
+id: user.user.preview
+targetEntityType: user
+bundle: user
+mode: preview
+content:
+  contact:
+    weight: 102
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  edit:
+    weight: 103
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_date_of_birth:
+    type: datetime_custom
+    weight: 105
+    region: content
+    label: above
+    settings:
+      timezone_override: ''
+      date_format: 'd M Y'
+    third_party_settings:
+      empty_fields:
+        handler: ''
+  field_email:
+    type: computed_string
+    weight: 4
+    region: content
+    label: above
+    settings:
+      sanitized: true
+      cache_unit: -1
+      cache_duration: 1
+    third_party_settings: {  }
+  field_first_name:
+    type: string
+    weight: 102
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_gender:
+    type: list_default
+    weight: 104
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_guardian_doc:
+    weight: 10
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: markup
+    region: content
+  field_id_number:
+    type: string
+    weight: 106
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_last_name:
+    type: string
+    weight: 103
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_links:
+    type: link
+    weight: 7
+    region: content
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_location:
+    type: entity_reference_label
+    weight: 10
+    region: content
+    label: above
+    settings:
+      link: false
+    third_party_settings:
+      empty_fields:
+        handler: ''
+  field_mobile:
+    type: string
+    weight: 6
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_newsletter:
+    type: boolean
+    weight: 4
+    region: content
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+  field_other_burns:
+    type: basic_string
+    weight: 14
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_parent:
+    weight: 7
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_participation:
+    type: basic_string
+    weight: 13
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_secondary_mail:
+    type: basic_string
+    weight: 5
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+  field_terms_and_conditions:
+    weight: 5
+    label: above
+    settings:
+      format: yes-no
+      format_custom_true: ''
+      format_custom_false: ''
+    third_party_settings:
+      empty_fields:
+        handler: ''
+    type: boolean
+    region: content
+  field_volunteering:
+    type: viewfield_default
+    weight: 12
+    region: content
+    label: above
+    settings:
+      view_title: hidden
+      always_build_output: 0
+      empty_view_title: hidden
+    third_party_settings: {  }
+  field_year_cycle:
+    weight: 11
+    label: above
+    settings:
+      sanitized: true
+      cache_unit: -1
+      cache_duration: 1
+    third_party_settings: {  }
+    type: computed_string
+    region: content
+  masquerade:
+    weight: 106
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  user_picture:
+    type: colorbox
+    weight: 0
+    region: content
+    settings:
+      colorbox_node_style: thumbnail
+      colorbox_node_style_first: ''
+      colorbox_image_style: ''
+      colorbox_gallery: none
+      colorbox_gallery_custom: ''
+      colorbox_caption: auto
+      colorbox_caption_custom: ''
+    third_party_settings:
+      empty_fields:
+        handler: ''
+    label: hidden
+  username:
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_agreements: true
+  field_country: true
+  field_district: true
+  field_email_retype: true
+  field_emr_email: true
+  field_emr_name: true
+  field_emr_telephone: true
+  field_kids_and_teens: true
+  field_quicket_code: true
+  field_quicket_id: true
+  flag_outdated: true
+  flag_wap_ban: true
+  member_for: true

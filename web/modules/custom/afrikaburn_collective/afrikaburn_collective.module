@@ -11,7 +11,7 @@ use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use \Drupal\user\Entity\User;
 use \Drupal\afrikaburn_collective\Controller\CollectiveController;
 use \Drupal\afrikaburn_collective\Controller\PrivacyController;
-use \Drupal\afrikaburn_collective\Utils;
+use \Drupal\afrikaburn_shared\Utils;
 use Drupal\Core\Access\AccessResult;
 use Drupal\Core\Cache\Cache;
 
@@ -185,7 +185,6 @@ function afrikaburn_collective_node_view(&$build, $entity, $display, $view_mode)
   if ($entity->bundle() == 'collective'){
 
     module_load_include('inc', 'afrikaburn_collective', 'includes/view');
-    module_load_include('inc', 'afrikaburn_collective', 'includes/util');
 
     $nid = $entity->id();
     $uid = \Drupal::currentUser()->id();
@@ -194,7 +193,7 @@ function afrikaburn_collective_node_view(&$build, $entity, $display, $view_mode)
     $admin = CollectiveController::isAdmin($entity, $user, TRUE);
     $member = CollectiveController::isMember($entity, $user, TRUE);
     $sys_admin = CollectiveController::isAdmin($entity, $user);
-    $sys_member = CollectiveController::isAdmin($entity, $user);
+    $sys_member = CollectiveController::isMember($entity, $user);
 
     _build_post_form($build, $display, $uid, $nid, $sys_admin, $sys_member);
     _build_post_view($build, $display, $uid, $nid, $sys_admin, $sys_member);
@@ -221,10 +220,12 @@ function afrikaburn_collective_entity_field_access($op, $definition, $user, $ite
   $subject = $items ? $items->getParent()->getEntity() : FALSE;
 
   if (
+
     $subject && $subject->id() != $user->id() &&
     $definition instanceOf Drupal\field\Entity\FieldConfig &&
     $definition->get('entity_type') == 'user' &&
     $op == 'view' &&
+
     in_array(
       $definition->get('field_name'),
       [
@@ -239,12 +240,26 @@ function afrikaburn_collective_entity_field_access($op, $definition, $user, $ite
     )
   ){
 
-    return in_array(
-      $definition->get('field_name'),
-      PrivacyController::maySee($user, $subject)['all']
-    )
-      ? AccessResult::neutral()
-      : AccessResult::forbidden();
+    return
+
+      count(
+        array_intersect(
+          $user->getAccount()->getRoles(),
+          [
+            'administrator',
+            'art_wrangler',
+            'mutant_vehicle_wrangler',
+            'theme_camp_wrangler',
+            'communications_wrangler',
+            'support_wrangler',
+          ]
+        )
+      ) || in_array(
+        $definition->get('field_name'),
+        PrivacyController::maySee($user, $subject)['all']
+      )
+    ? AccessResult::neutral()
+    : AccessResult::forbidden();
   }
 
   return AccessResult::neutral();
@@ -262,22 +277,6 @@ function afrikaburn_collective_node_access($collective, $op, $user){
       : AccessResult::forbidden();
   }
 
-  return AccessResult::neutral();
-}
-
-
-/**
- * Implements hook_flag_action_access().
- */
-function afrikaburn_collective_flag_action_access($action, $flag, $account, $collective = NULL) {
-  if ($collective->bundle() == 'collective' && in_array($flag->id, ['mute', 'disclose'])){
-
-    $user = User::load(\Drupal::currentUser()->id());
-
-    return CollectiveController::isMember($collective, $user, TRUE)
-      ? AccessResult::neutral()
-      : AccessResult::forbidden();
-  }
   return AccessResult::neutral();
 }
 
@@ -528,9 +527,11 @@ function afrikaburn_collective_preprocess_views_view_fields(&$variables) {
   }
 
   if (
-    $view->id() == 'collective_posts' &&
-    $view->current_display == 'posts' &&
-    (CollectiveController::isMember($collective, $user) || !CollectiveController::setting($collective, 'privileged_discussion'))
+    $view->id() == 'collective_posts' && $view->current_display == 'posts' &&
+    !CollectiveController::isBanned($collective, $user) &&
+    (
+      CollectiveController::isMember($collective, $user) ||
+      !CollectiveController::setting($collective, 'privileged_discussion'))
   ) {
     _reply_form($variables);
     $variables["display"] = PrivacyController::maySee($user, $member)['all'];

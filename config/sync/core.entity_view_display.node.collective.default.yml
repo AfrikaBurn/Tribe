@@ -43,31 +43,31 @@ third_party_settings:
       ds_content:
         - invited
         - group_actions
-        - field_picture
-        - join
         - field_col_description
-        - request
-        - field_settings
+        - field_picture
         - group_collective
-        - accept
-        - ignore
+        - field_settings
         - edit
         - flag_disclose
+        - join
+        - request
+        - accept
+        - ignore
         - flag_mute
-        - leave
         - post_something
+        - leave
         - posts
         - group_discussion
         - group_about
   field_group:
     group_actions:
       children:
+        - edit
+        - flag_disclose
         - join
         - request
         - accept
         - ignore
-        - edit
-        - flag_disclose
         - flag_mute
         - leave
       parent_name: ''
@@ -128,12 +128,12 @@ bundle: collective
 mode: default
 content:
   accept:
-    weight: 4
+    weight: 12
     region: ds_content
     settings: {  }
     third_party_settings: {  }
   edit:
-    weight: 6
+    weight: 8
     region: ds_content
     settings: {  }
     third_party_settings: {  }
@@ -169,17 +169,17 @@ content:
     settings: {  }
     third_party_settings: {  }
   flag_disclose:
-    weight: 7
+    weight: 9
     region: ds_content
     settings: {  }
     third_party_settings: {  }
   flag_mute:
-    weight: 8
+    weight: 14
     region: ds_content
     settings: {  }
     third_party_settings: {  }
   ignore:
-    weight: 5
+    weight: 13
     region: ds_content
     settings: {  }
     third_party_settings: {  }
@@ -189,12 +189,12 @@ content:
     settings: {  }
     third_party_settings: {  }
   join:
-    weight: 2
+    weight: 10
     region: ds_content
     settings: {  }
     third_party_settings: {  }
   leave:
-    weight: 9
+    weight: 15
     region: ds_content
     settings: {  }
     third_party_settings: {  }
@@ -209,7 +209,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   request:
-    weight: 3
+    weight: 11
     region: ds_content
     settings: {  }
     third_party_settings: {  }

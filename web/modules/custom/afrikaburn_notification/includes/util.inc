@@ -4,6 +4,8 @@
  * @file contains email notification utilities.
  */
 
+use \Drupal\afrikaburn_shared\Utils;
+use Drupal\afrikaburn_alert\Controller\AlertController;
 
 /**
  * Send an email
@@ -58,7 +60,7 @@ function _meta_collective($entity){
   if ($collective) {
     $member_uids = array_diff(
       array_column($collective->get('field_col_members')->getValue(), 'target_id'),
-      _muted($collective)
+      AlertController::muted($collective)
     );
     $members = user_load_multiple($member_uids);
 
@@ -86,7 +88,7 @@ function _meta_collective($entity){
 function _entity_diff($node, &$body){
 
   module_load_include('inc', 'afrikaburn_notification', 'includes/diff');
-  $diff = _diff($node);
+  $diff = Utils::diff($node);
   $exclude = [
     'Invite Token',
     'Invite Mail',
@@ -179,63 +181,4 @@ function _email_images(&$message, &$body){
       }
     }
   }
-}
-
-
-/* ----- Entity Diff ----- */
-
-
-/**
- * Compute an entity diff.
- */
-function _diff($entity){
-
-  static $diff;
-
-  if (is_object($entity)){
-    if (!$diff[$entity->id()]){
-      $diff[$entity->id()] = $entity->original
-        ? _entity_compare($entity, $entity->original)
-        : FALSE;
-    }
-    return $diff[$entity->id()];
-  }
-
-  return $diff[$entity];
-}
-
-// Compute entity diff
-function _entity_compare($entity_new, $entity_old) {
-
-  $diff = FALSE;
-  $bundle_fields = \Drupal::entityManager()->getFieldDefinitions('node', $entity_new->bundle());
-
-  foreach($bundle_fields as $name=>$definition){
-
-    if ($name == 'title' || preg_match('/^field_/', $name)){
-
-      switch($definition->get('field_type')){
-
-        case 'entity_reference':
-        case 'image':
-          $old = array_column($entity_old->get($name)->getValue(), 'target_id');
-          $new = array_column($entity_new->get($name)->getValue(), 'target_id');
-          if ($new != $old) {
-            $diff[$definition->get('label')] = [count($old), count($new)];
-          }
-        break;
-
-        default:
-          $old = array_column($entity_old->get($name)->getValue(), 'value');
-          $new = array_column($entity_new->get($name)->getValue(), 'value');
-
-          if ($new != $old){
-            $diff[$definition->get('label')] = [$old, $new];
-          }
-
-      }
-    }
-  }
-
-  return $diff;
 }

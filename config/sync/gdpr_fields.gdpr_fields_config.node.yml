@@ -11,6 +11,7 @@ filenames:
   mutant_vehicles: ''
   theme_camps: ''
   collective: ''
+  alert: ''
 bundles:
   announcement:
     body:
@@ -1784,6 +1785,29 @@ bundles:
     field_notification_collective:
       bundle: notification
       name: field_notification_collective
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+  alert:
+    field_alert_user:
+      bundle: alert
+      name: field_alert_user
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_alert_project_mode:
+      bundle: alert
+      name: field_alert_project_mode
       entity_type_id: node
       rtf: 'no'
       rta: 'no'

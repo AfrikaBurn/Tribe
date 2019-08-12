@@ -1,0 +1,24 @@
+<article class="alert alert-post">
+  <header>
+    {{ content.flag_bookmark }}
+    {{ content.flag_unread }}
+  </header>
+  <main>
+    <div class="image">{{ picture }}</div>
+    <div class="comment">
+      <div class="action">{{ action }}</div>
+      {% if preview %}
+      <div class="preview">
+        {{ preview }}
+      </div>
+      {% endif %}
+      {% if confirm or cancel %}
+      <div class="links">
+        {{ confirm }}
+        {{ cancel }}
+      </div>
+      {% endif %}
+    </div>
+  </main>
+  <footer>{{ date }}</footer>
+</article>
