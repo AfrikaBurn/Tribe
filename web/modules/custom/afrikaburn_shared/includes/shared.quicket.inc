@@ -27,7 +27,11 @@ function quicket_request($method, $endpoint, $body = FALSE){
     ],
     'timeout' => 45,
   ];
-  if ($body) $options['body'] = Json::encode($body);
+
+  if ($body) {
+    $encoded = Json::encode($body);
+    $options['body'] = $encoded;
+  }
 
   try{
 
