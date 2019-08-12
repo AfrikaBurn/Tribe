@@ -34,6 +34,7 @@ function _generate($id_number){
           $config->get('main_general_kids_id'),
           $config->get('main_mayday_id'),
           $config->get('main_mayday_minor_id'),
+          $config->get('main_mayday_kids_id'),
         ]
       )
     ]
