@@ -29,7 +29,7 @@ function quicket_request($method, $endpoint, $body = FALSE){
   ];
 
   if ($body) {
-    $encoded = Json::encode($body);
+    $encoded = json_encode($body, JSON_PRETTY_PRINT);
     $options['body'] = $encoded;
   }
 

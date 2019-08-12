@@ -16,15 +16,17 @@ function _generate($id_number){
   module_load_include('inc', 'afrikaburn_shared', 'includes/shared.quicket');
 
   $config = Drupal::config('afrikaburn_shared.settings');
-  $ticket_types = array_filter(
-    [
-      $config->get('main_general_id'),
-      $config->get('main_general_minor_id'),
-      $config->get('main_general_kids_id'),
-      $config->get('main_mayday_id'),
-      $config->get('main_mayday_minor_id'),
-      $config->get('main_mayday_kids_id'),
-    ]
+  $ticket_types = array_values(
+    array_filter(
+      [
+        $config->get('main_general_id'),
+        $config->get('main_general_minor_id'),
+        $config->get('main_general_kids_id'),
+        $config->get('main_mayday_id'),
+        $config->get('main_mayday_minor_id'),
+        $config->get('main_mayday_kids_id'),
+      ]
+    )
   );
 
   return quicket_request(
