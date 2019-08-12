@@ -51,7 +51,7 @@ function _update($id_number, $quicket_code, $quicket_id){
 
   $config = Drupal::config('afrikaburn_shared.settings');
   $event_id = $config->get('main_id');
-  $existing = quicket_request(
+  $existing = $quicket_code && quicket_request(
     'GET',
     "codes/search?eventId=$event_id&text=$quicket_code"
   );
