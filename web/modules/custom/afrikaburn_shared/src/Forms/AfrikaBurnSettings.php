@@ -90,7 +90,7 @@ class AfrikaBurnSettings extends ConfigFormBase {
           'main_mayday_minor_id' => [
             '#type' => 'textfield',
             '#title' => 'Mayday Minor ticket ID',
-            '#default_value' => $config->get('main_minor_minor_id'),
+            '#default_value' => $config->get('main_mayday_minor_id'),
             '#suffix' => '<br />',
           ],
 
