@@ -16,6 +16,16 @@ function _generate($id_number){
   module_load_include('inc', 'afrikaburn_shared', 'includes/shared.quicket');
 
   $config = Drupal::config('afrikaburn_shared.settings');
+  $ticket_types = array_filter(
+    [
+      $config->get('main_general_id'),
+      $config->get('main_general_minor_id'),
+      $config->get('main_general_kids_id'),
+      $config->get('main_mayday_id'),
+      $config->get('main_mayday_minor_id'),
+      $config->get('main_mayday_kids_id'),
+    ]
+  );
 
   return quicket_request(
     'POST',
@@ -27,16 +37,7 @@ function _generate($id_number){
       'NumUses' => 6,
       'IsAccessCode' => TRUE,
       'Email' => str_replace(' ', '', $id_number),
-      'TicketTypes' =>  array_filter(
-        [
-          $config->get('main_general_id'),
-          $config->get('main_general_minor_id'),
-          $config->get('main_general_kids_id'),
-          $config->get('main_mayday_id'),
-          $config->get('main_mayday_minor_id'),
-          $config->get('main_mayday_kids_id'),
-        ]
-      )
+      'TicketTypes' => $ticket_types,
     ]
   );
 }
@@ -60,7 +61,7 @@ function _update($id_number, $quicket_code, $quicket_id){
   return $existing
     ? quicket_request(
       'PUT',
-      "codes/$event_id",
+      "codes/$quicket_id",
       [
         'EventId' => $event_id,
         'IsPercentage' => FALSE,

@@ -43,7 +43,7 @@ class BioBlock extends BlockBase {
       $this::l('Bookmarks', 'my/bookmarks'),
       $outdated
         ? $this::l('Update my details', 'user/'.$uid.'/edit/update')
-        : $this::l('My details', 'user'),
+        : $this::l('My bio', 'user'),
       $this::l('My Privacy', 'my/privacy'),
       '<ul><li></li><li>'.$this::l('Delete my Bio', 'user/'.$uid.'/cancel').'</li></ul>',
       $this::l('Log out', 'user/logout'),
