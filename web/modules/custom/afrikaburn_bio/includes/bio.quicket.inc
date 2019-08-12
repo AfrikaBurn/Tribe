@@ -27,12 +27,15 @@ function _generate($id_number){
       'NumUses' => 6,
       'IsAccessCode' => TRUE,
       'Email' => str_replace(' ', '', $id_number),
-      'TicketTypes' =>  [
-        $config->get('main_general_id'),
-        $config->get('main_general_minor_id'),
-        $config->get('main_general_kids_id'),
-        $config->get('main_mayday_id'),
-      ],
+      'TicketTypes' =>  array_filter(
+        [
+          $config->get('main_general_id'),
+          $config->get('main_general_minor_id'),
+          $config->get('main_general_kids_id'),
+          $config->get('main_mayday_id'),
+          $config->get('main_mayday_minor_id'),
+        ]
+      )
     ]
   );
 }

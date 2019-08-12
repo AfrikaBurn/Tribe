@@ -62,6 +62,7 @@ class AfrikaBurnSettings extends ConfigFormBase {
             '#type' => 'textfield',
             '#title' => 'Event ID',
             '#default_value' => $config->get('main_id'),
+            '#suffix' => '<br />',
           ],
 
           'main_general_id' => [
@@ -78,6 +79,7 @@ class AfrikaBurnSettings extends ConfigFormBase {
             '#type' => 'textfield',
             '#title' => 'General Kids ticket ID',
             '#default_value' => $config->get('main_general_kids_id'),
+            '#suffix' => '<br />',
           ],
 
           'main_mayday_id' => [
@@ -85,11 +87,18 @@ class AfrikaBurnSettings extends ConfigFormBase {
             '#title' => 'Mayday ticket ID',
             '#default_value' => $config->get('main_mayday_id'),
           ],
+          'main_mayday_minor_id' => [
+            '#type' => 'textfield',
+            '#title' => 'Mayday Minor ticket ID',
+            '#default_value' => $config->get('main_minor_minor_id'),
+            '#suffix' => '<br />',
+          ],
 
           'main_ddt_id' => [
             '#type' => 'textfield',
             '#title' => 'Direct Distribution ticket ID',
             '#default_value' => $config->get('main_ddt_id'),
+            '#suffix' => '<br />',
           ],
 
           'main_sub_id' => [
@@ -102,6 +111,7 @@ class AfrikaBurnSettings extends ConfigFormBase {
             '#type' => 'textfield',
             '#title' => 'Anathi ticket ID',
             '#default_value' => $config->get('main_anathi_id'),
+            '#suffix' => '<br />',
           ],
         ],
 

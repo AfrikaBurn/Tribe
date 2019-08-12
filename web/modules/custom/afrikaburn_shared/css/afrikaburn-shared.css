@@ -71,6 +71,11 @@ body .horizontal-tabs .horizontal-tab-button {
   clear: none;
 }
 
+.afrikaburn-shared-settings br{
+  width: 100%;
+  clear: both;
+}
+
 .afrikaburn-shared-settings fieldset{
   width: 50%;
   float: left;

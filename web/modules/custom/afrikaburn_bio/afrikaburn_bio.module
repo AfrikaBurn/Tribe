@@ -194,7 +194,7 @@ function afrikaburn_bio_user_presave($entity){
     $id_changed = $original_id != $current_id;
 
     if (!$has_quicket_data || $id_changed) {
-      $quicket = _update($id_number, $quicket_code, $quicket_id);
+      $quicket = _update($current_id, $quicket_code, $quicket_id);
       $attempt = TRUE;
     }
   }
