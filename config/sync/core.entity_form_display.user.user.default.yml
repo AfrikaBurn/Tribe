@@ -27,6 +27,7 @@ dependencies:
     - field.field.user.user.field_quicket_id
     - field.field.user.user.field_secondary_mail
     - field.field.user.user.field_terms_and_conditions
+    - field.field.user.user.field_volunteering
     - field.field.user.user.field_year_cycle
     - field.field.user.user.user_picture
     - image.style.thumbnail
@@ -39,6 +40,7 @@ dependencies:
     - link
     - telephone
     - user
+    - viewfield
 third_party_settings:
   field_group:
     group_root:
@@ -132,7 +134,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   contact:
-    weight: 7
+    weight: 8
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -199,7 +201,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_links:
-    weight: 6
+    weight: 7
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -207,7 +209,7 @@ content:
     type: link_default
     region: content
   field_location:
-    weight: 9
+    weight: 8
     settings:
       force_deepest: '1'
       parent: '0'
@@ -223,7 +225,7 @@ content:
     type: telephone_default
     region: content
   field_newsletter:
-    weight: 8
+    weight: 9
     settings:
       display_label: true
     third_party_settings: {  }
@@ -261,8 +263,14 @@ content:
     third_party_settings: {  }
     type: email_default
     region: content
-  field_year_cycle:
+  field_volunteering:
     weight: 30
+    settings: {  }
+    third_party_settings: {  }
+    type: viewfield_select
+    region: content
+  field_year_cycle:
+    weight: 1
     settings: {  }
     third_party_settings: {  }
     type: computed_string_widget

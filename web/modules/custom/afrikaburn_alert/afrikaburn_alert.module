@@ -1,12 +1,18 @@
 <?php
-
 /**
  * @file
  * Contains Afrikaburn alert module.
  */
 
 
-/* ----- Module Hooks ----- */
+use \Drupal\user\Entity\User;
+use \Drupal\Core\Access\AccessResult;
+use \Drupal\afrikaburn_shared\Utils;
+use \Drupal\afrikaburn_alert\Controller\AlertController;
+use \Drupal\afrikaburn_collective\Controller\CollectiveController;
+
+
+/* ----- Page Hooks ----- */
 
 
 /**
@@ -17,122 +23,281 @@ function afrikaburn_alert_page_attachments(&$page) {
   $page['#attached']['library'][] = 'afrikaburn_alert/alert';
 }
 
+
+/* ----- Theme Hooks ----- */
+
+
 /**
  * Implements hook_theme().
+ * Views Customizaton.
  */
-function afrikaburn_alert_theme() {
+function afrikaburn_alert_theme(){
   return [
-    'views_view_fields__alerts' => [
-      'template' => 'views-view-fields--alerts',
-      'base hook' => 'view',
-    ],
+    'node__alert' => [
+      'template' => "node--alert",
+      'base hook' => 'node',
+    ]
   ];
 }
 
-
-/* ----- Entity Hooks ----- */
-
-
 /**
- * Implements hook_ENTITY_TYPE_insert.
+ * Implements HOOK_preprocess_node().
+ *
  */
-function afrikaburn_alert_node_insert($entity){
-  module_load_include('inc', 'afrikaburn_alert', 'includes/alert');
-  module_load_include('inc', 'afrikaburn_notification', 'includes/collective');
-
-  $bundle = $entity->bundle();
-  if (in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
-
-    $collective = @array_shift(
-      array_filter(
-        [
-          $entity->field_collective->entity,
-          $entity->field_collective->getEntity(),
-        ]
-      )
-    );
-
-    if (
-      preg_match('/^\/registration\/update/', \Drupal::service('path.current')->getPath()) ||
-      !_diff($entity)
-    ) return;
-
-    _alert(
-      'create',
-      $collective,
-      $entity
-    );
+function afrikaburn_alert_preprocess_node(&$variables){
+  if ($variables['node']->bundle() == 'alert'){
+    module_load_include('inc', 'afrikaburn_alert', 'includes/alert');
+    _alert_display_variables($variables);
   }
 }
 
+
+/* ----- Access hooks ----- */
+
+
+/**
+ * Implements hook_flag_action_access().
+ */
+function afrikaburn_alert_flag_action_access($action, $flag, $account, $collective = NULL) {
+  if ($collective->bundle() == 'collective' && $flag->id == 'mute'){
+
+    $user = User::load(\Drupal::currentUser()->id());
+
+    return CollectiveController::isMember($collective, $user, TRUE)
+      ? AccessResult::neutral()
+      : AccessResult::forbidden();
+  }
+  return AccessResult::neutral();
+}
+
+
+/* ----- Alert generation ----- */
+
+
+/* --- Projects --- */
+
 /**
  * Implements hook_ENTITY_TYPE_insert.
+ * Generate alerts when projects are created.
  */
-function afrikaburn_alert_comment_insert($entity){
-  module_load_include('inc', 'afrikaburn_alert', 'includes/alert');
+function afrikaburn_alert_node_insert($node){
+  switch ($node->bundle()) {
 
-  $bundle = $entity->bundle();
+    case 'art':
+    case 'performances':
+    case 'mutant_vehicles':
+    case 'theme_camps':
 
-  if (in_array($bundle, ['post', 'comment'])){
-    _alert(
-      $bundle,
-      $entity->getCommentedEntity(),
-      $entity
-    );
+      $wrangling = preg_match(
+        '/^\/registration\/update/',
+        \Drupal::service('path.current')->getPath()
+      );
+      $updated = Utils::diff($node);
+      $new = !isset($node->original);
+
+      if ($new || $updated && !$wrangling) {
+        AlertController::alert(
+          AlertController::$ACTION_CREATE,
+          _getCollective($node),
+          $node
+        );
+      }
+
+    break;
   }
 }
 
 /**
  * Implements hook_ENTITY_TYPE_update.
+ * Generate alerts when projects are updated.
  */
-function afrikaburn_alert_node_update($entity){
-  module_load_include('inc', 'afrikaburn_alert', 'includes/alert');
+function afrikaburn_alert_node_update($node){
+  switch ($node->bundle()) {
 
-  $bundle = $entity->bundle();
+    case 'art':
+    case 'performances':
+    case 'mutant_vehicles':
+    case 'theme_camps':
 
-  if (in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
+      AlertController::alert(
+        AlertController::$ACTION_UPDATE,
+        _getCollective($node),
+        $node
+      );
 
-    $collective = @array_shift(
-      array_filter(
-        [
-          $entity->field_collective->entity,
-          $entity->field_collective->getEntity(),
-        ]
-      )
-    );
-
-    _alert(
-      'update',
-      $collective,
-      $entity
-    );
+    break;
   }
 }
 
 /**
  * Implements hook_ENTITY_TYPE_predelete.
+ * Generate alerts when project is deleted.
  */
-function afrikaburn_alert_node_predelete($entity){
-  module_load_include('inc', 'afrikaburn_alert', 'includes/alert');
+function afrikaburn_alert_node_predelete($node){
+  switch ($node->bundle()) {
 
-  $bundle = $entity->bundle();
+    case 'art':
+    case 'performances':
+    case 'mutant_vehicles':
+    case 'theme_camps':
 
-  if (in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
+      AlertController::alert(
+        AlertController::$ACTION_DELETE,
+        _getCollective($node),
+        $node
+      );
 
-    $collective = @array_shift(
-      array_filter(
-        [
-          $entity->field_collective->entity,
-          $entity->field_collective->getEntity(),
-        ]
-      )
-    );
-
-    _alert(
-      'delete',
-      $collective,
-      $entity
-    );
+    break;
   }
 }
 
+/* --- Posts & Comments --- */
+
+/**
+ * Implements hook_ENTITY_TYPE_insert.
+ * Generate alerts when post or comments are made.
+ */
+function afrikaburn_alert_comment_insert($comment){
+  switch ($comment->bundle()) {
+
+    case 'post':
+      AlertController::alert(
+        AlertController::$ACTION_POST,
+        $comment->getCommentedEntity(),
+        $comment
+      );
+    break;
+
+    case 'comment':
+      AlertController::alert(
+        AlertController::$ACTION_COMMENT,
+        $comment->getCommentedEntity(),
+        $comment
+      );
+    break;
+
+  }
+}
+
+/* --- Membership alerts --- */
+
+/**
+ * Implements hook_ENTITY_insert().
+ * Generate alerts when colective membership changes.
+ */
+function afrikaburn_alert_flagging_insert($flagging) {
+
+  $actor_id = $flagging->uid->target_id;
+  $flagged_id = $flagging->entity_id->value;
+  $current_id = \Drupal::currentUser()->id();
+
+  switch ($flagging->bundle()) {
+
+    case 'join':
+      AlertController::alert(
+        AlertController::$ACTION_REQUEST,
+        \Drupal::entityTypeManager()
+          ->getStorage('node')
+          ->load($flagged_id),
+        \Drupal::entityTypeManager()
+          ->getStorage('user')
+          ->load($actor_id)
+      );
+    break;
+
+    case 'member':
+      if ($actor_id != $current_id){
+        AlertController::alert(
+          AlertController::$ACTION_APPROVED,
+          \Drupal::entityTypeManager()
+            ->getStorage('node')
+            ->load($flagged_id),
+          \Drupal::entityTypeManager()
+            ->getStorage('user')
+            ->load($actor_id)
+        );
+      }
+    break;
+
+    case 'admin':
+      if ($actor_id != $current_id){
+        AlertController::alert(
+          AlertController::$ACTION_ADMINED,
+          \Drupal::entityTypeManager()
+            ->getStorage('node')
+            ->load($flagged_id),
+          \Drupal::entityTypeManager()
+            ->getStorage('user')
+            ->load($actor_id)
+        );
+      }
+    break;
+
+    case 'invite':
+      AlertController::alert(
+        AlertController::$ACTION_INVITED,
+        \Drupal::entityTypeManager()
+          ->getStorage('node')
+          ->load($flagged_id),
+        \Drupal::entityTypeManager()
+          ->getStorage('user')
+          ->load($actor_id)
+      );
+    break;
+
+    case 'ban':
+      AlertController::alert(
+        AlertController::$ACTION_BANNED,
+        \Drupal::entityTypeManager()
+          ->getStorage('node')
+          ->load($flagged_id),
+        \Drupal::entityTypeManager()
+          ->getStorage('user')
+          ->load($actor_id)
+      );
+    break;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_delete().
+ * Generate alerts when colective membership changes.
+ */
+function afrikaburn_alert_flagging_delete($flagging) {
+
+  $uid = $flagging->uid->target_id;
+
+  switch ($flagging->bundle()) {
+    case 'member':
+      if ($uid != Utils::currentUser()->id()) {
+        AlertController::alert(
+          AlertController::$ACTION_BOOTED,
+          \Drupal::entityTypeManager()
+            ->getStorage('node')
+            ->load($flagging->entity_id->value),
+          \Drupal::entityTypeManager()
+            ->getStorage('user')
+            ->load($uid)
+        );
+      }
+    break;
+  }
+}
+
+
+/* --- Utilities --- */
+
+
+/**
+ * Retrieve the collective attached to an entity
+ */
+function _getCollective($entity){
+  return @array_shift(
+    array_filter(
+      [
+        $entity->field_collective->entity,
+        $entity->field_collective->getEntity(),
+      ]
+    )
+  );
+}

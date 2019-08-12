@@ -5,8 +5,6 @@ dependencies:
   config:
     - field.storage.user.field_location
     - taxonomy.vocabulary.location
-  content:
-    - 'taxonomy_term:location:77c8b7e9-2730-443f-a50a-4588a4c21d1b'
   module:
     - custom_add_another
     - user
@@ -22,9 +20,7 @@ label: Location
 description: ''
 required: true
 translatable: false
-default_value:
-  -
-    target_uuid: 77c8b7e9-2730-443f-a50a-4588a4c21d1b
+default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'

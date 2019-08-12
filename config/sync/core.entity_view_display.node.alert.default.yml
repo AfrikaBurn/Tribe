@@ -8,6 +8,8 @@ dependencies:
     - field.field.node.alert.field_alert_comment
     - field.field.node.alert.field_alert_post
     - field.field.node.alert.field_alert_project
+    - field.field.node.alert.field_alert_project_mode
+    - field.field.node.alert.field_alert_user
     - node.type.alert
   module:
     - options
@@ -18,52 +20,72 @@ bundle: alert
 mode: default
 content:
   field_alert_action:
-    weight: 103
-    label: above
+    type: list_default
+    weight: 2
+    region: content
+    label: hidden
     settings: {  }
     third_party_settings: {  }
-    type: list_default
-    region: content
   field_alert_collective:
-    weight: 101
-    label: above
+    weight: 3
+    label: hidden
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
   field_alert_comment:
-    weight: 106
-    label: above
+    weight: 6
+    label: hidden
     settings:
       link: true
+      view_mode: default
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_view
     region: content
   field_alert_post:
-    weight: 104
-    label: above
+    weight: 4
+    label: hidden
     settings:
       link: true
+      view_mode: default
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_view
     region: content
   field_alert_project:
-    weight: 105
+    weight: 5
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_alert_project_mode:
+    weight: 8
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_alert_user:
+    weight: 7
     label: above
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
     region: content
+  flag_bookmark:
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   flag_unread:
-    weight: 10
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
-  links:
-    weight: 100
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  links: true

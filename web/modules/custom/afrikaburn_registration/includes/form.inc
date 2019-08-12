@@ -14,13 +14,13 @@ function _project_form_modes(){
     'art' => [
       'title' => 'Artwork',
       'modes' => [
-        'form_1' => 'Registration form 1',
-        'form_2' => 'Registration form 2',
-        'form_3' => 'Registration form 3',
+        'form_1' => 'Introduction',
+        'form_2' => 'Specification',
+        'form_3' => 'Publishing',
         'grant' => 'Grant application',
         'support_camp' => 'Support camp',
         'supplier' => 'Supplier registration',
-        'waps' => 'Work access passes',
+        'waps' => 'Work Access Passes',
       ],
     ],
 
@@ -31,7 +31,7 @@ function _project_form_modes(){
         'grant' => 'Grant application',
         'support_camp' => 'Support camp',
         'supplier' => 'Supplier registration',
-        'waps' => 'Work access passes',
+        'waps' => 'Work Access Passes',
       ],
     ],
 
@@ -42,19 +42,19 @@ function _project_form_modes(){
         'grant' => 'Grant application',
         'support_camp' => 'Support camp',
         'supplier' => 'Supplier registration',
-        'waps' => 'Work access passes',
+        'waps' => 'Work Access Passes',
       ],
     ],
 
     'theme_camps' => [
       'title' => 'Theme Camp',
       'modes' => [
-        'form_1' => 'Registration form 1',
-        'form_2' => 'Registration form 2',
-        'form_3' => 'Registration form 3',
+        'form_1' => 'Introduction',
+        'form_2' => 'Specification',
+        'form_3' => 'Publishing',
         'support_camp' => 'Support camp',
         'supplier' => 'Supplier registration',
-        'waps' => 'Work access passes',
+        'waps' => 'Work Access Passes',
       ],
     ],
   ];
@@ -81,19 +81,19 @@ function _project_form_config() {
     ],
     'node_art_form_1_form' => [
       'mode' => 'form_1',
-      'title' => 'Registering: %title',
+      'title' => 'Introduction: %title',
       'type' => 'an Artwork',
       'wrangler' => 'art_wrangler'
     ],
     'node_art_form_2_form' => [
       'mode' => 'form_2',
-      'title' => 'Continuing registration: %title',
+      'title' => 'Specification: %title',
       'type' => 'an Artwork',
       'wrangler' => 'art_wrangler'
     ],
     'node_art_form_3_form' => [
       'mode' => 'form_3',
-      'title' => 'Completing registration: %title',
+      'title' => 'Publishing: %title',
       'type' => 'an Artwork',
       'wrangler' => 'art_wrangler'
     ],
@@ -127,7 +127,7 @@ function _project_form_config() {
     ],
     'node_performances_form_1_form' => [
       'mode' => 'form_1',
-      'title' => 'Registering: %title',
+      'title' => 'Introduction: %title',
       'type' => 'a Binnekring event',
       'wrangler' => 'art_wrangler'
     ],
@@ -161,7 +161,7 @@ function _project_form_config() {
     ],
     'node_mutant_vehicles_form_1_form' => [
       'mode' => 'form_1',
-      'title' => 'Registering: %title',
+      'title' => 'Introduction: %title',
       'type' => 'a Mutant Vehicle',
       'wrangler' => 'mutant_vehicle_wrangler'
     ],
@@ -195,25 +195,25 @@ function _project_form_config() {
     ],
     'node_theme_camps_form_1_form' => [
       'mode' => 'form_1',
-      'title' => 'Registering: %title',
+      'title' => 'Introduction: %title',
       'type' => 'a Theme Camp',
       'wrangler' => 'theme_camp_wrangler'
     ],
     'node_theme_camps_form_2_form' => [
       'mode' => 'form_2',
-      'title' => 'Continuing registration: %title',
+      'title' => 'Specification: %title',
       'type' => 'a Theme Camp',
       'wrangler' => 'theme_camp_wrangler'
     ],
     'node_theme_camps_form_3_form' => [
       'mode' => 'form_3',
-      'title' => 'Completing registration: %title',
+      'title' => 'Publishing: %title',
       'type' => 'a Theme Camp',
       'wrangler' => 'theme_camp_wrangler'
     ],
     'node_theme_camps_support_camp_form' => [
       'mode' => 'support_camp',
-      'title' => 'Registering: %title',
+      'title' => 'Introduction: %title',
       'type' => 'a Support Camp',
       'wrangler' => 'theme_camp_wrangler'
     ],
@@ -399,28 +399,41 @@ function _verify_link(&$form, $collective, $mode, $supporting_project){
 function _wap_form(&$form, $collective, $registration, $mode){
   if ($mode == 'waps'){
 
+    $form['intro'] = [
+      '#type' => 'markup',
+      '#markup' =>
+        '<div class="messages messages--warning">' .
+        '* If a member of your collective does not appear in the dropdown, they have likely been assigned one elsewhere already.<br />' .
+        '* Once assigned, WAPs can only be transfered through Quicket.<br />' .
+        '* You do not have to assign all WAPs in one go, you can assign WAPs until April 15th.' .
+        '</div>',
+    ];
+
     $allowed = (int)$registration->field_waps_allowed->value;
     $assigned = count($registration->field_waps);
     $uids = \Drupal::database()->query("
       SELECT
-        members.field_col_members_target_id as uid
+        members.uid as uid
       FROM
-        {node__field_col_members} AS members
+        {flagging} AS members
       LEFT JOIN
-        {paragraph__field_team_member} AS wap_member ON members.field_col_members_target_id = wap_member.field_team_member_target_id
+        {paragraph__field_team_member} AS wap_member ON members.uid = wap_member.field_team_member_target_id
       LEFT JOIN
         {paragraphs_item_field_data} as wap ON wap.id = wap_member.entity_id
       LEFT JOIN
         {flagging} AS archived ON archived.entity_id = wap.parent_id AND archived.flag_id = 'archived'
       LEFT JOIN
-        {flagging} AS banned ON banned.entity_id = members.field_col_members_target_id AND banned.flag_id = 'wap_ban'
+        {flagging} AS banned ON banned.entity_id = members.uid AND banned.flag_id = 'wap_ban'
       WHERE
-        members.entity_id = " . $collective->nid->value . " AND
+        members.flag_id = 'member' AND
+        members.entity_id = :cid AND
         (
           (archived.flag_id = 'archived' AND wap.parent_id IS NOT NULL) OR
           (archived.flag_id IS NULL AND wap.parent_id IS NULL)
-        ) AND banned.flag_id IS NULL"
+        ) AND banned.flag_id IS NULL",
+      [':cid' => $collective->nid->value]
     )->fetchCol();
+
     $users = \Drupal::entityTypeManager()->getStorage('user')->loadMultiple($uids);
     $options = ['-- Unassigned --'];
     foreach($users as $user){
@@ -483,15 +496,5 @@ function _wap_form(&$form, $collective, $registration, $mode){
     $form['#validate'][] = 'afrikaburn_registration_wap_validate';
     $form['#validate'][] = 'afrikaburn_registration_wap_quicket';
     $form['#attached']['library'][] = 'afrikaburn_registration/registration';
-
-    $form['outtro'] = [
-      '#type' => 'markup',
-      '#markup' =>
-        '<div class="messages messages--warning">' .
-        '* If a member of your collective does not appear in the dropdown, they have likely been assigned one elsewhere already.<br />' .
-        '* Once assigned, WAPs can only be transfered through Quicket.<br />' .
-        '* You do not have to assign all WAPs in one go, you can assign WAPs until April 15th.' .
-        '</div>',
-    ];
   }
 }

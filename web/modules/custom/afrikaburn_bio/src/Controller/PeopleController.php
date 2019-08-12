@@ -55,7 +55,12 @@ class PeopleController extends ControllerBase {
 
       $target->save();
 
-      return new \Symfony\Component\HttpFoundation\JsonResponse([], 200);
+      return new \Symfony\Component\HttpFoundation\JsonResponse(
+        [
+          "tr[data-uid=$uid] .views-field-field-quicket-id" => $target->field_quicket_code->value . ' / ' . $target->field_quicket_id->value
+        ],
+        200
+      );
     }
   }
 

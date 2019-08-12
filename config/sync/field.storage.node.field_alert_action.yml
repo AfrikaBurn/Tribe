@@ -17,22 +17,40 @@ settings:
   allowed_values:
     -
       value: 0
-      label: posted
+      label: 'You posted in @collective:@actor posted in @collective'
     -
       value: 1
-      label: 'commented on'
+      label: 'You commented on @subject in @collective:You commented on @subject in @collective'
     -
       value: 2
-      label: 'created the'
+      label: 'You submitted the @subject @type @stage in @collective:@actor submitted the @subject @type @stage in @collective'
     -
       value: 3
-      label: 'updated the'
+      label: 'You updated @subject @type @stage in @collective:@actor updated @subject @type @stage in @collective'
     -
       value: 4
-      label: 'deleted a project'
+      label: 'You deleted @subject registration from @collective:You deleted @subject registration from @collective'
     -
       value: 5
-      label: 'completed the'
+      label: 'You completed @subject''s @stage in @collective:You  completed @subject''s  @stage in @collective'
+    -
+      value: 6
+      label: 'You requested to join @collective:@actor requested to join @collective'
+    -
+      value: 7
+      label: 'You approved @subject''s request to join @collective:@actor approved your request to join @collective'
+    -
+      value: 8
+      label: 'You invited @subject to join @collective:@actor invited you to join @collective'
+    -
+      value: 9
+      label: 'You booted @subject from @collective:You were booted from @collective'
+    -
+      value: 10
+      label: 'You banned from @collective:You were banned from @collective'
+    -
+      value: 11
+      label: 'You have made @subject an admin of @collective:@actor has made you an admin of @collective'
   allowed_values_function: ''
 module: options
 locked: false

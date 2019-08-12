@@ -486,7 +486,7 @@ function afrikaburn_registration_wap_quicket($form, $form_state){
 
   if (count($form_state->getErrors())) return;
 
-  module_load_include('inc', 'afrikaburn_registration', 'includes/quicket');
+  module_load_include('inc', 'afrikaburn_registration', 'includes/registration.quicket');
 
   $values = $form_state->getValues();
   $uids = array_filter(array_column($values['waps'], 'member'));

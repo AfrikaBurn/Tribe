@@ -14,7 +14,7 @@ bundles:
   - theme_camps
 entity_type: node
 global: false
-weight: 0
+weight: -1
 flag_short: Mute
 flag_long: 'Stop receiving alert notifications about this.'
 flag_message: ''

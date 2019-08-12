@@ -1,0 +1,10 @@
+uuid: c72dba08-062a-4e43-9570-f255f03d980f
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.listing
+label: Listing
+targetEntityType: user
+cache: true

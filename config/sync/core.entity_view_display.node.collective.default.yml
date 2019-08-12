@@ -41,28 +41,37 @@ third_party_settings:
           layout_class: {  }
     regions:
       ds_content:
+        - invited
         - group_actions
-        - field_picture
-        - join
         - field_col_description
+        - field_picture
         - group_collective
         - field_settings
         - edit
+        - flag_disclose
+        - join
+        - request
+        - accept
+        - ignore
         - flag_mute
-        - leave
         - post_something
+        - leave
         - posts
         - group_discussion
         - group_about
   field_group:
     group_actions:
       children:
-        - join
         - edit
+        - flag_disclose
+        - join
+        - request
+        - accept
+        - ignore
         - flag_mute
         - leave
       parent_name: ''
-      weight: 0
+      weight: 1
       format_type: html_element
       format_settings:
         label: Actions
@@ -80,7 +89,7 @@ third_party_settings:
         - group_discussion
         - group_about
       parent_name: ''
-      weight: 2
+      weight: 3
       format_type: tabs
       format_settings:
         id: ''
@@ -118,8 +127,13 @@ targetEntityType: node
 bundle: collective
 mode: default
 content:
+  accept:
+    weight: 12
+    region: ds_content
+    settings: {  }
+    third_party_settings: {  }
   edit:
-    weight: 3
+    weight: 8
     region: ds_content
     settings: {  }
     third_party_settings: {  }
@@ -132,7 +146,7 @@ content:
       trim_length: 600
     third_party_settings: {  }
   field_picture:
-    weight: 1
+    weight: 2
     label: hidden
     settings:
       colorbox_node_style: collective_top
@@ -154,18 +168,33 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+  flag_disclose:
+    weight: 9
+    region: ds_content
+    settings: {  }
+    third_party_settings: {  }
   flag_mute:
-    weight: 4
+    weight: 14
+    region: ds_content
+    settings: {  }
+    third_party_settings: {  }
+  ignore:
+    weight: 13
+    region: ds_content
+    settings: {  }
+    third_party_settings: {  }
+  invited:
+    weight: 0
     region: ds_content
     settings: {  }
     third_party_settings: {  }
   join:
-    weight: 2
+    weight: 10
     region: ds_content
     settings: {  }
     third_party_settings: {  }
   leave:
-    weight: 5
+    weight: 15
     region: ds_content
     settings: {  }
     third_party_settings: {  }
@@ -176,6 +205,11 @@ content:
     third_party_settings: {  }
   posts:
     weight: 16
+    region: ds_content
+    settings: {  }
+    third_party_settings: {  }
+  request:
+    weight: 11
     region: ds_content
     settings: {  }
     third_party_settings: {  }

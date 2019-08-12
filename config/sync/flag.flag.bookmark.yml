@@ -10,7 +10,7 @@ bundles:
   - alert
 entity_type: node
 global: false
-weight: 0
+weight: -9
 flag_short: Bookmark
 flag_long: 'Bookmark this'
 flag_message: ''
@@ -22,7 +22,7 @@ flag_type: 'entity:node'
 link_type: ajax_link
 flagTypeConfig:
   show_in_links: {  }
-  show_as_field: false
+  show_as_field: true
   show_on_form: false
   show_contextual_link: false
   extra_permissions:

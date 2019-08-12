@@ -14,14 +14,11 @@ mode: default
 content:
   comment_body:
     label: hidden
-    type: text_default
+    type: text_trimmed
     weight: 0
-    settings: {  }
+    settings:
+      trim_length: 600
     third_party_settings: {  }
     region: content
-  links:
-    weight: 100
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-hidden: {  }
+hidden:
+  links: true

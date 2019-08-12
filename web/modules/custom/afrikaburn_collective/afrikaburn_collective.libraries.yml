@@ -5,3 +5,7 @@ main:
   css:
     theme:
       css/afrikaburn-collective.css: {}
+privacy:
+  version: 0.0
+  js:
+    js/afrikaburn-collective-privacy.js: {}

@@ -1,3 +1,309 @@
+/* Colour experiment */
+
+#main-content-strip div.container-2 {
+  background: #FAD542;
+}
+
+div.body-content{
+  background: #FFEFD3;
+  color: #333;
+}
+div.sidebar-outer.collectivebar .sidebar {
+  background: #FDE6C2 !important;
+  border: none;
+  border-radius: 5px;
+}
+
+a,
+a:hover,
+a:visited {
+  color: #394F32;
+  text-decoration: none;
+}
+
+.biobar a.active,
+.biobar a.active:hover,
+.biobar a.active:visited {
+  color: #DB4127;
+}
+
+.main-block a,
+.main-block a:hover,
+.main-block a:visited {
+  color: #396F32;
+  font-weight: bold;
+}
+
+.collectivebar a,
+.collectivebar a:hover,
+.collectivebar a:visited {
+  font-weight: bold;
+}
+
+
+div.body-content h1, div.body-content h2, div.body-content h3, div.body-content h4 {
+  color: #111;
+}
+
+nav.pager .pager__items li.is-active a,
+nav.pager .pager__items li a:hover {
+  color: #ffefb6 !important;
+}
+
+body div.sidebar-outer.biobar .sidebar {
+  background: #FCE1B7;
+  border-radius: 5px;
+  border: none;
+}
+
+html body div.sidebar {
+  color: #222;
+}
+
+div.sidebar-outer div.sidebar h2 {
+  color: #DB4127;
+}
+
+div.sidebar-outer div.sidebar .collapsiblockCollapsed h2 {
+  color: #394F32;
+}
+
+div.sidebar-outer.collectivebar div.sidebar h2{
+  line-height: 25px;
+  height: 20px;
+}
+
+body .collapsiblock a h2{
+  line-height: 120%;
+}
+.view-collective-members details[open] {
+  background: #596F6244;
+}
+.view-collective-members details summary{
+  background-color: #596F6299;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 15px;
+  top: 15px;
+  right: 10px;
+  background-size: 1em;
+}
+.view-collective-members details[open] summary{
+  background-color: #AF282E55;
+}
+
+body nav.pager {
+  clear: both;
+  margin: 15px 0 15px;
+  padding: 10px 0;
+  border: none;
+  border-top: 1px solid #f26c5599;
+}
+nav.pager .pager__items li a {
+  background-color: #596F6299;
+}
+body nav.pager .pager__items li a {
+  background-size: 50px !important;
+}
+body nav.pager .pager__items li.pager__item--first a{
+  background-position: 1px 1px;
+}
+body nav.pager .pager__items li.pager__item--previous a{
+  background-position: 1px -32px;
+}
+body nav.pager .pager__items li.pager__item--next a{
+  background-position: -32px -32px;
+}
+body nav.pager .pager__items li.pager__item--last a{
+  background-position: -32px 1px;
+}
+nav.pager .pager__items li.is-active a, nav.pager .pager__items li a:hover {
+  background-color: #96111699;
+}
+
+html body .collapsiblock a h2:after{
+  background-color: #AF282E55;
+  border-radius: 15px;
+  width: 1em;
+  height: 1em;
+  background-position: center;
+}
+html body .collapsiblock.collapsiblockCollapsed a h2:after{
+  background-color: #596F6299;
+}
+html body div.sidebar-outer.collectivebar div.sidebar .collapsiblock a h2:after{
+  width: 20px;
+  height: 20px;
+}
+
+
+.alert .flag-unread a,
+.alert .flag-bookmark a {
+  background-color: #AF282E55;
+  border-radius: 15px;
+  padding: 2.5px;
+  background-position: center center;
+  background-size: 20px;
+}
+
+div.body-content table,
+div.body-content table * {
+  border: none !important;
+}
+
+body .horizontal-tabs .horizontal-tabs-list li.selected,
+div.sidebar .content ul > li {
+  border-bottom: none;
+}
+.sidebar-outer.collectivebar .sidebar ul.horizontal-tabs-list li{
+  border-color: #96111655;
+}
+.sidebar-outer.collectivebar .sidebar ul.horizontal-tabs-list li.selected{
+  border-bottom: 3px solid #FDE6C2;
+}
+
+body .horizontal-tabs .horizontal-tabs-panes,
+body .horizontal-tabs .horizontal-tabs-list li.selected {
+  border-color: #96111655;
+}
+body .horizontal-tabs .horizontal-tabs-list li.selected{
+  border-bottom: 3px solid #FFEFD3;
+}
+
+body .horizontal-tabs .horizontal-tabs-list li.selected a {
+  color: #DB4127;
+  text-shadow: none;
+}
+
+#block-bioblock .content a:hover {
+  background-color: #370c1311;
+}
+
+#block-bioblock .content a {
+  padding-left: 25px;
+}
+
+.view-my-collectives .view-content .views-row:hover {
+  background-color: #370c1311;
+}
+
+.view-alerts article.alert main .comment,
+.view-collective-posts article.collective-post main .comment,
+.view-collective-posts article.collective-post footer main .comment {
+  background: #FFF9F0;
+}
+.view-alerts article.alert .horizontal-tabs .horizontal-tabs-list li.selected{
+  border-bottom-color: #FFF9F0;
+}
+
+div.body-content table, div.body-content table{
+  border-radius: 5px 5px 0 0;
+  overflow: hidden
+}
+div.body-content table th {
+  background-color: #596F62dd;
+}
+
+div.body-content .block .view-id-collective_projects table td.name > a {
+  font-size: 100%;
+  text-transform: none;
+}
+
+body div.body-content {
+  color: #666 !important;
+}
+
+div.field div.field__item {
+  padding-left: 2em;
+  border-bottom: 1px solid #96111655;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+body .view.view-my-collectives .button{
+  border-color: #fff;
+}
+
+div.body-content table td {
+  color: #333;
+  background-color: #76192811;
+}
+
+body label {
+  font-style: normal;
+  color: #333;
+}
+
+.form-item span.field-suffix, .form-item .description {
+  color: #666;
+}
+
+div.body-content table.field-multiple-table td {
+  background-color: #76192833;
+}
+div.body-content table.field-multiple-table tr.even td {
+  background-color: #22070b22;
+}
+
+.has-multiple-fields-remove-button
+.multiple-fields-remove-button,
+.has-multiple-fields-remove-button
+.multiple-fields-remove-button:hover,
+.has-multiple-fields-remove-button
+.multiple-fields-remove-button:focus {
+  position: absolute !important;
+  right: 8px !important;
+  top: 50% !important;
+}
+
+html body .view.view-my-collectives .button {
+  border: none;
+  padding: 6px 10px 5px;
+  line-height: 100%;
+  margin: 5px 1px 0 0;
+}
+
+#block-membersblock h2 span.alert {
+  top: 0px;
+  color: #fff;
+  right: 20px;
+}
+
+button,
+.button,
+input.button,
+div.body-content a.button,
+div.body-content button,
+div.input-file-wrapper,
+input[type=submit],
+input.button:focus {
+  background-color: #596F6299;
+}
+
+div.body-content .block .view-id-collective_projects table td.name .flag-mute a {
+  height: 20px;
+  width: 20px;
+  background-color: #596F6299;
+  border-radius: 10px;
+  background-size: 15px;
+  background-position: center center;
+}
+div.body-content .block .view-id-collective_projects table td.name .flag-mute.action-unflag a {
+  background-color: #96111655;
+}
+
+.collective-actions {
+  background-color: #596F62dd;
+  overflow: hidden !important;
+}
+
+.view-alerts .view-empty img{
+  background: #AF282E55;
+  border-radius: 5px;
+}
+
+/* End colour experiment */
 
 
 .view-community-projects .views-row{
@@ -9,6 +315,20 @@
   width: auto;
 }
 
+body div.body-content {
+  color: #ddd;
+}
+
+body div.sidebar {
+  color: #ccc;
+}
+
+div.logo-container{
+  width: 195px;
+}
+#wrapper div.logo-container img{
+  width: 100%;
+}
 
 /*button,
 .button,
@@ -25,7 +345,7 @@ div.body-content input[value=Delete]{
   background: #ff6F62;
 }
 
-a {
+/* a {
   color: #ffefb6;
   text-decoration: underline;
 }
@@ -36,11 +356,10 @@ a:hover {
   color: #fff;
   text-decoration: none;
   cursor: pointer;
-}
+} */
 
 
 /* column layout */
-
 
 
 #block-ticketblock .button{
@@ -61,13 +380,29 @@ body.layout-both-bars .main-block{
   }
 }
 
-div.sidebar-outer.sidebar-outer.biobar .sidebar{
-  background: #000;
-  padding: 5px;
+div.sidebar-outer.biobar .sidebar{
+  padding: 0;
+  width: 100%;
+  border: none;
 }
 
-div.sidebar-outer .sidebar{
-  background: #350b04;
+div.sidebar-outer.biobar .sidebar > .block{
+  padding: 5px 10px;
+  margin-bottom: 0;
+}
+
+div.sidebar-outer.biobar .sidebar > .block .content{
+  margin-bottom: 20px;
+}
+
+div.sidebar-outer.collectivebar .sidebar{
+  background: #FBD9A5;
+  padding: 5px 0;
+}
+
+div.sidebar-outer.collectivebar .sidebar > .block{
+  margin: 10px 10px 10px 15px;
+  padding: 0;
 }
 
 .block-system-main-block{
@@ -76,6 +411,10 @@ div.sidebar-outer .sidebar{
 
 nav.tabs ul li a{
   background: none;
+}
+
+.collective-actions details section {
+  color: #eee;
 }
 
 /* Warning messages */

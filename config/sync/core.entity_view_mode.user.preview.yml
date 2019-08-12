@@ -1,0 +1,10 @@
+uuid: a0cd4101-adf6-436f-825f-732ccdf0ff15
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: user.preview
+label: Preview
+targetEntityType: user
+cache: true

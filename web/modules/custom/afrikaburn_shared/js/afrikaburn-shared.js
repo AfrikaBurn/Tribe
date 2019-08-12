@@ -7,10 +7,10 @@
 
 (function ($, toValidate) {
 
-  const BLOCK_COLLAPSED = {
-    'user-logged-in': ['wrangle', 'publish'],
-    'page-node-type-collective': ['bioblock', 'ticketblock', 'my_collectives', 'my_invites', 'membersblock', 'views_block__collective_projects_past_block']
-  }
+  // const BLOCK_COLLAPSED = {
+  //   'user-logged-in': ['wrangle', 'publish'],
+  //   'page-node-type-collective': ['bioblock', 'ticketblock', 'my_collectives', 'my_invites', 'membersblock', 'views_block__collective_projects_past_block']
+  // }
 
 
   Drupal.behaviors.afrikaBurnShared = {
@@ -22,7 +22,7 @@
           var element = $(this)
           element.valid && !element.hasClass('editor-processed') ? element.valid() : false
           if (element.hasClass('valid')) element.siblings('.form-item--error-message').remove()
-          if ($('.form-item--error-message').length==0) $('.messages--error').remove()
+          if ($('.form-item--error-message').length==0) $('form .messages--error').remove()
         }
       )
 
@@ -85,24 +85,24 @@
       showFirstError($('.horizontal-tabs', context).parents('form'))
 
 
-      var collapsiblock = Drupal.Collapsiblock.getCookieData()
+      // var collapsiblock = Drupal.Collapsiblock.getCookieData()
 
-      // Collapse blocks
-      if (context == document){
-        $.each(BLOCK_COLLAPSED,
-          (bodyClass, blockIDs) => {
-            $.each(blockIDs,
-              (index, blockID) => {
-                collapsiblock[blockID] = !$('body').hasClass(bodyClass)
-                var cookieString = JSON.stringify(collapsiblock);
-                $.cookie('collapsiblock', cookieString, {
-                  path: settings.basePath
-                });
-              }
-            )
-          }
-        )
-      }
+      // // Collapse blocks
+      // if (context == document){
+      //   $.each(BLOCK_COLLAPSED,
+      //     (bodyClass, blockIDs) => {
+      //       $.each(blockIDs,
+      //         (index, blockID) => {
+      //           collapsiblock[blockID] = !$('body').hasClass(bodyClass)
+      //           var cookieString = JSON.stringify(collapsiblock);
+      //           $.cookie('collapsiblock', cookieString, {
+      //             path: settings.basePath
+      //           });
+      //         }
+      //       )
+      //     }
+      //   )
+      // }
     }
   }
 })(jQuery, '.form-email,.form-text,.form-tel,.form-autocomplete,.form-checkbox,.form-select,.form-textarea,.form-file,.form-number,.form-date')

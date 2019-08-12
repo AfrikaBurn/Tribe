@@ -1,0 +1,13 @@
+uuid: dbdf88e8-f24b-4c1f-9aeb-6888b91cda7a
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.ban.unflag
+label: 'Unflag this item'
+type: node
+plugin: 'flag_action:ban.unflag'
+configuration:
+  flag_id: ban
+  flag_action: unflag

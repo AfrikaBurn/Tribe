@@ -30,10 +30,13 @@ bundles:
       enabled: false
       rta: 'no'
       rtf: 'no'
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       bundle: user
       name: field_location
+      entity_type_id: user
+      relationship: 0
+      sars_filename: ''
     field_emr_email:
       enabled: false
       rta: 'no'
@@ -86,10 +89,13 @@ bundles:
       enabled: false
       rta: 'no'
       rtf: 'no'
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       bundle: user
       name: field_date_of_birth
+      entity_type_id: user
+      relationship: 0
+      sars_filename: ''
     field_secondary_mail:
       enabled: false
       rta: 'no'
@@ -150,10 +156,13 @@ bundles:
       enabled: false
       rta: 'no'
       rtf: 'no'
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       bundle: user
       name: field_mobile
+      entity_type_id: user
+      relationship: 0
+      sars_filename: ''
     field_district:
       enabled: false
       rta: 'no'
@@ -165,6 +174,28 @@ bundles:
     field_year_cycle:
       bundle: user
       name: field_year_cycle
+      entity_type_id: user
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_email:
+      bundle: user
+      name: field_email
+      entity_type_id: user
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_volunteering:
+      bundle: user
+      name: field_volunteering
       entity_type_id: user
       rtf: 'no'
       rta: 'no'

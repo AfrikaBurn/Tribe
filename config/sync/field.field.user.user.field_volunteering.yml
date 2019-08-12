@@ -1,0 +1,99 @@
+uuid: 1c2059c5-bb00-451b-af4e-80735722502b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_volunteering
+    - views.view.participation_volunteering
+  module:
+    - custom_add_another
+    - user
+    - viewfield
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: user.user.field_volunteering
+field_name: field_volunteering
+entity_type: user
+bundle: user
+label: Volunteering
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    token_help: ''
+    display_id: embed_1
+    arguments: '[current-user:uid]'
+    target_uuid: 52b9a21d-78fb-4d10-bf36-d8a30bfbf8ff
+default_value_callback: ''
+settings:
+  force_default: 1
+  allowed_views:
+    participation_volunteering: participation_volunteering
+    alerts: 0
+    anouncements: 0
+    api: 0
+    collective_members: 0
+    collective_member_select: 0
+    collective_posts: 0
+    collective_projects: 0
+    collectives_find: 0
+    comment: 0
+    community_projects: 0
+    community_projects_stats: 0
+    content: 0
+    block_content: 0
+    files: 0
+    gdpr_tasks_my_data_requests: 0
+    incident_type: 0
+    incident_user: 0
+    log_messages: 0
+    my_collectives: 0
+    user_admin_people: 0
+    privacy: 0
+    project_registration_select: 0
+    project_registration_view: 0
+    redirect: 0
+    stats_incidents: 0
+    stats_people: 0
+    stats_registration: 0
+    stats_collectives_and_projects: 0
+    user_fields: 0
+    watchdog: 0
+    webform_submissions: 0
+    wrangle_community_tna: 0
+    wrangle_art: 0
+    wrangle_binnekring_events: 0
+    collectives_wrangler_views: 0
+    wrangle_comments: 0
+    wrangle_dpw: 0
+    wrangle_incident_comments: 0
+    wrangle_incidents: 0
+    wrangle_incident_state: 0
+    wrangle_mutant_drivers: 0
+    wrangle_mutant_vehicles: 0
+    wrangle_people: 0
+    wrangle_project_contacts: 0
+    wrangle_sanctuary: 0
+    wrangle_sound: 0
+    wrangle_subsidised: 0
+    wrangle_subsidised_history: 0
+    wrangle_theme_camps: 0
+    wrangle_waps: 0
+    wrangle_wtf: 0
+    wranglers: 0
+  allowed_display_types:
+    embed: embed
+    attachment: 0
+    block: 0
+    data_export: 0
+    entity_reference: 0
+    excel_export: 0
+    default: 0
+    page: 0
+    rest_export: 0
+  handler: 'default:view'
+  handler_settings: {  }
+field_type: viewfield

@@ -1,0 +1,30 @@
+uuid: d7095fda-d7e8-4002-99c4-8e8f46377b0f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: member
+label: Member
+bundles:
+  - collective
+entity_type: node
+global: false
+weight: -3
+flag_short: Join
+flag_long: ''
+flag_message: ''
+unflag_short: Leave
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: false
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+linkTypeConfig: {  }

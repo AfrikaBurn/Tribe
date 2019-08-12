@@ -1,6 +1,9 @@
 @charset "utf-8";
 
 
+/* ---- My collectives ----  */
+
+
 .view-my-collectives{
   margin-bottom: 0;
 }
@@ -72,44 +75,49 @@
 
 .view-my-collectives .view-content .views-field-title{
   padding-top: 2.5px;
-  width: 110px;
+  width: 100px;
 }
 .view-my-collectives .view-content .views-row:hover{
   background-color: #370c13;
   border-radius: 15px 0 0 15px;
 }
 
-#block-views-block-my-collectives-invitations .button{
+body .view.view-my-collectives .button{
   font-size: 80%;
-  width: 50%;
   padding: 5px 10px;
   line-height: 10px;
   margin: 5px 0 0;
   height: 20px;
   border-color: #000;
+  min-width: 50%;
 }
-#block-views-block-my-collectives-invitations .button:first-child{
-  border-radius: 15px 0 0 15px;
+body .view.view-my-collectives .button:first-child{
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
-#block-views-block-my-collectives-invitations .button:last-child{
-  border-radius: 0 15px 15px 0;
+body .view.view-my-collectives .button:last-child{
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
 }
 
-#block-views-block-my-collectives-invitations .views-field-nothing{
-  justify-content: center;
+body .view.view-my-collectives .my-collective-actions{
+  display: flex;
+  justify-content: flex-end;
   width: 100%;
+  margin: 0 auto;
+}
+body .view.view-my-collectives.view-display-id-invitations .my-collective-actions{
+  width: 80%;
+  justify-content: flex-end;
 }
 
-#block-views-block-my-collectives-joined a.button{
-  font-size: 80%;
-  width: 100%;
-  padding: 5px 0;
-  line-height: 20px;
-  margin: 20px 0 0;
-  height: 30px;
+.view-my-collectives .view-header{
+  margin-bottom: 20px;
 }
 
-/* Comments */
+
+/* ---- Comments ---- */
+
 
 .view-collective-posts.view-display-id-posts{
   margin: 2em 0 1em;
@@ -274,100 +282,256 @@ article.collective-post header a{
   visibility: visible;
 }
 
+
+/* ---- Settings form ---- */
+
+
+.flagging-form input[disabled],
+#edit-field-settings input[disabled]{
+  opacity: 0.5;
+}
+
+#edit-field-settings .form-item-field-settings-privare-members{
+  display: none;
+}
+
+#edit-field-settings .form-item:first-child:before{
+  margin-top: 0;
+}
+
+#edit-field-settings .form-item:before{
+  display: block;
+  margin: 20px 0 10px;
+  font-size: 110%;
+  font-weight: bold;
+}
+
+#edit-field-settings .form-item-field-settings-public:before{
+  content: 'Privacy';
+}
+#edit-field-settings .form-item-field-settings-restricted-posts:before{
+  content: 'Discussion';
+}
+#edit-field-settings .form-item-field-settings-open:before{
+  content: 'Membership';
+}
+#edit-field-settings .form-item-field-settings-projects:before{
+  content: 'Projects';
+}
+#edit-field-settings .form-item-field-settings-emails:before{
+  content: 'Notification';
+}
+
+
+/* ---- Actions ---- */
+
+
 .collective-actions{
+  background-color: #000b;
+  border-radius: 5px 5px 0 0;
   display: flex;
   justify-content: flex-end;
+  margin-bottom: 20px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  overflow: hidden;
+  height: 40px;
+}
+
+div.invitation{
+  background: #ffefb622;
+  padding: 10px 0 50px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 0 0 -35px;
+}
+
+.view-collectives-find div.invitation{
+  border-radius: 0;
+}
+
+.view-collectives-find .collective-actions{
+  position: absolute;
+  bottom: -60px;
+  border-radius: 0 0 5px 5px;
 }
 
 .collective-actions > a,
 .collective-actions .flag a,
-.collective-actions details{
+.collective-actions summary{
   background-position: 10px center;
   background-repeat: no-repeat;
-  background-color: #00000055;
+  padding: 10px 0 50px;
+  text-align: center;
+  margin: 0 0 -35px;
   background-size: 18px;
-  border-radius: 10px;
   color: #ffefb6 !important;
   display: inline-block;
-  line-height: 24px;
-  margin: 0 0 20px 10px;
-  padding: 7px 10px 5px 34px;
+  line-height: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 5px 10px 5px 32px;
   text-decoration: none;
   text-align: left;
   width: auto;
-  height: 24px;
+  height: 30px;
   outline: none;
-}
-
-.collective-actions details summary::-webkit-details-marker {
-  display:none;
-}
-
-.collective-actions details.leave-collective{
   cursor: pointer;
-  text-align: center;
-  position: relative;
+  text-transform: uppercase;
 }
 
-.collective-actions details{
-  background-image: url(../images/exit.svg);
+.collective-actions .edit{
+  flex-grow: 1;
 }
 
-.collective-actions details a{
-  background: #961116;
-  padding: 10px 20px;
-  border: 1px solid #fff;
-  border-radius: 5px;
-  position: absolute;
-  width: 100px;
-  z-index: 10;
-  top: 100%;
-  right: 0;
-  text-decoration: none;
-  font-weight: bold;
+.collective-actions a:hover,
+.collective-actions .flag a:hover,
+.collective-actions summary:hover,
+.collective-actions details[open] summary{
+  background-color: #0009;
+  color: #fff !important;
 }
 
-.collective-actions a.edit{
-  background-image: url(../images/edit.svg);
+.view-collectives-find .collective-actions .flag-mute a,
+.view-collectives-find .collective-actions .flag-disclose a,
+.view-collectives-find .collective-actions .leave,
+.view-collectives-find .collective-actions .edit{
+  width: 0px;
+  overflow: hidden;
+  padding: 5px 0 5px 34px;
 }
 
-.collective-actions a.join{
-  background-image: url(../images/join.svg);
-}
+.collective-actions .edit{ background-image: url(../images/edit.svg);}
+.collective-actions .withdraw,
+.collective-actions .request,
+.collective-actions .join{ background-image: url(../images/join.svg);}
+.collective-actions .accept{ background-image: url(../images/accept.svg);}
+.collective-actions .ignore{ background-image: url(../images/reject.svg);}
+.collective-actions .leave{ background-image: url(../images/exit.svg);}
+.collective-actions .flag-disclose.action-unflag a:hover,
+.collective-actions .flag-disclose a{ background-image: url(../images/info.svg);}
+.collective-actions .flag-disclose a:hover,
+.collective-actions .flag-disclose.action-unflag a{ background-image: url(../images/alert.svg);}
+
 .collective-actions a.join.requested{
   text-decoration: none;
   opacity: 0.8;
   cursor: not-allowed;
 }
 
+.collective-actions details summary::-webkit-details-marker {
+  display: none;
+}
+
+.collective-actions details section{
+  position: absolute;
+  z-index: 100;
+  background-color: #000000dd;
+  left: 0; top: 100%;
+  padding: 10px 40px;
+  right: 0;
+  border-radius: 0 0 5px 5px;
+}
+
+.view-collectives-find .collective-actions details section{
+  bottom: 0;
+  top: auto;
+}
+
+.collective-actions details .links{
+  display: flex;
+  justify-content: center;
+}
+
+
+.collective-actions details .links .button{
+  font-size: 1em;
+  padding: 0.25em 1em;
+  line-height: 1.5em;
+  letter-spacing: unset;
+  height: auto;
+  border-color: #000;
+}
+.collective-actions details .links .button:first-child{
+  border-radius: 2em 0 0 2em;
+  padding-left: 10px;
+}
+.collective-actions details .links .button:last-child{
+  border-radius: 0 2em 2em 0;
+  padding-right: 10px;
+  background-color: #88BA1D;
+}
+.collective-actions details .links .button:active{
+  opacity: .5;
+}
+
+
+/* ---- Right column ---- */
+
+
 .sidebar-outer.collectivebar .sidebar{
   margin-top: 48px;
 }
 
+.sidebar-outer.collectivebar .sidebar .horizontal-tabs-list a{
+  padding: 2px 2px 0 2px;
+  font-size: 85%;
+}
+
+.sidebar-outer.collectivebar .sidebar .horizontal-tabs-list li{
+  border-bottom-color: #350b04;
+}
+
+.sidebar-outer.collectivebar .sidebar .email-invitations{
+  padding: 0 0 0 20px;
+}
+
+.sidebar-outer.collectivebar .sidebar .email-invitations summary{
+  cursor: pointer;
+}
+
+
+/* ---- Collective view ---- */
+
+
 .node--type-collective .field--name-field-picture{
   width: 100%;
-  border-radius: 10px;
+  border-radius: 6px;
   overflow: hidden;
+  min-height: 40px;
+  margin-bottom: 20px;
+}
+.node--type-collective .field--name-field-picture img{
+  display: block;
 }
 
 .node--type-collective .field--name-field-settings{
   margin: 40px 0;
 }
 
-#block-membersblock .colorbox{
-  float: left;
-  margin: 5px 10px 0 0;
-}
 
+/* ---- Collectives views ---- */
+
+
+#block-views-block-my-collectives-invitations .form-actions,
+#block-views-block-my-collectives-joined .form-actions,
 #block-membersblock .form-actions{
   display: none;
 }
+#block-views-block-my-collectives-invitations .form-item,
+#block-views-block-my-collectives-invitations input,
+#block-views-block-my-collectives-joined .form-item,
+#block-views-block-my-collectives-joined input,
 #block-membersblock .form-item,
 #block-membersblock input{
+  max-width: 100%;
   width: 100%;
 }
+#block-views-block-my-collectives-invitations input.busy,
+#block-views-block-my-collectives-joined input.busy,
 #block-membersblock input.busy{
-  background: #fff url(/core/modules/quickedit/images/icon-throbber.gif) no-repeat 98% center;
+    background: #fff url(/core/modules/quickedit/images/icon-throbber.gif) no-repeat 98% center;
 }
 
 .view-collectives-find #edit-options--wrapper .form-type-checkbox{
@@ -389,17 +553,15 @@ article.collective-post header a{
   margin-top: 10px;
 }
 
+.view-collectives-find .view-content .views-row img{
+  display: block;
+  border-radius: 5px 5px 0 0;
+}
 
 .view-collectives-find .view-content .views-row .layout,
 .view-collectives-find .view-content .views-row .layout__region--content{
   height: 100%;
   position: relative;
-}
-
-.view-collectives-find .view-content .views-row .collective-actions{
-  position: absolute;
-  bottom: -55px;
-  right: 0;
 }
 
 .ajax-progress-fullscreen{
@@ -436,4 +598,180 @@ article.collective-post header a{
 #edit-field-col-members input{
   height: 30px;
   line-height: 100%;
+}
+
+
+/* --- Member listing --- */
+
+
+.view-collective-members .views-row{
+  margin-bottom: 1px;
+  padding: 5px;
+  min-height: 40px;
+  position: relative;
+}
+
+.view-collective-members {
+  margin-bottom: 40px;
+}
+
+.view-collective-members .views-row article{
+  position: absolute;
+  min-height: 40px;
+  z-index: 10;
+  top: 10px;
+  right: 50px;
+  left: 10px;
+}
+
+.view-collective-members .views-row .name{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.view-collective-members .views-row:first-child{
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.view-collective-members .views-row:last-child{
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.view-collective-members details{
+  position: relative;
+  border-radius: 5px;
+  padding-top: 40px;
+}
+
+.view-collective-members details[open]{
+  background: #761928;
+  padding-top: 60px;
+  padding-bottom: 15px;
+}
+
+.view-collective-members ul.admin-fields{
+  margin: 0 10px 20px 20px;
+}
+.view-collective-members ul.admin-fields label{
+  display: inline-block;
+  width: 50%;
+}
+
+.view-collective-members details a.admin{
+  display: block;
+  padding: 5px 15px 5px 65px;
+  background-size: 18px;
+  background-repeat: no-repeat;
+  background-position: 40px center;
+}
+.view-collective-members details a:hover{
+  background-color: #ffefb622
+}
+.view-collective-members details a.admin-admin{
+  background-image: url(../images/admin.svg);
+}
+.view-collective-members details a.admin-strip{
+  background-image: url(../images/unadmin.svg);
+}
+.view-collective-members details a.admin-boot{
+  background-image: url(../images/exit.svg);
+}
+.view-collective-members details a.admin-ban{
+  background-image: url(../images/lock.svg);
+}
+.view-collective-members details a.admin-unban{
+  background-image: url(../images/unlock.svg);
+}
+.view-collective-members details a.admin-grant{
+  background-image: url(../images/accept.svg);
+}
+.view-collective-members details a.admin-deny{
+  background-image: url(../images/reject.svg);
+}
+.view-collective-members details a.admin-show-name{
+  background-image: url(../images/info.svg);
+}
+.view-collective-members details a.admin-hide-name{
+  background-image: url(../images/alert.svg);
+}
+
+.view-collective-members summary{
+  display: block;
+  position: absolute;
+  color: transparent;
+  width: 40px;
+  height: 40px;
+  background: url(../images/expand-more.svg) no-repeat center;
+  right: 0;
+  top: 5px;
+  cursor: pointer;
+  outline: transparent;
+  z-index: 100;
+}
+
+.view-collective-members details[open] summary{
+  background: url(../images/expand-less.svg) no-repeat center;
+}
+
+.view-collective-members summary::-webkit-details-marker {
+  display: none;
+}
+
+form.flagging-form .field--type-list-string{
+  float: left;
+  width: 50%;
+}
+
+.view-privacy details .form-type-checkbox{
+  float: none;
+}
+
+.view-privacy details{
+  clear: both;
+  margin-bottom: 50px;
+}
+
+.view-privacy summary{
+  cursor: pointer;
+}
+
+.view-privacy details{
+  display: flex;
+}
+
+.view-privacy .form-actions{
+  float: right;
+  margin: 0;
+  padding: 0;
+}
+
+div.body-content .view-privacy img{
+  border-radius: 5px;
+  display: block;
+  width: 100%;
+}
+
+.view-privacy .collective-actions{
+  bottom: 0;
+  margin-bottom: 0;
+  border-radius: 0 0 5px 5px;
+}
+
+#main-content-strip div.body-content{
+  min-height: 750px;
+}
+
+.view-privacy .views-field-rendered-entity{
+  width: 50%;
+}
+.view-privacy .views-field-field-admins,
+.view-privacy .views-field-field-members{
+  width: 25%;
+}
+
+.view-privacy .field--name-field-picture{
+  min-height: 40px;
 }

@@ -6,7 +6,7 @@ ui:
     additional_queries: false
     advanced_column: true
     master_display: true
-    performance_statistics: true
+    performance_statistics: false
     preview_information: true
     sql_query:
       enabled: true

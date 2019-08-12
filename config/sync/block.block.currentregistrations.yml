@@ -6,7 +6,6 @@ dependencies:
     - afrikaburn_registration
     - collapsiblock
     - node
-    - php
   theme:
     - afrikaburn
 third_party_settings:
@@ -20,15 +19,10 @@ provider: null
 plugin: registration_block
 settings:
   id: registration_block
-  label: 'Current projects'
+  label: Projects
   provider: afrikaburn_registration
   label_display: visible
 visibility:
-  php:
-    id: php
-    php: "<?php \r\nmodule_load_include('inc', 'afrikaburn_collective', 'includes/util');\r\nreturn \r\n  afrikaburn_collective_current_projects() &&\r\n  (afrikaburn_collective_member() || !afrikaburn_collective_setting('private_projects'));\r\n?>"
-    negate: false
-    context_mapping: {  }
   node_type:
     id: node_type
     bundles:

@@ -6,6 +6,12 @@
 
 
 use \Drupal\Component\Utility\UrlHelper;
+use \Drupal\afrikaburn_collective\Controller\CollectiveController;
+use \Drupal\user\Entity\User;
+use \Drupal\afrikaburn_shared\Utils;
+
+
+/* --- Posts --- */
 
 
 /**
@@ -13,9 +19,16 @@ use \Drupal\Component\Utility\UrlHelper;
  */
 function _build_post_view(&$build, $display, $uid, $nid, $is_admin, $is_member){
 
+  $collective = $build['#node'];
+  $user = Utils::currentUser();
+  $banned = CollectiveController::isBanned($collective, $user);
+
   if (
-    $display->getComponent('posts') &&
-    ($is_member || !afrikaburn_collective_setting('private_discussion', $nid))
+    $display->getComponent('posts') && !$banned &&
+    (
+      $is_member ||
+      !CollectiveController::setting($build['#node'], 'private_discussion')
+    )
   ){
     $build['posts'] = views_embed_view('collective_posts', 'posts', $nid);
   }
@@ -26,54 +39,248 @@ function _build_post_view(&$build, $display, $uid, $nid, $is_admin, $is_member){
  */
 function _build_post_form(&$build, $display, $uid, $nid, $is_admin, $is_member){
 
-  if (
-    $display->getComponent('post_something') &&
-    ($is_member || !afrikaburn_collective_setting('privileged_discussion', $nid))
-  ){
+  if ($display->getComponent('post_something')) {
 
-    $form = \Drupal::service('entity.form_builder')->getForm(
-      \Drupal::entityTypeManager()->getStorage('comment')->create(
-        [
-          'entity_type'  => 'node',
-          'entity_id'    => $nid,
-          'field_name'   => 'field_col_posts',
-          'comment_type' => 'post',
-          'pid' => NULL,
-        ]
+    $collective = $build['#node'];
+    $user = Utils::currentUser();
+    $banned = CollectiveController::isBanned($collective, $user);
+
+    if (
+      !$banned && (
+        $is_admin &&
+        CollectiveController::setting($collective, 'restricted_posts')
+        ||
+        $is_member &&
+        CollectiveController::setting($collective, 'privileged_discussion') &&
+        !CollectiveController::setting($collective, 'restricted_posts')
+        ||
+        !CollectiveController::setting($collective, 'restricted_posts') &&
+        !CollectiveController::setting($collective, 'private_discussion') &&
+        !CollectiveController::setting($collective, 'privileged_discussion')
       )
-    );
+    ){
 
-    unset($form['comment_body']['widget'][0]['value']['#title']);
-    $form['actions']['submit']['#value'] = t('Post it!');
-
-    $form['#action'] .= '?destination=' .
-      UrlHelper::encodePath(
-        drupal_get_destination()['destination']
+      $form = \Drupal::service('entity.form_builder')->getForm(
+        \Drupal::entityTypeManager()->getStorage('comment')->create(
+          [
+            'entity_type'  => 'node',
+            'entity_id'    => $nid,
+            'field_name'   => 'field_col_posts',
+            'comment_type' => 'post',
+            'pid' => NULL,
+          ]
+        )
       );
 
-    $build['post_something'] = [
-      '#type' => 'markup',
-      '#markup' => render($form),
-      '#prefix' => '<details class="comment-form"><summary class="button">Post something</summary>',
-      '#suffix' => '</details>',
-    ];
+      unset($form['comment_body']['widget'][0]['value']['#title']);
+      $form['actions']['submit']['#value'] = t('Post it!');
+
+      $form['#action'] .= '?destination=' .
+        UrlHelper::encodePath(
+          drupal_get_destination()['destination']
+        );
+
+      $build['post_something'] = [
+        '#type' => 'markup',
+        '#markup' => render($form),
+        '#prefix' => '<details class="comment-form"><summary class="button">Post something</summary>',
+        '#suffix' => '</details>',
+      ];
+    }
   }
 }
+
+
+/* --- Comments  --- */
+
+
+function _reply_form(&$variables){
+
+  $row = $variables['row'];
+  $cid = $row->_entity->get('cid')->value;
+  $nid = $variables['view']->args[0];
+
+  $form =  \Drupal::service('entity.form_builder')->getForm(
+    \Drupal::entityTypeManager()->getStorage('comment')->create(
+      [
+        'entity_type'  => 'node',
+        'entity_id'    => $nid,
+        'field_name'   => 'field_col_posts',
+        'comment_type' => 'comment',
+        'pid' => $cid,
+      ]
+    )
+  );
+  unset($form['comment_body']['widget'][0]['value']['#title']);
+  $form['pid']['#value'] = $cid;
+
+  $variables['fields']['replyto_comment']['content'] = render($form);
+}
+
+
+/* --- Collective links --- */
+
 
 /**
  * Builds a join link
  */
 function _build_join(&$build, $display, $uid, $nid, $is_admin, $is_member){
 
-  if ($display->getComponent('join') && !$is_member && afrikaburn_collective_setting('open', $nid)){
+  $user = Utils::currentUser();
+  $collective = $build['#node'];
+  $open = CollectiveController::setting($collective, 'open');
+  $vetted = CollectiveController::setting($collective, 'vetted');
+  $banned = CollectiveController::isBanned($collective, $user);
+
+  if (
+    $display->getComponent('join') &&
+    !$is_member && !$banned &&
+    $open && !$vetted
+  ){
+
+    $user = Utils::currentUser();
+    $public = CollectiveController::setting($collective, 'public');
+    $public_members = CollectiveController::setting($collective, 'public_members');
+    $private_members = CollectiveController::setting($collective, 'private_members');
+    $exposure = _exposure($public, $vetted, $public_members, $private_members, $open);
+
+    $link = $exposure
+      ? _build_link('Join anyway', 'join', $nid, $uid, $exposure, FALSE)
+      : _build_link('Join', 'join', $nid, $uid, $popup, FALSE);
+
+    $element = [
+      'prefix' => $exposure ? '<details><summary class="join">Join</summary><section>' : '',
+      'exposing' => $exposure,
+      'confirm' => $exposure ? '<p class="links">' .
+        $link .
+        '<a class="button cancel" href="' . \Drupal::request()->getRequestUri() . '">Nope</a>
+      </p>' : $link,
+      'suffix' => $exposure ? '</section></details>' : '',
+    ];
 
     $build['join'] = [
-      '#markup' => afrikaburn_collective_setting('vetted', $nid)
-        ? (afrikaburn_collective_requested()
-            ? '<a class="join requested">Membership requested</a>'
-            : '<a class="join" href="/collective/' . $nid . '/join">Request to Join</a>'
-          )
-        : '<a class="join" href="/collective/' . $nid . '/join">Join</a>'
+      '#markup' => implode($element)
+    ];
+  }
+}
+
+/**
+ * Builds a join request link
+ */
+function _build_request(&$build, $display, $uid, $nid, $is_admin, $is_member){
+
+  $user = Utils::currentUser();
+  $collective = $build['#node'];
+  $banned = CollectiveController::isBanned($collective, $user);
+  $open = CollectiveController::setting($collective, 'open');
+  $vetted = CollectiveController::setting($collective, 'vetted');
+  $invited = CollectiveController::isInvited($collective, $user);
+
+  if (
+    $display->getComponent('request') &&
+    !$banned && !$is_member && !$invited &&
+    $open && $vetted
+  ){
+
+    $public = CollectiveController::setting($collective, 'public');
+    $public_members = CollectiveController::setting($collective, 'public_members');
+    $private_members = CollectiveController::setting($collective, 'private_members');
+    $exposure = _exposure($public, $vetted, $public_members, $private_members, $open);
+    $requested = NULL !== CollectiveController::isRequested($collective, $user);
+
+    $link = $requested
+      ? _build_link('Withdraw request', 'withdraw', $nid, $uid, $exposure)
+      : ($exposure
+        ? _build_link('Request anyway', 'request', $nid, $uid, $exposure, FALSE)
+        : _build_link('Request to join', 'request', $nid, $uid, $exposure, FALSE)
+      );
+
+    $element = [
+      'prefix' => $exposure
+        ? $requested
+          ? '<details><summary class="withdraw">Requested</summary><section>'
+          : '<details><summary class="request">Request to join</summary><section>'
+        : '',
+      'exposing' => $exposure,
+      'confirm' => $exposure
+        ? '<p class="links">' . $link .
+            '<a class="button cancel" href="' . \Drupal::request()->getRequestUri() . '">' .
+              ($requested ? 'Ok then' : 'Nope') .
+            '</a>' .
+          '</p>'
+        : $link,
+      'suffix' => $exposure ? '</section></details>' : '',
+    ];
+
+    $build['request'] = [
+      '#markup' => implode($element)
+    ];
+  }
+}
+
+/**
+ * Builds a accept link
+ */
+function _build_accept(&$build, $display, $uid, $nid, $is_admin, $is_member){
+
+  $user = Utils::currentUser();
+  $collective = $build['#node'];
+  $banned = CollectiveController::isBanned($collective, $user);
+  $open = CollectiveController::setting($collective, 'open');
+  $vetted = CollectiveController::setting($collective, 'vetted');
+  $invited = CollectiveController::isInvited($collective, $user);
+
+  if (
+    $display->getComponent('accept') &&
+    !$banned && !$is_member && $invited
+  ){
+
+    $user = Utils::currentUser();
+    $public = CollectiveController::setting($collective, 'public');
+    $public_members = CollectiveController::setting($collective, 'public_members');
+    $private_members = CollectiveController::setting($collective, 'private_members');
+    $exposure = _exposure($public, $vetted, $public_members, $private_members, $open, $invited);
+    $destination = '?destination=' . \Drupal::destination()->get();
+
+    $link = $exposure
+      ? '<a class="button" href="/collective/' . $nid . '/accept/' . $uid . $destination . '">Accept anyway</a>'
+      : '<a href="/collective/' . $nid . '/accept/' . $uid . $destination . '" class="accept">Accept</a>';
+
+    $element = [
+      'prefix' => $exposure ? '<details><summary class="accept" title="Accept the invitation to join this collective">Accept</summary><section>' : '',
+      'exposing' => $exposure,
+      'confirm' => $exposure ? '<p class="links">' .
+        $link .
+        '<a class="button cancel" href="' . \Drupal::request()->getRequestUri() . '">Close</a>
+      </p>' : $link,
+      'suffix' => $exposure ? '</section></details>' : '',
+    ];
+
+    $build['accept'] = [
+      '#markup' => implode($element)
+    ];
+  }
+}
+
+/**
+ * Builds an ignore link
+ */
+function _build_ignore(&$build, $display, $uid, $nid, $is_admin, $is_member){
+
+  $user = Utils::currentUser();
+  $collective = $build['#node'];
+  $invited = CollectiveController::isInvited($collective, $user);
+
+  if (
+    $display->getComponent('ignore') &&
+    !$is_member && $invited
+  ){
+
+    $destination = '?destination=' . \Drupal::destination()->get();
+    $link = '<a href="/collective/' . $nid . '/ignore/' . $uid . $destination . '" class="ignore" title="Ignore the invitation to join this collective">Ignore</a>';
+
+    $build['ignore'] = [
+      '#markup' => $link
     ];
   }
 }
@@ -85,12 +292,18 @@ function _build_leave(&$build, $display, $uid, $nid, $is_admin, $is_member){
 
   if ($display->getComponent('leave') && $is_member){
 
+    $destination = '?destination=' . \Drupal::destination()->get();
+
     $build['leave'] = [
-      '#markup' => '<details class="leave-collective">
-        <summary>Leave</summary>
-        <a href="/collective/' . $nid . '/leave">
-          YES, let me out!
-        </a>
+      '#markup' => '<details>
+        <summary class="leave" title="Leave this collective">Leave</summary>
+        <section>
+          <p>Are you sure?</p>
+          <p class="links">
+            <a class="button" href="/collective/' . $nid . '/leave/' . $uid . $destination . '">Let me out!</a>
+            <a class="button cancel" href="' . \Drupal::request()->getRequestUri() . '">Never mind</a>
+          </p>
+        </section>
       </details>',
     ];
   }
@@ -108,4 +321,293 @@ function _build_edit(&$build, $display, $uid, $nid, $is_admin, $is_member){
         '/edit">Edit</a>',
     ];
   }
+}
+
+
+/* --- Indicators --- */
+
+
+/**
+ * Builds an initation indicator
+ */
+function _build_invited(&$build, $display, $uid, $nid, $is_admin, $is_member){
+
+  $user = Utils::currentUser();
+  $collective = $build['#node'];
+  $invited = CollectiveController::isInvited($collective, $user);
+
+  if (
+    $display->getComponent('invited') &&
+    !$is_member && $invited
+  ){
+
+    $build['invited'] = [
+      '#markup' => '<div class="invitation">' . t('You\'ve been invited to join this collective!') . '</div>'
+    ];
+  }
+}
+
+
+/* --- User admin links --- */
+
+
+/**
+ * Builds user admin links
+ */
+function _user_admin_links(&$variables, $collective, $user, $member){
+
+  if ($collective){
+
+    foreach(
+      [
+        'admin', 'strip',
+        'approve', 'reject',
+        'ban', 'unban',
+        'boot',
+      ] as $action
+    ) {
+
+      $function = '_build_' . $action;
+      $variables['member_admin_links'][$action]['content'] = $function(
+        $user,
+        $member,
+        $collective
+      );
+    }
+
+    $variables['has_admin_links'] = count(array_filter(array_column($variables['member_admin_links'], 'content'))) > 0;
+  }
+}
+
+/**
+ * Builds an admin link
+ */
+function _build_admin($user, $member, $collective){
+  if (
+    CollectiveController::isAdmin($collective, $user) &&
+    !CollectiveController::isAdmin($collective, $member, TRUE) &&
+    CollectiveController::isMember($collective, $member, TRUE)
+  ){
+    return [
+      '#markup' =>
+        '<a class="admin admin-admin" href="/collective/' .
+        $collective->id() .
+        '/admin/' .
+        $member->id() .
+        '">Promote to Admin</a>',
+    ];
+  }
+}
+
+/**
+ * Builds a strip link
+ */
+function _build_strip($user, $member, $collective){
+  if (
+    CollectiveController::isAdmin($collective, $user) &&
+    CollectiveController::isAdmin($collective, $member, TRUE) &&
+    CollectiveController::isMember($collective, $member, TRUE)
+  ){
+    return [
+      '#markup' =>
+        '<a class="admin admin-strip" href="/collective/' .
+        $collective->id() .
+        '/strip/' .
+        $member->id() .
+        '">Remove admin privileges</a>',
+    ];
+  }
+}
+
+/**
+ * Builds a grant link
+ */
+function _build_approve($user, $member, $collective){
+  if (
+    CollectiveController::isAdmin($collective, $user) &&
+    CollectiveController::isRequested($collective, $member)
+  ){
+    return [
+      '#markup' =>
+        '<a class="admin admin-grant" href="/collective/' .
+        $collective->id() .
+        '/approve/' .
+        $member->id() .
+        '">Approve request</a>',
+    ];
+  }
+}
+
+/**
+ * Builds a reject link
+ */
+function _build_reject($user, $member, $collective){
+  if (
+    CollectiveController::isAdmin($collective, $user) &&
+    CollectiveController::isRequested($collective, $member)
+  ){
+    return [
+      '#markup' =>
+        '<a class="admin admin-deny" href="/collective/' .
+        $collective->id() .
+        '/reject/' .
+        $member->id() .
+        '">Reject request</a>',
+    ];
+  }
+}
+
+/**
+ * Builds a ban link
+ */
+function _build_ban($user, $member, $collective){
+  if (
+    CollectiveController::isAdmin($collective, $user) &&
+    !CollectiveController::isBanned($collective, $member)
+  ){
+    return [
+      '#markup' =>
+        '<a class="admin admin-ban" href="/collective/' .
+        $collective->id() .
+        '/ban/' .
+        $member->id() .
+        '">Ban from collective</a>',
+    ];
+  }
+}
+
+/**
+ * Builds an unban link
+ */
+function _build_unban($user, $member, $collective){
+  if (
+    CollectiveController::isAdmin($collective, $user) &&
+    CollectiveController::isBanned($collective, $member)
+  ){
+    return [
+      '#markup' =>
+        '<a class="admin admin-unban" href="/collective/' .
+        $collective->id() .
+        '/unban/' .
+        $member->id() .
+        '">Lift ban</a>',
+    ];
+  }
+}
+
+/**
+ * Builds a boot link
+ */
+function _build_boot($user, $member, $collective){
+  if (
+    CollectiveController::isAdmin($collective, $user) &&
+    CollectiveController::isMember($collective, $member, TRUE)
+  ){
+    return [
+      '#markup' =>
+        '<a class="admin admin-boot" href="/collective/' .
+        $collective->id() .
+        '/boot/' .
+        $member->id() .
+        '">Boot from collective</a>',
+    ];
+  }
+}
+
+/**
+ * Builds a show name link
+ */
+function _build_show_name($user, $member, $collective){
+  if (
+    $member->id() == $user->id() &&
+    !CollectiveController::isNameShown($collective, $member)
+  ) {
+    return [
+      '#markup' =>
+        '<a class="admin admin-show-name" href="/collective/' .
+        $collective->id() .
+        '/show-name/' .
+        $member->id() .
+        '">Show my real name here</a>',
+    ];
+  }
+}
+
+/**
+ * Builds a hide name link
+ */
+function _build_hide_name($user, $member, $collective){
+  if (
+    $member->id() == $user->id() &&
+    CollectiveController::isNameShown($collective, $member)
+  ) {
+    return [
+      '#markup' =>
+        '<a class="admin admin-hide-name" href="/collective/' .
+        $collective->id() .
+        '/hide-name/' .
+        $member->id() .
+        '">Hide my real name here</a>',
+    ];
+  }
+}
+
+
+/* --- Link utilities --- */
+
+
+/**
+ * Build a collective action link tag.
+ * @param $label Link display label.
+ * @param $action action part of the URL.
+ * @param $nid Node ID of the collective.
+ * @param $uid user ID of the action user.
+ * @param $popup Whether this link is to be displayed in a popup.
+ * @param $destination whether to create a destination param, defaults to TRUE.
+ */
+function _build_link($label, $action, $nid, $uid, $popup, $destination = TRUE){
+
+  $url =
+    '/collective/' . $nid . '/' . $action . '/' . $uid .
+    ($destination ? '?destination=' . \Drupal::destination()->get() : '');
+  $class = ' class="' . @implode(
+    ' ',
+    array_filter(
+      [
+        $popup ? 'button' : FALSE,
+        !$popup ? $action : FALSE
+      ]
+    )
+  ) . '"';
+
+  return '<a href="' . $url . '"' . $class . '>' . $label . '</a>';
+}
+
+
+/**
+ * Calculates a users' exposure should they join a collective.
+ */
+function _exposure($public, $vetted, $public_members, $private_members, $open, $invited = FALSE){
+
+
+  $prefix = ($public_members || $private_members) ? t('This collective allows ') : '';
+  $exposing = @array_filter(
+    [
+      $public_members
+        ? t('non-members to see who members are') : FALSE,
+      $private_members
+        ? t('members to see who other members are') : FALSE,
+      $private_members && !$open
+        ? t('membership requires approval') : FALSE,
+      $private_members && $open &&!$vetted
+        ? t('anyone with a Bio may join') : FALSE,
+      $private_members && $open &&$vetted
+        ? t('membership requires admin approval') : FALSE,
+    ]
+  );
+
+  return $prefix .
+    (count($exposing)
+      ? '<ul><li>' . implode($exposing, '</li><li>') . '</ul>'
+      : '');
 }

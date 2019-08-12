@@ -1,5 +1,6 @@
 
-.path-user article.profile .field{
+.path-user article.profile .field,
+.preview article.profile .field{
   align-items: top;
   box-sizing: border-box;
   display: flex;
@@ -9,12 +10,14 @@
   position: relative;
 }
 
-.path-user article.profile .field *{
-  flex-basis: 45%;
+.path-user article.profile .field *,
+.preview article.profile .field *{
+    flex-basis: 45%;
 }
 
-.path-user article.profile .field__item .field_label{
-  display: block;
+.path-user article.profile .field__item .field_label,
+.preview article.profile .field__item .field_label{
+    display: block;
   flex-basis: 100%;
 }
 
@@ -25,20 +28,13 @@
   flex-basis: auto;
 }
 
-@media (min-width: 600px) {
-
-  .path-user article.profile .field--name-user-picture{
-    float: right;
-    width: 50%;
-  }
-
+.path-user article.profile .field--name-user-picture,
+.preview article.profile .field--name-user-picture{
+    text-align: center;
 }
 
-.path-user article.profile .field--name-user-picture{
-  text-align: center;
-}
-
-.path-user article.profile .field--name-user-picture a{
+.path-user article.profile .field--name-user-picture a,
+.preview article.profile .field--name-user-picture a{
   flex-basis: 100%;
 }
 
@@ -86,6 +82,8 @@
   background-color: #370c13;
 }
 
+/* ---- User ---- */
+
 article.user{
   display: flex;
   align-items: center;
@@ -95,6 +93,15 @@ article.user{
 
 article.user div{
   margin: 0 0 0 0.25em;
+}
+
+article.user .field--name-user-picture{
+  align-items: center;
+  display: flex;
+}
+
+article.user img{
+  display: block;
 }
 
 .account-actions{

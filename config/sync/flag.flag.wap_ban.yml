@@ -9,7 +9,7 @@ label: 'WAP ban'
 bundles: {  }
 entity_type: user
 global: true
-weight: 0
+weight: -6
 flag_short: 'WAP capable'
 flag_long: 'Click to ban user from receiving a WAP'
 flag_message: ''

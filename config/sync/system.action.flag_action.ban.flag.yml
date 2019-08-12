@@ -1,0 +1,13 @@
+uuid: 0f89368b-5c55-488b-ab76-37bad149dee6
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.ban.flag
+label: 'Flag this item'
+type: node
+plugin: 'flag_action:ban.flag'
+configuration:
+  flag_id: ban
+  flag_action: flag

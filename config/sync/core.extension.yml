@@ -48,6 +48,7 @@ module:
   datetime_range: 0
   dblog: 0
   dbug: 0
+  devel: 0
   devel_generate: 0
   dynamic_page_cache: 0
   editor: 0
@@ -135,6 +136,8 @@ module:
   token: 0
   token_filter: 0
   toolbar: 0
+  tour: 0
+  tour_ui: 0
   tracker: 0
   typed_data: 0
   update: 0

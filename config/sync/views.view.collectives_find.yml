@@ -13,7 +13,7 @@ dependencies:
     - text
     - user
 id: collectives_find
-label: 'Collectives: Find'
+label: 'Collectives: Explore'
 module: views
 description: ''
 tag: ''
@@ -532,21 +532,20 @@ display:
           reduce_duplicates: false
           plugin_id: list_field
       sorts:
-        title:
-          id: title
-          table: node_field_data
-          field: title
-          order: ASC
-          entity_type: node
-          entity_field: title
-          plugin_id: standard
+        last_comment_timestamp:
+          id: last_comment_timestamp
+          table: comment_entity_statistics
+          field: last_comment_timestamp
           relationship: none
           group_type: group
           admin_label: ''
+          order: DESC
           exposed: false
           expose:
             label: ''
-      title: 'Find Collectives'
+          granularity: second
+          plugin_id: date
+      title: 'Explore Collectives'
       header: {  }
       footer: {  }
       empty:
@@ -580,6 +579,7 @@ display:
         - 'config:core.entity_view_display.node.alert.teaser'
         - 'config:core.entity_view_display.node.announcement.default'
         - 'config:core.entity_view_display.node.announcement.teaser'
+        - 'config:core.entity_view_display.node.art.book'
         - 'config:core.entity_view_display.node.art.default'
         - 'config:core.entity_view_display.node.art.form_1'
         - 'config:core.entity_view_display.node.art.form_1_mail'
@@ -600,6 +600,7 @@ display:
         - 'config:core.entity_view_display.node.collective.teaser'
         - 'config:core.entity_view_display.node.incident.default'
         - 'config:core.entity_view_display.node.incident.teaser'
+        - 'config:core.entity_view_display.node.mutant_vehicles.book'
         - 'config:core.entity_view_display.node.mutant_vehicles.default'
         - 'config:core.entity_view_display.node.mutant_vehicles.form_1'
         - 'config:core.entity_view_display.node.mutant_vehicles.form_1_mail'
@@ -659,6 +660,7 @@ display:
         - 'config:core.entity_view_display.node.alert.teaser'
         - 'config:core.entity_view_display.node.announcement.default'
         - 'config:core.entity_view_display.node.announcement.teaser'
+        - 'config:core.entity_view_display.node.art.book'
         - 'config:core.entity_view_display.node.art.default'
         - 'config:core.entity_view_display.node.art.form_1'
         - 'config:core.entity_view_display.node.art.form_1_mail'
@@ -679,6 +681,7 @@ display:
         - 'config:core.entity_view_display.node.collective.teaser'
         - 'config:core.entity_view_display.node.incident.default'
         - 'config:core.entity_view_display.node.incident.teaser'
+        - 'config:core.entity_view_display.node.mutant_vehicles.book'
         - 'config:core.entity_view_display.node.mutant_vehicles.default'
         - 'config:core.entity_view_display.node.mutant_vehicles.form_1'
         - 'config:core.entity_view_display.node.mutant_vehicles.form_1_mail'

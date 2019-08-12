@@ -1,0 +1,26 @@
+uuid: fe7ad3d2-8b67-49a9-9672-6880b2f91f15
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.flagging.field_members
+    - flag.flag.disclose
+  module:
+    - custom_add_another
+    - options
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: flagging.disclose.field_members
+field_name: field_members
+entity_type: flagging
+bundle: disclose
+label: Members
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

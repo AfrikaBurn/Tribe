@@ -8,7 +8,6 @@ dependencies:
     - field.field.node.art.field_api_content_type
     - field.field.node.art.field_arteria_checkin
     - field.field.node.art.field_burn_can_be_denied
-    - field.field.node.art.field_col_members
     - field.field.node.art.field_collective
     - field.field.node.art.field_footprint_diameter
     - field.field.node.art.field_footprint_length
@@ -383,7 +382,6 @@ hidden:
   field_admin_comments: true
   field_allow_support_camp: true
   field_burn_can_be_denied: true
-  field_col_members: true
   field_collective: true
   field_form_mode: true
   field_grant_expense_header: true

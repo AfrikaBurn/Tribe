@@ -151,7 +151,7 @@ function _insert_wrangler_view_rows(&$variables){
     $label = $column;
     $label[0] = strtoupper($label[0]);
     $variables['header'] =
-      array_slice($variables['header'], 0, 4, TRUE) +
+      array_slice($variables['header'], 0, 3, TRUE) +
       [
         $column => [
           'content' => t($label),
@@ -159,7 +159,7 @@ function _insert_wrangler_view_rows(&$variables){
           'attributes' => new \Drupal\Core\Template\Attribute(['class' => 'column-' . $column]),
         ]
       ] +
-      array_slice($variables['header'], 4, NULL, TRUE);
+      array_slice($variables['header'], 3, NULL, TRUE);
   }
 }
 

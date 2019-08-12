@@ -1,0 +1,26 @@
+uuid: 7f7ac8d2-b5ed-44d3-8446-872700170b63
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.flagging.field_admins
+    - flag.flag.disclose
+  module:
+    - custom_add_another
+    - options
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: flagging.disclose.field_admins
+field_name: field_admins
+entity_type: flagging
+bundle: disclose
+label: Admins
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -45,6 +45,9 @@
           },
           success: (data, status) => {
             this.element.parent().removeClass('editor-busy')
+            for(var selector in data){
+              $(selector).html(data[selector])
+            }
           },
           error: () => {
             this.element.parent().removeClass('editor-busy')
@@ -54,7 +57,6 @@
       )
     }
   }
-
 
 })(jQuery)
 

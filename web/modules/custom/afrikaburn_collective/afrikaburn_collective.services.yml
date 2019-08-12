@@ -1,13 +1,80 @@
 services:
+
   afrikaburn_collective.route_subscriber:
     class: Drupal\afrikaburn_collective\Routing\CollectiveRoutes
     tags:
       - { name: event_subscriber }
+
   access_check.collective_member:
-    class: Drupal\afrikaburn_collective\Access\CollectiveMemberCheck
+    class: Drupal\afrikaburn_collective\Access\IsMember
     tags:
-      - { name: access_check, applies_to: _is_collective_member }
+      - { name: access_check, applies_to: _is_member }
   access_check.collective_admin:
-    class: Drupal\afrikaburn_collective\Access\CollectiveAdminCheck
+    class: Drupal\afrikaburn_collective\Access\IsAdmin
     tags:
-      - { name: access_check, applies_to: _is_collective_admin }
+      - { name: access_check, applies_to: _is__admin }
+
+  access_check.collective_join:
+    class: Drupal\afrikaburn_collective\Access\MayJoin
+    tags:
+      - { name: access_check, applies_to: _may_join}
+
+  access_check.collective_invite:
+    class: Drupal\afrikaburn_collective\Access\MayInvite
+    tags:
+      - { name: access_check, applies_to: _may_invite}
+
+  access_check.collective_accept:
+    class: Drupal\afrikaburn_collective\Access\MayAccept
+    tags:
+      - { name: access_check, applies_to: _may_accept}
+
+  access_check.collective_ignore:
+    class: Drupal\afrikaburn_collective\Access\MayIgnore
+    tags:
+      - { name: access_check, applies_to: _may_ignore}
+
+  access_check.collective_request:
+    class: Drupal\afrikaburn_collective\Access\MayRequest
+    tags:
+      - { name: access_check, applies_to: _may_request}
+
+  access_check.collective_withdraw:
+    class: Drupal\afrikaburn_collective\Access\MayWithdraw
+    tags:
+      - { name: access_check, applies_to: _may_withdraw}
+
+  access_check.collective_approve:
+    class: Drupal\afrikaburn_collective\Access\MayAccept
+    tags:
+      - { name: access_check, applies_to: _may_accept}
+
+  access_check.collective_reject:
+    class: Drupal\afrikaburn_collective\Access\MayReject
+    tags:
+      - { name: access_check, applies_to: _may_reject}
+
+  access_check.collective_leave:
+    class: Drupal\afrikaburn_collective\Access\MayLeave
+    tags:
+      - { name: access_check, applies_to: _may_leave}
+
+  access_check.collective_boot:
+    class: Drupal\afrikaburn_collective\Access\MayBoot
+    tags:
+      - { name: access_check, applies_to: _may_boot}
+
+  access_check.collective_ban:
+    class: Drupal\afrikaburn_collective\Access\MayBan
+    tags:
+      - { name: access_check, applies_to: _may_ban}
+
+  access_check.collective_admin:
+    class: Drupal\afrikaburn_collective\Access\MayAdmin
+    tags:
+      - { name: access_check, applies_to: _may_admin}
+
+  access_check.collective_strip:
+    class: Drupal\afrikaburn_collective\Access\MayStrip
+    tags:
+      - { name: access_check, applies_to: _may_strip}
