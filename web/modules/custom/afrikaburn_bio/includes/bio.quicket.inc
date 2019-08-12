@@ -60,9 +60,9 @@ function _update($id_number, $quicket_code, $quicket_id){
   return $existing
     ? quicket_request(
       'PUT',
-      "codes/$quicket_id",
+      "codes/$event_id",
       [
-        'EventId' => $config->get('event_id'),
+        'EventId' => $event_id,
         'IsPercentage' => FALSE,
         'DiscountAmount' => 0.0,
         'NumUses' => 6,
