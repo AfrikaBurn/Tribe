@@ -84,10 +84,13 @@ function _alert_create($alert){
   module_load_include('inc', 'afrikaburn_registration', 'includes/form');
 
   $project = $alert->field_alert_project->entity;
-  $type = _project_form_modes()[$project->bundle()];
-  $picture = $project->bundle() == 'performances'
-    ? $project->field_prj_wtf_image
-    : $project->field_prj_gen_concept;
+
+  if ($project) {
+    $type = _project_form_modes()[$project->bundle()];
+    $picture = $project->bundle() == 'performances'
+      ? $project->field_prj_wtf_image
+      : $project->field_prj_gen_concept;
+  }
 
   return $project ? [
     'subject' => $project,

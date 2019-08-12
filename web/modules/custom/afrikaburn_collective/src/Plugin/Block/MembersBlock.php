@@ -29,6 +29,7 @@ class MembersBlock extends BlockBase {
     $collective = Utils::currentCollective();
 
     return (
+      $collective &&
       CollectiveController::isAdmin($collective, $user) ||
       CollectiveController::setting($collective, 'public_members') ||
       CollectiveController::setting($collective, 'public_admins') ||

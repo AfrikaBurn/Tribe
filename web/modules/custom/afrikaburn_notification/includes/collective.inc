@@ -13,6 +13,8 @@ use \Drupal\afrikaburn_shared\Utils;
  */
 function _notify_collective($entity){
 
+  module_load_include('inc', 'afrikaburn_notification', 'includes/util');
+
   $settings = \Drupal::config('afrikaburn_notification.settings');
   $address_settings = \Drupal::config('afrikaburn_notification.address_settings');
 
