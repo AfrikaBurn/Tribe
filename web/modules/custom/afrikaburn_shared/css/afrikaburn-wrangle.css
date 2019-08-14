@@ -11,30 +11,6 @@
   margin: 6px;
 }
 
-.region-header nav .collapsiblock{
-  background: none;
-  position: relative;
-  padding: 0 10px 0 20px;
-}
-
-.region-header nav .collapsiblock:after{
-  border: 10px solid;
-  border-color: transparent transparent orange transparent;
-  content: '.';
-  color: transparent;
-  position: absolute;
-  top: 50%;
-  left: 0;
-  margin-top: -14px;
-  width: 0;
-  height: 0;
-}
-
-.region-header nav .collapsiblock.collapsiblockCollapsed:after{
-  border-color: orange transparent transparent transparent;
-  margin-top: -2px;
-}
-
 .region-header .menu--wrangle a{
   color: #ddd;
   text-decoration: none;
@@ -66,6 +42,30 @@
 .region-header nav ul.menu li{
   list-style-type: none;
   list-style-image: none;
+}
+
+.region-header nav .collapsible{
+  background: none;
+  position: relative;
+  padding: 0 10px 0 20px;
+}
+
+.region-header nav .collapsible:after{
+  border: 10px solid;
+  border-color: transparent transparent orange transparent;
+  content: '.';
+  color: transparent;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -14px;
+  width: 0;
+  height: 0;
+}
+
+.region-header nav .collapsible.collapsibleCollapsed:after{
+  border-color: orange transparent transparent transparent;
+  margin-top: -2px;
 }
 
 #block-adminimal-theme-primary-local-tasks{

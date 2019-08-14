@@ -99,6 +99,18 @@ body .horizontal-tabs .horizontal-tab-button {
 }
 
 
+/* ---- Collapse ---- */
+
+
+.block.collapsible{
+  cursor: pointer;
+}
+
+.block.collapsible.collapsed .content{
+  overflow: hidden;
+}
+
+
 /* ---- Pager ---- */
 
 

@@ -4,13 +4,9 @@ status: true
 dependencies:
   module:
     - afrikaburn_incident
-    - collapsiblock
     - system
   theme:
     - adminimal_theme
-third_party_settings:
-  collapsiblock:
-    collapse_action: '1'
 id: loganincident
 theme: adminimal_theme
 region: content

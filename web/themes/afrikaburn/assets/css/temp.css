@@ -64,7 +64,7 @@ div.sidebar-outer div.sidebar h2 {
   color: #DB4127;
 }
 
-div.sidebar-outer div.sidebar .collapsiblockCollapsed h2 {
+div.sidebar-outer div.sidebar .collapsible.collapsed h2 {
   color: #394F32;
 }
 
@@ -73,7 +73,7 @@ div.sidebar-outer.collectivebar div.sidebar h2{
   height: 20px;
 }
 
-body .collapsiblock a h2{
+body .collapsible > h2{
   line-height: 120%;
 }
 .view-collective-members details[open] {
@@ -121,17 +121,17 @@ nav.pager .pager__items li.is-active a, nav.pager .pager__items li a:hover {
   background-color: #96111699;
 }
 
-html body .collapsiblock a h2:after{
+html body .collapsible > h2:after{
   background-color: #AF282E55;
   border-radius: 15px;
   width: 1em;
   height: 1em;
   background-position: center;
 }
-html body .collapsiblock.collapsiblockCollapsed a h2:after{
+html body .collapsible.collapsed h2:after{
   background-color: #596F6299;
 }
-html body div.sidebar-outer.collectivebar div.sidebar .collapsiblock a h2:after{
+html body div.sidebar-outer.collectivebar div.sidebar .collapsible > h2:after{
   width: 20px;
   height: 20px;
 }
@@ -424,14 +424,14 @@ nav.tabs ul li a{
   color: #A9905A !important;
 }
 
-/* -- Collapsiblock -- */
+/* -- collapsible -- */
 
-div.collapsiblock,
-div.collapsiblockCollapsed{
+div.collapsible,
+div.collapsible.collapsed{
   background: none !important;
 }
 
-.collapsiblock a h2:after{
+.collapsible > h2:after{
     background: url(../images/up.png) no-repeat;
     background-size: contain;
     color: transparent;
@@ -442,7 +442,7 @@ div.collapsiblockCollapsed{
     float: right;
 }
 
-.collapsiblock.collapsiblockCollapsed a h2:after{
+.collapsible.collapsed h2:after{
   background-image: url(../images/down.png);
 }
 

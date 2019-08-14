@@ -2,6 +2,7 @@ shared:
   version: 1.x
   js:
     js/afrikaburn-shared.js: {}
+    js/afrikaburn-sidebars.js: {}
   css:
     theme:
       css/afrikaburn-shared.css: {}

@@ -15,9 +15,3 @@ channels:
     id: diagnostics
     grants:
       - 3
-  -
-    id: purger_cloudflare_bf7c7480fb
-    grants:
-      - 0
-      - 2
-      - 3
