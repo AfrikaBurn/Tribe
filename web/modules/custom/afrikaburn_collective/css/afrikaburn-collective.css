@@ -676,7 +676,7 @@ div.invitation{
   background-image: url(../images/unadmin.svg);
 }
 .view-collective-members details a.admin-boot{
-  background-image: url(../images/exit.svg);
+  background-image: url(../images/boot.svg);
 }
 .view-collective-members details a.admin-ban{
   background-image: url(../images/lock.svg);

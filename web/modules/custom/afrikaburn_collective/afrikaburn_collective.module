@@ -272,7 +272,7 @@ function afrikaburn_collective_entity_field_access($op, $definition, $user, $ite
 function afrikaburn_collective_node_access($collective, $op, $user){
   if ($collective->bundle() == 'collective'){
 
-    $user = User::load($uid);
+    $user = User::load($user->id());
 
     return CollectiveController::setting($collective, 'public') || CollectiveController::isMember($collective, $user)
       ? AccessResult::neutral()
