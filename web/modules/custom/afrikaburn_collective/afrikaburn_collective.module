@@ -270,8 +270,10 @@ function afrikaburn_collective_entity_field_access($op, $definition, $user, $ite
  * Implemented to enforce collective access.
  */
 function afrikaburn_collective_node_access($collective, $op, $user){
-
   if ($collective->bundle() == 'collective'){
+
+    $user = User::load($uid);
+
     return CollectiveController::setting($collective, 'public') || CollectiveController::isMember($collective, $user)
       ? AccessResult::neutral()
       : AccessResult::forbidden();
