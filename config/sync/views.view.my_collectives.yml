@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.node.field_picture
+    - flag.flag.admin
     - flag.flag.invite
     - flag.flag.member
     - image.style.tiny_25x25
@@ -395,6 +396,57 @@ display:
       arguments: {  }
       display_extenders: {  }
       use_ajax: true
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_picture'
+  admin:
+    display_plugin: embed
+    id: admin
+    display_title: Admin
+    position: 1
+    display_options:
+      display_extenders: {  }
+      display_description: ''
+      header: {  }
+      defaults:
+        header: false
+        footer: false
+        relationships: false
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content:
+            value: "<div class=\"my-collective-actions\">\r\n<a href=\"/collectives\" class=\"button\">Explore</a>\r\n<a href=\"/node/add/collective\" class=\"button\">Create</a>\r\n</div>"
+            format: full_html
+          plugin_id: text
+      relationships:
+        flag_relationship:
+          id: flag_relationship
+          table: node_field_data
+          field: flag_relationship
+          relationship: none
+          group_type: group
+          admin_label: Administrator
+          required: true
+          flag: admin
+          user_scope: current
+          entity_type: node
+          plugin_id: flag_relationship
     cache_metadata:
       max-age: -1
       contexts:

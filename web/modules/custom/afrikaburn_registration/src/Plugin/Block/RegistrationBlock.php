@@ -64,6 +64,7 @@ class RegistrationBlock extends BlockBase {
     $user = Utils::currentUser();
     $collective = Utils::currentCollective();
     $config = \Drupal::config('afrikaburn_registration.settings');
+    $cache = ['max-age' => 0];
     $show = [
       'current' =>
         CollectiveController::isAdmin($collective, $user) ||
@@ -128,6 +129,8 @@ class RegistrationBlock extends BlockBase {
             ][$display],
             '#type' => 'details',
             '#open' => TRUE,
+            '#group_name' => $group_name,
+            '#bundle' => 'collective',
             '#attributes' => ['id' => $group_name],
             'content' => $content,
           ];
@@ -135,7 +138,6 @@ class RegistrationBlock extends BlockBase {
     }
 
     $tab_count = count($tabs);
-    $cache = ['max-age' => 0];
 
     if ($tab_count) {
 
@@ -148,10 +150,12 @@ class RegistrationBlock extends BlockBase {
 
       return $tab_count > 1
         ? [
-            '#title' => $title,
             'group_members' => array_merge(
               [
                 '#type' => 'horizontal_tabs',
+                '#entity_type' => 'node',
+                '#group_name' => 'project_tabs',
+                '#bundle' => 'collective',
               ],
               $tabs
             ),
@@ -164,21 +168,5 @@ class RegistrationBlock extends BlockBase {
         '#cache' => $cache,
       ];
     }
-  //   return
-  //     CollectiveController::isMember($collective, $user) ||
-  //     !CollectiveController::setting($collective, 'projects')
-  //     ? [
-  //         '#type' => 'view',
-  //         '#name' => 'collective_projects',
-  //         '#display_id' => 'current',
-  //         '#cache' => [
-  //           'max-age' => 0,
-  //         ]
-  //       ]
-  //     : [
-  //       '#cache' => [
-  //         'max-age' => 0,
-  //       ],
-  //     ];
   }
 }

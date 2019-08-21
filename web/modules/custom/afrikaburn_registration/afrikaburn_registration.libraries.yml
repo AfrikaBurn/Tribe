@@ -34,3 +34,10 @@ wrangle:
       css/afrikaburn-project-wrangle.css: {}
   js:
     js/afrikaburn-project-registration-wrangle.js: {}
+wizard:
+  version: 0.0
+  css:
+    theme:
+      css/afrikaburn-project-registration-wizard.css: {}
+  js:
+    js/afrikaburn-project-registration-wizard.js: {}

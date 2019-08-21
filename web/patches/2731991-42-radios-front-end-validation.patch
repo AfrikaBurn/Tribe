@@ -1,0 +1,110 @@
+diff --git a/core/misc/states.es6.js b/core/misc/states.es6.js
+index ccf999371..440c0b6a9 100644
+--- a/core/misc/states.es6.js
++++ b/core/misc/states.es6.js
+@@ -692,17 +692,45 @@
+ 
+   $document.on('state:required', e => {
+     if (e.trigger) {
++      let $label;
++      let $firstRadio;
++
++      // Radio buttons are the only elements in fieldsets.
++      const isFieldRadio = $(e.target).is('fieldset');
++      if (isFieldRadio) {
++        $label = $(e.target).find('legend .fieldset-legend');
++        $firstRadio = $(e.target)
++          .find('input[type=radio]')
++          .first();
++      }
+       if (e.value) {
+-        const label = `label${e.target.id ? `[for=${e.target.id}]` : ''}`;
+-        const $label = $(e.target)
+-          .attr({ required: 'required', 'aria-required': 'true' })
+-          .closest('.js-form-item, .js-form-wrapper')
+-          .find(label);
+-        // Avoids duplicate required markers on initialization.
+-        if (!$label.hasClass('js-form-required').length) {
+-          $label.addClass('js-form-required form-required');
++        if (isFieldRadio) {
++          // Find the radio element and mark as required.
++          $firstRadio.attr({
++            required: 'required',
++            'aria-required': 'true'
++          });
++        } else {
++          const label = `label${e.target.id ? `[for=${e.target.id}]` : ''}`;
++          // Avoids duplicate required markers on initialization.
++          $label = $(e.target)
++            .attr({
++              required: 'requierd',
++              'aria-required': 'true'
++            })
++            .closest('.js-form-item, .js-form-wrapper')
++            .find(label);
+         }
+-      } else {
++      }
++      if (!$label.hasClass('js-form-required').length) {
++        $label.addClass('js-form-required form-required');
++      } else if (isFieldRadio) {
++        $firstRadio
++          .removeAttr('required aria-required')
++          .closest('fieldset')
++          .find('legend .fieldset-legend')
++          .removeClass('js-form-required form-required');
++      } else if (e.target) {
+         $(e.target)
+           .removeAttr('required aria-required')
+           .closest('.js-form-item, .js-form-wrapper')
+diff --git a/core/misc/states.js b/core/misc/states.js
+index 1da26592b..dd616bcbd 100644
+--- a/core/misc/states.js
++++ b/core/misc/states.js
+@@ -350,14 +350,36 @@
+ 
+   $document.on('state:required', function (e) {
+     if (e.trigger) {
++      var $label = void 0;
++      var $firstRadio = void 0;
++
++      var isFieldRadio = $(e.target).is('fieldset');
++      if (isFieldRadio) {
++        $label = $(e.target).find('legend .fieldset-legend');
++        $firstRadio = $(e.target).find('input[type=radio]').first();
++      }
++
+       if (e.value) {
+-        var label = 'label' + (e.target.id ? '[for=' + e.target.id + ']' : '');
+-        var $label = $(e.target).attr({ required: 'required', 'aria-required': 'true' }).closest('.js-form-item, .js-form-wrapper').find(label);
++        if (isFieldRadio) {
++          $firstRadio.attr({
++            required: 'required',
++            'aria-required': 'true'
++          });
++        } else {
++          var label = 'label' + (e.target.id ? '[for=' + e.target.id + ']' : '');
++
++          $label = $(e.target).attr({
++            required: 'required',
++            'aria-required': 'true'
++          }).closest('.js-form-item, .js-form-wrapper').find(label);
++        }
+ 
+         if (!$label.hasClass('js-form-required').length) {
+           $label.addClass('js-form-required form-required');
+         }
+-      } else {
++      } else if (isFieldRadio) {
++        $firstRadio.removeAttr('required aria-required').closest('fieldset').find('legend .fieldset-legend').removeClass('js-form-required form-required');
++      } else if (e.target) {
+         $(e.target).removeAttr('required aria-required').closest('.js-form-item, .js-form-wrapper').find('label.js-form-required').removeClass('js-form-required form-required');
+       }
+     }
+@@ -382,4 +404,4 @@
+       }
+     }
+   });
+-})(jQuery, Drupal);
+\ No newline at end of file
++})(jQuery, Drupal);

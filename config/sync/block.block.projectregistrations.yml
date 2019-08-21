@@ -1,4 +1,4 @@
-uuid: bd1b89e3-7706-4003-80e6-b91e54c06b93
+uuid: 9a039648-d004-4a51-8d12-a005b9b2f94d
 langcode: en
 status: true
 dependencies:
@@ -7,10 +7,10 @@ dependencies:
     - node
   theme:
     - afrikaburn
-id: currentregistrations
+id: projectregistrations
 theme: afrikaburn
 region: sidebar
-weight: -17
+weight: -10
 provider: null
 plugin: registration_block
 settings:

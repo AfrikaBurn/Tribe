@@ -13,15 +13,20 @@
       // Text size fixing
       $('*[size]').removeAttr('size')
 
-      // Validate everything on blur
-      $(toValidate, context).blur(
-        function(){
-          var element = $(this)
-          element.valid && !element.hasClass('editor-processed') ? element.valid() : false
-          if (element.hasClass('valid')) element.siblings('.form-item--error-message').remove()
-          if ($('.form-item--error-message').length==0) $('form .messages--error').remove()
+      // Validate everything on blur, changed
+      function validateMe(){
+        var element = $(this)
+        element.valid && !element.hasClass('editor-processed')
+          ? element.valid()
+          : false
+        if (element.hasClass('valid')) {
+          element.add(element.parent())
+            .siblings('.form-item--error-message').remove()
         }
-      )
+        if ($('.form-item--error-message').length==0) $('form .messages--error').remove()
+      }
+      $(toValidate, context).blur(validateMe)
+      $(toValidate, context).change(validateMe)
 
       // Scroll to error linked to in messages
       $('.messages--error:not(.delete)', context).each(

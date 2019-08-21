@@ -8,7 +8,6 @@ namespace Drupal\afrikaburn_registration\Controller;
 
 
 use Drupal\Core\Controller\ControllerBase;
-
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
