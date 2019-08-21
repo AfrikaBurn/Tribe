@@ -272,7 +272,7 @@ function afrikaburn_collective_entity_field_access($op, $definition, $user, $ite
 function afrikaburn_collective_node_access($collective, $op, $user){
 
   if ($collective->bundle() == 'collective'){
-    return CollectiveController::setting($collective, 'public')
+    return CollectiveController::setting($collective, 'public') || CollectiveController::isMember($collective, $user)
       ? AccessResult::neutral()
       : AccessResult::forbidden();
   }
@@ -470,9 +470,16 @@ function afrikaburn_collective_views_query_alter($view, $query) {
   if ($view->id() == 'collective_member_select'){
 
     $current = Utils::currentCollective();
-    $cid = count($view->args)
-      ? $view->args[0]
-      : $current ? $current->id() : false;
+
+    $cid = array_shift(
+      array_filter(
+        [
+          \Drupal::request()->query->get('field_collective'),
+          $view->args[0],
+          $current ? $current->id() : FALSE,
+        ]
+      )
+    );
 
     if ($cid){
       $query->addRelationship(
@@ -507,34 +514,38 @@ function afrikaburn_collective_views_query_alter($view, $query) {
  */
 function afrikaburn_collective_preprocess_views_view_fields(&$variables) {
 
-  module_load_include('inc', 'afrikaburn_collective', 'includes/util');
-  module_load_include('inc', 'afrikaburn_collective', 'includes/view');
-
   $view = $variables['view'];
-  $user = Utils::currentUser();
 
-  $member = $variables['row']->_relationship_entities['uid'];
-  $collective = \Drupal::entityTypeManager()->getStorage('node')->load(
-    $variables['view']->args[0]
-  );
+  if ($view->id() == 'collective_members'){
 
-  if (
-    $view->id() == 'collective_members' &&
-    in_array($view->current_display, ['members', 'admins', 'requests', 'banned'])
-  ){
-    _user_admin_links($variables, $collective, $user, $member);
-    $variables["display"] = PrivacyController::maySee($user, $member)['all'];
-  }
+    module_load_include('inc', 'afrikaburn_collective', 'includes/util');
+    module_load_include('inc', 'afrikaburn_collective', 'includes/view');
 
-  if (
-    $view->id() == 'collective_posts' && $view->current_display == 'posts' &&
-    !CollectiveController::isBanned($collective, $user) &&
-    (
-      CollectiveController::isMember($collective, $user) ||
-      !CollectiveController::setting($collective, 'privileged_discussion'))
-  ) {
-    _reply_form($variables);
-    $variables["display"] = PrivacyController::maySee($user, $member)['all'];
+    $user = Utils::currentUser();
+
+    $member = $variables['row']->_relationship_entities['uid'];
+    $collective = \Drupal::entityTypeManager()->getStorage('node')->load(
+      $variables['view']->args[0]
+    );
+
+    if (
+      $view->id() == 'collective_members' &&
+      in_array($view->current_display, ['members', 'admins', 'requests', 'banned'])
+    ){
+      _user_admin_links($variables, $collective, $user, $member);
+      $variables["display"] = PrivacyController::maySee($user, $member)['all'];
+    }
+
+    if (
+      $view->id() == 'collective_posts' && $view->current_display == 'posts' &&
+      !CollectiveController::isBanned($collective, $user) &&
+      (
+        CollectiveController::isMember($collective, $user) ||
+        !CollectiveController::setting($collective, 'privileged_discussion'))
+    ) {
+      _reply_form($variables);
+      $variables["display"] = PrivacyController::maySee($user, $member)['all'];
+    }
   }
 }
 
