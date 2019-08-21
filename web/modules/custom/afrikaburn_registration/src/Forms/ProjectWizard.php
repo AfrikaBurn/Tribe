@@ -30,8 +30,8 @@ class ProjectWizard extends FormBase {
 
   const
     INTRODUCTION =
-      'This wizard will help you set up or reuse a project and
-       collective space so you can collaborate with team mates, new ones can
+      'This wizard will help you set up or reuse a Project and
+       Collective space so you can collaborate with team mates, new ones can
        find you, share resources and register your <strong>Artwork, Binnekring
        event, Mutant vehicle or Theme camp</strong>';
 
@@ -84,6 +84,13 @@ class ProjectWizard extends FormBase {
   /* ----- Form Validator ----- */
 
 
+  const
+    PROJECT_TODO_SELECT_ERROR =
+      'Please select whether to reuse or create a Project!',
+    COLLECTIVE_TODO_SELECT_ERROR =
+      'Please select whether to reuse or create a Collective!';
+
+
   /**
    * {@inheritdoc}
    */
@@ -131,15 +138,14 @@ class ProjectWizard extends FormBase {
 
   const
     PROJECT_TODO_REUSE =
-      'Not your first rodeo? You\'ve registered this project before and would
+      'Not your first rodeo? You\'ve registered this Project before and would
       like to reuse that registration',
     PROJECT_TODO_NEW =
-      'This project is brand new and you\'ve not registered it before, or want
+      'This Project is brand new and you\'ve not registered it before, or want
       to register it from scratch',
-    PROJECT_TODO_SELECT_ERROR =
-      'Please select whether to reuse or create a project!',
     PROJECT_SELECT_ERROR =
       'Please select an existing registration!';
+
 
   /**
    * Ready step builder
@@ -176,7 +182,7 @@ class ProjectWizard extends FormBase {
 
       'project_todo_reuse' => [
 
-        '#title' => $this->t('Reuse an existing project registration'),
+        '#title' => $this->t('Reuse an existing Project registration'),
         '#type' => 'radio',
         '#name' => 'project_todo',
         '#default_value' => $input['project_todo'] == 'existing'
@@ -261,7 +267,7 @@ class ProjectWizard extends FormBase {
             'name' => 'new_project[type]_error',
             'class' => ['form-item--error-message hidden error']
           ],
-          ['#markup' => $this->t('Please a project type:')],
+          ['#markup' => $this->t('Please a Project type:')],
         ],
 
         'type' => [
@@ -278,7 +284,7 @@ class ProjectWizard extends FormBase {
         'title' => [
           '#type' => 'textfield',
           '#title' => $this->t('Title'),
-          '#description' => $this->t('A title or name for your project.'),
+          '#description' => $this->t('A title or name for your Project.'),
           '#states' => [
             'required' => [
               ':input[name="project_todo"]' => ['value' => 'new'],
@@ -289,7 +295,7 @@ class ProjectWizard extends FormBase {
         'description' => [
           '#type' => 'textarea',
           '#title' => $this->t('Description'),
-          '#description' => $this->t('A short description of your project.'),
+          '#description' => $this->t('A short description of your Project.'),
           '#states' => [
             'required' => [
               ':input[name="project_todo"]' => ['value' => 'new'],
@@ -386,15 +392,13 @@ class ProjectWizard extends FormBase {
   const
     COLLECTIVE_TODO_REUSE =
       'If you\'re an Admin of a group that registers projects, you can use any
-      of those for this project.',
+      of those for this Project.',
     COLLECTIVE_TODO_NEW =
-      'A collective is a group of people who do things together. Things like
+      'A Collective is a group of people who do things together. Things like
       creating an artwork, setting up a binnekring event, build a mutant
       vehicle, organise a theme camp or just camp together and hang out.',
-    COLLECTIVE_TODO_SELECT_ERROR =
-      'Please select whether to reuse or create a collective!',
     COLLECTIVE_SELECT_ERROR =
-      'Please select a collective';
+      'Please select a Collective';
 
   /**
    * Steady step builder
@@ -411,7 +415,7 @@ class ProjectWizard extends FormBase {
       'content' => [
 
         'collective_todo_reuse' => [
-          '#title' => $this->t('Use an existing collective'),
+          '#title' => $this->t('Use an existing Collective'),
           '#type' => 'radio',
           '#name' => 'collective_todo',
           '#description' => $this->t(self::COLLECTIVE_TODO_REUSE),
@@ -447,7 +451,7 @@ class ProjectWizard extends FormBase {
             ['#markup' => $this->t(self::COLLECTIVE_SELECT_ERROR)],
           ],
           'collective' => [
-            '#title' => $this->t('Select a collective'),
+            '#title' => $this->t('Select a Collective'),
             '#name' => 'exising_collective',
             '#type' => 'radios',
             '#options' => [],
@@ -462,7 +466,7 @@ class ProjectWizard extends FormBase {
 
 
         'collective_todo_new' => [
-          '#title' => $this->t('Create a new collective'),
+          '#title' => $this->t('Create a new Collective'),
           '#type' => 'radio',
           '#name' => 'collective_todo',
           '#attributes' => array_merge(
@@ -487,7 +491,7 @@ class ProjectWizard extends FormBase {
             '#prefix' => '<div class="description">',
             '#type' => 'textfield',
             '#title' => $this->t('Name'),
-            '#description' => $this->t('A title or name for your collective.'),
+            '#description' => $this->t('A title or name for your Collective.'),
             '#states' => [
               'required' => [
                 ':input[name="collective_todo"]' => ['value' => 'new'],
@@ -497,7 +501,7 @@ class ProjectWizard extends FormBase {
           'description' => [
             '#type' => 'textarea',
             '#title' => $this->t('Description'),
-            '#description' => $this->t('A short intro to your collective.'),
+            '#description' => $this->t('A short intro to your Collective.'),
             '#states' => [
               'required' => [
                 ':input[name="collective_todo"]' => ['value' => 'new'],
@@ -508,15 +512,15 @@ class ProjectWizard extends FormBase {
             '#type' => 'radios',
             '#title' => 'How it works',
             '#options' => [
-              'open' => 'Open - Allow people to find and join your collective',
-              'closed' => 'Closed - Allow people to find your collective, but
+              'open' => 'Open - Allow people to find and join your Collective',
+              'closed' => 'Closed - Allow people to find your Collective, but
                            not join without approval',
               'private' => 'Private - Allow only invited people to find or join
-                           your collective',
+                           your Collective',
             ],
             '#default_value' => 'open',
             '#description' => 'You can make these permissions more specific when
-                               you edit your collective.',
+                               you edit your Collective.',
           ],
           '#suffix' => '</div>',
         ],
@@ -534,7 +538,7 @@ class ProjectWizard extends FormBase {
         'invites' => [
           'emails' => [
             '#type' => 'textarea',
-            '#title' => $this->t('Invite people to join this collective'),
+            '#title' => $this->t('Invite people to join this Collective'),
             '#value' => '',
             '#attributes' => [
               'size' => 34,

@@ -37,7 +37,7 @@
         )
         $('#afrikaburn-registration-wizard #edit-new-project-title').change(
           function(){
-            $('#edit-new-collective-name').val($(this).val())
+            $('#edit-new-collective-name').val('The ' + $(this).val() + ' Collective')
           }
         )
         $('#afrikaburn-registration-wizard #edit-new-project-description').change(
