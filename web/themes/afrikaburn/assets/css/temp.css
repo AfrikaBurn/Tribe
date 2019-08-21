@@ -40,6 +40,9 @@ a:visited {
   font-weight: bold;
 }
 
+div.form-wrapper .form-item.form-type-radio label {
+  color: #666;
+}
 
 div.body-content h1, div.body-content h2, div.body-content h3, div.body-content h4 {
   color: #111;
@@ -169,7 +172,16 @@ body .horizontal-tabs .horizontal-tabs-list li.selected {
 body .horizontal-tabs .horizontal-tabs-list li.selected{
   border-bottom: 3px solid #FFEFD3;
 }
-
+body .js-wizard .horizontal-tabs .horizontal-tabs-list li {
+  background: #FCE1B7;
+  border-color: #FCE1B7;
+}
+body .js-wizard .horizontal-tabs .horizontal-tabs-list li:after {
+  border-left-color: #FCE1B7;
+}
+.js-wizard .horizontal-tabs .horizontal-tabs-list li.selected {
+  border: 1px solid #f26c55;
+}
 body .horizontal-tabs .horizontal-tabs-list li.selected a {
   color: #DB4127;
   text-shadow: none;
@@ -210,7 +222,7 @@ div.body-content .block .view-id-collective_projects table td.name > a {
 }
 
 body div.body-content {
-  color: #666 !important;
+  color: #444 !important;
 }
 
 div.field div.field__item {
@@ -295,13 +307,25 @@ div.body-content .block .view-id-collective_projects table td.name .flag-mute.ac
 
 .collective-actions {
   background-color: #596F62dd;
-  overflow: hidden !important;
 }
 
 .view-alerts .view-empty img{
   background: #AF282E55;
   border-radius: 5px;
 }
+
+.form-item input.error, .form-item textarea.error {
+  background-color: #e8515733;
+}
+
+.form-item--error-message {
+  background: #e8515799;
+}
+
+.form-item--error-message {
+  color: #533;
+}
+
 
 /* End colour experiment */
 
