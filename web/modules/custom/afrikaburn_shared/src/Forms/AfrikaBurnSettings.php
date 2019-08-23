@@ -168,10 +168,14 @@ class AfrikaBurnSettings extends ConfigFormBase {
         '#type' => 'details',
         '#open' => TRUE,
         'content' => [
-          '#type' => 'list',
+          [
+            '#type' => 'fieldset',
+            '#title' => 'Generate Quicket Data',
+            'batch-size' => ['#type' => 'select', '#title' => 'Batch size', '#options' => array_combine(range(500, 5000, 500), range(500, 5000, 500))],
+            ['#type' => 'submit', '#value' => 'Regenerate Quicket data',],
+          ],
           // ['#type' => 'submit', '#value' => 'Resave Users', '#prefix' => '<br />'],
-          // ['#type' => 'submit', '#value' => 'Wipe Quicket data', '#prefix' => '<br />'],
-          ['#type' => 'submit', '#value' => 'Regenerate Quicket data', '#prefix' => '<br />'],
+          ['#type' => 'submit', '#value' => 'Wipe Quicket data', '#prefix' => '<br />'],
           // ['#type' => 'submit', '#value' => 'Migrate Collectives', '#prefix' => '<br />'],
           // ['#type' => 'submit', '#value' => 'Add AfrikBurn Members', '#prefix' => '<br />'],
         ],
@@ -215,7 +219,7 @@ class AfrikaBurnSettings extends ConfigFormBase {
         \Drupal\afrikaburn_shared\Controller\UpdateController::wipeQuicket();
       break;
       case 'Regenerate Quicket data':
-        \Drupal\afrikaburn_shared\Controller\UpdateController::regenerateQuicketData();
+        \Drupal\afrikaburn_shared\Controller\UpdateController::regenerateQuicketData($form_state->getValue('batch-size'));
       break;
       case 'Migrate Collectives':
         \Drupal\afrikaburn_shared\Controller\UpdateController::migrateCollectives();

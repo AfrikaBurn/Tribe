@@ -78,7 +78,7 @@ class UpdateController extends ControllerBase {
    */
   // public static function regenerateQuicketData(){
 
-  //   $BATCH_SIZE = 500;
+  //   $batch_size = 500;
 
   //   $total = db_query('
   //     SELECT COUNT({users}.uid)
@@ -100,13 +100,13 @@ class UpdateController extends ControllerBase {
   //     'operations' => [],
   //     'progress_message' => t(
   //       'Processing @current of @total batches of %batch_size users.',
-  //       ['%batch_size' => $BATCH_SIZE]
+  //       ['%batch_size' => $batch_size]
   //     ),
   //     'error_message'    => t('An error occurred during processing'),
   //     'finished' => '\Drupal\afrikaburn_shared\Controller\UpdateController::quicketDataRegenerated',
   //   ];
 
-  //   for ($offset = 0; $offset < $total; $offset += $BATCH_SIZE){
+  //   for ($offset = 0; $offset < $total; $offset += $batch_size){
   //     $uids = db_query("
   //       SELECT {users}.uid
   //       FROM {users}
@@ -121,7 +121,7 @@ class UpdateController extends ControllerBase {
   //       AND {user__field_id_number}.field_id_number_value IS NOT NULL
   //       AND TRIM({user__field_id_number}.field_id_number_value) != ''
   //       AND {users}.uid > 0
-  //       LIMIT $BATCH_SIZE OFFSET $offset"
+  //       LIMIT $batch_size OFFSET $offset"
   //     )->fetchCol();
   //     $batch['operations'][] = [
   //       '\Drupal\afrikaburn_shared\Controller\UpdateController::regenerateQuicketDatum',
@@ -138,10 +138,9 @@ class UpdateController extends ControllerBase {
 
   //   batch_set($batch);
   // }
-  public static function regenerateQuicketData(){
+  public static function regenerateQuicketData($batch_size){
 
-    $BATCH_SIZE = 500;
-    $offset = 0;
+    $batch_size = $batch_size ? $batch_size : 500;
 
     $uids = db_query("
       SELECT {users}.uid
@@ -157,8 +156,19 @@ class UpdateController extends ControllerBase {
       AND {user__field_id_number}.field_id_number_value IS NOT NULL
       AND TRIM({user__field_id_number}.field_id_number_value) != ''
       AND {users}.uid > 0
-      LIMIT $BATCH_SIZE OFFSET $offset"
+      LIMIT $batch_size"
     )->fetchCol();
+
+    $batch = [
+      'title' => t('Generating quicket data for users...'),
+      'operations' => [],
+      'progress_message' => t(
+        'Processing @current of @total users in a batch of %batch_size users.',
+        ['%batch_size' => $batch_size]
+      ),
+      'error_message'    => t('An error occurred during processing'),
+      'finished' => '\Drupal\afrikaburn_shared\Controller\UpdateController::quicketDataRegenerated',
+    ];
 
     foreach ($uids as $uid){
       $batch['operations'][] = [
@@ -186,7 +196,7 @@ class UpdateController extends ControllerBase {
       $success
         ? \Drupal::translation()->formatPlural(
             count($results),
-            'One batch of users processed.', '@count batches processed.'
+            'One user processed.', '@count users processed.'
           )
         : t('Finished with errors.')
     );
