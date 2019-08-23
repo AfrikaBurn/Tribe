@@ -142,6 +142,22 @@ class UpdateController extends ControllerBase {
 
     $batch_size = $batch_size ? $batch_size : 500;
 
+    $left = db_query("
+      SELECT count({users}.uid)
+      FROM {users}
+      INNER JOIN {user__field_id_number}
+      ON {user__field_id_number}.entity_id = {users}.uid
+      LEFT JOIN {user__field_quicket_id}
+      ON {user__field_quicket_id}.entity_id = {users}.uid
+      LEFT JOIN {user__field_quicket_code}
+      ON {user__field_quicket_code}.entity_id = {users}.uid
+      WHERE
+      (field_quicket_id_value IS NULL OR field_quicket_code_value IS NULL)
+      AND {user__field_id_number}.field_id_number_value IS NOT NULL
+      AND TRIM({user__field_id_number}.field_id_number_value) != ''
+      AND {users}.uid > 0"
+    )->fetchField();
+
     $uids = db_query("
       SELECT {users}.uid
       FROM {users}
@@ -163,8 +179,8 @@ class UpdateController extends ControllerBase {
       'title' => t('Generating quicket data for users...'),
       'operations' => [],
       'progress_message' => t(
-        'Processing @current of @total users in a batch of %batch_size users.',
-        ['%batch_size' => $batch_size]
+        'Processing @current of @total users.<br />Batch size: %batch_size<br />Initial remaining: %left',
+        ['%batch_size' => $batch_size, '%left' => $left]
       ),
       'error_message'    => t('An error occurred during processing'),
       'finished' => '\Drupal\afrikaburn_shared\Controller\UpdateController::quicketDataRegenerated',

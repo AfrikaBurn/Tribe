@@ -40,16 +40,30 @@
       this.offset = offset
 
       floating.$window.resize(
-        () => this.resize()
+        () => {
+          this.reset()
+          this.scroll()
+        }
       )
-      this.resize()
+      this.reset()
 
       floating.$window.scroll(
         () => this.scroll()
       )
     }
 
-    resize(){
+    reset(){
+
+      this.$element.css(
+        {
+          position: '',
+          top: '',
+          left: '',
+          width: '',
+          zIndex: ''
+        }
+      )
+
       this.props = {
         top: this.$element.offset().top,
         left: this.$element.offset().left,
@@ -61,11 +75,6 @@
         marginTop: toInt(
           this.$element.css('margin-top').replace(/[a-zA_Z]+/, '')
         )
-      }
-      this.reset = {
-        position: this.$element.css('position'),
-        top: this.$element.css('top'),
-        left: this.$element.css('left')
       }
       this.window = {
         topPadding: toInt(floating.$body.css('padding-top')),

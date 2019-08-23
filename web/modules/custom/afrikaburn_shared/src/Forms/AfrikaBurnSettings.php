@@ -171,7 +171,7 @@ class AfrikaBurnSettings extends ConfigFormBase {
           [
             '#type' => 'fieldset',
             '#title' => 'Generate Quicket Data',
-            'batch-size' => ['#type' => 'select', '#title' => 'Batch size', '#options' => array_combine(range(500, 5000, 500), range(500, 5000, 500))],
+            'batch-size' => ['#type' => 'select', '#title' => 'Batch size', '#options' => array_combine(range(500, 10000, 500), range(500, 10000, 500))],
             ['#type' => 'submit', '#value' => 'Regenerate Quicket data',],
           ],
           // ['#type' => 'submit', '#value' => 'Resave Users', '#prefix' => '<br />'],
