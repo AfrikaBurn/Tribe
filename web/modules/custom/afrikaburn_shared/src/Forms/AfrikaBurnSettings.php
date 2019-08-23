@@ -169,10 +169,10 @@ class AfrikaBurnSettings extends ConfigFormBase {
         '#open' => TRUE,
         'content' => [
           '#type' => 'list',
-          ['#type' => 'submit', '#value' => 'Resave Users', '#prefix' => '<br />'],
+          // ['#type' => 'submit', '#value' => 'Resave Users', '#prefix' => '<br />'],
           ['#type' => 'submit', '#value' => 'Wipe Quicket data', '#prefix' => '<br />'],
-          ['#type' => 'submit', '#value' => 'Regenerate Quicket data', '#prefix' => '<br />'],
-          ['#type' => 'submit', '#value' => 'Migrate Collectives', '#prefix' => '<br />'],
+          // ['#type' => 'submit', '#value' => 'Regenerate Quicket data', '#prefix' => '<br />'],
+          // ['#type' => 'submit', '#value' => 'Migrate Collectives', '#prefix' => '<br />'],
           ['#type' => 'submit', '#value' => 'Add AfrikBurn Members', '#prefix' => '<br />'],
         ],
       ],
