@@ -30,6 +30,9 @@ class RegistrationBlock extends BlockBase {
     $user = Utils::currentUser();
     $collective = Utils::currentCollective();
     $config = \Drupal::config('afrikaburn_registration.settings');
+    $private = CollectiveController::setting($collective, 'private_projects');
+    $present = CollectiveController::hasCurrentProjects($collective);
+    $past = CollectiveController::hasPastProjects($collective);
     $open = array_reduce(
       array_keys(_project_form_modes()),
       function($carry, $item) {
@@ -42,14 +45,16 @@ class RegistrationBlock extends BlockBase {
     return (
       $collective &&
       (
-        CollectiveController::hasCurrentProjects($collective) ||
-        CollectiveController::hasPastProjects($collective) ||
-        $open
+        !$private && (
+          $past ||
+          $present
+        ) ||
+        $open && CollectiveController::isAdmin($collective, $user)
       ) && (
         CollectiveController::isAdmin($collective, $user) ||
-        !CollectiveController::setting($collective, 'private_projects') ||
+        !$private ||
         CollectiveController::isMember($collective, $user) &&
-        CollectiveController::setting($collective, 'private_projects')
+        $private
       )
     )
     ? AccessResult::allowed()
