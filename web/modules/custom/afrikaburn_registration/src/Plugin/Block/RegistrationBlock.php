@@ -30,6 +30,11 @@ class RegistrationBlock extends BlockBase {
     $user = Utils::currentUser();
     $collective = Utils::currentCollective();
     $config = \Drupal::config('afrikaburn_registration.settings');
+    $private = CollectiveController::setting($collective, 'private_projects');
+    $present = CollectiveController::hasCurrentProjects($collective);
+    $past = CollectiveController::hasPastProjects($collective);
+    $member = CollectiveController::isMember($collective, $user);
+    $admin = CollectiveController::isAdmin($collective, $user);
     $open = array_reduce(
       array_keys(_project_form_modes()),
       function($carry, $item) {
@@ -42,14 +47,9 @@ class RegistrationBlock extends BlockBase {
     return (
       $collective &&
       (
-        CollectiveController::hasCurrentProjects($collective) ||
-        CollectiveController::hasPastProjects($collective) ||
-        $open
-      ) && (
-        CollectiveController::isAdmin($collective, $user) ||
-        !CollectiveController::setting($collective, 'private_projects') ||
-        CollectiveController::isMember($collective, $user) &&
-        CollectiveController::setting($collective, 'private_projects')
+        (!$private && ($past || $present)) ||
+        ($private && ($past || $present) && $member) ||
+        $open && $admin
       )
     )
     ? AccessResult::allowed()
@@ -64,18 +64,14 @@ class RegistrationBlock extends BlockBase {
     $user = Utils::currentUser();
     $collective = Utils::currentCollective();
     $config = \Drupal::config('afrikaburn_registration.settings');
+    $private = CollectiveController::setting($collective, 'private_projects');
+    $member = CollectiveController::isMember($collective, $user);
+    $admin = CollectiveController::isAdmin($collective, $user);
+    $cache = ['max-age' => 0];
     $show = [
-      'current' =>
-        CollectiveController::isAdmin($collective, $user) ||
-        (CollectiveController::isMember($collective, $user) && CollectiveController::setting($collective, 'private_projects')) ||
-        !CollectiveController::setting($collective, 'private_projects'),
-      'past' =>
-        CollectiveController::isAdmin($collective, $user) ||
-        (CollectiveController::isMember($collective, $user) && CollectiveController::setting($collective, 'private_projects')) ||
-        !CollectiveController::setting($collective, 'private_projects'),
-      'new' =>
-        CollectiveController::isAdmin($collective, $user) &&
-        CollectiveController::setting($collective, 'projects'),
+      'current' => $admin || ($member && $private) || !$private,
+      'past' => $admin || ($member && $private) || !$private,
+      'new' => $admin && CollectiveController::setting($collective, 'projects'),
     ];
 
     foreach(array_filter($show) as $display=>$visible){
@@ -128,6 +124,8 @@ class RegistrationBlock extends BlockBase {
             ][$display],
             '#type' => 'details',
             '#open' => TRUE,
+            '#group_name' => $group_name,
+            '#bundle' => 'collective',
             '#attributes' => ['id' => $group_name],
             'content' => $content,
           ];
@@ -135,7 +133,6 @@ class RegistrationBlock extends BlockBase {
     }
 
     $tab_count = count($tabs);
-    $cache = ['max-age' => 0];
 
     if ($tab_count) {
 
@@ -148,10 +145,12 @@ class RegistrationBlock extends BlockBase {
 
       return $tab_count > 1
         ? [
-            '#title' => $title,
             'group_members' => array_merge(
               [
                 '#type' => 'horizontal_tabs',
+                '#entity_type' => 'node',
+                '#group_name' => 'project_tabs',
+                '#bundle' => 'collective',
               ],
               $tabs
             ),
@@ -164,21 +163,5 @@ class RegistrationBlock extends BlockBase {
         '#cache' => $cache,
       ];
     }
-  //   return
-  //     CollectiveController::isMember($collective, $user) ||
-  //     !CollectiveController::setting($collective, 'projects')
-  //     ? [
-  //         '#type' => 'view',
-  //         '#name' => 'collective_projects',
-  //         '#display_id' => 'current',
-  //         '#cache' => [
-  //           'max-age' => 0,
-  //         ]
-  //       ]
-  //     : [
-  //       '#cache' => [
-  //         'max-age' => 0,
-  //       ],
-  //     ];
   }
 }

@@ -94,3 +94,11 @@ afrikaburn_registration.wrangle_wtf_export:
   path: '/wrangle/projects/wtf/export'
   options:
     _admin_route: TRUE
+
+afrikaburn_registration.wizard:
+  path: '/project-registration-wizard'
+  defaults:
+    _title: 'Bring a project to AfrikaBurn'
+    _form: '\Drupal\afrikaburn_registration\Forms\ProjectWizard'
+  requirements:
+    _role: authenticated

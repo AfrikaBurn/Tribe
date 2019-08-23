@@ -79,8 +79,11 @@ class MembersBlock extends BlockBase {
             'group_members' => array_merge(
               [
                 '#type' => 'horizontal_tabs',
+                '#entity_type' => 'node',
+                '#group_name' => 'member_tabs',
+                '#bundle' => 'collective',
               ],
-              $tabs
+              array_filter($tabs)
             ),
             '#cache' => $cache,
           ]
@@ -235,6 +238,8 @@ class MembersBlock extends BlockBase {
 
     return [
       '#title' => $title,
+      '#group_name' =>$group_name,
+      '#bundle' => 'collective',
       '#type' => 'details',
       '#open' => TRUE,
       '#attributes' => ['id' => $group_name],
@@ -255,6 +260,7 @@ class MembersBlock extends BlockBase {
 
       'emails' => [
         '#type' => 'textarea',
+        '#value' => '',
         '#attributes' => [
           'size' => 34,
           'maxlength' => 2147483646,
