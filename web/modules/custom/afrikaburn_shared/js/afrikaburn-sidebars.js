@@ -101,6 +101,7 @@
         this.$sidebar.hasClass('js-floating') &&
         sidebarHeight + sidebarTop > windowHeight - topPadding
       ){
+        this.$body.hasClass('js-scrolling')
         this.$body.height(windowHeight - sidebarTop - siblingHeight - topPadding).css('overflow-y', 'auto')
       } else {
         this.$body.css('height', '').css('overflow-y', '')

@@ -732,7 +732,7 @@ display:
           relationship: none
           group_type: group
           admin_label: ''
-          empty: false
+          empty: true
           tokenize: false
           content:
             value: "<div class=\"my-collective-actions\">\r\n<a href=\"/collectives\" class=\"button\">Explore</a>\r\n<a href=\"/node/add/collective\" class=\"button\">Create</a>\r\n</div>"
