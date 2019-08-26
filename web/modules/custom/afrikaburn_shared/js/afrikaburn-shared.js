@@ -85,69 +85,7 @@
         }
       )
       showFirstError($('.horizontal-tabs', context).parents('form'))
-
-      // Collapsability
-      if (context == document){
-        var expanded = $.cookie('expanded')
-        $('.sidebar .block, .region-header .block')
-          .not('#block-ticketblock, #block-adminimal-theme-page-title')
-          .addClass('collapsible')
-          .not(expanded)
-          .addClass('collapsed')
-          .children('.content, ul.menu')
-          .hide()
-
-        $('.collapsible h2').click(
-          function(){
-            var
-              $head = $(this),
-              $block = $head.parent(),
-              $body = $block.children('.content, ul.menu'),
-              $siblings = $block.siblings('.collapsible')
-
-            if ($block.hasClass('collapsed')){
-              $siblings.addClass('collapsed').children('.content').slideUp()
-              $body.slideDown()
-              $block.removeClass('collapsed')
-            } else {
-              $body.slideUp()
-              $block.addClass('collapsed')
-            }
-          }
-        )
-      }
-
-      // var collapsible = Drupal.collapsible.getCookieData()
-
-      // // Collapse blocks
-      // if (context == document){
-      //   $.each(BLOCK_COLLAPSED,
-      //     (bodyClass, blockIDs) => {
-      //       $.each(blockIDs,
-      //         (index, blockID) => {
-      //           collapsible[blockID] = !$('body').hasClass(bodyClass)
-      //           var cookieString = JSON.stringify(collapsible);
-      //           $.cookie('collapsible', cookieString, {
-      //             path: settings.basePath
-      //           });
-      //         }
-      //       )
-      //     }
-      //   )
-      // }
     }
   }
-
-
-  class collapsible{
-
-    constructor(block){
-      this.$block = $(block).addClass('collapsible')
-      this.$head = this.$block.children('h2')
-      this.$body = this.$block.children('.content')
-    }
-
-  }
-
 
 })(jQuery, '.form-email,.form-text,.form-tel,.form-autocomplete,.form-checkbox,.form-select,.form-textarea,.form-file,.form-number,.form-date')

@@ -518,7 +518,7 @@ class ProjectWizard extends FormBase {
               'private' => 'Private - Allow only invited people to find or join
                            your Collective',
             ],
-            '#default_value' => 'open',
+            '#default_value' => 'closed',
             '#description' => 'You can make these permissions more specific when
                                you edit your Collective.',
           ],

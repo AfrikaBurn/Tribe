@@ -13,33 +13,89 @@
         () => setTimeout(
           () => {
             if (context == document) {
-              if ($('.biobar .sidebar').length) new floating($('.biobar .sidebar'), 200)
-              if ($('.collectivebar .sidebar').length) new floating($('.collectivebar .sidebar'), -40)
-              if ($('.logo-container img').length) new floating($('.logo-container img'), 0)
+
+              var
+                $biobar = $('.biobar .sidebar').not('.js-floating'),
+                $sidebar = $('.collectivebar .sidebar').not('.js-floating'),
+                $logo = $('.logo-container img').not('.js-floating')
+
+              if ($biobar.length) new Floating($biobar, 200)
+              if ($sidebar.length) new Floating($sidebar, -40)
+              if ($logo.length) new Floating($logo, 0)
             }
           },
           10
         )
       )
+
+      // Collapsability
+      if (context == document){
+        var expanded = $.cookie('expanded') || ''
+        $('.sidebar .block, .region-header .block')
+          .not('#block-ticketblock, #block-adminimal-theme-page-title')
+          .addClass('collapsible')
+          .not(expanded)
+          .addClass('collapsed')
+          .children('.content, ul.menu')
+          .hide()
+
+        $('.collapsible h2').click(
+          function(){
+            var
+              $head = $(this),
+              $block = $head.parent(),
+              $body = $block.children('.content, ul.menu'),
+              $siblings = $block.siblings('.collapsible')
+
+            if ($block.hasClass('collapsed')){
+              $siblings.addClass('collapsed').children('.content').slideUp()
+              $body.slideDown()
+              $block.removeClass('collapsed')
+            } else {
+              $body.slideUp()
+              $block.addClass('collapsed')
+            }
+          }
+        )
+      }
     }
   }
 
 
-  function toInt(s){
-    return Number(
-      s.replace(/[a-zA_Z]+/, '')
-    )
+  /* ------ Collapsing sidebars ------ */
+
+
+  class Collapsible{
+    constructor($sidebar){
+
+      $('.block', $element).each(
+        ($block) => new Collapsing($block, $sidebar)
+      )
+
+      $sidebar.bind('toggle-block',
+        () => {}
+      )
+    }
+  }
+
+  class Collapsing{
+    constructor($block, $sidebar){
+      $()
+    }
   }
 
 
-  class floating{
+  /* ------ Floating sidebars ------ */
+
+
+  class Floating{
 
     constructor($element, offset){
 
-      this.$element = $element
+      this.$element = $element.addClass('js-floating')
       this.offset = offset
 
-      floating.$window.resize(
+      Floating.$window.resize(
         () => {
           this.reset()
           this.scroll()
@@ -47,7 +103,7 @@
       )
       this.reset()
 
-      floating.$window.scroll(
+      Floating.$window.scroll(
         () => this.scroll()
       )
     }
@@ -77,8 +133,8 @@
         )
       }
       this.window = {
-        topPadding: toInt(floating.$body.css('padding-top')),
-        width: floating.$window.width()
+        topPadding: toInt(Floating.$body.css('padding-top')),
+        width: Floating.$window.width()
       }
       this.threshold =
         this.props.top
@@ -89,7 +145,7 @@
     scroll(){
       if (
         this.window.width > 960 &&
-        floating.$window.scrollTop() > this.threshold - this.offset
+        Floating.$window.scrollTop() > this.threshold - this.offset
       ) {
         this.$element.css(
           {
@@ -100,15 +156,25 @@
             zIndex: 1,
           }
         )
-      } else this.$element.css(Object.assign(floating.reset, this.reset))
+      } else this.$element.css(Object.assign(Floating.reset, this.reset))
     }
   }
 
-  floating.$window = $(window)
-  floating.$body = $('body')
-  floating.reset = {
+  Floating.$window = $(window)
+  Floating.$body = $('body')
+  Floating.reset = {
     position: 'static',
     width: '100%'
+  }
+
+
+  /* ------ Utility ------ */
+
+
+  function toInt(s){
+    return Number(
+      s.replace(/[a-zA_Z]+/, '')
+    )
   }
 
 })(jQuery)

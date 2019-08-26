@@ -1,0 +1,14 @@
+diff --git a/recaptcha.module b/recaptcha.module
+index 674fa36..032ac8f 100644
+--- a/recaptcha.module
++++ b/recaptcha.module
+@@ -80,7 +80,9 @@ function recaptcha_captcha($op, $captcha_type = '') {
+           $captcha['form']['captcha_response'] = [
+             '#type' => 'hidden',
+             '#value' => 'Google no captcha',
++            '#cache' => ['max-age' => 0],
+           ];
++          \Drupal::service('page_cache_kill_switch')->trigger();
+ 
+           $noscript = '';
+           if ($config->get('widget.noscript')) {

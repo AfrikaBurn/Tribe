@@ -124,6 +124,9 @@ nav.pager .pager__items li.is-active a, nav.pager .pager__items li a:hover {
   background-color: #96111699;
 }
 
+html body .collapsible{
+  cursor: pointer;
+}
 html body .collapsible > h2:after{
   background-color: #AF282E55;
   border-radius: 15px;
