@@ -330,6 +330,19 @@ div.body-content .block .view-id-collective_projects table td.name .flag-mute.ac
 }
 
 
+.block *::-webkit-scrollbar{
+  width: 10px;
+  background-image: linear-gradient(to right, transparent 30%, #F18F08, transparent 70%);
+  border-radius: 5px;
+  overflow: visible;
+}
+
+.block *::-webkit-scrollbar-thumb{
+  background-color: #F18F08;
+  border-radius: 5px;
+}
+
+
 /* End colour experiment */
 
 

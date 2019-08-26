@@ -17,93 +17,129 @@
               var
                 $biobar = $('.biobar .sidebar').not('.js-floating'),
                 $sidebar = $('.collectivebar .sidebar').not('.js-floating'),
-                $logo = $('.logo-container img').not('.js-floating')
+                $logo = $('.logo-container img').not('.js-floating'),
+                $wrangleBlock = $('.region-header .menu--wrangle')
 
-              if ($biobar.length) new Floating($biobar, 200)
-              if ($sidebar.length) new Floating($sidebar, -40)
-              if ($logo.length) new Floating($logo, 0)
+              if ($biobar.length) {
+                new Floater($biobar, 200)
+                new Collapsible($biobar, '#block-ticketblock')
+              }
+              if ($sidebar.length) {
+                new Floater($sidebar, -40)
+                new Collapsible($sidebar)
+              }
+
+              if ($logo.length) new Floater($logo, 0)
+              if ($wrangleBlock.length) new Collapsing($wrangleBlock)
             }
           },
           10
         )
       )
-
-      // Collapsability
-      if (context == document){
-        var expanded = $.cookie('expanded') || ''
-        $('.sidebar .block, .region-header .block')
-          .not('#block-ticketblock, #block-adminimal-theme-page-title')
-          .addClass('collapsible')
-          .not(expanded)
-          .addClass('collapsed')
-          .children('.content, ul.menu')
-          .hide()
-
-        $('.collapsible h2').click(
-          function(){
-            var
-              $head = $(this),
-              $block = $head.parent(),
-              $body = $block.children('.content, ul.menu'),
-              $siblings = $block.siblings('.collapsible')
-
-            if ($block.hasClass('collapsed')){
-              $siblings.addClass('collapsed').children('.content').slideUp()
-              $body.slideDown()
-              $block.removeClass('collapsed')
-            } else {
-              $body.slideUp()
-              $block.addClass('collapsed')
-            }
-          }
-        )
-      }
     }
   }
 
 
-  /* ------ Collapsing sidebars ------ */
+  /* ------ Collapsing sidebar blocks ------ */
 
 
   class Collapsible{
-    constructor($sidebar){
-
-      $('.block', $element).each(
-        ($block) => new Collapsing($block, $sidebar)
-      )
-
-      $sidebar.bind('toggle-block',
-        () => {}
+    constructor($sidebar, exclude){
+      $('.block', $sidebar).not(exclude).each(
+        (index, block) => new Collapsing($(block), $sidebar)
       )
     }
   }
 
   class Collapsing{
-    constructor($block, $sidebar){
-      $()
+
+    constructor($block, $sidebar, exclude){
+
+      this.cookieKey = $sidebar.parent().attr('class')
+      this.$sidebar = $sidebar
+      this.$block = $block.addClass('collapsible')
+      this.$title = $block.children('h2')
+      this.$body = $block.children('.content, ul.menu')
+      this.$siblings = $block.siblings()
+      this.exclude = exclude
+
+      if ($block.attr('id') != $.cookie(this.cookieKey)) this.collapse()
+
+      this.$title.click(() => this.toggle())
+      this.$block.bind('collapse', () => this.collapse())
+      Floater.$window.resize(() => this.resizeBody())
+      Floater.$window.scroll(() => this.resizeBody())
+      setTimeout(() => this.resizeBody(), 500)
+    }
+
+    toggle(){
+      this.$block.hasClass('collapsed') ? this.expand() : this.collapse()
+    }
+
+    collapse(){
+      this.$body.slideUp().css({height: ''}).css('overflow-y', '')
+      this.$block.addClass('collapsed')
+      if (this.$block.attr('id') == $.cookie(this.cookieKey))
+        $.cookie(this.cookieKey, null)
+    }
+
+    resizeBody(){
+
+      var
+        sidebarHeight = this.$sidebar.outerHeight(),
+        sidebarTop = toInt(this.$sidebar.css('top')) + toInt(this.$sidebar.css('margin-top')),
+        windowHeight = Floater.$window.height(),
+        siblingHeight = this.$siblings.toArray().reduce(
+          (total, element) => total + $(element).outerHeight(), 0
+        ),
+        topPadding = toInt(Floater.$body.css('padding-top')),
+        minWidth = Floater.$window.width() > 960,
+        minHeight = Floater.$window.height() > 650
+
+      if (
+        minWidth && minHeight &&
+        this.$sidebar.hasClass('js-floating') &&
+        sidebarHeight + sidebarTop > windowHeight - topPadding
+      ){
+        this.$body.height(windowHeight - sidebarTop - siblingHeight - topPadding).css('overflow-y', 'auto')
+      } else {
+        this.$body.css('height', '').css('overflow-y', '')
+      }
+    }
+
+    expand(){
+
+      this.$body.slideDown(
+        () => this.resizeBody()
+      )
+
+      this.$block.removeClass('collapsed')
+      $.cookie(this.cookieKey, this.$block.attr('id'))
+      this.$siblings.not(this.exclude).trigger('collapse')
     }
   }
 
 
-  /* ------ Floating sidebars ------ */
+  /* ------ Floater sidebars ------ */
 
 
-  class Floating{
+  class Floater{
 
     constructor($element, offset){
 
-      this.$element = $element.addClass('js-floating')
+      this.$element = $element.addClass('js-floater')
       this.offset = offset
 
-      Floating.$window.resize(
+      Floater.$window.resize(
         () => {
           this.reset()
           this.scroll()
         }
       )
       this.reset()
+      this.scroll()
 
-      Floating.$window.scroll(
+      Floater.$window.scroll(
         () => this.scroll()
       )
     }
@@ -133,8 +169,8 @@
         )
       }
       this.window = {
-        topPadding: toInt(Floating.$body.css('padding-top')),
-        width: Floating.$window.width()
+        topPadding: toInt(Floater.$body.css('padding-top')),
+        width: Floater.$window.width()
       }
       this.threshold =
         this.props.top
@@ -143,9 +179,14 @@
     }
 
     scroll(){
+
+      var
+        minWidth = Floater.$window.width() > 960,
+        minHeight = Floater.$window.height() > 650
+
       if (
-        this.window.width > 960 &&
-        Floating.$window.scrollTop() > this.threshold - this.offset
+        minWidth && minHeight &&
+        Floater.$window.scrollTop() > this.threshold - this.offset
       ) {
         this.$element.css(
           {
@@ -155,17 +196,16 @@
             width: this.props.width + 'px',
             zIndex: 1,
           }
-        )
-      } else this.$element.css(Object.assign(Floating.reset, this.reset))
+        ).addClass('js-floating')
+      } else {
+        this.reset()
+        this.$element.removeClass('js-floating')
+      }
     }
   }
 
-  Floating.$window = $(window)
-  Floating.$body = $('body')
-  Floating.reset = {
-    position: 'static',
-    width: '100%'
-  }
+  Floater.$window = $(window)
+  Floater.$body = $('body')
 
 
   /* ------ Utility ------ */
