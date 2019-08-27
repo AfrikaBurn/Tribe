@@ -39,7 +39,7 @@
     }
   }
 
-  var
+  const
     $browserWindow = $(window),
     $browserBody = $('body')
 
