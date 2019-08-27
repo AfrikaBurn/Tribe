@@ -501,6 +501,8 @@ function afrikaburn_collective_views_query_alter($view, $query) {
 
       $query->addWhere(0, 'flagging.flag_id', 'member', '=');
       $query->addWhere(0, 'flagging.entity_id', $cid, '=');
+    } else {
+      $query->addWhere(0, 'uid', 0, '<');
     }
   }
 }
