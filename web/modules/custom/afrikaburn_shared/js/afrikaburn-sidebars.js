@@ -59,13 +59,8 @@
 
     constructor($block, $sidebar, exclude){
 
-<<<<<<< HEAD
       this.cookieKey = $sidebar ? $sidebar.parent().attr('class') : $block.attr('id')
       this.$sidebar = $sidebar
-=======
-      this.cookieKey = $sidebar ? $sidebar.parent().attr('class') : false
-      this.$sidebar = $sidebar || false
->>>>>>> develop
       this.$block = $block.addClass('collapsible')
       this.$title = $block.children('h2')
       this.$body = $block.children('.content, ul.menu')
