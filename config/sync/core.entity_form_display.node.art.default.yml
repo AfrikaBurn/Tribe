@@ -881,10 +881,13 @@ content:
       display_label: true
     third_party_settings: {  }
   field_prj_cll_contact:
-    type: erviews_options_select
+    type: entity_reference_autocomplete
     weight: 12
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings:
       conditional_fields:
         f6484cc8-eff1-48e5-81f8-3ba6f4b989a1:
@@ -946,10 +949,13 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
   field_prj_gen_contact:
-    type: erviews_options_select
+    type: entity_reference_autocomplete
     weight: 12
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_prj_gen_description:
     type: string_textarea
@@ -967,10 +973,13 @@ content:
       progress_indicator: throbber
     third_party_settings: {  }
   field_prj_gen_fundraiser:
-    type: erviews_options_select
+    type: entity_reference_autocomplete
     weight: 19
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings:
       conditional_fields:
         e6199359-f834-4e5f-ae3c-6f11651bc00a:
@@ -1014,10 +1023,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_prj_gen_lead:
-    type: erviews_options_select
+    type: entity_reference_autocomplete
     weight: 14
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_prj_gen_location:
     type: cshs
@@ -1030,10 +1042,13 @@ content:
     third_party_settings:
       conditional_fields: {  }
   field_prj_gen_manager:
-    type: erviews_options_select
+    type: entity_reference_autocomplete
     weight: 13
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_prj_gen_story:
     type: string_textarea
@@ -1098,10 +1113,13 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_prj_lnt_representative:
-    type: erviews_options_select
+    type: entity_reference_autocomplete
     weight: 0
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings:
       conditional_fields: {  }
   field_prj_oth_area:
@@ -1466,10 +1484,13 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_prj_stc_structural:
-    type: erviews_options_select
+    type: entity_reference_autocomplete
     weight: 14
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings:
       conditional_fields:
         ed634b5a-7e5a-458a-8ce6-dd2b59eecec2:
