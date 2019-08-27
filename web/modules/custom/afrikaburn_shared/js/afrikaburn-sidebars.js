@@ -29,7 +29,7 @@
                 new Collapsible($sidebar)
               }
 
-              if ($logo.length) new Floater($logo, 0)
+              if ($biobar.length && $logo.length) new Floater($logo, 0)
               if ($wrangleBlock.length) new Collapsing($wrangleBlock)
             }
           },
@@ -38,6 +38,9 @@
       )
     }
   }
+
+  $browserWindow = $(window)
+  $browserBody = $('body')
 
 
   /* ------ Collapsing sidebar blocks ------ */
@@ -67,8 +70,8 @@
 
       this.$title.click(() => this.toggle())
       this.$block.bind('collapse', () => this.collapse())
-      Floater.$window.resize(() => this.resizeBody())
-      Floater.$window.scroll(() => this.resizeBody())
+      $browserWindow.resize(() => this.resizeBody())
+      $browserWindow.scroll(() => this.resizeBody())
       setTimeout(() => this.resizeBody(), 500)
     }
 
@@ -84,26 +87,28 @@
     }
 
     resizeBody(){
+      if (this.$sidebar) {
+        var
+          sidebarHeight = this.$sidebar.outerHeight(),
+          sidebarTop = toInt(this.$sidebar.css('top')) + toInt(this.$sidebar.css('margin-top')),
+          windowHeight = $browserWindow.height(),
+          siblingHeight = this.$siblings.toArray().reduce(
+            (total, element) => total + $(element).outerHeight(), 0
+          ),
+          topPadding = toInt($browserBody.css('padding-top')),
+          minWidth = $browserWindow.width() > 960,
+          minHeight = $browserWindow.height() > 650
 
-      var
-        sidebarHeight = this.$sidebar.outerHeight(),
-        sidebarTop = toInt(this.$sidebar.css('top')) + toInt(this.$sidebar.css('margin-top')),
-        windowHeight = Floater.$window.height(),
-        siblingHeight = this.$siblings.toArray().reduce(
-          (total, element) => total + $(element).outerHeight(), 0
-        ),
-        topPadding = toInt(Floater.$body.css('padding-top')),
-        minWidth = Floater.$window.width() > 960,
-        minHeight = Floater.$window.height() > 650
-
-      if (
-        minWidth && minHeight &&
-        this.$sidebar.hasClass('js-floating') &&
-        sidebarHeight + sidebarTop > windowHeight - topPadding
-      ){
-        this.$body.height(windowHeight - sidebarTop - siblingHeight - topPadding).css('overflow-y', 'auto')
-      } else {
-        this.$body.css('height', '').css('overflow-y', '')
+        if (
+          minWidth && minHeight &&
+          this.$sidebar.hasClass('js-floating') &&
+          sidebarHeight + sidebarTop > windowHeight - topPadding
+        ){
+          this.$body.hasClass('js-scrolling')
+          this.$body.height(windowHeight - sidebarTop - siblingHeight - topPadding).css('overflow-y', 'auto')
+        } else {
+          this.$body.css('height', '').css('overflow-y', '')
+        }
       }
     }
 
@@ -130,7 +135,7 @@
       this.$element = $element.addClass('js-floater')
       this.offset = offset
 
-      Floater.$window.resize(
+      $browserWindow.resize(
         () => {
           this.reset()
           this.scroll()
@@ -139,7 +144,7 @@
       this.reset()
       this.scroll()
 
-      Floater.$window.scroll(
+      $browserWindow.scroll(
         () => this.scroll()
       )
     }
@@ -169,8 +174,8 @@
         )
       }
       this.window = {
-        topPadding: toInt(Floater.$body.css('padding-top')),
-        width: Floater.$window.width()
+        topPadding: toInt($browserBody.css('padding-top')),
+        width: $browserWindow.width()
       }
       this.threshold =
         this.props.top
@@ -181,12 +186,12 @@
     scroll(){
 
       var
-        minWidth = Floater.$window.width() > 960,
-        minHeight = Floater.$window.height() > 650
+        minWidth = $browserWindow.width() > 960,
+        minHeight = $browserWindow.height() > 650
 
       if (
         minWidth && minHeight &&
-        Floater.$window.scrollTop() > this.threshold - this.offset
+        $browserWindow.scrollTop() > this.threshold - this.offset
       ) {
         this.$element.css(
           {
@@ -203,9 +208,6 @@
       }
     }
   }
-
-  Floater.$window = $(window)
-  Floater.$body = $('body')
 
 
   /* ------ Utility ------ */

@@ -34,24 +34,26 @@ class TicketBlock extends BlockBase {
       : FALSE;
 
     if ($outdated || !$quicket_code){
-      $links = ['<a class="button bio-update" href="/user/'.$uid.'/edit/update"><strong>Update your Bio</strong></a>'];
-    }
-
-    if ($settings->get('tickets')['general']){
+      $links = ['
+        <a class="button bio-update" href="/user/'.
+        $uid.
+        '/edit/update?get=tickets"><strong>Get tickets</strong></a>'
+      ];
+    } else if ($settings->get('tickets')['general']){
 
       if ($quicket_code){
         $links[] =
           '<a class="button bio-tickets" target="_blank" href="https://www.quicket.co.za/events/' .
           $settings->get('main_id') . '-?dc=' .
           $quicket_code .
-          '">Buy tickets</a><br/>';
+          '">Get tickets</a>';
       } else {
         $links[] = 'Please update your Bio to be able to purchase tickets';
       }
     } else {
       $links[] = '<h2>General Ticket Sales closed</h2>';
     }
-    $links[] = '<ul><li>&nbsp;&gt; <a target="_blank" href="https://www.afrikaburn.com/the-event/tickets">More about tickets</a></li></ul>';
+    $links[] = '<a class="more" target="_blank" href="https://www.afrikaburn.com/the-event/tickets">More about tickets</a>';
 
     return [
       '#type' => 'markup',

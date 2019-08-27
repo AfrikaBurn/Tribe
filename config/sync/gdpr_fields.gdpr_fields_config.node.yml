@@ -524,7 +524,7 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''
@@ -535,7 +535,7 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''
@@ -546,7 +546,7 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''
@@ -557,7 +557,7 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''
@@ -568,7 +568,7 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''
@@ -601,7 +601,7 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''
@@ -612,7 +612,7 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''
@@ -623,7 +623,7 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''
@@ -634,7 +634,7 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''

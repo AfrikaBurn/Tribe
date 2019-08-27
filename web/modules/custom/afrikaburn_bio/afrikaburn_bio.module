@@ -2,6 +2,7 @@
 
 use \Drupal\user\Entity\User;
 use Symfony\Component\HttpFoundation\RedirectResponse;
+use \Drupal\Core\Routing\TrustedRedirectResponse;
 
 
 /* ----- Module Hooks ----- */
@@ -58,7 +59,7 @@ function afrikaburn_bio_form_user_form_alter(&$form, $form_state, $form_id){
     case 'user_form':
       $form['#title'] = 'Editing my Bio';
       if (preg_match('/user\/reset/', \Drupal::request()->server->get('HTTP_REFERER'))) {
-        $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
+        $response = new RedirectResponse(\Drupal::url('<front>'));
         $response->send();
       }
       $form['account']['status']['#type'] = 'checkbox';
@@ -131,7 +132,7 @@ function afrikaburn_bio_entity_delete($entity){
     module_load_include('inc', 'afrikaburn_bio', 'includes/bio.quicket');
     _delete(@$entity->field_quicket_id->value);
 
-    $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
+    $response = new RedirectResponse(\Drupal::url('<front>'));
     $response->send();
   }
 }
@@ -144,7 +145,7 @@ function afrikaburn_bio_updated($form, &$form_state){
   $account = $form_state->getFormObject()->getEntity();
   $account_id = $account->id();
   $editor_id = \Drupal::currentUser()->id();
-  $sanghoma =   $user = User::load(1);
+  $sanghoma =  $user = User::load(1);
 
   if ($account_id == $editor_id || $editor_id == 0){
 
@@ -158,6 +159,20 @@ function afrikaburn_bio_updated($form, &$form_state){
     if ($editor_id != 0) {
       drupal_set_message('Thank you for keeping your information up to date!', 'status', true);
     }
+  }
+
+  if (\Drupal::request()->query->get('get') == 'tickets'){
+
+    $uid = \Drupal::currentUser()->id();
+    $settings = \Drupal::config('afrikaburn_shared.settings');
+    $account = \Drupal\user\Entity\User::load($uid);
+    $quicket_code = $account->get('field_quicket_code')
+      ? $account->get('field_quicket_code')->getValue()[0]['value']
+      : FALSE;
+    $ticket_link =
+      'https://www.quicket.co.za/events/' . $settings->get('main_id') .
+      '-?dc=' . $quicket_code;
+    $form_state->setResponse(new TrustedRedirectResponse($ticket_link));
   }
 }
 
