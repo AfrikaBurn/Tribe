@@ -58,8 +58,8 @@ class BioBlock extends BlockBase {
       '#title' => ['#markup' => $account->get('name')->value],
       '#markup' => implode($items),
       '#cache' => [
-        'tags' => ['user:' . $uid],
-      ]
+        'max-age' => 0,
+      ],
     ];
   }
 }
