@@ -437,9 +437,12 @@ content:
     third_party_settings: {  }
   field_mutant_drivers:
     weight: 18
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: erviews_options_buttons
+    type: entity_reference_autocomplete
     region: content
   field_mv_amount_worthy:
     weight: 11
@@ -599,7 +602,10 @@ content:
     region: content
   field_prj_brn_person:
     weight: 17
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings:
       conditional_fields:
         3ef596ce-785d-4e6b-8627-d123b60b258e:
@@ -634,7 +640,7 @@ content:
             selector: ''
           entity_type: node
           bundle: mutant_vehicles
-    type: erviews_options_select
+    type: entity_reference_autocomplete
     region: content
   field_prj_brn_plan:
     weight: 16
@@ -686,7 +692,10 @@ content:
     region: content
   field_prj_cll_contact:
     weight: 7
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings:
       conditional_fields:
         79cc92f8-276b-445f-b905-ed21b4bc3e6f:
@@ -721,7 +730,7 @@ content:
             selector: ''
           entity_type: node
           bundle: mutant_vehicles
-    type: erviews_options_select
+    type: entity_reference_autocomplete
     region: content
   field_prj_cll_description:
     weight: 6
@@ -780,9 +789,12 @@ content:
     region: content
   field_prj_gen_contact:
     weight: 10
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: erviews_options_select
+    type: entity_reference_autocomplete
     region: content
   field_prj_gen_description:
     weight: 27
@@ -801,9 +813,12 @@ content:
     region: content
   field_prj_gen_lead:
     weight: 12
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: erviews_options_select
+    type: entity_reference_autocomplete
     region: content
   field_prj_gen_mutating:
     weight: 30
@@ -815,9 +830,12 @@ content:
     region: content
   field_prj_gen_owner:
     weight: 14
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: erviews_options_select
+    type: entity_reference_autocomplete
     region: content
   field_prj_gen_story:
     weight: 28
@@ -876,7 +894,10 @@ content:
     region: content
   field_prj_lgh_lighter:
     weight: 126
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings:
       conditional_fields:
         ad42da77-40cc-438a-9729-1443c2992cea:
@@ -911,7 +932,7 @@ content:
             selector: ''
           entity_type: node
           bundle: mutant_vehicles
-    type: erviews_options_select
+    type: entity_reference_autocomplete
     region: content
   field_prj_lgh_night:
     weight: 123
@@ -985,9 +1006,12 @@ content:
     region: content
   field_prj_lnt_representative:
     weight: 129
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: erviews_options_select
+    type: entity_reference_autocomplete
     region: content
   field_prj_oth_agree:
     weight: 25
@@ -1187,7 +1211,10 @@ content:
     region: content
   field_prj_snd_person:
     weight: 14
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings:
       conditional_fields:
         106daeb2-ff06-41c4-b4f2-aa8256bfec74:
@@ -1222,7 +1249,7 @@ content:
             selector: ''
           entity_type: node
           bundle: mutant_vehicles
-    type: erviews_options_select
+    type: entity_reference_autocomplete
     region: content
   field_prj_snd_safety:
     weight: 11

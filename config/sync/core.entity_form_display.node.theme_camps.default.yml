@@ -467,7 +467,10 @@ content:
     region: content
   field_prj_cll_contact:
     weight: 14
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings:
       conditional_fields:
         fbfe2d23-000e-47ac-9d04-67dfc705bc85:
@@ -485,7 +488,7 @@ content:
             selector: ''
           entity_type: node
           bundle: theme_camps
-    type: erviews_options_select
+    type: entity_reference_autocomplete
     region: content
   field_prj_cll_description:
     weight: 13
@@ -549,9 +552,12 @@ content:
     region: content
   field_prj_gen_contact:
     weight: 22
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: erviews_options_select
+    type: entity_reference_autocomplete
     region: content
   field_prj_gen_description:
     weight: 4
@@ -563,7 +569,10 @@ content:
     region: content
   field_prj_gen_fundraiser:
     weight: 27
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings:
       conditional_fields:
         699ef31a-2786-418a-b66b-4962e02aef08:
@@ -581,7 +590,7 @@ content:
             selector: ''
           entity_type: node
           bundle: theme_camps
-    type: erviews_options_select
+    type: entity_reference_autocomplete
     region: content
   field_prj_gen_fundraising:
     weight: 26
@@ -650,9 +659,12 @@ content:
     region: content
   field_prj_lnt_representative:
     weight: 1
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
-    type: erviews_options_select
+    type: entity_reference_autocomplete
     region: content
   field_prj_oth_associated:
     weight: 24
@@ -947,7 +959,10 @@ content:
     region: content
   field_prj_stg_contact:
     weight: 19
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
     third_party_settings:
       conditional_fields:
         de67304e-0d03-4939-8d64-ad64bd534d6a:
@@ -965,7 +980,7 @@ content:
             selector: ''
           entity_type: node
           bundle: theme_camps
-    type: erviews_options_select
+    type: entity_reference_autocomplete
     region: content
   field_prj_stg_description:
     weight: 18
