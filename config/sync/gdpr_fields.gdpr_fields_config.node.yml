@@ -1476,7 +1476,7 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''
@@ -1487,7 +1487,7 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''
@@ -1498,7 +1498,7 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''
@@ -1509,7 +1509,7 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''
@@ -1520,13 +1520,68 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''
     field_prj_lnt_representative:
       bundle: performances
       name: field_prj_lnt_representative
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_stc_structural:
+      bundle: performances
+      name: field_prj_stc_structural
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_cll_contact:
+      bundle: performances
+      name: field_prj_cll_contact
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_snd_person:
+      bundle: performances
+      name: field_prj_snd_person
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_brn_person:
+      bundle: performances
+      name: field_prj_brn_person
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_adm_wrangler:
+      bundle: performances
+      name: field_prj_adm_wrangler
       entity_type_id: node
       rtf: 'no'
       rta: 'no'
