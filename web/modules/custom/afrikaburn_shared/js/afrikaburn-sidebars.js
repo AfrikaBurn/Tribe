@@ -59,7 +59,7 @@
 
     constructor($block, $sidebar, exclude){
 
-      this.cookieKey = $sidebar? $sidebar.parent().attr('class') : $block.attr('id')
+      this.cookieKey = $sidebar ? $sidebar.parent().attr('class') : false
       this.$sidebar = $sidebar || false
       this.$block = $block.addClass('collapsible')
       this.$title = $block.children('h2')
@@ -83,7 +83,7 @@
     collapse(){
       this.$body.slideUp().css({height: ''}).css('overflow-y', 'hidden')
       this.$block.addClass('collapsed')
-      if (this.$block.attr('id') == $.cookie(this.cookieKey))
+      if (this.cookieKey && this.$block.attr('id') == $.cookie(this.cookieKey))
         $.cookie(this.cookieKey, null)
     }
 
@@ -120,7 +120,7 @@
       )
 
       this.$block.removeClass('collapsed')
-      $.cookie(this.cookieKey, this.$block.attr('id'))
+      if (thix.cookieKey) $.cookie(this.cookieKey, this.$block.attr('id'))
       this.$siblings.not(this.exclude).trigger('collapse')
     }
   }
