@@ -29,7 +29,7 @@
                 new Collapsible($sidebar)
               }
 
-              if ($logo.length) new Floater($logo, 0)
+              if ($biobar.length && $logo.length) new Floater($logo, 0)
               if ($wrangleBlock.length) new Collapsing($wrangleBlock)
             }
           },

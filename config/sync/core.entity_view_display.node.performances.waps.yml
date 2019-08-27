@@ -159,6 +159,7 @@ hidden:
   field_bke_location: true
   field_bke_time: true
   field_collective: true
+  field_expenses_header: true
   field_form_mode: true
   field_grt_art_total: true
   field_grt_breakdown: true
@@ -231,6 +232,7 @@ hidden:
   field_prj_oth_other: true
   field_prj_oth_relationship: true
   field_prj_oth_unregistered: true
+  field_prj_process_work: true
   field_prj_prp_duration: true
   field_prj_prp_erection: true
   field_prj_prp_start: true

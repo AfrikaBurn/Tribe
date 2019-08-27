@@ -161,8 +161,18 @@ function afrikaburn_bio_updated($form, &$form_state){
     }
   }
 
-  if (\Drupal::routeMatch()->getParameter('destination') == 'get-tickets'){
-    $form_state->setResponse(new TrustedRedirectResponse('https://google.com'));
+  if (\Drupal::request()->query->get('get') == 'tickets'){
+
+    $uid = \Drupal::currentUser()->id();
+    $settings = \Drupal::config('afrikaburn_shared.settings');
+    $account = \Drupal\user\Entity\User::load($uid);
+    $quicket_code = $account->get('field_quicket_code')
+      ? $account->get('field_quicket_code')->getValue()[0]['value']
+      : FALSE;
+    $ticket_link =
+      'https://www.quicket.co.za/events/' . $settings->get('main_id') .
+      '-?dc=' . $quicket_code;
+    $form_state->setResponse(new TrustedRedirectResponse($ticket_link));
   }
 }
 

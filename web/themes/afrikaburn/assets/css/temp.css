@@ -31,14 +31,8 @@ a:visited {
 .main-block a:hover,
 .main-block a:visited {
   color: #396F32;
-  text-shadow: #DB4127;
   font-weight: bold;
 }
-.main-block a:hover{
-  text-decoration: underline;
-}
-
-
 
 .collectivebar a,
 .collectivebar a:hover,

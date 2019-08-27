@@ -714,6 +714,10 @@ hidden:
   field_arteria_checkin: true
   field_burn_can_be_denied: true
   field_collective: true
+  field_footprint_diameter: true
+  field_footprint_length: true
+  field_footprint_specification: true
+  field_footprint_width: true
   field_form_mode: true
   field_grant_expense_header: true
   field_grt_art_apply: true
@@ -738,6 +742,7 @@ hidden:
   field_lineup_request: true
   field_lnt_intro: true
   field_muncipal_district: true
+  field_prj_actualising: true
   field_prj_adm_form_3: true
   field_prj_adm_latitude: true
   field_prj_adm_longitude: true
@@ -787,6 +792,7 @@ hidden:
   field_prj_oth_unregistered: true
   field_prj_plc_f1: true
   field_prj_plc_location_extra: true
+  field_prj_process_work: true
   field_prj_prp_duration: true
   field_prj_prp_erection: true
   field_prj_prp_start: true

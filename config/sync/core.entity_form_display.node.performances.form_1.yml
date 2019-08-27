@@ -437,6 +437,7 @@ hidden:
   field_admin_comments: true
   field_allow_support_camp: true
   field_api_content_type: true
+  field_expenses_header: true
   field_grt_art_total: true
   field_grt_breakdown: true
   field_grt_contribution: true
@@ -501,6 +502,7 @@ hidden:
   field_prj_oth_other: true
   field_prj_oth_relationship: true
   field_prj_oth_unregistered: true
+  field_prj_process_work: true
   field_prj_prp_duration: true
   field_prj_prp_erection: true
   field_prj_prp_start: true

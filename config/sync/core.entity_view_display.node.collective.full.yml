@@ -46,6 +46,11 @@ targetEntityType: node
 bundle: collective
 mode: full
 content:
+  accept:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   edit:
     weight: 100
     settings: {  }
@@ -67,8 +72,23 @@ content:
     third_party_settings: {  }
     type: image
     region: content
+  flag_disclose:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   flag_mute:
     weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  ignore:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  invited:
+    weight: 100
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -92,6 +112,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  request:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
 hidden:
   field_col_admins: true
   field_col_invite_mail: true

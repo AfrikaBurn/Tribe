@@ -52,15 +52,16 @@
   border-width: 2px;
 }
 
+#block-ticketblock .button.bio-update,
 #block-ticketblock .button.bio-tickets{
   height: auto;
   line-height: 100%;
+  margin: 20px 0 10px;
   padding: 10px;
 }
 
-#block-ticketblock .button.bio-update{
-  margin-bottom: 5px;
-  font-size: 90%;
+#block-ticketblock .content{
+  text-align: center;
 }
 
 #block-entityviewuser img{
