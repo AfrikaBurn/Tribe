@@ -60,21 +60,35 @@ function _update($id_number, $quicket_code, $quicket_id){
     "codes/search?eventId=$event_id&text=$quicket_code"
   ) : FALSE;
 
-  return $existing
-    ? quicket_request(
-      'PUT',
-      "codes/$quicket_id",
-      [
-        'EventId' => $event_id,
-        'IsPercentage' => FALSE,
-        'DiscountAmount' => 0.0,
-        'NumUses' => 6,
-        'IsAccessCode' => TRUE,
-        'Email' => str_replace(' ', '', $id_number),
-        'TicketTypes' =>  $existing->TicketTypes,
-      ]
-    )
-  : _generate($id_number);
+  return $existing ? quicket_request(
+    'PUT',
+    "codes/$quicket_id",
+    [
+      'EventId' => $event_id,
+      'IsPercentage' => FALSE,
+      'DiscountAmount' => 0.0,
+      'NumUses' => 6,
+      'IsAccessCode' => TRUE,
+      'Email' => str_replace(' ', '', $id_number),
+      'TicketTypes' =>  array_values(
+        array_unique(
+          array_merge(
+            array_filter(
+              [
+                $config->get('main_general_id'),
+                $config->get('main_general_minor_id'),
+                $config->get('main_general_kids_id'),
+                $config->get('main_mayday_id'),
+                $config->get('main_mayday_minor_id'),
+                $config->get('main_mayday_kids_id'),
+              ]
+            ),
+            $existing ? $existing->TicketTypes : []
+          )
+        )
+      ),
+    ]
+  ) : _generate($id_number);
 }
 
 /**

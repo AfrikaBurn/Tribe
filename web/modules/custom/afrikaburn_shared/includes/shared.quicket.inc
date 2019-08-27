@@ -35,6 +35,9 @@ function quicket_request($method, $endpoint, $body = FALSE){
 
   try{
 
+    \Drupal::logger('Quicket')->debug('Quicket call!<br /><pre>' . $e . '</pre>');
+    \Drupal::logger('Quicket')->debug('Payload:<br /><pre>' . var_export($options, TRUE) . '</pre>');
+
     $client = \Drupal::httpClient();
     $api = (strpos($endpoint, '?') ? '&' : '?') . 'api_key=' . $settings['api_key'];
     $url = "https://api.quicket.co.za/api/$endpoint$api";
