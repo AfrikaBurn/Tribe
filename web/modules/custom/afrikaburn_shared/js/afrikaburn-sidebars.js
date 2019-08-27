@@ -55,13 +55,13 @@
 
     constructor($block, $sidebar, exclude){
 
-      this.cookieKey = $sidebar.parent().attr('class')
+      this.cookieKey = $sidebar ? $sidebar.parent().attr('class') : $block.attr('id')
       this.$sidebar = $sidebar
       this.$block = $block.addClass('collapsible')
       this.$title = $block.children('h2')
       this.$body = $block.children('.content, ul.menu')
       this.$siblings = $block.siblings()
-      this.exclude = exclude
+      this.exclude = exclude || ''
 
       if ($block.attr('id') != $.cookie(this.cookieKey)) this.collapse()
 
