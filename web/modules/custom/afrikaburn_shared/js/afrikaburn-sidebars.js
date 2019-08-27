@@ -39,8 +39,9 @@
     }
   }
 
-  $browserWindow = $(window)
-  $browserBody = $('body')
+  const
+    $browserWindow = $(window),
+    $browserBody = $('body')
 
 
   /* ------ Collapsing sidebar blocks ------ */
@@ -80,7 +81,7 @@
     }
 
     collapse(){
-      this.$body.slideUp().css({height: ''}).css('overflow-y', '')
+      this.$body.slideUp().css({height: ''}).css('overflow-y', 'hidden')
       this.$block.addClass('collapsed')
       if (this.$block.attr('id') == $.cookie(this.cookieKey))
         $.cookie(this.cookieKey, null)

@@ -188,8 +188,8 @@ class AfrikaBurnSettings extends ConfigFormBase {
         '#type' => 'details',
         '#open' => FALSE,
         '#title' => $event->name,
-        'description' => ['#markup' => $event->description],
         'id' => ['#title' => 'Event ID', '#type' => 'textfield', '#value' => $event->id, '#attributes' => ['disabled' => 'disabled']],
+        'description' => ['#markup' => $event->description],
       ];
       foreach($event->tickets as $ticket){
         $form['tabs']['quicket']['defined'][$id][] = [
