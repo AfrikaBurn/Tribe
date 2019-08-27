@@ -1004,15 +1004,29 @@ bundles:
       notes: ''
       relationship: 0
       sars_filename: ''
+    field_prj_adm_wrangler:
+      bundle: theme_camps
+      name: field_prj_adm_wrangler
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   mutant_vehicles:
     field_mutant_drivers:
       enabled: false
       rta: 'no'
       rtf: 'no'
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       bundle: mutant_vehicles
       name: field_mutant_drivers
+      entity_type_id: node
+      relationship: 0
+      sars_filename: ''
     field_prj_adm_registration:
       enabled: false
       rta: 'no'
@@ -1238,7 +1252,7 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''
@@ -1249,7 +1263,7 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''
@@ -1260,7 +1274,7 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''
@@ -1278,6 +1292,50 @@ bundles:
     field_prj_gen_owner:
       bundle: mutant_vehicles
       name: field_prj_gen_owner
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_lgh_lighter:
+      bundle: mutant_vehicles
+      name: field_prj_lgh_lighter
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_snd_person:
+      bundle: mutant_vehicles
+      name: field_prj_snd_person
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_brn_person:
+      bundle: mutant_vehicles
+      name: field_prj_brn_person
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_lnt_representative:
+      bundle: mutant_vehicles
+      name: field_prj_lnt_representative
       entity_type_id: node
       rtf: 'no'
       rta: 'no'
