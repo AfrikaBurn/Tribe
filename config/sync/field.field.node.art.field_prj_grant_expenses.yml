@@ -24,7 +24,7 @@ default_value: {  }
 default_value_callback: ''
 settings:
   file_directory: 'expenses/[date:custom:Y]-[date:custom:m]'
-  file_extensions: xls
+  file_extensions: pdf
   max_filesize: ''
   description_field: false
   handler: 'default:file'
