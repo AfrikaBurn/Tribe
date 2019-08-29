@@ -1,16 +1,18 @@
-Currently AfrikaBurns main server runs on ubuntu, this is a detailed install guide so you can match our exact setup.
+Currently AfrikaBurns main server runs on ubuntu, this is a detailed install guide so you can match our exact setup. We normally a few months behind the most current long term stable version.
 
 ```
-sudo apt-get update
-sudo apt-get upgrade -y
+sudo apt update
+sudo apt upgrade -y
 
 sudo apt-get install -y php7.2 php7.2-curl php7.2-gd php7.2-mysql php7.2-bz2 php7.2-zip php7.2-mbstring php7.2-tidy php7.2-opcache php7.2-xml php-uploadprogress php7.2-fpm php7.2-imap php7.2-ldap php7.2-xsl
 
 sudo apt-get install curl php-cli unzip
 
 sudo apt-get install -y mariadb-client
+
+# We have load balanced servers, so the dabase is on a completely different system. 
+# But our local development enviroments use local databases.
 sudo apt-get install -y mariadb-server
-sudo apt-get install -y apache2
 
 sudo apt-get -y install php7.2 libapache2-mod-php7.2
 
@@ -30,7 +32,7 @@ sudo a2enmod mpm_event
    # Enable event MPM. You could also enable mpm_worker.
 
    #added the following text to the end of
-sudo vim /etc/apache2/apache2.conf
+sudo nano /etc/apache2/apache2.conf
 Protocols h2 h2c http/1.1
 
 sudo a2enconf php7.2-fpm 
@@ -45,7 +47,7 @@ sudo systemctl restart apache2
 Create a new apache virtual host
 ```
 cd /etc/apache2/sites-available/
-sudo vim tribe.conf
+sudo nano tribe.conf
 ```
 
 You will need to added the following details to the folder. If you plan to install Tribe in a separate location, please ensure you use the correct folder location. 
@@ -110,4 +112,9 @@ sudo vim /etc/hosts
 add the following line
 ```
 127.0.1.1       tribe.localhost
+```
+
+Finally restart apache
+```
+sudo systemctl reload apache2
 ```
