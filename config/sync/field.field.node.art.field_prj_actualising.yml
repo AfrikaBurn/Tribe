@@ -16,8 +16,8 @@ id: node.art.field_prj_actualising
 field_name: field_prj_actualising
 entity_type: node
 bundle: art
-label: 'When are you planning on bringing your artwork'
-description: 'We realise projects can take more than a single year to actualise, so you can start registering so long and even apply for a grant this year already.'
+label: 'When are you planning on bringing your artwork to TankwaTown?'
+description: "We realise that projects can take more than a year to actualise. \r\nIf you register your project for the following year and apply for a creative grant now, we'll be able to assess it and start working with you now. "
 required: true
 translatable: false
 default_value:

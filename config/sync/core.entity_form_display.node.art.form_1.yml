@@ -145,6 +145,7 @@ dependencies:
     - field.field.node.art.field_snd_bass_bins
     - field.field.node.art.field_snd_playtime_mon_wed
     - field.field.node.art.field_snd_playtime_thurs_sun
+    - field.field.node.art.field_sound_motivation
     - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
     - field.field.node.art.field_vp_ea
@@ -170,7 +171,6 @@ third_party_settings:
         - field_prj_actualising
         - title
         - field_prj_gen_contact
-        - field_prj_gen_manager
         - field_prj_gen_lead
         - field_prj_gen_location
         - field_prj_gen_bio
@@ -309,6 +309,7 @@ third_party_settings:
         - field_prj_snd_sound
         - field_prj_snd_level
         - field_prj_snd_more_later
+        - field_sound_motivation
       parent_name: group_project_registration
       weight: 12
       format_type: tab
@@ -477,10 +478,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_muncipal_district:
-    type: options_select
+    type: cshs
     weight: 0
     region: content
-    settings: {  }
+    settings:
+      parent: 0
+      level_labels: ''
+      force_deepest: false
     third_party_settings: {  }
   field_prj_actualising:
     type: options_buttons
@@ -558,14 +562,14 @@ content:
           bundle: art
   field_prj_cll_collaborate:
     type: boolean_checkbox
-    weight: 7
+    weight: 3
     region: content
     settings:
       display_label: true
     third_party_settings: {  }
   field_prj_cll_contact:
     type: erviews_options_select
-    weight: 11
+    weight: 7
     region: content
     settings: {  }
     third_party_settings:
@@ -588,7 +592,7 @@ content:
           bundle: art
   field_prj_cll_description:
     type: string_textarea
-    weight: 8
+    weight: 4
     region: content
     settings:
       rows: 5
@@ -678,12 +682,6 @@ content:
       parent: 0
       level_labels: ''
       force_deepest: false
-    third_party_settings: {  }
-  field_prj_gen_manager:
-    type: erviews_options_select
-    weight: 3
-    region: content
-    settings: {  }
     third_party_settings: {  }
   field_prj_gen_story:
     type: string_textarea
@@ -941,7 +939,7 @@ content:
     region: content
   field_prj_wtf_image:
     type: image_image
-    weight: 9
+    weight: 5
     region: content
     settings:
       progress_indicator: throbber
@@ -965,7 +963,7 @@ content:
           bundle: art
   field_prj_wtf_website:
     type: link_default
-    weight: 10
+    weight: 6
     region: content
     settings:
       placeholder_url: ''
@@ -993,6 +991,14 @@ content:
     third_party_settings: {  }
     type: options_buttons
     region: content
+  field_sound_motivation:
+    type: string_textarea
+    weight: 4
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
   flag:
     weight: 9
     region: content
@@ -1053,6 +1059,7 @@ hidden:
   field_prj_gen_external: true
   field_prj_gen_fundraiser: true
   field_prj_gen_fundraising: true
+  field_prj_gen_manager: true
   field_prj_grant_expenses: true
   field_prj_lgh_agree: true
   field_prj_lgh_description: true

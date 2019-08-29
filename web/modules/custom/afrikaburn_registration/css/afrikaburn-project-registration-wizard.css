@@ -46,3 +46,10 @@
 #afrikaburn-registration-wizard .form-radios .form-item--error-message{
   display: none;
 }
+
+#afrikaburn-registration-wizard .form-radios .form-disabled label{
+  opacity: 0.5;
+}
+#afrikaburn-registration-wizard .form-radios .form-disabled input:before{
+  display: none;
+}

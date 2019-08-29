@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Contains \Drupal\afrikaburn_collective\CollectiveController.
+ * Contains \Drupal\afrikaburn_collective\Controller\CollectiveController.
  */
 
 namespace Drupal\afrikaburn_collective\Controller;

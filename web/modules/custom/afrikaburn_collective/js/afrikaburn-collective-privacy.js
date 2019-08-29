@@ -12,6 +12,11 @@
 
       $(
         function(){
+
+          $('#edit-field-settings').prefix(
+            '<button>Open</button>'
+          )
+
           $('#edit-field-members .js-form-item input').change(
             function(){
               var $this = $(this)

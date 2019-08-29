@@ -120,7 +120,7 @@
       )
 
       this.$block.removeClass('collapsed')
-      if (thix.cookieKey) $.cookie(this.cookieKey, this.$block.attr('id'))
+      if (this.cookieKey) $.cookie(this.cookieKey, this.$block.attr('id'))
       this.$siblings.not(this.exclude).trigger('collapse')
     }
   }

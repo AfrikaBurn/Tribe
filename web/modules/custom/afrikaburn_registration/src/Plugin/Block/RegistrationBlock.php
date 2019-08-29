@@ -95,9 +95,7 @@ class RegistrationBlock extends BlockBase {
                 '#type' => 'markup',
                 '#markup' => '<ul class="new-project"><li>' . implode('</li><li>', $links) . '</li></ul>',
                 '#cache' => $cache,
-              ] : [
-                '#cache' => $cache,
-              ];
+              ] : FALSE;
             break;
 
           case $display == 'current':

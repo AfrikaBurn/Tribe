@@ -244,10 +244,13 @@ bundles:
       enabled: false
       rta: 'no'
       rtf: 'no'
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       bundle: art
       name: field_prj_snd_more_later
+      entity_type_id: node
+      relationship: 0
+      sars_filename: ''
     field_prj_prp_start:
       enabled: false
       rta: 'no'
@@ -337,7 +340,7 @@ bundles:
       rtf: 'no'
       rta: 'no'
       enabled: false
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''
@@ -630,6 +633,39 @@ bundles:
     field_prj_lnt_representative:
       bundle: art
       name: field_prj_lnt_representative
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_actualising:
+      bundle: art
+      name: field_prj_actualising
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_prj_snd_sound:
+      bundle: art
+      name: field_prj_snd_sound
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_sound_motivation:
+      bundle: art
+      name: field_sound_motivation
       entity_type_id: node
       rtf: 'no'
       rta: 'no'

@@ -18,13 +18,13 @@ entity_type: node
 bundle: art
 label: 'Sound description later'
 description: ''
-required: false
+required: true
 translatable: false
 default_value:
   - {  }
 default_value_callback: ''
 settings:
   markup:
-    value: "<p>There will be a separate form later about your sound plan.</p>\r\n"
+    value: "<p>If you are planning a&nbsp;loud all night dancefloor in the Binnerkring, these are some of the things that you need to think about:<br />\r\n- Are you bringing something new - What?<br />\r\n- How important is it for the meaning of your artwork to be loud?<br />\r\n- Will you consider building your artwork if the sound component as you planned, is removed?&nbsp;<br />\r\n- Are you aware that you are responsible for the MOOP left on your party site? - Do you have a plan to deal with this?<br />\r\n- Why is it that you want to do this to yourself?</p>\r\n\r\n<p>To avoid bad surprises later, please be prepared for a change of plans pertaining to sound.</p>\r\n\r\n<p><br />\r\nThe Art Committee and the Sound Team will assess your request (and this is going to be very strict this year) and get back to you.</p>\r\n"
     format: basic_html
 field_type: markup

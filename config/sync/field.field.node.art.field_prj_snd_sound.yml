@@ -18,7 +18,7 @@ field_name: field_prj_snd_sound
 entity_type: node
 bundle: art
 label: 'Does your artwork have a sound component?'
-description: 'Please note that if you are planning a loud party site with permanently installed sound equipment, your sound plan and motivation are assessed by the Art Committee and the Sound Team, and have to be approved. '
+description: ''
 required: false
 translatable: true
 default_value:

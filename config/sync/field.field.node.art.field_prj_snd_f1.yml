@@ -27,6 +27,6 @@ default_value:
 default_value_callback: ''
 settings:
   markup:
-    value: "<p><span><a href=\"https://www.afrikaburn.com/the-event/artworks/afrikaburn-sound-policy\" target=\"_blank\">Read our Sound Policy</a>. </span></p>\r\n\r\n<p><span>Note that you will have to motivate to have installed sound (i.e. not from an MV) sound at your artwork as this affects placement.</span></p>\r\n"
+    value: "<p>Before we get started on this, please <span><a href=\"https://www.afrikaburn.com/the-event/artworks/afrikaburn-sound-policy\" target=\"_blank\">read our Sound Policy</a>. </span></p>\r\n"
     format: full_html
 field_type: markup

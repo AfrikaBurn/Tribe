@@ -5,7 +5,8 @@
  */
 
 use \Drupal\afrikaburn_shared\Utils;
-use Drupal\afrikaburn_alert\Controller\AlertController;
+use \Drupal\afrikaburn_alert\Controller\AlertController;
+use \Drupal\afrikaburn_collective\Controller\CollectiveController;
 
 /**
  * Send an email
@@ -51,15 +52,14 @@ function _meta_collective($entity){
   $addresses = [];
   $collective = $entity->bundle() == 'collective'
     ? $entity
-    : $entity->get('field_collective')
-      ->first()
-      ->get('entity')
-      ->getTarget()
-      ->getValue();
+    : $entity->field_collective->entity;
 
   if ($collective) {
     $member_uids = array_diff(
-      array_column($collective->get('field_col_members')->getValue(), 'target_id'),
+      array_map(
+        function($user){ return $user->uid->value; },
+        CollectiveController::getMembers($collective)
+      ),
       AlertController::muted($collective)
     );
     $members = user_load_multiple($member_uids);
