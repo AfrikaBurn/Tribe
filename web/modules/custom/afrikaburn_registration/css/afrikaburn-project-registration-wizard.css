@@ -1,23 +1,28 @@
 @charset "utf-8";
 
 
-#afrikaburn-registration-wizard #edit-existing-project .form-item{
+#afrikaburn-registration-wizard #edit-existing-project .form-item,
+#afrikaburn-registration-wizard #edit-existing-collective .form-item{
   display: flex;
   align-items: center;
 }
 
-#afrikaburn-registration-wizard #edit-existing-project label{
+#afrikaburn-registration-wizard #edit-existing-project label,
+#afrikaburn-registration-wizard #edit-existing-collective label{
   display: block;
   padding: 10px;
-  width: 100%;
-}
-
-#afrikaburn-registration-wizard #edit-existing-project .form-item label:hover{
-  background: #0001;
+  min-width: 50%;
 }
 
 #afrikaburn-registration-wizard #edit-existing-project .form-item label:hover,
-#afrikaburn-registration-wizard #edit-existing-project img{
+#afrikaburn-registration-wizard #edit-existing-collective .form-item label:hover{
+    background: #0001;
+}
+
+#afrikaburn-registration-wizard #edit-existing-project .form-item label:hover,
+#afrikaburn-registration-wizard #edit-existing-project img,
+#afrikaburn-registration-wizard #edit-existing-collective .form-item label:hover,
+#afrikaburn-registration-wizard #edit-existing-collective img{
   border-radius: 5px;
 }
 

@@ -27,7 +27,7 @@ function _project_form_modes(){
     'performances' => [
       'title' => 'Binnekring event',
       'modes' => [
-        'form_1' => 'Registration form',
+        'form_1' => 'Registration',
         'grant' => 'Grant application',
         'support_camp' => 'Support camp',
         'supplier' => 'Supplier registration',
@@ -38,7 +38,7 @@ function _project_form_modes(){
     'mutant_vehicles' => [
       'title' => 'Mutant Vehicle',
       'modes' => [
-        'form_1' => 'Registration form',
+        'form_1' => 'Registration',
         'grant' => 'Grant application',
         'support_camp' => 'Support camp',
         'supplier' => 'Supplier registration',
@@ -49,7 +49,7 @@ function _project_form_modes(){
     'theme_camps' => [
       'title' => 'Theme Camp',
       'modes' => [
-        'form_1' => 'Introduction',
+        'form_1' => 'Registration',
         'form_2' => 'Specification',
         'form_3' => 'Publishing',
         'support_camp' => 'Support camp',

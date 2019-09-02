@@ -5,15 +5,17 @@
  * Contains Afrikaburn Shared module.
  */
 
+
 use \Drupal\Core\Form\FormStateInterface;
 use \Drupal\Core\Entity\EntityInterface;
 use \Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use \Drupal\user\Entity\User;
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Cache\Cache;
+
 use \Drupal\afrikaburn_collective\Controller\CollectiveController;
 use \Drupal\afrikaburn_collective\Controller\PrivacyController;
 use \Drupal\afrikaburn_shared\Utils;
-use Drupal\Core\Access\AccessResult;
-use Drupal\Core\Cache\Cache;
 
 
 /* ----- Page hooks ----- */

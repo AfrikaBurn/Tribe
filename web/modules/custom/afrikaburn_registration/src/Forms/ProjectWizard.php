@@ -8,8 +8,13 @@
 namespace Drupal\afrikaburn_registration\Forms;
 
 
-use Drupal\Core\Form\FormBase;
-use Drupal\Core\Form\FormStateInterface;
+use \Drupal\Core\Form\FormBase;
+use \Drupal\Core\Form\FormStateInterface;
+use \Drupal\user\Entity\User;
+use \Drupal\views\Views;
+
+use \Drupal\afrikaburn_collective\Controller\CollectiveController;
+use \Drupal\afrikaburn_registration\Controller\RegistrationController;
 
 
 /**
@@ -35,9 +40,10 @@ class ProjectWizard extends FormBase {
        find you, share resources and register your <strong>Artwork, Binnekring
        event, Mutant vehicle or Theme camp</strong>',
     CLOSED =
-      'Project registration is closed at present, but you can still
-      <a href="@create_collective">create a Collective</a> to help you
-      collaborate with team mates, new ones can find you and share resources.';
+      'All project registrations are closed at present.<p>You can still
+      <a class="button" href="@create_collective">create a Collective</a> to
+      help you collaborate with team mates, new ones can find you and share
+      resources.</p>';
 
   /**
    * {@inheritdoc}
@@ -54,7 +60,7 @@ class ProjectWizard extends FormBase {
       array_filter(
         $keys,
         function($option, $key) use ($config){
-          return $config->get($key . '/form_1')['open'];
+          return $config->get($option . '/form_1')['open'];
         },
         ARRAY_FILTER_USE_BOTH
       )
@@ -152,8 +158,18 @@ class ProjectWizard extends FormBase {
    */
   public function submitForm(&$form, $form_state) {
 
+    $values = $form_state->getValues();
+
+    if ($values['collective_todo'] == 'existing') {
+      if ($values['project_todo'] == 'existing') {
+        RegistrationController::reuse($values['project'], $values['collective']);
+      }
+    }
 
 
+    if ($values['invites']) {
+      CollectiveController::bulkInvite($collective, $values['invites']);
+    }
   }
 
 
@@ -355,7 +371,7 @@ class ProjectWizard extends FormBase {
       ]
     ];
 
-    $view = \Drupal\views\Views::getView('my_projects');
+    $view = Views::getView('my_projects');
     $view->setDisplay('select_project');
     $view->execute();
 
@@ -428,15 +444,16 @@ class ProjectWizard extends FormBase {
         ['project']
         [$row->nid] = [
           '#disabled' => TRUE,
+          '#description' => $this->t(
+            '%type registration is closed at present.',
+            [
+              '%type' => $types[$bundle]['title'],
+            ]
+          ),
           '#attributes' => [
-            'title' => $this->t(
-              '%type registration is closed at present.',
-              [
-                '%type' => $types[$bundle]['title'],
-              ]
-            ),
             'class' => ['disabled'],
           ],
+          '#weight' => 2,
         ];
       }
     }
@@ -463,6 +480,8 @@ class ProjectWizard extends FormBase {
    * Steady step builder
    */
   private function steady(){
+
+    $user = User::load(\Drupal::currentUser()->id());
 
     $tab = [
       '#title' => 'Steady',
@@ -610,8 +629,8 @@ class ProjectWizard extends FormBase {
       ],
     ];
 
-    $view = \Drupal\views\Views::getView('my_collectives');
-    $view->setDisplay('admin');
+    $view = Views::getView('my_collectives');
+    $view->setDisplay('joined');
     $view->execute();
 
     if ($view->total_rows == 0){
@@ -644,6 +663,45 @@ class ProjectWizard extends FormBase {
         ['collective']
         ['#options']
         [$row->nid] = render($option);
+
+      $description = array_filter(
+        [
+          !CollectiveController::isAdmin($collective, $user, TRUE)
+            ? : 'You need to be a group admin of this collective to register projects.'
+        ]
+      );
+
+      if (!CollectiveController::setting($collective, 'projects')) {
+        $tab['content']
+        ['existing_collective']
+        ['collective']
+        [$row->nid] = [
+          '#disabled' => TRUE,
+          '#description' => $this->t(
+            'This collective does not allow project registrations.'
+          ),
+          '#attributes' => [
+            'class' => ['disabled'],
+          ],
+          '#weight' => 2,
+        ];
+      } else {
+        if (!CollectiveController::isAdmin($collective, $user, TRUE)) {
+          $tab['content']
+          ['existing_collective']
+          ['collective']
+          [$row->nid] = [
+            '#disabled' => TRUE,
+            '#description' => $this->t(
+              'You need to be a group admin of this collective to register projects.'
+            ),
+            '#attributes' => [
+              'class' => ['disabled'],
+            ],
+            '#weight' => 2,
+          ];
+        }
+      }
     }
 
     return $tab;
