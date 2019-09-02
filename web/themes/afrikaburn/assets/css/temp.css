@@ -4,6 +4,10 @@
   background: #FAD542;
 }
 
+#main-content-strip div.body-content {
+  min-height: 100vh;
+}
+
 div.body-content{
   background: #FFEFD3;
   color: #333;
