@@ -8,8 +8,13 @@
 namespace Drupal\afrikaburn_registration\Forms;
 
 
-use Drupal\Core\Form\FormBase;
-use Drupal\Core\Form\FormStateInterface;
+use \Drupal\Core\Form\FormBase;
+use \Drupal\Core\Form\FormStateInterface;
+use \Drupal\user\Entity\User;
+use \Drupal\views\Views;
+
+use \Drupal\afrikaburn_collective\Controller\CollectiveController;
+use \Drupal\afrikaburn_registration\Controller\RegistrationController;
 
 
 /**
@@ -31,46 +36,74 @@ class ProjectWizard extends FormBase {
   const
     INTRODUCTION =
       'This wizard will help you set up or reuse a Project and
-       Collective space so you can collaborate with team mates, new ones can
+       Collective space to help you collaborate with team mates, new ones can
        find you, share resources and register your <strong>Artwork, Binnekring
-       event, Mutant vehicle or Theme camp</strong>';
+       event, Mutant vehicle or Theme camp</strong>',
+    CLOSED =
+      'All project registrations are closed at present.<p>You can still
+      <a class="button" href="@create_collective">create a Collective</a> to
+      help you collaborate with team mates, new ones can find you and share
+      resources.</p>';
 
   /**
    * {@inheritdoc}
    */
   public function buildForm($form, $form_state, $request = NULL) {
 
+    module_load_include('inc', 'afrikaburn_registration', 'includes/form');
+
     $form['#wizard'] = TRUE;
+    $config = \Drupal::config('afrikaburn_registration.settings');
+    $types = _project_form_modes();
+    $keys = array_keys($types);
+    $open_registrations = count(
+      array_filter(
+        $keys,
+        function($option, $key) use ($config){
+          return $config->get($option . '/form_1')['open'];
+        },
+        ARRAY_FILTER_USE_BOTH
+      )
+    );
 
-    $form['introduction'] = [
-      '#prefix' => '<p>',
-      '#markup' => $this->t(self::INTRODUCTION),
-      '#suffix' => '</p>',
-    ];
+    if ($open_registrations) {
 
-    $form['tabs'] = [
-      '#type' => 'horizontal_tabs',
-      '#entity_type' => 'node',
-      '#group_name' => 'project_tabs',
-      '#bundle' => 'collective',
+      $form['introduction'] = [
+        '#prefix' => '<p>',
+        '#markup' => $this->t(self::INTRODUCTION),
+        '#suffix' => '</p>',
+      ];
 
-      '#prefix' => '<div class="field-group-tabs-wrapper">',
+      $form['tabs'] = [
 
-      'ready' => $this->ready($form_state),
-      'steady' => $this->steady($form_state),
-      'go' => $this->go($form_state),
+        '#type' => 'horizontal_tabs',
+        '#entity_type' => 'node',
+        '#group_name' => 'project_tabs',
+        '#bundle' => 'collective',
 
-      '#suffix' => '</div>',
-    ];
+        '#prefix' => '<div class="field-group-tabs-wrapper">',
 
-    $form['actions'] = [
-      '#type' => 'container',
-      'create' => [
-        '#type' => 'submit',
-        '#value' => $this->t('GO'),
-        '#attributes' => ['class' => ['button--primary']],
-      ],
-      '#attributes' => ['class' => ['form-actions']],
+        'ready' => $this->ready($form_state),
+        'steady' => $this->steady($form_state),
+        'go' => $this->go($form_state),
+
+        '#suffix' => '</div>',
+      ];
+
+      $form['actions'] = [
+        '#type' => 'container',
+        'create' => [
+          '#type' => 'submit',
+          '#value' => $this->t('GO'),
+          '#attributes' => ['class' => ['button--primary']],
+        ],
+        '#attributes' => ['class' => ['form-actions']],
+      ];
+    } else $form[] = [
+      '#markup' => $this->t(
+        self::CLOSED,
+        ['@create_collective' => '/node/add/collective']
+      )
     ];
 
     $form['#attached']['library'][] = 'afrikaburn_registration/wizard';
@@ -125,8 +158,18 @@ class ProjectWizard extends FormBase {
    */
   public function submitForm(&$form, $form_state) {
 
+    $values = $form_state->getValues();
+
+    if ($values['collective_todo'] == 'existing') {
+      if ($values['project_todo'] == 'existing') {
+        RegistrationController::reuse($values['project'], $values['collective']);
+      }
+    }
 
 
+    if ($values['invites']) {
+      CollectiveController::bulkInvite($collective, $values['invites']);
+    }
   }
 
 
@@ -152,8 +195,6 @@ class ProjectWizard extends FormBase {
    */
   private function ready($form_state){
 
-    module_load_include('inc', 'afrikaburn_registration', 'includes/form');
-
     $input = $form_state->getUserInput();
 
     $tab = [
@@ -176,6 +217,19 @@ class ProjectWizard extends FormBase {
         return $config->get($key . '/form_1')['open'];
       },
       ARRAY_FILTER_USE_BOTH
+    );
+    $closed = array_diff(
+      $labels,
+      $open_registrations
+    );
+    $last = array_pop($closed);
+    $closed_description = $this->t(
+      '%type registration is closed at present',
+      [
+        '%type' => count($closed)
+          ? implode($closed, ', ') . ' and ' . $last
+          : $last
+      ]
     );
 
     $tab['content'] = [
@@ -279,6 +333,7 @@ class ProjectWizard extends FormBase {
               ':input[name="project_todo"]' => ['value' => 'new'],
             ],
           ],
+          '#description' => $closed_description,
         ],
 
         'title' => [
@@ -316,7 +371,7 @@ class ProjectWizard extends FormBase {
       ]
     ];
 
-    $view = \Drupal\views\Views::getView('my_projects');
+    $view = Views::getView('my_projects');
     $view->setDisplay('select_project');
     $view->execute();
 
@@ -324,7 +379,10 @@ class ProjectWizard extends FormBase {
       $tab['content']['project_todo_reuse']['#access'] = FALSE;
       $tab['content']['project_todo_new']['#attributes']['checked'] = 'checked';
     } else foreach($view->result as $row){
+
       $node = $row->_entity;
+      $bundle = $node->bundle();
+
       $option = [
         '#type' => 'container',
         'image' => $node->field_prj_gen_concept &&
@@ -380,6 +438,24 @@ class ProjectWizard extends FormBase {
         ['project']
         ['#options']
         [$row->nid] = render($option);
+      if (!$open_registrations[$bundle]){
+        $tab['content']
+        ['existing_project']
+        ['project']
+        [$row->nid] = [
+          '#disabled' => TRUE,
+          '#description' => $this->t(
+            '%type registration is closed at present.',
+            [
+              '%type' => $types[$bundle]['title'],
+            ]
+          ),
+          '#attributes' => [
+            'class' => ['disabled'],
+          ],
+          '#weight' => 2,
+        ];
+      }
     }
 
     return $tab;
@@ -404,6 +480,8 @@ class ProjectWizard extends FormBase {
    * Steady step builder
    */
   private function steady(){
+
+    $user = User::load(\Drupal::currentUser()->id());
 
     $tab = [
       '#title' => 'Steady',
@@ -551,8 +629,8 @@ class ProjectWizard extends FormBase {
       ],
     ];
 
-    $view = \Drupal\views\Views::getView('my_collectives');
-    $view->setDisplay('admin');
+    $view = Views::getView('my_collectives');
+    $view->setDisplay('joined');
     $view->execute();
 
     if ($view->total_rows == 0){
@@ -585,6 +663,45 @@ class ProjectWizard extends FormBase {
         ['collective']
         ['#options']
         [$row->nid] = render($option);
+
+      $description = array_filter(
+        [
+          !CollectiveController::isAdmin($collective, $user, TRUE)
+            ? : 'You need to be a group admin of this collective to register projects.'
+        ]
+      );
+
+      if (!CollectiveController::setting($collective, 'projects')) {
+        $tab['content']
+        ['existing_collective']
+        ['collective']
+        [$row->nid] = [
+          '#disabled' => TRUE,
+          '#description' => $this->t(
+            'This collective does not allow project registrations.'
+          ),
+          '#attributes' => [
+            'class' => ['disabled'],
+          ],
+          '#weight' => 2,
+        ];
+      } else {
+        if (!CollectiveController::isAdmin($collective, $user, TRUE)) {
+          $tab['content']
+          ['existing_collective']
+          ['collective']
+          [$row->nid] = [
+            '#disabled' => TRUE,
+            '#description' => $this->t(
+              'You need to be a group admin of this collective to register projects.'
+            ),
+            '#attributes' => [
+              'class' => ['disabled'],
+            ],
+            '#weight' => 2,
+          ];
+        }
+      }
     }
 
     return $tab;

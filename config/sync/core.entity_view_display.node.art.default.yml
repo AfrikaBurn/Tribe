@@ -144,6 +144,7 @@ dependencies:
     - field.field.node.art.field_snd_bass_bins
     - field.field.node.art.field_snd_playtime_mon_wed
     - field.field.node.art.field_snd_playtime_thurs_sun
+    - field.field.node.art.field_sound_motivation
     - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
     - field.field.node.art.field_vp_ea
@@ -338,6 +339,13 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: daterange_default
+    region: content
+  field_sound_motivation:
+    weight: 24
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
     region: content
   field_waps:
     type: entity_reference_revisions_entity_view

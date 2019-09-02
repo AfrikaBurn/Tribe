@@ -17,13 +17,13 @@ settings:
   allowed_values:
     -
       value: 'Broad based participation'
-      label: 'Broad based participation'
+      label: 'Enables broad based participation'
     -
       value: 'Developmental potential'
-      label: 'Developmental potential'
+      label: 'Has developmental potential'
     -
       value: 'Creative inputs to communities'
-      label: 'Creative inputs to communities'
+      label: 'Facilitates creative inputs to and from communities'
   allowed_values_function: ''
 module: options
 locked: false

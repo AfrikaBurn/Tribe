@@ -29,6 +29,7 @@ function afrikaburn_notification_user_delete($entity){
 
 /**
  * Implements hook_ENTITY_TYPE_insert.
+ * Notify users on
  */
 function afrikaburn_notification_node_insert($entity){
 
@@ -64,6 +65,27 @@ function afrikaburn_notification_node_update($entity){
     ) return;
 
     afrikaburn_notification_node_insert($entity);
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert.
+ * Notify users on posts.
+ */
+function afrikaburn_notification_comment_insert($entity){
+
+  $bundle = $entity->bundle();
+
+  if ($bundle == 'post'){
+
+    module_load_include('inc', 'afrikaburn_notification', 'includes/util');
+    module_load_include('inc', 'afrikaburn_notification', 'includes/post');
+
+    $collective = $entity->entity_id->entity;
+    $meta_collective = _meta_collective($collective);
+    $address_settings = \Drupal::config('afrikaburn_notification.address_settings');
+
+    _notify_post($entity, $meta_collective, $address_settings);
   }
 }
 

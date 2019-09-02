@@ -1,12 +1,14 @@
-uuid: 549eb93a-a7e0-4e92-a4f6-5e4888ffc18a
+uuid: c5b87689-8edb-4fa0-b17f-afdab1895959
 langcode: en
 status: true
 dependencies:
   config:
     - comment.type.post
+    - core.entity_view_mode.comment.mail
     - field.field.comment.post.comment_body
   module:
     - ds
+    - empty_fields
     - text
 third_party_settings:
   ds:
@@ -15,21 +17,31 @@ third_party_settings:
       library: layout_discovery/onecol
       disable_css: false
       entity_classes: all_classes
-      settings: {  }
+      settings:
+        classes: {  }
+        wrappers:
+          content: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
     regions:
       content:
         - comment_body
-id: comment.post.default
+id: comment.post.mail
 targetEntityType: comment
 bundle: post
-mode: default
+mode: mail
 content:
   comment_body:
     label: hidden
-    type: text_default
+    type: text_trimmed
     weight: 0
-    settings: {  }
-    third_party_settings: {  }
+    settings:
+      trim_length: 600
+    third_party_settings:
+      empty_fields:
+        handler: ''
     region: content
 hidden:
   links: true

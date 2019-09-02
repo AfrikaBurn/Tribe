@@ -1,28 +1,17 @@
-uuid: 549eb93a-a7e0-4e92-a4f6-5e4888ffc18a
+uuid: 44d11fb2-46e7-4145-b705-4edb643ee059
 langcode: en
 status: true
 dependencies:
   config:
     - comment.type.post
+    - core.entity_view_mode.comment.full
     - field.field.comment.post.comment_body
   module:
-    - ds
     - text
-third_party_settings:
-  ds:
-    layout:
-      id: layout_onecol
-      library: layout_discovery/onecol
-      disable_css: false
-      entity_classes: all_classes
-      settings: {  }
-    regions:
-      content:
-        - comment_body
-id: comment.post.default
+id: comment.post.full
 targetEntityType: comment
 bundle: post
-mode: default
+mode: full
 content:
   comment_body:
     label: hidden

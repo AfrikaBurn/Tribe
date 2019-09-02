@@ -17,7 +17,7 @@ field_name: field_prj_process_work
 entity_type: node
 bundle: art
 label: 'Do you consider this project to be a process work?'
-description: 'Fundamentally it is a process over and above a thing.'
+description: 'A process work is a project with a strong community development component, over and above a thing being built.'
 required: false
 translatable: false
 default_value: {  }

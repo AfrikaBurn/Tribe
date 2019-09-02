@@ -1,15 +1,19 @@
 <?php
 /**
  * @file
- * Contains \Drupal\afrikaburn_collective\CollectiveController.
+ * Contains \Drupal\afrikaburn_collective\Controller\CollectiveController.
  */
 
 namespace Drupal\afrikaburn_collective\Controller;
 
-use Drupal\Core\Controller\ControllerBase;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Drupal\afrikaburn_shared\Utils;
+
 use \Drupal\Core\Cache\Cache;
+use \Drupal\Core\Controller\ControllerBase;
+use \Drupal\user\Entity\User;
+use \Symfony\Component\HttpFoundation\RedirectResponse;
+
+use \Drupal\afrikaburn_shared\Utils;
+
 
 class CollectiveController extends ControllerBase {
 
@@ -43,15 +47,15 @@ class CollectiveController extends ControllerBase {
   /**
    * Invite participant(s) to a collective
    */
-  public static function bulkInvite(){
+  public static function bulkInvite($collective = FALSE, $emails = FALSE){
 
-    $collective = Utils::currentCollective();
+    $collective = $collective ? $collective : Utils::currentCollective();
     $emails = preg_split(
       '/[;, ]+/',
       strtolower(str_replace(
         ['[', ']', '<', '>'],
         '',
-        \Drupal::request()->request->get('emails')
+        $emails ? $emails : \Drupal::request()->request->get('emails')
       ))
     );
 

@@ -17,14 +17,14 @@ field_name: field_prj_grant_expenses
 entity_type: node
 bundle: art
 label: 'Grant expenses'
-description: 'Please complete and upload <a href="/modules/custom/afrikaburn_registration/files/art-expenses.xlsx" target="_blank">this spreadsheet</a> detailing your expenses.'
+description: "<ol>\r\n<li>Complete <a href=\"https://docs.google.com/spreadsheets/u/1/d/1RFlJuRuq1bNzCGTQoqBVy5c3ce_KaiB0IG_v4DRQIRI/copy\" target=\"_blank\">this Google spreadsheet</a></li>\r\n<li>Download it as a pdf and</li>\r\n<li>Upload it here</li>\r\n</ol>"
 required: true
 translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   file_directory: 'expenses/[date:custom:Y]-[date:custom:m]'
-  file_extensions: xls
+  file_extensions: pdf
   max_filesize: ''
   description_field: false
   handler: 'default:file'

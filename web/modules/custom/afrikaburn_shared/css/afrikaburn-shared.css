@@ -102,7 +102,7 @@ body .horizontal-tabs .horizontal-tab-button {
 /* ---- Collapse ---- */
 
 
-.block.collapsible{
+.block.collapsible h2{
   cursor: pointer;
 }
 
