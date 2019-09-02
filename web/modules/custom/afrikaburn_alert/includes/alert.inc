@@ -215,7 +215,7 @@ function _alert_approved($alert){
       [
         'subject' => $collective,
         'preview' => array_merge(
-          $collective->field_picture->view(
+          $collective->field_picture ? $collective->field_picture->view(
             [
               'type' => 'image',
               'label' => 'hidden',
@@ -224,7 +224,7 @@ function _alert_approved($alert){
                 'image_link' => 'content',
               ]
             ]
-          ),
+          ) : ['#markup' => ''],
           [
             '#suffix' => render($collective->field_col_description->view('teaser'))
           ]
@@ -253,7 +253,7 @@ function _alert_invited($alert){
     [
       'subject' => $invitee,
       'preview' => array_merge(
-        $collective->field_picture->view(
+        $collective->field_picture ? $collective->field_picture->view(
           [
             'type' => 'image',
             'label' => 'hidden',
@@ -262,7 +262,7 @@ function _alert_invited($alert){
               'image_link' => 'content',
             ]
           ]
-        ),
+        ) : ['#markup' => ''],
         [
           '#suffix' => render($collective->field_col_description->view('teaser'))
         ]
