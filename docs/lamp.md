@@ -106,10 +106,9 @@ sudo a2ensite tribe.conf
 
 You will need to setup a redirect on your local so your browser will open your virtual host.
 ```
-sudo vim /etc/hosts
+sudo nano /etc/hosts
 ```
-
-add the following line
+and add the following line to the file:
 ```
 127.0.1.1       tribe.localhost
 ```
@@ -118,3 +117,38 @@ Finally restart apache
 ```
 sudo systemctl reload apache2
 ```
+
+Note:
+If you are setting up a stand alone server, remember to set security auto update. 
+```
+sudo apt install unattended-upgrades
+```
+
+Then check that desired systems updates are turned on:
+```
+sudo nano /etc/apt/apt.conf.d/50unattended-upgrades
+```
+
+Make sure that at minimum the Security updates are being istalled.
+```
+Unattended-Upgrade::Allowed-Origins {
+        "${distro_id}:${distro_codename}";
+        "${distro_id}:${distro_codename}-security";
+//      "${distro_id}:${distro_codename}-updates";
+//      "${distro_id}:${distro_codename}-proposed";
+//      "${distro_id}:${distro_codename}-backports";
+};
+```
+
+Then set what auto updates are run
+```
+sudo nano /etc/apt/apt.conf.d/20auto-upgrades
+```
+Basic options for daily updates and a weekly clean p
+```
+APT::Periodic::Update-Package-Lists "1";
+APT::Periodic::Download-Upgradeable-Packages "1";
+APT::Periodic::AutocleanInterval "7";
+APT::Periodic::Unattended-Upgrade "1";
+```
+
