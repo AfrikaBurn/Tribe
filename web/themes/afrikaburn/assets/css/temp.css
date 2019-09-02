@@ -4,6 +4,10 @@
   background: #FAD542;
 }
 
+#main-content-strip div.body-content {
+  min-height: 100vh;
+}
+
 div.body-content{
   background: #FFEFD3;
   color: #333;
@@ -327,15 +331,21 @@ div.body-content .block .view-id-collective_projects table td.name .flag-mute.ac
   color: #533;
 }
 
+/* scrollbars */
 
-.block *::-webkit-scrollbar{
+.block .content{
+  scrollbar-color: #F18F08 transparent;
+  scrollbar-width: thin;
+}
+
+.block .content::-webkit-scrollbar{
   width: 10px;
   background-image: linear-gradient(to right, transparent 30%, #F18F08, transparent 70%);
   border-radius: 5px;
   overflow: visible;
 }
 
-.block *::-webkit-scrollbar-thumb{
+.block .content::-webkit-scrollbar-thumb{
   background-color: #F18F08;
   border-radius: 5px;
 }
