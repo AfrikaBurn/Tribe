@@ -25,11 +25,11 @@ class MembersBlock extends BlockBase {
    */
   public function access($account, $return_as_object = FALSE) {
 
-    $user = Utils::currentUser();
+    $user = Utils::currentUser($account);
     $collective = Utils::currentCollective();
 
     return (
-      $collective &&
+      $user && $collective &&
       CollectiveController::isAdmin($collective, $user) ||
       CollectiveController::setting($collective, 'public_members') ||
       CollectiveController::setting($collective, 'public_admins') ||

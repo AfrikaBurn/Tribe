@@ -26,48 +26,54 @@ class RegistrationController extends ControllerBase {
       $destination->set('created', time());
       $destination->set('changed', time());
       $destination->set('field_prjr_complete', []);
+      $destination_fields = array_keys($destination->getFields());
 
       foreach(
-        [
-          'field_form_mode',
-          'field_prj_adm_review',
-          'field_waps',
-          'field_waps_allowed',
-          'field_prj_actualising',
-          'field_prj_adm_wrangler',
-          'field_year_cycle',
-          'field_grt_awarded',
-          'field_mv_amount_worthy',
-          'field_grt_other',
-          'field_prj_adm_registration',
-          'field_final_placement',
-          'field_ice_card',
-          'field_placement_card',
-          'field_placement_letter_sent',
-          'field_prj_adm_latitude',
-          'field_prj_adm_longitude',
-          'field_plot',
-        ] as $field
-      ) {
+        array_intersect(
+          [
+            'field_form_mode',
+            'field_prj_adm_review',
+            'field_waps',
+            'field_waps_allowed',
+            'field_prj_actualising',
+            'field_prj_adm_wrangler',
+            'field_year_cycle',
+            'field_grt_awarded',
+            'field_mv_amount_worthy',
+            'field_grt_other',
+            'field_prj_adm_registration',
+            'field_final_placement',
+            'field_ice_card',
+            'field_placement_card',
+            'field_placement_letter_sent',
+            'field_prj_adm_latitude',
+            'field_prj_adm_longitude',
+            'field_plot',
+          ],
+          $destination_fields
+        ) as $field) {
         $destination->set($field, NULL);
       }
 
       if ($cid) {
         $destination->set('field_collective', [$cid]);
         foreach(
-          [
-            'field_prj_gen_contact',
-            'field_prj_gen_lead',
-            'field_prj_gen_fundraiser',
-            'field_prj_gen_manager',
-            'field_prj_stg_contact',
-            'field_prj_lgh_lighter',
-            'field_prj_snd_person',
-            'field_prj_stc_structural',
-            'field_prj_lnt_representative',
-            'field_ranger_representative',
-            'field_mutant_drivers',
-            ] as $field
+          array_intersect(
+            [
+              'field_prj_gen_contact',
+              'field_prj_gen_lead',
+              'field_prj_gen_fundraiser',
+              'field_prj_gen_manager',
+              'field_prj_stg_contact',
+              'field_prj_lgh_lighter',
+              'field_prj_snd_person',
+              'field_prj_stc_structural',
+              'field_prj_lnt_representative',
+              'field_ranger_representative',
+              'field_mutant_drivers',
+            ],
+            $destination_fields
+          ) as $field
         )
         $destination->set($field, NULL);
       }
@@ -76,8 +82,10 @@ class RegistrationController extends ControllerBase {
 
       drupal_set_message('"' . $destination->get('title')->value . '" registration has been created as a draft. Please review the information and click "Submit" when you are ready to submit the registration.');
 
-      $redirect = new RedirectResponse('/node/' . $destination->id() .'/edit/form_1');
-      $redirect->send();
+      if (!$cid){
+        $redirect = new RedirectResponse('/node/' . $destination->id() .'/edit/form_1');
+        $redirect->send();
+      }
     }
   }
 
