@@ -37,7 +37,7 @@ function _alert_display_variables(&$variables){
       : []
   );
 
-  $variables['picture'] = $computed['picture']->view(
+  $variables['picture'] = $computed['picture'] ? $computed['picture']->view(
     [
       'type' => 'image',
       'label' => 'hidden',
@@ -46,7 +46,7 @@ function _alert_display_variables(&$variables){
         'image_link' => 'content',
       ]
     ]
-  );
+  ) : [];
   $variables['action'] = t(
     explode(':',
       $alert

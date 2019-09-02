@@ -129,12 +129,7 @@ class ProjectWizard extends FormBase {
    */
   public function validateForm(array &$form, FormStateInterface $form_state) {
 
-    if (
-      !(
-        $form_state->getValue('project_todo_new') &&
-        $form_state->getValue('project_todo_reuse')
-      )
-    ){
+    if (!$form_state->getValue('project_todo')){
       $form_state->setErrorByName(
         'project_todo_new',
         $this->t(self::PROJECT_TODO_SELECT_ERROR)
@@ -147,10 +142,40 @@ class ProjectWizard extends FormBase {
         $this->t(self::COLLECTIVE_TODO_SELECT_ERROR)
       );
     }
+
+    if ($form_state->getValue('new_collective')['name'] == 'AfrikaBurn'){
+      $form_state->setErrorByName(
+        'new_collective[name',
+        $this->t('There can be only one AfrikaBurn Collective!')
+      );
+    }
   }
 
 
   /* ----- Form Submitter ----- */
+
+
+  const
+    SETTINGS_OPEN = [
+      'public',
+      'public_members',
+      'open',
+      'members_invite',
+      'projects',
+      'emails',
+    ],
+    SETTINGS_CLOSED = [
+      'public',
+      'public_members',
+      'members_invite',
+      'projects',
+      'emails',
+    ],
+    SETTINGS_PRIVATE = [
+      'members_invite',
+      'projects',
+      'emails',
+    ];
 
 
   /**
@@ -159,17 +184,56 @@ class ProjectWizard extends FormBase {
   public function submitForm(&$form, $form_state) {
 
     $values = $form_state->getValues();
+    $storage = \Drupal::entityTypeManager()->getStorage('node');
 
-    if ($values['collective_todo'] == 'existing') {
-      if ($values['project_todo'] == 'existing') {
-        RegistrationController::reuse($values['project'], $values['collective']);
-      }
+    if ($values['collective_todo'] == 'existing'){
+      $collective = $storage->load($values['existing_collective']['collective']);
+    } else {
+
+      $collective = $storage->create(
+        [
+          'type'  => 'collective',
+          'title' => $values['new_collective']['name'],
+          'field_col_description' => $values['new_collective']['description'],
+          'status' => 1,
+          'field_settings' => ([
+            'open' => self::SETTINGS_OPEN,
+            'closed' => self::SETTINGS_CLOSED,
+            'private' => self::SETTINGS_PRIVATE,
+          ])[$values['new_collective']['permissions']]
+        ]
+      );
+
+      $collective->save();
     }
 
-
-    if ($values['invites']) {
-      CollectiveController::bulkInvite($collective, $values['invites']);
+    if ($values['emails']) {
+      CollectiveController::bulkInvite($collective, $values['emails']);
     }
+
+    if ($values['project_todo'] == 'existing') {
+      RegistrationController::reuse($values['existing_project']['project'], $collective->id());
+    } else {
+      $registration = $storage->create(
+        [
+          'type'  => $values['new_project']['type'],
+          'title' => $values['new_project']['title'],
+          'field_prj_gen_description' => $values['new_project']['description'],
+          'field_collective' => $collective,
+          'status' => 0,
+        ]
+      );
+
+      $registration->save();
+    }
+
+    $url = \Drupal\Core\Url::fromUri('internal:/node/' . $collective->id());
+    $url->setOption('query', ['expand' => 'block-projectregistrations']);
+    drupal_set_message('
+      Well done! Look for your project under the Projects header in the
+      right-hand column to complete and submit your registration.
+    ');
+    $form_state->setRedirectUrl($url);
   }
 
 
@@ -234,6 +298,8 @@ class ProjectWizard extends FormBase {
 
     $tab['content'] = [
 
+      'project_todo' => ['#type' => 'hidden'],
+
       'project_todo_reuse' => [
 
         '#title' => $this->t('Reuse an existing Project registration'),
@@ -290,7 +356,6 @@ class ProjectWizard extends FormBase {
 
         ['#markup' => '</div>'],
       ],
-
 
       'project_todo_new' => [
         '#title' => $this->t('Start from scratch'),
@@ -479,9 +544,10 @@ class ProjectWizard extends FormBase {
   /**
    * Steady step builder
    */
-  private function steady(){
+  private function steady($form_state){
 
     $user = User::load(\Drupal::currentUser()->id());
+    $input = $form_state->getUserInput();
 
     $tab = [
       '#title' => 'Steady',
@@ -491,6 +557,8 @@ class ProjectWizard extends FormBase {
       '#open' => TRUE,
       '#attributes' => ['id' => 'steady', 'class' => ['field-group-tab']],
       'content' => [
+
+        'collective_todo' => ['#type' => 'hidden'],
 
         'collective_todo_reuse' => [
           '#title' => $this->t('Use an existing Collective'),
@@ -613,24 +681,21 @@ class ProjectWizard extends FormBase {
           '#suffix' => '<br/>',
         ],
 
-        'invites' => [
-          'emails' => [
-            '#type' => 'textarea',
-            '#title' => $this->t('Invite people to join this Collective'),
-            '#value' => '',
-            '#attributes' => [
-              'size' => 34,
-              'maxlength' => 2147483646,
-              'placeholder' => 'john@smith.com, ncedi@shaya.com...',
-              'name' => 'emails',
-            ],
+        'emails' => [
+          '#type' => 'textarea',
+          '#title' => $this->t('Invite people to join this Collective'),
+          '#attributes' => [
+            'size' => 34,
+            'maxlength' => 2147483646,
+            'placeholder' => 'john@smith.com, ncedi@shaya.com...',
+            'name' => 'emails',
           ],
         ],
       ],
     ];
 
     $view = Views::getView('my_collectives');
-    $view->setDisplay('joined');
+    $view->setDisplay('select');
     $view->execute();
 
     if ($view->total_rows == 0){
@@ -714,7 +779,7 @@ class ProjectWizard extends FormBase {
   /**
    * Go step builder
    */
-  private function go(){
+  private function go($form_state){
 
     $module_path = \Drupal::service('module_handler')
       ->getModule('afrikaburn_registration')

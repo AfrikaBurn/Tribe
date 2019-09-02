@@ -749,3 +749,45 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_picture'
+  select:
+    display_plugin: block
+    id: select
+    display_title: Joined
+    position: 1
+    display_options:
+      display_extenders: {  }
+      block_description: Joined
+      display_description: ''
+      header: {  }
+      defaults:
+        header: false
+        footer: false
+        pager: false
+      footer:
+        area:
+          id: area
+          table: views
+          field: area
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: true
+          tokenize: false
+          content:
+            value: "<div class=\"my-collective-actions\">\r\n<a href=\"/collectives\" class=\"button\">Explore</a>\r\n<a href=\"/node/add/collective\" class=\"button\">Create</a>\r\n</div>"
+            format: full_html
+          plugin_id: text
+      pager:
+        type: none
+        options:
+          offset: 0
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.field_picture'
