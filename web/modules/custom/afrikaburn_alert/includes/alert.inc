@@ -226,7 +226,11 @@ function _alert_approved($alert){
             ]
           ) : ['#markup' => ''],
           [
-            '#suffix' => render($collective->field_col_description->view('teaser'))
+            '#suffix' => $collective->field_col_description
+              ? render(
+                  $collective->field_col_description->view('teaser')
+                )
+              : ''
           ]
         )
       ]
@@ -264,8 +268,12 @@ function _alert_invited($alert){
           ]
         ) : ['#markup' => ''],
         [
-          '#suffix' => render($collective->field_col_description->view('teaser'))
-        ]
+          '#suffix' => $collective->field_col_description
+          ? render(
+              $collective->field_col_description->view('teaser')
+            )
+          : ''
+    ]
       )
     ],
 
