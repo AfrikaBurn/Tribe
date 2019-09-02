@@ -151,4 +151,22 @@ APT::Periodic::Download-Upgradeable-Packages "1";
 APT::Periodic::AutocleanInterval "7";
 APT::Periodic::Unattended-Upgrade "1";
 ```
+If you wish to run on https you can set it up for free with:
+```
+sudo apt-get install python-certbot-apache 
+```
 
+To install the cetificate run certbot, then select the site you wish to install the server against. 
+```
+sudo certbot
+```
+
+To renew certificates simply run:
+```
+sudo certbot renew
+```
+
+For complex calls use, e.g. wildcards, multisubdomains
+```
+sudo certbot --server https://acme-v02.api.letsencrypt.org/directory
+```
