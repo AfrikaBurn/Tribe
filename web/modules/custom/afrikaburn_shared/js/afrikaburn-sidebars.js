@@ -31,6 +31,12 @@
 
               if ($biobar.length && $logo.length) new Floater($logo, 0)
               if ($wrangleBlock.length) new Collapsing($wrangleBlock)
+
+              var expand
+              if (expand = window.location.href.match(/expand\=(?<id>[^&]+)/)){
+                var id = expand[1]
+                $('#' + id).trigger('expand')
+              }
             }
           },
           10
@@ -71,6 +77,7 @@
 
       this.$title.click(() => this.toggle())
       this.$block.bind('collapse', () => this.collapse())
+      this.$block.bind('expand', () => this.expand())
       $browserWindow.resize(() => this.resizeBody())
       $browserWindow.scroll(() => this.resizeBody())
       setTimeout(() => this.resizeBody(), 500)

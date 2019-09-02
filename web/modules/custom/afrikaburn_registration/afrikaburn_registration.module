@@ -319,6 +319,57 @@ function afrikaburn_registration_field_group_pre_render(&$element, &$group, &$fo
 }
 
 
+/* ---- Local task alter ----- */
+
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ * Hooked to hide edit button.
+ */
+function afrikaburn_registration_menu_local_tasks_alter(&$data, $route_name){
+
+  module_load_include('inc', 'afrikaburn_registration', 'includes/form');
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if ($node) {
+    $bundle = $node->bundle();
+
+    if (@_project_form_modes()[$bundle]){
+      unset($data['tabs'][0]['entity.node.edit_form']);
+    }
+  }
+}
+
+
+/* ---- View alters ----- */
+
+
+/**
+ * Implements hook_views_query_alter().
+ * Change "unassigned" wrangler filter into IS NULL in query.
+ * Show only users that have not been assigned WAPs in this cycle.
+ */
+function afrikaburn_registration_views_query_alter($view, $query){
+
+  @list($purpose, $type) = array_map('trim', explode(',', $view->storage->get('tag')));
+
+  // Filter
+  if ($purpose && $purpose == 'wrangle' && @$view->exposed_raw_input['wrangler'] == 'unassigned') {
+
+    foreach ($query->where as &$condition_group) {
+      foreach ($condition_group['conditions'] as &$condition) {
+        if ($condition['field'] == 'node__field_prj_adm_wrangler.field_prj_adm_wrangler_target_id') {
+          $condition = [
+            'field' => 'field_prj_adm_wrangler_target_id',
+            'operator' => 'IS NULL',
+          ];
+        }
+      }
+    }
+  }
+}
+
+
 /* ----- Form alters ----- */
 
 
@@ -542,57 +593,6 @@ function afrikaburn_registration_wap_submit($form, $form_state){
 
   if ($paragraph){
     $project->save();
-  }
-}
-
-
-/* ---- Local task alter ----- */
-
-
-/**
- * Implements hook_menu_local_tasks_alter().
- * Hooked to hide edit button.
- */
-function afrikaburn_registration_menu_local_tasks_alter(&$data, $route_name){
-
-  module_load_include('inc', 'afrikaburn_registration', 'includes/form');
-  $node = \Drupal::routeMatch()->getParameter('node');
-
-  if ($node) {
-    $bundle = $node->bundle();
-
-    if (@_project_form_modes()[$bundle]){
-      unset($data['tabs'][0]['entity.node.edit_form']);
-    }
-  }
-}
-
-
-/* ---- View alters ----- */
-
-
-/**
- * Implements hook_views_query_alter().
- * Change "unassigned" wrangler filter into IS NULL in query.
- * Show only users that have not been assigned WAPs in this cycle.
- */
-function afrikaburn_registration_views_query_alter($view, $query){
-
-  @list($purpose, $type) = array_map('trim', explode(',', $view->storage->get('tag')));
-
-  // Filter
-  if ($purpose && $purpose == 'wrangle' && @$view->exposed_raw_input['wrangler'] == 'unassigned') {
-
-    foreach ($query->where as &$condition_group) {
-      foreach ($condition_group['conditions'] as &$condition) {
-        if ($condition['field'] == 'node__field_prj_adm_wrangler.field_prj_adm_wrangler_target_id') {
-          $condition = [
-            'field' => 'field_prj_adm_wrangler_target_id',
-            'operator' => 'IS NULL',
-          ];
-        }
-      }
-    }
   }
 }
 

@@ -45,14 +45,21 @@ div.body-content .block .view-id-collective_projects table td.name .flag-mute a{
   margin: 0;
 }
 
-div.body-content .block .view-id-collective_projects table td.name span{
+div.body-content .block .view-id-collective_projects table td.name span {
   display: block;
   float: right;
-  background: #d24c35;
-  border-radius: 1px 1px 5px 5px;
-  color: black;
-  padding: 2px 5px;
-  margin-top: -6px;
+  border-radius: 5px;
+  color: #e09600;
+  text-transform: uppercase;
+  padding: 1px 5px;
+  height: 100%;
+  margin-top: 2px;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+div.body-content .block .view-id-collective_projects .flag{
+  float: right;
 }
 
 div.body-content .block .view-id-collective_projects table td.forms{

@@ -401,8 +401,13 @@ function afrikaburn_collective_unique_name(&$form, $form_state){
     ->condition('title', $values['title'][0]['value']);
   $nids = $query->execute();
 
-  if (count($nids) > 1 || count($nids) && array_shift($nids) != $editing->id()){
-    $form_state->setError($form['title']['widget'][0]['value'], t('The Collective name is already in use!'));
+  if (
+    (
+      count($nids) > 1 ||
+      count($nids) && array_shift($nids) != $editing->id()
+    ) && $values['title'][0]['value'] == 'AfrikaBurn'
+  ){
+    $form_state->setError($form['title']['widget'][0]['value'], t('There can be only one AfrikaBurn Collective!'));
   }
 }
 

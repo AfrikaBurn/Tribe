@@ -88,7 +88,6 @@ dependencies:
     - field.field.node.mutant_vehicles.field_prj_stg_type
     - field.field.node.mutant_vehicles.field_prj_sup_address
     - field.field.node.mutant_vehicles.field_prj_sup_details
-    - field.field.node.mutant_vehicles.field_prj_sup_details_view
     - field.field.node.mutant_vehicles.field_prj_sup_h1
     - field.field.node.mutant_vehicles.field_prj_trl_area
     - field.field.node.mutant_vehicles.field_prj_trl_capasity
@@ -417,7 +416,6 @@ hidden:
   field_prj_stg_type: true
   field_prj_sup_address: true
   field_prj_sup_details: true
-  field_prj_sup_details_view: true
   field_prj_sup_h1: true
   field_prj_trl_area: true
   field_prj_trl_capasity: true

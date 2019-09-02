@@ -104,7 +104,6 @@ dependencies:
     - field.field.node.performances.field_prj_stc_weight
     - field.field.node.performances.field_prj_sup_address
     - field.field.node.performances.field_prj_sup_details
-    - field.field.node.performances.field_prj_sup_details_view
     - field.field.node.performances.field_prj_sup_h1
     - field.field.node.performances.field_prj_total_cost
     - field.field.node.performances.field_prj_wtf_categories
@@ -296,7 +295,6 @@ hidden:
   field_prj_stc_weight: true
   field_prj_sup_address: true
   field_prj_sup_details: true
-  field_prj_sup_details_view: true
   field_prj_sup_h1: true
   field_prj_total_cost: true
   field_prj_wtf_categories: true

@@ -119,7 +119,6 @@ dependencies:
     - field.field.node.theme_camps.field_prj_stg_type
     - field.field.node.theme_camps.field_prj_sup_address
     - field.field.node.theme_camps.field_prj_sup_details
-    - field.field.node.theme_camps.field_prj_sup_details_view
     - field.field.node.theme_camps.field_prj_sup_h1
     - field.field.node.theme_camps.field_prj_wtf_categories
     - field.field.node.theme_camps.field_prj_wtf_image
@@ -822,7 +821,6 @@ hidden:
   field_prj_stg_tread: true
   field_prj_sup_address: true
   field_prj_sup_details: true
-  field_prj_sup_details_view: true
   field_prj_sup_h1: true
   field_prj_wtf_categories: true
   field_prj_wtf_long: true

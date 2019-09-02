@@ -53,7 +53,7 @@ class RegistrationController extends ControllerBase {
       }
 
       if ($cid) {
-        $destination->set('field_collective', $cid);
+        $destination->set('field_collective', [$cid]);
         foreach(
           [
             'field_prj_gen_contact',

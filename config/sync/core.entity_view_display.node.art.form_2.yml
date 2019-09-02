@@ -10,6 +10,10 @@ dependencies:
     - field.field.node.art.field_arteria_checkin
     - field.field.node.art.field_burn_can_be_denied
     - field.field.node.art.field_collective
+    - field.field.node.art.field_footprint_diameter
+    - field.field.node.art.field_footprint_length
+    - field.field.node.art.field_footprint_specification
+    - field.field.node.art.field_footprint_width
     - field.field.node.art.field_form_mode
     - field.field.node.art.field_grant_expense_header
     - field.field.node.art.field_grt_art_apply
@@ -38,6 +42,7 @@ dependencies:
     - field.field.node.art.field_lineup_request
     - field.field.node.art.field_lnt_intro
     - field.field.node.art.field_muncipal_district
+    - field.field.node.art.field_prj_actualising
     - field.field.node.art.field_prj_adm_form_3
     - field.field.node.art.field_prj_adm_latitude
     - field.field.node.art.field_prj_adm_longitude
@@ -97,6 +102,7 @@ dependencies:
     - field.field.node.art.field_prj_oth_unregistered
     - field.field.node.art.field_prj_plc_f1
     - field.field.node.art.field_prj_plc_location_extra
+    - field.field.node.art.field_prj_process_work
     - field.field.node.art.field_prj_prp_duration
     - field.field.node.art.field_prj_prp_erection
     - field.field.node.art.field_prj_prp_start
@@ -125,7 +131,6 @@ dependencies:
     - field.field.node.art.field_prj_stg_type
     - field.field.node.art.field_prj_sup_address
     - field.field.node.art.field_prj_sup_details
-    - field.field.node.art.field_prj_sup_details_view
     - field.field.node.art.field_prj_sup_h1
     - field.field.node.art.field_prj_wtf_categories
     - field.field.node.art.field_prj_wtf_image
@@ -139,6 +144,7 @@ dependencies:
     - field.field.node.art.field_snd_bass_bins
     - field.field.node.art.field_snd_playtime_mon_wed
     - field.field.node.art.field_snd_playtime_thurs_sun
+    - field.field.node.art.field_sound_motivation
     - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
     - field.field.node.art.field_vp_ea
@@ -804,7 +810,6 @@ hidden:
   field_prj_stg_type: true
   field_prj_sup_address: true
   field_prj_sup_details: true
-  field_prj_sup_details_view: true
   field_prj_sup_h1: true
   field_prj_wtf_categories: true
   field_prj_wtf_image: true
@@ -817,6 +822,7 @@ hidden:
   field_snd_bass_bins: true
   field_snd_playtime_mon_wed: true
   field_snd_playtime_thurs_sun: true
+  field_sound_motivation: true
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true

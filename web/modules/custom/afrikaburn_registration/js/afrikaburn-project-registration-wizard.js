@@ -120,7 +120,7 @@
             checkCollectiveTodo()
             checkCollectiveSelection()
 
-            if ($('#afrikaburn-registration-wizard .error:visible')) return false;
+            if ($('#afrikaburn-registration-wizard .error:visible').length) return false;
           }
         )
       }
