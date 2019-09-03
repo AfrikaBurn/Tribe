@@ -145,7 +145,7 @@ html body div.sidebar-outer.collectivebar div.sidebar .collapsible > h2:after{
 }
 
 
-.alert .flag-unread a,
+.alert .flag-read a,
 .alert .flag-bookmark a {
   background-color: #AF282E55;
   border-radius: 15px;

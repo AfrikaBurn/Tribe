@@ -471,7 +471,7 @@ function afrikaburn_collective_comment_redirect(&$form, $form_state){
 
 
 /**
- * Implements hook_views_data_alter().
+ * Implements hook_views_query_alter().
  * Limit view to only list members
  * (users that have flagged the collective with the member flag)
  */
@@ -502,8 +502,8 @@ function afrikaburn_collective_views_query_alter($view, $query) {
             'left_field' => 'uid',
             'operator' => '='
           ]
-          ),
-          'users_field_data'
+        ),
+        'users_field_data'
       );
 
       $query->addWhere(0, 'flagging.flag_id', 'member', '=');
