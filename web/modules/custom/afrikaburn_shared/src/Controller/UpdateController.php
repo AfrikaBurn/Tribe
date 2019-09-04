@@ -158,17 +158,41 @@ class UpdateController extends ControllerBase {
   /**
    * Add all members to the tribe collective
    */
-  public static function addTribeMembers(){
+  public static function addTribeMembers($batch_size){
 
+    $batch_size = $batch_size ? $batch_size : 500;
     $cid = array_shift(\Drupal::entityQuery('node')
       ->condition('type', 'collective')
       ->condition('title', 'AfrikaBurn')
       ->execute());
-    $uids = db_query('SELECT uid FROM {users} WHERE uid > 0')->fetchCol();
+    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
+
+    $left = db_query("
+      SELECT count({users}.uid)
+      FROM {users}
+      LEFT JOIN {flagging}
+      ON {flagging}.uid = {users}.uid AND {flagging}.flag_id = 'member'
+      WHERE
+      {flagging}.flag_id IS NULL AND {users}.uid > 0"
+    )->fetchField();
+
+    $uids = db_query("
+      SELECT {users}.uid
+      FROM {users}
+      LEFT JOIN {flagging}
+      ON {flagging}.uid = {users}.uid AND {flagging}.flag_id = 'member'
+      WHERE
+      {flagging}.flag_id IS NULL AND {users}.uid > 0
+      LIMIT $batch_size"
+    )->fetchCol();
+
     $batch = [
-      'title' => t('Adding all users to AfrikaBurn...'),
+      'title' => t('Adding users to AfrikaBurn collective...'),
       'operations' => [],
-      'progress_message' => t('Resaving @current out of @total.'),
+      'progress_message' => t(
+        'Adding @current of @total users.<br />Batch size: %batch_size<br />Initial remaining: %left',
+        ['%batch_size' => $batch_size, '%left' => $left]
+      ),
       'error_message'    => t('An error occurred during processing'),
       'finished' => '\Drupal\afrikaburn_shared\Controller\UpdateController::tribeMembersAdded',
     ];
@@ -176,18 +200,17 @@ class UpdateController extends ControllerBase {
     foreach($uids as $uid){
       $batch['operations'][] = [
         '\Drupal\afrikaburn_shared\Controller\UpdateController::addTribeMember',
-        [$cid, $uid]
+        [$collective, $uid]
       ];
     }
 
     batch_set($batch);
   }
 
-  public static function addTribeMember($cid, $uid, &$context) {
+  public static function addTribeMember($collective, $uid, &$context) {
 
     $flag_service = \Drupal::service('flag');
     $flag = $flag_service->getFlagById('member');
-    $collective = \Drupal::entityTypeManager()->getStorage('node')->load($cid);
     $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
 
     if (!$flag_service->getFlagging($flag, $collective, $user)){

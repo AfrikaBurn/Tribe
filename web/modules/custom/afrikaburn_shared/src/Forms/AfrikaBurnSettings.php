@@ -182,18 +182,12 @@ class AfrikaBurnSettings extends ConfigFormBase {
         '#title' => 'Actions',
         '#type' => 'details',
         '#open' => TRUE,
-        'content' => [
-          [
-            '#type' => 'fieldset',
-            '#title' => 'Generate Quicket Data',
-            'batch-size' => ['#type' => 'select', '#title' => 'Batch size', '#options' => array_combine(range(500, 10000, 500), range(500, 10000, 500))],
-            ['#type' => 'submit', '#value' => 'Regenerate Quicket data',],
-          ],
-          // ['#type' => 'submit', '#value' => 'Resave Users', '#prefix' => '<br />'],
-          ['#type' => 'submit', '#value' => 'Wipe Quicket data', '#prefix' => '<br />'],
-          // ['#type' => 'submit', '#value' => 'Migrate Collectives', '#prefix' => '<br />'],
-          ['#type' => 'submit', '#value' => 'Add AfrikBurn Members', '#prefix' => '<br />'],
-        ],
+        'batch-size' => ['#type' => 'select', '#title' => 'Batch size', '#options' => array_combine(range(500, 10000, 500), range(500, 10000, 500))],
+        ['#type' => 'submit', '#value' => 'Add AfrikaBurn Members'],
+        ['#type' => 'submit', '#value' => 'Regenerate Quicket data'],
+        // ['#type' => 'submit', '#value' => 'Resave Users'],
+        ['#type' => 'submit', '#value' => 'Wipe Quicket data'],
+        // ['#type' => 'submit', '#value' => 'Migrate Collectives'],
       ],
     ];
 
@@ -228,7 +222,7 @@ class AfrikaBurnSettings extends ConfigFormBase {
 
     switch($values['op']){
       case 'Resave Users':
-        \Drupal\afrikaburn_shared\Controller\UpdateController::resaveUsers();
+        \Drupal\afrikaburn_shared\Controller\UpdateController::resaveUsers($form_state->getValue('batch-size'));
       break;
       case 'Wipe Quicket data':
         \Drupal\afrikaburn_shared\Controller\UpdateController::wipeQuicket();
@@ -239,8 +233,8 @@ class AfrikaBurnSettings extends ConfigFormBase {
       case 'Migrate Collectives':
         \Drupal\afrikaburn_shared\Controller\UpdateController::migrateCollectives();
       break;
-      case 'Add AfrikBurn Members':
-        \Drupal\afrikaburn_shared\Controller\UpdateController::addTribeMembers();
+      case 'Add AfrikaBurn Members':
+        \Drupal\afrikaburn_shared\Controller\UpdateController::addTribeMembers($form_state->getValue('batch-size'));
       break;
       default:
         $this->configFactory->getEditable('afrikaburn_shared.quickstart')
