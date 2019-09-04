@@ -23,7 +23,10 @@
           element.add(element.parent())
             .siblings('.form-item--error-message').remove()
         }
-        if ($('.form-item--error-message').length==0) $('form .messages--error').remove()
+        if ($('.form-item--error-message').length==0) {
+          $('.messages--error').remove()
+          $('.horizontal-tabs-list .error').removeClass('error')
+        }
       }
       $(toValidate, context).blur(validateMe)
       $(toValidate, context).change(validateMe)
@@ -89,14 +92,18 @@
       // Dim submit buttons
       $('form').submit(
         function() {
-          $('input[type="submit"]', this).css(
-            {
-              opacity: 0.5,
-              cursor: 'wait',
+          setTimeout(() => {
+            if ($('.error:visible').length == 0){
+              $('input[type="submit"]', this).css(
+                {
+                  opacity: 0.5,
+                  cursor: 'wait',
+                }
+              ).click(
+                (e) => e.preventDefault() && false
+              )
             }
-          ).click(
-            (e) => e.preventDefault() && flase
-          )
+          }, 10);
         }
       )
     }

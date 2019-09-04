@@ -87,6 +87,7 @@ function afrikaburn_bio_form_user_form_alter(&$form, $form_state, $form_id){
   // Add ID, email validation
   if (in_array($form_id, ['user_form', 'user_register_form'])) {
     $form['#validate'][] = 'afrikaburn_bio_user_id_validate';
+    $form['#validate'][] = 'afrikaburn_bio_username_validate';
     if (\Drupal::currentUser()->isAnonymous()) $form['#validate'][] = 'afrikaburn_bio_mail_validate';
   }
 
@@ -224,6 +225,19 @@ function afrikaburn_bio_user_presave($entity){
 
 
 /* ---- Validators ---- */
+
+
+/**
+ * ID number validation
+ */
+function afrikaburn_bio_username_validate($form, &$form_state) {
+  if (preg_match('/[^@]+@[^\.]+\..+/', $form_state->getValue('name'))){
+    $form_state->setErrorByName(
+      'name',
+      t('Please do not use an email address, your user name is visible to other participants!')
+    );
+  }
+}
 
 
 /**
