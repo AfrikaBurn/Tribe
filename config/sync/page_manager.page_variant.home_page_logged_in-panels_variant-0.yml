@@ -28,10 +28,10 @@ variant_settings:
       context_mapping: {  }
     efe99fc2-19ca-497f-8e09-7d66fc0b0e75:
       id: 'views_block:alerts-news'
-      label: ''
+      label: 'News feed'
       provider: views
-      label_display: '0'
-      views_label: ''
+      label_display: visible
+      views_label: 'News feed'
       items_per_page: none
       region: content
       weight: 1
@@ -43,7 +43,7 @@ variant_settings:
   weight: 0
   layout: layout_onecol
   layout_settings: {  }
-  page_title: 'News Feed'
+  page_title: ''
   storage_type: page_manager
   storage_id: home_page_logged_in-panels_variant-0
   builder: standard

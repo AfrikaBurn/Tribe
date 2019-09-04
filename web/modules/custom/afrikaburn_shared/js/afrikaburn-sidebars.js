@@ -1,9 +1,9 @@
 /**
  * @file
- * AfrikaBurn Sidebar behaviours.
+ * AfrikaBurn shared javascript.
  */
 
-(function ($) {
+ (function ($) {
 
   'use strict';
 
@@ -18,7 +18,8 @@
                 $biobar = $('.biobar .sidebar').not('.js-floating'),
                 $sidebar = $('.collectivebar .sidebar').not('.js-floating'),
                 $logo = $('.logo-container img').not('.js-floating'),
-                $wrangleBlock = $('.region-header .menu--wrangle')
+                $wrangleBlock = $('.region-header .menu--wrangle'),
+                $quickStart = $('#block-quickstart')
 
               if ($biobar.length) {
                 new Floater($biobar, 200)
@@ -31,11 +32,14 @@
 
               if ($biobar.length && $logo.length) new Floater($logo, 0)
               if ($wrangleBlock.length) new Collapsing($wrangleBlock)
+              if ($quickStart.length && $.cookie('quickstart')) new Collapsing($quickStart)
+
+              $.cookie('quickstart', true)
 
               var expand
-              if (expand = window.location.href.match(/expand\=(?<id>[^&]+)/)){
-                var id = expand[1]
-                $('#' + id).trigger('expand')
+              if (expand = window.location.href.match(/expand\=([^&]+)/)){
+                var bid = expand[1]
+                $('#' + bid).trigger('expand')
               }
             }
           },

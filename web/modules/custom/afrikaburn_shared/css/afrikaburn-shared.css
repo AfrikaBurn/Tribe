@@ -166,3 +166,7 @@ nav.pager .pager__items li.pager__item--next a{
 nav.pager .pager__items li.pager__item--last a{
   background-position: right top;
 }
+
+#block-quickstart.collapsed{
+  opacity: 0.5;
+}

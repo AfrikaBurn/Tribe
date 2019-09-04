@@ -4,7 +4,7 @@
   background: #FAD542;
 }
 
-#main-content-strip div.body-content {
+.user-logged-in #main-content-strip div.body-content {
   min-height: 100vh;
 }
 
@@ -296,6 +296,7 @@ div.input-file-wrapper,
 input[type=submit],
 input.button:focus {
   background-color: #596F6299;
+  white-space: nowrap;
 }
 
 div.body-content .block .view-id-collective_projects table td.name .flag-mute a {

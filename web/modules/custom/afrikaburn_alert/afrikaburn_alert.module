@@ -207,6 +207,7 @@ function afrikaburn_alert_views_query_alter($view, $query) {
         $query->addWhere(0, (new Condition('AND'))
           ->isNull('mute.uid')
           ->isNull('readit.uid')
+          ->condition('node_field_data.uid', $current_uid, '!=')
         );
       break;
 
@@ -384,7 +385,7 @@ function afrikaburn_alert_flagging_insert($flagging) {
     break;
 
     case 'member':
-      if ($actor_id != $current_id){
+      if ($actor_id != $current_id && $actor_id != 1){
         AlertController::alert(
           AlertController::$ACTION_APPROVED,
           \Drupal::entityTypeManager()

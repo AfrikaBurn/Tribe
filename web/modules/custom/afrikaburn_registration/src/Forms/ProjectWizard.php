@@ -287,14 +287,14 @@ class ProjectWizard extends FormBase {
       $open_registrations
     );
     $last = array_pop($closed);
-    $closed_description = $this->t(
+    $closed_description = $last ? $this->t(
       '%type registration is closed at present',
       [
         '%type' => count($closed)
           ? implode($closed, ', ') . ' and ' . $last
           : $last
       ]
-    );
+    ) : NULL;
 
     $tab['content'] = [
 
