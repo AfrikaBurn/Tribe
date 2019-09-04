@@ -21,7 +21,7 @@ class Quickstart extends BlockBase {
    * {@inheritdoc}
    */
   public function access($account, $return_as_object = FALSE) {
-    $config = \Drupal::config('afrikaburn_quickstart.settings');
+    $config = \Drupal::config('afrikaburn_shared.quickstart');
     return
       $account->id() > 0 &&
       \Drupal::service('path.matcher')->isFrontPage() &&
@@ -35,7 +35,7 @@ class Quickstart extends BlockBase {
    */
   public function build() {
 
-    $config = \Drupal::config('afrikaburn_quickstart.settings');
+    $config = \Drupal::config('afrikaburn_shared.quickstart');
 
     return [
       '#type' => 'inline_template',

@@ -38,7 +38,7 @@ class AfrikaBurnSettings extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state, Request $request = NULL) {
 
     $config = $this->config('afrikaburn_shared.settings');
-    $quickstart = $this->config('afrikaburn_quickstart.settings');
+    $quickstart = $this->config('afrikaburn_shared.quickstart');
 
     module_load_include('inc', 'afrikaburn_shared', 'includes/shared.quicket');
 
@@ -244,7 +244,7 @@ class AfrikaBurnSettings extends ConfigFormBase {
         \Drupal\afrikaburn_shared\Controller\UpdateController::addTribeMembers();
       break;
       default:
-        $this->configFactory->getEditable('afrikaburn_quickstart.settings')
+        $this->configFactory->getEditable('afrikaburn_shared.quickstart')
           ->set('quickstart', $values['quickstart'])
           ->save();
         $this
