@@ -38,11 +38,27 @@ class AfrikaBurnSettings extends ConfigFormBase {
   public function buildForm(array $form, FormStateInterface $form_state, Request $request = NULL) {
 
     $config = $this->config('afrikaburn_shared.settings');
+    $quickstart = $this->config('afrikaburn_quickstart.settings');
 
     module_load_include('inc', 'afrikaburn_shared', 'includes/shared.quicket');
 
     $form['tabs'] = [
       '#type' => 'horizontal_tabs',
+
+
+      'quickstart' => [
+        '#title' => 'Quickstart',
+        '#type' => 'details',
+        '#open' => TRUE,
+        '#tree' => FALSE,
+
+        'quickstart' => [
+          '#title' => 'Quick start block HTML',
+          '#type' => 'text_format',
+          '#default_value' => $quickstart->get('quickstart')['value'],
+          '#format' => $quickstart->get('quickstart')['format']
+        ],
+      ],
 
       'quicket' => [
         '#title' => 'Quicket',
@@ -177,7 +193,7 @@ class AfrikaBurnSettings extends ConfigFormBase {
           // ['#type' => 'submit', '#value' => 'Resave Users', '#prefix' => '<br />'],
           ['#type' => 'submit', '#value' => 'Wipe Quicket data', '#prefix' => '<br />'],
           // ['#type' => 'submit', '#value' => 'Migrate Collectives', '#prefix' => '<br />'],
-          // ['#type' => 'submit', '#value' => 'Add AfrikBurn Members', '#prefix' => '<br />'],
+          ['#type' => 'submit', '#value' => 'Add AfrikBurn Members', '#prefix' => '<br />'],
         ],
       ],
     ];
@@ -228,6 +244,9 @@ class AfrikaBurnSettings extends ConfigFormBase {
         \Drupal\afrikaburn_shared\Controller\UpdateController::addTribeMembers();
       break;
       default:
+        $this->configFactory->getEditable('afrikaburn_quickstart.settings')
+          ->set('quickstart', $values['quickstart'])
+          ->save();
         $this
           ->configFactory->getEditable('afrikaburn_shared.settings')
           ->set('main_id', $values['main_id'])

@@ -1,12 +1,9 @@
-uuid: 9da31044-b8e6-418a-860a-76ae089cba10
+uuid: 579aed57-bb8c-4ec1-89a7-4c8f1d23428d
 langcode: en
 status: true
 dependencies:
-  content:
-    - 'block_content:basic:9110845a-6b0a-44a7-a632-e56a1bbdf8b8'
   module:
-    - block_content
-    - system
+    - afrikaburn_shared
   theme:
     - afrikaburn
 id: quickstart
@@ -14,18 +11,10 @@ theme: afrikaburn
 region: content
 weight: -11
 provider: null
-plugin: 'block_content:9110845a-6b0a-44a7-a632-e56a1bbdf8b8'
+plugin: quickstart_block
 settings:
-  id: 'block_content:9110845a-6b0a-44a7-a632-e56a1bbdf8b8'
-  label: Quickstart
-  provider: block_content
+  id: quickstart_block
+  label: 'Get a Quick Start'
+  provider: afrikaburn_shared
   label_display: visible
-  status: true
-  info: ''
-  view_mode: full
-visibility:
-  request_path:
-    id: request_path
-    pages: '<front>'
-    negate: false
-    context_mapping: {  }
+visibility: {  }
