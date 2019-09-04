@@ -45,7 +45,6 @@ class AfrikaBurnSettings extends ConfigFormBase {
     $form['tabs'] = [
       '#type' => 'horizontal_tabs',
 
-
       'quickstart' => [
         '#title' => 'Quickstart',
         '#type' => 'details',

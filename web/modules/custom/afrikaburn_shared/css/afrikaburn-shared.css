@@ -170,3 +170,8 @@ nav.pager .pager__items li.pager__item--last a{
 #block-quickstart.collapsed{
   opacity: 0.5;
 }
+
+#block-quickstart img{
+  width: 100px;
+  padding-top: 20px;
+}
