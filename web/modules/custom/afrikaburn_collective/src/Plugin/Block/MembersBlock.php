@@ -28,18 +28,19 @@ class MembersBlock extends BlockBase {
     $user = Utils::currentUser($account);
     $collective = Utils::currentCollective();
 
-    return (
-      $user && $collective &&
-      CollectiveController::isAdmin($collective, $user) ||
-      CollectiveController::setting($collective, 'public_members') ||
-      CollectiveController::setting($collective, 'public_admins') ||
-      CollectiveController::isMember($collective, $user) && (
-        CollectiveController::setting($collective, 'private_members') ||
-        CollectiveController::setting($collective, 'private_admins')
+    return $user && $collective ?
+      (
+        CollectiveController::isAdmin($collective, $user) ||
+        CollectiveController::setting($collective, 'public_members') ||
+        CollectiveController::setting($collective, 'public_admins') ||
+        CollectiveController::isMember($collective, $user) && (
+          CollectiveController::setting($collective, 'private_members') ||
+          CollectiveController::setting($collective, 'private_admins')
+        )
+          ? AccessResult::allowed()
+          : AccessResult::forbidden()
       )
-    )
-    ? AccessResult::allowed()
-    : AccessResult::forbidden();
+        : AccessResult::forbidden();
   }
 
   /**
@@ -49,6 +50,7 @@ class MembersBlock extends BlockBase {
 
     $user = Utils::currentUser();
     $collective = Utils::currentCollective();
+
     $tabs = [
       'members' => FALSE,
       'invites' => FALSE,

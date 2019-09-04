@@ -29,31 +29,34 @@ class RegistrationBlock extends BlockBase {
 
     $user = Utils::currentUser();
     $collective = Utils::currentCollective();
-    $config = \Drupal::config('afrikaburn_registration.settings');
-    $private = CollectiveController::setting($collective, 'private_projects');
-    $present = CollectiveController::hasCurrentProjects($collective);
-    $past = CollectiveController::hasPastProjects($collective);
-    $member = CollectiveController::isMember($collective, $user);
-    $admin = CollectiveController::isAdmin($collective, $user);
-    $open = array_reduce(
-      array_keys(_project_form_modes()),
-      function($carry, $item) {
-        $carry['open'] = $carry['open'] || isset($carry['config']->get($item . '/form_1')['open']);
-        return $carry;
-      },
-      ['config' => $config, 'open' => FALSE]
-    )['open'];
 
-    return (
-      $collective &&
-      (
-        (!$private && ($past || $present)) ||
-        ($private && ($past || $present) && $member) ||
-        $open && $admin
+    if ($user && $collective){
+      $config = \Drupal::config('afrikaburn_registration.settings');
+      $private = CollectiveController::setting($collective, 'private_projects');
+      $present = CollectiveController::hasCurrentProjects($collective);
+      $past = CollectiveController::hasPastProjects($collective);
+      $member = CollectiveController::isMember($collective, $user);
+      $admin = CollectiveController::isAdmin($collective, $user);
+      $open = array_reduce(
+        array_keys(_project_form_modes()),
+        function($carry, $item) {
+          $carry['open'] = $carry['open'] || isset($carry['config']->get($item . '/form_1')['open']);
+          return $carry;
+        },
+        ['config' => $config, 'open' => FALSE]
+      )['open'];
+
+      return (
+        $collective &&
+        (
+          (!$private && ($past || $present)) ||
+          ($private && ($past || $present) && $member) ||
+          $open && $admin
+        )
       )
-    )
-    ? AccessResult::allowed()
-    : AccessResult::forbidden();
+        ? AccessResult::allowed()
+        : AccessResult::forbidden();
+    } else return AccessResult::forbidden();
   }
 
   /**

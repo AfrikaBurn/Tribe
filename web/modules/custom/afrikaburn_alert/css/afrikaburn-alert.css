@@ -59,9 +59,11 @@
 }
 
 .alert .preview{
-  display: flex;
-  align-items: center;
   margin: 20px;
+}
+
+.alert .field--type-image{
+  float: left;
 }
 
 .alert .preview .profile{

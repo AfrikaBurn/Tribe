@@ -505,7 +505,7 @@ display:
           admin_label: ''
           empty: true
           tokenize: false
-          content: '<p>Here is what you''ve chosen to share with each collective:</p>'
+          content: '<p>Here is what you''ve chosen to share with each collective. Keep in mind that your username is always visible.</p>'
           plugin_id: text_custom
       footer: {  }
       empty:
