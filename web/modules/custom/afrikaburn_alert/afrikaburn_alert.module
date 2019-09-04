@@ -7,6 +7,8 @@
 
 use \Drupal\user\Entity\User;
 use \Drupal\Core\Access\AccessResult;
+use \Drupal\Core\Database\Query\Condition;
+
 use \Drupal\afrikaburn_shared\Utils;
 use \Drupal\afrikaburn_alert\Controller\AlertController;
 use \Drupal\afrikaburn_collective\Controller\CollectiveController;
@@ -68,6 +70,178 @@ function afrikaburn_alert_flag_action_access($action, $flag, $account, $collecti
       : AccessResult::forbidden();
   }
   return AccessResult::neutral();
+}
+
+
+/* ----- Views hooks ----- */
+
+
+/**
+ * Implements hook_views_query_alter().
+ * Add proper where clause
+ */
+function afrikaburn_alert_views_query_alter($view, $query) {
+
+  if ($view->id() == 'alerts'){
+
+    $current_uid = \Drupal::currentUser()->id();
+
+    $query->addRelationship(
+      'action',
+       \Drupal\views\Views::pluginManager('join')->createInstance(
+        'standard',
+        [
+          'type' => 'INNER',
+          'left_table' => 'node_field_data',
+          'left_field' => 'nid',
+          'table' => 'node__field_alert_action',
+          'field' => 'entity_id',
+          'operator' => '=',
+        ]
+      ),
+      'node_field_data'
+    );
+
+    $query->addRelationship(
+      'user',
+       \Drupal\views\Views::pluginManager('join')->createInstance(
+        'standard',
+        [
+          'type' => 'LEFT',
+          'left_table' => 'node_field_data',
+          'left_field' => 'nid',
+          'table' => 'node__field_alert_user',
+          'field' => 'entity_id',
+          'operator' => '=',
+        ]
+      ),
+      'node_field_data'
+    );
+
+    $query->addRelationship(
+      'member',
+       \Drupal\views\Views::pluginManager('join')->createInstance(
+        'standard',
+        [
+          'type' => 'INNER',
+          'left_table' => 'node_field_data_node__field_alert_collective',
+          'left_field' => 'nid',
+          'table' => 'flagging',
+          'field' => 'entity_id',
+          'operator' => '=',
+          'extra' => [
+            ['field' => 'flag_id', 'value' => 'member'],
+          ]
+        ]
+      ),
+      'node_field_data'
+    );
+
+    $query->addRelationship(
+      'admin',
+       \Drupal\views\Views::pluginManager('join')->createInstance(
+        'standard',
+        [
+          'type' => 'LEFT',
+          'left_table' => 'node_field_data_node__field_alert_collective',
+          'left_field' => 'nid',
+          'table' => 'flagging',
+          'field' => 'entity_id',
+          'operator' => '=',
+          'extra' => [['field' => 'flag_id', 'value' => 'admin']]
+        ]
+      ),
+      'node_field_data'
+    );
+
+    $query->addWhere(0, (new Condition('AND'))
+      ->condition('member.uid', $current_uid, '=')
+      ->condition((new Condition('OR'))
+        ->condition('user.field_alert_user_target_id', $current_uid, '=')
+        ->condition('action.field_alert_action_value', range(0, 5), 'IN')
+        ->condition((new Condition('AND'))
+          ->condition('action.field_alert_action_value', range(6, 11), 'IN')
+          ->condition('admin.uid', $current_uid)
+        )
+      )
+    );
+
+    switch ($view->current_display){
+
+      case 'news':
+
+        $query->addRelationship(
+          'mute',
+          \Drupal\views\Views::pluginManager('join')->createInstance(
+            'standard',
+            [
+              'type' => 'LEFT',
+              'left_table' => 'node_field_data_node__field_alert_collective',
+              'left_field' => 'nid',
+              'table' => 'flagging',
+              'field' => 'entity_id',
+              'operator' => '=',
+              'extra' => [['field' => 'flag_id', 'value' => 'mute']]
+            ]
+          ),
+          'node_field_data'
+        );
+
+        $query->addRelationship(
+          'readit',
+          \Drupal\views\Views::pluginManager('join')->createInstance(
+            'standard',
+            [
+              'type' => 'LEFT',
+              'left_table' => 'node_field_data',
+              'left_field' => 'nid',
+              'table' => 'flagging',
+              'field' => 'entity_id',
+              'operator' => '=',
+              'extra' => [['field' => 'flag_id', 'value' => 'read']]
+            ]
+          ),
+          'node_field_data'
+        );
+
+        $query->addWhere(0, (new Condition('AND'))
+          ->isNull('mute.uid')
+          ->isNull('readit.uid')
+        );
+      break;
+
+      case 'activity':
+        $query->addWhere(0, (new Condition('OR'))
+          ->condition('node_field_data.uid', $current_uid, '=')
+          ->condition('user.field_alert_user_target_id', $current_uid, '=')
+        );
+      break;
+
+      case 'bookmarks':
+
+        $query->addRelationship(
+          'bookmark',
+          \Drupal\views\Views::pluginManager('join')->createInstance(
+            'standard',
+            [
+              'type' => 'LEFT',
+              'left_table' => 'node_field_data',
+              'left_field' => 'nid',
+              'table' => 'flagging',
+              'field' => 'entity_id',
+              'operator' => '=',
+              'extra' => [['field' => 'flag_id', 'value' => 'bookmark']]
+            ]
+          ),
+          'node_field_data'
+        );
+
+        $query->addWhereExpression(1, 'bookmark.uid IS NOT NULL');
+        break;
+    }
+
+    $query->addWhereExpression(1, 'node_field_data.created >= member.created');
+  }
 }
 
 
@@ -151,7 +325,9 @@ function afrikaburn_alert_node_predelete($node){
   }
 }
 
+
 /* --- Posts & Comments --- */
+
 
 /**
  * Implements hook_ENTITY_TYPE_insert.
@@ -179,7 +355,9 @@ function afrikaburn_alert_comment_insert($comment){
   }
 }
 
+
 /* --- Membership alerts --- */
+
 
 /**
  * Implements hook_ENTITY_insert().

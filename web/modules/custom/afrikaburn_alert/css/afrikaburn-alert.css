@@ -28,7 +28,6 @@
 }
 
 .alert main .comment{
-  background: #370c13;
   border-radius: 10px;
   padding: 10px;
   position: relative;
@@ -60,9 +59,11 @@
 }
 
 .alert .preview{
-  display: flex;
-  align-items: center;
   margin: 20px;
+}
+
+.alert .field--type-image{
+  float: left;
 }
 
 .alert .preview .profile{
@@ -75,7 +76,7 @@
 }
 
 .flag-bookmark a,
-.flag-unread a,
+.flag-read a,
 .flag-mute a{
   background-position: center center;
   background-repeat: no-repeat;
@@ -121,11 +122,11 @@
   background-image: url('../images/unmute.svg');
 }
 
-.alert .flag-unread a{
-  background-image: url('../images/close.svg');
+.alert .flag-read a{
+  background-image: url('../images/read.svg');
 }
-.flag-unread.action-flag a{
-  background-image: url('../images/unread.svg');
+.flag-read.action-flag a{
+  background-image: url('../images/close.svg');
 }
 
 .alert .flag-bookmark a{

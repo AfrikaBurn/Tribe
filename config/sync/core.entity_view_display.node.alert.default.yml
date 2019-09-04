@@ -78,6 +78,11 @@ content:
     type: entity_reference_label
     region: content
   flag_bookmark:
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  flag_read:
     weight: 1
     region: content
     settings: {  }

@@ -26,16 +26,16 @@ variant_settings:
       weight: 0
       uuid: d6d09bb2-57c6-41e7-8a8a-c35afac03463
       context_mapping: {  }
-    279f82ef-54c2-4d93-98ce-534fac51404b:
-      id: 'views_block:alerts-block'
+    efe99fc2-19ca-497f-8e09-7d66fc0b0e75:
+      id: 'views_block:alerts-news'
       label: ''
       provider: views
-      label_display: visible
+      label_display: '0'
       views_label: ''
       items_per_page: none
       region: content
       weight: 1
-      uuid: 279f82ef-54c2-4d93-98ce-534fac51404b
+      uuid: efe99fc2-19ca-497f-8e09-7d66fc0b0e75
       context_mapping: {  }
   id: panels_variant
   uuid: 0675148d-30b7-4c21-9732-04195a991461
@@ -43,7 +43,7 @@ variant_settings:
   weight: 0
   layout: layout_onecol
   layout_settings: {  }
-  page_title: ''
+  page_title: 'News Feed'
   storage_type: page_manager
   storage_id: home_page_logged_in-panels_variant-0
   builder: standard

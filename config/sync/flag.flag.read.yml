@@ -1,21 +1,21 @@
-uuid: 7026f7d8-83ee-4bbf-abaf-f9ca315deee7
+uuid: 75850986-c8cb-409b-9a8e-e4ef01c7540a
 langcode: en
 status: true
 dependencies:
   module:
     - node
-id: unread
-label: Unread
+id: read
+label: Read
 bundles:
   - alert
 entity_type: node
 global: false
-weight: -8
-flag_short: 'Oops, Undo!'
-flag_long: 'Oops, Undo!'
+weight: 0
+flag_short: 'Mark as read'
+flag_long: ''
 flag_message: ''
-unflag_short: Dismiss
-unflag_long: 'Dismiss this'
+unflag_short: 'Mark unread'
+unflag_long: ''
 unflag_message: ''
 unflag_denied_text: ''
 flag_type: 'entity:node'
