@@ -107,6 +107,7 @@ article.user img{
 
 .account-actions{
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
 }
 
