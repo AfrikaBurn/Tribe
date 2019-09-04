@@ -366,34 +366,35 @@ function afrikaburn_alert_comment_insert($comment){
  */
 function afrikaburn_alert_flagging_insert($flagging) {
 
+  $current_id = \Drupal::currentUser()->id();
   $actor_id = $flagging->uid->target_id;
   $flagged_id = $flagging->entity_id->value;
-  $current_id = \Drupal::currentUser()->id();
+  $collective = \Drupal::entityTypeManager()
+    ->getStorage('node')
+    ->load($flagged_id);
+  $actor = \Drupal::entityTypeManager()
+    ->getStorage('user')
+    ->load($actor_id);
 
   switch ($flagging->bundle()) {
 
     case 'join':
       AlertController::alert(
         AlertController::$ACTION_REQUEST,
-        \Drupal::entityTypeManager()
-          ->getStorage('node')
-          ->load($flagged_id),
-        \Drupal::entityTypeManager()
-          ->getStorage('user')
-          ->load($actor_id)
+        $collective,
+        $actor
       );
     break;
 
     case 'member':
-      if ($actor_id != $current_id && $actor_id > 1){
+      if (
+        $actor_id != $current_id &&
+        $actor_id > 1
+      ){
         AlertController::alert(
           AlertController::$ACTION_APPROVED,
-          \Drupal::entityTypeManager()
-            ->getStorage('node')
-            ->load($flagged_id),
-          \Drupal::entityTypeManager()
-            ->getStorage('user')
-            ->load($actor_id)
+          $collective,
+          $actor
         );
       }
     break;
@@ -402,12 +403,8 @@ function afrikaburn_alert_flagging_insert($flagging) {
       if ($actor_id != $current_id){
         AlertController::alert(
           AlertController::$ACTION_ADMINED,
-          \Drupal::entityTypeManager()
-            ->getStorage('node')
-            ->load($flagged_id),
-          \Drupal::entityTypeManager()
-            ->getStorage('user')
-            ->load($actor_id)
+          $collective,
+          $actor
         );
       }
     break;
@@ -415,24 +412,16 @@ function afrikaburn_alert_flagging_insert($flagging) {
     case 'invite':
       AlertController::alert(
         AlertController::$ACTION_INVITED,
-        \Drupal::entityTypeManager()
-          ->getStorage('node')
-          ->load($flagged_id),
-        \Drupal::entityTypeManager()
-          ->getStorage('user')
-          ->load($actor_id)
+        $collective,
+        $actor
       );
     break;
 
     case 'ban':
       AlertController::alert(
         AlertController::$ACTION_BANNED,
-        \Drupal::entityTypeManager()
-          ->getStorage('node')
-          ->load($flagged_id),
-        \Drupal::entityTypeManager()
-          ->getStorage('user')
-          ->load($actor_id)
+        $collective,
+        $actor
       );
     break;
   }
