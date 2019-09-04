@@ -385,7 +385,7 @@ function afrikaburn_alert_flagging_insert($flagging) {
     break;
 
     case 'member':
-      if ($actor_id != $current_id && $actor_id != 1){
+      if ($actor_id != $current_id && $actor_id > 1){
         AlertController::alert(
           AlertController::$ACTION_APPROVED,
           \Drupal::entityTypeManager()
