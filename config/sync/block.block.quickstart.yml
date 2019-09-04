@@ -1,0 +1,31 @@
+uuid: 9da31044-b8e6-418a-860a-76ae089cba10
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:9110845a-6b0a-44a7-a632-e56a1bbdf8b8'
+  module:
+    - block_content
+    - system
+  theme:
+    - afrikaburn
+id: quickstart
+theme: afrikaburn
+region: content
+weight: -11
+provider: null
+plugin: 'block_content:9110845a-6b0a-44a7-a632-e56a1bbdf8b8'
+settings:
+  id: 'block_content:9110845a-6b0a-44a7-a632-e56a1bbdf8b8'
+  label: Quickstart
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

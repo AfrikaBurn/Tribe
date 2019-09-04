@@ -29,7 +29,7 @@ settings:
       label: 'You updated @subject @type @stage in @collective:@actor updated @subject @type @stage in @collective'
     -
       value: 4
-      label: 'You deleted @subject registration from @collective:You deleted @subject registration from @collective'
+      label: 'You deleted a registration from @collective:You deleted a registration from @collective'
     -
       value: 5
       label: 'You completed @subject''s @stage in @collective:You  completed @subject''s  @stage in @collective'
@@ -38,7 +38,7 @@ settings:
       label: 'You requested to join @collective:@actor requested to join @collective'
     -
       value: 7
-      label: 'You approved @subject''s request to join @collective:@actor approved your request to join @collective'
+      label: 'You approved @subject''s request to join @collective:@actor approved @subject''s request to join @collective'
     -
       value: 8
       label: 'You invited @subject to join @collective:@actor invited you to join @collective'

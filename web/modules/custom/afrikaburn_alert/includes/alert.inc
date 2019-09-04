@@ -213,7 +213,7 @@ function _alert_approved($alert){
 
     ? array_merge(
       [
-        'subject' => $collective,
+        'subject' => $user,
         'preview' => array_merge(
           $collective->field_picture ? $collective->field_picture->view(
             [

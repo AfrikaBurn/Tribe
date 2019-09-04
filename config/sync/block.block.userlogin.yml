@@ -10,7 +10,7 @@ dependencies:
 id: userlogin
 theme: afrikaburn
 region: content
-weight: -15
+weight: -5
 provider: null
 plugin: user_login_block
 settings:
