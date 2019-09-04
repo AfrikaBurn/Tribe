@@ -89,7 +89,12 @@
       // Dim submit buttons
       $('form').submit(
         function() {
-          $('input[type="submit"]', this).css('opacity', 0.5).click(
+          $('input[type="submit"]', this).css(
+            {
+              opacity: 0.5,
+              cursor: 'wait',
+            }
+          ).click(
             (e) => e.preventDefault() && flase
           )
         }
