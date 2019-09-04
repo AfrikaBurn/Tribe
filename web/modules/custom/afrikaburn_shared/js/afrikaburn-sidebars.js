@@ -1,9 +1,9 @@
 /**
  * @file
- * AfrikaBurn Sidebar behaviours.
+ * AfrikaBurn shared javascript.
  */
 
-(function ($) {
+ (function ($) {
 
   'use strict';
 
@@ -37,9 +37,9 @@
               $.cookie('quickstart', true)
 
               var expand
-              if (expand = window.location.href.match(/expand\=(?<id>[^&]+)/)){
-                var id = expand[1]
-                $('#' + id).trigger('expand')
+              if (expand = window.location.href.match(/expand\=([^&]+)/)){
+                var bid = expand[1]
+                $('#' + bid).trigger('expand')
               }
             }
           },
