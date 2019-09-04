@@ -85,6 +85,15 @@
         }
       )
       showFirstError($('.horizontal-tabs', context).parents('form'))
+
+      // Dim submit buttons
+      $('form').submit(
+        function() {
+          $('input[type="submit"]', this).css('opacity', 0.5).click(
+            (e) => e.preventDefault() && flase
+          )
+        }
+      )
     }
   }
 
