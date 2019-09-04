@@ -4,7 +4,7 @@
   background: #FAD542;
 }
 
-#main-content-strip div.body-content {
+.user-logged-in #main-content-strip div.body-content {
   min-height: 100vh;
 }
 
