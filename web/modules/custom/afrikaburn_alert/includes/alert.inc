@@ -209,7 +209,7 @@ function _alert_approved($alert){
   $collective = $alert->field_alert_collective->entity;
   $user = $alert->field_alert_user->entity;
 
-  return Utils::currentUser()->id() == $user->id()
+  if ($user) return Utils::currentUser()->id() == $user->id()
 
     ? array_merge(
       [

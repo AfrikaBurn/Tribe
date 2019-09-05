@@ -33,7 +33,7 @@
                     () => {
                       $('.form-submit', $(this).parents('.views-exposed-form')).click()
                     },
-                    500
+                    1000
                   )
                 )
 
