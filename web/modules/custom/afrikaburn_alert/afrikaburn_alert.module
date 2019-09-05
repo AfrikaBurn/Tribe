@@ -389,7 +389,7 @@ function afrikaburn_alert_flagging_insert($flagging) {
     case 'member':
       if (
         $actor_id != $current_id &&
-        $current_id > 1
+        $actor_id > 1 && $current_id > 1
       ){
         AlertController::alert(
           AlertController::$ACTION_APPROVED,
