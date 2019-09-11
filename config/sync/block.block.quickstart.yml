@@ -14,7 +14,7 @@ provider: null
 plugin: quickstart_block
 settings:
   id: quickstart_block
-  label: 'Get a Quick Start'
+  label: 'Quick Start'
   provider: afrikaburn_shared
   label_display: visible
 visibility: {  }

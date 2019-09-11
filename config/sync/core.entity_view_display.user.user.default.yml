@@ -27,7 +27,6 @@ dependencies:
     - field.field.user.user.field_quicket_id
     - field.field.user.user.field_secondary_mail
     - field.field.user.user.field_terms_and_conditions
-    - field.field.user.user.field_volunteering
     - field.field.user.user.field_year_cycle
     - field.field.user.user.user_picture
     - image.style.medium
@@ -40,7 +39,6 @@ dependencies:
     - link
     - options
     - user
-    - viewfield
 third_party_settings:
   field_group:
     group_root:
@@ -316,16 +314,6 @@ content:
       empty_fields:
         handler: ''
     type: boolean
-    region: content
-  field_volunteering:
-    weight: 2
-    label: above
-    settings:
-      view_title: hidden
-      always_build_output: 0
-      empty_view_title: hidden
-    third_party_settings: {  }
-    type: viewfield_default
     region: content
   field_year_cycle:
     weight: 8

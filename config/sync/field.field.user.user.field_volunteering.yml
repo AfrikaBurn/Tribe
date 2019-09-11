@@ -27,6 +27,7 @@ default_value:
     display_id: embed_1
     arguments: '[current-user:uid]'
     target_uuid: 52b9a21d-78fb-4d10-bf36-d8a30bfbf8ff
+    items_to_display: ''
 default_value_callback: ''
 settings:
   force_default: 1

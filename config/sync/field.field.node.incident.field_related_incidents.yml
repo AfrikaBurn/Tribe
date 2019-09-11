@@ -27,6 +27,7 @@ default_value:
     display_id: embed_1
     arguments: '[node:nid]'
     target_uuid: 7fe57f22-f311-495e-bdec-f50102d39c79
+    items_to_display: ''
 default_value_callback: ''
 settings:
   force_default: 0

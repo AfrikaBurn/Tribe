@@ -27,7 +27,6 @@ dependencies:
     - field.field.user.user.field_quicket_id
     - field.field.user.user.field_secondary_mail
     - field.field.user.user.field_terms_and_conditions
-    - field.field.user.user.field_volunteering
     - field.field.user.user.field_year_cycle
     - field.field.user.user.user_picture
     - image.style.thumbnail
@@ -40,7 +39,6 @@ dependencies:
     - link
     - telephone
     - user
-    - viewfield
 third_party_settings:
   field_group:
     group_root:
@@ -262,12 +260,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: email_default
-    region: content
-  field_volunteering:
-    weight: 30
-    settings: {  }
-    third_party_settings: {  }
-    type: viewfield_select
     region: content
   field_year_cycle:
     weight: 1
