@@ -59,7 +59,7 @@
         )
 
         setTimeout(
-          () => $('[project_todo]').change(), 1000
+          () => $('#edit-collective-todo-new').change(), 1000
         )
 
         /* ---- Steady ---- */
