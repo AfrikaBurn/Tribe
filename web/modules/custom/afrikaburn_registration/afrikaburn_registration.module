@@ -234,7 +234,7 @@ function afrikaburn_registration_preprocess_views_view(&$variables){
     case 'wrangle_theme_camps':
     case 'wrangle_wtf':
       $variables['#attached']['library'][] = 'afrikaburn_registration/wrangle';
-      if (in_array($variables['display_id'], ['bench', 'tasks', 'engineering'])){
+      if (in_array($variables['display_id'], ['bench','support_camps', 'tasks', 'engineering'])){
         module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
         ab_prepare_wrangler_view($variables);
       }
@@ -279,7 +279,7 @@ function afrikaburn_registration_preprocess_views_view_table(&$variables) {
         $editable = FALSE;
       }
 
-      if (in_array($variables['view']->current_display, ['bench', 'tasks', 'engineering'])){
+      if (in_array($variables['view']->current_display, ['bench', 'support_camps', 'tasks', 'engineering'])){
         module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
         ab_insert_wrangler_view_rows($variables, $comments, $merge, $editable);
       }

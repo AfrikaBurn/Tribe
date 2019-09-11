@@ -58,6 +58,9 @@
           }
         )
 
+        setTimeout(
+          () => $('.form-radio').change(), 1000
+        )
 
         /* ---- Steady ---- */
 
