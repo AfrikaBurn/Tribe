@@ -59,7 +59,7 @@
         )
 
         setTimeout(
-          () => $('#edit-collective-todo-new').is(':checked').change(), 1000
+          () => $('#edit-collective-todo-new:checked').change(), 1000
         )
 
         /* ---- Steady ---- */
