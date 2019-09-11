@@ -59,7 +59,7 @@
         )
 
         setTimeout(
-          () => $('.form-radio').change(), 1000
+          () => $('[project_todo]').change(), 1000
         )
 
         /* ---- Steady ---- */
