@@ -17,6 +17,9 @@ div.sidebar-outer.collectivebar .sidebar {
   border: none;
   border-radius: 5px;
 }
+div.body-content p {
+  text-align: left;
+}
 
 a,
 a:hover,

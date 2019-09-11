@@ -54,13 +54,13 @@ USER POPOUTS CONTAINER STYLES
 GENERAL (APPLY TO ALL MEDIA QUERIES)
 ---------------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------------
-PC MAIN NAVBAR 
+PC MAIN NAVBAR
 ---------------------------------------------------------------------------------*/
 /*---------------------------------------------------------------------------------
-PC NAV ITEMS - ALL LEVELS 
+PC NAV ITEMS - ALL LEVELS
 ---------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------
-PC NAV ITEMS - LEVEL 1 
+PC NAV ITEMS - LEVEL 1
 --------------------------------------------------------------------------------*/
 /*this padding value is subtracted from the value of "@pc-main-nav-bar-height" for item height*/
 /*The top padding of the active item will adjust to accommodate
@@ -73,7 +73,7 @@ PC NAV ITEMS - LEVEL 2
 PC NAV ITEMS - LEVEL 3
 --------------------------------------------------------------------------------*/
 /*--------------------------------------------------------------------------------
-979 NAV ITEMS - ALL LEVELS 
+979 NAV ITEMS - ALL LEVELS
 --------------------------------------------------------------------------------*/
 /*---this padding value is subtracted from the value of "@pc-main-nav-bar-height" for item height---*/
 /*--------------------------------------------------------------------------------
@@ -261,7 +261,6 @@ div.body-content {
   text-align: left;
 }
 div.body-content p {
-  text-align: justify;
   line-height: 170%;
   margin-bottom: 1em;
 }
