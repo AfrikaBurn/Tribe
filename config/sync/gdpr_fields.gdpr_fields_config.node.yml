@@ -1102,10 +1102,13 @@ bundles:
       enabled: false
       rta: 'no'
       rtf: 'no'
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       bundle: mutant_vehicles
       name: field_prj_saf_mark
+      entity_type_id: node
+      relationship: 0
+      sars_filename: ''
     field_prj_snd_agree:
       enabled: false
       rta: 'no'
@@ -1118,10 +1121,13 @@ bundles:
       enabled: false
       rta: 'no'
       rtf: 'no'
-      anonymizer: ''
+      anonymizer: random_text_anonymizer
       notes: ''
       bundle: mutant_vehicles
       name: field_prj_brn_agree
+      entity_type_id: node
+      relationship: 0
+      sars_filename: ''
     field_prj_oth_agree:
       enabled: false
       rta: 'no'
@@ -1388,6 +1394,17 @@ bundles:
       rta: 'no'
       enabled: false
       anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_fuel_storage:
+      bundle: mutant_vehicles
+      name: field_fuel_storage
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
       notes: ''
       relationship: 0
       sars_filename: ''

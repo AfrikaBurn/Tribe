@@ -25,6 +25,6 @@ default_value:
 default_value_callback: ''
 settings:
   markup:
-    value: "<div class=\"delete messages messages--warning\">\r\nIf you're gifting music or performances that are out of this world, make sure that you keep the element of surprise on your side. We ask that you <strong>don't publish any line-up or DJ schedule</strong> prior to the event in order to ensure that our 2019 Ephemeropolis is filled with surprises.\r\n</div>\r\n"
+    value: "<div class=\"delete messages messages--warning\">\r\nIf you're gifting music or performances that are out of this world, make sure that you keep the element of surprise on your side. We ask that you <strong>don't publish any line-up or DJ schedule</strong> prior to the event in order to ensure that AfrikaBurn is filled with surprises.\r\n</div>\r\n"
     format: full_html
 field_type: markup

@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_arteria_checkin
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
+    - field.field.node.mutant_vehicles.field_fuel_storage
     - field.field.node.mutant_vehicles.field_grt_art_total
     - field.field.node.mutant_vehicles.field_grt_awarded
     - field.field.node.mutant_vehicles.field_grt_contribution
@@ -177,6 +178,16 @@ content:
     third_party_settings: {  }
     type: boolean
     region: top
+  field_fuel_storage:
+    weight: 103
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_lineup_request:
     weight: 12
     label: above

@@ -10,6 +10,7 @@ dependencies:
     - field.field.node.mutant_vehicles.field_arteria_checkin
     - field.field.node.mutant_vehicles.field_collective
     - field.field.node.mutant_vehicles.field_form_mode
+    - field.field.node.mutant_vehicles.field_fuel_storage
     - field.field.node.mutant_vehicles.field_grt_art_total
     - field.field.node.mutant_vehicles.field_grt_awarded
     - field.field.node.mutant_vehicles.field_grt_contribution
@@ -139,7 +140,7 @@ third_party_settings:
         - group_wtf_guide
         - group_other
       parent_name: ''
-      weight: 1
+      weight: 2
       format_type: tabs
       format_settings:
         label: Intro
@@ -157,7 +158,7 @@ third_party_settings:
         - field_prj_gen_concept
         - field_prj_gen_doc
       parent_name: group_project_registration
-      weight: 4
+      weight: 2
       format_type: tab
       format_settings:
         label: Overview
@@ -174,8 +175,9 @@ third_party_settings:
         - field_prj_saf_access
         - field_prj_saf_other
         - field_prj_saf_mark
+        - field_fuel_storage
       parent_name: group_project_registration
-      weight: 5
+      weight: 3
       format_type: tab
       format_settings:
         id: ''
@@ -192,7 +194,7 @@ third_party_settings:
         - field_prj_lgh_description
         - field_prj_lgh_lighter
       parent_name: group_project_registration
-      weight: 6
+      weight: 4
       format_type: tab
       format_settings:
         label: 'At night'
@@ -222,7 +224,7 @@ third_party_settings:
         - field_prj_brn_desc
         - field_prj_brn_agree
       parent_name: group_project_registration
-      weight: 7
+      weight: 6
       format_type: tab
       format_settings:
         label: Effects
@@ -236,7 +238,7 @@ third_party_settings:
     group_flames:
       children: {  }
       parent_name: group_project_registration
-      weight: 8
+      weight: 7
       format_type: tab
       format_settings:
         id: ''
@@ -258,7 +260,7 @@ third_party_settings:
         - field_prj_trl_markup
         - field_prj_lgh_projection
       parent_name: group_project_registration
-      weight: 9
+      weight: 8
       format_type: tab
       format_settings:
         id: ''
@@ -275,7 +277,7 @@ third_party_settings:
         - field_prj_lnt_representative
         - field_prj_lnt_agree
       parent_name: group_project_registration
-      weight: 10
+      weight: 9
       format_type: tab
       format_settings:
         id: ''
@@ -295,7 +297,7 @@ third_party_settings:
         - field_prj_cll_description
         - field_prj_cll_contact
       parent_name: group_project_registration
-      weight: 11
+      weight: 10
       format_type: tab
       format_settings:
         label: 'WTF Guide'
@@ -314,7 +316,7 @@ third_party_settings:
         - field_prj_oth_agree
         - field_prj_oth_grant
       parent_name: group_project_registration
-      weight: 12
+      weight: 11
       format_type: tab
       format_settings:
         label: Other
@@ -356,7 +358,7 @@ third_party_settings:
         - field_mv_amount_worthy
         - field_grt_awarded
       parent_name: ''
-      weight: 0
+      weight: 1
       format_type: details
       format_settings:
         id: ''
@@ -373,7 +375,7 @@ mode: form_1
 content:
   field_arteria_checkin:
     type: boolean_checkbox
-    weight: 12
+    weight: 13
     region: content
     settings:
       display_label: true
@@ -395,6 +397,13 @@ content:
       size: 60
       placeholder: ''
     third_party_settings: {  }
+  field_fuel_storage:
+    type: boolean_checkbox
+    weight: 68
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_grt_awarded:
     type: number
     weight: 14
@@ -404,7 +413,7 @@ content:
     third_party_settings: {  }
   field_lineup_request:
     type: markup
-    weight: -100
+    weight: 0
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -450,7 +459,7 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_prj_brn_agree:
-    weight: 18
+    weight: 19
     settings:
       display_label: true
     third_party_settings:
@@ -490,14 +499,14 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_brn_burning:
-    weight: 14
+    weight: 15
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_brn_desc:
-    weight: 17
+    weight: 18
     settings:
       rows: 5
       placeholder: ''
@@ -538,7 +547,7 @@ content:
     type: string_textarea
     region: content
   field_prj_brn_person:
-    weight: 16
+    weight: 17
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -577,7 +586,7 @@ content:
     type: erviews_options_select
     region: content
   field_prj_brn_plan:
-    weight: 15
+    weight: 16
     settings:
       rows: 5
       placeholder: ''
@@ -618,14 +627,14 @@ content:
     type: string_textarea
     region: content
   field_prj_cll_collaborate:
-    weight: 3
+    weight: 4
     settings:
       display_label: true
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
   field_prj_cll_contact:
-    weight: 6
+    weight: 7
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -664,7 +673,7 @@ content:
     type: erviews_options_select
     region: content
   field_prj_cll_description:
-    weight: 5
+    weight: 6
     settings:
       rows: 5
       placeholder: ''
@@ -862,7 +871,7 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_lgh_projection:
-    weight: 14
+    weight: 15
     settings:
       rows: 5
       placeholder: ''
@@ -986,7 +995,7 @@ content:
     type: string_textarea
     region: content
   field_prj_saf_mark:
-    weight: 68
+    weight: 67
     settings: {  }
     third_party_settings: {  }
     type: markup
@@ -1006,7 +1015,7 @@ content:
     type: options_buttons
     region: content
   field_prj_snd_agree:
-    weight: 13
+    weight: 14
     settings:
       display_label: true
     third_party_settings:
@@ -1243,7 +1252,7 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_trl_capasity:
-    weight: 11
+    weight: 12
     settings:
       rows: 5
       placeholder: ''
@@ -1268,7 +1277,7 @@ content:
     type: string_textarea
     region: content
   field_prj_trl_communicate:
-    weight: 12
+    weight: 13
     settings:
       rows: 5
       placeholder: ''
@@ -1350,7 +1359,7 @@ content:
     type: string_textarea
     region: content
   field_prj_trl_markup:
-    weight: 13
+    weight: 14
     settings: {  }
     third_party_settings:
       conditional_fields:
@@ -1508,7 +1517,7 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_wtf_image:
-    weight: 4
+    weight: 5
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
@@ -1532,7 +1541,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_prj_wtf_website:
-    weight: 2
+    weight: 3
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -1547,7 +1556,7 @@ content:
     region: content
   field_snd_bass_bins:
     type: boolean_checkbox
-    weight: 11
+    weight: 12
     region: content
     settings:
       display_label: true

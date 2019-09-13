@@ -43,7 +43,6 @@ dependencies:
     - taxonomy.vocabulary.location
     - taxonomy.vocabulary.wrangler_review
     - user.role.administrator
-    - user.role.anonymous
     - user.role.support_admin
     - user.role.support_wrangler
     - user.role.theme
@@ -76,7 +75,6 @@ display:
         type: role
         options:
           role:
-            anonymous: anonymous
             administrator: administrator
             support_wrangler: support_wrangler
             support_admin: support_admin
@@ -7749,7 +7747,7 @@ display:
     position: 2
     display_options:
       display_extenders: {  }
-      path: wrangle/projects/theme_camps/support_camps/support_camps
+      path: wrangle/projects/theme_camps/support_camps
       menu:
         type: none
         title: 'Support Camps'

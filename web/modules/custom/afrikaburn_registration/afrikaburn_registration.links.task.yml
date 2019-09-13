@@ -26,7 +26,7 @@ theme_camps.bench:
   base_route: afrikaburn_registration.wrangle_theme_camps
 theme_camps.support:
   title: Support Camps
-  route_name: afrikaburn_registration.wrangle_theme_camps-support
+  route_name: afrikaburn_registration.wrangle_theme_camps-support_camps
   base_route: afrikaburn_registration.wrangle_theme_camps
 theme_camps.tasks:
   title: Tasks

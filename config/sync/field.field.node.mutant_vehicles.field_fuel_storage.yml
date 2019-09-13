@@ -1,0 +1,29 @@
+uuid: bf59fdb0-a736-4dd8-915e-4819fd167856
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fuel_storage
+    - node.type.mutant_vehicles
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.mutant_vehicles.field_fuel_storage
+field_name: field_fuel_storage
+entity_type: node
+bundle: mutant_vehicles
+label: 'I am aware that fuel needs to be stored safely:'
+description: "<ul>\r\n<li>50l or more of petrol, diesel, paraffin and LRP must be stored at the DPW fuel depot. </li>\r\n<li>LPG should be stored safely in a cage with a fire extinguisher standing nearby.</li>\r\n<li>Contact\r\n<a href=\"mailto:Logistics@afrikaburn.com?&cc=DMV@afrikaburn.com\">Logistics@afrikaburn.com and DMV@afrikaburn.com</a> for safe bulk storage. We will direct you to where you can store fuel</li>\r\n</ul>\r\nOur flame team are Robert (Rocket) Kolb, Luke Atkinson and Charl Bothma.\r\nNB: please follow our guidelines and communicate with your fire team lead"
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

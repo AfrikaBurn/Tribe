@@ -1,0 +1,24 @@
+uuid: e88cd8e7-3a97-4272-84f9-15837c3faaf0
+langcode: en
+status: true
+dependencies:
+  module:
+    - php
+    - token_filter
+name: php_code
+format: php_code
+weight: 0
+filters:
+  php_code:
+    id: php_code
+    provider: php
+    status: true
+    weight: 0
+    settings: {  }
+  token_filter:
+    id: token_filter
+    provider: token_filter
+    status: false
+    weight: 0
+    settings:
+      replace_empty: '0'
