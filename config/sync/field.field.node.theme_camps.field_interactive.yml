@@ -1,0 +1,29 @@
+uuid: 62452b4f-9fe9-4daa-ad9e-18c4c8407a37
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_interactive
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.theme_camps.field_interactive
+field_name: field_interactive
+entity_type: node
+bundle: theme_camps
+label: Interactive
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

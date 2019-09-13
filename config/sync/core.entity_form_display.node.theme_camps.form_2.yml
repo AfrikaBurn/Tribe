@@ -132,6 +132,7 @@ dependencies:
     - field.field.node.theme_camps.field_snd_bass_bins
     - field.field.node.theme_camps.field_snd_playtime_mon_wed
     - field.field.node.theme_camps.field_snd_playtime_thurs_sun
+    - field.field.node.theme_camps.field_space_percentage
     - field.field.node.theme_camps.field_stretch_tent_dimen
     - field.field.node.theme_camps.field_sup_review
     - field.field.node.theme_camps.field_supporting_project
@@ -224,8 +225,8 @@ third_party_settings:
         - field_prj_plc_binnekring
         - field_prj_plc_motivation
         - field_prj_plc_frontage
-        - field_prj_plc_public_d
         - field_prj_plc_camp_d
+        - field_space_percentage
         - field_prj_plc_tent_w
         - field_prj_plc_tent_d
         - field_prj_plc_people
@@ -377,7 +378,7 @@ content:
     third_party_settings: {  }
   field_prj_gen_concept:
     type: image_image
-    weight: 18
+    weight: 1
     region: content
     settings:
       progress_indicator: throbber
@@ -454,7 +455,7 @@ content:
     type: boolean_checkbox
     region: content
   field_prj_plc_camp_d:
-    weight: 23
+    weight: 22
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -554,13 +555,6 @@ content:
     region: content
   field_prj_plc_portaloos:
     weight: 41
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
-  field_prj_plc_public_d:
-    weight: 22
     settings:
       placeholder: ''
     third_party_settings: {  }
@@ -964,6 +958,12 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_space_percentage:
+    type: options_select
+    weight: 23
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_year_cycle:
     type: computed_number_widget
     weight: 0
@@ -1022,6 +1022,7 @@ hidden:
   field_prj_oth_unregistered: true
   field_prj_plc_artwork: true
   field_prj_plc_camp_w: true
+  field_prj_plc_public_d: true
   field_prj_saf_cage: true
   field_prj_saf_gas: true
   field_prj_saf_mark: true

@@ -132,6 +132,7 @@ dependencies:
     - field.field.node.theme_camps.field_snd_bass_bins
     - field.field.node.theme_camps.field_snd_playtime_mon_wed
     - field.field.node.theme_camps.field_snd_playtime_thurs_sun
+    - field.field.node.theme_camps.field_space_percentage
     - field.field.node.theme_camps.field_stretch_tent_dimen
     - field.field.node.theme_camps.field_sup_review
     - field.field.node.theme_camps.field_supporting_project
@@ -224,8 +225,8 @@ third_party_settings:
         - field_prj_plc_binnekring
         - field_prj_plc_motivation
         - field_prj_plc_frontage
-        - field_prj_plc_public_d
         - field_prj_plc_camp_d
+        - field_space_percentage
         - field_prj_plc_tent_w
         - field_prj_plc_tent_d
         - field_prj_plc_people
@@ -266,7 +267,7 @@ third_party_settings:
         - field_prj_lgh_policy
         - field_prj_lgh_agree
       parent_name: group_project_registration
-      weight: 19
+      weight: 18
       format_type: tab
       format_settings:
         id: ''
@@ -288,7 +289,7 @@ third_party_settings:
         - field_prj_snd_rangers
         - field_prj_snd_agree
       parent_name: group_project_registration
-      weight: 20
+      weight: 19
       format_type: tab
       format_settings:
         id: ''
@@ -303,7 +304,7 @@ third_party_settings:
         - field_prj_lnt_historic
         - field_prj_lnt_representative
       parent_name: group_project_registration
-      weight: 21
+      weight: 20
       format_type: tab
       format_settings:
         label: 'Leave No Trace'
@@ -318,7 +319,7 @@ third_party_settings:
         - field_prj_wtf_planned
         - field_prj_wtf_image
       parent_name: group_project_registration
-      weight: 22
+      weight: 21
       format_type: tab
       format_settings:
         label: 'WTF Guide and Community'
@@ -454,7 +455,7 @@ content:
     type: boolean
     label: above
   field_prj_plc_camp_d:
-    weight: 23
+    weight: 22
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -560,13 +561,6 @@ content:
     label: above
   field_prj_plc_portaloos:
     weight: 41
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-    type: number_unformatted
-    label: above
-  field_prj_plc_public_d:
-    weight: 22
     settings: {  }
     third_party_settings: {  }
     region: content
@@ -974,6 +968,13 @@ content:
     third_party_settings: {  }
     type: author
     label: above
+  field_space_percentage:
+    type: list_default
+    weight: 23
+    region: content
+    label: above
+    settings: {  }
+    third_party_settings: {  }
   field_year_cycle:
     weight: 0
     region: content
@@ -986,12 +987,12 @@ content:
     type: computed_integer
     label: above
   flag_mute:
-    weight: 10
+    weight: 2
     region: content
     settings: {  }
     third_party_settings: {  }
   links:
-    weight: 100
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -1047,6 +1048,7 @@ hidden:
   field_prj_oth_unregistered: true
   field_prj_plc_artwork: true
   field_prj_plc_camp_w: true
+  field_prj_plc_public_d: true
   field_prj_saf_cage: true
   field_prj_saf_gas: true
   field_prj_saf_mark: true

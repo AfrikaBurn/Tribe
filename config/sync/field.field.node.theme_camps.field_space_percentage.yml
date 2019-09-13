@@ -1,0 +1,26 @@
+uuid: ed8247b7-a756-42d7-a131-3cdf639325f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_space_percentage
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+    - options
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.theme_camps.field_space_percentage
+field_name: field_space_percentage
+entity_type: node
+bundle: theme_camps
+label: 'How much of your camp space is for public use'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

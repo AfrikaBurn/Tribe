@@ -66,6 +66,11 @@ function _editable($id){
         'field_placement_letter_sent',
         'field_waps_allowed',
         'field_collective',
+        'field_good_standing',
+        'field_interactive',
+        'field_service',
+        'field_moop_assesment',
+        'field_adds_to_landscape',
       ],
 
       'wrangle_wtf' => [
@@ -122,7 +127,12 @@ function _title($field){
     'field_mv_amount_worthy' => FALSE,
     'field_prj_adm_latitude' => 'LAT',
     'field_prj_adm_longitude' => 'LONG',
-    ])[$field];
+    'field_good_standing' => FALSE,
+    'field_interactive' => FALSE,
+    'field_service' => FALSE,
+    'field_moop_assesment' => FALSE,
+    'field_adds_to_landscape' => FALSE,
+  ])[$field];
 }
 
 

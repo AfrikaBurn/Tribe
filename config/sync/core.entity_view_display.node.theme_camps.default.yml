@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.theme_camps.field_adds_to_landscape
     - field.field.node.theme_camps.field_admin_comments
     - field.field.node.theme_camps.field_api_content_type
     - field.field.node.theme_camps.field_arteria_checkin
@@ -12,8 +13,11 @@ dependencies:
     - field.field.node.theme_camps.field_field_prj_plc_stretch_m
     - field.field.node.theme_camps.field_final_placement
     - field.field.node.theme_camps.field_form_mode
+    - field.field.node.theme_camps.field_good_standing
     - field.field.node.theme_camps.field_ice_card
+    - field.field.node.theme_camps.field_interactive
     - field.field.node.theme_camps.field_lineup_request
+    - field.field.node.theme_camps.field_moop_assesment
     - field.field.node.theme_camps.field_neighbours
     - field.field.node.theme_camps.field_placed
     - field.field.node.theme_camps.field_placement_card
@@ -128,9 +132,11 @@ dependencies:
     - field.field.node.theme_camps.field_prj_wtf_website
     - field.field.node.theme_camps.field_prjr_complete
     - field.field.node.theme_camps.field_ranger_representative
+    - field.field.node.theme_camps.field_service
     - field.field.node.theme_camps.field_snd_bass_bins
     - field.field.node.theme_camps.field_snd_playtime_mon_wed
     - field.field.node.theme_camps.field_snd_playtime_thurs_sun
+    - field.field.node.theme_camps.field_space_percentage
     - field.field.node.theme_camps.field_stretch_tent_dimen
     - field.field.node.theme_camps.field_sup_review
     - field.field.node.theme_camps.field_supporting_project
@@ -148,12 +154,23 @@ dependencies:
     - datetime_range
     - empty_fields
     - entity_reference_revisions
+    - options
     - user
 id: node.theme_camps.default
 targetEntityType: node
 bundle: theme_camps
 mode: default
 content:
+  field_adds_to_landscape:
+    weight: 25
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_api_content_type:
     weight: 21
     label: above
@@ -183,6 +200,34 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: content
+  field_good_standing:
+    weight: 23
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_interactive:
+    weight: 24
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
+  field_moop_assesment:
+    weight: 27
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   field_prj_gen_concept:
     type: colorbox
@@ -251,6 +296,16 @@ content:
     third_party_settings:
       empty_fields:
         handler: ''
+  field_service:
+    weight: 26
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    type: boolean
+    region: content
   field_snd_bass_bins:
     weight: 17
     label: above
@@ -280,6 +335,13 @@ content:
       timezone_override: ''
     third_party_settings: {  }
     type: daterange_default
+    region: content
+  field_space_percentage:
+    weight: 22
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: list_default
     region: content
   field_waps:
     weight: 15

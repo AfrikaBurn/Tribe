@@ -69,6 +69,10 @@ afrikaburn_registration.wrangle_theme_camps-support_camps:
   path: '/wrangle/projects/theme_camps/support_camps'
   options:
     _admin_route: TRUE
+afrikaburn_registration.wrangle_theme_camps-assessment:
+  path: '/wrangle/projects/theme_camps/assessment'
+  options:
+    _admin_route: TRUE
 afrikaburn_registration.wrangle_theme_camps-archive:
   path: '/wrangle/projects/theme_camps/archive'
   options:

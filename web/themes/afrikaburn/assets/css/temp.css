@@ -333,6 +333,8 @@ div.body-content .block .view-id-collective_projects table td.name .flag-mute.ac
 
 .form-item--error-message {
   color: #533;
+  float: right;
+  margin-left: 10px;
 }
 
 /* scrollbars */

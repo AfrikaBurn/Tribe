@@ -32,6 +32,10 @@ theme_camps.tasks:
   title: Tasks
   route_name: afrikaburn_registration.wrangle_theme_camps-tasks
   base_route: afrikaburn_registration.wrangle_theme_camps
+theme_camps.assessment:
+  title: Assessment
+  route_name: afrikaburn_registration.wrangle_theme_camps-assessment
+  base_route: afrikaburn_registration.wrangle_theme_camps
 theme_camps.engineering:
   title: Engineering
   route_name: afrikaburn_registration.wrangle_theme_camps-engineering
