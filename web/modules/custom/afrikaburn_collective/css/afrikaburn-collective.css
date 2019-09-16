@@ -359,7 +359,7 @@ div.invitation{
 
 .view-collectives-find .collective-actions{
   position: absolute;
-  bottom: -60px;
+  bottom: -90px;
   border-radius: 0 0 5px 5px;
 }
 
@@ -555,7 +555,7 @@ div.invitation{
   background: #00000011;
   border-radius: 5px;
   flex-basis: 45%;
-  padding: 10px 15px 50px;
+  padding: 10px 15px 80px;
   margin-top: 10px;
 }
 
