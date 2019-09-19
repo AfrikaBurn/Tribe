@@ -1,10 +1,15 @@
 Currently AfrikaBurns main server runs on ubuntu, this is a detailed install guide so you can match our exact setup. We normally a few months behind the most current long term stable version.
 
 ```
+sudo add-apt-repository ppa:ondrej/php
+
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt-get install -y php7.2 php7.2-curl php7.2-gd php7.2-mysql php7.2-bz2 php7.2-zip php7.2-mbstring php7.2-tidy php7.2-opcache php7.2-xml php-uploadprogress php7.2-fpm php7.2-imap php7.2-ldap php7.2-xsl
+sudo apt-get install php7.3
+sudo a2enmod php7.3
+
+sudo apt-get install -y php7.3 php7.3-bz2 php7.3-cli php7.3-common php7.3-curl php7.3-fpm php7.3-gd php7.3-gmp php7.3-imap php7.3-json php7.3-ldap php7.3-mbstring php7.3-mysql php7.3-opcache php7.3-readline php7.3-tidy php7.3-xml php7.3-zip
 
 sudo apt-get install curl php-cli unzip
 
@@ -14,16 +19,16 @@ sudo apt-get install -y mariadb-client
 # But our local development enviroments use local databases.
 sudo apt-get install -y mariadb-server
 
-sudo apt-get -y install php7.2 libapache2-mod-php7.2
+sudo apt-get -y install php7.3 libapache2-mod-php7.3
 
-sudo apt install php7.2-gmp
+sudo apt install php7.3-gmp
 sudo a2enmod proxy_fcgi setenvif
-sudo a2enconf php7.2-fpm
+sudo a2enconf php7.3-fpm
 
 sudo apachectl stop
 sudo a2enmod proxy_fcgi setenvif
 
-sudo a2dismod php7.2 
+sudo a2dismod php7.3
    # This disables mod_php.
 sudo a2dismod mpm_itk
 sudo a2dismod mpm_prefork 
@@ -35,7 +40,7 @@ sudo a2enmod mpm_event
 sudo nano /etc/apache2/apache2.conf
 Protocols h2 h2c http/1.1
 
-sudo a2enconf php7.2-fpm 
+sudo a2enconf php7.3-fpm 
 
 sudo a2enmod rewrite
 
