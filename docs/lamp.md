@@ -37,7 +37,7 @@ Protocols h2 h2c http/1.1
 
 sudo a2enconf php7.2-fpm 
 
-
+sudo a2enmod rewrite
 
 sudo systemctl restart apache2
 
