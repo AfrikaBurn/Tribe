@@ -1,0 +1,26 @@
+uuid: bf80fb95-9b82-4dd0-8b6e-4b5dea16eb81
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_estimated_date_of_arrival
+    - paragraphs.paragraphs_type.vp
+  module:
+    - custom_add_another
+    - datetime
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.vp.field_estimated_date_of_arrival
+field_name: field_estimated_date_of_arrival
+entity_type: paragraph
+bundle: vp
+label: 'Estimated date of arrival'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

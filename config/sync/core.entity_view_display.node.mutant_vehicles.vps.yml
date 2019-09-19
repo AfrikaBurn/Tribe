@@ -1,8 +1,9 @@
-uuid: e4f24e13-d385-41a9-b303-81afc06fd564
+uuid: 75bff35c-c3fd-41ab-a68b-3c959a7f418e
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_mode.node.vps
     - field.field.node.mutant_vehicles.field_admin_comments
     - field.field.node.mutant_vehicles.field_allow_support_camp
     - field.field.node.mutant_vehicles.field_api_content_type
@@ -114,261 +115,44 @@ dependencies:
     - field.field.node.mutant_vehicles.field_waps
     - field.field.node.mutant_vehicles.field_waps_allowed
     - field.field.node.mutant_vehicles.field_year_cycle
-    - image.style.medium
     - node.type.mutant_vehicles
   module:
-    - colorbox
-    - datetime_range
-    - ds
-    - empty_fields
     - entity_reference_revisions
-    - markup
     - user
-third_party_settings:
-  ds:
-    layout:
-      id: layout_twocol
-      library: layout_discovery/twocol
-      disable_css: false
-      entity_classes: all_classes
-      settings: {  }
-    regions:
-      first:
-        - field_prj_gen_concept
-        - field_prj_wtf_image
-      second:
-        - field_prj_gen_description
-      top:
-        - flag_mute
-        - field_mv_amount_worthy
-        - field_lineup_request
-        - field_allow_support_camp
-        - field_waps_allowed
-        - field_waps
-        - field_arteria_checkin
-        - field_prj_snd_specs
-        - field_snd_bass_bins
-        - field_snd_playtime_mon_wed
-        - field_snd_playtime_thurs_sun
-        - support_camp
-        - registrant
-        - field_prj_adm_latitude
-        - field_prj_adm_longitude
-        - field_fuel_storage
-        - field_vps_allowed
-        - field_vps
-id: node.mutant_vehicles.default
+id: node.mutant_vehicles.vps
 targetEntityType: node
 bundle: mutant_vehicles
-mode: default
+mode: vps
 content:
-  drivers:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  field_allow_support_camp:
-    weight: 13
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: top
-  field_arteria_checkin:
-    weight: 16
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: top
-  field_fuel_storage:
-    weight: 103
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
-    third_party_settings: {  }
-    type: boolean
-    region: top
-  field_lineup_request:
-    weight: 12
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: markup
-    region: top
-  field_mv_amount_worthy:
-    weight: 11
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: top
-  field_prj_adm_latitude:
-    weight: 101
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: top
-  field_prj_adm_longitude:
-    weight: 102
-    label: above
-    settings:
-      link_to_entity: false
-    third_party_settings: {  }
-    type: string
-    region: top
-  field_prj_gen_concept:
-    type: colorbox
-    weight: 0
-    region: first
-    label: hidden
-    settings:
-      colorbox_node_style: medium
-      colorbox_node_style_first: ''
-      colorbox_image_style: ''
-      colorbox_gallery: post
-      colorbox_gallery_custom: ''
-      colorbox_caption: auto
-      colorbox_caption_custom: ''
-    third_party_settings:
-      empty_fields:
-        handler: ''
-      ds:
-        ds_limit: ''
-  field_prj_gen_description:
-    type: basic_string
+  field_prj_adm_notes:
     weight: 2
-    region: second
-    label: hidden
-    settings: {  }
-    third_party_settings: {  }
-  field_prj_snd_specs:
-    weight: 17
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: basic_string
-    region: top
-  field_prj_wtf_image:
-    type: colorbox
-    weight: 1
-    region: first
-    label: above
+    region: content
     settings:
-      colorbox_node_style: medium
-      colorbox_node_style_first: ''
-      colorbox_image_style: ''
-      colorbox_gallery: field_page
-      colorbox_gallery_custom: ''
-      colorbox_caption: auto
-      colorbox_caption_custom: ''
-    third_party_settings:
-      empty_fields:
-        handler: ''
-  field_snd_bass_bins:
-    weight: 18
-    label: above
-    settings:
-      format: default
-      format_custom_false: ''
-      format_custom_true: ''
+      rows: 5
+      placeholder: ''
     third_party_settings: {  }
-    type: boolean
-    region: top
-  field_snd_playtime_mon_wed:
-    weight: 19
-    label: above
-    settings:
-      separator: '-'
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: daterange_default
-    region: top
-  field_snd_playtime_thurs_sun:
-    weight: 20
-    label: above
-    settings:
-      separator: '-'
-      format_type: medium
-      timezone_override: ''
-    third_party_settings: {  }
-    type: daterange_default
-    region: top
   field_vps:
-    weight: 105
+    type: entity_reference_revisions_entity_view
+    weight: 0
+    region: content
     label: above
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
-    region: top
-  field_vps_allowed:
-    weight: 104
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: top
-  field_waps:
-    weight: 15
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    type: entity_reference_revisions_entity_view
-    region: top
-  field_waps_allowed:
-    weight: 14
-    label: above
-    settings:
-      thousand_separator: ''
-      prefix_suffix: true
-    third_party_settings: {  }
-    type: number_integer
-    region: top
-  flag_approved:
+  flag:
     weight: 10
     region: content
-  flag_archived:
-    weight: 10
-    region: content
-  flag_mute:
-    weight: 10
-    region: top
-    settings: {  }
-    third_party_settings: {  }
-  registrant:
-    weight: 100
-    region: top
-    settings: {  }
-    third_party_settings: {  }
-  support_camp:
-    weight: 100
-    region: top
     settings: {  }
     third_party_settings: {  }
 hidden:
   field_admin_comments: true
+  field_allow_support_camp: true
   field_api_content_type: true
+  field_arteria_checkin: true
   field_collective: true
   field_form_mode: true
+  field_fuel_storage: true
   field_grt_art_total: true
   field_grt_awarded: true
   field_grt_contribution: true
@@ -380,7 +164,12 @@ hidden:
   field_grt_status: true
   field_grt_total: true
   field_grt_transport: true
+  field_lineup_request: true
   field_mutant_drivers: true
+  field_mv_amount_worthy: true
+  field_prj_adm_latitude: true
+  field_prj_adm_longitude: true
+  field_prj_adm_ranger_comment: true
   field_prj_adm_registration: true
   field_prj_adm_review: true
   field_prj_adm_wrangler: true
@@ -392,8 +181,11 @@ hidden:
   field_prj_cll_collaborate: true
   field_prj_cll_contact: true
   field_prj_cll_description: true
+  field_prj_cll_thread: true
   field_prj_gen_base: true
+  field_prj_gen_concept: true
   field_prj_gen_contact: true
+  field_prj_gen_description: true
   field_prj_gen_doc: true
   field_prj_gen_fundraiser: true
   field_prj_gen_fundraising: true
@@ -409,6 +201,7 @@ hidden:
   field_prj_lgh_night: true
   field_prj_lgh_projection: true
   field_prj_lnt_agree: true
+  field_prj_lnt_comments: true
   field_prj_lnt_f1: true
   field_prj_lnt_handled: true
   field_prj_lnt_historic: true
@@ -423,20 +216,24 @@ hidden:
   field_prj_oth_other: true
   field_prj_oth_unregistered: true
   field_prj_saf_access: true
+  field_prj_saf_comment: true
   field_prj_saf_guide: true
   field_prj_saf_mark: true
   field_prj_saf_other: true
   field_prj_saf_passengers: true
   field_prj_snd_agree: true
+  field_prj_snd_comment: true
   field_prj_snd_description: true
   field_prj_snd_level: true
   field_prj_snd_person: true
   field_prj_snd_safety: true
   field_prj_snd_soop: true
   field_prj_snd_sound: true
+  field_prj_snd_specs: true
   field_prj_stg_contact: true
   field_prj_stg_description: true
   field_prj_stg_stage: true
+  field_prj_stg_tread: true
   field_prj_stg_type: true
   field_prj_sup_address: true
   field_prj_sup_details: true
@@ -450,12 +247,28 @@ hidden:
   field_prj_trl_size: true
   field_prj_trl_walkers: true
   field_prj_wtf_categories: true
+  field_prj_wtf_image: true
   field_prj_wtf_long: true
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
   field_prjr_complete: true
+  field_snd_bass_bins: true
+  field_snd_playtime_mon_wed: true
+  field_snd_playtime_thurs_sun: true
   field_sup_review: true
   field_vp_ea: true
+  field_vps_allowed: true
+  field_waps: true
+  field_waps_allowed: true
   field_year_cycle: true
+  flag_mute: true
   links: true
+  moderation_state: true
+  path: true
+  promote: true
+  registrant: true
+  status: true
+  sticky: true
+  support_camp: true
+  url_redirects: true

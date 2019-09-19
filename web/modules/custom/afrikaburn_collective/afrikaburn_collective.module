@@ -41,7 +41,7 @@ function afrikaburn_collective_user_insert($user){
 
   if (!$user->uid->value) return;
 
-  $cid = array_shift(
+  $cid = @array_shift(
     \Drupal::entityQuery('node')
       ->condition('type', 'collective')
       ->condition('title', 'AfrikaBurn')

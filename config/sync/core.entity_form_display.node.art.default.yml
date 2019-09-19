@@ -147,6 +147,8 @@ dependencies:
     - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
     - field.field.node.art.field_vp_ea
+    - field.field.node.art.field_vps
+    - field.field.node.art.field_vps_allowed
     - field.field.node.art.field_waps
     - field.field.node.art.field_waps_allowed
     - field.field.node.art.field_year_cycle
@@ -1710,6 +1712,25 @@ content:
       rows: 5
       placeholder: ''
     type: string_textarea
+    region: content
+  field_vps:
+    type: entity_reference_paragraphs
+    weight: 92
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+  field_vps_allowed:
+    weight: 90
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
   field_waps:
     type: entity_reference_paragraphs

@@ -1,0 +1,29 @@
+uuid: f7325e49-2a1f-414b-8349-6b64a9d1a557
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vps_allowed
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.theme_camps.field_vps_allowed
+field_name: field_vps_allowed
+entity_type: node
+bundle: theme_camps
+label: 'VPs allocated'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

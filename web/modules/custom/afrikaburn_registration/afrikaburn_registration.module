@@ -7,6 +7,7 @@ use \Drupal\user\Entity\User;
 use \Drupal\node\Entity\Node;
 use \Symfony\Component\HttpFoundation\RedirectResponse;
 use \Drupal\Core\Url;
+use \Drupal\afrikaburn_shared\Controller\QuicketController;
 
 
 /* ----- Page Hooks ----- */
@@ -199,6 +200,14 @@ function afrikaburn_registration_theme(){
       'base hook' => 'view',
     ],
     'views_view_table__wrangle_waps' => [
+      'template' => 'views-view-table--wrangle-projects',
+      'base hook' => 'view',
+    ],
+    'views_view__wrangle_vps' => [
+      'template' => 'views-view--wrangle',
+      'base hook' => 'view',
+    ],
+    'views_view_table__wrangle_vps' => [
       'template' => 'views-view-table--wrangle-projects',
       'base hook' => 'view',
     ],
@@ -411,6 +420,9 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
       // Generate WAP form
       _wap_form($form, $collective, $registration, $mode);
 
+      // Generate VP form
+      _vp_form($form, $collective, $registration, $mode);
+
         // Add "Save Draft" button.
         // $form['draft'] = [
         //   '#type' => 'submit',
@@ -512,6 +524,8 @@ function afrikaburn_registration_support($form, $form_state){
   }
 }
 
+/* --- WAPS --- */
+
 /**
  * WAPs validation
  */
@@ -544,8 +558,7 @@ function afrikaburn_registration_wap_quicket($form, $form_state){
 
   if (count($form_state->getErrors())) return;
 
-  module_load_include('inc', 'afrikaburn_registration', 'includes/registration.quicket');
-
+  $config = Drupal::config('afrikaburn_shared.settings');
   $values = $form_state->getValues();
   $uids = array_filter(array_column($values['waps'], 'member'));
   $users = @User::loadMultiple($uids);
@@ -559,10 +572,10 @@ function afrikaburn_registration_wap_quicket($form, $form_state){
     ];
   }
 
-  if (!_send_WAPs($waps)){
+  if (!QuicketController::sendComps($waps, $config->get('wap_comp_id'), $config->get('wap_id'))){
     $form_state->setError(
       $form,
-      t('<strong>Quicket says NO!</strong><br />There was a problem creating these WAPs, please try submitting this form again later.<br /> If the problem persists please <a href="mailto:cia@afrikaburn.com">Contact an Administrator</a>!')
+      t('<strong>Quicket says NO!</strong><br />There was a problem creating these WAPs, please try submitting this form again later.<br /> If the problem persists please <a href="mailto:support@afrikaburn.com">Contact an Administrator</a>!')
     );
   }
 }
@@ -589,6 +602,94 @@ function afrikaburn_registration_wap_submit($form, $form_state){
 
       if ($paragraph){
         $project->field_waps->appendItem($paragraph);
+      }
+    }
+  }
+
+  if ($paragraph){
+    $project->save();
+  }
+}
+
+
+/* --- VPS --- */
+
+/**
+ * VPs validation
+ */
+function afrikaburn_registration_vp_validate($form, $form_state){
+
+  $values = $form_state->getValues();
+  $registration = $form_state->getFormObject()->getEntity();
+  $allowed = (int)$registration->field_vps_allowed->value;
+  $assigned = count($registration->field_vps);
+  $new = 0;
+
+  foreach($values['vps'] as $i=>$vp){
+    if ($vp['member']){
+      if (!$vp['arrives']){
+        $form_state->setError($form['vps'][$i]['arrives'], t('You must estimate when this member will arrive!'));
+      }
+      $new ++;
+    }
+  }
+
+  if ($allowed < $assigned + $new){
+    $form_state->setError($form['vps'], t('You are attempting to assign more VPs than you are allowed!'));
+  }
+}
+
+/**
+ * VPs quicket
+ */
+function afrikaburn_registration_vp_quicket($form, $form_state){
+
+  if (count($form_state->getErrors())) return;
+
+  $config = Drupal::config('afrikaburn_shared.settings');
+  $values = $form_state->getValues();
+  $uids = array_filter(array_column($values['vps'], 'member'));
+  $users = @User::loadMultiple($uids);
+  $vps = [];
+
+  foreach($users as $user){
+    $vps[] = [
+      'FirstName' => $user->field_first_name->value,
+      'Surname' => $user->field_last_name->value,
+      'Email' => $user->field_email->value,
+    ];
+  }
+
+  if (!QuicketController::sendComps($vps, $config->get('vp_comp_id'), $config->get('vp_id'))){
+    $form_state->setError(
+      $form,
+      t('<strong>Quicket says NO!</strong><br />There was a problem creating these VPs, please try submitting this form again later.<br /> If the problem persists please <a href="mailto:support@afrikaburn.com">Contact an Administrator</a>!')
+    );
+  }
+}
+
+/**
+ * VPs submission
+ */
+function afrikaburn_registration_vp_submit($form, $form_state){
+
+  $project = $form_state->getFormObject()->getEntity();
+  $values = $form_state->getValues();
+
+  foreach($values['vps'] as $vp){
+    if ($vp['member']){
+
+      $paragraph = \Drupal\paragraphs\Entity\Paragraph::create(
+        [
+          'type' => 'vp',
+          'field_team_member' => ['target_id' => $vp['member']],
+          'field_estimated_date_of_arrival' => ['value' => $vp['arrives']],
+        ]
+      );
+      $paragraph->save();
+
+      if ($paragraph){
+        $project->field_vps->appendItem($paragraph);
       }
     }
   }

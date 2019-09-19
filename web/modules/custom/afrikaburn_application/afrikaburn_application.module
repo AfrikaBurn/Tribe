@@ -75,6 +75,10 @@ function afrikaburn_application_preprocess_views_view_table(&$variables) {
   }
 }
 
+
+/* ----- Form alters ----- */
+
+
 /**
  * Implements hook_form_FORM_ID_alter().
  * Alters dashboard filter form.

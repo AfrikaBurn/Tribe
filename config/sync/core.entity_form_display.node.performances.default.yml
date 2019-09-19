@@ -120,6 +120,8 @@ dependencies:
     - field.field.node.performances.field_sup_review
     - field.field.node.performances.field_this_is_the_amount_of_mone
     - field.field.node.performances.field_vp_ea
+    - field.field.node.performances.field_vps
+    - field.field.node.performances.field_vps_allowed
     - field.field.node.performances.field_waps
     - field.field.node.performances.field_waps_allowed
     - field.field.node.performances.field_year_cycle
@@ -448,6 +450,25 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_vps:
+    weight: 77
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_vps_allowed:
+    weight: 76
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   field_waps:
     weight: 71
     settings:

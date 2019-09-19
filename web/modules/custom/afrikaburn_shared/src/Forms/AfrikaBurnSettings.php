@@ -7,9 +7,13 @@
 
 namespace Drupal\afrikaburn_shared\Forms;
 
+
 use Drupal\Core\Form\ConfigFormBase;
 use Symfony\Component\HttpFoundation\Request;
 use Drupal\Core\Form\FormStateInterface;
+use \Drupal\afrikaburn_shared\Controller\QuicketController;
+use \Drupal\afrikaburn_shared\Controller\UpdateController;
+
 
 /**
  * Defines a form that configures forms module settings.
@@ -40,22 +44,28 @@ class AfrikaBurnSettings extends ConfigFormBase {
     $config = $this->config('afrikaburn_shared.settings');
     $quickstart = $this->config('afrikaburn_shared.quickstart');
 
-    module_load_include('inc', 'afrikaburn_shared', 'includes/shared.quicket');
+    // module_load_include('inc', 'afrikaburn_shared', 'includes/shared.quicket');
 
     $form['tabs'] = [
       '#type' => 'horizontal_tabs',
+      '#entity_type' => 'config',
+      '#group_name' => 'settings_tabs',
+      '#bundle' => 'none',
 
       'quickstart' => [
         '#title' => 'Quickstart',
         '#type' => 'details',
         '#open' => TRUE,
         '#tree' => FALSE,
+        '#entity_type' => 'config',
+        '#group_name' => 'settings_tabs',
+        '#bundle' => 'none',
 
         'quickstart' => [
           '#title' => 'Quick start block HTML',
           '#type' => 'text_format',
           '#default_value' => $quickstart->get('quickstart')['value'],
-          '#format' => $quickstart->get('quickstart')['format']
+          '#format' => $quickstart->get('quickstart')['format'],
         ],
       ],
 
@@ -63,6 +73,9 @@ class AfrikaBurnSettings extends ConfigFormBase {
         '#title' => 'Quicket',
         '#type' => 'details',
         '#open' => TRUE,
+        '#entity_type' => 'config',
+        '#group_name' => 'settings_tabs',
+        '#bundle' => 'none',
 
         'defined' => [
           '#type' => 'fieldset',
@@ -106,6 +119,12 @@ class AfrikaBurnSettings extends ConfigFormBase {
             '#type' => 'textfield',
             '#title' => 'Mayday Minor ticket ID',
             '#default_value' => $config->get('main_mayday_minor_id'),
+            '#suffix' => '<br />',
+          ],
+          'main_mayday_kids_id' => [
+            '#type' => 'textfield',
+            '#title' => 'Mayday Kids ticket ID',
+            '#default_value' => $config->get('main_mayday_kids_id'),
             '#suffix' => '<br />',
           ],
 
@@ -167,6 +186,10 @@ class AfrikaBurnSettings extends ConfigFormBase {
         '#title' => 'Sales',
         '#type' => 'details',
         '#open' => TRUE,
+        '#entity_type' => 'config',
+        '#group_name' => 'settings_tabs',
+        '#bundle' => 'none',
+
         'tickets' => [
           '#type' => 'checkboxes',
           '#title' => 'Open Ticket Sales',
@@ -182,23 +205,27 @@ class AfrikaBurnSettings extends ConfigFormBase {
         '#title' => 'Actions',
         '#type' => 'details',
         '#open' => TRUE,
+        '#entity_type' => 'config',
+        '#group_name' => 'settings_tabs',
+        '#bundle' => 'none',
+
         'batch-size' => ['#type' => 'select', '#title' => 'Batch size', '#options' => array_combine(range(500, 10000, 500), range(500, 10000, 500))],
         ['#type' => 'submit', '#value' => 'Add AfrikaBurn Members'],
-        ['#type' => 'submit', '#value' => 'Regenerate Quicket data'],
+        // ['#type' => 'submit', '#value' => 'Regenerate Quicket data'],
         // ['#type' => 'submit', '#value' => 'Resave Users'],
         ['#type' => 'submit', '#value' => 'Wipe Quicket data'],
         // ['#type' => 'submit', '#value' => 'Migrate Collectives'],
       ],
     ];
 
-    $events = quicket_get_events();
+    $events = QuicketController::getEvents();
     foreach($events as $id=>$event){
       $form['tabs']['quicket']['defined'][$id] = [
         '#type' => 'details',
         '#open' => FALSE,
         '#title' => $event->name,
+        'description' => ['#markup' => $event->description, '#weight' => 1],
         'id' => ['#title' => 'Event ID', '#type' => 'textfield', '#value' => $event->id, '#attributes' => ['disabled' => 'disabled']],
-        'description' => ['#markup' => $event->description],
       ];
       foreach($event->tickets as $ticket){
         $form['tabs']['quicket']['defined'][$id][] = [
@@ -222,19 +249,19 @@ class AfrikaBurnSettings extends ConfigFormBase {
 
     switch($values['op']){
       case 'Resave Users':
-        \Drupal\afrikaburn_shared\Controller\UpdateController::resaveUsers($form_state->getValue('batch-size'));
+        UpdateController::resaveUsers($form_state->getValue('batch-size'));
       break;
       case 'Wipe Quicket data':
-        \Drupal\afrikaburn_shared\Controller\UpdateController::wipeQuicket();
+        UpdateController::wipeQuicket();
       break;
       case 'Regenerate Quicket data':
-        \Drupal\afrikaburn_shared\Controller\UpdateController::regenerateQuicketData($form_state->getValue('batch-size'));
+        UpdateController::regenerateQuicketData($form_state->getValue('batch-size'));
       break;
       case 'Migrate Collectives':
-        \Drupal\afrikaburn_shared\Controller\UpdateController::migrateCollectives();
+        UpdateController::migrateCollectives();
       break;
       case 'Add AfrikaBurn Members':
-        \Drupal\afrikaburn_shared\Controller\UpdateController::addTribeMembers($form_state->getValue('batch-size'));
+        UpdateController::addTribeMembers($form_state->getValue('batch-size'));
       break;
       default:
         $this->configFactory->getEditable('afrikaburn_shared.quickstart')

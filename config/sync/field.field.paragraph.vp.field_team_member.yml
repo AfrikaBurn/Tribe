@@ -1,0 +1,31 @@
+uuid: da84966b-2772-4da6-9023-9bc32c5d39c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_team_member
+    - paragraphs.paragraphs_type.vp
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: paragraph.vp.field_team_member
+field_name: field_team_member
+entity_type: paragraph
+bundle: vp
+label: 'Team member'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: collective_member_select
+      display_name: member_select
+      arguments: {  }
+field_type: entity_reference

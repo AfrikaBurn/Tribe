@@ -188,6 +188,18 @@
   width: 100%;
 }
 
+/* WAPs & VPs */
+
+.wrangler-view .form-item-field-waps-allowed-0-value,
+.wrangler-view .form-item-field-vps-allowed-0-value{
+  width: 45%;
+  float: left;
+  margin: 0 5px;
+}
+
+
+/* WTF guide */
+
 .wrangle-wtf .views-field-title{ width: 20%;}
 .wrangle-wtf .views-field-field-prj-wtf-short,
 .wrangle-wtf .views-field-field-prj-wtf-short-copy{

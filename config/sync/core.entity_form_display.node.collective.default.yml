@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.collective.field_col_requests
     - field.field.node.collective.field_picture
     - field.field.node.collective.field_settings
+    - field.field.node.collective.field_vps_allowed
     - image.style.collective_preview
     - node.type.collective
   module:
@@ -121,6 +122,13 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
+    region: content
+  field_vps_allowed:
+    weight: 123
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
   moderation_state:
     weight: 122

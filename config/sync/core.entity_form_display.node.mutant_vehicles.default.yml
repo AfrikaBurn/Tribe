@@ -109,6 +109,8 @@ dependencies:
     - field.field.node.mutant_vehicles.field_snd_playtime_thurs_sun
     - field.field.node.mutant_vehicles.field_sup_review
     - field.field.node.mutant_vehicles.field_vp_ea
+    - field.field.node.mutant_vehicles.field_vps
+    - field.field.node.mutant_vehicles.field_vps_allowed
     - field.field.node.mutant_vehicles.field_waps
     - field.field.node.mutant_vehicles.field_waps_allowed
     - field.field.node.mutant_vehicles.field_year_cycle
@@ -1729,6 +1731,25 @@ content:
           entity_type: node
           bundle: mutant_vehicles
     type: time_range
+    region: content
+  field_vps:
+    weight: 144
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_vps_allowed:
+    weight: 143
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
     region: content
   field_waps:
     weight: 133

@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.collective.field_col_requests
     - field.field.node.collective.field_picture
     - field.field.node.collective.field_settings
+    - field.field.node.collective.field_vps_allowed
     - image.style.collective_top
     - node.type.collective
   module:
@@ -168,6 +169,15 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
+  field_vps_allowed:
+    weight: 23
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
   flag_disclose:
     weight: 9
     region: ds_content

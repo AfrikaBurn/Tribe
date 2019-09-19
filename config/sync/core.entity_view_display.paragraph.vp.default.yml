@@ -1,0 +1,46 @@
+uuid: b70a5e08-a643-41af-993e-659e63821f79
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.vp.field_estimated_date_of_arrival
+    - field.field.paragraph.vp.field_team_member
+    - field.field.paragraph.vp.field_year_cycle
+    - paragraphs.paragraphs_type.vp
+  module:
+    - computed_field
+    - datetime
+id: paragraph.vp.default
+targetEntityType: paragraph
+bundle: vp
+mode: default
+content:
+  field_estimated_date_of_arrival:
+    weight: 0
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_team_member:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_year_cycle:
+    weight: 2
+    label: above
+    settings:
+      cache_unit: -1
+      cache_duration: 1
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: computed_integer
+    region: content
+hidden: {  }

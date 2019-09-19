@@ -122,6 +122,18 @@ function ar_prepare_project_links(&$variables) {
 
             break;
 
+            case 'vps':
+
+              if ($registration->field_vps_allowed->value){
+                $link = (
+                  $editable
+                    ? '<a href="/node/' . $nid . '/edit/' . $mode['name'] . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
+                    : '<a href="/node/' . $nid . '/' . $mode['name'] . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
+                );
+              }
+
+            break;
+
             default:
 
               $link = (

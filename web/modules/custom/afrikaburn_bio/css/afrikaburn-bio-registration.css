@@ -59,9 +59,9 @@ body .paragraphs-tabs-wrapper .form-item .description{
 
 .user-form .form-item label.error,
 .user-form .form-item .form-item--error-message{
+  background: #e8515733;
   flex-basis: 100%;
   order: 2;
-  color: #fff;
   margin-top: 10px;
 }
 

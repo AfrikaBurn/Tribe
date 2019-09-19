@@ -99,6 +99,7 @@ function _entity_diff($node, &$body){
     'Complete'
   ];
 
+  $rendered = '';
   if ($diff) {
     $rendered = '<table cellspacing=10 style="text-align: left;"><tr><th>Changed</th><th>From</th><th>To</th></tr>';
     foreach($diff as $title=>$change){

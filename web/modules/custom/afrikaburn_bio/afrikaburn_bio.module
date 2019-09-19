@@ -3,6 +3,7 @@
 use \Drupal\user\Entity\User;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use \Drupal\Core\Routing\TrustedRedirectResponse;
+use \Drupal\afrikaburn_shared\Controller\QuicketController;
 
 
 /* ----- Module Hooks ----- */
@@ -130,8 +131,7 @@ function afrikaburn_bio_form_views_exposed_form_alter(&$form, $form_state, $form
 function afrikaburn_bio_entity_delete($entity){
   if ($entity->getEntityTypeId() == 'user' && \Drupal::currentUser()->id() == $entity->id()){
 
-    module_load_include('inc', 'afrikaburn_bio', 'includes/bio.quicket');
-    _delete(@$entity->field_quicket_id->value);
+    QuicketController::delete(@$entity->field_quicket_id->value);
 
     $response = new RedirectResponse(\Drupal::url('<front>'));
     $response->send();
@@ -189,28 +189,34 @@ function afrikaburn_bio_user_presave($entity){
     $entity->set('field_year_cycle', computed_field_field_year_cycle_compute(null, $entity, null, null));
   }
 
-  module_load_include('inc', 'afrikaburn_bio', 'includes/bio.quicket');
-
   $quicket = FALSE;
   $attempt = FALSE;
+  $id_number = @$entity->field_id_number->value;
 
   if (!$entity->original){
 
-    $id_number = @$entity->field_id_number->value;
-    $quicket = _generate($id_number);
+    $quicket = QuicketController::createDefaultTicketTypes($id_number);
     $attempt = TRUE;
 
   } else {
 
     $quicket_code = @$entity->field_quicket_code->value;
     $quicket_id = @$entity->field_quicket_id->value;
-    $has_quicket_data = $quicket_code && $quicket_id;
+    $has_quicket_data = QuicketController::getTicketTypes($quicket_code);
     $original_id = @$entity->original->field_id_number->value;
     $current_id = @$entity->field_id_number->value;
     $id_changed = $original_id != $current_id;
 
-    if (!$has_quicket_data || $id_changed) {
-      $quicket = _update($current_id, $quicket_code, $quicket_id);
+    if (!$has_quicket_data) {
+      $quicket = QuicketController::createDefaultTicketTypes($id_number);
+      $attempt = TRUE;
+    } else if ($id_changed) {
+      $quicket = QuicketController::addTicketTypes(
+        $id_number,
+        $quicket_code,
+        $quicket_id,
+        []
+      );
       $attempt = TRUE;
     }
   }
@@ -219,7 +225,13 @@ function afrikaburn_bio_user_presave($entity){
     $entity->set('field_quicket_code', $quicket->CodeValue);
     $entity->set('field_quicket_id', $quicket->CodeId);
   } elseif ($attempt) {
-    drupal_set_message('Quicket data could not be generated!', 'error');
+    $message = [
+      '#markup' => 'Your ticket data could not be generated. <a href="mailto:support@afrikaburn.com">Please contact an administrator</a>.'
+    ];
+    drupal_set_message(
+      render($message),
+      'error'
+    );
   }
 }
 

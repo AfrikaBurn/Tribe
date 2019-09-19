@@ -20,6 +20,7 @@ function _editable($id){
         'field_prj_stc_size',
         'field_allow_support_camp',
         'field_waps_allowed',
+        'field_vps_allowed',
         'field_collective',
       ],
 
@@ -31,6 +32,7 @@ function _editable($id){
         'field_prj_snd_level',
         'field_allow_support_camp',
         'field_waps_allowed',
+        'field_vps_allowed',
         'field_collective',
       ],
 
@@ -46,6 +48,7 @@ function _editable($id){
         'field_mv_amount_worthy',
         'field_allow_support_camp',
         'field_waps_allowed',
+        'field_vps_allowed',
         'field_collective',
       ],
 
@@ -65,6 +68,7 @@ function _editable($id){
         'field_placement_card',
         'field_placement_letter_sent',
         'field_waps_allowed',
+        'field_vps_allowed',
         'field_collective',
         'field_good_standing',
         'field_interactive',
@@ -93,6 +97,7 @@ function _merge(){
       'field_neighbours',
       'field_allow_support_camp',
       'field_waps_allowed',
+      'field_vps_allowed',
       'field_prj_plc_people',
     ],
     'process' => [

@@ -11,16 +11,17 @@ afrikaburn_registration.reuse:
   defaults:
     _controller: '\Drupal\afrikaburn_registration\Controller\RegistrationController::reuse'
   requirements:
-    _is_collective_admin: 'TRUE'
+    _is_admin: 'TRUE'
     _role: authenticated
-    cid: '^[0-9]+'
+    nid: '^[0-9]+'
 afrikaburn_registration.update:
   path: '/registration/update/{nid}'
   defaults:
     _controller: '\Drupal\afrikaburn_registration\Controller\RegistrationController::update'
   requirements:
-    cid: '^[0-9]+'
-    _is_collective_admin: 'TRUE'
+    _is_admin: 'TRUE'
+    _role: authenticated
+    nid: '^[0-9]+'
 
 afrikaburn_registration.wrangle_art:
   path: '/wrangle/projects/art'

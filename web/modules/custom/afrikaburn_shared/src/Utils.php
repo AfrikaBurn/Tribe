@@ -57,6 +57,7 @@ class Utils {
       array_filter(
         [
           \Drupal::routeMatch()->getParameter('cid'),
+          \Drupal::routeMatch()->getParameter('nid'),
           \Drupal::routeMatch()->getParameter('node'),
         ]
       )
@@ -79,7 +80,7 @@ class Utils {
   /**
    * Compute an entity diff.
    */
-  function diff($entity){
+  public static function diff($entity){
 
     static $diff;
 
@@ -98,7 +99,7 @@ class Utils {
   /**
    * Compares two entities
    */
-  function entityCompare($entity_new, $entity_old) {
+  public static function entityCompare($entity_new, $entity_old) {
 
     $diff = FALSE;
     $bundle_fields = \Drupal::entityManager()->getFieldDefinitions('node', $entity_new->bundle());

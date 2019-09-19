@@ -6,6 +6,7 @@ id: paragraph
 filenames:
   mutant_grant_expense: ''
   wap: ''
+  vp: ''
 bundles:
   grant_expences:
     field_grt_brk_description:
@@ -77,6 +78,40 @@ bundles:
       sars_filename: ''
     field_year_cycle:
       bundle: wap
+      name: field_year_cycle
+      entity_type_id: paragraph
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+  vp:
+    field_estimated_date_of_arrival:
+      bundle: vp
+      name: field_estimated_date_of_arrival
+      entity_type_id: paragraph
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_team_member:
+      bundle: vp
+      name: field_team_member
+      entity_type_id: paragraph
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_year_cycle:
+      bundle: vp
       name: field_year_cycle
       entity_type_id: paragraph
       rtf: 'no'

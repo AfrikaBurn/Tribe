@@ -1,0 +1,57 @@
+uuid: ff7b5f2a-ce02-41fc-864d-f0b28a9ca930
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_vps
+    - node.type.art
+    - paragraphs.paragraphs_type.vp
+  module:
+    - custom_add_another
+    - entity_reference_revisions
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.art.field_vps
+field_name: field_vps
+entity_type: node
+bundle: art
+label: VPs
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      vp: vp
+    target_bundles_drag_drop:
+      early_access_and_vehicle_passes:
+        weight: 9
+        enabled: false
+      grant_expences:
+        weight: 10
+        enabled: false
+      minors:
+        weight: 11
+        enabled: false
+      mutant_grant_expense:
+        weight: 12
+        enabled: false
+      outreach_grant_applicant:
+        weight: 13
+        enabled: false
+      supplier_details:
+        weight: 14
+        enabled: false
+      vp:
+        enabled: true
+        weight: 15
+      wap:
+        weight: 16
+        enabled: false
+field_type: entity_reference_revisions

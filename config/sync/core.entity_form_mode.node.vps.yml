@@ -1,0 +1,10 @@
+uuid: 3cad30e9-2a8c-41f0-adb3-582ab857be19
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.vps
+label: VPs
+targetEntityType: node
+cache: true

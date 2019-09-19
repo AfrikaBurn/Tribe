@@ -9,7 +9,7 @@ afrikaburn_bio.update:
   requirements:
     _role: authenticated
     uid: '^[0-9]+'
-    _is_collective_admin: 'TRUE'
+    _is_admin: 'TRUE'
 afrikaburn_bio.reset:
   path: '/people/reset/{uid}'
   defaults:
@@ -17,4 +17,4 @@ afrikaburn_bio.reset:
   requirements:
     _role: authenticated
     uid: '^[0-9]+'
-    _is_collective_admin: 'TRUE'
+    _is_admin: 'TRUE'
