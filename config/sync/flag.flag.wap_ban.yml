@@ -10,11 +10,11 @@ bundles: {  }
 entity_type: user
 global: true
 weight: -6
-flag_short: 'WAP capable'
-flag_long: 'Click to ban user from receiving a WAP'
+flag_short: 'WAP block'
+flag_long: 'Click to prevent user from receiving a WAP'
 flag_message: ''
-unflag_short: 'WAP banned'
-unflag_long: 'Click to allow user to receive WAP'
+unflag_short: 'WAP blocked'
+unflag_long: 'Click to allow user to receive a WAP'
 unflag_message: ''
 unflag_denied_text: ''
 flag_type: 'entity:user'

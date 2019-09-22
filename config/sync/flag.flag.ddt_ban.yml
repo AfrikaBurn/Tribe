@@ -1,0 +1,30 @@
+uuid: 8f44f3a3-0e0f-4f9c-922b-18bfe12ab760
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: ddt_ban
+label: 'DDT ban'
+bundles: {  }
+entity_type: user
+global: true
+weight: 0
+flag_short: 'DDT block'
+flag_long: 'Click to prevent user from receiving a DDT'
+flag_message: ''
+unflag_short: 'DDT blocked'
+unflag_long: 'Click to allow user to receive a DDT'
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:user'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+  show_on_profile: true
+linkTypeConfig: {  }

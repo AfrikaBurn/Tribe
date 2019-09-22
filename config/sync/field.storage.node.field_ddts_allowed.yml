@@ -1,0 +1,24 @@
+uuid: 978ff58b-d227-4e26-b22f-053a3d7143bf
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_ddts_allowed
+field_name: field_ddts_allowed
+entity_type: node
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

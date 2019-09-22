@@ -10,6 +10,8 @@ dependencies:
     - field.field.node.performances.field_bke_location
     - field.field.node.performances.field_bke_time
     - field.field.node.performances.field_collective
+    - field.field.node.performances.field_ddts
+    - field.field.node.performances.field_ddts_allowed
     - field.field.node.performances.field_expenses_header
     - field.field.node.performances.field_form_mode
     - field.field.node.performances.field_grt_art_total
@@ -156,6 +158,8 @@ third_party_settings:
         - field_prj_process_work
         - field_vps_allowed
         - field_vps
+        - field_ddts_allowed
+        - field_ddts
       first:
         - field_prj_gen_concept
         - field_prj_wtf_image
@@ -175,6 +179,24 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: top
+  field_ddts:
+    weight: 15
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: top
+  field_ddts_allowed:
+    weight: 14
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: top
   field_expenses_header:
     weight: 10

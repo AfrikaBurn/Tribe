@@ -95,55 +95,54 @@ class AfrikaBurnSettings extends ConfigFormBase {
 
           'main_general_id' => [
             '#type' => 'textfield',
-            '#title' => 'General ticket ID',
+            '#title' => 'General',
             '#default_value' => $config->get('main_general_id'),
           ],
           'main_general_minor_id' => [
             '#type' => 'textfield',
-            '#title' => 'General Minor ticket ID',
+            '#title' => 'General Minor',
             '#default_value' => $config->get('main_general_minor_id'),
           ],
           'main_general_kids_id' => [
             '#type' => 'textfield',
-            '#title' => 'General Kids ticket ID',
+            '#title' => 'General Kids',
             '#default_value' => $config->get('main_general_kids_id'),
             '#suffix' => '<br />',
           ],
 
           'main_mayday_id' => [
             '#type' => 'textfield',
-            '#title' => 'Mayday ticket ID',
+            '#title' => 'Mayday',
             '#default_value' => $config->get('main_mayday_id'),
           ],
           'main_mayday_minor_id' => [
             '#type' => 'textfield',
-            '#title' => 'Mayday Minor ticket ID',
+            '#title' => 'Mayday Minor',
             '#default_value' => $config->get('main_mayday_minor_id'),
-            '#suffix' => '<br />',
           ],
           'main_mayday_kids_id' => [
             '#type' => 'textfield',
-            '#title' => 'Mayday Kids ticket ID',
+            '#title' => 'Mayday Kids',
             '#default_value' => $config->get('main_mayday_kids_id'),
             '#suffix' => '<br />',
           ],
 
           'main_ddt_id' => [
             '#type' => 'textfield',
-            '#title' => 'Direct Distribution ticket ID',
+            '#title' => 'Direct Distribution',
             '#default_value' => $config->get('main_ddt_id'),
             '#suffix' => '<br />',
           ],
 
           'main_sub_id' => [
             '#type' => 'textfield',
-            '#title' => 'Subsidised ticket ID',
+            '#title' => 'Subsidised',
             '#default_value' => $config->get('main_sub_id'),
           ],
 
           'main_anathi_id' => [
             '#type' => 'textfield',
-            '#title' => 'Anathi ticket ID',
+            '#title' => 'Anathi',
             '#default_value' => $config->get('main_anathi_id'),
             '#suffix' => '<br />',
           ],
@@ -152,15 +151,16 @@ class AfrikaBurnSettings extends ConfigFormBase {
         [
           '#type' => 'fieldset',
           '#tree' => FALSE,
-          '#title' => 'WAP event',
+          '#title' => 'WAPs',
           'wap_id' => [
             '#type' => 'textfield',
             '#title' => 'Event ID',
             '#default_value' => $config->get('wap_id'),
+            '#attributes' => ['placeholder' => 'Using main Event ID'],
           ],
           'wap_comp_id' => [
             '#type' => 'textfield',
-            '#title' => 'WAP ticket ID',
+            '#title' => 'WAP',
             '#default_value' => $config->get('wap_comp_id'),
           ],
         ],
@@ -168,15 +168,16 @@ class AfrikaBurnSettings extends ConfigFormBase {
         [
           '#type' => 'fieldset',
           '#tree' => FALSE,
-          '#title' => 'VP event',
+          '#title' => 'VPs',
           'vp_id' => [
             '#type' => 'textfield',
             '#title' => 'Event ID',
             '#default_value' => $config->get('vp_id'),
+            '#attributes' => ['placeholder' => 'Using main Event ID'],
           ],
           'vp_comp_id' => [
             '#type' => 'textfield',
-            '#title' => 'VP ticket ID',
+            '#title' => 'VP',
             '#default_value' => $config->get('vp_comp_id'),
           ],
         ],

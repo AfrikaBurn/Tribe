@@ -9,7 +9,10 @@ dependencies:
     - field.field.node.mutant_vehicles.field_api_content_type
     - field.field.node.mutant_vehicles.field_arteria_checkin
     - field.field.node.mutant_vehicles.field_collective
+    - field.field.node.mutant_vehicles.field_ddts
+    - field.field.node.mutant_vehicles.field_ddts_allowed
     - field.field.node.mutant_vehicles.field_form_mode
+    - field.field.node.mutant_vehicles.field_fuel_storage
     - field.field.node.mutant_vehicles.field_grt_art_total
     - field.field.node.mutant_vehicles.field_grt_awarded
     - field.field.node.mutant_vehicles.field_grt_contribution
@@ -109,6 +112,8 @@ dependencies:
     - field.field.node.mutant_vehicles.field_snd_playtime_thurs_sun
     - field.field.node.mutant_vehicles.field_sup_review
     - field.field.node.mutant_vehicles.field_vp_ea
+    - field.field.node.mutant_vehicles.field_vps
+    - field.field.node.mutant_vehicles.field_vps_allowed
     - field.field.node.mutant_vehicles.field_waps
     - field.field.node.mutant_vehicles.field_waps_allowed
     - field.field.node.mutant_vehicles.field_year_cycle
@@ -129,7 +134,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_waps:
-    weight: 2
+    weight: 0
     settings:
       view_mode: default
       link: ''
@@ -142,23 +147,16 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  registrant:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  support_camp:
-    weight: 100
-    settings: {  }
-    third_party_settings: {  }
-    region: content
 hidden:
   field_admin_comments: true
   field_allow_support_camp: true
   field_api_content_type: true
   field_arteria_checkin: true
   field_collective: true
+  field_ddts: true
+  field_ddts_allowed: true
   field_form_mode: true
+  field_fuel_storage: true
   field_grt_art_total: true
   field_grt_awarded: true
   field_grt_contribution: true
@@ -264,6 +262,8 @@ hidden:
   field_snd_playtime_thurs_sun: true
   field_sup_review: true
   field_vp_ea: true
+  field_vps: true
+  field_vps_allowed: true
   field_waps_allowed: true
   field_year_cycle: true
   flag_mute: true
@@ -271,6 +271,8 @@ hidden:
   moderation_state: true
   path: true
   promote: true
+  registrant: true
   status: true
   sticky: true
+  support_camp: true
   url_redirects: true

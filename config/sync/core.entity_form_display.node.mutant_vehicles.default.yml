@@ -8,6 +8,8 @@ dependencies:
     - field.field.node.mutant_vehicles.field_api_content_type
     - field.field.node.mutant_vehicles.field_arteria_checkin
     - field.field.node.mutant_vehicles.field_collective
+    - field.field.node.mutant_vehicles.field_ddts
+    - field.field.node.mutant_vehicles.field_ddts_allowed
     - field.field.node.mutant_vehicles.field_form_mode
     - field.field.node.mutant_vehicles.field_fuel_storage
     - field.field.node.mutant_vehicles.field_grt_art_total
@@ -422,6 +424,25 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_ddts:
+    weight: 146
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_ddts_allowed:
+    weight: 145
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   field_form_mode:
     type: string_textfield
     weight: 9

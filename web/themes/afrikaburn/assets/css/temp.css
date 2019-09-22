@@ -172,6 +172,9 @@ div.sidebar .content ul > li {
 .sidebar-outer.collectivebar .sidebar ul.horizontal-tabs-list li.selected{
   border-bottom: 3px solid #FDE6C2;
 }
+div.sidebar .pager__item--ellipsis{
+  display: none;
+}
 
 body .horizontal-tabs .horizontal-tabs-panes,
 body .horizontal-tabs .horizontal-tabs-list li.selected {

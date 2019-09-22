@@ -11,6 +11,9 @@ dependencies:
     - field.field.node.performances.field_bke_location
     - field.field.node.performances.field_bke_time
     - field.field.node.performances.field_collective
+    - field.field.node.performances.field_ddts
+    - field.field.node.performances.field_ddts_allowed
+    - field.field.node.performances.field_expenses_header
     - field.field.node.performances.field_form_mode
     - field.field.node.performances.field_grt_art_total
     - field.field.node.performances.field_grt_breakdown
@@ -83,6 +86,7 @@ dependencies:
     - field.field.node.performances.field_prj_oth_other
     - field.field.node.performances.field_prj_oth_relationship
     - field.field.node.performances.field_prj_oth_unregistered
+    - field.field.node.performances.field_prj_process_work
     - field.field.node.performances.field_prj_prp_duration
     - field.field.node.performances.field_prj_prp_erection
     - field.field.node.performances.field_prj_prp_start
@@ -119,6 +123,8 @@ dependencies:
     - field.field.node.performances.field_sup_review
     - field.field.node.performances.field_this_is_the_amount_of_mone
     - field.field.node.performances.field_vp_ea
+    - field.field.node.performances.field_vps
+    - field.field.node.performances.field_vps_allowed
     - field.field.node.performances.field_waps
     - field.field.node.performances.field_waps_allowed
     - field.field.node.performances.field_year_cycle
@@ -127,7 +133,6 @@ dependencies:
     - computed_field
     - entity_reference_views_select
     - field_group
-    - paragraphs
 third_party_settings:
   field_group:
     group_administrative:
@@ -139,7 +144,6 @@ third_party_settings:
         - field_form_mode
         - field_year_cycle
         - field_waps_allowed
-        - field_waps
         - field_allow_support_camp
       parent_name: ''
       weight: 0
@@ -192,18 +196,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_waps:
-    weight: 71
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
-    type: entity_reference_paragraphs
-    region: content
   field_waps_allowed:
     weight: 70
     settings:
@@ -237,6 +229,8 @@ hidden:
   field_bke_day: true
   field_bke_location: true
   field_bke_time: true
+  field_ddts: true
+  field_ddts_allowed: true
   field_expenses_header: true
   field_grt_art_total: true
   field_grt_breakdown: true
@@ -344,6 +338,9 @@ hidden:
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
+  field_vps: true
+  field_vps_allowed: true
+  field_waps: true
   path: true
   promote: true
   status: true

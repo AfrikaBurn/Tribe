@@ -86,7 +86,8 @@ body .horizontal-tabs .horizontal-tab-button {
 
 .afrikaburn-shared-settings fieldset .form-item{
   float: left;
-  width: 50%;
+  width: 30%;
+  margin-right: 10px;
 }
 
 .afrikaburn-shared-settings details:after{
@@ -108,6 +109,10 @@ body .horizontal-tabs .horizontal-tab-button {
 
 .block.collapsible.collapsed .content{
   overflow: hidden;
+}
+
+#block-adminimal-theme-content .contextual-region{
+  /* position: absolute; */
 }
 
 

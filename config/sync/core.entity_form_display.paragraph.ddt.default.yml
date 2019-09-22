@@ -1,0 +1,41 @@
+uuid: 4b68f073-ad8d-4748-8712-2b2c126ed8b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.ddt.field_estimated_date_of_arrival
+    - field.field.paragraph.ddt.field_team_member
+    - field.field.paragraph.ddt.field_year_cycle
+    - paragraphs.paragraphs_type.ddt
+  module:
+    - computed_field
+    - datetime
+id: paragraph.ddt.default
+targetEntityType: paragraph
+bundle: ddt
+mode: default
+content:
+  field_estimated_date_of_arrival:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: datetime_default
+    region: content
+  field_team_member:
+    weight: 1
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_year_cycle:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: computed_number_widget
+    region: content
+hidden:
+  created: true
+  status: true

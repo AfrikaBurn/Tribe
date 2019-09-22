@@ -1,0 +1,10 @@
+uuid: 725db873-2951-4e9a-9bc6-af9d627edba1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.ddts
+label: DDTs
+targetEntityType: node
+cache: true

@@ -1,0 +1,13 @@
+uuid: 74b567c3-3a93-46f6-9ad8-105e8bb786b2
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.vp_ban.unflag
+label: 'VP blocked'
+type: user
+plugin: 'flag_action:vp_ban.unflag'
+configuration:
+  flag_id: vp_ban
+  flag_action: unflag

@@ -33,8 +33,6 @@ class RegistrationController extends ControllerBase {
           [
             'field_form_mode',
             'field_prj_adm_review',
-            'field_waps',
-            'field_waps_allowed',
             'field_prj_actualising',
             'field_prj_adm_wrangler',
             'field_year_cycle',
@@ -49,6 +47,12 @@ class RegistrationController extends ControllerBase {
             'field_prj_adm_latitude',
             'field_prj_adm_longitude',
             'field_plot',
+            'field_waps',
+            'field_waps_allowed',
+            'field_vps',
+            'field_vps_allowed',
+            'field_ddts',
+            'field_ddts_allowed',
           ],
           $destination_fields
         ) as $field) {
@@ -71,7 +75,7 @@ class RegistrationController extends ControllerBase {
               'field_prj_lnt_representative',
               'field_ranger_representative',
               'field_mutant_drivers',
-            ],
+              ],
             $destination_fields
           ) as $field
         )
@@ -135,5 +139,15 @@ class RegistrationController extends ControllerBase {
 
       return new \Symfony\Component\HttpFoundation\JsonResponse([], 200);
     }
+  }
+
+  /**
+   * Checks whether a registration is archived
+   * @param $registration registration to check banning against
+   */
+  public static function isArchived($project){
+    $flag_service = \Drupal::service('flag');
+    $flag = $flag_service->getFlagById('archived');
+    return $flag_service->getFlagging($flag, $project);
   }
 }

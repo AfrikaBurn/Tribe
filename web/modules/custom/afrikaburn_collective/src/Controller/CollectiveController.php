@@ -487,12 +487,12 @@ class CollectiveController extends ControllerBase {
    * @param $user User to return flagging for
    * @param $user Collective to return flagging for
    */
-  public static function get($flag_id, $collective, $user){
+  public static function get($flag_id, $collective, $user = FALSE){
     $flag_service = \Drupal::service('flag');
     $flag = $flag_service->getFlagById($flag_id);
-    return $user->id()
+    return $user
       ? $flag_service->getFlagging($flag, $collective, $user)
-      : FALSE;
+      : $flag_service->getFlagging($flag, $collective);
   }
 
   /**

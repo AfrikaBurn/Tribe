@@ -1,0 +1,13 @@
+uuid: 3308ab38-c6b2-48e9-8e3c-6d7b4a314021
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.ddt_ban.flag
+label: 'DDT capable'
+type: user
+plugin: 'flag_action:ddt_ban.flag'
+configuration:
+  flag_id: ddt_ban
+  flag_action: flag

@@ -11,6 +11,8 @@ dependencies:
     - field.field.node.performances.field_bke_location
     - field.field.node.performances.field_bke_time
     - field.field.node.performances.field_collective
+    - field.field.node.performances.field_ddts
+    - field.field.node.performances.field_ddts_allowed
     - field.field.node.performances.field_expenses_header
     - field.field.node.performances.field_form_mode
     - field.field.node.performances.field_grt_art_total
@@ -131,7 +133,6 @@ dependencies:
     - computed_field
     - entity_reference_views_select
     - field_group
-    - paragraphs
 third_party_settings:
   field_group:
     group_administrative:
@@ -142,9 +143,7 @@ third_party_settings:
         - field_collective
         - field_form_mode
         - field_year_cycle
-        - field_waps_allowed
         - field_vps_allowed
-        - field_vps
         - field_allow_support_camp
       parent_name: ''
       weight: 0
@@ -197,18 +196,6 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
-  field_vps:
-    type: entity_reference_paragraphs
-    weight: 46
-    region: content
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
   field_vps_allowed:
     type: number
     weight: 45
@@ -216,13 +203,6 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
-  field_waps_allowed:
-    weight: 44
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
   field_year_cycle:
     weight: 43
     settings: {  }
@@ -249,6 +229,8 @@ hidden:
   field_bke_day: true
   field_bke_location: true
   field_bke_time: true
+  field_ddts: true
+  field_ddts_allowed: true
   field_expenses_header: true
   field_grt_art_total: true
   field_grt_breakdown: true
@@ -356,7 +338,9 @@ hidden:
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
+  field_vps: true
   field_waps: true
+  field_waps_allowed: true
   path: true
   promote: true
   status: true

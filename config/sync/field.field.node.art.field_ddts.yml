@@ -1,0 +1,60 @@
+uuid: 626abc7c-adb5-4886-9b30-911f1bd7d155
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_ddts
+    - node.type.art
+    - paragraphs.paragraphs_type.ddt
+  module:
+    - custom_add_another
+    - entity_reference_revisions
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.art.field_ddts
+field_name: field_ddts
+entity_type: node
+bundle: art
+label: DDTs
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      ddt: ddt
+    target_bundles_drag_drop:
+      ddt:
+        enabled: true
+        weight: 10
+      early_access_and_vehicle_passes:
+        weight: 11
+        enabled: false
+      grant_expences:
+        weight: 12
+        enabled: false
+      minors:
+        weight: 13
+        enabled: false
+      mutant_grant_expense:
+        weight: 14
+        enabled: false
+      outreach_grant_applicant:
+        weight: 15
+        enabled: false
+      supplier_details:
+        weight: 16
+        enabled: false
+      vp:
+        weight: 17
+        enabled: false
+      wap:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions

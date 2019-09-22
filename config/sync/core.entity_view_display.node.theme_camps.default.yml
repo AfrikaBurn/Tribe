@@ -8,6 +8,8 @@ dependencies:
     - field.field.node.theme_camps.field_api_content_type
     - field.field.node.theme_camps.field_arteria_checkin
     - field.field.node.theme_camps.field_collective
+    - field.field.node.theme_camps.field_ddts
+    - field.field.node.theme_camps.field_ddts_allowed
     - field.field.node.theme_camps.field_event_services
     - field.field.node.theme_camps.field_field_prj_plc_marquis
     - field.field.node.theme_camps.field_field_prj_plc_stretch_m
@@ -192,6 +194,24 @@ content:
       format_custom_true: ''
     third_party_settings: {  }
     type: boolean
+    region: content
+  field_ddts:
+    weight: 31
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    type: entity_reference_revisions_entity_view
+    region: content
+  field_ddts_allowed:
+    weight: 30
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
     region: content
   field_event_services:
     weight: 20

@@ -111,20 +111,10 @@ function ar_prepare_project_links(&$variables) {
             break;
 
             case 'waps':
-
-              if ($registration->field_waps_allowed->value){
-                $link = (
-                  $editable
-                    ? '<a href="/node/' . $nid . '/edit/' . $mode['name'] . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
-                    : '<a href="/node/' . $nid . '/' . $mode['name'] . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
-                );
-              }
-
-            break;
-
             case 'vps':
+            case 'ddts':
 
-              if ($registration->field_vps_allowed->value){
+              if ($registration->{'field_' . $mode['name'] . '_allowed'}->value){
                 $link = (
                   $editable
                     ? '<a href="/node/' . $nid . '/edit/' . $mode['name'] . '" target="_blank" title="'. $description .'">' . $mode['title'] . '</a>'
@@ -149,7 +139,6 @@ function ar_prepare_project_links(&$variables) {
         }
       }
 
-
       $collective = $registration->field_collective->entity;
 
       if ($collective && $view->group_admin){
@@ -157,9 +146,8 @@ function ar_prepare_project_links(&$variables) {
       }
 
     } else {
-
       foreach($view->form_modes[$type] as $mode){
-        if (@$mode['state']['visible']) {
+        if (in_array($mode['name'], $completed)) {
           $links[] = '<li class="messages messages--archive"><a href="/node/' . $nid . '/' . $mode['name'] . '" target="_blank" title="ARCHIVED: Read only.">' . $mode['title'] . '</a></li>';
         }
       }
@@ -172,7 +160,6 @@ function ar_prepare_project_links(&$variables) {
     $variables['draft'] = $published ? '' : '<span>draft</span>';
     $variables['links'] = $links;
   }
-
 }
 
 

@@ -707,6 +707,28 @@ bundles:
       notes: ''
       relationship: 0
       sars_filename: ''
+    field_ddts_allowed:
+      bundle: art
+      name: field_ddts_allowed
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: random_text_anonymizer
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_ddts:
+      bundle: art
+      name: field_ddts
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   theme_camps:
     field_prj_est_camp_population:
       enabled: false
@@ -1197,6 +1219,28 @@ bundles:
       notes: ''
       relationship: 0
       sars_filename: ''
+    field_ddts_allowed:
+      bundle: theme_camps
+      name: field_ddts_allowed
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_ddts:
+      bundle: theme_camps
+      name: field_ddts
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   mutant_vehicles:
     field_mutant_drivers:
       enabled: false
@@ -1565,6 +1609,28 @@ bundles:
       notes: ''
       relationship: 0
       sars_filename: ''
+    field_ddts_allowed:
+      bundle: mutant_vehicles
+      name: field_ddts_allowed
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_ddts:
+      bundle: mutant_vehicles
+      name: field_ddts
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   performances:
     field_prj_gen_description:
       enabled: false
@@ -1883,6 +1949,28 @@ bundles:
     field_vps:
       bundle: performances
       name: field_vps
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_ddts_allowed:
+      bundle: performances
+      name: field_ddts_allowed
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_ddts:
+      bundle: performances
+      name: field_ddts
       entity_type_id: node
       rtf: 'no'
       rta: 'no'

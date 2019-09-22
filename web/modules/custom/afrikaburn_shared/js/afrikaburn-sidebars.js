@@ -69,7 +69,8 @@
 
     constructor($block, $sidebar, exclude){
 
-      this.cookieKey = $sidebar ? $sidebar.parent().attr('class') : $block.attr('id')
+      // this.cookieKey = $sidebar ? $sidebar.parent().attr('class') : $block.attr('id')
+      this.cookieKey = $sidebar ? $sidebar.parent().attr('class') : false
       this.$sidebar = $sidebar
       this.$block = $block.addClass('collapsible')
       this.$title = $block.children('h2')
@@ -77,14 +78,17 @@
       this.$siblings = $block.siblings()
       this.exclude = exclude || ''
 
-      if ($block.attr('id') != $.cookie(this.cookieKey)) this.collapse()
+      if (!$sidebar || $block.attr('id') != $.cookie(this.cookieKey)) this.collapse()
 
       this.$title.click(() => this.toggle())
       this.$block.bind('collapse', () => this.collapse())
       this.$block.bind('expand', () => this.expand())
-      $browserWindow.resize(() => this.resizeBody())
-      $browserWindow.scroll(() => this.resizeBody())
-      setTimeout(() => this.resizeBody(), 500)
+
+      if ($sidebar){
+        $browserWindow.resize(() => this.resizeBody())
+        $browserWindow.scroll(() => this.resizeBody())
+        setTimeout(() => this.resizeBody(), 500)
+      }
     }
 
     toggle(){
@@ -92,7 +96,7 @@
     }
 
     collapse(){
-      this.$body.slideUp().css({height: ''}).css('overflow-y', 'hidden')
+      this.$body.css({height: ''}).slideUp().css('overflow-y', 'hidden')
       this.$block.addClass('collapsed')
       if (this.cookieKey && this.$block.attr('id') == $.cookie(this.cookieKey))
         $.cookie(this.cookieKey, null)

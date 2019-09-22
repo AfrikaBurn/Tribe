@@ -9,6 +9,8 @@ dependencies:
     - field.field.node.mutant_vehicles.field_api_content_type
     - field.field.node.mutant_vehicles.field_arteria_checkin
     - field.field.node.mutant_vehicles.field_collective
+    - field.field.node.mutant_vehicles.field_ddts
+    - field.field.node.mutant_vehicles.field_ddts_allowed
     - field.field.node.mutant_vehicles.field_form_mode
     - field.field.node.mutant_vehicles.field_fuel_storage
     - field.field.node.mutant_vehicles.field_grt_art_total
@@ -120,7 +122,6 @@ dependencies:
     - computed_field
     - entity_reference_views_select
     - field_group
-    - paragraphs
 third_party_settings:
   field_group:
     group_administrative:
@@ -131,13 +132,12 @@ third_party_settings:
         - field_collective
         - field_form_mode
         - field_year_cycle
-        - field_waps_allowed
         - field_vps_allowed
-        - field_vps
         - field_admin_comments
         - field_allow_support_camp
         - field_grt_awarded
         - field_mv_amount_worthy
+        - field_vps
         - field_prj_adm_registration
       parent_name: ''
       weight: 0
@@ -198,18 +198,6 @@ content:
     third_party_settings: {  }
     type: options_buttons
     region: content
-  field_vps:
-    type: entity_reference_paragraphs
-    weight: 12
-    region: content
-    settings:
-      title: Paragraph
-      title_plural: Paragraphs
-      edit_mode: open
-      add_mode: dropdown
-      form_display_mode: default
-      default_paragraph_type: ''
-    third_party_settings: {  }
   field_vps_allowed:
     type: number
     weight: 11
@@ -217,13 +205,6 @@ content:
     settings:
       placeholder: ''
     third_party_settings: {  }
-  field_waps_allowed:
-    weight: 10
-    settings:
-      placeholder: ''
-    third_party_settings: {  }
-    type: number
-    region: content
   field_year_cycle:
     weight: 9
     settings: {  }
@@ -241,6 +222,8 @@ hidden:
   field_allow_support_camp: true
   field_api_content_type: true
   field_arteria_checkin: true
+  field_ddts: true
+  field_ddts_allowed: true
   field_fuel_storage: true
   field_grt_art_total: true
   field_grt_awarded: true
@@ -344,7 +327,9 @@ hidden:
   field_snd_playtime_thurs_sun: true
   field_sup_review: true
   field_vp_ea: true
+  field_vps: true
   field_waps: true
+  field_waps_allowed: true
   moderation_state: true
   path: true
   promote: true

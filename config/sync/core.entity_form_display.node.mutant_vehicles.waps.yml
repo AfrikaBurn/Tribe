@@ -9,7 +9,10 @@ dependencies:
     - field.field.node.mutant_vehicles.field_api_content_type
     - field.field.node.mutant_vehicles.field_arteria_checkin
     - field.field.node.mutant_vehicles.field_collective
+    - field.field.node.mutant_vehicles.field_ddts
+    - field.field.node.mutant_vehicles.field_ddts_allowed
     - field.field.node.mutant_vehicles.field_form_mode
+    - field.field.node.mutant_vehicles.field_fuel_storage
     - field.field.node.mutant_vehicles.field_grt_art_total
     - field.field.node.mutant_vehicles.field_grt_awarded
     - field.field.node.mutant_vehicles.field_grt_contribution
@@ -109,6 +112,8 @@ dependencies:
     - field.field.node.mutant_vehicles.field_snd_playtime_thurs_sun
     - field.field.node.mutant_vehicles.field_sup_review
     - field.field.node.mutant_vehicles.field_vp_ea
+    - field.field.node.mutant_vehicles.field_vps
+    - field.field.node.mutant_vehicles.field_vps_allowed
     - field.field.node.mutant_vehicles.field_waps
     - field.field.node.mutant_vehicles.field_waps_allowed
     - field.field.node.mutant_vehicles.field_year_cycle
@@ -122,19 +127,19 @@ third_party_settings:
   field_group:
     group_administrative:
       children:
-        - field_admin_comments
         - field_prjr_complete
         - field_prj_adm_review
         - field_prj_adm_wrangler
-        - field_prj_adm_registration
         - field_collective
         - field_form_mode
         - field_year_cycle
-        - field_mv_amount_worthy
-        - field_grt_awarded
-        - field_allow_support_camp
         - field_waps_allowed
         - field_waps
+        - field_admin_comments
+        - field_allow_support_camp
+        - field_grt_awarded
+        - field_mv_amount_worthy
+        - field_prj_adm_registration
       parent_name: ''
       weight: 0
       format_type: details
@@ -153,7 +158,7 @@ mode: waps
 content:
   field_collective:
     type: entity_reference_autocomplete
-    weight: 8
+    weight: 7
     region: content
     settings:
       match_operator: CONTAINS
@@ -162,7 +167,7 @@ content:
     third_party_settings: {  }
   field_form_mode:
     type: string_textfield
-    weight: 9
+    weight: 8
     region: content
     settings:
       size: 60
@@ -195,7 +200,9 @@ content:
     type: options_buttons
     region: content
   field_waps:
-    weight: 133
+    type: entity_reference_paragraphs
+    weight: 11
+    region: content
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -204,17 +211,15 @@ content:
       form_display_mode: default
       default_paragraph_type: ''
     third_party_settings: {  }
-    type: entity_reference_paragraphs
-    region: content
   field_waps_allowed:
-    weight: 132
+    weight: 10
     settings:
       placeholder: ''
     third_party_settings: {  }
     type: number
     region: content
   field_year_cycle:
-    weight: 10
+    weight: 9
     settings: {  }
     third_party_settings: {  }
     type: computed_number_widget
@@ -230,6 +235,9 @@ hidden:
   field_allow_support_camp: true
   field_api_content_type: true
   field_arteria_checkin: true
+  field_ddts: true
+  field_ddts_allowed: true
+  field_fuel_storage: true
   field_grt_art_total: true
   field_grt_awarded: true
   field_grt_contribution: true
@@ -332,6 +340,8 @@ hidden:
   field_snd_playtime_thurs_sun: true
   field_sup_review: true
   field_vp_ea: true
+  field_vps: true
+  field_vps_allowed: true
   moderation_state: true
   path: true
   promote: true

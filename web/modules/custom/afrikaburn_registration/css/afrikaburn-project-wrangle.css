@@ -27,6 +27,7 @@
 
 .wrangler-view table .column-administrative,
 .wrangler-view table .column-process{
+  min-width: 220px;
   max-width: 220px;
   width: 220px;
 }
@@ -191,10 +192,11 @@
 /* WAPs & VPs */
 
 .wrangler-view .form-item-field-waps-allowed-0-value,
-.wrangler-view .form-item-field-vps-allowed-0-value{
-  width: 45%;
+.wrangler-view .form-item-field-vps-allowed-0-value,
+.wrangler-view .form-item-field-ddts-allowed-0-value{
+  width: 28%;
   float: left;
-  margin: 0 5px;
+  margin: 10px 5px;
 }
 
 

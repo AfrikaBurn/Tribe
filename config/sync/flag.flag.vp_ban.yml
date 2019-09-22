@@ -1,0 +1,30 @@
+uuid: d36f40f5-ca30-4be7-8938-237608bbc8f3
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: vp_ban
+label: 'VP ban'
+bundles: {  }
+entity_type: user
+global: true
+weight: 0
+flag_short: 'VP block'
+flag_long: 'Click to prevent user from receiving a VP'
+flag_message: ''
+unflag_short: 'VP blocked'
+unflag_long: 'Click to allow user to receive a VP'
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:user'
+link_type: ajax_link
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+  show_on_profile: true
+linkTypeConfig: {  }

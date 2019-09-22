@@ -21,6 +21,7 @@ function _editable($id){
         'field_allow_support_camp',
         'field_waps_allowed',
         'field_vps_allowed',
+        'field_ddts_allowed',
         'field_collective',
       ],
 
@@ -33,6 +34,7 @@ function _editable($id){
         'field_allow_support_camp',
         'field_waps_allowed',
         'field_vps_allowed',
+        'field_ddts_allowed',
         'field_collective',
       ],
 
@@ -49,6 +51,7 @@ function _editable($id){
         'field_allow_support_camp',
         'field_waps_allowed',
         'field_vps_allowed',
+        'field_ddts_allowed',
         'field_collective',
       ],
 
@@ -69,6 +72,7 @@ function _editable($id){
         'field_placement_letter_sent',
         'field_waps_allowed',
         'field_vps_allowed',
+        'field_ddts_allowed',
         'field_collective',
         'field_good_standing',
         'field_interactive',
@@ -98,6 +102,7 @@ function _merge(){
       'field_allow_support_camp',
       'field_waps_allowed',
       'field_vps_allowed',
+      'field_ddts_allowed',
       'field_prj_plc_people',
     ],
     'process' => [
@@ -137,7 +142,10 @@ function _title($field){
     'field_service' => FALSE,
     'field_moop_assesment' => FALSE,
     'field_adds_to_landscape' => FALSE,
-  ])[$field];
+    'field_waps_allowed' => 'WAPs',
+    'field_vps_allowed' => 'VPs',
+    'field_ddts_allowed' => 'DDTs',
+])[$field];
 }
 
 

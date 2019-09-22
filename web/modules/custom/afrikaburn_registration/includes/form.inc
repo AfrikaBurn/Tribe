@@ -3,7 +3,11 @@
  * @file: form.inc
  */
 
+
 use \Drupal\user\Entity\User;
+use \Drupal\afrikaburn_collective\Controller\CollectiveController;
+use \Drupal\afrikaburn_registration\Controller\RegistrationController;
+
 
  /**
   * Determine which forms have which modes
@@ -21,6 +25,7 @@ function _project_form_modes(){
         'support_camp' => 'Support camp',
         'waps' => 'Work Access Passes',
         'vps' => 'Vehicle Passes',
+        'ddts' => 'Direct Distribution Tickets',
       ],
     ],
 
@@ -32,6 +37,7 @@ function _project_form_modes(){
         'support_camp' => 'Support camp',
         'waps' => 'Work Access Passes',
         'vps' => 'Vehicle Passes',
+        'ddts' => 'Direct Distribution Tickets',
       ],
     ],
 
@@ -43,6 +49,7 @@ function _project_form_modes(){
         'support_camp' => 'Support camp',
         'waps' => 'Work Access Passes',
         'vps' => 'Vehicle Passes',
+        'ddts' => 'Direct Distribution Tickets',
       ],
     ],
 
@@ -55,6 +62,7 @@ function _project_form_modes(){
         'support_camp' => 'Support camp',
         'waps' => 'Work Access Passes',
         'vps' => 'Vehicle Passes',
+        'ddts' => 'Direct Distribution Tickets',
       ],
     ],
   ];
@@ -115,6 +123,12 @@ function _project_form_config() {
       'type' => 'an Artwork',
       'wrangler' => 'art_wrangler'
     ],
+    'node_art_ddts_form' => [
+      'mode' => 'ddts',
+      'title' => 'Direct Distribution Tickets for: %title',
+      'type' => 'an Artwork',
+      'wrangler' => 'art_wrangler'
+    ],
 
     /* ---- Performance ---- */
 
@@ -154,6 +168,12 @@ function _project_form_config() {
       'type' => 'a Binnekring event',
       'wrangler' => 'art_wrangler'
     ],
+    'node_performances_ddts_form' => [
+      'mode' => 'ddts',
+      'title' => 'Direct Distribution Tickets for: %title',
+      'type' => 'a Binnekring event',
+      'wrangler' => 'art_wrangler'
+    ],
 
     /* ---- Mutant Vehicles ---- */
 
@@ -190,6 +210,12 @@ function _project_form_config() {
     'node_mutant_vehicles_vps_form' => [
       'mode' => 'vps',
       'title' => 'Vehicle Passes for: %title',
+      'type' => 'a Mutant Vehicle',
+      'wrangler' => 'mutant_vehicle_wrangler'
+    ],
+    'node_mutant_vehicles_ddts_form' => [
+      'mode' => 'ddts',
+      'title' => 'Direct Distribution Tickets for: %title',
       'type' => 'a Mutant Vehicle',
       'wrangler' => 'mutant_vehicle_wrangler'
     ],
@@ -241,6 +267,12 @@ function _project_form_config() {
     'node_theme_camps_vps_form' => [
       'mode' => 'vps',
       'title' => 'Vehicle Passes for: %title',
+      'type' => 'a Theme Camp',
+      'wrangler' => 'theme_camp_wrangler'
+    ],
+    'node_theme_camps_ddts_form' => [
+      'mode' => 'ddts',
+      'title' => 'Direct Distribution Tickets for: %title',
       'type' => 'a Theme Camp',
       'wrangler' => 'theme_camp_wrangler'
     ],
@@ -371,6 +403,8 @@ function _set_form_field_state(&$form, $is_admin, $is_wrangler, $bundle){
   $form['field_waps_allowed']['#access'] = $is_admin || $is_wrangler;
   $form['field_vps']['#access'] = $is_admin;
   $form['field_vps_allowed']['#access'] = $is_admin || $is_wrangler;
+  $form['field_ddts']['#access'] = $is_admin;
+  $form['field_ddts_allowed']['#access'] = $is_admin || $is_wrangler;
   $form['field_form_mode']['#type'] = 'hidden';
   $form['field_collective']['#access'] = $is_admin;
   $form['field_prjr_complete']['widget']['#options'] = array_intersect_key(
@@ -416,6 +450,10 @@ function _verify_link(&$form, $collective, $mode, $supporting_project){
   return true;
 }
 
+
+/* ----- Ticket forms ----- */
+
+
 /**
  * Generate the WAP form
  */
@@ -432,36 +470,10 @@ function _wap_form(&$form, $collective, $registration, $mode){
         '</div>',
     ];
 
+    $cid = $collective->nid->value;
     $allowed = (int)$registration->field_waps_allowed->value;
     $assigned = count($registration->field_waps);
-    $uids = \Drupal::database()->query("
-      SELECT
-        members.uid as uid
-      FROM
-        {flagging} AS members
-      LEFT JOIN
-        {paragraph__field_team_member} AS wap_member ON members.uid = wap_member.field_team_member_target_id
-      LEFT JOIN
-        {paragraphs_item_field_data} as wap ON wap.id = wap_member.entity_id
-      LEFT JOIN
-        {flagging} AS archived ON archived.entity_id = wap.parent_id AND archived.flag_id = 'archived'
-      LEFT JOIN
-        {flagging} AS banned ON banned.entity_id = members.uid AND banned.flag_id = 'wap_ban'
-      WHERE
-        members.flag_id = 'member' AND
-        members.entity_id = :cid AND
-        (
-          (archived.flag_id = 'archived' AND wap.parent_id IS NOT NULL) OR
-          (archived.flag_id IS NULL AND wap.parent_id IS NULL)
-        ) AND banned.flag_id IS NULL",
-      [':cid' => $collective->nid->value]
-    )->fetchCol();
-
-    $users = \Drupal::entityTypeManager()->getStorage('user')->loadMultiple($uids);
-    $options = ['-- Unassigned --'];
-    foreach($users as $user){
-      $options[$user->uid->value] = $user->field_first_name->value . ' "' . $user->name->value . '" ' . $user->field_last_name->value;
-    }
+    $options = _ticket_options($cid, 'wap');
 
     $form['waps'] = [
       '#prefix' => '<table id="wap-assign"><thead><th>Member</th><th>Estimated arrival date</th></tr></thead><tbody>',
@@ -481,9 +493,11 @@ function _wap_form(&$form, $collective, $registration, $mode){
         '#type' => 'markup',
         '#markup' =>
           '<td>' .
-            $wap->entity->field_team_member->entity->field_first_name->value . ' "' .
-            $wap->entity->field_team_member->entity->name->value . '" ' .
-            $wap->entity->field_team_member->entity->field_last_name->value .
+            render(
+              \Drupal::entityTypeManager()
+                ->getViewBuilder('user')
+                ->view($wap->entity->field_team_member->entity, 'full_name')
+            ) .
           '</td><td>' .
             ($wap->entity->field_estimated_date_of_arrival->date
               ? $wap->entity->field_estimated_date_of_arrival->date->format('d/m/Y')
@@ -494,7 +508,7 @@ function _wap_form(&$form, $collective, $registration, $mode){
       ];
     }
 
-    if ($allowed - $assigned > 0){
+    if (!RegistrationController::isArchived($registration) && ($allowed - $assigned > 0)){
       for ($i=0; $i<$allowed - $assigned; $i++){
         $form['waps'][$i] = [
           '#prefix' => '<tr>',
@@ -522,7 +536,6 @@ function _wap_form(&$form, $collective, $registration, $mode){
   }
 }
 
-
 /**
  * Generate the VP form
  */
@@ -539,36 +552,10 @@ function _vp_form(&$form, $collective, $registration, $mode){
         '</div>',
     ];
 
+    $cid = $collective->nid->value;
     $allowed = (int)$registration->field_vps_allowed->value;
     $assigned = count($registration->field_vps);
-    $uids = \Drupal::database()->query("
-      SELECT
-        members.uid as uid
-      FROM
-        {flagging} AS members
-      LEFT JOIN
-        {paragraph__field_team_member} AS vp_member ON members.uid = vp_member.field_team_member_target_id
-      LEFT JOIN
-        {paragraphs_item_field_data} as vp ON vp.id = vp_member.entity_id
-      LEFT JOIN
-        {flagging} AS archived ON archived.entity_id = vp.parent_id AND archived.flag_id = 'archived'
-      LEFT JOIN
-        {flagging} AS banned ON banned.entity_id = members.uid AND banned.flag_id = 'vp_ban'
-      WHERE
-        members.flag_id = 'member' AND
-        members.entity_id = :cid AND
-        (
-          (archived.flag_id = 'archived' AND vp.parent_id IS NOT NULL) OR
-          (archived.flag_id IS NULL AND vp.parent_id IS NULL)
-        ) AND banned.flag_id IS NULL",
-      [':cid' => $collective->nid->value]
-    )->fetchCol();
-
-    $users = \Drupal::entityTypeManager()->getStorage('user')->loadMultiple($uids);
-    $options = ['-- Unassigned --'];
-    foreach($users as $user){
-      $options[$user->uid->value] = $user->field_first_name->value . ' "' . $user->name->value . '" ' . $user->field_last_name->value;
-    }
+    $options = _ticket_options($cid, 'vp');
 
     $form['vps'] = [
       '#prefix' => '<table id="vp-assign"><thead><th>Member</th><th>Estimated arrival date</th></tr></thead><tbody>',
@@ -588,9 +575,11 @@ function _vp_form(&$form, $collective, $registration, $mode){
         '#type' => 'markup',
         '#markup' =>
           '<td>' .
-            $vp->entity->field_team_member->entity->field_first_name->value . ' "' .
-            $vp->entity->field_team_member->entity->name->value . '" ' .
-            $vp->entity->field_team_member->entity->field_last_name->value .
+            render(
+              \Drupal::entityTypeManager()
+                ->getViewBuilder('user')
+                ->view($vp->entity->field_team_member->entity, 'full_name')
+            ) .
           '</td><td>' .
             ($vp->entity->field_estimated_date_of_arrival->date
               ? $vp->entity->field_estimated_date_of_arrival->date->format('d/m/Y')
@@ -601,7 +590,7 @@ function _vp_form(&$form, $collective, $registration, $mode){
       ];
     }
 
-    if ($allowed - $assigned > 0){
+    if (!RegistrationController::isArchived($registration) && ($allowed - $assigned > 0)){
       for ($i=0; $i<$allowed - $assigned; $i++){
         $form['vps'][$i] = [
           '#prefix' => '<tr>',
@@ -627,4 +616,164 @@ function _vp_form(&$form, $collective, $registration, $mode){
     $form['#validate'][] = 'afrikaburn_registration_vp_quicket';
     $form['#attached']['library'][] = 'afrikaburn_registration/registration';
   }
+}
+
+/**
+ * Generate the DDT form
+ */
+function _ddt_form(&$form, $collective, $registration, $mode){
+  if ($mode == 'ddts'){
+
+    $form['intro'] = [
+      '#type' => 'markup',
+      '#markup' =>
+        '<div class="messages messages--warning">' .
+        '* If a member of your collective does not appear in the dropdown, they have likely been assigned one elsewhere already.<br />' .
+        '* Once assigned, VPs can only be transfered through Quicket.<br />' .
+        '* You do not have to assign all VPs in one go, you can assign VPs until April 15th.' .
+        '</div>',
+    ];
+
+    $cid = $collective->nid->value;
+    $allowed = (int)$registration->field_ddts_allowed->value;
+    $assigned = count($registration->field_ddts);
+    $options = _ticket_options($cid, 'ddt');
+
+    $form['ddts'] = [
+      '#prefix' => '<table id="ddt-assign"><thead><th>Member</th><th>Estimated arrival date</th></tr></thead><tbody>',
+      '#type' => 'fieldset',
+      '#suffix' => '</tbody></table>',
+      '#tree' => TRUE,
+    ];
+
+    unset($form['actions']['delete']);
+    if ($assigned == $allowed){
+      unset($form['actions']);
+    }
+
+    foreach($registration->field_ddts as $i=>$ddt){
+      $form['ddts']['assigned_' . $i] = [
+        '#prefix' => '<tr>',
+        '#type' => 'markup',
+        '#markup' =>
+          '<td>' .
+            render(
+              \Drupal::entityTypeManager()
+                ->getViewBuilder('user')
+                ->view($ddt->entity->field_team_member->entity, 'full_name')
+            ) .
+          '</td><td>' .
+            ($ddt->entity->field_estimated_date_of_arrival->date
+              ? $ddt->entity->field_estimated_date_of_arrival->date->format('d/m/Y')
+              : 'UNSPECIFIED'
+            ) .
+      '</td>',
+        '#suffix' => '</tr>',
+      ];
+    }
+
+    if (!RegistrationController::isArchived($registration) && ($allowed - $assigned > 0)){
+      for ($i=0; $i<$allowed - $assigned; $i++){
+        $form['ddts'][$i] = [
+          '#prefix' => '<tr>',
+          '#type' => 'container',
+          '#suffix' => '</tr>',
+        ];
+        $form['ddts'][$i]['member'] = [
+          '#prefix' => '<td>',
+          '#type' => 'select',
+          '#options' => $options,
+          '#suffix' => '</td>',
+        ];
+        $form['ddts'][$i]['arrives'] = [
+          '#prefix' => '<td>',
+          '#type' => 'date',
+          '#suffix' => '</td>',
+        ];
+      }
+    }
+
+    $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_ddt_submit';
+    $form['#validate'][] = 'afrikaburn_registration_ddt_validate';
+    $form['#validate'][] = 'afrikaburn_registration_ddt_quicket';
+    $form['#attached']['library'][] = 'afrikaburn_registration/registration';
+  }
+}
+
+
+/* ----- Utility ----- */
+
+
+function _ticket_options($cid, $ticket_type){
+
+  $ineligable_uids = _ineligable_uids($cid, $ticket_type);
+  $member_uids = \Drupal::database()->query("
+    SELECT
+      member.uid AS uid
+    FROM {flagging} AS member
+    WHERE
+      member.entity_id = :cid
+    AND member.flag_id = 'member'",
+    [':cid' => $cid]
+  )->fetchCol();
+  $unassigned_uids = array_diff(
+    $member_uids,
+    $ineligable_uids
+  );
+  $users = \Drupal::entityTypeManager()->getStorage('user')->loadMultiple($unassigned_uids);
+
+  $options = ['-- Unassigned --'];
+  foreach($users as $user){
+    $options[$user->uid->value] = preg_replace(
+      ["/<a [^>]+>|<[^a]a>/", "/<[^>]+>/"],
+      ['"', ''],
+      render(
+        \Drupal::entityTypeManager()
+          ->getViewBuilder('user')
+          ->view($user, 'full_name')
+      )
+    );
+  }
+
+  return $options;
+}
+
+
+function _ineligable_uids($cid, $ticket_type){
+  return \Drupal::database()->query("
+
+    SELECT
+      DISTINCT member.uid AS uid
+
+    FROM {flagging} AS member
+
+    LEFT JOIN
+      {flagging} AS banned
+      ON banned.entity_id = member.uid
+
+    LEFT JOIN
+      {paragraph__field_team_member} AS member_ticket
+      ON member.uid = member_ticket.field_team_member_target_id
+
+    LEFT JOIN
+      {paragraphs_item_field_data} AS ticket
+      ON ticket.id = member_ticket.entity_id
+
+    LEFT JOIN
+      {flagging} AS archived
+      ON archived.entity_id = ticket.parent_id
+
+    WHERE
+      member.entity_id = :cid AND member.flag_id = 'member'
+      AND (
+        banned.flag_id = :banned
+        OR ticket.type = :type AND archived.flag_id IS NULL
+      )
+    ",
+    [
+      ':cid' => $cid,
+      ':type' => $ticket_type,
+      ':banned' => $ticket_type . '_ban'
+    ]
+  )->fetchCol();
 }

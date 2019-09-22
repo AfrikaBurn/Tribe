@@ -7,6 +7,7 @@ filenames:
   mutant_grant_expense: ''
   wap: ''
   vp: ''
+  ddt: ''
 bundles:
   grant_expences:
     field_grt_brk_description:
@@ -112,6 +113,40 @@ bundles:
       sars_filename: ''
     field_year_cycle:
       bundle: vp
+      name: field_year_cycle
+      entity_type_id: paragraph
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+  ddt:
+    field_estimated_date_of_arrival:
+      bundle: ddt
+      name: field_estimated_date_of_arrival
+      entity_type_id: paragraph
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_team_member:
+      bundle: ddt
+      name: field_team_member
+      entity_type_id: paragraph
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_year_cycle:
+      bundle: ddt
       name: field_year_cycle
       entity_type_id: paragraph
       rtf: 'no'

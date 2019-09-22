@@ -27,6 +27,7 @@ dependencies:
     - field.field.user.user.field_quicket_id
     - field.field.user.user.field_secondary_mail
     - field.field.user.user.field_terms_and_conditions
+    - field.field.user.user.field_volunteering
     - field.field.user.user.field_year_cycle
     - field.field.user.user.user_picture
     - image.style.medium
@@ -107,8 +108,8 @@ third_party_settings:
       children:
         - member_for
         - field_participation
-        - field_volunteering
         - field_other_burns
+        - field_volunteering
       parent_name: group_root
       weight: 7
       format_type: tab
@@ -140,8 +141,8 @@ third_party_settings:
         - contact
         - edit
         - flag_outdated
-        - flag_wap_ban
         - masquerade
+        - group_bans
       parent_name: ''
       weight: 1
       format_type: html_element
@@ -156,6 +157,20 @@ third_party_settings:
         id: ''
         classes: account-actions
       label: 'Account Actions'
+    group_bans:
+      children:
+        - flag_ddt_ban
+        - flag_vp_ban
+        - flag_wap_ban
+      parent_name: group_account_actions
+      weight: 106
+      format_type: details
+      format_settings:
+        label: 'Block Tickets'
+        id: ''
+        classes: ban-popup
+        open: false
+      label: 'Block Tickets'
 _core:
   default_config_hash: V51QPCKkgNREKtSmB9Iu2wmAMEpktVpnzklWaZV8UYo
 id: user.user.default
@@ -186,7 +201,7 @@ content:
         handler: ''
   field_email:
     type: computed_string
-    weight: 9
+    weight: 12
     region: content
     label: above
     settings:
@@ -234,7 +249,7 @@ content:
     third_party_settings: {  }
   field_links:
     type: link
-    weight: 11
+    weight: 14
     region: content
     label: above
     settings:
@@ -256,7 +271,7 @@ content:
         handler: ''
   field_mobile:
     type: string
-    weight: 8
+    weight: 11
     region: content
     label: above
     settings:
@@ -298,7 +313,7 @@ content:
     third_party_settings: {  }
   field_secondary_mail:
     type: basic_string
-    weight: 10
+    weight: 13
     region: content
     label: above
     settings: {  }
@@ -325,18 +340,28 @@ content:
     third_party_settings: {  }
     type: computed_string
     region: content
+  flag_ddt_ban:
+    weight: 105
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   flag_outdated:
     weight: 104
     region: content
     settings: {  }
     third_party_settings: {  }
+  flag_vp_ban:
+    weight: 106
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   flag_wap_ban:
-    weight: 105
+    weight: 107
     region: content
     settings: {  }
     third_party_settings: {  }
   masquerade:
-    weight: 106
+    weight: 105
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -372,4 +397,5 @@ hidden:
   field_kids_and_teens: true
   field_quicket_code: true
   field_quicket_id: true
+  field_volunteering: true
   username: true

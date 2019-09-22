@@ -423,6 +423,9 @@ function afrikaburn_registration_form_alter(&$form, $form_state, $form_id) {
       // Generate VP form
       _vp_form($form, $collective, $registration, $mode);
 
+      // Generate VP form
+      _ddt_form($form, $collective, $registration, $mode);
+
         // Add "Save Draft" button.
         // $form['draft'] = [
         //   '#type' => 'submit',
@@ -612,7 +615,7 @@ function afrikaburn_registration_wap_submit($form, $form_state){
 }
 
 
-/* --- VPS --- */
+/* --- VPs --- */
 
 /**
  * VPs validation
@@ -690,6 +693,112 @@ function afrikaburn_registration_vp_submit($form, $form_state){
 
       if ($paragraph){
         $project->field_vps->appendItem($paragraph);
+      }
+    }
+  }
+
+  if ($paragraph){
+    $project->save();
+  }
+}
+
+
+/* --- DDTs --- */
+
+/**
+ * DDTs validation
+ */
+function afrikaburn_registration_ddt_validate($form, $form_state){
+
+  $values = $form_state->getValues();
+  $registration = $form_state->getFormObject()->getEntity();
+  $allowed = (int)$registration->field_ddts_allowed->value;
+  $assigned = count($registration->field_ddts);
+  $new = 0;
+
+  foreach($values['ddts'] as $i=>$ddt){
+    if ($ddt['member']){
+      if (!$ddt['arrives']){
+        $form_state->setError($form['ddts'][$i]['arrives'], t('You must estimate when this member will arrive!'));
+      }
+      $new ++;
+    }
+  }
+
+  if ($allowed < $assigned + $new){
+    $form_state->setError($form['ddts'], t('You are attempting to assign more DDTs than you are allowed!'));
+  }
+}
+
+/**
+ * DDTs quicket
+ */
+function afrikaburn_registration_ddt_quicket($form, $form_state){
+
+  if (count($form_state->getErrors())) return;
+
+  $config = Drupal::config('afrikaburn_shared.settings');
+  $values = $form_state->getValues();
+  $successes = [];
+
+  foreach($values['ddts'] as $ddt){
+    if ($ddt['member']){
+
+      $user = User::load($ddt['member']);
+
+      if (
+        QuicketController::addTicketTypes(
+          $user->field_id_number->value,
+          $user->field_quicket_code->value,
+          $user->field_quicket_id->value,
+          [$config->get('main_ddt_id')],
+          1
+        )
+      ) {
+        $successes[] = $ddt;
+      } else {
+        $user_view = \Drupal::entityTypeManager()
+          ->getViewBuilder('user')
+          ->view($user, 'full_name');
+
+        drupal_set_message(
+          t(
+            'There was a problem creating a DDT for: @user. Please try submitting
+            this form again later.<br /> If the problem persists please
+            <a href="mailto:support@afrikaburn.com">Contact an Administrator</a>.',
+            ['@user' => render($user_view)]
+          ),
+          'error'
+        );
+      }
+    }
+  }
+
+  $form_state->setValue('assigned_ddts', $successes);
+}
+
+/**
+ * DDTs submission
+ */
+function afrikaburn_registration_ddt_submit($form, $form_state){
+
+  $project = $form_state->getFormObject()->getEntity();
+  $values = $form_state->getValues();
+
+  foreach($values['assigned_ddts'] as $ddt){
+    if ($ddt['member']){
+
+      $paragraph = \Drupal\paragraphs\Entity\Paragraph::create(
+        [
+          'type' => 'ddt',
+          'field_team_member' => ['target_id' => $ddt['member']],
+          'field_estimated_date_of_arrival' => ['value' => $ddt['arrives']],
+        ]
+      );
+      $paragraph->save();
+
+      if ($paragraph){
+        $project->field_ddts->appendItem($paragraph);
       }
     }
   }

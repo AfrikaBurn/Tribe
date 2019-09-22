@@ -112,7 +112,9 @@ article.user img{
 }
 
 .account-actions > a,
+.account-actions > details summary,
 .account-actions .flag a {
+  cursor: pointer;
   background-position: 10px center;
   background-repeat: no-repeat;
   background-color: #00000055;
@@ -128,6 +130,10 @@ article.user img{
   width: auto;
   height: 24px;
   outline: none;
+}
+.account-actions > details summary{
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .account-actions > a{
@@ -152,9 +158,27 @@ article.user img{
   background-image: url(../images/outdated.svg);
 }
 
+.account-actions .ban-popup .details-wrapper{
+  background-color: #00000055;
+  border-radius: 10px;
+  margin-top: -15px;
+}
+
+.account-actions .ban-popup .flag a{
+  box-sizing: border-box;
+  background-color: transparent;
+  margin: 0;
+  height: 37px;
+  width: 100%;
+}
+
+.account-actions .flag-ddt-ban.action-flag a,
+.account-actions .flag-vp-ban.action-flag a,
 .account-actions .flag-wap-ban.action-flag a{
   background-image: url(../images/wap.svg);
 }
+.account-actions .flag-ddt-ban.action-unflag a,
+.account-actions .flag-vp-ban.action-unflag a,
 .account-actions .flag-wap-ban.action-unflag a{
   background-image: url(../images/no-wap.svg);
 }

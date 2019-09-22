@@ -10,6 +10,8 @@ dependencies:
     - field.field.node.performances.field_bke_location
     - field.field.node.performances.field_bke_time
     - field.field.node.performances.field_collective
+    - field.field.node.performances.field_ddts
+    - field.field.node.performances.field_ddts_allowed
     - field.field.node.performances.field_expenses_header
     - field.field.node.performances.field_form_mode
     - field.field.node.performances.field_grt_art_total
@@ -274,6 +276,25 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_ddts:
+    weight: 79
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    type: entity_reference_paragraphs
+    region: content
+  field_ddts_allowed:
+    weight: 78
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
   field_expenses_header:
     weight: 74
     settings: {  }

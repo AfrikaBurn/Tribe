@@ -1,0 +1,13 @@
+uuid: fbe8ef46-0018-425e-9f4c-6c40b0edbf87
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.ddt_ban.unflag
+label: 'DDT blocked'
+type: user
+plugin: 'flag_action:ddt_ban.unflag'
+configuration:
+  flag_id: ddt_ban
+  flag_action: unflag

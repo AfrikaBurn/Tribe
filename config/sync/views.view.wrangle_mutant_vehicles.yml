@@ -33,6 +33,7 @@ dependencies:
     - field.storage.node.field_prjr_complete
     - field.storage.node.field_waps_allowed
     - field.storage.node.field_vps_allowed
+    - field.storage.node.field_ddts_allowed
     - field.storage.user.field_first_name
     - field.storage.user.field_last_name
     - flag.flag.archived
@@ -2607,6 +2608,70 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        field_ddts_allowed:
+          id: field_ddts_allowed
+          table: node__field_ddts_allowed
+          field: field_ddts_allowed
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'WAPs allowed'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_integer
+          settings:
+            thousand_separator: ''
+            prefix_suffix: true
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
         field_collective_1:
           id: field_collective_1
           table: node__field_collective
@@ -3331,6 +3396,7 @@ display:
         - 'config:field.storage.node.field_prjr_complete'
         - 'config:field.storage.node.field_waps_allowed'
         - 'config:field.storage.node.field_vps_allowed'
+        - 'config:field.storage.node.field_ddts_allowed'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
   base_name_reg:
@@ -4240,6 +4306,7 @@ display:
         - 'config:field.storage.node.field_prjr_complete'
         - 'config:field.storage.node.field_waps_allowed'
         - 'config:field.storage.node.field_vps_allowed'
+        - 'config:field.storage.node.field_ddts_allowed'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
   dmv_book:
@@ -5746,6 +5813,7 @@ display:
         - 'config:core.entity_view_display.node.art.grant_print'
         - 'config:core.entity_view_display.node.art.waps'
         - 'config:core.entity_view_display.node.art.vps'
+        - 'config:core.entity_view_display.node.art.ddts'
         - 'config:core.entity_view_display.node.article.default'
         - 'config:core.entity_view_display.node.article.notification'
         - 'config:core.entity_view_display.node.article.rss'
@@ -5764,6 +5832,7 @@ display:
         - 'config:core.entity_view_display.node.mutant_vehicles.grant_print'
         - 'config:core.entity_view_display.node.mutant_vehicles.waps'
         - 'config:core.entity_view_display.node.mutant_vehicles.vps'
+        - 'config:core.entity_view_display.node.mutant_vehicles.ddts'
         - 'config:core.entity_view_display.node.page.default'
         - 'config:core.entity_view_display.node.page.teaser'
         - 'config:core.entity_view_display.node.performances.default'
@@ -5776,6 +5845,7 @@ display:
         - 'config:core.entity_view_display.node.performances.grant_print'
         - 'config:core.entity_view_display.node.performances.waps'
         - 'config:core.entity_view_display.node.performances.vps'
+        - 'config:core.entity_view_display.node.performances.ddts'
         - 'config:core.entity_view_display.node.subsidised_ticket.default'
         - 'config:core.entity_view_display.node.subsidised_ticket.teaser'
         - 'config:core.entity_view_display.node.subsidised_ticket.wrangler_overview'
@@ -5791,6 +5861,7 @@ display:
         - 'config:core.entity_view_display.node.theme_camps.support_camp_mail'
         - 'config:core.entity_view_display.node.theme_camps.waps'
         - 'config:core.entity_view_display.node.theme_camps.vps'
+        - 'config:core.entity_view_display.node.theme_camps.ddts'
         - 'config:field.storage.node.field_prj_adm_registration'
         - 'config:field.storage.node.field_prj_adm_wrangler'
         - 'config:field.storage.node.field_prj_gen_contact'
@@ -8126,6 +8197,7 @@ display:
         - 'config:field.storage.node.field_prjr_complete'
         - 'config:field.storage.node.field_waps_allowed'
         - 'config:field.storage.node.field_vps_allowed'
+        - 'config:field.storage.node.field_ddts_allowed'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
   ranger_book:
@@ -9711,6 +9783,7 @@ display:
         - 'config:core.entity_view_display.node.art.grant_print'
         - 'config:core.entity_view_display.node.art.waps'
         - 'config:core.entity_view_display.node.art.vps'
+        - 'config:core.entity_view_display.node.art.ddts'
         - 'config:core.entity_view_display.node.article.default'
         - 'config:core.entity_view_display.node.article.notification'
         - 'config:core.entity_view_display.node.article.rss'
@@ -9729,6 +9802,7 @@ display:
         - 'config:core.entity_view_display.node.mutant_vehicles.grant_print'
         - 'config:core.entity_view_display.node.mutant_vehicles.waps'
         - 'config:core.entity_view_display.node.mutant_vehicles.vps'
+        - 'config:core.entity_view_display.node.mutant_vehicles.ddts'
         - 'config:core.entity_view_display.node.page.default'
         - 'config:core.entity_view_display.node.page.teaser'
         - 'config:core.entity_view_display.node.performances.default'
@@ -9741,6 +9815,7 @@ display:
         - 'config:core.entity_view_display.node.performances.grant_print'
         - 'config:core.entity_view_display.node.performances.waps'
         - 'config:core.entity_view_display.node.performances.vps'
+        - 'config:core.entity_view_display.node.performances.ddts'
         - 'config:core.entity_view_display.node.subsidised_ticket.default'
         - 'config:core.entity_view_display.node.subsidised_ticket.teaser'
         - 'config:core.entity_view_display.node.subsidised_ticket.wrangler_overview'
@@ -9756,6 +9831,7 @@ display:
         - 'config:core.entity_view_display.node.theme_camps.support_camp_mail'
         - 'config:core.entity_view_display.node.theme_camps.waps'
         - 'config:core.entity_view_display.node.theme_camps.vps'
+        - 'config:core.entity_view_display.node.theme_camps.ddts'
         - 'config:field.storage.node.field_prj_adm_registration'
         - 'config:field.storage.node.field_prj_adm_wrangler'
         - 'config:field.storage.node.field_prj_gen_base'
