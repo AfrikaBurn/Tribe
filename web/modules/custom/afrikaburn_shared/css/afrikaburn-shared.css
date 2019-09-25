@@ -112,7 +112,9 @@ body .horizontal-tabs .horizontal-tab-button {
 }
 
 #block-adminimal-theme-content .contextual-region{
-  /* position: absolute; */
+  position: absolute;
+  left: 10px;
+  right: 10px;
 }
 
 
