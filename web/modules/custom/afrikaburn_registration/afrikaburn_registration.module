@@ -751,7 +751,7 @@ function afrikaburn_registration_ddt_quicket($form, $form_state){
           $user->field_id_number->value,
           $user->field_quicket_code->value,
           $user->field_quicket_id->value,
-          [$config->get('main_ddt_id')],
+          [$config->get('main_id')],
           1
         )
       ) {
@@ -763,7 +763,8 @@ function afrikaburn_registration_ddt_quicket($form, $form_state){
 
         drupal_set_message(
           t(
-            'There was a problem creating a DDT for: @user. Please try submitting
+            'There was a problem creating a DDT for: @user
+            Please try submitting
             this form again later.<br /> If the problem persists please
             <a href="mailto:support@afrikaburn.com">Contact an Administrator</a>.',
             ['@user' => render($user_view)]
