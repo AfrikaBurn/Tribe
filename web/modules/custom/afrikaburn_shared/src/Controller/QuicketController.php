@@ -222,26 +222,34 @@ class QuicketController extends ControllerBase {
 
   /**
    * Sends Complimentary ticket request to quicket
-   * @param array $ticket_id  id of comp ticket to send.
-   * @param array $comps      array of users:
+   * @param array $comps array of users:
    *   [
-   *    'FirstName': $first_name,
-   *    'Surname': $last_name,
-   *    'Email': $email,
+   *    'FirstName' => $first_name,
+   *    'Surname' => $last_name,
+   *    'Email' => $email,
    *   ]
+   * @param mixed $comp_id    id or array of ids of comp ticket(s) to send.
+   * @param $num_uses         number of uses. Optional, defaults to 1.
+   * @param array $event_id   id of event in which the comp lives.
+   *                          Defaults to main event id.
    */
-  public static function sendComps($comps, $comp_id, $event_id = FALSE){
+  public static function sendComps($comps, $comp_id, $num_uses = 1, $event_id = FALSE){
 
     $config = \Drupal::config('afrikaburn_shared.settings');
     $event_id = $event_id ? $event_id : $config->get('main_id');
 
-    $ticket = [
-      'TicketId' => $comp_id,
-      'NumTickets' => 1
-    ];
+    $comp_ids = is_array($comp_id) ? $comp_id : [$comp_id];
+    $order_items = [];
+
+    foreach($comp_ids as $id){
+      $order_items[] = [
+        'TicketId' => $id,
+        'NumTickets' => $num_uses,
+      ];
+    }
 
     foreach($comps as &$comp){
-      $comp['OrderItems'] = [$ticket];
+      $comp['OrderItems'] = $order_items;
     }
 
     return self::request(

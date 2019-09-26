@@ -575,7 +575,7 @@ function afrikaburn_registration_wap_quicket($form, $form_state){
     ];
   }
 
-  if (!QuicketController::sendComps($waps, $config->get('wap_comp_id'), $config->get('wap_id'))){
+  if (!QuicketController::sendComps($waps, $config->get('wap_comp_id'), 1, $config->get('wap_id'))){
     $form_state->setError(
       $form,
       t('<strong>Quicket says NO!</strong><br />There was a problem creating these WAPs, please try submitting this form again later.<br /> If the problem persists please <a href="mailto:support@afrikaburn.com">Contact an Administrator</a>!')
@@ -663,7 +663,7 @@ function afrikaburn_registration_vp_quicket($form, $form_state){
     ];
   }
 
-  if (!QuicketController::sendComps($vps, $config->get('vp_comp_id'), $config->get('vp_id'))){
+  if (!QuicketController::sendComps($vps, $config->get('vp_comp_id'), 1, $config->get('vp_id'))){
     $form_state->setError(
       $form,
       t('<strong>Quicket says NO!</strong><br />There was a problem creating these VPs, please try submitting this form again later.<br /> If the problem persists please <a href="mailto:support@afrikaburn.com">Contact an Administrator</a>!')

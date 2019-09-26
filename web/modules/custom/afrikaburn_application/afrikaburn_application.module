@@ -48,7 +48,7 @@ function afrikaburn_application_preprocess_views_view(&$variables){
   switch ($variables['id']){
     case 'wrangle_community_tna':
     case 'wrangle_subsidised':
-      if ($year >= 2019) {
+      if ($year == 2020) {
         $variables['#attached']['library'][] = 'afrikaburn_application/wrangle';
         module_load_include('inc', 'afrikaburn_application', 'includes/wrangle.application');
         _prepare_wrangler_view($variables);
@@ -67,7 +67,7 @@ function afrikaburn_application_preprocess_views_view_table(&$variables) {
   switch ($variables['view']->id()){
     case 'wrangle_community_tna':
     case 'wrangle_subsidised':
-      if ($year >= 2019) {
+      if ($year == 2020) {
         module_load_include('inc', 'afrikaburn_application', 'includes/wrangle.application');
         _insert_wrangler_view_rows($variables);
       }

@@ -198,6 +198,15 @@ body .horizontal-tabs .horizontal-tabs-list li.selected a {
   text-shadow: none;
 }
 
+
+/* Webform Wizard */
+
+.webform-progress-tracker .progress-step .progress-text,
+.webform-progress-tracker .progress-step.is-complete .progress-text{
+  color: #333;
+}
+
+
 #block-bioblock .content a:hover {
   background-color: #370c1311;
 }

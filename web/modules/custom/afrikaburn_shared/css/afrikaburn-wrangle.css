@@ -11,6 +11,12 @@
   margin: 6px;
 }
 
+.region-header .menu--wrangle h2:before{
+  content: "\2261";
+  display: inline-block;
+  padding-right: 10px;
+}
+
 .region-header .menu--wrangle a{
   color: #ddd;
   text-decoration: none;

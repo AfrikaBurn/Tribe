@@ -59,12 +59,14 @@ class ApplicationController extends ControllerBase {
           );
       }
 
-      $target->save();
-
-      return new \Symfony\Component\HttpFoundation\JsonResponse([], 200);
+      try{
+        $target->save();
+        return new \Symfony\Component\HttpFoundation\JsonResponse([], 200);
+      } catch (\Exception $e){
+        return new \Symfony\Component\HttpFoundation\JsonResponse([], 500);
+      }
     }
 
     return FALSE;
   }
-
 }

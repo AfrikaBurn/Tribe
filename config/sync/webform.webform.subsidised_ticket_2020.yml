@@ -1,0 +1,414 @@
+uuid: 166a41f7-2685-4949-bfb6-88b3dedc9487
+langcode: en
+status: open
+dependencies:
+  module:
+    - afrikaburn_application
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: subsidised_ticket_2020
+title: 'Subsidised Ticket Application 2020'
+description: ''
+category: Application
+elements: "administrative:\n  '#type': details\n  '#title': Administrative\n  '#private': true\n  '#access_create_roles':\n    - administrator\n    - supplier\n  '#access_update_roles':\n    - administrator\n    - supplier\n  '#access_view_roles':\n    - administrator\n    - supplier\n  wrangler:\n    '#type': webform_entity_select\n    '#title': Wrangler\n    '#access_create_roles':\n      - administrator\n      - supplier\n    '#access_update_roles':\n      - administrator\n      - supplier\n    '#access_view_roles':\n      - administrator\n      - supplier\n    '#target_type': user\n    '#selection_handler': views\n    '#selection_settings':\n      view:\n        view_name: wranglers\n        display_name: wrangler_select\n        arguments:\n          - supplier\n  review:\n    '#type': webform_entity_select\n    '#title': Review\n    '#access_create_roles':\n      - administrator\n      - supplier\n    '#access_update_roles':\n      - administrator\n      - supplier\n    '#access_view_roles':\n      - administrator\n      - supplier\n    '#target_type': taxonomy_term\n    '#selection_handler': 'default:taxonomy_term'\n    '#selection_settings':\n      target_bundles:\n        subsidised_tickets_status: subsidised_tickets_status\n      sort:\n        field: name\n        direction: ASC\n  comment:\n    '#type': textarea\n    '#title': Comment\n    '#access_create_roles':\n      - administrator\n      - supplier\n  previous_state:\n    '#type': textfield\n    '#title': 'Previous state'\n    '#private': true\nmy_details:\n  '#type': webform_wizard_page\n  '#title': 'My details'\n  accessible_tickets:\n    '#type': webform_markup\n    '#markup': '<em>Some of the information here is populated from your <a href=\"/user\" target=\"_blank\">Burner Bio</a>. If any information is incorrect please update your Bio and refresh this page.</em>'\n  applicant_name:\n    '#type': webform_computed_token\n    '#title': Name\n    '#mode': text\n    '#store': true\n    '#template': '[webform_submission:user:field_first_name] [webform_submission:user:field_last_name]'\n  applicant_email:\n    '#type': webform_computed_token\n    '#title': Email\n    '#mode': text\n    '#store': true\n    '#template': '[webform_submission:user:field_email]'\n  applicant_id:\n    '#type': webform_computed_token\n    '#title': ID\n    '#mode': text\n    '#template': '[webform_submission:user:field_id_number:value]'\n  applicant_mobile:\n    '#type': webform_computed_token\n    '#title': Mobile\n    '#mode': text\n    '#store': true\n    '#template': '[webform_submission:user:field_mobile]'\n  accept_apply_for_myself:\n    '#type': checkbox\n    '#title': 'I know that I cannot apply for a low income ticket for anyone else.'\n    '#required': true\n    '#required_error': 'This field is required!'\n  accept_not_transferable:\n    '#type': checkbox\n    '#title': 'I know that my Subsidised ticket is not transferable, and awarded to me based on my motivation.'\n    '#required': true\n    '#required_error': 'This field is required!'\n  accept_produce_id:\n    '#type': checkbox\n    '#title': 'I know that I have to produce photo ID with my subsidised ticket. at the gate to gain access to the event.'\n    '#required': true\n    '#required_error': 'This field is required!'\nparticipation:\n  '#type': webform_wizard_page\n  '#title': 'My participation'\n  motivation:\n    '#type': textarea\n    '#title': Motivation\n    '#description': 'Please motivate why you need a Subsidised ticket'\n    '#required': true\n    '#required_error': 'This field is required!'\n  how_many_times_have_you_been_to_afrikaburn_:\n    '#type': textarea\n    '#title': 'How many times have you been to AfrikaBurn?'\n    '#description': 'Please state if this is your first time.'\n    '#required': true\n    '#required_error': 'This field is required!'\n  previous_participation:\n    '#type': textarea\n    '#title': Participation\n    '#description': 'Have you participated in past AfrikaBurn events and if so, how did you participate?'\n    '#required': true\n  planned_contribution:\n    '#type': textarea\n    '#title': 'What do you plan on contributing to this next AfrikaBurn'\n    '#description': 'Are you part of a collective crew, do you plan to volunteer? If so where and how? Do you have a creative project. What is your planned contribution to the community this next AfrikaBurn. Please be specific.'\n    '#required': true\n    '#required_error': 'This field is required!'\nfinances:\n  '#type': webform_wizard_page\n  '#title': Finances\n  income:\n    '#type': textarea\n    '#title': Income\n    '#description': 'How do you financially support yourself? What is your monthly income? (if you earn one)'\n    '#required': true\n    '#required_error': 'This field is required!'\n  expenses:\n    '#type': textarea\n    '#title': 'What are your monthly expenses?'\n    '#required': true\n    '#required_error': 'This field is required!'\n  bank_statement:\n    '#type': managed_file\n    '#title': 'Bank Statement'\n    '#multiple': 5\n    '#description': 'Please attach 1 calendar month bank statement. If you&rsquo;re a salary earner or get a monthly income, please attach your bank statement from your last salary/income to your most recent salary/income deposit.'\n    '#description_display': before\n    '#required': true\n    '#max_filesize': '2'\n    '#file_extensions': 'png jpg jpeg doc xls pdf odt ods odf'\n  shortfall:\n    '#type': textarea\n    '#title': 'The ticket to AfrikaBurn is a small part of what it costs to get to the Burn. How do you plan funding the rest of the expenses?'\n    '#required': true\n    '#required_error': 'This field is required!'"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: ''
+  ajax_progress_type: ''
+  ajax_effect: ''
+  ajax_speed: null
+  page: true
+  page_submit_path: /apply/subsidised-ticket
+  page_confirm_path: ''
+  page_admin_theme: false
+  form_title: both
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_remote_addr: true
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace:
+    webform_routes: {  }
+    node_routes: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: false
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: page
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: 1
+  limit_user_interval: null
+  limit_user_message: "We&#39;ve already received an appication from you.<br />\r\nClick the link in the green box above to view and then edit it."
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+access:
+  create:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles:
+      - administrator
+      - supplier
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles:
+      - administrator
+      - supplier
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles:
+      - administrator
+      - supplier
+    users: {  }
+    permissions: {  }
+  administer:
+    roles:
+      - administrator
+      - supplier
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  confirmation:
+    id: email
+    label: Confirmation
+    handler_id: confirmation
+    status: true
+    conditions: {  }
+    weight: -50
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:user:mail]'
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: shared@afrikaburn.com
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: 'AfrikaBurn Tribe'
+      subject: 'Your AfrikaBurn subsidised ticket application'
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: julia@afrikaburn.com
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
+  notification:
+    id: email
+    label: Notification
+    handler_id: notification
+    status: true
+    conditions: {  }
+    weight: -49
+    settings:
+      states:
+        - completed
+      to_mail: julia@afrikaburn.com
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: shared@afrikaburn.com
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: 'AfrikaBurn Tribe'
+      subject: 'Subsidised ticket application received'
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
+  email:
+    id: email
+    label: 'Application granted'
+    handler_id: email
+    status: true
+    conditions:
+      enabled:
+        ':input[name="review"]':
+          value: '534'
+        ':input[name="previous_state"]':
+          '!value': '534'
+    weight: -48
+    settings:
+      states:
+        - updated
+      to_mail: '[webform_submission:user:mail]'
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: shared@afrikaburn.com
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: 'Your subsidised ticket application'
+      body: "Dear&nbsp;[webform_submission:user:field_first_name]<br />\r\n<br />\r\nWe are happy to inform you that your application for a subsidized ticket to AfrikaBurn<strong>has been successful</strong>.<br />\r\n<br />\r\nAn email from Quicket will be sent to you shortly. Please follow the instructions in that email in order to redeem your ticket. You can purchase your subsidized ticket at any point before arriving in the desert. Please ensure that you arrive at the AfrikaBurn gate with a valid ticket and a photo ID - we will be checking that the two match.<br />\r\n<br />\r\nPlease note: Subsidized tickets are not transferable. Thank You and we look forward to seeing you at the Burn!<br />\r\n<br />\r\nThe AfrikaBurn Ticketing Team"
+      excluded_elements:
+        wrangler: wrangler
+        review: review
+        comment: comment
+        applicant_name: applicant_name
+        applicant_email: applicant_email
+        applicant_id: applicant_id
+        applicant_mobile: applicant_mobile
+        accept_apply_for_myself: accept_apply_for_myself
+        accept_not_transferable: accept_not_transferable
+        accept_produce_id: accept_produce_id
+        motivation: motivation
+        how_many_times_have_you_been_to_afrikaburn_: how_many_times_have_you_been_to_afrikaburn_
+        previous_participation: previous_participation
+        planned_contribution: planned_contribution
+        income: income
+        expenses: expenses
+        bank_statement: bank_statement
+        shortfall: shortfall
+      ignore_access: false
+      exclude_empty: false
+      exclude_empty_checkbox: false
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: julia@afrikaburn.com
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
+  application_granted:
+    id: email
+    label: 'Application rejected'
+    handler_id: application_granted
+    status: true
+    conditions:
+      enabled:
+        ':input[name="review"]':
+          value: '535'
+        ':input[name="previous_state"]':
+          '!value': '535'
+    weight: -47
+    settings:
+      states:
+        - updated
+      to_mail: '[webform_submission:user:mail]'
+      to_options: {  }
+      cc_mail: ''
+      cc_options: {  }
+      bcc_mail: shared@afrikaburn.com
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: 'Your subsidised ticket application'
+      body: "Dear&nbsp;[webform_submission:user:field_first_name]<br />\r\n<br />\r\nThank you for applying for a subsidized ticket to AfrikaBurn.<br />\r\n<br />\r\nUnfortunately your application was not successful. You are still able to purchase a full price AfrikaBurn tickets in our general sale which started on Wed 26th September 2018. This sale will remain open until it sells out.<br />\r\n<br />\r\nPlease secure your ticket sooner rather than later by logging into your Burner Bio and clicking the &ldquo;Buy Tickets&rdquo; button. We sincerely hope to see you at the Burn.<br />\r\n<br />\r\nThe AfrikaBurn Ticketing Team"
+      excluded_elements:
+        wrangler: wrangler
+        review: review
+        comment: comment
+        previous_state: previous_state
+        applicant_name: applicant_name
+        applicant_email: applicant_email
+        applicant_id: applicant_id
+        applicant_mobile: applicant_mobile
+        accept_apply_for_myself: accept_apply_for_myself
+        accept_not_transferable: accept_not_transferable
+        accept_produce_id: accept_produce_id
+        motivation: motivation
+        how_many_times_have_you_been_to_afrikaburn_: how_many_times_have_you_been_to_afrikaburn_
+        previous_participation: previous_participation
+        planned_contribution: planned_contribution
+        income: income
+        expenses: expenses
+        bank_statement: bank_statement
+        shortfall: shortfall
+      ignore_access: false
+      exclude_empty: false
+      exclude_empty_checkbox: false
+      html: true
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: julia@afrikaburn.com
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
+  action:
+    id: action
+    label: 'Update last state'
+    handler_id: action
+    status: true
+    conditions: {  }
+    weight: -45
+    settings:
+      states:
+        - updated
+      notes: ''
+      sticky: null
+      locked: null
+      data: 'previous_state: "[webform_submission:values:review:entity:tid]"'
+      message: ''
+      message_type: status
+      debug: false
+  ticket_handler:
+    id: ticket_handler
+    label: 'Add Subsidised ticket code'
+    handler_id: ticket_handler
+    status: true
+    conditions:
+      enabled:
+        ':input[name="review"]':
+          value: '534'
+        ':input[name="previous_state"]':
+          '!value': '534'
+    weight: -46
+    settings:
+      message: 'This is a custom message.'
+      debug: false
+      action: add
+      ticket_id:
+        main_sub_id: main_sub_id
+        main_ddt_id: 0
+        main_anathi_id: 0
+      ticket_ids:
+        main_sub_id: main_sub_id
+        main_ddt_id: 0
+        main_anathi_id: 0
+      num_uses: '1'

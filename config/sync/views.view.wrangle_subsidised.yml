@@ -7,6 +7,7 @@ dependencies:
     - user.role.administrator
     - user.role.supplier
     - webform.webform.subsidised_ticket_2019
+    - webform.webform.subsidised_ticket_2020
   module:
     - user
     - webform
@@ -346,6 +347,7 @@ display:
           operator: in
           value:
             subsidised_ticket_2019: subsidised_ticket_2019
+            subsidised_ticket_2020: subsidised_ticket_2020
           group: 1
           exposed: false
           expose:
@@ -1684,6 +1686,1238 @@ display:
           empty: false
           tokenize: false
           content: '<a href="/admin/structure/webform/manage/subsidised_ticket_2019/results/download">Download</a>'
+          plugin_id: text_custom
+      header: {  }
+      pager:
+        type: full
+        options:
+          items_per_page: 25
+          offset: 0
+          id: 0
+          total_pages: null
+          tags:
+            previous: '‹ Previous'
+            next: 'Next ›'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - url.query_args
+        - user
+        - user.roles
+      tags: {  }
+  2020:
+    display_plugin: page
+    id: '2020'
+    display_title: '2020'
+    position: 4
+    display_options:
+      display_extenders: {  }
+      path: wrangle/applications/subsidised/2020
+      menu:
+        type: none
+        title: '2020'
+        description: ''
+        expanded: false
+        parent: ''
+        weight: 0
+        context: '1'
+        menu_name: wrangle
+      display_description: ''
+      filters:
+        webform_id:
+          id: webform_id
+          table: webform_submission
+          field: webform_id
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value:
+            subsidised_ticket_2020: subsidised_ticket_2020
+          group: 1
+          exposed: false
+          expose:
+            operator_id: ''
+            label: ''
+            description: ''
+            use_operator: false
+            operator: ''
+            identifier: ''
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+            reduce: false
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          entity_type: webform_submission
+          entity_field: webform_id
+          plugin_id: bundle
+        combine:
+          id: combine
+          table: views
+          field: combine
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: contains
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: combine_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: combine_op
+            identifier: search
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              art_wrangler: '0'
+              art_admin: '0'
+              communications_wrangler: '0'
+              communications_admin: '0'
+              leave_no_trace_moop: '0'
+              mutant_vehicle_viewer: '0'
+              mutant_vehicle_wrangler: '0'
+              mutant_vehicle_admin: '0'
+              outreach_wrangler: '0'
+              outreach_admin: '0'
+              administrator: '0'
+              support_wrangler: '0'
+              support_admin: '0'
+              theme_camp_wrangler: '0'
+              theme: '0'
+              supplier: '0'
+              dpw: '0'
+              volunteer_admin: '0'
+              ranger_admin: '0'
+              sanctuary_admin: '0'
+            placeholder: 'Name, mobile or mail'
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          fields:
+            webform_submission_value_3: webform_submission_value_3
+            webform_submission_value_11: webform_submission_value_11
+            webform_submission_value_13: webform_submission_value_13
+          plugin_id: combine
+        webform_submission_value:
+          id: webform_submission_value
+          table: webform_submission_field_subsidised_ticket_2020_review
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: webform_submission_value_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: webform_submission_value_op
+            identifier: status
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              art_wrangler: '0'
+              art_admin: '0'
+              communications_wrangler: '0'
+              communications_admin: '0'
+              leave_no_trace_moop: '0'
+              mutant_vehicle_viewer: '0'
+              mutant_vehicle_wrangler: '0'
+              mutant_vehicle_admin: '0'
+              outreach_wrangler: '0'
+              outreach_admin: '0'
+              administrator: '0'
+              support_wrangler: '0'
+              support_admin: '0'
+              theme_camp_wrangler: '0'
+              theme: '0'
+              supplier: '0'
+              dpw: '0'
+              volunteer_admin: '0'
+              ranger_admin: '0'
+              sanctuary_admin: '0'
+              logger: '0'
+            reduce: 0
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: status
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items:
+              1:
+                title: New
+                operator: shorterthan
+                value: '1'
+              2:
+                title: 'Bank Statment Required'
+                operator: '='
+                value: '531'
+              3:
+                title: 'Follow up'
+                operator: '='
+                value: '532'
+              4:
+                title: 'Further Review'
+                operator: '='
+                value: '533'
+              5:
+                title: Granted
+                operator: '='
+                value: '534'
+              6:
+                title: Rejected
+                operator: '='
+                value: '535'
+          plugin_id: webform_submission_field_filter
+        webform_submission_value_1:
+          id: webform_submission_value_1
+          table: webform_submission_field_subsidised_ticket_2020_wrangler
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: in
+          value: {  }
+          group: 1
+          exposed: true
+          expose:
+            operator_id: webform_submission_value_1_op
+            label: ''
+            description: ''
+            use_operator: false
+            operator: webform_submission_value_1_op
+            identifier: wrangler
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              art_wrangler: '0'
+              art_admin: '0'
+              communications_wrangler: '0'
+              communications_admin: '0'
+              leave_no_trace_moop: '0'
+              mutant_vehicle_viewer: '0'
+              mutant_vehicle_wrangler: '0'
+              mutant_vehicle_admin: '0'
+              outreach_wrangler: '0'
+              outreach_admin: '0'
+              administrator: '0'
+              support_wrangler: '0'
+              support_admin: '0'
+              theme_camp_wrangler: '0'
+              theme: '0'
+              supplier: '0'
+              dpw: '0'
+              volunteer_admin: '0'
+              ranger_admin: '0'
+              sanctuary_admin: '0'
+              logger: '0'
+            reduce: 0
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: webform_submission_field_filter
+      defaults:
+        filters: false
+        filter_groups: false
+        fields: false
+        sorts: false
+        footer: false
+        header: false
+        pager: false
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
+      fields:
+        sid:
+          id: sid
+          table: webform_submission
+          field: sid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ''
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: false
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: number_unformatted
+          settings: {  }
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          entity_type: webform_submission
+          entity_field: sid
+          plugin_id: field
+        webform_submission_value_13:
+          id: webform_submission_value_13
+          table: webform_submission_field_subsidised_ticket_2020_applicant_name
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Particulars
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          webform_element_format: value
+          webform_multiple_value: true
+          webform_multiple_delta: 0
+          plugin_id: webform_submission_field
+        webform_submission_value_3:
+          id: webform_submission_value_3
+          table: webform_submission_field_subsidised_ticket_2020_applicant_email
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Email
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          webform_element_format: value
+          webform_multiple_value: true
+          webform_multiple_delta: 0
+          plugin_id: webform_submission_field
+        webform_submission_value_11:
+          id: webform_submission_value_11
+          table: webform_submission_field_subsidised_ticket_2020_applicant_mobile
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Mobile
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          webform_element_format: value
+          webform_multiple_value: true
+          webform_multiple_delta: 0
+          plugin_id: webform_submission_field
+        webform_submission_value_9:
+          id: webform_submission_value_9
+          table: webform_submission_field_subsidised_ticket_2020_applicant_id
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: ID
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          webform_element_format: value
+          webform_multiple_value: true
+          webform_multiple_delta: 0
+          plugin_id: webform_submission_field
+        webform_submission_value_10:
+          id: webform_submission_value_10
+          table: webform_submission_field_subsidised_ticket_2020_income
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Finances
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          webform_element_format: value
+          webform_multiple_value: true
+          webform_multiple_delta: 0
+          plugin_id: webform_submission_field
+        webform_submission_value:
+          id: webform_submission_value
+          table: webform_submission_field_subsidised_ticket_2020_bank_statement
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Bank Statement'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          webform_element_format: file
+          webform_multiple_value: true
+          webform_multiple_delta: 0
+          plugin_id: webform_submission_field
+        webform_submission_value_17:
+          id: webform_submission_value_17
+          table: webform_submission_field_subsidised_ticket_2020_expenses
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Expenses
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          webform_element_format: value
+          webform_multiple_value: true
+          webform_multiple_delta: 0
+          plugin_id: webform_submission_field
+        webform_submission_value_16:
+          id: webform_submission_value_16
+          table: webform_submission_field_subsidised_ticket_2020_shortfall
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Shortfall plan'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          webform_element_format: value
+          webform_multiple_value: true
+          webform_multiple_delta: 0
+          plugin_id: webform_submission_field
+        webform_submission_value_12:
+          id: webform_submission_value_12
+          table: webform_submission_field_subsidised_ticket_2020_motivation
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Motivation
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          webform_element_format: value
+          webform_multiple_value: true
+          webform_multiple_delta: 0
+          plugin_id: webform_submission_field
+        webform_submission_value_5:
+          id: webform_submission_value_5
+          table: webform_submission_field_subsidised_ticket_2020_how_many_times_have_you_been_to_afrikaburn_
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Previous Attendance'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          webform_element_format: value
+          webform_multiple_value: true
+          webform_multiple_delta: 0
+          plugin_id: webform_submission_field
+        webform_submission_value_14:
+          id: webform_submission_value_14
+          table: webform_submission_field_subsidised_ticket_2020_previous_participation
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Participation
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          webform_element_format: value
+          webform_multiple_value: true
+          webform_multiple_delta: 0
+          plugin_id: webform_submission_field
+        webform_submission_value_2:
+          id: webform_submission_value_2
+          table: webform_submission_field_subsidised_ticket_2020_planned_contribution
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Planned contribution'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          webform_element_format: value
+          webform_multiple_value: true
+          webform_multiple_delta: 0
+          plugin_id: webform_submission_field
+        webform_submission_value_1:
+          id: webform_submission_value_1
+          table: webform_submission_field_subsidised_ticket_2020_comment
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Comment
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          webform_element_format: value
+          webform_multiple_value: true
+          webform_multiple_delta: 0
+          plugin_id: webform_submission_field
+        webform_submission_value_15:
+          id: webform_submission_value_15
+          table: webform_submission_field_subsidised_ticket_2020_review
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Review state'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          webform_element_format: value
+          webform_multiple_value: true
+          webform_multiple_delta: 0
+          plugin_id: webform_submission_field
+        webform_submission_value_4:
+          id: webform_submission_value_4
+          table: webform_submission_field_subsidised_ticket_2020_wrangler
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Wrangler
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          webform_element_format: link
+          webform_multiple_value: true
+          webform_multiple_delta: 0
+          plugin_id: webform_submission_field
+        operations:
+          id: operations
+          table: webform_submission
+          field: operations
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: Operations
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          destination: false
+          entity_type: webform_submission
+          plugin_id: entity_operations
+      sorts:
+        sid:
+          id: sid
+          table: webform_submission
+          field: sid
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: DESC
+          exposed: false
+          expose:
+            label: ''
+          entity_type: webform_submission
+          entity_field: sid
+          plugin_id: standard
+      footer:
+        area_text_custom:
+          id: area_text_custom
+          table: views
+          field: area_text_custom
+          relationship: none
+          group_type: group
+          admin_label: ''
+          empty: false
+          tokenize: false
+          content: '<a href="/admin/structure/webform/manage/subsidised_ticket_2020/results/download">Download</a>'
           plugin_id: text_custom
       header: {  }
       pager:
