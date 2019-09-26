@@ -1,7 +1,7 @@
 theme: default
 defaults:
-  sender: test_mail_collector
-  formatter: test_mail_collector
+  sender: swiftmailer
+  formatter: SMTPMailSystem
 _core:
   default_config_hash: IhwTepsVwtbtbcT5GzQKhCXDCRvbk3MNkWqPiuiZ10s
 modules:

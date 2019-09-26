@@ -25,6 +25,7 @@
 /.env
 
 # Tribe specific
+/config/sync/mailsystem.settings
 /config/sync/smtp.settings.yml
 /config/sync/system.performance.yml
 /config/sync/afrikaburn_notification.address_settings.yml
