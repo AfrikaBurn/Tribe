@@ -34,6 +34,9 @@ class MayRequest implements AccessInterface {
     $error = false;
 
     switch(true){
+      case $user->isAnonymous():
+        $error = 'You need an account for this!';
+        break;
       case CollectiveController::isBanned($collective, $candidate):
         $error = '@user banned from this collective!';
         break;

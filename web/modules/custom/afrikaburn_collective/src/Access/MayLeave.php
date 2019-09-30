@@ -34,6 +34,9 @@ class MayLeave implements AccessInterface {
     $error = false;
 
     switch(true){
+      case $user->isAnonymous():
+        $error = 'You need an account for this!';
+        break;
       case $user->id() != $candidate->id():
         $error = 'How rude, this isn\'t you! Who are you?';
         break;

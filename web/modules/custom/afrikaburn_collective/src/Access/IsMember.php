@@ -32,6 +32,9 @@ class IsMember implements AccessInterface {
     $collective = Utils::currentCollective();
 
     switch(true){
+      case $user->isAnonymous():
+        $error = 'You need an account for this!';
+        break;
       case !CollectiveController::isMember($collective, $user):
         $error = 'You are not a member of this collective!';
         break;

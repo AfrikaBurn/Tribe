@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.collective.field_col_admins
     - field.field.node.collective.field_col_description
+    - field.field.node.collective.field_col_invite_by
     - field.field.node.collective.field_col_invite_mail
     - field.field.node.collective.field_col_invite_token
     - field.field.node.collective.field_col_invitee
@@ -146,6 +147,14 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
+  field_col_invite_by:
+    weight: 24
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_picture:
     weight: 2
     label: hidden

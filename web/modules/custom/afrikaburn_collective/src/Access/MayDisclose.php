@@ -34,6 +34,9 @@ class MayDisclose implements AccessInterface {
     $error = false;
 
     switch(true){
+      case $user->isAnonymous():
+        $error = 'You need an account for this!';
+        break;
       case $user->id() != $candidate->id():
         $error = "You may not change another users' visibility settings!";
         break;

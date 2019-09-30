@@ -6,6 +6,7 @@ dependencies:
     - core.entity_form_mode.node.edit
     - field.field.node.collective.field_col_admins
     - field.field.node.collective.field_col_description
+    - field.field.node.collective.field_col_invite_by
     - field.field.node.collective.field_col_invite_mail
     - field.field.node.collective.field_col_invite_token
     - field.field.node.collective.field_col_invitee
@@ -14,6 +15,7 @@ dependencies:
     - field.field.node.collective.field_col_requests
     - field.field.node.collective.field_picture
     - field.field.node.collective.field_settings
+    - field.field.node.collective.field_vps_allowed
     - image.style.collective_preview
     - node.type.collective
   module:
@@ -54,6 +56,7 @@ third_party_settings:
       children:
         - field_col_invite_mail
         - field_col_invite_token
+        - field_col_invite_by
       parent_name: group_collective
       weight: 22
       format_type: tab
@@ -116,6 +119,15 @@ content:
     third_party_settings: {  }
     type: text_textarea
     region: content
+  field_col_invite_by:
+    type: entity_reference_autocomplete
+    weight: 5
+    region: content
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_col_invite_mail:
     type: email_default
     weight: 3
@@ -176,6 +188,7 @@ hidden:
   field_col_invitee: true
   field_col_posts: true
   field_col_requests: true
+  field_vps_allowed: true
   path: true
   promote: true
   status: true

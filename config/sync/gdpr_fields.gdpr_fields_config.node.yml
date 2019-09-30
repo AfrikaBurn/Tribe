@@ -2073,6 +2073,28 @@ bundles:
       notes: ''
       relationship: 0
       sars_filename: ''
+    field_field_col_invite_user:
+      bundle: collective
+      name: field_field_col_invite_user
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_col_invite_by:
+      bundle: collective
+      name: field_col_invite_by
+      entity_type_id: node
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
   incident:
     field_incident_type:
       bundle: incident

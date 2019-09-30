@@ -30,8 +30,16 @@ class IsAdmin implements AccessInterface {
     $user = Utils::currentUser($account);
     $collective = Utils::currentCollective();
 
-    if(!CollectiveController::isAdmin($collective, $user)){
-      $error = 'You are not an administrator of this collective!';
+    switch(true){
+      case $user->isAnonymous():
+        $error = 'You need an account for this!';
+        break;
+      case !CollectiveController::isAdmin($collective, $user):
+        $error = 'You are not an admin of this collective!';
+        break;
+    }
+
+    if ($error){
       Utils::showError($error, $user, $candidate);
       return AccessResult::forbidden();
     }

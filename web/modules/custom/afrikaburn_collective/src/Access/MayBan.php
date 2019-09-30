@@ -34,6 +34,9 @@ class MayBan implements AccessInterface {
     $error = false;
 
     switch(true){
+      case $user->isAnonymous():
+        $error = 'You need an account for this!';
+        break;
       case !CollectiveController::isAdmin($collective, $user):
         $error = 'You are not an administrator of this collective!';
         break;

@@ -85,12 +85,15 @@ class CollectiveController extends ControllerBase {
         // Mail non-existing
         } else {
           $index = array_search($email, array_column($collective->get('field_col_invite_mail')->getValue(), 'value'));
+          $user = Utils::currentUser();
           if ($index === FALSE) {
             $collective->get('field_col_invite_mail')->appendItem(trim($email));
             $collective->get('field_col_invite_token')->appendItem(md5($collective->getTitle() . $email . time()));
+            $collective->get('field_col_invite_by')->appendItem($user);
             $results['invited']++;
           } else {
             $collective->get('field_col_invite_token')->set($index, md5($collective->getTitle() . $email . time()));
+            $collective->get('field_col_invite_by')->set($index, $user);
             $results['reminded']++;
           }
 
@@ -131,12 +134,15 @@ class CollectiveController extends ControllerBase {
     list($collective, $user) = CollectiveController::pathParams();
 
     $token = \Drupal::request()->get('token');
+    $host = Utils::currentUser();
 
     if ($token) {
       $token_index = @array_search($token, array_column($collective->get('field_col_invite_token')->getValue(), 'value'));
       if ($token_index !== FALSE) {
+        $host = $collective->get('field_col_invite_by')->get($token_index)->entity;
         $collective->get('field_col_invite_mail')->removeItem($token_index);
         $collective->get('field_col_invite_token')->removeItem($token_index);
+        $collective->get('field_col_invite_by')->removeItem($token_index);
         $collective->save();
       } else {
         drupal_set_message(
@@ -149,9 +155,17 @@ class CollectiveController extends ControllerBase {
     }
 
     if (CollectiveController::setting($collective, 'vetted')){
-      CollectiveController::set('join', $collective, $user);
-      CollectiveController::clear('invite', $collective, $user);
-      Utils::showStatus('Invitation Accepted, but membership still requires administrator approval. Look out for a notification soon!', Utils::currentUser(), $user);
+
+      if (CollectiveController::isAdmin($collective, $host)){
+        CollectiveController::set('member', $collective, $user);
+        CollectiveController::clear('invite', $collective, $user);
+        Utils::showStatus('@username now a member', Utils::currentUser(), $user);
+      } else {
+        CollectiveController::set('join', $collective, $user);
+        CollectiveController::clear('invite', $collective, $user);
+        Utils::showStatus('Invitation Accepted, but membership still requires administrator approval. Look out for a notification soon!', Utils::currentUser(), $user);
+      }
+
     } else {
       CollectiveController::set('member', $collective, $user);
       CollectiveController::clear('invite', $collective, $user);
@@ -319,7 +333,12 @@ class CollectiveController extends ControllerBase {
    * @param $user       User to check invitation against
    */
   public static function isInvited($collective, $user){
-    return CollectiveController::get('invite', $collective, $user);
+    return $collective && (
+      in_array(
+        \Drupal::request()->get('token'),
+        array_column($collective->field_col_invite_token->getValue(), 'value')
+      ) || CollectiveController::get('invite', $collective, $user)
+    );
   }
 
   /**
@@ -364,7 +383,7 @@ class CollectiveController extends ControllerBase {
         $user->hasRole('theme_camp_wrangler') ||
         $user->hasRole('communications_wrangler') ||
         $user->hasRole('support_wrangler')
-       ) || CollectiveController::get('admin', $collective, $user);
+      ) || CollectiveController::get('admin', $collective, $user);
   }
 
   /**
@@ -490,9 +509,12 @@ class CollectiveController extends ControllerBase {
   public static function get($flag_id, $collective, $user = FALSE){
     $flag_service = \Drupal::service('flag');
     $flag = $flag_service->getFlagById($flag_id);
-    return $user
-      ? $flag_service->getFlagging($flag, $collective, $user)
-      : $flag_service->getFlagging($flag, $collective);
+    return $collective
+      ? (
+        $user
+          ? $flag_service->getFlagging($flag, $collective, $user)
+          : $flag_service->getFlagging($flag, $collective)
+      ) : FALSE;
   }
 
   /**

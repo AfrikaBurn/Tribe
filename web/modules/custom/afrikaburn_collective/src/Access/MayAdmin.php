@@ -34,6 +34,9 @@ class MayAdmin implements AccessInterface {
     $error = false;
 
     switch(true){
+      case $user->isAnonymous():
+        $error = 'You need an account for this!';
+        break;
       case !CollectiveController::isMember($collective, $candidate):
         $error = '@user not a member!';
         break;
