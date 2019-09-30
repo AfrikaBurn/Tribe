@@ -142,7 +142,7 @@ class CollectiveController extends ControllerBase {
         $host = $collective->get('field_col_invite_by')->get($token_index)->entity;
         $collective->get('field_col_invite_mail')->removeItem($token_index);
         $collective->get('field_col_invite_token')->removeItem($token_index);
-        $collective->get('field_col_invite_by')->removeItem($token_index);
+        if ($collective->get('field_col_invite_by')->get($token_index)) $collective->get('field_col_invite_by')->removeItem($token_index);
         $collective->save();
       } else {
         drupal_set_message(
