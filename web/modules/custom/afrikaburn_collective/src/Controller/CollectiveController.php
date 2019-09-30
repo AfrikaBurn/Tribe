@@ -156,7 +156,7 @@ class CollectiveController extends ControllerBase {
 
     if (CollectiveController::setting($collective, 'vetted')){
 
-      if (CollectiveController::isAdmin($collective, $host)){
+      if ($host && CollectiveController::isAdmin($collective, $host)){
         CollectiveController::set('member', $collective, $user);
         CollectiveController::clear('invite', $collective, $user);
         Utils::showStatus('@username now a member', Utils::currentUser(), $user);
