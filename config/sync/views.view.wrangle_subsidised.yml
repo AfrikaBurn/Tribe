@@ -1969,6 +1969,7 @@ display:
               ranger_admin: '0'
               sanctuary_admin: '0'
               logger: '0'
+              anathi: '0'
             reduce: 0
             placeholder: ''
           is_grouped: false
@@ -2893,6 +2894,18 @@ display:
           entity_type: webform_submission
           plugin_id: entity_operations
       sorts:
+        webform_submission_value:
+          id: webform_submission_value
+          table: webform_submission_field_subsidised_ticket_2020_review
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          plugin_id: webform_submission_field_sort
         sid:
           id: sid
           table: webform_submission
