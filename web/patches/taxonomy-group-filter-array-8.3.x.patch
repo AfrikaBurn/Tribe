@@ -1,0 +1,132 @@
+diff --git a/core/modules/taxonomy/src/Plugin/views/filter/TaxonomyIndexTid.php b/core/modules/taxonomy/src/Plugin/views/filter/TaxonomyIndexTid.php
+index a68c3c8c6c..d80b802377 100644
+--- a/core/modules/taxonomy/src/Plugin/views/filter/TaxonomyIndexTid.php
++++ b/core/modules/taxonomy/src/Plugin/views/filter/TaxonomyIndexTid.php
+@@ -265,13 +265,30 @@ protected function valueValidate($form, FormStateInterface $form_state) {
+       return;
+     }
+ 
+-    $tids = [];
+-    if ($values = $form_state->getValue(['options', 'value'])) {
+-      foreach ($values as $value) {
+-        $tids[] = $value['target_id'];
++    // Autocomplete puts the values in target_id. Move the values to the
++    // expected depth.
++    if ($this->isAGroup()) {
++      if ($group_values = $form_state->getValue(['options', 'group_info', 'group_items'])) {
++        foreach ($group_values as $group_id => $item) {
++          $tids = [];
++          if (!empty($item['value'])) {
++            foreach ($item['value'] as $value) {
++              $tids[] = $value['target_id'];
++            }
++          }
++          $form_state->setValue(['options', 'group_info', 'group_items', $group_id, 'value'], $tids);
++        }
+       }
+     }
+-    $form_state->setValue(['options', 'value'], $tids);
++    else {
++      $tids = [];
++      if (!empty($form_state->getValue(['options', 'value']))) {
++        foreach ($form_state->getValue(['options', 'value']) as $value) {
++          $tids[] = $value['target_id'];
++        }
++      }
++      $form_state->setValue(['options', 'value'], $tids);
++    }
+   }
+ 
+   public function acceptExposedInput($input) {
+@@ -328,11 +345,15 @@ public function validateExposed(&$form, FormStateInterface $form_state) {
+       return;
+     }
+ 
+-    if (empty($this->options['expose']['identifier'])) {
++    if (empty($this->options['expose']['identifier']) || $form_state->getValue($identifier) == 'All') {
+       return;
+     }
+ 
+-    if ($values = $form_state->getValue($identifier)) {
++    if ($this->isAGroup() && $group = $form_state->getValue($identifier)) {
++      // Set the validated_exposed_input to the selected group values.
++      $this->validated_exposed_input = $this->options['group_info']['group_items'][$group]['value'];
++    }
++    elseif ($values = $form_state->getValue($identifier)) {
+       foreach ($values as $value) {
+         $this->validated_exposed_input[] = $value['target_id'];
+       }
+@@ -398,4 +419,21 @@ public function calculateDependencies() {
+     return $dependencies;
+   }
+ 
++  /**
++   * {@inheritdoc}
++   */
++  public function buildExposedFiltersGroupForm(&$form, FormStateInterface $form_state) {
++    // Rewrite the numeric values for textfields to entity labels for
++    // autocomplete.
++    if ($this->options['type'] == 'textfield') {
++      foreach ($this->options['group_info']['group_items'] as $key => $item) {
++        if (!empty($item['value'])) {
++          $terms = Term::loadMultiple(($item['value']));
++          $this->options['group_info']['group_items'][$key]['value'] = EntityAutocomplete::getEntityLabels($terms);
++        }
++      }
++    }
++    return parent::buildExposedFiltersGroupForm($form, $form_state);
++  }
++
+ }
+diff --git a/core/modules/taxonomy/tests/src/Functional/Views/TaxonomyIndexTidUiTest.php b/core/modules/taxonomy/tests/src/Functional/Views/TaxonomyIndexTidUiTest.php
+index 4de73705d9..c394b472e1 100644
+--- a/core/modules/taxonomy/tests/src/Functional/Views/TaxonomyIndexTidUiTest.php
++++ b/core/modules/taxonomy/tests/src/Functional/Views/TaxonomyIndexTidUiTest.php
+@@ -215,6 +215,47 @@ public function testExposedFilter() {
+     $this->drupalPostForm(NULL, [], t('Update preview'));
+     $preview = $this->xpath("//div[@class='view-content']");
+     $this->assertTrue(empty($preview), 'No results.');
++
++    // Switch to the autocomplete filter.
++    $this->drupalGet('admin/structure/views/nojs/handler-extra/test_filter_taxonomy_index_tid/default/filter/tid');
++    $edit = [];
++    $edit["options[type]"] = 'textfield';
++    $this->drupalPostForm(NULL, $edit, t('Apply'));
++
++    // Click the Grouped Filters button.
++    $this->drupalGet('admin/structure/views/nojs/handler/test_filter_taxonomy_index_tid/default/filter/tid');
++    $this->drupalPostForm(NULL, [], t('Grouped filters'));
++
++    // Create a grouped filter
++    $this->drupalGet('admin/structure/views/nojs/handler/test_filter_taxonomy_index_tid/default/filter/tid');
++    $edit = [];
++    $edit["options[group_info][group_items][1][title]"] = 'Term 0.0';
++    $edit["options[group_info][group_items][1][operator]"] = 'or';
++    $edit["options[group_info][group_items][1][value]"] = "{$this->terms[0][0]->label()} ({$this->terms[0][0]->id()})";
++
++    $edit["options[group_info][group_items][2][title]"] = 'Term 1.0';
++    $edit["options[group_info][group_items][2][operator]"] = 'or';
++    $edit["options[group_info][group_items][2][value]"] = "{$this->terms[1][0]->label()} ({$this->terms[1][0]->id()})";;
++
++    $edit["options[group_info][group_items][3][title]"] = 'Term 2.0 or term 1.0';
++    $edit["options[group_info][group_items][3][operator]"] = 'or';
++    $edit["options[group_info][group_items][3][value]"] = "{$this->terms[2][0]->label()} ({$this->terms[2][0]->id()}), {$this->terms[1][0]->label()} ({$this->terms[1][0]->id()})";
++    // Default to the last group.
++    $edit["options[group_info][default_group]"] = '3';
++    $this->drupalPostForm(NULL, $edit, t('Apply'));
++    $this->assertResponse(200);
++
++    $this->drupalPostForm(NULL, $edit = [], t('Update preview'));
++
++    // Test that the default group is applied.
++    $xpath = $this->xpath('//div[@class="view-content"]//a');
++    $this->assertIdentical(3, count($xpath));
++    $xpath = $this->xpath('//div[@class="view-content"]//a[@href=:href]', [':href' => $node2->url()]);
++    $this->assertIdentical(1, count($xpath));
++    $xpath = $this->xpath('//div[@class="view-content"]//a[@href=:href]', [':href' => $node3->url()]);
++    $this->assertIdentical(1, count($xpath));
++    $xpath = $this->xpath('//div[@class="view-content"]//a[@href=:href]', [':href' => $node4->url()]);
++    $this->assertIdentical(1, count($xpath));
+   }
+ 
+ }
