@@ -276,7 +276,12 @@ function afrikaburn_collective_node_access($collective, $op, $user){
 
     $user = User::load($user->id());
 
-    return $user->id() > 0 && CollectiveController::setting($collective, 'public') || CollectiveController::isMember($collective, $user)
+    return (
+      $user->id() > 0 &&
+      CollectiveController::setting($collective, 'public') ||
+      CollectiveController::isMember($collective, $user) ||
+      CollectiveController::iInvited($collective, $user)
+    )
       ? AccessResult::neutral()
       : AccessResult::forbidden();
   }
