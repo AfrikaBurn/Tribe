@@ -10,7 +10,7 @@ bundles:
   - collective
 entity_type: node
 global: false
-weight: -5
+weight: -4
 flag_short: 'Request to join'
 flag_long: ''
 flag_message: ''

@@ -43,6 +43,7 @@ class AfrikaBurnSettings extends ConfigFormBase {
 
     $config = $this->config('afrikaburn_shared.settings');
     $quickstart = $this->config('afrikaburn_shared.quickstart');
+    $closed_text = $this->config('afrikaburn_shared.closed_text');
 
     // module_load_include('inc', 'afrikaburn_shared', 'includes/shared.quicket');
 
@@ -55,7 +56,6 @@ class AfrikaBurnSettings extends ConfigFormBase {
       'quickstart' => [
         '#title' => 'Quickstart',
         '#type' => 'details',
-        '#open' => TRUE,
         '#tree' => FALSE,
         '#entity_type' => 'config',
         '#group_name' => 'settings_tabs',
@@ -193,12 +193,22 @@ class AfrikaBurnSettings extends ConfigFormBase {
 
         'tickets' => [
           '#type' => 'checkboxes',
-          '#title' => 'Open Ticket Sales',
+          '#title' => 'Open Sales',
           '#options' => [
             'general' => 'General',
+            'mayday' => 'Mayday',
+            'ddt' => 'Direct Distribution',
+            'subsidised' => 'Subsidised',
             'anathi' => 'Anathi',
           ],
           '#default_value' => $config->get('tickets'),
+        ],
+
+        'closed_text' => [
+          '#title' => 'Text to display when sales are closed',
+          '#type' => 'text_format',
+          '#default_value' => $closed_text->get('closed_text')['value'],
+          '#format' => $closed_text->get('closed_text')['format'],
         ],
       ],
 
@@ -210,12 +220,35 @@ class AfrikaBurnSettings extends ConfigFormBase {
         '#group_name' => 'settings_tabs',
         '#bundle' => 'none',
 
+        'wipe' => [
+          '#type' => 'details',
+          '#title' => 'Wipe Quicket Data',
+          'text' => ['#markup' => '<p>DANGER! DANGER! <ul><li>Can not be undone!</li><li>Requires regeneration afterwards.</li></ul></p>'],
+          ['#type' => 'submit', '#value' => 'I know what I\'m doing, Wipe!'],
+        ],
+
+        'regenerate' => [
+          '#type' => 'details',
+          '#title' => 'Regenerate Quicket Data',
+          'text' => ['#markup' => '<p>DANGER! DANGER! <ul><li>Disable mail first.</li><li>Warn Quicket!</li><li>This will take forever...</li></ul></p>'],
+          ['#type' => 'submit', '#value' => 'I know what I\'m doing, Regenerate!'],
+        ],
+
+        'resave' => [
+          '#type' => 'details',
+          '#title' => 'Resave all users',
+          'text' => ['#markup' => '<p>DANGER! DANGER! <ul><li>Disable mail first.</li><li>Warn Quicket!</li><li>This will take a while...</li></ul></p>'],
+          ['#type' => 'submit', '#value' => 'I know what I\'m doing, Resave!'],
+        ],
+
+        'assimilate' => [
+          '#type' => 'details',
+          '#title' => 'Assimilate AfrikaBurn Members',
+          'text' => ['#markup' => '<p>DANGER! DANGER! <ul><li>Disable mail first.</li><li>This may take a while...</li></ul></p>'],
+          ['#type' => 'submit', '#value' => 'I know what I\'m doing, Assimilate!'],
+        ],
+
         'batch-size' => ['#type' => 'select', '#title' => 'Batch size', '#options' => array_combine(range(500, 10000, 500), range(500, 10000, 500))],
-        ['#type' => 'submit', '#value' => 'Add AfrikaBurn Members'],
-        // ['#type' => 'submit', '#value' => 'Regenerate Quicket data'],
-        // ['#type' => 'submit', '#value' => 'Resave Users'],
-        ['#type' => 'submit', '#value' => 'Wipe Quicket data'],
-        // ['#type' => 'submit', '#value' => 'Migrate Collectives'],
       ],
     ];
 
@@ -247,26 +280,29 @@ class AfrikaBurnSettings extends ConfigFormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
 
     $values = $form_state->getValues();
+    $actions = $form['tabs']['actions'];
 
     switch($values['op']){
-      case 'Resave Users':
-        UpdateController::resaveUsers($form_state->getValue('batch-size'));
-      break;
-      case 'Wipe Quicket data':
+
+      case $actions['wipe'][0]['#value']:
         UpdateController::wipeQuicket();
       break;
-      case 'Regenerate Quicket data':
+      case $actions['regenerate'][0]['#value']:
         UpdateController::regenerateQuicketData($form_state->getValue('batch-size'));
       break;
-      case 'Migrate Collectives':
-        UpdateController::migrateCollectives();
+      case $actions['resave'][0]['#value']:
+        UpdateController::resaveUsers($form_state->getValue('batch-size'));
       break;
-      case 'Add AfrikaBurn Members':
+      case $actions['assimilate'][0]['#value']:
         UpdateController::addTribeMembers($form_state->getValue('batch-size'));
       break;
+
       default:
         $this->configFactory->getEditable('afrikaburn_shared.quickstart')
           ->set('quickstart', $values['quickstart'])
+          ->save();
+        $this->configFactory->getEditable('afrikaburn_shared.closed_text')
+          ->set('closed_text', $values['closed_text'])
           ->save();
         $this
           ->configFactory->getEditable('afrikaburn_shared.settings')

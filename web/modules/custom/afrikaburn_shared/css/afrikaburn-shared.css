@@ -99,6 +99,10 @@ body .horizontal-tabs .horizontal-tab-button {
   visibility: hidden;
 }
 
+.afrikaburn-shared-settings .text-format-wrapper{
+  clear: both;
+}
+
 
 /* ---- Collapse ---- */
 

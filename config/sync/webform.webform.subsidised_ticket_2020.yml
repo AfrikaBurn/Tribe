@@ -405,7 +405,6 @@ handlers:
       action: add
       ticket_id:
         main_sub_id: main_sub_id
-        main_ddt_id: 0
         main_anathi_id: 0
       ticket_ids:
         main_sub_id: main_sub_id

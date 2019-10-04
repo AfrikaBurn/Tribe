@@ -255,15 +255,11 @@ display:
               empty_column: false
               responsive: ''
             field_quicket_code:
-              sortable: false
-              default_sort_order: asc
               align: ''
-              separator: ' / '
+              separator: ''
               empty_column: false
               responsive: ''
             field_quicket_id:
-              sortable: false
-              default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
@@ -1288,12 +1284,12 @@ display:
           group_column: value
           group_columns: {  }
           group_rows: true
-          delta_limit: 0
+          delta_limit: 4
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
-          multi_type: separator
-          separator: ', '
+          multi_type: ul
+          separator: '<br />'
           field_api_classes: false
           plugin_id: field
         field_quicket_id:
@@ -1351,12 +1347,12 @@ display:
           group_column: value
           group_columns: {  }
           group_rows: true
-          delta_limit: 0
+          delta_limit: 4
           delta_offset: 0
           delta_reversed: false
           delta_first_last: false
-          multi_type: separator
-          separator: ', '
+          multi_type: ul
+          separator: '<br/>'
           field_api_classes: false
           plugin_id: field
       filters:

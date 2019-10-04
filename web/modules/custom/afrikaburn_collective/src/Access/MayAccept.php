@@ -37,9 +37,6 @@ class MayAccept implements AccessInterface {
       case $user->isAnonymous():
         $error = 'You need an account for this!';
         break;
-      case $user->id() != $candidate->id():
-        $error = 'How rude, this isn\'t you! Who are you?';
-        break;
       case CollectiveController::isBanned($collective, $candidate):
         $error = '@user banned from this collective!';
         break;

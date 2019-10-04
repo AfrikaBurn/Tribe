@@ -629,8 +629,8 @@ function _ddt_form(&$form, $collective, $registration, $mode){
       '#markup' =>
         '<div class="messages messages--warning">' .
         '* If a member of your collective does not appear in the dropdown, they have likely been assigned one elsewhere already.<br />' .
-        '* Once assigned, VPs can only be transfered through Quicket.<br />' .
-        '* You do not have to assign all VPs in one go, you can assign VPs until April 15th.' .
+        '* Once assigned, DDTs can only be transfered through Quicket.<br />' .
+        '* You do not have to assign all DDTs in one go, you can assign DDTs until April 15th.' .
         '</div>',
     ];
 

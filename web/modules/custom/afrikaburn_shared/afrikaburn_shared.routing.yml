@@ -5,3 +5,11 @@ afrikaburn_shared.settings:
     _form: '\Drupal\afrikaburn_shared\Forms\AfrikaBurnSettings'
   requirements:
    _permission: 'administer site configuration'
+
+afrikaburn_shared.tickets:
+  path: '/tickets'
+  defaults:
+    _title: 'AfrikaBurn Tickets'
+    _controller: '\Drupal\afrikaburn_shared\Controller\TicketController::ticketsPage'
+  requirements:
+    _role: authenticated

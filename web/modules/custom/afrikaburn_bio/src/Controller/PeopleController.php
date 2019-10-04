@@ -16,7 +16,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 class PeopleController extends ControllerBase {
 
   /**
-   * Update a registration field.
+   * Update a user field.
    */
   public static function update($uid = FALSE){
     if ($uid){
@@ -65,7 +65,7 @@ class PeopleController extends ControllerBase {
   }
 
   /**
-   * Update a registration field.
+   * Send magic login link.
    */
   public static function reset($uid = FALSE){
     if ($uid && $uid > 1){

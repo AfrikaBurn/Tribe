@@ -74,35 +74,15 @@ class TicketHandler extends WebformHandlerBase {
       '#title' => $this->t('Ticket settings'),
     ];
 
-    $form['ticket']['action'] = [
-      '#type' => 'radios',
-      '#title' => $this->t('Action'),
-      '#options' => [
-        'add' => 'Add codes',
-        'comp' => 'Send complimentaries',
-      ],
-      '#default_value' => $this->configuration['action'],
-      '#required' => TRUE,
-    ];
-
     $form['ticket']['ticket_id'] = [
       '#type' => 'checkboxes',
       '#title' => $this->t('Ticket IDs'),
       '#options' => [
-        'main_ddt_id' => 'Direct Distribution',
         'main_sub_id' => 'Subsidised',
         'main_anathi_id' => 'Anathi',
       ],
 
       '#default_value' => $this->configuration['ticket_id'],
-      '#required' => TRUE,
-    ];
-
-    $form['ticket']['num_uses'] = [
-      '#type' => 'number',
-      '#title' => $this->t('Number of uses'),
-      '#min' => 1,
-      '#default_value' => $this->configuration['num_uses'],
       '#required' => TRUE,
     ];
 
@@ -115,9 +95,7 @@ class TicketHandler extends WebformHandlerBase {
   public function submitConfigurationForm(array &$form, FormStateInterface $form_state) {
     parent::submitConfigurationForm($form, $form_state);
     $values = $form_state->getValues();
-    $this->configuration['action'] = $values['ticket']['action'];
     $this->configuration['ticket_id'] = $values['ticket']['ticket_id'];
-    $this->configuration['num_uses'] = $values['ticket']['num_uses'];
   }
 
   /**
@@ -125,53 +103,53 @@ class TicketHandler extends WebformHandlerBase {
    */
   public function preSave(WebformSubmissionInterface $webform_submission) {
 
+    $template = [
+      ['value' => 0],
+      ['value' => -1],
+      ['value' => -2],
+      ['value' => -3],
+    ];
+    $translate = [
+      'main_sub_id' => 2,
+      'main_anathi_id' => 3,
+    ];
+
     $user = $webform_submission->uid->entity;
     $id_number = $user->field_id_number->value;
-    $quicket_code = $user->field_quicket_code->value;
-    $quicket_id = $user->field_quicket_id->value;
     $config = \Drupal::config('afrikaburn_shared.settings');
     $tickets = array_keys(array_filter($this->configuration['ticket_id']));
-    $num_uses = $this->configuration['num_uses'];
+    $failed = FALSE;
 
-    $ticket_ids = array_map(
-      function($ticket) use ($config) {
-        return $config->get($ticket);
-      },
-      $tickets
+    $quicket_codes = array_replace(
+      $template,
+      $user->field_quicket_code->getValue()
+    );
+    $quicket_ids = array_replace(
+      $template,
+      $user->field_quicket_id->getValue()
     );
 
-    $ticket_response = FALSE;
+    foreach($tickets as $ticket){
 
-    switch ($this->configuration['action']){
+      $quicket_code = $quicket_codes[$translate[$ticket]]['value'];
+      $quicket_id = $quicket_ids[$translate[$ticket]]['value'];
 
-      case 'add':
-        if (
-          !QuicketController::addTicketTypes(
-            $id_number,
-            $quicket_code,
-            $quicket_id,
-            $ticket_ids,
-            $num_uses
-          )
-        ) throw new \Exception('Ticket Exception: Could not add ticket types.');
-      break;
-
-      case 'comp':
-
-        $guest = [
-          'FirstName' => $user->field_first_name->value,
-          'Surname' => $user->field_last_name->value,
-          'Email' => $user->field_email->value,
-        ];
-
-        if (
-          !QuicketController::sendComps(
-            [$guest],
-            $ticket_ids,
-            $num_uses
-          )
-        ) throw new \Exception('Ticket Exception: Could not send complimentary ticket.');
-      break;
+      if ($response = QuicketController::addTicketTypes(
+        $id_number,
+        $quicket_code,
+        $quicket_id,
+        [$config->get($ticket)],
+        1
+      )) {
+        $quicket_codes[$translate[$ticket]]['value'] = $response->CodeValue;
+        $quicket_ids[$translate[$ticket]]['value'] = $response->CodeId;
+      } else $failed = TRUE;
     }
+
+    $user->set('field_quicket_code', $quicket_codes);
+    $user->set('field_quicket_id', $quicket_ids);
+    $user->save();
+
+    if ($failed) throw new \Exception('Ticket Exception: Could not add ticket types.');
   }
 }

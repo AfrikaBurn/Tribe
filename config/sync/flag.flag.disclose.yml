@@ -10,7 +10,7 @@ bundles:
   - collective
 entity_type: node
 global: false
-weight: 0
+weight: 2
 flag_short: Privacy
 flag_long: 'Share information with members of this collective'
 flag_message: ''

@@ -45,6 +45,10 @@
   left: 0;
 }
 
+.view-wrangle-people tbody .views-field-field-quicket-code{
+  display: flex;
+}
+
 .view-wrangle-people table th:first-child span{
   display: none;
 }

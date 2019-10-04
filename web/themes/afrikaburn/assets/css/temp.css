@@ -305,7 +305,7 @@ html body .view.view-my-collectives .button {
 button,
 .button,
 input.button,
-div.body-content a.button,
+div.body-content button,
 div.body-content button,
 div.input-file-wrapper,
 input[type=submit],
@@ -313,6 +313,14 @@ input.button:focus {
   background-color: #596F6299;
   white-space: nowrap;
 }
+
+div.body-content .button.default{
+  background-color: #88BA1D;
+  color: #fff;
+  font-weight: bold;
+  border: 1px solid #e3f8b8 !important;
+}
+
 
 div.body-content .block .view-id-collective_projects table td.name .flag-mute a {
   height: 20px;

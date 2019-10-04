@@ -32,9 +32,9 @@
 
               if ($biobar.length && $logo.length) new Floater($logo, 0)
               if ($wrangleBlock.length) new Collapsing($wrangleBlock)
-              if ($quickStart.length && $.cookie('quickstart')) new Collapsing($quickStart)
+              if ($quickStart.length) new Collapsing($quickStart, $('#block-quickstart'))
 
-              $.cookie('quickstart', true)
+              // $.cookie('quickstart', true)
 
               var expand
               if (expand = window.location.href.match(/expand\=([^&]+)/)){

@@ -10,7 +10,7 @@ bundles:
   - collective
 entity_type: node
 global: false
-weight: -2
+weight: -1
 flag_short: 'Be banned from'
 flag_long: ''
 flag_message: ''

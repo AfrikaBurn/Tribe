@@ -10,7 +10,7 @@ bundles:
   - collective
 entity_type: node
 global: false
-weight: 0
+weight: 1
 flag_short: 'Become admin'
 flag_long: ''
 flag_message: ''

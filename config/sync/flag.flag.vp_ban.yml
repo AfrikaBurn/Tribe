@@ -9,7 +9,7 @@ label: 'VP ban'
 bundles: {  }
 entity_type: user
 global: true
-weight: 0
+weight: -6
 flag_short: 'VP block'
 flag_long: 'Click to prevent user from receiving a VP'
 flag_message: ''

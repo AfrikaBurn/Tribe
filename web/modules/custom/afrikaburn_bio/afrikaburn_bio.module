@@ -3,7 +3,7 @@
 use \Drupal\user\Entity\User;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use \Drupal\Core\Routing\TrustedRedirectResponse;
-use \Drupal\afrikaburn_shared\Controller\QuicketController;
+use \Drupal\afrikaburn_shared\Controller\TicketController;
 
 
 /* ----- Module Hooks ----- */
@@ -52,7 +52,7 @@ function afrikaburn_bio_form_user_form_alter(&$form, $form_state, $form_id){
   $target = $form_state->getFormObject()->getEntity();
   $user = User::load(\Drupal::currentUser()->id());
 
-  // Set form title, attach quicket handlers, set redirects
+  // Set form title, attach tuicket handlers, set redirects
   switch($form_id){
     case 'user_update_form':
       $form['#title'] = 'Updating my Bio';
@@ -131,7 +131,7 @@ function afrikaburn_bio_form_views_exposed_form_alter(&$form, $form_state, $form
 function afrikaburn_bio_entity_delete($entity){
   if ($entity->getEntityTypeId() == 'user' && \Drupal::currentUser()->id() == $entity->id()){
 
-    QuicketController::delete(@$entity->field_quicket_id->value);
+    TicketController::delete($entity);
 
     $response = new RedirectResponse(\Drupal::url('<front>'));
     $response->send();
@@ -163,76 +163,27 @@ function afrikaburn_bio_updated($form, &$form_state){
   }
 
   if (\Drupal::request()->query->get('get') == 'tickets'){
-
-    $uid = \Drupal::currentUser()->id();
-    $settings = \Drupal::config('afrikaburn_shared.settings');
-    $account = \Drupal\user\Entity\User::load($uid);
-    $quicket_code = $account->get('field_quicket_code')
-      ? $account->get('field_quicket_code')->getValue()[0]['value']
-      : FALSE;
-    $ticket_link =
-      'https://www.quicket.co.za/events/' . $settings->get('main_id') .
-      '-?dc=' . $quicket_code;
-    $form_state->setResponse(new TrustedRedirectResponse($ticket_link));
+    $form_state->setResponse(new TrustedRedirectResponse('/tickets'));
   }
 }
 
 /**
  * Implements hook_entity_presave().
  * Force calculation of year cycle.
- * Request or update exiting quicket ticket information.
+ * Request or update exiting tuicket ticket information.
  */
-function afrikaburn_bio_user_presave($entity){
+function afrikaburn_bio_user_presave($user){
 
-  if (!count($entity->get('field_year_cycle')->getValue())){
+  if (!count($user->get('field_year_cycle')->getValue())){
     module_load_include('module', 'afrikaburn_shared', 'afrikaburn_shared');
-    $entity->set('field_year_cycle', computed_field_field_year_cycle_compute(null, $entity, null, null));
+    $user->set('field_year_cycle', computed_field_field_year_cycle_compute(null, $user, null, null));
   }
 
-  $quicket = FALSE;
-  $attempt = FALSE;
-  $id_number = @$entity->field_id_number->value;
-
-  if (!$entity->original){
-
-    $quicket = QuicketController::createDefaultTicketTypes($id_number);
-    $attempt = TRUE;
-
-  } else {
-
-    $quicket_code = @$entity->field_quicket_code->value;
-    $quicket_id = @$entity->field_quicket_id->value;
-    $has_quicket_data = QuicketController::getTicketTypes($quicket_code);
-    $original_id = @$entity->original->field_id_number->value;
-    $current_id = @$entity->field_id_number->value;
-    $id_changed = $original_id != $current_id;
-
-    if (!$has_quicket_data) {
-      $quicket = QuicketController::createDefaultTicketTypes($id_number);
-      $attempt = TRUE;
-    } else if ($id_changed) {
-      $quicket = QuicketController::addTicketTypes(
-        $id_number,
-        $quicket_code,
-        $quicket_id,
-        []
-      );
-      $attempt = TRUE;
-    }
-  }
-
-  if ($quicket) {
-    $entity->set('field_quicket_code', $quicket->CodeValue);
-    $entity->set('field_quicket_id', $quicket->CodeId);
-  } elseif ($attempt) {
-    $message = [
-      '#markup' => 'Your ticket data could not be generated. <a href="mailto:support@afrikaburn.com">Please contact an administrator</a>.'
-    ];
-    drupal_set_message(
-      render($message),
-      'error'
-    );
-  }
+  if ($user->original && $user->field_quicket_code->getValue()[0]['value']){
+    $user->original->field_id_number->value != $user->field_id_number->value
+      ? TicketController::update($user)
+      : FALSE;
+  } else TicketController::setup($user);
 }
 
 

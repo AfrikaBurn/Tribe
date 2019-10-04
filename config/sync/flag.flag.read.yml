@@ -10,7 +10,7 @@ bundles:
   - alert
 entity_type: node
 global: false
-weight: 0
+weight: 4
 flag_short: 'Mark as read'
 flag_long: ''
 flag_message: ''

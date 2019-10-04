@@ -9,7 +9,7 @@ label: 'DDT ban'
 bundles: {  }
 entity_type: user
 global: true
-weight: 0
+weight: -5
 flag_short: 'DDT block'
 flag_long: 'Click to prevent user from receiving a DDT'
 flag_message: ''

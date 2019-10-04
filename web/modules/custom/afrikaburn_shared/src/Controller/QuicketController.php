@@ -144,7 +144,7 @@ class QuicketController extends ControllerBase {
         'EventId' => $config->get('main_id'),
         'IsPercentage' => FALSE,
         'DiscountAmount' => 0.0,
-        'NumUses' => 6,
+        'NumUses' => $num_uses,
         'IsAccessCode' => TRUE,
         'Email' => str_replace(' ', '', $id_number),
         'TicketTypes' => array_values(array_filter($ticket_types)),
@@ -153,40 +153,13 @@ class QuicketController extends ControllerBase {
   }
 
   /**
-   * Creates a users default quicket ticket types
-   * @param $id_number    id of the user to set ticket types for.
-   * @param $ticket_types ticket types to set.
-   * @param $num_uses     number of uses. Optional, defaults to 6.
-   * @param $event_id     event to set ticket types for. Optional, defaults
-   *                      to main event.
-   */
-  public static function createDefaultTicketTypes($id_number, $num_uses = 6, $event_id = FALSE){
-
-    $config = \Drupal::config('afrikaburn_shared.settings');
-
-    return self::createTicketTypes(
-      $id_number,
-      [
-        $config->get('main_general_id'),
-        $config->get('main_general_minor_id'),
-        $config->get('main_general_kids_id'),
-        $config->get('main_mayday_id'),
-        $config->get('main_mayday_minor_id'),
-        $config->get('main_mayday_kids_id'),
-      ],
-      $num_uses,
-      $event_id
-    );
-  }
-
-  /**
    * Add ticket types to a user
-   * @param $id_number    id of the user to set ticket types for.
-   * @param $quicket_code quicket code of the user to set ticket types for.
-   * @param $quicket_id   quicket id of the user to set ticket types for.
-   * @param $ticket_types ticket types to set.
+   * @param $id_number    id of the user to add ticket types for.
+   * @param $quicket_code quicket code of the user to add ticket types for.
+   * @param $quicket_id   quicket id of the user to add ticket types for.
+   * @param $ticket_types ticket types to add.
    * @param $num_uses     number of uses. Optional, defaults to 6.
-   * @param $event_id     event to set ticket types for. Optional, defaults
+   * @param $event_id     event to add ticket types for. Optional, defaults
    *                      to main event.
    */
   public static function addTicketTypes($id_number, $quicket_code, $quicket_id, $new_types, $num_uses = 6, $event_id = FALSE){
@@ -196,12 +169,14 @@ class QuicketController extends ControllerBase {
     $existing_types = self::getTicketTypes($quicket_code, $event_id);
 
     if (count($existing_types) == 0) {
-      self::createTicketTypes($id_number, $new_types, $num_uses, $event_id);
+      if (count($new_types)) return self::createTicketTypes($id_number, $new_types, $num_uses, $event_id);
     } else {
 
-      $ticket_types = array_merge(
-        array_values(array_filter($new_types)),
-        array_values(array_filter($existing_types))
+      $ticket_types = array_unique(
+        array_merge(
+          array_values(array_filter($new_types)),
+          array_values(array_filter($existing_types))
+        )
       );
 
       return self::request(
@@ -211,13 +186,26 @@ class QuicketController extends ControllerBase {
           'EventId' => $config->get('main_id'),
           'IsPercentage' => FALSE,
           'DiscountAmount' => 0.0,
-          'NumUses' => 6,
+          'NumUses' => $num_uses,
           'IsAccessCode' => TRUE,
           'Email' => str_replace(' ', '', $id_number),
           'TicketTypes' => $ticket_types,
         ]
       );
     }
+  }
+
+  /**
+   * Updates a user ID
+   * @param $id_number    id of the user to update.
+   * @param $quicket_code quicket code of the user to update.
+   * @param $quicket_id   quicket id of the user to update.
+   * @param $num_uses     number of uses. Optional, defaults to 6.
+   * @param $event_id     event to update. Optional, defaults
+   *                      to main event.
+   */
+  public static function updateId($id_number, $quicket_code, $quicket_id, $num_uses = 6, $event_id = FALSE){
+    self::addTicketTypes($id_number, $quicket_code, $quicket_id, [], $num_uses, $event_id);
   }
 
   /**
