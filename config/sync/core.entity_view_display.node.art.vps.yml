@@ -10,6 +10,8 @@ dependencies:
     - field.field.node.art.field_arteria_checkin
     - field.field.node.art.field_burn_can_be_denied
     - field.field.node.art.field_collective
+    - field.field.node.art.field_ddts
+    - field.field.node.art.field_ddts_allowed
     - field.field.node.art.field_footprint_diameter
     - field.field.node.art.field_footprint_length
     - field.field.node.art.field_footprint_specification
@@ -236,7 +238,7 @@ content:
     type: entity_reference_revisions_entity_view
     weight: 0
     region: content
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: ''
@@ -253,6 +255,8 @@ hidden:
   field_arteria_checkin: true
   field_burn_can_be_denied: true
   field_collective: true
+  field_ddts: true
+  field_ddts_allowed: true
   field_footprint_diameter: true
   field_footprint_length: true
   field_footprint_specification: true

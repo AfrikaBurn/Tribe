@@ -18,12 +18,17 @@ use \Drupal\afrikaburn_shared\Utils;
 
 class TicketController extends ControllerBase {
 
-
-  /* Ticket Classes */
-  public static $GENERAL_TICKETS = 0;
-  public static $DD_TICKETS = 1;
-  public static $SUBSIDISED_TICKETS = 2;
-  public static $ANATHI_TICKETS = 3;
+  /* Internal Ticket Lookups */
+  private static $GENERAL_TICKETS = 0;
+  private static $DD_TICKETS = 1;
+  private static $SUBSIDISED_TICKETS = 2;
+  private static $ANATHI_TICKETS = 3;
+  private static $TRANSLATE = [
+    'main_general_id' => 0,
+    'main_ddt_id' => 1,
+    'main_sub_id' => 2,
+    'main_anathi_id' => 3,
+  ];
 
 
   /* ----- Pages ----- */
@@ -35,43 +40,80 @@ class TicketController extends ControllerBase {
   public function ticketsPage(){
 
     $user = Utils::currentUser();
-    $settings = \Drupal::config('afrikaburn_shared.settings');
-    $codes = array_column($user->field_quicket_code->getValue(), 'value');
-    $open = $settings->get('tickets');
-    $markup = '';
+    $flag_service = \Drupal::service('flag');
+    $flag = $flag_service->getFlagById('outdated');
+    $quicket_data = $user->get('field_quicket_code')->count();
+    $user_codes = array_column($user->get('field_quicket_code')->getValue(), 'value');
+
+    if ($flag_service->getFlagging($flag, $user) || !$quicket_data) {
+
+      drupal_set_message('Please update your Bio to be able to purchase tickets');
+
+      return new TrustedRedirectResponse(
+        '/user/'. $user->id() . '/edit/update?get=tickets'
+      );
+    }
+
+    $quicket = \Drupal::config('afrikaburn_shared.quicket');
+    $tickets = \Drupal::config('afrikaburn_shared.tickets')->get('tickets');
+
+    $open = [
+      'general' => $tickets['general']['open'],
+      'mayday' => $tickets['mayday']['open'],
+      'ddt' => $tickets['ddt']['open'],
+      'subsidised' => $tickets['subsidised']['open'],
+      'anathi' => $tickets['anathi']['open'],
+    ];
+
     $codes = array_filter(
       [
-        'anathi' => @$codes[self::$ANATHI_TICKETS],
-        'subsidised' => @$codes[self::$SUBSIDISED_TICKETS],
-        'ddt' => @$codes[self::$DD_TICKETS],
-        'general' => @$codes[self::$GENERAL_TICKETS],
+        'anathi' => @$user_codes[self::$ANATHI_TICKETS],
+        'subsidised' => @$user_codes[self::$SUBSIDISED_TICKETS],
+        'ddt' => @$user_codes[self::$DD_TICKETS],
+        'general' => @$user_codes[self::$GENERAL_TICKETS],
+        'mayday' => @$user_codes[self::$GENERAL_TICKETS],
       ], function($quicket_code, $type) use ($open) {
-        return $open[$type] && QuicketController::getTicketTypes(explode(' ', $quicket_code)[0]);
+        return $quicket_code && $open[$type] && QuicketController::getTicketTypes($quicket_code);
       },
       ARRAY_FILTER_USE_BOTH
     );
 
-    switch (count($codes)) {
-      case 0:
-        $markup = \Drupal::config('afrikaburn_shared.closed_text')
-          ->get('closed_text')['value'];
+    $markup = '';
+    switch (TRUE) {
+      case count($codes) == 0:
+        $markup = $tickets['closed']['value'];
       break;
-      case 1:
+      case count($codes) == 1:
+      case count($codes) == 2 && $codes['general'] && $codes['mayday']:
         return new TrustedRedirectResponse(
-          'https://www.quicket.co.za/events/' . $settings->get('main_id') .
-          '-?dc=' . array_shift($codes)
+          'https://www.quicket.co.za/events/' .
+          $quicket->get('main_id') . '-?dc=' . array_shift($codes)
         );
       default:
-        foreach($codes as $label=>$code) {
+
+        $markup = '<table>';
+        $button = [
+          'anathi' => 'Get my Anathi ticket',
+          'subsidised' => 'Get my subsidised ticket',
+          'ddt' => 'Get my DD ticket',
+        ];
+
+        foreach($codes as $key=>$code) {
           $markup .=
-            '<p class="ticket">' .
-              '<a href="https://www.quicket.co.za/events/' .
-                  $settings->get('main_id') . '-?dc=' . $code . '">' .
-                'Get ' . $label . ' tickets' .
-              '</a>' .
-            '</p>';
+            '<tr><td colspan="2"><h2>' . strtoupper($key) . ' tickets</h2></td></th>' .
+            '<tr>' .
+              '<td>' . $tickets[$key]['description']['value'] . '</td>' .
+              '<td><a class="button" target="_blank" href="https://www.quicket.co.za/events/' .
+                $quicket->get('main_id') . '-?dc=' . $code . '">' .
+                ($button[$key] ? $button[$key] : 'Get ' . $key . ' tickets') .
+              '</a></td>' .
+            '</tr>';
         }
+
+        $markup .= '</table>';
     }
+
+    $markup .= '<p><a href="https://www.afrikaburn.com/the-event/tickets">Find out more about tickets.</a></p>';
 
     return ['#markup' => $markup];
   }
@@ -80,6 +122,8 @@ class TicketController extends ControllerBase {
   /* ----- Ticket CRUD ----- */
 
 
+  /* -- BIO updates -- */
+
   /**
    * Sets up default ticket types
    * @param $user to setup
@@ -87,10 +131,10 @@ class TicketController extends ControllerBase {
   public static function setup($user){
 
     $id_number = $user->field_id_number->value;
-    $config = \Drupal::config('afrikaburn_shared.settings');
+    $quicket = \Drupal::config('afrikaburn_shared.quicket');
     $tickets = [];
     $template = [
-      ['value' => self::$GENERAL_TICKETS],
+      ['value' =>  self::$GENERAL_TICKETS],
       ['value' => -self::$DD_TICKETS],
       ['value' => -self::$SUBSIDISED_TICKETS],
       ['value' => -self::$ANATHI_TICKETS],
@@ -106,7 +150,7 @@ class TicketController extends ControllerBase {
         'main_mayday_kids_id',
       ] as $key
     ) {
-      array_push($tickets, ...explode(' ', $config->get($key)));
+      array_push($tickets, ...explode(' ', $quicket->get($key)));
     }
 
     $response = QuicketController::createTicketTypes(
@@ -156,7 +200,11 @@ class TicketController extends ControllerBase {
    * @param $user to update
    */
   public static function update($user){
-    if ($user->field_quicket_code->getValue()[0]) {
+
+    $general = @$user->field_quicket_code->getValue()[0];
+    $valid = $general && QuicketController::getTicketTypes($general['value']);
+
+    if ($general && $valid) {
 
       $quicket_codes = array_column($user->field_quicket_code->getValue(), 'value');
       $quicket_ids = array_column($user->field_quicket_id->getValue(), 'value');
@@ -185,10 +233,69 @@ class TicketController extends ControllerBase {
 
   /**
    * Removes all a users tickets from quicket
+   * @param $user to delete
    */
   public static function delete($user){
     foreach(@array_column($user->field_quicket_id->getValue(), 'value') as $quicket_id){
       QuicketController::delete($quicket_id);
     }
+  }
+
+
+  /* -- Special tickets -- */
+
+
+  /**
+   * Add special tickets to a user
+   * DDT, Subsidised or Anathi
+   * @param $user to add to
+   * @param $tickets array of string containing any of:
+   *  main_ddt_id
+   *  main_sub_id
+   *  main_anathi_id
+   */
+  public static function addTickets($user, $tickets){
+
+    $template = [
+      ['value' =>  self::$GENERAL_TICKETS],
+      ['value' => -self::$DD_TICKETS],
+      ['value' => -self::$SUBSIDISED_TICKETS],
+      ['value' => -self::$ANATHI_TICKETS],
+    ];
+
+    $id_number = $user->field_id_number->value;
+    $quicket = \Drupal::config('afrikaburn_shared.quicket');
+    $failed = FALSE;
+
+    $quicket_codes = array_replace(
+      $template,
+      $user->field_quicket_code->getValue()
+    );
+    $quicket_ids = array_replace(
+      $template,
+      $user->field_quicket_id->getValue()
+    );
+
+    foreach($tickets as $ticket){
+
+      $quicket_code = $quicket_codes[self::$TRANSLATE[$ticket]]['value'];
+      $quicket_id = $quicket_ids[self::$TRANSLATE[$ticket]]['value'];
+
+      if ($response = QuicketController::addTicketTypes(
+        $id_number,
+        $quicket_code,
+        $quicket_id,
+        explode(' ', $quicket->get($ticket)),
+        1
+      )) {
+        $quicket_codes[self::$TRANSLATE[$ticket]]['value'] = $response->CodeValue;
+        $quicket_ids[self::$TRANSLATE[$ticket]]['value'] = $response->CodeId;
+      } else $failed = TRUE;
+    }
+
+    $user->set('field_quicket_code', $quicket_codes);
+    $user->set('field_quicket_id', $quicket_ids);
+
+    if ($failed) throw new \Exception('Ticket Exception: Could not add ticket types.');
   }
 }

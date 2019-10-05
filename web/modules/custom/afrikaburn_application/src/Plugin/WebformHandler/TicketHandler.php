@@ -12,8 +12,7 @@ use Drupal\webform\WebformSubmissionConditionsValidatorInterface;
 use Drupal\webform\WebformSubmissionInterface;
 use Drupal\webform\WebformTokenManagerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-
-use \Drupal\afrikaburn_shared\Controller\QuicketController;
+use \Drupal\afrikaburn_shared\Controller\TicketController;
 
 /**
  * Webform example handler.
@@ -103,53 +102,18 @@ class TicketHandler extends WebformHandlerBase {
    */
   public function preSave(WebformSubmissionInterface $webform_submission) {
 
-    $template = [
-      ['value' => 0],
-      ['value' => -1],
-      ['value' => -2],
-      ['value' => -3],
-    ];
-    $translate = [
-      'main_sub_id' => 2,
-      'main_anathi_id' => 3,
-    ];
-
     $user = $webform_submission->uid->entity;
-    $id_number = $user->field_id_number->value;
-    $config = \Drupal::config('afrikaburn_shared.settings');
     $tickets = array_keys(array_filter($this->configuration['ticket_id']));
-    $failed = FALSE;
 
-    $quicket_codes = array_replace(
-      $template,
-      $user->field_quicket_code->getValue()
+    TicketController::addTickets(
+      $user,
+      array_keys(
+        array_filter(
+          $this->configuration['ticket_id']
+        )
+      )
     );
-    $quicket_ids = array_replace(
-      $template,
-      $user->field_quicket_id->getValue()
-    );
 
-    foreach($tickets as $ticket){
-
-      $quicket_code = $quicket_codes[$translate[$ticket]]['value'];
-      $quicket_id = $quicket_ids[$translate[$ticket]]['value'];
-
-      if ($response = QuicketController::addTicketTypes(
-        $id_number,
-        $quicket_code,
-        $quicket_id,
-        [$config->get($ticket)],
-        1
-      )) {
-        $quicket_codes[$translate[$ticket]]['value'] = $response->CodeValue;
-        $quicket_ids[$translate[$ticket]]['value'] = $response->CodeId;
-      } else $failed = TRUE;
-    }
-
-    $user->set('field_quicket_code', $quicket_codes);
-    $user->set('field_quicket_id', $quicket_ids);
     $user->save();
-
-    if ($failed) throw new \Exception('Ticket Exception: Could not add ticket types.');
   }
 }

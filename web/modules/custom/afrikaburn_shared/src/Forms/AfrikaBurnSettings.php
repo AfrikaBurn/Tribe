@@ -33,6 +33,7 @@ class AfrikaBurnSettings extends ConfigFormBase {
   protected function getEditableConfigNames() {
     return [
       'afrikaburn_shared.settings',
+      'afrikaburn_shared.quickstart',
     ];
   }
 
@@ -41,11 +42,8 @@ class AfrikaBurnSettings extends ConfigFormBase {
    */
   public function buildForm(array $form, FormStateInterface $form_state, Request $request = NULL) {
 
-    $config = $this->config('afrikaburn_shared.settings');
+    $settings = $this->config('afrikaburn_shared.settings');
     $quickstart = $this->config('afrikaburn_shared.quickstart');
-    $closed_text = $this->config('afrikaburn_shared.closed_text');
-
-    // module_load_include('inc', 'afrikaburn_shared', 'includes/shared.quicket');
 
     $form['tabs'] = [
       '#type' => 'horizontal_tabs',
@@ -69,151 +67,8 @@ class AfrikaBurnSettings extends ConfigFormBase {
         ],
       ],
 
-      'quicket' => [
-        '#title' => 'Quicket',
-        '#type' => 'details',
-        '#open' => TRUE,
-        '#entity_type' => 'config',
-        '#group_name' => 'settings_tabs',
-        '#bundle' => 'none',
-
-        'defined' => [
-          '#type' => 'fieldset',
-          '#title' => 'Defined events',
-        ],
-
-        [
-          '#type' => 'fieldset',
-          '#tree' => FALSE,
-          '#title' => 'Main event',
-          'main_id' => [
-            '#type' => 'textfield',
-            '#title' => 'Event ID',
-            '#default_value' => $config->get('main_id'),
-            '#suffix' => '<br />',
-          ],
-
-          'main_general_id' => [
-            '#type' => 'textfield',
-            '#title' => 'General',
-            '#default_value' => $config->get('main_general_id'),
-          ],
-          'main_general_minor_id' => [
-            '#type' => 'textfield',
-            '#title' => 'General Minor',
-            '#default_value' => $config->get('main_general_minor_id'),
-          ],
-          'main_general_kids_id' => [
-            '#type' => 'textfield',
-            '#title' => 'General Kids',
-            '#default_value' => $config->get('main_general_kids_id'),
-            '#suffix' => '<br />',
-          ],
-
-          'main_mayday_id' => [
-            '#type' => 'textfield',
-            '#title' => 'Mayday',
-            '#default_value' => $config->get('main_mayday_id'),
-          ],
-          'main_mayday_minor_id' => [
-            '#type' => 'textfield',
-            '#title' => 'Mayday Minor',
-            '#default_value' => $config->get('main_mayday_minor_id'),
-          ],
-          'main_mayday_kids_id' => [
-            '#type' => 'textfield',
-            '#title' => 'Mayday Kids',
-            '#default_value' => $config->get('main_mayday_kids_id'),
-            '#suffix' => '<br />',
-          ],
-
-          'main_ddt_id' => [
-            '#type' => 'textfield',
-            '#title' => 'Direct Distribution',
-            '#default_value' => $config->get('main_ddt_id'),
-            '#suffix' => '<br />',
-          ],
-
-          'main_sub_id' => [
-            '#type' => 'textfield',
-            '#title' => 'Subsidised',
-            '#default_value' => $config->get('main_sub_id'),
-          ],
-
-          'main_anathi_id' => [
-            '#type' => 'textfield',
-            '#title' => 'Anathi',
-            '#default_value' => $config->get('main_anathi_id'),
-            '#suffix' => '<br />',
-          ],
-        ],
-
-        [
-          '#type' => 'fieldset',
-          '#tree' => FALSE,
-          '#title' => 'WAPs',
-          'wap_id' => [
-            '#type' => 'textfield',
-            '#title' => 'Event ID',
-            '#default_value' => $config->get('wap_id'),
-            '#attributes' => ['placeholder' => 'Using main Event ID'],
-          ],
-          'wap_comp_id' => [
-            '#type' => 'textfield',
-            '#title' => 'WAP',
-            '#default_value' => $config->get('wap_comp_id'),
-          ],
-        ],
-
-        [
-          '#type' => 'fieldset',
-          '#tree' => FALSE,
-          '#title' => 'VPs',
-          'vp_id' => [
-            '#type' => 'textfield',
-            '#title' => 'Event ID',
-            '#default_value' => $config->get('vp_id'),
-            '#attributes' => ['placeholder' => 'Using main Event ID'],
-          ],
-          'vp_comp_id' => [
-            '#type' => 'textfield',
-            '#title' => 'VP',
-            '#default_value' => $config->get('vp_comp_id'),
-          ],
-        ],
-      ],
-
-      'tickets' => [
-        '#title' => 'Sales',
-        '#type' => 'details',
-        '#open' => TRUE,
-        '#entity_type' => 'config',
-        '#group_name' => 'settings_tabs',
-        '#bundle' => 'none',
-
-        'tickets' => [
-          '#type' => 'checkboxes',
-          '#title' => 'Open Sales',
-          '#options' => [
-            'general' => 'General',
-            'mayday' => 'Mayday',
-            'ddt' => 'Direct Distribution',
-            'subsidised' => 'Subsidised',
-            'anathi' => 'Anathi',
-          ],
-          '#default_value' => $config->get('tickets'),
-        ],
-
-        'closed_text' => [
-          '#title' => 'Text to display when sales are closed',
-          '#type' => 'text_format',
-          '#default_value' => $closed_text->get('closed_text')['value'],
-          '#format' => $closed_text->get('closed_text')['format'],
-        ],
-      ],
-
       'actions' => [
-        '#title' => 'Actions',
+        '#title' => 'Maintenance Tasks',
         '#type' => 'details',
         '#open' => TRUE,
         '#entity_type' => 'config',
@@ -248,28 +103,17 @@ class AfrikaBurnSettings extends ConfigFormBase {
           ['#type' => 'submit', '#value' => 'I know what I\'m doing, Assimilate!'],
         ],
 
-        'batch-size' => ['#type' => 'select', '#title' => 'Batch size', '#options' => array_combine(range(500, 10000, 500), range(500, 10000, 500))],
+        'batch-size' => [
+          '#type' => 'select',
+          '#title' => 'Batch size',
+          '#default_value' => $settings->get('batch-size'),
+          '#options' => array_combine(
+            range(500, 10000, 500),
+            range(500, 10000, 500)
+          )
+        ],
       ],
     ];
-
-    $events = QuicketController::getEvents();
-    foreach($events as $id=>$event){
-      $form['tabs']['quicket']['defined'][$id] = [
-        '#type' => 'details',
-        '#open' => FALSE,
-        '#title' => $event->name,
-        'description' => ['#markup' => $event->description, '#weight' => 1],
-        'id' => ['#title' => 'Event ID', '#type' => 'textfield', '#value' => $event->id, '#attributes' => ['disabled' => 'disabled']],
-      ];
-      foreach($event->tickets as $ticket){
-        $form['tabs']['quicket']['defined'][$id][] = [
-          '#type' => 'textfield',
-          '#title' => $ticket->name,
-          '#value' => $ticket->id,
-          '#attributes' => ['disabled' => 'disabled']
-        ];
-      }
-    }
 
     return parent::buildForm($form, $form_state);
   }
@@ -288,40 +132,24 @@ class AfrikaBurnSettings extends ConfigFormBase {
         UpdateController::wipeQuicket();
       break;
       case $actions['regenerate'][0]['#value']:
-        UpdateController::regenerateQuicketData($form_state->getValue('batch-size'));
+        UpdateController::regenerateQuicketData($values('batch-size'));
       break;
       case $actions['resave'][0]['#value']:
-        UpdateController::resaveUsers($form_state->getValue('batch-size'));
+        UpdateController::resaveUsers($values('batch-size'));
       break;
       case $actions['assimilate'][0]['#value']:
-        UpdateController::addTribeMembers($form_state->getValue('batch-size'));
+        UpdateController::addTribeMembers($values('batch-size'));
       break;
 
       default:
         $this->configFactory->getEditable('afrikaburn_shared.quickstart')
           ->set('quickstart', $values['quickstart'])
           ->save();
-        $this->configFactory->getEditable('afrikaburn_shared.closed_text')
-          ->set('closed_text', $values['closed_text'])
+
+        $this->configFactory->getEditable('afrikaburn_shared.settings')
+          ->set('batch-size', $values['batch-size'])
           ->save();
-        $this
-          ->configFactory->getEditable('afrikaburn_shared.settings')
-          ->set('main_id', $values['main_id'])
-          ->set('main_general_id', $values['main_general_id'])
-          ->set('main_general_minor_id', $values['main_general_minor_id'])
-          ->set('main_general_kids_id', $values['main_general_kids_id'])
-          ->set('main_mayday_id', $values['main_mayday_id'])
-          ->set('main_mayday_minor_id', $values['main_mayday_minor_id'])
-          ->set('main_mayday_kids_id', $values['main_mayday_kids_id'])
-          ->set('main_ddt_id', $values['main_ddt_id'])
-          ->set('main_sub_id', $values['main_sub_id'])
-          ->set('main_anathi_id', $values['main_anathi_id'])
-          ->set('wap_id', $values['wap_id'])
-          ->set('wap_comp_id', $values['wap_comp_id'])
-          ->set('vp_id', $values['vp_id'])
-          ->set('vp_comp_id', $values['vp_comp_id'])
-          ->set('tickets', $values['tickets'])
-          ->save();
+
         drupal_set_message('Settings saved');
       break;
     }

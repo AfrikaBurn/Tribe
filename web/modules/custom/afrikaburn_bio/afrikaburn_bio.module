@@ -179,11 +179,9 @@ function afrikaburn_bio_user_presave($user){
     $user->set('field_year_cycle', computed_field_field_year_cycle_compute(null, $user, null, null));
   }
 
-  if ($user->original && $user->field_quicket_code->getValue()[0]['value']){
-    $user->original->field_id_number->value != $user->field_id_number->value
-      ? TicketController::update($user)
-      : FALSE;
-  } else TicketController::setup($user);
+  $user->original
+    ? TicketController::update($user)
+    : TicketController::setup($user);
 }
 
 

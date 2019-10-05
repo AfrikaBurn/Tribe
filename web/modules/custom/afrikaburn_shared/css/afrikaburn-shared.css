@@ -23,7 +23,7 @@ body .horizontal-tabs .horizontal-tabs-list li a:hover{
 }
 
 body .horizontal-tabs .horizontal-tabs-panes{
-  border: 1px #f26c55;
+  border: 1px #999;
   border-style: solid none none;
   padding: 20px 0 0;
 }
@@ -47,14 +47,14 @@ body .horizontal-tabs .horizontal-tabs-list li{
 }
 
 body .horizontal-tabs .horizontal-tabs-list li.selected{
-  border: 1px solid #f26c55;
+  border: 1px solid #999;
   border-radius: 10px 10px 0 0;
-  border-bottom: 3px solid #450B05;
+  border-bottom: 3px solid #fff;
 }
 
 body .horizontal-tabs .horizontal-tabs-list li.selected a{
-  color: #fff;
-  text-shadow: 0px 0px 3px #000;
+  color: #333;
+  text-shadow: none;
 }
 
 body .horizontal-tabs-pane{
@@ -65,18 +65,23 @@ body .horizontal-tabs .horizontal-tab-button {
   min-width: auto;
 }
 
-.afrikaburn-shared-settings fieldset#edit-defined{
+#afrikaburn-ticket-settings .form-type-checkbox{
+  float: right;
+  margin-top: 0;
+}
+
+.afrikaburn-ticket-settings fieldset#edit-defined{
   width: 50%;
   float: right;
   clear: none;
 }
 
-.afrikaburn-shared-settings br{
+.afrikaburn-ticket-settings br{
   width: 100%;
   clear: both;
 }
 
-.afrikaburn-shared-settings fieldset{
+.afrikaburn-ticket-settings fieldset{
   width: 50%;
   float: left;
   box-sizing: border-box;
@@ -84,13 +89,13 @@ body .horizontal-tabs .horizontal-tab-button {
   border: none;
 }
 
-.afrikaburn-shared-settings fieldset .form-item{
+.afrikaburn-ticket-settings fieldset .form-item{
   float: left;
   width: 30%;
   margin-right: 10px;
 }
 
-.afrikaburn-shared-settings details:after{
+.afrikaburn-ticket-settings details:after{
   content: '.';
   display: block;
   clear: both;
@@ -99,7 +104,7 @@ body .horizontal-tabs .horizontal-tab-button {
   visibility: hidden;
 }
 
-.afrikaburn-shared-settings .text-format-wrapper{
+.afrikaburn-ticket-settings .text-format-wrapper{
   clear: both;
 }
 
@@ -185,4 +190,29 @@ nav.pager .pager__items li.pager__item--last a{
 #block-quickstart img{
   width: 100px;
   padding-top: 20px;
+}
+
+
+/* ---- Tickets page ---- */
+
+
+.path-tickets .block-system-main-block table tr td{
+  vertical-align: top;
+  padding: 15px;
+}
+
+.path-tickets .block-system-main-block table td:first-child{
+  width: 66%;
+}
+
+.path-tickets .block-system-main-block table td h2{
+  margin: 0;
+}
+
+.path-tickets .block-system-main-block table td p{
+  margin-top: 0;
+}
+
+.path-tickets .block-system-main-block a.button{
+  width: 100%;
 }

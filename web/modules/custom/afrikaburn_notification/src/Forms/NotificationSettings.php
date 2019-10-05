@@ -100,7 +100,11 @@ class NotificationSettings extends ConfigFormBase {
             '#title' => $label,
           ];
 
-          foreach(['new', 'update'] as $cycle){
+          $phases = in_array($mode, ['ddts', 'vps', 'waps'])
+            ? ['allocation']
+            : ['new', 'update'];
+
+          foreach($phases as $cycle){
 
             $form[$key][$mode][$cycle] = [
               '#type' => 'fieldset',
@@ -108,7 +112,17 @@ class NotificationSettings extends ConfigFormBase {
               '#attributes' => ['class' => ['settings-column']],
             ];
 
-            $recipients = ['collective', $mode == 'invitation' ? 'invitees' : 'wranglers'];
+            switch ($mode) {
+              case 'invitation': $cc = 'invitees'; break;
+              case 'ddts': break;
+              case 'vps': break;
+              case 'waps': $to = 'recipients'; break;
+              default:
+                $to = 'collective';
+                $cc = 'wranglers';
+            }
+
+            $recipients = [$to, $cc];
             foreach($recipients as $recipient){
 
               $parentage = implode('-', [$key, $mode, $cycle, $recipient]);

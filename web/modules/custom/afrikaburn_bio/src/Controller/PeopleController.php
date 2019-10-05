@@ -54,11 +54,22 @@ class PeopleController extends ControllerBase {
       }
 
       $target->save();
+      $quicket_data =
+        '<ul><li>' .
+          implode(
+            '</li><li>',
+            array_column($target->field_quicket_code->getValue(), 'value')
+          ) .
+        '</li></ul>' .
+        '<ul><li>' .
+          implode(
+            '</li><li>',
+            array_column($target->field_quicket_id->getValue(), 'value')
+          ) .
+        '</li></ul>';
 
       return new \Symfony\Component\HttpFoundation\JsonResponse(
-        [
-          "tr[data-uid=$uid] .views-field-field-quicket-id" => $target->field_quicket_code->value . ' / ' . $target->field_quicket_id->value
-        ],
+        ["tr[data-uid=$uid] .views-field-field-quicket-id" => $quicket_data],
         200
       );
     }

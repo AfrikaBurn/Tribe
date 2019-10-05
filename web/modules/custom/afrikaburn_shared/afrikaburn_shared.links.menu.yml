@@ -1,7 +1,14 @@
-afrikaburn_shared.admin_config:
+afrikaburn_shared.settings:
   title: 'AfrikaBurn'
   description: 'Settings for Afrikaburn'
   parent: system.admin_config
   route_name: afrikaburn_shared.settings
   weight: -100
+  menu_name: afrikaburn
+
+afrikaburn_shared.ticket_settings:
+  title: 'Tickets'
+  description: 'Settings for Afrikaburn'
+  parent: afrikaburn_shared.settings
+  route_name: afrikaburn_shared.ticket_settings
   menu_name: afrikaburn

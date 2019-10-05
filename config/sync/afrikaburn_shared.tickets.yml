@@ -1,0 +1,54 @@
+tickets:
+  closed:
+    value: "<h3>Ticket sales are currently closed.</h3>\r\n\r\n<p>Ticket sales dates are:</p>\r\n\r\n<table border=\"0\" cellpadding=\"1\" cellspacing=\"1\">\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th scope=\"row\" style=\"width: 119px;\">&nbsp;</th>\r\n\t\t\t<th scope=\"col\" style=\"text-align: left; width: 189px;\">From</th>\r\n\t\t\t<th scope=\"col\" style=\"text-align: left;\">To</th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<th scope=\"row\" style=\"width: 119px;\">General Sales</th>\r\n\t\t\t<td style=\"width: 189px;\">29 Oct 2019</td>\r\n\t\t\t<td>9 Apr 2020</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<th scope=\"row\" style=\"width: 119px;\">Mayday Tickets</th>\r\n\t\t\t<td style=\"width: 189px;\">29 Aug 2019</td>\r\n\t\t\t<td>24 Apr 2020</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>(or until the event sells out, whichever comes first)</p>\r\n"
+    format: full_html
+  general:
+    open: 1
+    description:
+      value: "<table border=\"0\" cellpadding=\"1\" cellspacing=\"1\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td style=\"width: 50%;\"><strong>New Horizons:</strong></td>\r\n\t\t\t<td style=\"width: 50%;\"><strong>R 2,500</strong></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"width: 50%;\"><strong>Adults:</strong></td>\r\n\t\t\t<td style=\"width: 50%;\"><strong>R 1,985</strong></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"width: 122px;\"><strong>Kids:</strong></td>\r\n\t\t\t<td style=\"width: 74px;\"><strong>R 200</strong></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"width: 122px;\"><strong>Minors:</strong></td>\r\n\t\t\t<td style=\"width: 74px;\"><strong>R 1,985</strong></td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>New Horizon tickets support AfrikaBurn’s year-round programme of arts, social development initiatives, and new projects.</p>\r\n\r\n<table border=\"0\" cellpadding=\"1\" cellspacing=\"1\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td style=\"width: 50%;\"><strong>Sales Start:</strong>&nbsp;</td>\r\n\t\t\t<td style=\"width: 50%;\">29 Oct 2019</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><strong>End Date:</strong>&nbsp;</td>\r\n\t\t\t<td>9 Apr 2020</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n"
+      format: full_html
+  mayday:
+    open: 1
+    description:
+      value: "<p>Maydays are specifically designed and cater to international participants who require a ticket to to AfrikaBurn to secure their travel arrangements and for whom the cost is manageable.</p>\r\n\r\n<p>South Africans are welcome to purchase the higher priced Mayday ticket, however please be aware that all tickets to AfrikaBurn are non refundable.</p>\r\n\r\n<table border=\"0\" cellpadding=\"1\" cellspacing=\"1\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td style=\"width: 50%;\"><strong>Adults:</strong></td>\r\n\t\t\t<td style=\"width: 50%;\"><strong>R 3,500</strong></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><strong>Kids:</strong></td>\r\n\t\t\t<td><strong>R 200</strong></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td><strong>Minors:</strong></td>\r\n\t\t\t<td><strong>R 1,985</strong></td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<table border=\"0\" cellpadding=\"1\" cellspacing=\"0\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td style=\"width: 50%; vertical-align: top;\"><strong>Sales Start:</strong></td>\r\n\t\t\t<td style=\"width: 50%;\">29 Aug 2019</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"width: 112px; vertical-align: top;\"><strong>Sales End:</strong></td>\r\n\t\t\t<td style=\"width: 286px;\">24 Apr 2020</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n"
+      format: full_html
+  ddt:
+    open: 1
+    description:
+      value: "<table border=\"0\" cellpadding=\"1\" cellspacing=\"1\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td style=\"width: 50%;\"><strong>New Horizons:</strong></td>\r\n\t\t\t<td style=\"width: 50%;\"><strong>R 2,500</strong></td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td style=\"width: 50%;\"><strong>Direct Distribution Ticket:</strong></td>\r\n\t\t\t<td style=\"width: 50%;\"><strong>R 1,985</strong></td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>You have been allocated a Direct Distribution Ticket.</p>\r\n\r\n<p>These&nbsp;are available to Collectives with registered projects by request only, before the General Sale and post the event selling out.</p>\r\n"
+      format: full_html
+  subsidised:
+    open: 1
+    description:
+      value: "<table border=\"0\" cellpadding=\"1\" cellspacing=\"1\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td style=\"width: 50%;\"><strong>Subsidised Ticket:</strong></td>\r\n\t\t\t<td style=\"width: 50%;\"><strong>R 695</strong></td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>You have been allocated a subsidised ticket.</p>\r\n\r\n<p>Designed to make our event accessible to those not able to afford the full ticket price but can afford a reduced-price ticket, subsidised by AfrikaBurn.</p>\r\n\r\n<p>&nbsp;</p>\r\n"
+      format: full_html
+  anathi:
+    open: 1
+    description:
+      value: "<table border=\"0\" cellpadding=\"1\" cellspacing=\"1\">\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td style=\"width: 50%;\"><strong>Anathi Ticket:</strong></td>\r\n\t\t\t<td style=\"width: 50%;\"><strong>R 200</strong></td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p>You have been allocated an Anathi ticket.</p>\r\n\r\n<p>Anathi&nbsp;Tickets are offered in recognition of the disparity within South Africa and acknowledge that many economically marginalised individuals don’t have the means to partake in AfrikaBurn.</p>\r\n"
+      format: full_html
+general:
+  open: 1
+  description:
+    value: "<p><strong>General: R1,985</strong> - For general participants.<br />\r\n<strong>New Horizons: R2,500</strong> - Support AfrikaBurn’s year-round programme of arts, social development initiatives, and new projects.<br />\r\n<strong>Kids – R200<br />\r\nMinors – R1,985</strong></p>\r\n\r\n<p><strong>Sales Start:</strong>&nbsp;Tue 29th October 2019<br />\r\n<strong>End Date:</strong>&nbsp;Thu 9th April 2020</p>\r\n\r\n<p><a href=\"https://www.afrikaburn.com/the-event/tickets\">Find out more about tickets</a></p>\r\n"
+    format: basic_html
+mayday:
+  open: 1
+  description:
+    value: "<p><strong>Mayday: R3,500</strong><br />\r\n<strong>Sales Start:</strong>&nbsp;Thursday 29th August 2019 @ 12h00 (SA time)<br />\r\n<strong>Sales End:</strong>&nbsp;Friday 24th April 2020 @ 16h00 (SA time)</p>\r\n\r\n<p>Maydays are specifically designed and cater to international participants who require a ticket to to AfrikaBurn to secure their travel arrangements and for whom the cost is manageable.</p>\r\n\r\n<p>South Africans are welcome to purchase the higher priced Mayday ticket, however please be aware that all tickets to AfrikaBurn are non refundable.</p>\r\n"
+    format: basic_html
+ddt:
+  open: 1
+  description:
+    value: "<p>DDT’s are available to Collectives with registered projects by request only, before the General Sale and post the event selling out.</p>\r\n"
+    format: basic_html
+subsidised:
+  open: 1
+  description:
+    value: "<p><strong>Price: R695</strong></p>\r\n\r\n<p>Designed to make our event accessible to those not able to afford the full ticket price but can afford a reduced-price ticket, subsidised by AfrikaBurn.</p>\r\n"
+    format: basic_html
+anathi:
+  open: 1
+  description:
+    value: "<p><strong>Price: R200</strong></p>\r\n\r\n<p>Anathi* Tickets are offered in recognition of the disparity within South Africa and acknowledge that many economically marginalised individuals don’t have the means to partake in AfrikaBurn.</p>\r\n"
+    format: basic_html

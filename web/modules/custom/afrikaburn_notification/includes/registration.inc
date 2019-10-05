@@ -16,7 +16,6 @@ function _notify_registration($entity){
   $bundle = $entity->bundle();
 
   module_load_include('inc', 'afrikaburn_notification', 'includes/util');
-  module_load_include('inc', 'afrikaburn_collective', 'includes/util');
 
   $user = User::load(\Drupal::currentUser()->id());
   $collective = _meta_collective($entity);

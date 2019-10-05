@@ -11,6 +11,8 @@ dependencies:
     - field.field.node.performances.field_bke_location
     - field.field.node.performances.field_bke_time
     - field.field.node.performances.field_collective
+    - field.field.node.performances.field_ddts
+    - field.field.node.performances.field_ddts_allowed
     - field.field.node.performances.field_expenses_header
     - field.field.node.performances.field_form_mode
     - field.field.node.performances.field_grt_art_total
@@ -139,7 +141,7 @@ content:
     type: entity_reference_revisions_entity_view
     weight: 0
     region: content
-    label: above
+    label: hidden
     settings:
       view_mode: default
       link: ''
@@ -164,6 +166,8 @@ hidden:
   field_bke_location: true
   field_bke_time: true
   field_collective: true
+  field_ddts: true
+  field_ddts_allowed: true
   field_expenses_header: true
   field_form_mode: true
   field_grt_art_total: true

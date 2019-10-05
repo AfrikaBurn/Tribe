@@ -113,7 +113,7 @@ class QuicketController extends ControllerBase {
    */
   public static function getTicketTypes($quicket_code, $event_id = FALSE){
 
-    $config = \Drupal::config('afrikaburn_shared.settings');
+    $config = \Drupal::config('afrikaburn_shared.quicket');
     $event_id = $event_id ? $event_id : $config->get('main_id');
 
     $existing = $quicket_code ? self::request(
@@ -134,7 +134,7 @@ class QuicketController extends ControllerBase {
    */
   public static function createTicketTypes($id_number, $ticket_types, $num_uses = 6, $event_id = FALSE){
 
-    $config = \Drupal::config('afrikaburn_shared.settings');
+    $config = \Drupal::config('afrikaburn_shared.quicket');
     $event_id = $event_id ? $event_id : $config->get('main_id');
 
     return self::request(
@@ -164,7 +164,7 @@ class QuicketController extends ControllerBase {
    */
   public static function addTicketTypes($id_number, $quicket_code, $quicket_id, $new_types, $num_uses = 6, $event_id = FALSE){
 
-    $config = \Drupal::config('afrikaburn_shared.settings');
+    $config = \Drupal::config('afrikaburn_shared.quicket');
     $event_id = $event_id ? $event_id : $config->get('main_id');
     $existing_types = self::getTicketTypes($quicket_code, $event_id);
 
@@ -223,7 +223,7 @@ class QuicketController extends ControllerBase {
    */
   public static function sendComps($comps, $comp_id, $num_uses = 1, $event_id = FALSE){
 
-    $config = \Drupal::config('afrikaburn_shared.settings');
+    $config = \Drupal::config('afrikaburn_shared.quicket');
     $event_id = $event_id ? $event_id : $config->get('main_id');
 
     $comp_ids = is_array($comp_id) ? $comp_id : [$comp_id];

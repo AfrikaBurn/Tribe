@@ -55,6 +55,7 @@ function _meta_collective($entity){
     : $entity->field_collective->entity;
 
   if ($collective) {
+
     $member_uids = array_diff(
       array_map(
         function($user){ return $user->uid->value; },
@@ -63,11 +64,11 @@ function _meta_collective($entity){
       AlertController::muted($collective)
     );
     $members = user_load_multiple($member_uids);
-
     foreach ($members as $member) {
       $email = $member->getEmail();
       $addresses[$email] = $email;
     }
+
     $title = $collective->get('title')->value;
   }
 

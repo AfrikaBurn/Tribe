@@ -531,7 +531,7 @@ function _wap_form(&$form, $collective, $registration, $mode){
 
     $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_wap_submit';
     $form['#validate'][] = 'afrikaburn_registration_wap_validate';
-    $form['#validate'][] = 'afrikaburn_registration_wap_quicket';
+    $form['#validate'][] = 'afrikaburn_registration_wap_send';
     $form['#attached']['library'][] = 'afrikaburn_registration/registration';
   }
 }
@@ -558,7 +558,7 @@ function _vp_form(&$form, $collective, $registration, $mode){
     $options = _ticket_options($cid, 'vp');
 
     $form['vps'] = [
-      '#prefix' => '<table id="vp-assign"><thead><th>Member</th><th>Estimated arrival date</th></tr></thead><tbody>',
+      '#prefix' => '<table id="vp-assign"><tbody>',
       '#type' => 'fieldset',
       '#suffix' => '</tbody></table>',
       '#tree' => TRUE,
@@ -580,12 +580,7 @@ function _vp_form(&$form, $collective, $registration, $mode){
                 ->getViewBuilder('user')
                 ->view($vp->entity->field_team_member->entity, 'full_name')
             ) .
-          '</td><td>' .
-            ($vp->entity->field_estimated_date_of_arrival->date
-              ? $vp->entity->field_estimated_date_of_arrival->date->format('d/m/Y')
-              : 'UNSPECIFIED'
-            ) .
-      '</td>',
+          '</td>',
         '#suffix' => '</tr>',
       ];
     }
@@ -603,17 +598,12 @@ function _vp_form(&$form, $collective, $registration, $mode){
           '#options' => $options,
           '#suffix' => '</td>',
         ];
-        $form['vps'][$i]['arrives'] = [
-          '#prefix' => '<td>',
-          '#type' => 'date',
-          '#suffix' => '</td>',
-        ];
       }
     }
 
     $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_vp_submit';
     $form['#validate'][] = 'afrikaburn_registration_vp_validate';
-    $form['#validate'][] = 'afrikaburn_registration_vp_quicket';
+    $form['#validate'][] = 'afrikaburn_registration_vp_send';
     $form['#attached']['library'][] = 'afrikaburn_registration/registration';
   }
 }
@@ -640,7 +630,7 @@ function _ddt_form(&$form, $collective, $registration, $mode){
     $options = _ticket_options($cid, 'ddt');
 
     $form['ddts'] = [
-      '#prefix' => '<table id="ddt-assign"><thead><th>Member</th><th>Estimated arrival date</th></tr></thead><tbody>',
+      '#prefix' => '<table id="ddt-assign"><tbody>',
       '#type' => 'fieldset',
       '#suffix' => '</tbody></table>',
       '#tree' => TRUE,
@@ -662,12 +652,7 @@ function _ddt_form(&$form, $collective, $registration, $mode){
                 ->getViewBuilder('user')
                 ->view($ddt->entity->field_team_member->entity, 'full_name')
             ) .
-          '</td><td>' .
-            ($ddt->entity->field_estimated_date_of_arrival->date
-              ? $ddt->entity->field_estimated_date_of_arrival->date->format('d/m/Y')
-              : 'UNSPECIFIED'
-            ) .
-      '</td>',
+          '</td>',
         '#suffix' => '</tr>',
       ];
     }
@@ -685,17 +670,12 @@ function _ddt_form(&$form, $collective, $registration, $mode){
           '#options' => $options,
           '#suffix' => '</td>',
         ];
-        $form['ddts'][$i]['arrives'] = [
-          '#prefix' => '<td>',
-          '#type' => 'date',
-          '#suffix' => '</td>',
-        ];
       }
     }
 
     $form['actions']['submit']['#submit'][] = 'afrikaburn_registration_ddt_submit';
     $form['#validate'][] = 'afrikaburn_registration_ddt_validate';
-    $form['#validate'][] = 'afrikaburn_registration_ddt_quicket';
+    $form['#validate'][] = 'afrikaburn_registration_ddt_send';
     $form['#attached']['library'][] = 'afrikaburn_registration/registration';
   }
 }

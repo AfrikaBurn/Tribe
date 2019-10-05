@@ -58,13 +58,29 @@ function afrikaburn_notification_node_update($entity){
 
     module_load_include('inc', 'afrikaburn_notification', 'includes/util');
 
+    $diff = Utils::diff($entity);
+
     // Don't mail while wrangling or on no changes
     if (
       preg_match('/^\/registration\/update/', \Drupal::service('path.current')->getPath()) ||
-      !Utils::diff($entity)
+      !$diff
     ) return;
 
     afrikaburn_notification_node_insert($entity);
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert.
+ * Notify users on
+ */
+function afrikaburn_notification_paragraph_insert($entity){
+
+  $bundle = $entity->bundle();
+
+  if ($entity->isPublished() && in_array($bundle, ['ddt', 'vp', 'wap'])){
+    module_load_include('inc', 'afrikaburn_notification', 'includes/allocation');
+    _notify_allocation($entity);
   }
 }
 

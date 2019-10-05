@@ -8,6 +8,7 @@ use \Drupal\node\Entity\Node;
 use \Symfony\Component\HttpFoundation\RedirectResponse;
 use \Drupal\Core\Url;
 use \Drupal\afrikaburn_shared\Controller\QuicketController;
+use \Drupal\afrikaburn_shared\Controller\TicketController;
 
 
 /* ----- Page Hooks ----- */
@@ -557,11 +558,11 @@ function afrikaburn_registration_wap_validate($form, $form_state){
 /**
  * WAPs quicket
  */
-function afrikaburn_registration_wap_quicket($form, $form_state){
+function afrikaburn_registration_wap_send($form, $form_state){
 
   if (count($form_state->getErrors())) return;
 
-  $config = Drupal::config('afrikaburn_shared.settings');
+  $quicket = Drupal::config('afrikaburn_shared.quicket');
   $values = $form_state->getValues();
   $uids = array_filter(array_column($values['waps'], 'member'));
   $users = @User::loadMultiple($uids);
@@ -575,7 +576,7 @@ function afrikaburn_registration_wap_quicket($form, $form_state){
     ];
   }
 
-  if (!QuicketController::sendComps($waps, $config->get('wap_comp_id'), 1, $config->get('wap_id'))){
+  if (!QuicketController::sendComps($waps, $quicket->get('wap_comp_id'), 1, $quicket->get('wap_id'))){
     $form_state->setError(
       $form,
       t('<strong>Quicket says NO!</strong><br />There was a problem creating these WAPs, please try submitting this form again later.<br /> If the problem persists please <a href="mailto:support@afrikaburn.com">Contact an Administrator</a>!')
@@ -630,9 +631,6 @@ function afrikaburn_registration_vp_validate($form, $form_state){
 
   foreach($values['vps'] as $i=>$vp){
     if ($vp['member']){
-      if (!$vp['arrives']){
-        $form_state->setError($form['vps'][$i]['arrives'], t('You must estimate when this member will arrive!'));
-      }
       $new ++;
     }
   }
@@ -645,11 +643,11 @@ function afrikaburn_registration_vp_validate($form, $form_state){
 /**
  * VPs quicket
  */
-function afrikaburn_registration_vp_quicket($form, $form_state){
+function afrikaburn_registration_vp_send($form, $form_state){
 
   if (count($form_state->getErrors())) return;
 
-  $config = Drupal::config('afrikaburn_shared.settings');
+  $quicket = Drupal::config('afrikaburn_shared.quicket');
   $values = $form_state->getValues();
   $uids = array_filter(array_column($values['vps'], 'member'));
   $users = @User::loadMultiple($uids);
@@ -663,7 +661,7 @@ function afrikaburn_registration_vp_quicket($form, $form_state){
     ];
   }
 
-  if (!QuicketController::sendComps($vps, $config->get('vp_comp_id'), 1, $config->get('vp_id'))){
+  if (!QuicketController::sendComps($vps, $quicket->get('vp_comp_id'), 1, $quicket->get('vp_id'))){
     $form_state->setError(
       $form,
       t('<strong>Quicket says NO!</strong><br />There was a problem creating these VPs, please try submitting this form again later.<br /> If the problem persists please <a href="mailto:support@afrikaburn.com">Contact an Administrator</a>!')
@@ -718,9 +716,6 @@ function afrikaburn_registration_ddt_validate($form, $form_state){
 
   foreach($values['ddts'] as $i=>$ddt){
     if ($ddt['member']){
-      if (!$ddt['arrives']){
-        $form_state->setError($form['ddts'][$i]['arrives'], t('You must estimate when this member will arrive!'));
-      }
       $new ++;
     }
   }
@@ -733,11 +728,10 @@ function afrikaburn_registration_ddt_validate($form, $form_state){
 /**
  * DDTs quicket
  */
-function afrikaburn_registration_ddt_quicket($form, $form_state){
+function afrikaburn_registration_ddt_send($form, $form_state){
 
   if (count($form_state->getErrors())) return;
 
-  $config = Drupal::config('afrikaburn_shared.settings');
   $values = $form_state->getValues();
   $successes = [];
 
@@ -746,17 +740,13 @@ function afrikaburn_registration_ddt_quicket($form, $form_state){
 
       $user = User::load($ddt['member']);
 
-      if (
-        QuicketController::addTicketTypes(
-          $user->field_id_number->value,
-          $user->field_quicket_code->value,
-          $user->field_quicket_id->value,
-          [$config->get('main_id')],
-          1
-        )
-      ) {
+      try{
+
+        TicketController::addTickets($user, ['main_ddt_id']);
+        $user->save();
         $successes[] = $ddt;
-      } else {
+
+      } catch (\Exception $e) {
         $user_view = \Drupal::entityTypeManager()
           ->getViewBuilder('user')
           ->view($user, 'full_name');

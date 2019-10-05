@@ -35,7 +35,6 @@ class BioBlock extends BlockBase {
     $flag_service = \Drupal::service('flag');
     $flag = $flag_service->getFlagById('outdated');
     $outdated = $flag_service->getFlagging($flag, $account);
-    $quicket_code = $account->get('field_quicket_code');
 
     $items = [
       $this::l('News feed', ''),

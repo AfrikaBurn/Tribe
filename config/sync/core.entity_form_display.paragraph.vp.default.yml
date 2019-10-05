@@ -3,24 +3,16 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.vp.field_estimated_date_of_arrival
     - field.field.paragraph.vp.field_team_member
     - field.field.paragraph.vp.field_year_cycle
     - paragraphs.paragraphs_type.vp
   module:
     - computed_field
-    - datetime
 id: paragraph.vp.default
 targetEntityType: paragraph
 bundle: vp
 mode: default
 content:
-  field_estimated_date_of_arrival:
-    weight: 0
-    settings: {  }
-    third_party_settings: {  }
-    type: datetime_default
-    region: content
   field_team_member:
     weight: 1
     settings:

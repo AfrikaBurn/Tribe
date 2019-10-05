@@ -1,4 +1,4 @@
-afrikaburn_registration.admin:
+afrikaburn_registration.settings:
   path: '/admin/config/afrikaburn/registration'
   defaults:
     _form: '\Drupal\afrikaburn_registration\Forms\RegistrationSettings'

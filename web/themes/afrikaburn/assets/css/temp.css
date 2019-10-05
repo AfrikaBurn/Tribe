@@ -147,7 +147,6 @@ html body div.sidebar-outer.collectivebar div.sidebar .collapsible > h2:after{
   height: 20px;
 }
 
-
 .alert .flag-read a,
 .alert .flag-bookmark a {
   background-color: #AF282E55;
@@ -161,6 +160,70 @@ div.body-content table,
 div.body-content table * {
   border: none !important;
 }
+
+
+body .horizontal-tabs,
+body .horizontal-tabs ul.horizontal-tabs-list{
+  background: none;
+  border: none;
+}
+
+body .horizontal-tabs .horizontal-tabs-list li{
+  background: none;
+  border: none;
+  margin: 5px 0 -3px !important;
+}
+
+body .horizontal-tabs .horizontal-tabs-list li a:hover{
+  background: none;
+  border: none;
+}
+
+body .horizontal-tabs .horizontal-tabs-panes{
+  border: 1px #f26c55;
+  border-style: solid none none;
+  padding: 20px 0 0;
+}
+
+body .horizontal-tabs .horizontal-tabs-list{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+body .horizontal-tabs .horizontal-tabs-list:after{
+  content: '.';
+  color: transparent;
+  visibility: hidden;
+  height: 0;
+  display: block;
+  clear: both;
+}
+
+body .horizontal-tabs .horizontal-tabs-list li{
+  padding: 0 5px !important;
+}
+
+body .horizontal-tabs .horizontal-tabs-list li.selected{
+  border: 1px solid #f26c55;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 3px solid #450B05;
+}
+
+body .horizontal-tabs .horizontal-tabs-list li.selected a{
+  color: #fff;
+  text-shadow: 0px 0px 3px #000;
+}
+
+body .horizontal-tabs-pane{
+  padding: 0;
+}
+
+body .horizontal-tabs .horizontal-tab-button {
+  min-width: auto;
+}
+
+
+
 
 body .horizontal-tabs .horizontal-tabs-list li.selected,
 div.sidebar .content ul > li {

@@ -133,7 +133,7 @@ content:
     region: content
   field_ddts:
     weight: 100
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: paragraph_summary
