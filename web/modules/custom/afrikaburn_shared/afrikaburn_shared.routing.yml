@@ -21,3 +21,5 @@ afrikaburn_shared.tickets_page:
     _controller: '\Drupal\afrikaburn_shared\Controller\TicketController::ticketsPage'
   requirements:
     _role: authenticated
+  options:
+    no_cache: 'TRUE'
