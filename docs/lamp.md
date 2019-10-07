@@ -228,3 +228,12 @@ sudo apt-get install php-memcached
 ```
 
 For some reason I found this only work after a system reboot.
+
+
+# CloudFlare
+
+If your system is behind cloudflare as a CDN, then you should add the cloudflare apache mod.
+```
+wget https://www.cloudflare.com/static/misc/mod_cloudflare/ubuntu/mod_cloudflare-xenial-amd64.latest.deb
+sudo dpkg -i mod_cloudflare-xenial-amd64.latest.deb
+```
