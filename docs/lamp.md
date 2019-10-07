@@ -20,6 +20,8 @@ sudo apt-get install -y mariadb-client
 sudo apt-get install -y mariadb-server
 
 sudo apt-get -y install php7.3 libapache2-mod-php7.3
+sudo apt-get install php-imagick
+
 
 sudo apt install php7.3-gmp
 sudo a2enmod proxy_fcgi setenvif
@@ -149,7 +151,7 @@ Then set what auto updates are run
 ```
 sudo nano /etc/apt/apt.conf.d/20auto-upgrades
 ```
-Basic options for daily updates and a weekly clean p
+Basic options for daily updates and a weekly clean.
 ```
 APT::Periodic::Update-Package-Lists "1";
 APT::Periodic::Download-Upgradeable-Packages "1";
@@ -175,3 +177,47 @@ For complex calls use, e.g. wildcards, multisubdomains
 ```
 sudo certbot --server https://acme-v02.api.letsencrypt.org/directory
 ```
+
+# Swap
+If you are setting up a server from scratch, don't forget to add a swapfile to the system.
+
+First check if there is already a swap file.
+```
+free -h
+```
+
+**WARNING: If there is a swap file, do not continue.**
+
+Your swap file should be roughly twice the size of you ram. But this depends on your ram size.
+In the line below 8G means an 8 gig swap file. 
+
+```
+sudo fallocate -l 8G /swapfile
+sudo chmod 600 /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+```
+
+Check you swap file is working
+```
+free -h
+```
+
+Lastly to ensure you swap file is working on reboot add it to to fstab.
+To be safe we going to bak up fstab first
+```
+sudo cp /etc/fstab /etc/fstab.bak
+echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
+```
+
+# Memcached
+
+Currently we only use memcached on our wordpress server. To install:
+
+```
+sudo apt-get install memcached
+sudo apt-get install php-dev php-pear libapache2-mod-php
+sudo apt-get install php-memcached 
+```
+
+For some reason I found this only work after a system reboot.
