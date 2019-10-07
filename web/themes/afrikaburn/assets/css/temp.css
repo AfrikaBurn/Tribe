@@ -199,26 +199,26 @@ body .horizontal-tabs .horizontal-tabs-list:after{
   clear: both;
 }
 
-body .horizontal-tabs .horizontal-tabs-list li{
+.horizontal-tabs .horizontal-tabs-list li{
   padding: 0 5px !important;
 }
 
-body .horizontal-tabs .horizontal-tabs-list li.selected{
+.horizontal-tabs .horizontal-tabs-list li.selected{
   border: 1px solid #f26c55;
   border-radius: 10px 10px 0 0;
   border-bottom: 3px solid #450B05;
 }
 
-body .horizontal-tabs .horizontal-tabs-list li.selected a{
+.horizontal-tabs .horizontal-tabs-list li.selected a{
   color: #fff;
   text-shadow: 0px 0px 3px #000;
 }
 
-body .horizontal-tabs-pane{
+.horizontal-tabs-pane{
   padding: 0;
 }
 
-body .horizontal-tabs .horizontal-tab-button {
+.horizontal-tabs .horizontal-tab-button {
   min-width: auto;
 }
 
@@ -466,6 +466,19 @@ div.logo-container{
 #wrapper div.logo-container img{
   width: 100%;
 }
+
+#edit-field-date-of-birth-0 .container-inline{
+  display: flex;
+}
+
+#edit-field-date-of-birth-0 .container-inline .select-wrapper{
+  width: auto;
+}
+
+#edit-field-location-wrapper select{
+  width: 25%;
+}
+
 
 /*button,
 .button,

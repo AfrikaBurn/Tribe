@@ -50,13 +50,17 @@ class CollectiveController extends ControllerBase {
   public static function bulkInvite($collective = FALSE, $emails = FALSE){
 
     $collective = $collective ? $collective : Utils::currentCollective();
-    $emails = preg_split(
-      '/[;, ]+/',
-      strtolower(str_replace(
-        ['[', ']', '<', '>'],
-        '',
-        $emails ? $emails : \Drupal::request()->request->get('emails')
-      ))
+    $emails = array_filter(
+      preg_split(
+        '/[;, ]+/',
+        strtolower(
+          preg_replace(
+            '/\s\s+/',
+            ' ',
+            $emails ? $emails : \Drupal::request()->request->get('emails')
+          )
+        )
+      )
     );
 
     $results = [

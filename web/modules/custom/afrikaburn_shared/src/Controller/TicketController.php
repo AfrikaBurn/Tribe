@@ -42,21 +42,24 @@ class TicketController extends ControllerBase {
     $user = Utils::currentUser();
     $flag_service = \Drupal::service('flag');
     $flag = $flag_service->getFlagById('outdated');
+
     $quicket_data = $user->get('field_quicket_code')->count();
-    $user_codes = array_column($user->get('field_quicket_code')->getValue(), 'value');
-
     if ($flag_service->getFlagging($flag, $user) || !$quicket_data) {
-
       drupal_set_message('Please update your Bio to be able to purchase tickets');
-
       return new TrustedRedirectResponse(
         '/user/'. $user->id() . '/edit/update?get=tickets'
       );
     }
 
+    $user_codes = array_column($user->get('field_quicket_code')->getValue(), 'value');
+    if (!QuicketController::getTicketTypes($user_codes[0])){
+      self::setup($user);
+      $user->save();
+      $user_codes = array_column($user->get('field_quicket_code')->getValue(), 'value');
+    }
+
     $quicket = \Drupal::config('afrikaburn_shared.quicket');
     $tickets = \Drupal::config('afrikaburn_shared.tickets')->get('tickets');
-
     $open = [
       'general' => $tickets['general']['open'],
       'mayday' => $tickets['mayday']['open'],
@@ -72,19 +75,23 @@ class TicketController extends ControllerBase {
         'ddt' => @$user_codes[self::$DD_TICKETS],
         'general' => @$user_codes[self::$GENERAL_TICKETS],
         'mayday' => @$user_codes[self::$GENERAL_TICKETS],
-      ], function($quicket_code, $type) use ($open) {
-        return $quicket_code && $open[$type] && QuicketController::getTicketTypes($quicket_code);
+      ],
+
+      function($quicket_code, $type) use ($open) {
+        return $quicket_code >= 0 && $open[$type];
       },
+
       ARRAY_FILTER_USE_BOTH
     );
 
+    $code_count = count($codes);
     $markup = '';
     switch (TRUE) {
-      case count($codes) == 0:
+      case $code_count == 0:
         $markup = $tickets['closed']['value'];
       break;
-      case count($codes) == 1:
-      case count($codes) == 2 && $codes['general'] && $codes['mayday']:
+      case $code_count == 1:
+      case $code_count == 2 && $codes['general'] && $codes['mayday']:
         return new TrustedRedirectResponse(
           'https://www.quicket.co.za/events/' .
           $quicket->get('main_id') . '-?dc=' . array_shift($codes)
