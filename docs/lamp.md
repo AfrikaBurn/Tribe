@@ -111,6 +111,8 @@ Enable the configuration
 sudo a2ensite tribe.conf
 ```
 
+# Localhost redirects
+
 You will need to setup a redirect on your local so your browser will open your virtual host.
 ```
 sudo nano /etc/hosts
@@ -124,6 +126,8 @@ Finally restart apache
 ```
 sudo systemctl reload apache2
 ```
+
+# Unattended updates
 
 Note:
 If you are setting up a stand alone server, remember to set security auto update. 
@@ -158,6 +162,9 @@ APT::Periodic::Download-Upgradeable-Packages "1";
 APT::Periodic::AutocleanInterval "7";
 APT::Periodic::Unattended-Upgrade "1";
 ```
+
+# HTTPS setup with CertBot
+
 If you wish to run on https you can set it up for free with:
 ```
 sudo apt-get install python-certbot-apache 
