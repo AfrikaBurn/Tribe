@@ -972,14 +972,20 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_adds_to_landscape: true
   field_admin_comments: true
   field_api_content_type: true
+  field_ddts: true
+  field_ddts_allowed: true
   field_event_services: true
   field_field_prj_plc_marquis: true
   field_field_prj_plc_stretch_m: true
   field_final_placement: true
+  field_good_standing: true
   field_ice_card: true
+  field_interactive: true
   field_lineup_request: true
+  field_moop_assesment: true
   field_neighbours: true
   field_placed: true
   field_placement_card: true
@@ -1038,11 +1044,14 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
+  field_service: true
   field_stretch_tent_dimen: true
   field_sup_review: true
   field_supporting_project: true
   field_tc_type: true
   field_vp_ea: true
+  field_vps: true
+  field_vps_allowed: true
   field_waps: true
   field_waps_allowed: true
   path: true

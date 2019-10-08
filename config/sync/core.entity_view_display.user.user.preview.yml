@@ -324,6 +324,16 @@ content:
     third_party_settings: {  }
     type: computed_string
     region: content
+  flag_ddt_ban:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  flag_vp_ban:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   masquerade:
     weight: 106
     region: content
@@ -361,6 +371,7 @@ hidden:
   field_kids_and_teens: true
   field_quicket_code: true
   field_quicket_id: true
+  field_volunteering: true
   flag_outdated: true
   flag_wap_ban: true
   member_for: true
