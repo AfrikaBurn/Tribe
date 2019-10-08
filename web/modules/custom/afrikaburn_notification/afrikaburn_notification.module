@@ -14,35 +14,35 @@ use \Drupal\afrikaburn_shared\Utils;
 /**
  * Implements hook_ENTITY_TYPE_insert.
  */
-function afrikaburn_notification_user_insert($entity){
+function afrikaburn_notification_user_insert($user){
   module_load_include('inc', 'afrikaburn_notification', 'includes/account');
-  _notify_account($entity);
+  _notify_account($user);
 }
 
 /**
  * Implements hook_ENTITY_TYPE_insert.
  */
-function afrikaburn_notification_user_delete($entity){
+function afrikaburn_notification_user_delete($user){
   module_load_include('inc', 'afrikaburn_notification', 'includes/account');
-  _notify_delete($entity);
+  _notify_delete($user);
 }
 
 /**
  * Implements hook_ENTITY_TYPE_insert.
  * Notify users on
  */
-function afrikaburn_notification_node_insert($entity){
+function afrikaburn_notification_node_insert($node){
 
-  $bundle = $entity->bundle();
+  $bundle = $node->bundle();
 
-  if ($entity->isPublished() && in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
+  if ($node->isPublished() && in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
     module_load_include('inc', 'afrikaburn_notification', 'includes/registration');
-    _notify_registration($entity);
+    _notify_registration($node);
   }
 
   if ($bundle == 'collective'){
     module_load_include('inc', 'afrikaburn_notification', 'includes/collective');
-    _notify_collective($entity);
+    _notify_collective($node);
   }
 }
 
@@ -50,15 +50,15 @@ function afrikaburn_notification_node_insert($entity){
  * Implements hook_ENTITY_TYPE_update.
  * Notify users on updates.
  */
-function afrikaburn_notification_node_update($entity){
+function afrikaburn_notification_node_update($node){
 
-  $bundle = $entity->bundle();
+  $bundle = $node->bundle();
 
-  if ($entity->isPublished() && in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps', 'collective'])){
+  if ($node->isPublished() && in_array($bundle, ['art', 'performances', 'mutant_vehicles', 'theme_camps', 'collective'])){
 
     module_load_include('inc', 'afrikaburn_notification', 'includes/util');
 
-    $diff = Utils::diff($entity);
+    $diff = Utils::diff($node);
 
     // Don't mail while wrangling or on no changes
     if (
@@ -66,21 +66,96 @@ function afrikaburn_notification_node_update($entity){
       !$diff
     ) return;
 
-    afrikaburn_notification_node_insert($entity);
+    afrikaburn_notification_node_insert($node);
   }
 }
 
 /**
  * Implements hook_ENTITY_TYPE_insert.
+ * Notify users on new collective invite.
+ */
+function afrikaburn_notification_flagging_insert($flagging){
+  if ($flagging->bundle() == 'invite'){
+
+    $settings = \Drupal::config('afrikaburn_notification.settings');
+
+    if ($settings->get('collective-invitation-update-invitees-enabled')) {
+
+      module_load_include('inc', 'afrikaburn_notification', 'includes/util');
+
+      $address_settings = \Drupal::config('afrikaburn_notification.address_settings');
+      $collective = $flagging->flagged_entity->entity;
+      $invitee = $flagging->uid->entity->mail->value;
+
+      $accept = \Drupal::request()->getSchemeAndHttpHost() . '/collective/' . $collective->id() . '/accept';
+      $ignore = \Drupal::request()->getSchemeAndHttpHost() . '/collective/' . $collective->id() . '/ignore';
+      $body = str_replace(
+        ['[accept]', '[ignore]'],
+        [$accept, $ignore],
+        $settings->get("collective-invitation-update-invitees-body")
+      );
+
+      _notify(
+        'no-reply@afrikaburn.com',
+        $settings->get('collective-label'), $address_settings->get('collective-address'),
+        $invitee . ', ' . $address_settings->get('archive'),
+        $settings->get("collective-invitation-update-invitees-subject"),
+        $body,
+        $collective
+      );
+    }
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update.
+ * Notify users on repeat collective invite.
+ */
+function afrikaburn_notification_flagging_update($flagging){
+  if ($flagging->bundle() == 'invite'){
+
+    $settings = \Drupal::config('afrikaburn_notification.settings');
+
+    if ($settings->get('collective-invitation-new-invitees-enabled')) {
+
+      module_load_include('inc', 'afrikaburn_notification', 'includes/util');
+
+      $address_settings = \Drupal::config('afrikaburn_notification.address_settings');
+      $collective = $flagging->flagged_entity->entity;
+      $invitee = $flagging->uid->entity->mail->value;
+
+      $accept = \Drupal::request()->getSchemeAndHttpHost() . '/collective/' . $collective->id() . '/accept';
+      $ignore = \Drupal::request()->getSchemeAndHttpHost() . '/collective/' . $collective->id() . '/ignore';
+      $body = str_replace(
+        ['[accept]', '[ignore]'],
+        [$accept, $ignore],
+        $settings->get("collective-invitation-new-invitees-body")
+      );
+
+      _notify(
+        'no-reply@afrikaburn.com',
+        $settings->get('collective-label'), $address_settings->get('collective-address'),
+        $invitee . ', ' . $address_settings->get('archive'),
+        $settings->get("collective-invitation-new-invitees-subject"),
+        $body,
+        $collective
+      );
+    }
+  }
+}
+
+
+/**
+ * Implements hook_ENTITY_TYPE_insert.
  * Notify users on
  */
-function afrikaburn_notification_paragraph_insert($entity){
+function afrikaburn_notification_paragraph_insert($paragraph){
 
-  $bundle = $entity->bundle();
+  $bundle = $paragraph->bundle();
 
-  if ($entity->isPublished() && in_array($bundle, ['ddt', 'vp', 'wap'])){
+  if ($paragraph->isPublished() && in_array($bundle, ['ddt', 'vp', 'wap'])){
     module_load_include('inc', 'afrikaburn_notification', 'includes/allocation');
-    _notify_allocation($entity);
+    _notify_allocation($paragraph);
   }
 }
 
@@ -88,20 +163,20 @@ function afrikaburn_notification_paragraph_insert($entity){
  * Implements hook_ENTITY_TYPE_insert.
  * Notify users on posts.
  */
-function afrikaburn_notification_comment_insert($entity){
+function afrikaburn_notification_comment_insert($comment){
 
-  $bundle = $entity->bundle();
+  $bundle = $comment->bundle();
 
   if ($bundle == 'post'){
 
     module_load_include('inc', 'afrikaburn_notification', 'includes/util');
     module_load_include('inc', 'afrikaburn_notification', 'includes/post');
 
-    $collective = $entity->entity_id->entity;
+    $collective = $comment->entity_id->entity;
     $meta_collective = _meta_collective($collective);
     $address_settings = \Drupal::config('afrikaburn_notification.address_settings');
 
-    _notify_post($entity, $meta_collective, $address_settings);
+    _notify_post($comment, $meta_collective, $address_settings);
   }
 }
 

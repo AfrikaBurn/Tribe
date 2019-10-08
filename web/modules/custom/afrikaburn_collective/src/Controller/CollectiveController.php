@@ -83,6 +83,7 @@ class CollectiveController extends ControllerBase {
 
           foreach(\Drupal\user\Entity\User::loadMultiple($uids) as $user){
             CollectiveController::set('invite', $collective, $user);
+
           }
           $results['invited']++;
 
@@ -483,9 +484,12 @@ class CollectiveController extends ControllerBase {
   public static function set($flag_id, $collective, $user){
     $flag_service = \Drupal::service('flag');
     $flag = $flag_service->getFlagById($flag_id);
-    if (!$flag_service->getFlagging($flag, $collective, $user)){
+    $flagging = $flag_service->getFlagging($flag, $collective, $user);
+    if (!$flagging){
       $flag_service->flag($flag, $collective, $user);
       Cache::invalidateTags($collective->getCacheTags());
+    } else {
+      $flagging->save();
     }
   }
 

@@ -532,7 +532,7 @@ function afrikaburn_collective_preprocess_views_view_fields(&$variables) {
 
   $view = $variables['view'];
 
-  if ($view->id() == 'collective_members'){
+  if (in_array($view->id(), ['collective_members', 'collective_posts'])){
 
     module_load_include('inc', 'afrikaburn_collective', 'includes/util');
     module_load_include('inc', 'afrikaburn_collective', 'includes/view');

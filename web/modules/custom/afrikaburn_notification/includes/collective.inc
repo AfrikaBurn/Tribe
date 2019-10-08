@@ -38,6 +38,8 @@ function _notify_collective($entity){
  */
 function _notify_collective_changes($entity, $state, $meta_collective, $settings, $address_settings){
 
+  module_load_include('inc', 'afrikaburn_notification', 'includes/util');
+
   // Notify collective
   if (
     $settings->get("collective-collective-$state-collective-enabled") &&
@@ -74,6 +76,8 @@ function _notify_collective_changes($entity, $state, $meta_collective, $settings
  */
 function _notify_collective_invites($entity, $diff, $settings, $address_settings){
 
+  module_load_include('inc', 'afrikaburn_notification', 'includes/util');
+
   $tokens = array_column($entity->get('field_col_invite_token')->getValue(), 'value');
   $mails = array_column($entity->get('field_col_invite_mail')->getValue(), 'value');
   $token_map = array_combine($mails, $tokens);
@@ -84,6 +88,7 @@ function _notify_collective_invites($entity, $diff, $settings, $address_settings
   );
   $remind = [];
   $changed = array_diff($diff['Invite Token'][1], $diff['Invite Token'][0]);
+
   foreach($changed as $token){
     $remind[] = $mails[
       array_search(
