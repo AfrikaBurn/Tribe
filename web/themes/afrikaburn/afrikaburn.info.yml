@@ -22,11 +22,11 @@ package: Core
 libraries:
 
   - afrikaburn/global-styling
-ckeditor_stylesheets:
-  - css/base/elements.css
-  - css/components/captions.css
-  - css/components/table.css
-  - css/components/text-formatted.css
+    #ckeditor_stylesheets:
+    #  - css/base/elements.css
+    #  - css/components/captions.css
+    #  - css/components/table.css
+    #  - css/components/text-formatted.css
 stylesheets-remove:
   - core/themes/classy/css/components/details.css
   - core/themes/classy/css/components/button.css

@@ -44,3 +44,12 @@
 
 web/php.info.php
 config/sync/webprofiler.config.yml
+
+#Not sure why these are not synced
+config/sync/core.entity_form_mode.node.wtf_quick_create.yml
+config/sync/core.entity_view_mode.node.wtf_quick_create.yml
+        
+#Loader.io for speed tests
+web/loaderio-4ae051e88ddfce51521f9819e1672819.txt
+web/sites/default/files_bucket/
+

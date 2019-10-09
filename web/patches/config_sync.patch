@@ -1,0 +1,387 @@
+diff --git a/src/Controller/TaxonomiesController.php b/src/Controller/TaxonomiesController.php
+index 4986ef1..b27abce 100755
+--- a/src/Controller/TaxonomiesController.php
++++ b/src/Controller/TaxonomiesController.php
+@@ -81,19 +81,65 @@ class TaxonomiesController extends ControllerBase {
+         }
+       }
+ 
++      // Build array of taxonomy terms and associated field values.
+       $taxonomies = [];
+       foreach ($entities as $entity) {
+-        $taxonomies[] = [
++        $entity_properties = [
+           'vid' => $vocabulary,
+           'tid' => $entity->id(),
+           'langcode' => $entity->langcode->getValue()[0]['value'],
+           'name' => $entity->name->getValue()[0]['value'],
+-          'description__value' => $entity->get('description')->getValue()[0]['value'],
+-          'description__format' => $entity->get('description')->getValue()[0]['format'],
++          'description__value' => $entity->get('description')
++            ->getValue()[0]['value'],
++          'description__format' => $entity->get('description')
++            ->getValue()[0]['format'],
+           'weight' => $entity->weight->getValue()[0]['value'],
+           'parent' => isset($parents[$entity->id()]) ? $parents[$entity->id()] : '0',
+           'uuid' => $entity->uuid(),
+         ];
++
++        // Identify and build array of any custom fields attached to terms.
++        $entity_fields = [];
++        $entity_field_names = [];
++        $all_term_fields = $entity->getFields();
++        foreach ($all_term_fields as $field_name => $field) {
++          $is_custom_field = 'field_' === substr($field_name, 0, 6);
++          if ($is_custom_field) {
++            $entity_field_names[] = $field_name;
++          }
++        }
++        if ($entity_field_names) {
++          foreach ($entity_field_names as $field_name) {
++            $field_definition = $entity->$field_name->getFieldDefinition();
++            $is_entity_reference = 'entity_reference' === $field_definition->getType();
++            $is_term_reference = 'default:taxonomy_term' === $field_definition->getSetting('handler');
++
++            if (!$is_entity_reference && !$is_term_reference) {
++              $entity_fields[$field_name] = $entity->$field_name->getValue();
++            }
++
++            // If exporting entity reference field that references other
++            // taxonomy terms, export term name/VID pair in place of TID:
++            // Because TIDs aren't synced and may get altered using this module,
++            // we need to look up TIDs from the name/VID pair during the import
++            // step, otherwise term reference fields may lose data.
++            else {
++              $entity_reference_field_value = $entity->$field_name->getValue();
++              foreach ($entity_reference_field_value as $field_item) {
++                $target_term_entity = StructureSyncHelper::getEntityManager()
++                  ->getStorage('taxonomy_term')->load($field_item['target_id']);
++		if ($target_term_entity) {
++                  $entity_fields[$field_name][] = [
++                    'name' => $target_term_entity->getName(),
++                    'vid' => $target_term_entity->getVocabularyId()
++                  ];
++		}
++              }
++            }
++          }
++        }
++
++        $taxonomies[] = $entity_properties + $entity_fields;
+       }
+ 
+       // Save the retrieved taxonomies to the config.
+@@ -257,13 +303,13 @@ class TaxonomiesController extends ControllerBase {
+     }
+ 
+     if(!empty($uuidsInConfig)) {
+-        $query = StructureSyncHelper::getEntityQuery('taxonomy_term');
+-        $query->condition('uuid', $uuidsInConfig, 'NOT IN');
+-        $tids = $query->execute();
+-        $controller = StructureSyncHelper::getEntityManager()
+-            ->getStorage('taxonomy_term');
+-        $entities = $controller->loadMultiple($tids);
+-        $controller->delete($entities);
++      $query = StructureSyncHelper::getEntityQuery('taxonomy_term');
++      $query->condition('uuid', $uuidsInConfig, 'NOT IN');
++      $tids = $query->execute();
++      $controller = StructureSyncHelper::getEntityManager()
++        ->getStorage('taxonomy_term');
++      $entities = $controller->loadMultiple($tids);
++      $controller->delete($entities);
+     }
+ 
+     if (array_key_exists('drush', $context) && $context['drush'] === TRUE) {
+@@ -287,18 +333,19 @@ class TaxonomiesController extends ControllerBase {
+     }
+     $entities = [];
+     if(!empty($uuidsInConfig)) {
+-        $query = StructureSyncHelper::getEntityQuery('taxonomy_term');
+-        $query->condition('uuid', $uuidsInConfig, 'IN');
+-        $tids = $query->execute();
+-        $controller = StructureSyncHelper::getEntityManager()
+-            ->getStorage('taxonomy_term');
+-        $entities = $controller->loadMultiple($tids);
++      $query = StructureSyncHelper::getEntityQuery('taxonomy_term');
++      $query->condition('uuid', $uuidsInConfig, 'IN');
++      $tids = $query->execute();
++      $controller = StructureSyncHelper::getEntityManager()
++        ->getStorage('taxonomy_term');
++      $entities = $controller->loadMultiple($tids);
+     }
+ 
+     $tidsDone = [];
+     $tidsLeft = [];
+     $newTids = [];
+     $firstRun = TRUE;
++    $runAgain = FALSE;
+     $context['sandbox']['max'] = count($taxonomies);
+     $context['sandbox']['progress'] = 0;
+     while ($firstRun || count($tidsLeft) > 0) {
+@@ -314,8 +361,51 @@ class TaxonomiesController extends ControllerBase {
+               $parent = $newTids[$taxonomy['parent']];
+             }
+ 
++            // Identify and build array of any custom fields attached to
++            // terms.
++            $entity_fields = [];
++            foreach ($taxonomy as $field_name => $field_value) {
++              $is_custom_field = 'field_' === substr($field_name, 0, 6);
++              if ($is_custom_field) {
++                $not_term_reference = empty($field_value[0]['vid']);
++
++                if ($not_term_reference) {
++                  $entity_fields[$field_name] = $field_value;
++                }
++                // If importing entity reference field that references other
++                // taxonomy terms, look up associated TID from name/VID value
++                // pair provided during export: Because TIDs aren't synced and
++                // may get altered using this module, we need to look up TIDs
++                // from the name/VID pair during import, otherwise term
++                // reference fields may lose data.
++                else {
++                  foreach ($field_value as $field_properties) {
++                    $tid = StructureSyncHelper::getEntityManager()
++                      ->getStorage('taxonomy_term')
++                      ->getQuery()
++                      ->accessCheck(FALSE)
++                      ->condition('vid', $field_properties['vid'])
++                      ->condition('name', $field_properties['name'])
++                      ->execute();
++
++                    if ($tid) {
++                      $entity_fields[$field_name][] = [
++                        'target_id' => reset($tid),
++                      ];
++                    } else {
++                      // If we encounter a term reference field referencing a
++                      // term that hasn't been imported again, trigger re-import
++                      // following current import to update term reference
++                      // fields once all terms are available.
++                      $runAgain = TRUE;
++                    }
++                  }
++                }
++              }
++            }
++
+             if (count($tids) <= 0) {
+-              Term::create([
++              $entity_properties = [
+                 'vid' => $vid,
+                 'langcode' => $taxonomy['langcode'],
+                 'name' => $taxonomy['name'],
+@@ -325,7 +415,10 @@ class TaxonomiesController extends ControllerBase {
+                 ],
+                 'weight' => $taxonomy['weight'],
+                 'parent' => [$parent],
+-              ])->save();
++                'uuid' => $taxonomy['uuid'],
++              ];
++
++              Term::create($entity_properties + $entity_fields)->save();
+             }
+             else {
+               foreach ($entities as $entity) {
+@@ -338,8 +431,15 @@ class TaxonomiesController extends ControllerBase {
+                       ->setName($taxonomy['name'])
+                       ->setDescription($taxonomy['description__value'])
+                       ->setFormat($taxonomy['description__format'])
+-                      ->setWeight($taxonomy['weight'])
+-                      ->save();
++                      ->setWeight($taxonomy['weight']);
++
++                    if ($entity_fields) {
++                      foreach ($entity_fields as $field_name => $field_value) {
++                        $term->$field_name->setValue($field_value);
++                      }
++                    }
++
++                    $term->save();
+                   }
+                 }
+               }
+@@ -383,6 +483,13 @@ class TaxonomiesController extends ControllerBase {
+         }
+       }
+ 
++      if ($runAgain) {
++        StructureSyncHelper::logMessage('Running additional full import'
++          . ' after all terms have been created in order to identify missing '
++          . ' TIDs for term reference fields.');
++        Self::importTaxonomiesFull($taxonomies, $context);
++      }
++
+       $firstRun = FALSE;
+     }
+ 
+@@ -409,6 +516,7 @@ class TaxonomiesController extends ControllerBase {
+     $tidsLeft = [];
+     $newTids = [];
+     $firstRun = TRUE;
++    $runAgain = FALSE;
+     $context['sandbox']['max'] = count($taxonomies);
+     $context['sandbox']['progress'] = 0;
+     while ($firstRun || count($tidsLeft) > 0) {
+@@ -429,7 +537,7 @@ class TaxonomiesController extends ControllerBase {
+ 
+                 $context['message'] = t('Importing @taxonomy', ['@taxonomy' => $taxonomy['name']]);
+ 
+-                Term::create([
++                $entity_properties = [
+                   'vid' => $vid,
+                   'langcode' => $taxonomy['langcode'],
+                   'name' => $taxonomy['name'],
+@@ -440,7 +548,52 @@ class TaxonomiesController extends ControllerBase {
+                   'weight' => $taxonomy['weight'],
+                   'parent' => [$parent],
+                   'uuid' => $taxonomy['uuid'],
+-                ])->save();
++                ];
++
++                // Identify and build array of any custom fields attached to
++                // terms.
++                $entity_fields = [];
++                foreach ($taxonomy as $field_name => $field_value) {
++                  $is_custom_field = 'field_' === substr($field_name, 0, 6);
++                  if ($is_custom_field) {
++                    $not_term_reference = empty($field_value[0]['vid']);
++
++                    if ($not_term_reference) {
++                      $entity_fields[$field_name] = $field_value;
++                    }
++                    // If importing entity reference field that references other
++                    // taxonomy terms, look up associated TID from name/VID value
++                    // pair provided during export: Because TIDs aren't synced and
++                    // may get altered using this module, we need to look up TIDs
++                    // from the name/VID pair during import, otherwise term
++                    // reference fields may lose data.
++                    else {
++                      foreach ($field_value as $field_properties) {
++                        $tid = StructureSyncHelper::getEntityManager()
++                          ->getStorage('taxonomy_term')
++                          ->getQuery()
++                          ->accessCheck(FALSE)
++                          ->condition('vid', $field_properties['vid'])
++                          ->condition('name', $field_properties['name'])
++                          ->execute();
++
++                        if ($tid) {
++                          $entity_fields[$field_name][] = [
++                            'target_id' => reset($tid),
++                          ];
++                        } else {
++                          // If we encounter a term reference field referencing a
++                          // term that hasn't been imported again, trigger re-import
++                          // following current import to update term reference
++                          // fields once all terms are available.
++                          $runAgain = TRUE;
++                        }
++                      }
++                    }
++                  }
++                }
++
++                Term::create($entity_properties + $entity_fields)->save();
+ 
+                 $query = StructureSyncHelper::getEntityQuery('taxonomy_term');
+                 $query->condition('vid', $vid);
+@@ -498,6 +651,13 @@ class TaxonomiesController extends ControllerBase {
+         }
+       }
+ 
++      if ($runAgain) {
++        StructureSyncHelper::logMessage('Running additional full import'
++          . ' after all terms have been created in order to identify missing '
++          . ' TIDs for term reference fields.');
++        Self::importTaxonomiesFull($taxonomies, $context);
++      }
++
+       $firstRun = FALSE;
+     }
+ 
+@@ -529,6 +689,7 @@ class TaxonomiesController extends ControllerBase {
+     $tidsLeft = [];
+     $newTids = [];
+     $firstRun = TRUE;
++    $runAgain = FALSE;
+     $context['sandbox']['max'] = count($taxonomies);
+     $context['sandbox']['progress'] = 0;
+     while ($firstRun || count($tidsLeft) > 0) {
+@@ -543,7 +704,7 @@ class TaxonomiesController extends ControllerBase {
+ 
+               $context['message'] = t('Importing @taxonomy', ['@taxonomy' => $taxonomy['name']]);
+ 
+-              Term::create([
++              $entity_properties = [
+                 'vid' => $vid,
+                 'langcode' => $taxonomy['langcode'],
+                 'name' => $taxonomy['name'],
+@@ -554,7 +715,52 @@ class TaxonomiesController extends ControllerBase {
+                 'weight' => $taxonomy['weight'],
+                 'parent' => [$parent],
+                 'uuid' => $taxonomy['uuid'],
+-              ])->save();
++              ];
++
++              // Identify and build array of any custom fields attached to
++              // terms.
++              $entity_fields = [];
++              foreach ($taxonomy as $field_name => $field_value) {
++                $is_custom_field = 'field_' === substr($field_name, 0, 6);
++                if ($is_custom_field) {
++                  $not_term_reference = empty($field_value[0]['vid']);
++
++                  if ($not_term_reference) {
++                    $entity_fields[$field_name] = $field_value;
++                  }
++                  // If importing entity reference field that references other
++                  // taxonomy terms, look up associated TID from name/VID value
++                  // pair provided during export: Because TIDs aren't synced and
++                  // may get altered using this module, we need to look up TIDs
++                  // from the name/VID pair during import, otherwise term
++                  // reference fields may lose data.
++                  else {
++                    foreach ($field_value as $field_properties) {
++                      $tid = StructureSyncHelper::getEntityManager()
++                        ->getStorage('taxonomy_term')
++                        ->getQuery()
++                        ->accessCheck(FALSE)
++                        ->condition('vid', $field_properties['vid'])
++                        ->condition('name', $field_properties['name'])
++                        ->execute();
++
++                      if ($tid) {
++                        $entity_fields[$field_name][] = [
++                          'target_id' => reset($tid),
++                        ];
++                      } else {
++                        // If we encounter a term reference field referencing a
++                        // term that hasn't been imported again, trigger re-import
++                        // following current import to update term reference
++                        // fields once all terms are available.
++                        $runAgain = TRUE;
++                      }
++                    }
++                  }
++                }
++              }
++
++              Term::create($entity_properties + $entity_fields)->save();
+ 
+               $query = StructureSyncHelper::getEntityQuery('taxonomy_term');
+               $query->condition('vid', $vid);
+@@ -595,6 +801,13 @@ class TaxonomiesController extends ControllerBase {
+         }
+       }
+ 
++      if ($runAgain) {
++        StructureSyncHelper::logMessage('Running additional full import'
++          . ' after all terms have been created in order to identify missing '
++          . ' TIDs for term reference fields.');
++        Self::importTaxonomiesFull($taxonomies, $context);
++      }
++
+       $firstRun = FALSE;
+     }
+ 
