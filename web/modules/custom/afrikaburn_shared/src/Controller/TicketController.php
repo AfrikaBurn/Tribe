@@ -78,7 +78,7 @@ class TicketController extends ControllerBase {
       ],
 
       function($quicket_code, $type) use ($open) {
-        return $quicket_code >= 0 && $open[$type];
+        return isset($quicket_code) && $quicket_code >= 0 && $open[$type];
       },
 
       ARRAY_FILTER_USE_BOTH
