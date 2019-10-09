@@ -257,7 +257,7 @@ handlers:
       theme_name: ''
   email:
     id: email
-    label: 'Application granted'
+    label: 'Application granted[site:url]'
     handler_id: email
     status: true
     conditions:
@@ -280,7 +280,7 @@ handlers:
       from_options: {  }
       from_name: _default
       subject: 'Your subsidised ticket application'
-      body: "<p>Dear&nbsp;[webform_submission:user:field_first_name]<br />\r\n<br />\r\nWe are happy to inform you that your application for a Subsidized Ticket to AfrikaBurn 2020 <strong>has been successful</strong>.<br />\r\n<br />\r\nIn order to purchase your ticket, please log into your Burner Bio on the AfrikaBurn website and <strong>click the &quot;get tickets&quot; button</strong>. The Subsidised Ticket type will be listed on the purchase page.&nbsp;<br />\r\n<br />\r\nThe deadline to purchase your subsidised ticket is Friday 30 January 2020 @ 16h00.<br />\r\n<br />\r\nPlease note: Subsidized tickets are not transferable as they are awarded based on your motivation for one. We will be checking your photo ID against your ticket at the AfrikaBurn gate.&nbsp;<br />\r\n<br />\r\nWe look forward to seeing you at the Burn!<br />\r\n<br />\r\nThe AfrikaBurn Subsidised Ticket Committee</p>"
+      body: "<p>Dear&nbsp;[webform_submission:user:field_first_name]<br />\r\n<br />\r\nWe are happy to inform you that your application for a subsidized ticket to AfrikaBurn 2020 <strong>has been successful</strong>.<br />\r\n<br />\r\nYour Subsidised Ticket will be listed in the available tickets on <a href=\"https://[site:url]/tickets\">your tribe tickets&nbsp;page</a>.&nbsp;<br />\r\n<br />\r\nThe deadline to purchase your ticket is <strong>Thursday 9 April @ 12h00</strong>. Please ensure that you arrive at the AfrikaBurn gate with a valid ticket and a photo ID - we will be checking that the two match.<br />\r\n<br />\r\nPlease note: Subsidized tickets are not transferable.<br />\r\n<br />\r\nWe look forward to seeing you at the Burn!<br />\r\n<br />\r\nThe AfrikaBurn Subsidised Ticket Committee</p>"
       excluded_elements:
         wrangler: wrangler
         review: review
