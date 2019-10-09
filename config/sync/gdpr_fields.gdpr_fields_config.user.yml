@@ -204,3 +204,25 @@ bundles:
       notes: ''
       relationship: 0
       sars_filename: ''
+    field_quicket_code:
+      bundle: user
+      name: field_quicket_code
+      entity_type_id: user
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
+    field_quicket_id:
+      bundle: user
+      name: field_quicket_id
+      entity_type_id: user
+      rtf: 'no'
+      rta: 'no'
+      enabled: false
+      anonymizer: ''
+      notes: ''
+      relationship: 0
+      sars_filename: ''
