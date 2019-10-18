@@ -35,7 +35,13 @@ settings:
       label: 'Support camp registration'
     -
       value: waps
-      label: 'Work access and Vehicle passes'
+      label: 'Work Access Passes'
+    -
+      value: vps
+      label: 'Vehicle Passes'
+    -
+      value: ddts
+      label: 'Direct Distribution Tickets'
   allowed_values_function: ''
 module: options
 locked: false
