@@ -608,7 +608,7 @@ art-vps-allocation-wranglers-subject: ''
 art-vps-allocation-wranglers-body: ''
 art-ddts-allocation-recipients-enabled: 1
 art-ddts-allocation-recipients-subject: 'Your AfrikaBurn Direct Distribution Ticket'
-art-ddts-allocation-recipients-body: "<p>Aweh!</p>\r\n\r\n<p>You've bee allocated a Direct distribution ticket by [node:title].</p>\r\n\r\n<p>It may be accessed at&nbsp;<a href=\"[site:url]/tickets\">your tickets page</a>.</p>\r\n\r\n<p>&nbsp;</p>\r\n"
+art-ddts-allocation-recipients-body: "<p>Aweh!</p>\r\n\r\n<p>You've been allocated a Direct distribution ticket by [node:title].</p>\r\n\r\n<p>It may be accessed through&nbsp;your tickets page on tribe.</p>\r\n"
 art-ddts-allocation-wranglers-enabled: 0
 art-ddts-allocation-wranglers-subject: ''
 art-ddts-allocation-wranglers-body: ''
@@ -626,7 +626,7 @@ performances-vps-allocation-wranglers-subject: ''
 performances-vps-allocation-wranglers-body: ''
 performances-ddts-allocation-recipients-enabled: 1
 performances-ddts-allocation-recipients-subject: 'Your AfrikaBurn Direct Distribution Ticket'
-performances-ddts-allocation-recipients-body: "<p>Aweh!</p>\r\n\r\n<p>You've bee allocated a Direct distribution ticket by [node:title].</p>\r\n\r\n<p>It may be accessed at&nbsp;<a href=\"[site:url]/tickets\">your tickets page</a>.</p>\r\n"
+performances-ddts-allocation-recipients-body: "<p>Aweh!</p>\r\n\r\n<p>You've been allocated a Direct distribution ticket by [node:title].</p>\r\n\r\n<p>It may be accessed through&nbsp;your tickets page on tribe.</p>\r\n"
 performances-ddts-allocation-wranglers-enabled: 0
 performances-ddts-allocation-wranglers-subject: ''
 performances-ddts-allocation-wranglers-body: ''
@@ -644,7 +644,7 @@ mutant_vehicles-vps-allocation-wranglers-subject: ''
 mutant_vehicles-vps-allocation-wranglers-body: ''
 mutant_vehicles-ddts-allocation-recipients-enabled: 1
 mutant_vehicles-ddts-allocation-recipients-subject: 'Your AfrikaBurn Direct Distribution Ticket'
-mutant_vehicles-ddts-allocation-recipients-body: "<p>Aweh!</p>\r\n\r\n<p>You've bee allocated a Direct distribution ticket by [node:title].</p>\r\n\r\n<p>It may be accessed at&nbsp;<a href=\"[site:url]/tickets\">your tickets page</a>.</p>\r\n"
+mutant_vehicles-ddts-allocation-recipients-body: "<p>Aweh!</p>\r\n\r\n<p>You've been allocated a Direct distribution ticket by [node:title].</p>\r\n\r\n<p>It may be accessed through&nbsp;your tickets page on tribe.</p>\r\n"
 mutant_vehicles-ddts-allocation-wranglers-enabled: 0
 mutant_vehicles-ddts-allocation-wranglers-subject: ''
 mutant_vehicles-ddts-allocation-wranglers-body: ''
@@ -662,7 +662,7 @@ theme_camps-vps-allocation-wranglers-subject: ''
 theme_camps-vps-allocation-wranglers-body: ''
 theme_camps-ddts-allocation-recipients-enabled: 1
 theme_camps-ddts-allocation-recipients-subject: 'Your AfrikaBurn Direct Distribution Ticket'
-theme_camps-ddts-allocation-recipients-body: "<p>Aweh!</p>\r\n\r\n<p>You've been allocated a Direct distribution ticket by [node:title].</p>\r\n\r\n<p>It may be accessed at&nbsp;<a href=\"[site:url]/tickets\">your tickets page</a>.&nbsp;</p>\r\n"
+theme_camps-ddts-allocation-recipients-body: "<p>Aweh!</p>\r\n\r\n<p>You've been allocated a Direct distribution ticket by [node:title].</p>\r\n\r\n<p>It may be accessed through&nbsp;your tickets page on tribe.</p>\r\n"
 theme_camps-ddts-allocation-wranglers-enabled: 0
 theme_camps-ddts-allocation-wranglers-subject: ''
 theme_camps-ddts-allocation-wranglers-body: ''
