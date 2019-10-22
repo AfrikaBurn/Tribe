@@ -22,6 +22,11 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  flag_read:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   flag_unread:
     weight: 10
     region: content
