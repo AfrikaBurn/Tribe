@@ -1,5 +1,5 @@
 shared:
-  version: 1.x
+  version: 2.x
   js:
     js/afrikaburn-shared.js: {}
     js/afrikaburn-sidebars.js: {}
@@ -8,7 +8,7 @@ shared:
       css/afrikaburn-shared.css: {}
 
 wizard:
-  version: 1.x
+  version: 2.x
   js:
     js/afrikaburn-wizard.js: {}
   css:
@@ -16,7 +16,7 @@ wizard:
       css/afrikaburn-wizard.css: {}
 
 wrangle:
-  version: 0.0
+  version: 2.0
   css:
     theme:
       css/afrikaburn-wrangle.css: {}
