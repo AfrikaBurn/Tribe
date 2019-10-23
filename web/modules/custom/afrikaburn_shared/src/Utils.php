@@ -62,9 +62,9 @@ class Utils {
         ]
       )
     );
-    $node = @is_object($cid)
-      ? $cid
-      : @\Drupal::entityTypeManager()->getStorage('node')->load($cid);
+    $node = is_numeric($cid)
+      ? \Drupal::entityTypeManager()->getStorage('node')->load($cid)
+      : $cid;
 
     switch(TRUE){
       case $node && $node->bundle() == 'collective': return $node;
