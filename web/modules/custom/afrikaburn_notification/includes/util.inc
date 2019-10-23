@@ -119,13 +119,14 @@ function _entity_diff($node, &$body){
  */
 function _entity_render($node, &$body){
 
+  $rendered = [];
   $renderings = [];
 
   preg_match_all('/\[render (?<mode>[^\[]+)\]/', $body, $renderings);
   foreach ($renderings['mode'] as $index=>$mode){
 
     if (!$rendered[$mode]){
-      $rendered[$mode] = render(
+      $rendered[$mode] = @render(
         \Drupal::entityTypeManager()
           ->getViewBuilder('node')
           ->view($node, $mode)
