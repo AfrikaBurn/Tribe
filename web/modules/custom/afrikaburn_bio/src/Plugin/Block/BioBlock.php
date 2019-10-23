@@ -47,10 +47,11 @@ class BioBlock extends BlockBase {
       '<ul><li></li><li>'.$this::l('Delete my Bio', 'user/'.$uid.'/cancel').'</li></ul>',
       $this::l('Log out', 'user/logout'),
       \Drupal::service('masquerade')->isMasquerading()
-      ? \Drupal::l(
-        'Unmasquerade',
-        \Drupal\Core\Url::fromRoute('masquerade.unmasquerade')
-      ) : '',
+        ? \Drupal::l(
+          'Unmasquerade',
+          \Drupal\Core\Url::fromRoute('masquerade.unmasquerade')
+        )
+      : '',
     ];
 
     return [

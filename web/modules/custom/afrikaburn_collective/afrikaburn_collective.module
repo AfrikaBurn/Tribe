@@ -485,11 +485,11 @@ function afrikaburn_collective_views_query_alter($view, $query) {
 
     $current = Utils::currentCollective();
 
-    $cid = array_shift(
+    $cid = @array_shift(
       array_filter(
         [
           \Drupal::request()->query->get('field_collective'),
-          $view->args[0],
+          @$view->args[0],
           $current ? $current->id() : FALSE,
         ]
       )
