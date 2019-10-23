@@ -30,11 +30,23 @@
                 new Collapsible($sidebar)
               }
 
+              // Reset Quickstart
+              $quickStart.parent().addClass('quickstart-parent');
+
               if ($biobar.length && $logo.length) new Floater($logo, 0)
               if ($wrangleBlock.length) new Collapsing($wrangleBlock)
-              if ($quickStart.length) new Collapsing($quickStart, $('#block-quickstart'))
+              if ($quickStart.length) {
 
-              // $.cookie('quickstart', true)
+                if (!$.cookie('quickstart-debut')){
+                  $.cookie('quickstart-debut', true);
+                  $.cookie(
+                    $quickStart.parent().attr('class'),
+                    $quickStart.attr('id')
+                  )
+                }
+
+                new Collapsing($quickStart, $('#block-quickstart'))
+              }
 
               var expand
               if (expand = window.location.href.match(/expand\=([^&]+)/)){
@@ -69,7 +81,6 @@
 
     constructor($block, $sidebar, exclude){
 
-      // this.cookieKey = $sidebar ? $sidebar.parent().attr('class') : $block.attr('id')
       this.cookieKey = $sidebar ? $sidebar.parent().attr('class') : false
       this.$sidebar = $sidebar
       this.$block = $block.addClass('collapsible')
