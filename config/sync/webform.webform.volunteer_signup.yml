@@ -1,0 +1,245 @@
+uuid: 8d0d968e-f1b2-4a0d-8913-2444e2572e34
+langcode: en
+status: open
+dependencies: {  }
+open: null
+close: null
+weight: 0
+uid: 1
+template: false
+archive: false
+id: volunteer_signup
+title: 'Volunteer signup'
+description: ''
+category: Volunteering
+elements: "about_you:\n  '#type': container\n  '#title': 'About you'\n  name:\n    '#type': webform_computed_token\n    '#title': Name\n    '#display_on': view\n    '#mode': text\n    '#template': '[webform_submission:user:field_first_name] [webform_submission:user:field_last_name]'\n    '#store': true\n  gender:\n    '#type': webform_computed_token\n    '#mode': text\n    '#store': true\n    '#template': '[webform_submission:user:field_gender]'\n  mail:\n    '#type': webform_computed_token\n    '#mode': text\n    '#store': true\n    '#template': '[webform_submission:user:field_email]'\n  location:\n    '#type': webform_computed_token\n    '#store': true\n    '#template': '[webform_submission:user:field_location]'\nyour_gift:\n  '#type': webform_wizard_page\n  '#title': 'Your gift'\n  area_of_interest:\n    '#type': webform_checkboxes_other\n    '#title': 'Select your area of interest'\n    '#description': 'Need more information on the different ways you can get involved in at the AfrikaBurn event? <a href=\"http://www.afrikaburn.com/the-event/participation\" target=\"_blank\">Click here</a>'\n    '#description_display': before\n    '#options':\n      'Special events': 'Special events'\n      'AfrikaBurn work yard and general assistance.': 'AfrikaBurn work yard and general assistance.'\n      Outreach: Outreach\n      'AfrikaBurn HQ, Junction Hotel, Cape Town': 'AfrikaBurn HQ, Junction Hotel, Cape Town'\n      'Information Technology, UX, UI, IA, Apps and Services': 'Information Technology, UX, UI, IA, Apps and Services'\n      'Graphic design': 'Graphic design'\n  volunteer_skills:\n    '#type': webform_term_checkboxes\n    '#title': 'What skills do you have that you would like to utilise and gift?'\n    '#format': label\n    '#vocabulary': volunteer_skills\n    '#breadcrumb_delimiter': ''\n  other_skills:\n    '#type': textarea\n    '#title': \"Other skills, tell us more!\\t\"\n    '#states':\n      visible:\n        - ':input[name=\"volunteer_skills[544]\"]':\n            checked: true\n        - or\n        - ':input[name=\"volunteer_skills[550]\"]':\n            checked: true\n        - or\n        - ':input[name=\"volunteer_skills[571]\"]':\n            checked: true\n        - or\n        - ':input[name=\"volunteer_skills[576]\"]':\n            checked: true\n        - or\n        - ':input[name=\"volunteer_skills[594]\"]':\n            checked: true\n        - or\n        - ':input[name=\"volunteer_skills[599]\"]':\n            checked: true\n        - or\n        - ':input[name=\"volunteer_skills[604]\"]':\n            checked: true\n        - or\n        - ':input[name=\"volunteer_skills[561]\"]':\n            checked: true\n        - or\n        - ':input[name=\"volunteer_skills[612]\"]':\n            checked: true\n        - or\n        - ':input[name=\"volunteer_skills[608]\"]':\n            checked: true\n    '#format_items': comma\ntiming_is_everything:\n  '#type': webform_wizard_page\n  '#title': 'Timing is everything'\n  availability:\n    '#type': webform_checkboxes_other\n    '#title': 'When are you available to volunteer?'\n    '#options':\n      'Pre event -- (Most likely in Cape Town, but there may be other opportunities elsewhere.)': 'Pre event -- (Most likely in Cape Town, but there may be other opportunities elsewhere.)'\n      'Event only': 'At the event'\n      'Post event -- (Most likely in Cape Town, but there may be other opportunities elsewhere.)': 'Post event -- (Most likely in Cape Town, but there may be other opportunities elsewhere.)'\n      'Year round': 'Year round'\n  pre_event_availability:\n    '#type': radios\n    '#title': 'How long before the event are you available:'\n    '#options':\n      'a month or more': 'a month or more'\n      '3 weeks': '3 weeks'\n      '2 weeks': '2 weeks'\n      '1 week or less': '1 week or less'\n    '#states':\n      visible:\n        ':input[name=\"availability[checkboxes][Pre event -- (Most likely in Cape Town, but there may be other opportunities elsewhere.)]\"]':\n          checked: true\n      required:\n        ':input[name=\"availability[checkboxes][Pre event -- (Most likely in Cape Town, but there may be other opportunities elsewhere.)]\"]':\n          checked: true\n  post_event_availability:\n    '#type': radios\n    '#title': 'How long after the event are you available:'\n    '#options':\n      'a month or more': 'a month or more'\n      '3 weeks': '3 weeks'\n      '2 weeks': '2 weeks'\n      '1 week or less': '1 week or less'\n    '#states':\n      visible:\n        ':input[name=\"availability[checkboxes][Post event -- (Most likely in Cape Town, but there may be other opportunities elsewhere.)]\"]':\n          checked: true\n      required:\n        ':input[name=\"availability[checkboxes][Post event -- (Most likely in Cape Town, but there may be other opportunities elsewhere.)]\"]':\n          checked: true\nlastly:\n  '#type': webform_wizard_page\n  '#title': Lastly\n  newsletter:\n    '#type': checkbox\n    '#title': 'Sign up for the Volunteer newsletter'\n    '#description': 'Say yes, we&#39;d like to keep you up to date.'"
+css: ''
+javascript: ''
+settings:
+  ajax: false
+  ajax_scroll_top: form
+  ajax_progress_type: ''
+  ajax_effect: ''
+  ajax_speed: null
+  page: true
+  page_submit_path: ''
+  page_confirm_path: ''
+  page_admin_theme: false
+  form_title: both
+  form_submit_once: false
+  form_exception_message: ''
+  form_open_message: ''
+  form_close_message: ''
+  form_previous_submissions: true
+  form_confidential: false
+  form_confidential_message: ''
+  form_remote_addr: true
+  form_convert_anonymous: false
+  form_prepopulate: false
+  form_prepopulate_source_entity: false
+  form_prepopulate_source_entity_required: false
+  form_prepopulate_source_entity_type: ''
+  form_reset: false
+  form_disable_autocomplete: false
+  form_novalidate: false
+  form_disable_inline_errors: false
+  form_required: false
+  form_unsaved: false
+  form_disable_back: false
+  form_submit_back: false
+  form_autofocus: false
+  form_details_toggle: false
+  form_access_denied: default
+  form_access_denied_title: ''
+  form_access_denied_message: ''
+  form_access_denied_attributes: {  }
+  form_file_limit: ''
+  submission_label: ''
+  submission_log: false
+  submission_views: {  }
+  submission_views_replace: {  }
+  submission_user_columns: {  }
+  submission_user_duplicate: false
+  submission_access_denied: default
+  submission_access_denied_title: ''
+  submission_access_denied_message: ''
+  submission_access_denied_attributes: {  }
+  submission_exception_message: ''
+  submission_locked_message: ''
+  submission_excluded_elements: {  }
+  submission_exclude_empty: false
+  submission_exclude_empty_checkbox: false
+  previous_submission_message: ''
+  previous_submissions_message: ''
+  autofill: false
+  autofill_message: ''
+  autofill_excluded_elements: {  }
+  wizard_progress_bar: true
+  wizard_progress_pages: false
+  wizard_progress_percentage: false
+  wizard_progress_link: false
+  wizard_start_label: ''
+  wizard_preview_link: false
+  wizard_confirmation: false
+  wizard_confirmation_label: ''
+  wizard_track: ''
+  preview: 0
+  preview_label: ''
+  preview_title: ''
+  preview_message: ''
+  preview_attributes: {  }
+  preview_excluded_elements: {  }
+  preview_exclude_empty: true
+  preview_exclude_empty_checkbox: false
+  draft: none
+  draft_multiple: false
+  draft_auto_save: false
+  draft_saved_message: ''
+  draft_loaded_message: ''
+  draft_pending_single_message: ''
+  draft_pending_multiple_message: ''
+  confirmation_type: page
+  confirmation_title: ''
+  confirmation_message: ''
+  confirmation_url: ''
+  confirmation_attributes: {  }
+  confirmation_back: true
+  confirmation_back_label: ''
+  confirmation_back_attributes: {  }
+  confirmation_exclude_query: false
+  confirmation_exclude_token: false
+  confirmation_update: false
+  limit_total: null
+  limit_total_interval: null
+  limit_total_message: ''
+  limit_total_unique: false
+  limit_user: null
+  limit_user_interval: null
+  limit_user_message: ''
+  limit_user_unique: false
+  entity_limit_total: null
+  entity_limit_total_interval: null
+  entity_limit_user: null
+  entity_limit_user_interval: null
+  purge: none
+  purge_days: null
+  results_disabled: false
+  results_disabled_ignore: false
+  token_update: false
+access:
+  create:
+    roles:
+      - authenticated
+    users: {  }
+    permissions: {  }
+  view_any:
+    roles:
+      - volunteer_admin
+    users: {  }
+    permissions: {  }
+  update_any:
+    roles:
+      - volunteer_admin
+    users: {  }
+    permissions: {  }
+  delete_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  purge_any:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  view_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  update_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  delete_own:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  administer:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  test:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+  configuration:
+    roles: {  }
+    users: {  }
+    permissions: {  }
+handlers:
+  volunteers:
+    id: email
+    label: volunteers
+    handler_id: volunteers
+    status: true
+    conditions: {  }
+    weight: 0
+    settings:
+      states:
+        - completed
+      to_mail: volcore@afrikaburn.com
+      to_options: {  }
+      cc_mail: shared@afrikaburn.com
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: _default
+      body: _default
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: false
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
+  volunteer:
+    id: email
+    label: volunteer
+    handler_id: volunteer
+    status: true
+    conditions: {  }
+    weight: 1
+    settings:
+      states:
+        - completed
+      to_mail: '[webform_submission:user:mail]'
+      to_options: {  }
+      cc_mail: shared@afrikaburn.com
+      cc_options: {  }
+      bcc_mail: ''
+      bcc_options: {  }
+      from_mail: _default
+      from_options: {  }
+      from_name: _default
+      subject: 'Thanks for signing up!'
+      body: "Hi [webform_submission:user]\n\nThanks for signing up as a volunteer! Our wranglers will be in contact soon.\n\nAfrikaBurn Volunteers,\nvolcore@afrikaburn.com"
+      excluded_elements: {  }
+      ignore_access: false
+      exclude_empty: true
+      exclude_empty_checkbox: false
+      html: false
+      attachments: false
+      twig: false
+      debug: false
+      reply_to: ''
+      return_path: ''
+      sender_mail: ''
+      sender_name: ''
+      theme_name: ''
