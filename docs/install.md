@@ -35,7 +35,10 @@ git clone https://github.com/AfrikaBurn/tribe.git tribe
 
 Add a secure folder.
 ```
-mkdir tribe_secure
+sudo mkdir tribe_secure
+sudo chmod 777 -R tribe_secure
+sudo chown www-data:www-data -R tribe_secure
+
 mkdir tribe_secure/suppliers
 mkdir tribe_secure/subsidised_tickets
 mkdir tribe_secure/mutant_vehicles
