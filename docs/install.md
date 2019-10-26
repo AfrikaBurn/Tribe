@@ -124,7 +124,7 @@ The system will ask you for your password, and if all is correct you can log in 
 ## PHP Setup
 The instalation uses a faid amount of memory and so you will need to boost PHP.
 ```
-sudo vim /etc/php/7.2/fpm/php.ini
+sudo vim /etc/php/7.3/fpm/php.ini
 ```
 Make sure the memory limit is at least 512MB
 ```
