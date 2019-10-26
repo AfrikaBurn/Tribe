@@ -9,9 +9,6 @@ The Tribe platform was built as a responsive system, to handle the practical nee
 
 This guide currently only covers Ubuntu but should be almost identical on Windows.
 
-# Full installation guide
-To replicate our lamp server install, please go [![here](https://github.com/AfrikaBurn/tribe/blob/master/docs/lamp.md)].
-
 ## Composer
 Composer is a package manager used by Drupal to handle public extension modules.
 
