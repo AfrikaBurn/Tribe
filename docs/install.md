@@ -9,9 +9,6 @@ The Tribe platform was built as a responsive system, to handle the practical nee
 
 This guide currently only covers Ubuntu but should be almost identical on Windows.
 
-# Full installation guide
-To replicate our lamp server install, please go [![here](https://github.com/AfrikaBurn/tribe/blob/master/docs/lamp.md)].
-
 ## Composer
 Composer is a package manager used by Drupal to handle public extension modules.
 
@@ -38,7 +35,10 @@ git clone https://github.com/AfrikaBurn/tribe.git tribe
 
 Add a secure folder.
 ```
-mkdir tribe_secure
+sudo mkdir tribe_secure
+sudo chmod 777 -R tribe_secure
+sudo chown www-data:www-data -R tribe_secure
+
 mkdir tribe_secure/suppliers
 mkdir tribe_secure/subsidised_tickets
 mkdir tribe_secure/mutant_vehicles
@@ -124,7 +124,7 @@ The system will ask you for your password, and if all is correct you can log in 
 ## PHP Setup
 The instalation uses a faid amount of memory and so you will need to boost PHP.
 ```
-sudo vim /etc/php/7.2/fpm/php.ini
+sudo vim /etc/php/7.3/fpm/php.ini
 ```
 Make sure the memory limit is at least 512MB
 ```
