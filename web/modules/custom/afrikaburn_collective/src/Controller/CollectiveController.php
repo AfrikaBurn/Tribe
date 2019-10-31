@@ -78,7 +78,7 @@ class CollectiveController extends ControllerBase {
           ->condition('field_secondary_mail', $email);
         $uids = $query->execute();
 
-        // Invite existing
+        // Invite existing account holders
         if (count($uids)){
           foreach(\Drupal\user\Entity\User::loadMultiple($uids) as $user){
             CollectiveController::set('invite', $collective, $user);
@@ -335,12 +335,19 @@ class CollectiveController extends ControllerBase {
    * @param $user       User to check invitation against
    */
   public static function isInvited($collective, $user){
-    return $collective && (
-      in_array(
+
+    if ($collective) {
+
+      $token = in_array(
         \Drupal::request()->get('token'),
         array_column($collective->field_col_invite_token->getValue(), 'value')
-      ) || CollectiveController::get('invite', $collective, $user)
-    );
+      );
+      $direct = $user && CollectiveController::get('invite', $collective, $user);
+
+      return $token || $direct;
+    }
+
+    return FALSE;
   }
 
   /**

@@ -146,7 +146,7 @@ function _build_join(&$build, $display, $uid, $nid, $is_admin, $is_member){
 
     $link = $exposure
       ? _build_link('Join anyway', 'join', $nid, $uid, $exposure, FALSE)
-      : _build_link('Join', 'join', $nid, $uid, $popup, FALSE);
+      : _build_link('Join', 'join', $nid, $uid, $exposure, FALSE);
 
     $element = [
       'prefix' => $exposure ? '<details><summary class="join">Join</summary><section>' : '',
