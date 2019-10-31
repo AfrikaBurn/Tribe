@@ -96,6 +96,11 @@ class CollectiveController extends ControllerBase {
           $results['invited']++;
         } else {
           $collective->get('field_col_invite_token')->set($index, md5($collective->getTitle() . $email . time()));
+
+          while ($collective->get('field_col_invite_by')->count() < $index) {
+            $collective->get('field_col_invite_by')->appendItem($user);
+          }
+
           $collective->get('field_col_invite_by')->set($index, $user);
           $results['reminded']++;
         }
