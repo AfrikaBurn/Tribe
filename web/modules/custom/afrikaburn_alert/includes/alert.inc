@@ -55,16 +55,16 @@ function _alert_display_variables(&$variables){
         ->getSetting('allowed_values')[$alert->field_alert_action->value]
     )[(int)$alert->uid->target_id != Utils::currentUser()->id()],
     [
-      '@actor' => _label($computed['actor']),
-      '@collective' => _label($computed['collective']),
-      '@subject' => _label($computed['subject']),
-      '@type' => $computed['type'],
-      '@stage' => $computed['stage'],
+      @'@actor' => _label($computed['actor']),
+      @'@collective' => _label($computed['collective']),
+      @'@subject' => _label($computed['subject']),
+      @'@type' => $computed['type'],
+      @'@stage' => $computed['stage'],
     ]
   );
-  $variables['preview'] = $computed['preview'];
-  $variables['confirm'] = $computed['confirm'];
-  $variables['cancel'] = $computed['cancel'];
+  @$variables['preview'] = $computed['preview'];
+  @$variables['confirm'] = $computed['confirm'];
+  @$variables['cancel'] = $computed['cancel'];
   $variables['date'] = t(':time ago', [
     ':time' => \Drupal::service('date.formatter')
       ->formatTimeDiffSince($alert->created->value, ['granularity' => 1])

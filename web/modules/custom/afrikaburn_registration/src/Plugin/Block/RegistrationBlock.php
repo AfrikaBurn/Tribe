@@ -76,6 +76,7 @@ class RegistrationBlock extends BlockBase {
       'past' => $admin || ($member && $private) || !$private,
       'new' => $admin && CollectiveController::setting($collective, 'projects'),
     ];
+    $tabs = [];
 
     foreach(array_filter($show) as $display=>$visible){
 
