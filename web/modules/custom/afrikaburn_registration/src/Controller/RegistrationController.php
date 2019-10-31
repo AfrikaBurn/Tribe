@@ -86,11 +86,16 @@ class RegistrationController extends ControllerBase {
 
       drupal_set_message('"' . $destination->get('title')->value . '" registration has been created as a draft. Please review the information and click "Submit" when you are ready to submit the registration.');
 
-      if (!$cid){
+      if ($cid){
+        $redirect = new RedirectResponse('/node/' . $cid);
+        $redirect->send();
+      } else {
         $redirect = new RedirectResponse('/node/' . $destination->id() .'/edit/form_1');
         $redirect->send();
       }
     }
+
+    return new RedirectResponse('/');
   }
 
   /**

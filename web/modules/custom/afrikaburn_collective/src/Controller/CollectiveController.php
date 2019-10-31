@@ -80,30 +80,27 @@ class CollectiveController extends ControllerBase {
 
         // Invite existing
         if (count($uids)){
-
           foreach(\Drupal\user\Entity\User::loadMultiple($uids) as $user){
             CollectiveController::set('invite', $collective, $user);
-
           }
-          $results['invited']++;
-
-        // Mail non-existing
-        } else {
-          $index = array_search($email, array_column($collective->get('field_col_invite_mail')->getValue(), 'value'));
-          $user = Utils::currentUser();
-          if ($index === FALSE) {
-            $collective->get('field_col_invite_mail')->appendItem(trim($email));
-            $collective->get('field_col_invite_token')->appendItem(md5($collective->getTitle() . $email . time()));
-            $collective->get('field_col_invite_by')->appendItem($user);
-            $results['invited']++;
-          } else {
-            $collective->get('field_col_invite_token')->set($index, md5($collective->getTitle() . $email . time()));
-            $collective->get('field_col_invite_by')->set($index, $user);
-            $results['reminded']++;
-          }
-
-          $collective->save();
         }
+
+        // Mail invitee
+        $index = array_search($email, array_column($collective->get('field_col_invite_mail')->getValue(), 'value'));
+        $user = Utils::currentUser();
+
+        if ($index === FALSE) {
+          $collective->get('field_col_invite_mail')->appendItem(trim($email));
+          $collective->get('field_col_invite_token')->appendItem(md5($collective->getTitle() . $email . time()));
+          $collective->get('field_col_invite_by')->appendItem($user);
+          $results['invited']++;
+        } else {
+          $collective->get('field_col_invite_token')->set($index, md5($collective->getTitle() . $email . time()));
+          $collective->get('field_col_invite_by')->set($index, $user);
+          $results['reminded']++;
+        }
+
+        $collective->save();
 
       } else {
         if ($email) {
@@ -416,8 +413,9 @@ class CollectiveController extends ControllerBase {
           SELECT
             COUNT({node_field_data}.nid) as rows
           FROM
-            {node_field_data}
-            LEFT JOIN {flagging} ON {node_field_data}.nid = {flagging}.entity_id AND {flagging}.flag_id = 'archived',
+            {node_field_data} LEFT JOIN {flagging}
+              ON {node_field_data}.nid = {flagging}.entity_id
+              AND {flagging}.flag_id = 'archived',
             {node__field_collective}
           WHERE {node_field_data}.type IN ('art', 'theme_camps', 'mutant_vehicles', 'performances')
             AND {node__field_collective}.entity_id = {node_field_data}.nid
