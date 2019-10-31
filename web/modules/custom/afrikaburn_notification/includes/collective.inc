@@ -19,7 +19,6 @@ function _notify_collective($entity){
   $address_settings = \Drupal::config('afrikaburn_notification.address_settings');
 
   $state = $entity->original ? 'update' : 'new';
-  $meta_collective = _meta_collective($entity);
   $diff = Utils::diff($entity);
   $notify_collective = count(
     array_diff(
@@ -27,16 +26,19 @@ function _notify_collective($entity){
       ['Invite Token', 'Invite Mail', 'Members', 'Admins']
     )
   ) > 0;
-  $notify_invitees = isset($diff['Invite Token']);
 
-  if ($notify_collective) _notify_collective_changes($entity, $state, $meta_collective, $settings, $address_settings);
+  if ($notify_collective) {
+    _notify_collective_changes($entity, $state, $settings, $address_settings);
+  }
+
+  $notify_invitees = isset($diff['Invite Token']);
   if ($notify_invitees) _notify_collective_invites($entity, $diff, $settings, $address_settings);
 }
 
 /**
  * Notify collectives about changes to the collective itself
  */
-function _notify_collective_changes($entity, $state, $meta_collective, $settings, $address_settings){
+function _notify_collective_changes($entity, $state, $settings, $address_settings){
 
   module_load_include('inc', 'afrikaburn_notification', 'includes/util');
 
@@ -45,6 +47,9 @@ function _notify_collective_changes($entity, $state, $meta_collective, $settings
     $settings->get("collective-collective-$state-collective-enabled") &&
     CollectiveController::setting($entity, 'emails')
   ) {
+
+    $meta_collective = _meta_collective($entity);
+
     _notify(
       'no-reply@afrikaburn.com',
       $settings->get('collective-label'), $address_settings->get('collective-address'),
