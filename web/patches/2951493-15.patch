@@ -1,0 +1,33 @@
+diff --git a/core/modules/views/src/Plugin/views/field/BulkForm.php b/core/modules/views/src/Plugin/views/field/BulkForm.php
+index 3ce092b..ef3dbc7 100644
+--- a/core/modules/views/src/Plugin/views/field/BulkForm.php
++++ b/core/modules/views/src/Plugin/views/field/BulkForm.php
+@@ -269,7 +269,11 @@ public function viewsForm(&$form, FormStateInterface $form_state) {
+       // Render checkboxes for all rows.
+       $form[$this->options['id']]['#tree'] = TRUE;
+       foreach ($this->view->result as $row_index => $row) {
+-        $entity = $this->getEntityTranslation($this->getEntity($row), $row);
++        $entity = $this->getEntity($row);
++        if (!$entity) {
++          continue;
++        }
++        $entity = $this->getEntityTranslation($entity, $row);
+ 
+         $form[$this->options['id']][$row_index] = [
+           '#type' => 'checkbox',
+diff --git a/core/modules/views/src/Plugin/views/field/EntityOperations.php b/core/modules/views/src/Plugin/views/field/EntityOperations.php
+old mode 100644
+new mode 100755
+index d31cd1e..46dad7b
+--- a/core/modules/views/src/Plugin/views/field/EntityOperations.php
++++ b/core/modules/views/src/Plugin/views/field/EntityOperations.php
+@@ -108,6 +108,9 @@ public function buildOptionsForm(&$form, FormStateInterface $form_state) {
+    * {@inheritdoc}
+    */
+   public function render(ResultRow $values) {
++    if (empty($this->getEntity($values))) {
++      return [];
++    }
+     $entity = $this->getEntityTranslation($this->getEntity($values), $values);
+     $operations = $this->entityManager->getListBuilder($entity->getEntityTypeId())->getOperations($entity);
+     if ($this->options['destination']) {
