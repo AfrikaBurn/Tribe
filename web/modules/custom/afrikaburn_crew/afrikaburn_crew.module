@@ -49,7 +49,7 @@ function afrikaburn_crew_preprocess_views_view(&$variables){
   switch ($variables['id']){
     case 'wrangle_dpw':
     case 'wrangle_sanctuary':
-      if ($year >= 2019) {
+      if ($year >= 2020) {
         $variables['#attached']['library'][] = 'afrikaburn_crew/wrangle';
         module_load_include('inc', 'afrikaburn_crew', 'includes/wrangle.crew');
         _prepare_wrangler_view($variables);
@@ -68,7 +68,7 @@ function afrikaburn_crew_preprocess_views_view_table(&$variables) {
   switch ($variables['view']->id()){
     case 'wrangle_dpw':
     case 'wrangle_sanctuary':
-      if ($year >= 2019) {
+      if ($year >= 2020) {
         module_load_include('inc', 'afrikaburn_crew', 'includes/wrangle.crew');
         _insert_wrangler_view_rows($variables);
       }

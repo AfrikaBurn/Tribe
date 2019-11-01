@@ -1,3 +1,4 @@
+uuid: 123806d4-b3f1-44c2-8458-6368a4af9979
 langcode: en
 status: closed
 dependencies: {  }
@@ -16,12 +17,12 @@ css: ''
 javascript: ''
 settings:
   ajax: false
-  ajax_scroll_top: form
+  ajax_scroll_top: ''
   ajax_progress_type: ''
   ajax_effect: ''
   ajax_speed: null
-  page: true
-  page_submit_path: apply/dpw
+  page: false
+  page_submit_path: ''
   page_confirm_path: ''
   page_admin_theme: false
   form_title: source_entity_webform
@@ -228,4 +229,3 @@ handlers:
       sender_mail: ''
       sender_name: ''
       theme_name: ''
-uuid: 123806d4-b3f1-44c2-8458-6368a4af9979
