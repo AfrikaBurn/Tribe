@@ -666,3 +666,15 @@ theme_camps-ddts-allocation-recipients-body: "<p>Aweh!</p>\r\n\r\n<p>You've been
 theme_camps-ddts-allocation-wranglers-enabled: 0
 theme_camps-ddts-allocation-wranglers-subject: ''
 theme_camps-ddts-allocation-wranglers-body: ''
+theme_camps-grant-new-collective-enabled: 1
+theme_camps-grant-new-collective-subject: '[node:title] grant application submitted'
+theme_camps-grant-new-collective-body: "<p>Well done!</p>\r\n\r\n<p>We've received your grant application submitted by [user:name]:</p>\r\n\r\n<hr />\r\n<p>[render grant_mail]</p>\r\n"
+theme_camps-grant-new-wranglers-enabled: 1
+theme_camps-grant-new-wranglers-subject: 'New grant application: [node:title]'
+theme_camps-grant-new-wranglers-body: "<p>Submitted by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>[render grant_mail]</p>\r\n"
+theme_camps-grant-update-collective-enabled: 1
+theme_camps-grant-update-collective-subject: '[node:title] grant application updated'
+theme_camps-grant-update-collective-body: "<p>Excellent!</p>\r\n\r\n<p>Your grant application has been updated by [user:name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"
+theme_camps-grant-update-wranglers-enabled: 1
+theme_camps-grant-update-wranglers-subject: 'Grant application updated: [node:title]'
+theme_camps-grant-update-wranglers-body: "<p>Updated by [user:field_first_name] \"[user:name]\" [user:field_last_name]:</p>\r\n\r\n<hr />\r\n<p>[diff]</p>\r\n"

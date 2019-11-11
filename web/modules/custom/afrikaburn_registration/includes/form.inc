@@ -59,6 +59,7 @@ function _project_form_modes(){
         'form_1' => 'Registration',
         'form_2' => 'Specification',
         'form_3' => 'Publishing',
+        'grant' => 'Grant application',
         'support_camp' => 'Support camp',
         'waps' => 'Work Access Passes',
         'vps' => 'Vehicle Passes',
@@ -249,6 +250,12 @@ function _project_form_config() {
     'node_theme_camps_form_3_form' => [
       'mode' => 'form_3',
       'title' => 'Publishing: %title',
+      'type' => 'a Theme Camp',
+      'wrangler' => 'theme_camp_wrangler'
+    ],
+    'node_theme_camps_grant_form' => [
+      'mode' => 'grant',
+      'title' => 'Grant application for: %title',
       'type' => 'a Theme Camp',
       'wrangler' => 'theme_camp_wrangler'
     ],

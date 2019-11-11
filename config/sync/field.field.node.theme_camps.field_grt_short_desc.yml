@@ -1,0 +1,25 @@
+uuid: 4db082a5-9d39-48bf-bb2e-85790af0908f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_grt_short_desc
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.theme_camps.field_grt_short_desc
+field_name: field_grt_short_desc
+entity_type: node
+bundle: theme_camps
+label: 'Please give us an idea of your plan is to make up the shortfall'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
