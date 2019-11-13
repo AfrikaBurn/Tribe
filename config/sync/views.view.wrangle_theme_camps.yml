@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_adds_to_landscape
     - field.storage.node.field_collective
+    - field.storage.node.field_ddts_allowed
     - field.storage.node.field_final_placement
     - field.storage.node.field_good_standing
     - field.storage.node.field_ice_card
@@ -15,6 +16,7 @@ dependencies:
     - field.storage.node.field_placement_card
     - field.storage.node.field_placement_letter_sent
     - field.storage.node.field_plot
+    - field.storage.node.field_post_event_standing
     - field.storage.node.field_prj_adm_review
     - field.storage.node.field_prj_adm_wrangler
     - field.storage.node.field_prj_cll_collaborate
@@ -37,9 +39,8 @@ dependencies:
     - field.storage.node.field_service
     - field.storage.node.field_space_percentage
     - field.storage.node.field_stretch_tent_dimen
-    - field.storage.node.field_waps_allowed
     - field.storage.node.field_vps_allowed
-    - field.storage.node.field_ddts_allowed
+    - field.storage.node.field_waps_allowed
     - field.storage.user.field_first_name
     - field.storage.user.field_last_name
     - flag.flag.archived
@@ -4248,6 +4249,7 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.node.field_collective'
+        - 'config:field.storage.node.field_ddts_allowed'
         - 'config:field.storage.node.field_final_placement'
         - 'config:field.storage.node.field_neighbours'
         - 'config:field.storage.node.field_plot'
@@ -4271,9 +4273,8 @@ display:
         - 'config:field.storage.node.field_prj_stc_size'
         - 'config:field.storage.node.field_prjr_complete'
         - 'config:field.storage.node.field_space_percentage'
-        - 'config:field.storage.node.field_waps_allowed'
         - 'config:field.storage.node.field_vps_allowed'
-        - 'config:field.storage.node.field_ddts_allowed'
+        - 'config:field.storage.node.field_waps_allowed'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
   assessment:
@@ -4887,6 +4888,71 @@ display:
           separator: ', '
           field_api_classes: false
           plugin_id: field
+        field_post_event_standing:
+          id: field_post_event_standing
+          table: node__field_post_event_standing
+          field: field_post_event_standing
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Post event good standing'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          click_sort_column: value
+          type: boolean
+          settings:
+            format: default
+            format_custom_true: ''
+            format_custom_false: ''
+          group_column: value
+          group_columns: {  }
+          group_rows: true
+          delta_limit: 0
+          delta_offset: 0
+          delta_reversed: false
+          delta_first_last: false
+          multi_type: separator
+          separator: ', '
+          field_api_classes: false
+          plugin_id: field
       filters:
         type:
           id: type
@@ -5360,6 +5426,7 @@ display:
         - 'config:field.storage.node.field_good_standing'
         - 'config:field.storage.node.field_interactive'
         - 'config:field.storage.node.field_moop_assesment'
+        - 'config:field.storage.node.field_post_event_standing'
         - 'config:field.storage.node.field_prj_gen_concept'
         - 'config:field.storage.node.field_service'
     deleted: false
@@ -5968,6 +6035,7 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.node.field_collective'
+        - 'config:field.storage.node.field_ddts_allowed'
         - 'config:field.storage.node.field_final_placement'
         - 'config:field.storage.node.field_neighbours'
         - 'config:field.storage.node.field_plot'
@@ -5991,9 +6059,8 @@ display:
         - 'config:field.storage.node.field_prj_stc_size'
         - 'config:field.storage.node.field_prjr_complete'
         - 'config:field.storage.node.field_space_percentage'
-        - 'config:field.storage.node.field_waps_allowed'
         - 'config:field.storage.node.field_vps_allowed'
-        - 'config:field.storage.node.field_ddts_allowed'
+        - 'config:field.storage.node.field_waps_allowed'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
   engineering:
@@ -9022,6 +9089,7 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.node.field_collective'
+        - 'config:field.storage.node.field_ddts_allowed'
         - 'config:field.storage.node.field_final_placement'
         - 'config:field.storage.node.field_neighbours'
         - 'config:field.storage.node.field_plot'
@@ -9045,9 +9113,8 @@ display:
         - 'config:field.storage.node.field_prj_stc_size'
         - 'config:field.storage.node.field_prjr_complete'
         - 'config:field.storage.node.field_space_percentage'
-        - 'config:field.storage.node.field_waps_allowed'
         - 'config:field.storage.node.field_vps_allowed'
-        - 'config:field.storage.node.field_ddts_allowed'
+        - 'config:field.storage.node.field_waps_allowed'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
   support_camps:
@@ -9671,6 +9738,7 @@ display:
         - user.roles
       tags:
         - 'config:field.storage.node.field_collective'
+        - 'config:field.storage.node.field_ddts_allowed'
         - 'config:field.storage.node.field_final_placement'
         - 'config:field.storage.node.field_neighbours'
         - 'config:field.storage.node.field_plot'
@@ -9694,9 +9762,8 @@ display:
         - 'config:field.storage.node.field_prj_stc_size'
         - 'config:field.storage.node.field_prjr_complete'
         - 'config:field.storage.node.field_space_percentage'
-        - 'config:field.storage.node.field_waps_allowed'
         - 'config:field.storage.node.field_vps_allowed'
-        - 'config:field.storage.node.field_ddts_allowed'
+        - 'config:field.storage.node.field_waps_allowed'
         - 'config:field.storage.user.field_first_name'
         - 'config:field.storage.user.field_last_name'
   tasks:
@@ -10972,13 +11039,13 @@ display:
         - 'user.node_grants:view'
         - user.roles
       tags:
+        - 'config:field.storage.node.field_ddts_allowed'
         - 'config:field.storage.node.field_ice_card'
         - 'config:field.storage.node.field_placed'
         - 'config:field.storage.node.field_placement_card'
         - 'config:field.storage.node.field_placement_letter_sent'
         - 'config:field.storage.node.field_prj_gen_concept'
         - 'config:field.storage.node.field_prj_plc_people'
-        - 'config:field.storage.node.field_waps_allowed'
         - 'config:field.storage.node.field_vps_allowed'
-        - 'config:field.storage.node.field_ddts_allowed'
+        - 'config:field.storage.node.field_waps_allowed'
     deleted: false

@@ -79,6 +79,7 @@ function _editable($id){
         'field_service',
         'field_moop_assesment',
         'field_adds_to_landscape',
+        'field_post_event_standing',
       ],
 
       'wrangle_wtf' => [
@@ -145,6 +146,7 @@ function _title($field){
     'field_waps_allowed' => 'WAPs',
     'field_vps_allowed' => 'VPs',
     'field_ddts_allowed' => 'DDTs',
+    'field_post_event_standing' => FALSE,
 ])[$field];
 }
 

@@ -16,6 +16,7 @@ dependencies:
     - field.field.node.theme_camps.field_final_placement
     - field.field.node.theme_camps.field_form_mode
     - field.field.node.theme_camps.field_good_standing
+    - field.field.node.theme_camps.field_green_tech
     - field.field.node.theme_camps.field_grt_more
     - field.field.node.theme_camps.field_grt_short_desc
     - field.field.node.theme_camps.field_ice_card
@@ -27,6 +28,7 @@ dependencies:
     - field.field.node.theme_camps.field_placement_card
     - field.field.node.theme_camps.field_placement_letter_sent
     - field.field.node.theme_camps.field_plot
+    - field.field.node.theme_camps.field_post_event_standing
     - field.field.node.theme_camps.field_prj_adm_form_3
     - field.field.node.theme_camps.field_prj_adm_latitude
     - field.field.node.theme_camps.field_prj_adm_longitude
@@ -441,6 +443,13 @@ content:
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
+  field_green_tech:
+    weight: 74
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
   field_grt_more:
     weight: 73
     settings:
@@ -510,6 +519,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
+  field_post_event_standing:
+    weight: 75
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_prj_adm_latitude:
     type: string_textfield

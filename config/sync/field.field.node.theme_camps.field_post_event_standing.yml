@@ -1,0 +1,29 @@
+uuid: 4eb3dc68-de49-476d-9ab1-18fcdf98c7b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_post_event_standing
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.theme_camps.field_post_event_standing
+field_name: field_post_event_standing
+entity_type: node
+bundle: theme_camps
+label: 'Post event standing'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Good
+  off_label: Nope
+field_type: boolean
