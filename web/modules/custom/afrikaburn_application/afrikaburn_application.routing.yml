@@ -26,6 +26,10 @@ afrikaburn_application.wrangle.anathi:
   path: '/wrangle/applications/anathi-tickets-and-access-grants'
   options:
     _admin_route: TRUE
+afrikaburn_application.wrangle.anathi-2020:
+  path: '/wrangle/applications/anathi-tickets-and-access-grants/2020'
+  options:
+    _admin_route: TRUE
 afrikaburn_application.wrangle.anathi-2019:
   path: '/wrangle/applications/anathi-tickets-and-access-grants/2019'
   options:
