@@ -80,6 +80,7 @@ function _editable($id){
         'field_moop_assesment',
         'field_adds_to_landscape',
         'field_post_event_standing',
+        'field_green_tech',
       ],
 
       'wrangle_wtf' => [
@@ -94,6 +95,7 @@ function _editable($id){
 function _merge(){
   return [
     'administrative' => [
+      'field_moop_assesment',
       'field_prj_adm_registration',
       'field_prj_snd_level',
       'field_prj_stc_size',
@@ -141,12 +143,13 @@ function _title($field){
     'field_good_standing' => FALSE,
     'field_interactive' => FALSE,
     'field_service' => FALSE,
-    'field_moop_assesment' => FALSE,
+    // 'field_moop_assesment' => 'MOO',
     'field_adds_to_landscape' => FALSE,
     'field_waps_allowed' => 'WAPs',
     'field_vps_allowed' => 'VPs',
     'field_ddts_allowed' => 'DDTs',
     'field_post_event_standing' => FALSE,
+    'field_green_tech' => FALSE,
 ])[$field];
 }
 
