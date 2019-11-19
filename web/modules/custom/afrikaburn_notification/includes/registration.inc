@@ -23,7 +23,10 @@ function _notify_registration($entity){
   $address_settings = \Drupal::config('afrikaburn_notification.address_settings');
 
   $stage = $entity->get('field_form_mode')->value;
-  $complete = array_column($entity->get('field_prjr_complete')->getValue(), 'value');
+  $complete = $entity->original
+    ? array_column($entity->original->get('field_prjr_complete')->getValue(), 'value')
+    : array_column($entity->get('field_prjr_complete')->getValue(), 'value');
+
   $state = $entity->original && $entity->original->isPublished()
     ? (in_array($stage, $complete) ? 'update' : 'new')
     : 'new';

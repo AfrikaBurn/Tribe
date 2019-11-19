@@ -1,0 +1,25 @@
+uuid: b1308ba3-b048-4ad9-b7a8-b7a9d3bcb48d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tc_grt_budget_position
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.theme_camps.field_tc_grt_budget_position
+field_name: field_tc_grt_budget_position
+entity_type: node
+bundle: theme_camps
+label: 'Please give us an idea of how this budget sits in your broader camp budget.'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

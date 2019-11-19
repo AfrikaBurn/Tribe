@@ -280,7 +280,7 @@ function afrikaburn_registration_preprocess_views_view_table(&$variables) {
     case 'wrangle_mutant_vehicles':
     case 'wrangle_theme_camps':
 
-      if (in_array($variables['view']->current_display, ['tasks', 'engineering', 'assessment'])) {
+      if (in_array($variables['view']->current_display, ['tasks', 'engineering'])) {
         $comments = FALSE;
         $merge = FALSE;
       }

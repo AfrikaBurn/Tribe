@@ -1,0 +1,29 @@
+uuid: f635ea72-d503-46b6-ae84-8d9495f4ac3d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_green_tech
+    - node.type.theme_camps
+  module:
+    - custom_add_another
+third_party_settings:
+  custom_add_another:
+    custom_add_another: ''
+    custom_remove: ''
+id: node.theme_camps.field_green_tech
+field_name: field_green_tech
+entity_type: node
+bundle: theme_camps
+label: 'Green tech'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: None
+field_type: boolean

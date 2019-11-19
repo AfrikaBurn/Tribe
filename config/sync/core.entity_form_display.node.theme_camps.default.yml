@@ -16,6 +16,9 @@ dependencies:
     - field.field.node.theme_camps.field_final_placement
     - field.field.node.theme_camps.field_form_mode
     - field.field.node.theme_camps.field_good_standing
+    - field.field.node.theme_camps.field_green_tech
+    - field.field.node.theme_camps.field_grt_more
+    - field.field.node.theme_camps.field_grt_short_desc
     - field.field.node.theme_camps.field_ice_card
     - field.field.node.theme_camps.field_interactive
     - field.field.node.theme_camps.field_lineup_request
@@ -25,6 +28,7 @@ dependencies:
     - field.field.node.theme_camps.field_placement_card
     - field.field.node.theme_camps.field_placement_letter_sent
     - field.field.node.theme_camps.field_plot
+    - field.field.node.theme_camps.field_post_event_standing
     - field.field.node.theme_camps.field_prj_adm_form_3
     - field.field.node.theme_camps.field_prj_adm_latitude
     - field.field.node.theme_camps.field_prj_adm_longitude
@@ -39,6 +43,7 @@ dependencies:
     - field.field.node.theme_camps.field_prj_gen_concept
     - field.field.node.theme_camps.field_prj_gen_contact
     - field.field.node.theme_camps.field_prj_gen_description
+    - field.field.node.theme_camps.field_prj_gen_doc
     - field.field.node.theme_camps.field_prj_gen_fundraiser
     - field.field.node.theme_camps.field_prj_gen_fundraising
     - field.field.node.theme_camps.field_prj_gen_header1
@@ -48,6 +53,7 @@ dependencies:
     - field.field.node.theme_camps.field_prj_gen_profit
     - field.field.node.theme_camps.field_prj_gen_story
     - field.field.node.theme_camps.field_prj_gen_year
+    - field.field.node.theme_camps.field_prj_grant_expenses
     - field.field.node.theme_camps.field_prj_lgh_agree
     - field.field.node.theme_camps.field_prj_lgh_description
     - field.field.node.theme_camps.field_prj_lgh_policy
@@ -142,6 +148,11 @@ dependencies:
     - field.field.node.theme_camps.field_stretch_tent_dimen
     - field.field.node.theme_camps.field_sup_review
     - field.field.node.theme_camps.field_supporting_project
+    - field.field.node.theme_camps.field_tc_budget
+    - field.field.node.theme_camps.field_tc_grt_budget_position
+    - field.field.node.theme_camps.field_tc_grt_description
+    - field.field.node.theme_camps.field_tc_grt_element
+    - field.field.node.theme_camps.field_tc_grt_image
     - field.field.node.theme_camps.field_tc_type
     - field.field.node.theme_camps.field_vp_ea
     - field.field.node.theme_camps.field_vps
@@ -159,6 +170,7 @@ dependencies:
     - datetime
     - entity_reference_views_select
     - field_group
+    - file
     - image
     - link
     - markup
@@ -431,6 +443,29 @@ content:
     third_party_settings: {  }
     type: boolean_checkbox
     region: content
+  field_green_tech:
+    weight: 74
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_grt_more:
+    weight: 73
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_grt_short_desc:
+    weight: 65
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
   field_ice_card:
     weight: 9
     settings:
@@ -484,6 +519,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
+  field_post_event_standing:
+    weight: 75
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
   field_prj_adm_latitude:
     type: string_textfield
@@ -622,6 +664,13 @@ content:
     third_party_settings: {  }
     type: string_textarea
     region: content
+  field_prj_gen_doc:
+    weight: 72
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
   field_prj_gen_fundraiser:
     weight: 27
     settings:
@@ -697,6 +746,13 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textarea
+    region: content
+  field_prj_grant_expenses:
+    weight: 70
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
     region: content
   field_prj_lnt_handled:
     type: string_textarea
@@ -1191,6 +1247,45 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: options_select
+    region: content
+  field_tc_budget:
+    weight: 71
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  field_tc_grt_budget_position:
+    weight: 69
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_tc_grt_description:
+    weight: 67
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_tc_grt_element:
+    weight: 66
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_tc_grt_image:
+    weight: 68
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
     region: content
   field_vps:
     weight: 62

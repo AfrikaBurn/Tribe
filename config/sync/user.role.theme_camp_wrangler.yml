@@ -40,6 +40,7 @@ permissions:
   - 'edit field_prj_adm_ranger_comment'
   - 'edit field_prj_adm_review'
   - 'edit field_prj_adm_wrangler'
+  - 'edit field_prj_gen_doc'
   - 'edit field_prj_saf_comment'
   - 'edit field_prj_snd_comment'
   - 'edit field_prj_wtf_short_copy'
