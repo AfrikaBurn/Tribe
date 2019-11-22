@@ -336,6 +336,7 @@ function afrikaburn_collective_form_alter(&$form, $form_state, $form_id) {
     $form['field_col_requests']['#access'] = false;
     $form['field_col_invite_mail']['#access'] = $user->hasRole('administrator');
     $form['field_col_invite_token']['#access'] = $user->hasRole('administrator');
+    $form['field_col_invite_by']['#access'] = $user->hasRole('administrator');
     $form['field_settings']['widget']['#title'] = '';
     $form['#validate'][] = 'afrikaburn_collective_unique_name';
   }

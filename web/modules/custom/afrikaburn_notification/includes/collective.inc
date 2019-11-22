@@ -23,7 +23,7 @@ function _notify_collective($entity){
   $notify_collective = count(
     array_diff(
       array_keys($diff),
-      ['Invite Token', 'Invite Mail', 'Members', 'Admins']
+      ['Invite Token', 'Invite Mail', 'Members', 'Admins', 'Invited by']
     )
   ) > 0;
 
