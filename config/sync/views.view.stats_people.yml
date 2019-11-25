@@ -209,6 +209,7 @@ display:
       arguments: {  }
       display_extenders: {  }
       group_by: true
+      show_admin_links: false
     cache_metadata:
       max-age: -1
       contexts:
