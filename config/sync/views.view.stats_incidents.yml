@@ -7,8 +7,6 @@ dependencies:
     - flag.flag.archived
     - node.type.incident
     - taxonomy.vocabulary.incident_type
-  content:
-    - 'taxonomy_term:incident_type:e8a37703-5a12-4e9f-9c59-981a56ab6c8d'
   module:
     - flag
     - image
@@ -300,6 +298,7 @@ display:
       arguments: {  }
       display_extenders: {  }
       group_by: true
+      show_admin_links: false
     cache_metadata:
       max-age: -1
       contexts:

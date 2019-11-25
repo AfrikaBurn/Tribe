@@ -402,6 +402,7 @@ display:
       display_extenders: {  }
       group_by: false
       title: 'Sanctuary Applications'
+      show_admin_links: false
     cache_metadata:
       max-age: -1
       contexts:

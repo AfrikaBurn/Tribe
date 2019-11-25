@@ -9,6 +9,7 @@ dependencies:
     - webform.webform.dpw_application_2020
     - webform.webform.dpw_application_form_2018
     - webform.webform.dpw_application_form_2019
+    - webform.webform.dpw_registration_2019
   module:
     - user
     - webform
@@ -454,6 +455,7 @@ display:
             dpw_application_form_2018: dpw_application_form_2018
             dpw_application_form_2019: dpw_application_form_2019
             dpw_application_2020: dpw_application_2020
+            dpw_registration_2019: dpw_registration_2019
           group: 1
           exposed: false
           expose:
@@ -518,6 +520,7 @@ display:
       display_extenders: {  }
       group_by: false
       title: 'DPW Applications'
+      show_admin_links: false
     cache_metadata:
       max-age: -1
       contexts:
