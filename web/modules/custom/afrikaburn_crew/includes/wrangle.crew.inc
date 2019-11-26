@@ -9,6 +9,8 @@ function _editable($id){
   return (
     [
       'wrangle_sanctuary' => [
+        'signed_up_shifts' => 'webform_submission_value_13',
+        'shifts_completed' => 'webform_submission_value_1',
         'status' => 'webform_submission_value_12',
         'approved_roles' => 'webform_submission_value_10',
       ],
@@ -39,7 +41,11 @@ function _merge(){
       'administrative' => [
         'webform_submission_value_10',
         'webform_submission_value_12',
-        'operations'
+        'operations',
+      ],
+      'shifts' => [
+        'webform_submission_value_13',
+        'webform_submission_value_1',
       ],
     ],
     'wrangle_dpw' => [],
@@ -82,10 +88,24 @@ function _insert_wrangler_view_rows(&$variables){
     $variables['rows'][$index]['sid'] = $view->webform->id() . '/' . $sid;
     $mails[] = $data['email'];
 
+    // Open actions in new window
+    $row['columns']['operations']['content'][0]['field_output']['#markup'] = str_replace(
+      '<a href', '<a target="_blank" href',
+      $row['columns']['operations']['content'][0]['field_output']['#markup']
+    );
+
     // Set form
     foreach(_editable($view_id) as $field=>$alias){
 
-      $field_form = $form['elements'][$field];
+      $field_form = array_shift(
+        array_filter(
+          [
+            $form['elements'][$field],
+            $form['elements']['admin'][$field],
+          ]
+        )
+      );
+
       $title = isset(_title($view_id)[$field]) ? _title($view_id)[$field] : NULL;
 
       if ($title != NULL){
