@@ -2,6 +2,10 @@ sanctuary.stats:
   route_name: afrikaburn_crew.wrangle.sanctuary
   title: Stats
   base_route: afrikaburn_crew.wrangle.sanctuary
+sanctuary.2020:
+  route_name: afrikaburn_crew.wrangle.sanctuary-2020
+  title: "2020"
+  base_route: afrikaburn_crew.wrangle.sanctuary
 sanctuary.2019:
   route_name: afrikaburn_crew.wrangle.sanctuary-2019
   title: "2019"
