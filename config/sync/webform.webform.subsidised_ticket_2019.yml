@@ -219,6 +219,7 @@ handlers:
       sender_mail: ''
       sender_name: ''
       theme_name: ''
+      parameters: {  }
   notification:
     id: email
     label: Notification
@@ -253,6 +254,7 @@ handlers:
       sender_mail: ''
       sender_name: ''
       theme_name: ''
+      parameters: {  }
   email:
     id: email
     label: 'Application granted'
@@ -310,6 +312,7 @@ handlers:
       sender_mail: ''
       sender_name: ''
       theme_name: ''
+      parameters: {  }
   application_granted:
     id: email
     label: 'Application rejected'
@@ -368,6 +371,7 @@ handlers:
       sender_mail: ''
       sender_name: ''
       theme_name: ''
+      parameters: {  }
   action:
     id: action
     label: 'Update last state'
