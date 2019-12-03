@@ -209,6 +209,7 @@ handlers:
       sender_mail: ''
       sender_name: ''
       theme_name: ''
+      parameters: {  }
   volunteer:
     id: email
     label: volunteer
@@ -243,3 +244,4 @@ handlers:
       sender_mail: ''
       sender_name: ''
       theme_name: ''
+      parameters: {  }
