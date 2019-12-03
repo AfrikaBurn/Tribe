@@ -30,7 +30,14 @@ class CrewController extends ControllerBase {
         ? $parts['name']
         : $field;
 
-      $definition = $elements[$field_name]['#type'];
+      $definition = @array_shift(
+        array_filter(
+          [
+            $elements[$field_name]['#type'],
+            $elements['admin'][$field_name]['#type']
+          ]
+        )
+      );
       $current = $target->getData()[$field_name];
 
       switch ($definition){
