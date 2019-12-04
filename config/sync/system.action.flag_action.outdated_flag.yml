@@ -2,12 +2,14 @@ uuid: 052b57ff-0879-471e-bed4-e353f9816a0d
 langcode: en
 status: true
 dependencies:
+  config:
+    - flag.flag.outdated
   module:
     - flag
-id: flag_action.outdated.flag
+id: flag_action.outdated_flag
 label: Outdated
 type: user
-plugin: 'flag_action:outdated.flag'
+plugin: 'flag_action:outdated_flag'
 configuration:
   flag_id: outdated
   flag_action: flag

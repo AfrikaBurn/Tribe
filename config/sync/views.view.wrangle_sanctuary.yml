@@ -79,13 +79,14 @@ display:
             webform_submission_value_3: webform_submission_value_2
             webform_submission_value_9: webform_submission_value_9
             webform_submission_value_7: webform_submission_value_9
-            webform_submission_value_1: webform_submission_value_1
-            webform_submission_value_6: webform_submission_value_1
+            webform_submission_value_6: webform_submission_value_6
             webform_submission_value_5: webform_submission_value_5
             webform_submission_value_8: webform_submission_value_8
             webform_submission_value_12: webform_submission_value_12
             webform_submission_value_10: webform_submission_value_12
             operations: operations
+            webform_submission_value_1: webform_submission_value_1
+            webform_submission_value_13: webform_submission_value_13
           info:
             sid:
               sortable: false
@@ -143,13 +144,6 @@ display:
               separator: ''
               empty_column: false
               responsive: ''
-            webform_submission_value_1:
-              sortable: true
-              default_sort_order: asc
-              align: ''
-              separator: '<hr />'
-              empty_column: false
-              responsive: ''
             webform_submission_value_6:
               sortable: true
               default_sort_order: asc
@@ -182,6 +176,20 @@ display:
               empty_column: false
               responsive: ''
             operations:
+              align: ''
+              separator: ''
+              empty_column: false
+              responsive: ''
+            webform_submission_value_1:
+              sortable: true
+              default_sort_order: asc
+              align: ''
+              separator: '<hr />'
+              empty_column: false
+              responsive: ''
+            webform_submission_value_13:
+              sortable: false
+              default_sort_order: asc
               align: ''
               separator: ''
               empty_column: false
@@ -2441,6 +2449,66 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: webform_submission_select_filter
+        webform_submission_value_1:
+          id: webform_submission_value_1
+          table: webform_submission_field_sanctuary_application_2020_region
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          operator: '='
+          value: ''
+          group: 1
+          exposed: true
+          expose:
+            operator_id: webform_submission_value_1_op
+            label: Location
+            description: ''
+            use_operator: false
+            operator: webform_submission_value_1_op
+            identifier: location
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              art_wrangler: '0'
+              art_admin: '0'
+              communications_wrangler: '0'
+              communications_admin: '0'
+              leave_no_trace_moop: '0'
+              mutant_vehicle_viewer: '0'
+              mutant_vehicle_wrangler: '0'
+              mutant_vehicle_admin: '0'
+              outreach_wrangler: '0'
+              outreach_admin: '0'
+              administrator: '0'
+              support_wrangler: '0'
+              support_admin: '0'
+              theme_camp_wrangler: '0'
+              theme: '0'
+              supplier: '0'
+              dpw: '0'
+              volunteer_admin: '0'
+              ranger_admin: '0'
+              sanctuary_admin: '0'
+              logger: '0'
+              anathi: '0'
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
+          plugin_id: webform_submission_computed_filter
       defaults:
         filters: false
         filter_groups: false
@@ -3294,6 +3362,58 @@ display:
           webform_multiple_value: true
           webform_multiple_delta: 0
           plugin_id: webform_submission_field_numeric
+        webform_submission_value_14:
+          id: webform_submission_value_14
+          table: webform_submission_field_sanctuary_application_2020_assign_wap
+          field: webform_submission_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          label: 'Assign WAP'
+          exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
+          element_type: ''
+          element_class: ''
+          element_label_type: ''
+          element_label_class: ''
+          element_label_colon: true
+          element_wrapper_type: ''
+          element_wrapper_class: ''
+          element_default_classes: true
+          empty: ''
+          hide_empty: false
+          empty_zero: false
+          hide_alter_empty: true
+          webform_element_format: details-closed
+          webform_multiple_value: true
+          webform_multiple_delta: 0
+          plugin_id: webform_submission_field
       sorts:
         sid:
           id: sid

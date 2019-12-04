@@ -2,12 +2,14 @@ uuid: 14487f41-faa8-4f6f-a240-b7911b576710
 langcode: en
 status: true
 dependencies:
+  config:
+    - flag.flag.invite
   module:
     - flag
-id: flag_action.invite.flag
+id: flag_action.invite_flag
 label: 'Flag this item'
 type: node
-plugin: 'flag_action:invite.flag'
+plugin: 'flag_action:invite_flag'
 configuration:
   flag_id: invite
   flag_action: flag

@@ -2,12 +2,14 @@ uuid: 9e2a1ff2-6b51-4bfb-b9c0-bfe29f15e8c8
 langcode: en
 status: true
 dependencies:
+  config:
+    - flag.flag.archived
   module:
     - flag
-id: flag_action.archived.unflag
+id: flag_action.archived_unflag
 label: 'Unarchive this item'
 type: node
-plugin: 'flag_action:archived.unflag'
+plugin: 'flag_action:archived_unflag'
 configuration:
   flag_id: archived
   flag_action: unflag
