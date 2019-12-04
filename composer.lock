@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "00d1096ee857853724ca1d4907a23683",
+    "content-hash": "ccde19c3b5e179db9f595ba705361cdf",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -7500,7 +7500,7 @@
                 },
                 "drupal": {
                     "version": "8.x-1.0-beta2",
-                    "datestamp": "1519655285",
+                    "datestamp": "1519655459",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Beta releases are not covered by Drupal security advisories."
@@ -14890,8 +14890,8 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "role": "Developer",
-                    "email": "arne@blankerts.de"
+                    "email": "arne@blankerts.de",
+                    "role": "Developer"
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
@@ -14953,7 +14953,7 @@
         "drupal/field_permissions": 5,
         "drupal/field_validation": 15,
         "drupal/filter_perms": 20,
-        "drupal/flag": 15,
+        "drupal/flag": 10,
         "drupal/formblock": 10,
         "drupal/gdpr": 15,
         "drupal/markup": 10,
