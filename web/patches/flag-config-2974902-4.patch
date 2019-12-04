@@ -1,0 +1,60 @@
+diff --git a/src/Entity/Flag.php b/src/Entity/Flag.php
+index af72055..454058c 100644
+--- a/src/Entity/Flag.php
++++ b/src/Entity/Flag.php
+@@ -504,6 +504,7 @@ class Flag extends ConfigEntityBundleBase implements FlagInterface {
+       // Rebuild views data to invalidate flag relationships.
+       \Drupal::service('views.views_data')->clear();
+     }
++    \Drupal::service('plugin.manager.action')->clearCachedDefinitions();
+   }
+ 
+   /**
+@@ -515,6 +516,7 @@ class Flag extends ConfigEntityBundleBase implements FlagInterface {
+       // Rebuild views data to invalidate flag relationships.
+       \Drupal::service('views.views_data')->clear();
+     }
++    \Drupal::service('plugin.manager.action')->clearCachedDefinitions();
+   }
+ 
+   /**
+diff --git a/src/Plugin/Action/FlagAction.php b/src/Plugin/Action/FlagAction.php
+index 6bc50cb..fc00f7b 100644
+--- a/src/Plugin/Action/FlagAction.php
++++ b/src/Plugin/Action/FlagAction.php
+@@ -2,7 +2,9 @@
+ 
+ namespace Drupal\flag\Plugin\Action;
+ 
++use Drupal\Component\Plugin\DependentPluginInterface;
+ use Drupal\Core\Action\ActionBase;
++use Drupal\Core\Entity\DependencyTrait;
+ use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
+ use Drupal\Core\Session\AccountInterface;
+ use Drupal\flag\FlagServiceInterface;
+@@ -17,7 +19,9 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
+  *   deriver = "Drupal\flag\Plugin\Derivative\EntityFlagActionDeriver"
+  * )
+  */
+-class FlagAction extends ActionBase implements ContainerFactoryPluginInterface {
++class FlagAction extends ActionBase implements ContainerFactoryPluginInterface, DependentPluginInterface {
++
++  use DependencyTrait;
+ 
+   /**
+    * The flag operation (flag or unflag).
+@@ -98,4 +102,14 @@ class FlagAction extends ActionBase implements ContainerFactoryPluginInterface {
+     }
+   }
+ 
++  /**
++   * {@inheritdoc}
++   */
++  public function calculateDependencies() {
++    if ($this->flag) {
++      $this->addDependency('config', $this->flag->getConfigDependencyName());
++    }
++    return $this->dependencies;
++  }
++
+ }
