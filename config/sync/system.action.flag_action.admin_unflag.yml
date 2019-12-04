@@ -2,12 +2,14 @@ uuid: 8c62f0b9-758a-4c5c-b715-92d40428acf6
 langcode: en
 status: true
 dependencies:
+  config:
+    - flag.flag.admin
   module:
     - flag
-id: flag_action.admin.unflag
+id: flag_action.admin_unflag
 label: 'Unflag this item'
 type: node
-plugin: 'flag_action:admin.unflag'
+plugin: 'flag_action:admin_unflag'
 configuration:
   flag_id: admin
   flag_action: unflag

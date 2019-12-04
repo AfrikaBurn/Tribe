@@ -17,6 +17,7 @@ function _editable($id){
         'ticket_allocated' => 'webform_submission_value_16',
         'welfare_allocated' => 'webform_submission_value_20',
         'transport_allocated' => 'webform_submission_value_18',
+        'status' => 'webform_submission_value_11',
       ],
     ]
   )[$id];
@@ -35,6 +36,7 @@ function _title($id){
         'ticket_allocated' => false,
         'welfare_allocated' => false,
         'transport_allocated' => false,
+        'status' => 'Status',
       ],
     ]
   )[$id];
@@ -47,6 +49,12 @@ function _merge(){
         'webform_submission_value_4',
         'webform_submission_value_15',
         'webform_submission_value_1',
+        'operations'
+      ],
+    ],
+    'wrangle_community_tna' => [
+      'administrative' => [
+        'webform_submission_value_11',
         'operations'
       ],
     ],

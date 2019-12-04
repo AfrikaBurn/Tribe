@@ -2,12 +2,14 @@ uuid: 0ffb07eb-cd6a-4d20-9fd1-48011793b446
 langcode: en
 status: true
 dependencies:
+  config:
+    - flag.flag.wap_ban
   module:
     - flag
-id: flag_action.wap_ban.unflag
+id: flag_action.wap_ban_unflag
 label: 'Allow user to receive WAP'
 type: user
-plugin: 'flag_action:wap_ban.unflag'
+plugin: 'flag_action:wap_ban_unflag'
 configuration:
   flag_id: wap_ban
   flag_action: unflag

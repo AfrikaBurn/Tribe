@@ -13,6 +13,7 @@ function _editable($id){
         'shifts_completed' => 'webform_submission_value_1',
         'status' => 'webform_submission_value_12',
         'approved_roles' => 'webform_submission_value_10',
+        'assign_wap' => 'webform_submission_value_14',
       ],
 
       'wrangle_dpw' => [
@@ -41,6 +42,7 @@ function _merge(){
       'administrative' => [
         'webform_submission_value_10',
         'webform_submission_value_12',
+        'webform_submission_value_14',
         'operations',
       ],
       'shifts' => [

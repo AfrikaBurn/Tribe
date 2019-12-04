@@ -2,12 +2,14 @@ uuid: fee52d28-3965-4bd6-a808-933a3036973d
 langcode: en
 status: true
 dependencies:
+  config:
+    - flag.flag.join
   module:
     - flag
-id: flag_action.join.flag
+id: flag_action.join_flag
 label: 'Flag this item'
 type: node
-plugin: 'flag_action:join.flag'
+plugin: 'flag_action:join_flag'
 configuration:
   flag_id: join
   flag_action: flag

@@ -2,12 +2,14 @@ uuid: 0f89368b-5c55-488b-ab76-37bad149dee6
 langcode: en
 status: true
 dependencies:
+  config:
+    - flag.flag.ban
   module:
     - flag
-id: flag_action.ban.flag
+id: flag_action.ban_flag
 label: 'Flag this item'
 type: node
-plugin: 'flag_action:ban.flag'
+plugin: 'flag_action:ban_flag'
 configuration:
   flag_id: ban
   flag_action: flag
