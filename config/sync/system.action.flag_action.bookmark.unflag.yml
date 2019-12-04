@@ -2,14 +2,12 @@ uuid: 2a6907d1-3cb4-4778-8b83-3e3a50a674f2
 langcode: en
 status: true
 dependencies:
-  config:
-    - flag.flag.bookmark
   module:
     - flag
-id: flag_action.bookmark_unflag
+id: flag_action.bookmark.unflag
 label: Forget
 type: node
-plugin: 'flag_action:bookmark_unflag'
+plugin: 'flag_action:bookmark.unflag'
 configuration:
   flag_id: bookmark
   flag_action: unflag

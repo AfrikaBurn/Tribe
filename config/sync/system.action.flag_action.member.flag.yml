@@ -2,14 +2,12 @@ uuid: 913bee19-b6db-4338-b913-347de56e2d8b
 langcode: en
 status: true
 dependencies:
-  config:
-    - flag.flag.member
   module:
     - flag
-id: flag_action.member_flag
+id: flag_action.member.flag
 label: 'Flag this item'
 type: node
-plugin: 'flag_action:member_flag'
+plugin: 'flag_action:member.flag'
 configuration:
   flag_id: member
   flag_action: flag

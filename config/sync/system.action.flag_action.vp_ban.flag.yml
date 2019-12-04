@@ -2,14 +2,12 @@ uuid: 737c32ba-32d3-4bae-99b7-fe6c40a881ad
 langcode: en
 status: true
 dependencies:
-  config:
-    - flag.flag.vp_ban
   module:
     - flag
-id: flag_action.vp_ban_flag
+id: flag_action.vp_ban.flag
 label: 'VP capable'
 type: user
-plugin: 'flag_action:vp_ban_flag'
+plugin: 'flag_action:vp_ban.flag'
 configuration:
   flag_id: vp_ban
   flag_action: flag

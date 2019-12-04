@@ -2,14 +2,12 @@ uuid: dbd46e9e-9cd3-4c73-b86a-39d2f86e5d4f
 langcode: en
 status: true
 dependencies:
-  config:
-    - flag.flag.join
   module:
     - flag
-id: flag_action.join_unflag
+id: flag_action.join.unflag
 label: 'Unflag this item'
 type: node
-plugin: 'flag_action:join_unflag'
+plugin: 'flag_action:join.unflag'
 configuration:
   flag_id: join
   flag_action: unflag
