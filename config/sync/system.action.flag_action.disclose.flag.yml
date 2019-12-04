@@ -2,14 +2,12 @@ uuid: 4f0be530-3a3a-4332-a809-4810dc7bc1dd
 langcode: en
 status: true
 dependencies:
-  config:
-    - flag.flag.disclose
   module:
     - flag
-id: flag_action.disclose_flag
+id: flag_action.disclose.flag
 label: Show
 type: node
-plugin: 'flag_action:disclose_flag'
+plugin: 'flag_action:disclose.flag'
 configuration:
   flag_id: disclose
   flag_action: flag

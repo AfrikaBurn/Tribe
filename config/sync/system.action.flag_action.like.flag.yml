@@ -2,14 +2,12 @@ uuid: 357b3918-6db1-40c2-855c-fd8c451b3d4a
 langcode: en
 status: true
 dependencies:
-  config:
-    - flag.flag.like
   module:
     - flag
-id: flag_action.like_flag
+id: flag_action.like.flag
 label: 'Like this item'
 type: comment
-plugin: 'flag_action:like_flag'
+plugin: 'flag_action:like.flag'
 configuration:
   flag_id: like
   flag_action: flag

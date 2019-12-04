@@ -2,14 +2,12 @@ uuid: b1706b5d-a331-4390-a995-83d32815862e
 langcode: en
 status: true
 dependencies:
-  config:
-    - flag.flag.member
   module:
     - flag
-id: flag_action.member_unflag
+id: flag_action.member.unflag
 label: 'Unflag this item'
 type: node
-plugin: 'flag_action:member_unflag'
+plugin: 'flag_action:member.unflag'
 configuration:
   flag_id: member
   flag_action: unflag
