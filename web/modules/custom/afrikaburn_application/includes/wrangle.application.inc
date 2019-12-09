@@ -71,12 +71,7 @@ function _prepare_wrangler_view(&$variables){
   $name = $view->id();
   $form_id = array_shift($view->filter['webform_id']->value);
 
-  $webform;
-  // if (!$webform){
-    $webform = \Drupal::entityTypeManager()->getStorage('webform')->load($form_id);
-  // }
-
-  $view->webform = $webform;
+  $view->webform = \Drupal::entityTypeManager()->getStorage('webform')->load($form_id);
 }
 
 /**

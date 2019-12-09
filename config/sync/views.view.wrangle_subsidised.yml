@@ -1941,7 +1941,7 @@ display:
             description: ''
             use_operator: false
             operator: webform_submission_value_1_op
-            identifier: searchwrangler
+            identifier: wrangler
             required: false
             remember: false
             multiple: false
