@@ -259,7 +259,7 @@ handlers:
       from_mail: _default
       from_options: {  }
       from_name: _default
-      subject: 'Anathi Ticket Approved'
+      subject: 'Community Access Grant Application'
       body: "Yay! Your Anathi ticket application has been approved.\r\n\r\nYou may find a link to purchase it on <a href=\"tribe.afrikaburn.com/tickets\">your tickets page</a>.\r\n\r\nPlease mail <a href = \"mailto:illumanathi@afrikaburn.com\">illumanathi@afrikaburn.com</a> if you get stuck!"
       excluded_elements: {  }
       ignore_access: false
@@ -299,7 +299,7 @@ handlers:
       from_mail: _default
       from_options: {  }
       from_name: _default
-      subject: 'Anathi Ticket'
+      subject: 'Community Access Grant Application'
       body: "Your Anathi ticket application has unfortunately been unsuccessful.\r\n\r\nPlease mail <a href = \"mailto:illumanathi@afrikaburn.com\">illumanathi@afrikaburn.com</a> if you require more information."
       excluded_elements: {  }
       ignore_access: false
