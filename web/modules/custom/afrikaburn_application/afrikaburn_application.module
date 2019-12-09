@@ -93,12 +93,16 @@ function afrikaburn_application_form_views_exposed_form_alter(&$form, $form_stat
  */
 function afrikaburn_application_after_build($form, $form_state) {
   $view = $form_state->getStorage('view')['view'];
-  if ($view->storage->get('id') == 'wrangle_subsidised'){
-    $form['status']['#options']['All'] = '- any review state -';
-    $form['searchwrangler']['#options'] =
-      [
-        'All' => t('- any wrangler -'),
-      ] + $form['searchwrangler']['#options'];
+
+  switch($view->storage->get('id')){
+    case 'wrangle_subsidised':
+      $form['wrangler']['#options'] =
+        [
+          'All' => t('- any wrangler -'),
+        ] + $form['wrangler']['#options'];
+    case 'wrangle_community_tna':
+      $form['status']['#options']['All'] = '- any review state -';
   }
+
   return $form;
 }
