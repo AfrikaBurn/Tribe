@@ -71,10 +71,10 @@ function _prepare_wrangler_view(&$variables){
   $name = $view->id();
   $form_id = array_shift($view->filter['webform_id']->value);
 
-  static $webform;
-  if (!$webform){
+  $webform;
+  // if (!$webform){
     $webform = \Drupal::entityTypeManager()->getStorage('webform')->load($form_id);
-  }
+  // }
 
   $view->webform = $webform;
 }
@@ -91,14 +91,14 @@ function _insert_wrangler_view_rows(&$variables){
 
     $sid = $view->result[$index]->sid;
     $submission = \Drupal\webform\Entity\WebformSubmission::load($sid);
-    $data = $submission->getData();
-    $form = $view->webform->getSubmissionForm(['data' => $data]);
+    $form = \Drupal::service('entity.form_builder')->getForm($submission, 'edit');
     $variables['rows'][$index]['sid'] = $view->webform->id() . '/' . $sid;
 
     // Set form
     foreach(_editable($view_id) as $field=>$alias){
 
       $field_form = $form['elements']['administrative'][$field];
+
       $title = isset(_title($view_id)[$field]) ? _title($view_id)[$field] : NULL;
 
       if ($title !== NULL){

@@ -95,10 +95,10 @@ function afrikaburn_application_after_build($form, $form_state) {
   $view = $form_state->getStorage('view')['view'];
   if ($view->storage->get('id') == 'wrangle_subsidised'){
     $form['status']['#options']['All'] = '- any review state -';
-    $form['wrangler']['#options'] =
+    $form['searchwrangler']['#options'] =
       [
         'All' => t('- any wrangler -'),
-      ] + $form['wrangler']['#options'];
+      ] + $form['searchwrangler']['#options'];
   }
   return $form;
 }
