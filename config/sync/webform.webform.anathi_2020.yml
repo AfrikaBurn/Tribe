@@ -1,3 +1,4 @@
+uuid: f1369ea6-f32b-4676-a49c-93304531b7e3
 langcode: en
 status: open
 dependencies:
@@ -209,7 +210,7 @@ handlers:
     settings:
       states:
         - completed
-      to_mail: outreach@afrikaburn.com
+      to_mail: illumanathi@afrikaburn.com
       to_options: {  }
       cc_mail: ''
       cc_options: {  }
@@ -332,4 +333,3 @@ handlers:
       ticket_id:
         main_anathi_id: main_anathi_id
         main_sub_id: 0
-uuid: f1369ea6-f32b-4676-a49c-93304531b7e3
