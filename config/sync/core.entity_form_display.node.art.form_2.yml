@@ -10,6 +10,8 @@ dependencies:
     - field.field.node.art.field_arteria_checkin
     - field.field.node.art.field_burn_can_be_denied
     - field.field.node.art.field_collective
+    - field.field.node.art.field_ddts
+    - field.field.node.art.field_ddts_allowed
     - field.field.node.art.field_footprint_diameter
     - field.field.node.art.field_footprint_length
     - field.field.node.art.field_footprint_specification
@@ -148,6 +150,8 @@ dependencies:
     - field.field.node.art.field_sup_review
     - field.field.node.art.field_this_is_the_amount_of_mone
     - field.field.node.art.field_vp_ea
+    - field.field.node.art.field_vps
+    - field.field.node.art.field_vps_allowed
     - field.field.node.art.field_waps
     - field.field.node.art.field_waps_allowed
     - field.field.node.art.field_year_cycle
@@ -158,7 +162,6 @@ dependencies:
     - entity_reference_views_select
     - field_group
     - markup
-    - time_range
 third_party_settings:
   field_group:
     group_administrative:
@@ -223,8 +226,6 @@ third_party_settings:
         - field_prj_snd_specs
         - field_prj_snd_description
         - field_prj_snd_setup_date
-        - field_snd_playtime_mon_wed
-        - field_snd_playtime_thurs_sun
         - field_snd_bass_bins
         - field_arteria_checkin
         - field_prj_snd_rangers
@@ -705,18 +706,6 @@ content:
     settings:
       display_label: true
     third_party_settings: {  }
-  field_snd_playtime_mon_wed:
-    type: time_range
-    weight: 7
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  field_snd_playtime_thurs_sun:
-    type: time_range
-    weight: 8
-    region: content
-    settings: {  }
-    third_party_settings: {  }
   field_year_cycle:
     type: computed_number_widget
     weight: 7
@@ -728,6 +717,8 @@ hidden:
   field_admin_comments: true
   field_allow_support_camp: true
   field_api_content_type: true
+  field_ddts: true
+  field_ddts_allowed: true
   field_footprint_diameter: true
   field_footprint_length: true
   field_footprint_specification: true
@@ -823,10 +814,14 @@ hidden:
   field_prj_wtf_short: true
   field_prj_wtf_short_copy: true
   field_prj_wtf_website: true
+  field_snd_playtime_mon_wed: true
+  field_snd_playtime_thurs_sun: true
   field_sound_motivation: true
   field_sup_review: true
   field_this_is_the_amount_of_mone: true
   field_vp_ea: true
+  field_vps: true
+  field_vps_allowed: true
   field_waps: true
   field_waps_allowed: true
   path: true
