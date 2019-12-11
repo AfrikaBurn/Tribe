@@ -218,8 +218,8 @@ handlers:
       bcc_options: {  }
       from_mail: _default
       from_options: {  }
-      from_name: '[webform_submission:values:email:raw]'
-      subject: 'Community Access Grant Application'
+      from_name: _default
+      subject: 'Anathi Ticket and Access Grant'
       body: _default
       excluded_elements: {  }
       ignore_access: true
