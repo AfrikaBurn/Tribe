@@ -22,10 +22,7 @@ label: 'What is your preferred day and time to burn your piece?'
 description: 'We will try and accommodate your desired slot as much as possible but retain the right to schedule your burn according to what works in terms of availability of emergency services...and of course there is weather.'
 required: false
 translatable: false
-default_value:
-  -
-    default_date_type: relative
-    default_date: '27 April 2018 13:00:00'
+default_value: {  }
 default_value_callback: ''
 settings: {  }
 field_type: datetime
