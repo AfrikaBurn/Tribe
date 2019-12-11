@@ -1,3 +1,4 @@
+uuid: 166a41f7-2685-4949-bfb6-88b3dedc9487
 langcode: en
 status: open
 dependencies:
@@ -175,7 +176,6 @@ access:
   administer:
     roles:
       - administrator
-      - supplier
     users: {  }
     permissions: {  }
   test:
@@ -473,4 +473,3 @@ handlers:
       sender_name: ''
       theme_name: ''
       parameters: {  }
-uuid: 166a41f7-2685-4949-bfb6-88b3dedc9487
