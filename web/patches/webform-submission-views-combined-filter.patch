@@ -1,0 +1,16 @@
+Index: public/modules/contrib/webform_views/src/WebformElementViews/WebformDefaultViews.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- public/modules/contrib/webform_views/src/WebformElementViews/WebformDefaultViews.php	(revision 4b418b807efec3eb392cb9a22885798122efbf9e)
++++ public/modules/contrib/webform_views/src/WebformElementViews/WebformDefaultViews.php	(date 1535033198000)
+@@ -35,6 +35,8 @@
+       ];
+     }
+ 
++    $views_data['field']['real field'] = 'value';
++
+     return $views_data;
+   }
+ 
