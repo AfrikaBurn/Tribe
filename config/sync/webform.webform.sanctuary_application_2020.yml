@@ -229,7 +229,7 @@ handlers:
     settings:
       states:
         - completed
-      to_mail: catherine@afrikaburn.com
+      to_mail: sanctuary@afrikaburn.com
       to_options: {  }
       cc_mail: shared@afrikaburn.com
       cc_options: {  }
@@ -239,7 +239,7 @@ handlers:
       from_options: {  }
       from_name: _default
       subject: _default
-      body: "\n{{ webform_token('[webform_submission:values]', webform_submission) }}\n"
+      body: "{{ webform_token('[webform_submission:values]', webform_submission) }}\r\n"
       excluded_elements: {  }
       ignore_access: false
       exclude_empty: true

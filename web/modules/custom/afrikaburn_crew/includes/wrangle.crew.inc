@@ -104,6 +104,7 @@ function _insert_wrangler_view_rows(&$variables){
           [
             $form['elements'][$field],
             $form['elements']['admin'][$field],
+            $form['elements']['administrative'][$field],
           ]
         )
       );
