@@ -163,14 +163,12 @@ access:
     users: {  }
     permissions: {  }
   update_own:
-    roles:
-      - authenticated
+    roles: {  }
     users: {  }
     permissions: {  }
   delete_own:
     roles:
       - administrator
-      - supplier
     users: {  }
     permissions: {  }
   administer:
