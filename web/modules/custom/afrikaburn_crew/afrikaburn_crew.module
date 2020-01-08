@@ -75,3 +75,17 @@ function afrikaburn_crew_preprocess_views_view_table(&$variables) {
     break;
   }
 }
+
+
+/* ----- Render hooks ----- */
+
+
+/**
+* Implements hook_views_pre_render().
+*/
+function afrikaburn_crew_views_pre_render($view) {
+  if ($view->id() == 'wrangle_sanctuary') {
+    $view->element['#attached']['library'][] = 'webform/webform.states';
+    $view->element['#attached']['library'][] = 'webform/webform.element.date';
+  }
+}
