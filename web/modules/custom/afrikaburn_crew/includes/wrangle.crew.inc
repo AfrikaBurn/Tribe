@@ -9,6 +9,9 @@ function _editable($id){
   return (
     [
       'wrangle_sanctuary' => [
+        'arriving' => 'webform_submission_value_15',
+        'departing' => 'webform_submission_value_16',
+        'rsvp' => 'webform_submission_value_17',
         'signed_up_shifts' => 'webform_submission_value_13',
         'shifts_completed' => 'webform_submission_value_1',
         'status' => 'webform_submission_value_12',
@@ -40,12 +43,15 @@ function _merge(){
   return [
     'wrangle_sanctuary' => [
       'administrative' => [
+        'webform_submission_value_17',
         'webform_submission_value_10',
         'webform_submission_value_12',
         'webform_submission_value_14',
         'operations',
       ],
       'shifts' => [
+        'webform_submission_value_15',
+        'webform_submission_value_16',
         'webform_submission_value_13',
         'webform_submission_value_1',
       ],

@@ -34,7 +34,8 @@ class CrewController extends ControllerBase {
         array_filter(
           [
             $elements[$field_name]['#type'],
-            $elements['admin'][$field_name]['#type']
+            $elements['admin'][$field_name]['#type'],
+            $elements['administrative'][$field_name]['#type'],
           ]
         )
       );
