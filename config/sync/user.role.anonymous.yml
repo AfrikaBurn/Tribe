@@ -31,4 +31,5 @@ permissions:
   - 'edit own field_consent_form'
   - 'flag updated'
   - 'search content'
+  - 'use oauth2 server'
   - 'use user.register form mode'
