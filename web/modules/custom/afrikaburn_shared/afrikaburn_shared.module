@@ -17,7 +17,10 @@ use Drupal\views\Plugin\views\join;
  * Hooked to redirect users to the home page
  */
 function afrikaburn_shared_user_login($account){
-  if (\Drupal::service('path.current')->getPath() == '/user/login'){
+  if (
+    \Drupal::service('path.current')->getPath() == '/user/login' &&
+    !\Drupal::request()->query->get('destination')
+  ){
     $response = new Symfony\Component\HttpFoundation\RedirectResponse(\Drupal::url('<front>'));
     $response->send();
   }

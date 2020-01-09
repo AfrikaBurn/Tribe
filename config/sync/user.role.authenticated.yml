@@ -182,6 +182,7 @@ permissions:
   - 'use node.vps form mode'
   - 'use node.wangler_overview form mode'
   - 'use node.waps form mode'
+  - 'use oauth2 server'
   - 'use text format basic_html'
   - 'use user.default form mode'
   - 'use user.register form mode'

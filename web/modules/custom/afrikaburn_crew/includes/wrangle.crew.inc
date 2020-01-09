@@ -17,6 +17,10 @@ function _editable($id){
         'status' => 'webform_submission_value_12',
         'approved_roles' => 'webform_submission_value_10',
         'assign_wap' => 'webform_submission_value_14',
+        'camping' => 'webform_submission_value_18',
+        'meals' => 'webform_submission_value_19',
+        'ticket' => 'webform_submission_value_20',
+        'transport' => 'webform_submission_value_21',
       ],
 
       'wrangle_dpw' => [
@@ -43,17 +47,25 @@ function _merge(){
   return [
     'wrangle_sanctuary' => [
       'administrative' => [
-        'webform_submission_value_17',
+        'operations',
         'webform_submission_value_10',
         'webform_submission_value_12',
-        'webform_submission_value_14',
-        'operations',
       ],
       'shifts' => [
-        'webform_submission_value_15',
-        'webform_submission_value_16',
+        'webform_submission_value_17',
         'webform_submission_value_13',
         'webform_submission_value_1',
+      ],
+      'dates' => [
+        'webform_submission_value_15',
+        'webform_submission_value_16',
+        'webform_submission_value_14',
+      ],
+      'logistics' => [
+        'webform_submission_value_20',
+        'webform_submission_value_21',
+        'webform_submission_value_18',
+        'webform_submission_value_19',
       ],
     ],
     'wrangle_dpw' => [],
