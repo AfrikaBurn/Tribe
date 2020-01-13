@@ -1,0 +1,8 @@
+uuid: 300d8708-c826-47f3-9045-4606edc61b05
+langcode: en
+status: true
+dependencies: {  }
+id: rocket_chat_openid
+scope_id: openid
+server_id: rocket_chat
+description: 'Know who you are on AfrikaBurn Tribe'

@@ -1,0 +1,8 @@
+uuid: ffa3ba71-b664-449a-8040-586e550bca4b
+langcode: en
+status: true
+dependencies: {  }
+id: rocket_chat_profile
+scope_id: profile
+server_id: rocket_chat
+description: 'View basic information about your account.'
