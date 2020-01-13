@@ -1,0 +1,8 @@
+uuid: 69cd83fb-901b-4ff5-909e-a0a4d5d28c51
+langcode: en
+status: true
+dependencies: {  }
+id: rocket_chat_email
+scope_id: email
+server_id: rocket_chat
+description: 'View your email address.'

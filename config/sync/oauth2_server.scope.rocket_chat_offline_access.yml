@@ -1,0 +1,8 @@
+uuid: 28e04a16-eee2-4c8b-b04c-7fd5699b5d50
+langcode: en
+status: true
+dependencies: {  }
+id: rocket_chat_offline_access
+scope_id: offline_access
+server_id: rocket_chat
+description: 'Access the API when you''re not present.'

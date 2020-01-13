@@ -1,0 +1,22 @@
+uuid: 1da7325e-de3c-4052-ae5b-b4719c91f9ec
+langcode: en
+status: true
+dependencies: {  }
+client_id: 9876trfbji765rfvt54edf5efghi8up9iuhgr432sxcv
+server_id: rocket_chat
+name: Rocket.Chat
+client_secret: $S$EH80l8qQYJgtVC94bB3Ky/omfxEKYVpkGnbleZ7BJA007Kym2I9K
+public_key: ''
+redirect_uri: 'http://localhost:3000/_oauth/drupal'
+automatic_authorization: true
+settings:
+  override_grant_types: false
+  allow_implicit: false
+  grant_types:
+    authorization_code: authorization_code
+    refresh_token: refresh_token
+    client_credentials: '0'
+    'urn:ietf:params:oauth:grant-type:jwt-bearer': '0'
+    password: '0'
+  always_issue_new_refresh_token: false
+  unset_refresh_token_after_use: true

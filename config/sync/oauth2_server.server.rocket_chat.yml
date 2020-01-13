@@ -1,0 +1,26 @@
+uuid: 1a6fdabf-66b0-4660-8010-094328082330
+langcode: en
+status: true
+dependencies: {  }
+server_id: rocket_chat
+name: Rocket.Chat
+settings:
+  enforce_state: true
+  default_scope: rocket_chat_basic
+  allow_implicit: false
+  use_openid_connect: true
+  use_crypto_tokens: false
+  grant_types:
+    authorization_code: authorization_code
+    client_credentials: '0'
+    'urn:ietf:params:oauth:grant-type:jwt-bearer': '0'
+    refresh_token: '0'
+    password: '0'
+  always_issue_new_refresh_token: false
+  unset_refresh_token_after_use: true
+  advanced_settings:
+    access_lifetime: 3600
+    id_lifetime: 3600
+    refresh_token_lifetime: 1209600
+    require_exact_redirect_uri: false
+module: null

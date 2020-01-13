@@ -1,0 +1,8 @@
+uuid: c06a849e-7f45-4992-9eb0-8b2b4ce600b2
+langcode: en
+status: true
+dependencies: {  }
+id: rocket_chat_basic
+scope_id: basic
+server_id: rocket_chat
+description: 'Rocket.Chat login'
