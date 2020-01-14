@@ -4,7 +4,7 @@ afrikaburn_crew.update:
     _controller: '\Drupal\afrikaburn_crew\Controller\CrewController::update'
   requirements:
     cid: '^[0-9]+'
-    _role: sanctuary_wrangler + dpw
+    _role: sanctuary_admin + dpw
 
 afrikaburn_crew.wrangle.sanctuary:
   path: '/wrangle/crew/sanctuary'
