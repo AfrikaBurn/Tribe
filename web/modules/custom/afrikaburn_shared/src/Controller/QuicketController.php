@@ -77,7 +77,7 @@ class QuicketController extends ControllerBase {
               $response_object->result,
               $response_object->results,
               $response_string
-            ]
+            ], function($value) { return is_array($value) || $value; }
           )
         );
       }
@@ -218,7 +218,7 @@ class QuicketController extends ControllerBase {
    *   ]
    * @param mixed $comp_id    id or array of ids of comp ticket(s) to send.
    * @param $num_uses         number of uses. Optional, defaults to 1.
-   * @param array $event_id   id of event in which the comp lives.
+   * @param $event_id         id of event in which the comp lives.
    *                          Defaults to main event id.
    */
   public static function sendComps($comps, $comp_id, $num_uses = 1, $event_id = FALSE){
@@ -248,6 +248,23 @@ class QuicketController extends ControllerBase {
         'IsRsvp' => FALSE,
         'SendMails' => TRUE,
       ]
+    );
+  }
+
+  /**
+   * Searches Complimentary tickets existing on Quicket
+   * @param $term       Term to search for.
+   * @param $event_id   id of event in which the comp lives.
+   *                    Defaults to main event id.
+   */
+  public static function searchComps($term, $event_id = FALSE){
+
+    $config = \Drupal::config('afrikaburn_shared.quicket');
+    $event_id = $event_id ? $event_id : $config->get('main_id');
+
+    return self::request(
+      'GET',
+      'events/' . $event_id . '/guests?search=' . $term
     );
   }
 
