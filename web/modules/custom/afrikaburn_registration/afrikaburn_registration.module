@@ -540,12 +540,24 @@ function afrikaburn_registration_wap_validate($form, $form_state){
   $allowed = (int)$registration->field_waps_allowed->value;
   $assigned = count($registration->field_waps);
   $new = 0;
+  $wap_event = \Drupal::config('afrikaburn_shared.quicket')->get('wap_id');
+  $config = \Drupal::config('afrikaburn_shared.quicket');
+  $wap_id = $event_id ? $event_id : $config->get('wap_id');
+
+  $users = @User::loadMultiple(array_filter(array_column($values['waps'], 'member')));
 
   foreach($values['waps'] as $i=>$wap){
     if ($wap['member']){
       if (!$wap['arrives']){
         $form_state->setError($form['waps'][$i]['arrives'], t('You must estimate when this member will arrive!'));
       }
+
+      $has_wap = QuicketController::searchComps($users[$values['waps'][$i]['member']]->field_id_number->value, $wap_id);
+
+      if (count($has_wap)){
+        $form_state->setError($form['waps'][$i]['member'], t('This member already has a WAP!'));
+      }
+
       $new ++;
     }
   }
@@ -573,6 +585,7 @@ function afrikaburn_registration_wap_send($form, $form_state){
       'FirstName' => $user->field_first_name->value,
       'Surname' => $user->field_last_name->value,
       'Email' => $user->field_email->value,
+      'IDPassport' => $user->field_id_number->value,
     ];
   }
 

@@ -138,7 +138,7 @@ function _insert_wrangler_view_rows(&$variables){
           unset($field_form['#admin_title']);
         }
       }
-      $field_form['#attributes']['autocomplete'] = "off";
+      $field_form['#attributes']['autocomplete'] = 'disable';
 
       $row['columns'][$alias]['content'][0]['field_output'] = render($field_form);
     }
