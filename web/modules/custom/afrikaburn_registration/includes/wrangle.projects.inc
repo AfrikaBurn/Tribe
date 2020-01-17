@@ -338,7 +338,7 @@ function ab_insert_wrangler_view_rows(&$variables, $comments, $merge, $editable)
     // Move form
     if ($editable){
       foreach(_editable($view->id()) as $field){
-        if ($view->field[$field]){
+        if (isset($view->field[$field])){
           $row['columns'][$field]['content'][0]['field_output'] = $view->editor[$index][$field];
         }
       }
