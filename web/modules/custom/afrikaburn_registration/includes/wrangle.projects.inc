@@ -230,7 +230,7 @@ function ab_prepare_wrangler_view(&$variables){
     ];
 
     foreach(_editable($view->id()) as $field){
-      if ($view->field[$field]){
+      if (isset($view->field[$field])){
         $field_form = @array_shift(
           array_filter(
             [
