@@ -85,6 +85,14 @@ function afrikaburn_bio_form_user_form_alter(&$form, $form_state, $form_id){
   // Hide email retype on user create
   $form['field_email_retype']['#access'] = \Drupal::currentUser()->isAnonymous();
 
+  $form['account']['mail']['#description'] = t('
+    <ul>
+    <li>A valid email address that <strong>does not end in .de</strong></li>
+    <li>All emails from the system will be sent to this address.</li>
+    <li>The email address is not made public and will only be used if you wish to receive a new password or wish to receive certain news or notifications by email.</li>
+    </ul>
+  ');
+
   // Add ID, email validation
   if (in_array($form_id, ['user_form', 'user_register_form'])) {
     $form['#validate'][] = 'afrikaburn_bio_user_id_validate';
@@ -193,10 +201,18 @@ function afrikaburn_bio_user_presave($user){
  * ID number validation
  */
 function afrikaburn_bio_username_validate($form, &$form_state) {
+
   if (preg_match('/[^@]+@[^\.]+\..+/', $form_state->getValue('name'))){
     $form_state->setErrorByName(
       'name',
       t('Please do not use an email address, your user name is visible to other participants!')
+    );
+  }
+
+  if (preg_match('/.+\.de$/', $form_state->getValue('mail'))) {
+    $form_state->setErrorByName(
+      'mail',
+      t('This email address end in .de - mail filters in german ISPs block our system mails. Please use a different email address.')
     );
   }
 }
