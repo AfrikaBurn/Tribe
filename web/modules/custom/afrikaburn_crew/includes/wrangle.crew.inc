@@ -21,6 +21,10 @@ function _editable($id){
         'meals' => 'webform_submission_value_19',
         'ticket' => 'webform_submission_value_20',
         'transport' => 'webform_submission_value_21',
+        'camping_done' => 'webform_submission_value_22',
+        'meals_done' => 'webform_submission_value_23',
+        'ticket_done' => 'webform_submission_value_24',
+        'transport_done' => 'webform_submission_value_25',
       ],
 
       'wrangle_dpw' => [
@@ -35,6 +39,10 @@ function _title($id){
     [
       'wrangle_sanctuary' => [
         'status' => FALSE,
+        'camping_done' => FALSE,
+        'meals_done' => FALSE,
+        'ticket_done' => FALSE,
+        'transport_done' => FALSE,
       ],
       'wrangle_dpw' => [
         'status' => FALSE,
@@ -62,10 +70,16 @@ function _merge(){
         'webform_submission_value_14',
       ],
       'logistics' => [
+
+        'webform_submission_value_24',
         'webform_submission_value_20',
+        'webform_submission_value_25',
         'webform_submission_value_21',
+        'webform_submission_value_22',
         'webform_submission_value_18',
+        'webform_submission_value_23',
         'webform_submission_value_19',
+
       ],
     ],
     'wrangle_dpw' => [],

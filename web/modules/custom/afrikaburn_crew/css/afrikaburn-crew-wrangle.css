@@ -93,3 +93,28 @@
   border: none;
   padding: 0;
 }
+
+.wrangler-view table .column-logistics .form-type-checkbox{
+  float: right;
+  width: 10%;
+  margin: 23px 0 0;
+}
+
+.column-logistics .form-type-checkbox label{
+  display: none;
+}
+
+.column-logistics .form-type-select{
+  width: 80%;
+  clear: left;
+}
+
+.column-logistics .form-type-select select{
+  width: 100%;
+}
+
+.column-logistics .form-type-select:after{
+  clear: both;
+  content: ' ';
+  display: block;
+}
