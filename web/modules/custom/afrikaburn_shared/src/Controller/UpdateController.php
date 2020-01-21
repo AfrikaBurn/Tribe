@@ -41,7 +41,7 @@ class UpdateController extends ControllerBase {
   }
 
   public static function resaveUser($uid, &$context) {
-    $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid)->save();
+    \Drupal::entityTypeManager()->getStorage('user')->load($uid)->save();
     $context['results'][] = 1;
   }
 
@@ -135,8 +135,7 @@ class UpdateController extends ControllerBase {
   }
 
   public static function regenerateQuicketDatum($uid, &$context) {
-    $user = \Drupal::entityTypeManager()->getStorage('user')->load($uid);
-    $user->save();
+    \Drupal::entityTypeManager()->getStorage('user')->load($uid)->save();
     $context['results'][] = 1;
   }
 
@@ -226,6 +225,47 @@ class UpdateController extends ControllerBase {
         ? \Drupal::translation()->formatPlural(
             count($results),
             'One user resaved.', '@count users added.'
+          )
+        : t('Finished with errors.')
+    );
+  }
+
+
+  /* ----- Resave webform ----- */
+
+
+  /**
+   * Resave all webform results
+   */
+  public static function resaveWebformResults($webform_id, $batch_size){
+    $sids = db_query('SELECT sid FROM {webform_submission} WHERE webform_id = ?', [$webform_id])->fetchCol();
+    $batch = [
+      'title' => t('Resaving Webform Submissions...'),
+      'operations' => [],
+      'progress_message' => t('Resaving @current out of @total.'),
+      'error_message'    => t('An error occurred during processing'),
+      'finished' => '\Drupal\afrikaburn_shared\Controller\UpdateController::WebformResaved',
+    ];
+    foreach($sids as $sid){
+      $batch['operations'][] = [
+        '\Drupal\afrikaburn_shared\Controller\UpdateController::resaveWebformResult',
+        [$sid]
+      ];
+    }
+    batch_set($batch);
+  }
+
+  public static function resaveWebformResult($sid, &$context) {
+    \Drupal::entityTypeManager()->getStorage('webform_submission')->load($sid)->save();
+    $context['results'][] = 1;
+  }
+
+  public static function WebformResaved($success, $results, $operations) {
+    drupal_set_message(
+      $success
+        ? \Drupal::translation()->formatPlural(
+            count($results),
+            'One Webform Submission resaved.', '@count Webform Submissions resaved.'
           )
         : t('Finished with errors.')
     );

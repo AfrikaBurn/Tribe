@@ -44,6 +44,7 @@ class AfrikaBurnSettings extends ConfigFormBase {
 
     $settings = $this->config('afrikaburn_shared.settings');
     $quickstart = $this->config('afrikaburn_shared.quickstart');
+    $webforms = \Drupal::entityTypeManager()->getStorage('webform')->loadMultiple();
 
     $form['tabs'] = [
       '#type' => 'horizontal_tabs',
@@ -103,6 +104,20 @@ class AfrikaBurnSettings extends ConfigFormBase {
           ['#type' => 'submit', '#value' => 'I know what I\'m doing, Assimilate!'],
         ],
 
+        'resave-webform-results' => [
+          '#type' => 'details',
+          '#title' => 'Resave Webform Results',
+          'webform' => [
+            '#title' => 'Webform:',
+            '#type' => 'select',
+            '#options' => array_map(
+              function($webform){ return $webform->get('title'); },
+              $webforms
+            ),
+          ],
+          ['#type' => 'submit', '#value' => 'Resave results!'],
+        ],
+
         'batch-size' => [
           '#type' => 'select',
           '#title' => 'Batch size',
@@ -132,13 +147,16 @@ class AfrikaBurnSettings extends ConfigFormBase {
         UpdateController::wipeQuicket();
       break;
       case $actions['regenerate'][0]['#value']:
-        UpdateController::regenerateQuicketData($values('batch-size'));
+        UpdateController::regenerateQuicketData($values['batch-size']);
       break;
       case $actions['resave'][0]['#value']:
-        UpdateController::resaveUsers($values('batch-size'));
+        UpdateController::resaveUsers($values['batch-size']);
       break;
       case $actions['assimilate'][0]['#value']:
-        UpdateController::addTribeMembers($values('batch-size'));
+        UpdateController::addTribeMembers($values['batch-size']);
+      break;
+      case $actions['resave-webform-results'][0]['#value']:
+        UpdateController::resaveWebformResults($values['webform'], $values['batch-size']);
       break;
 
       default:
