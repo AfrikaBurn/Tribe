@@ -55,11 +55,11 @@ function _alert_display_variables(&$variables){
         ->getSetting('allowed_values')[$alert->field_alert_action->value]
     )[(int)$alert->uid->target_id != Utils::currentUser()->id()],
     [
-      @'@actor' => _label($computed['actor']),
-      @'@collective' => _label($computed['collective']),
-      @'@subject' => _label($computed['subject']),
-      @'@type' => $computed['type'],
-      @'@stage' => $computed['stage'],
+      '@actor' => _label(@$computed['actor']),
+      '@collective' => _label(@$computed['collective']),
+      '@subject' => _label(@$computed['subject']),
+      '@type' => @$computed['type'],
+      '@stage' => @$computed['stage'],
     ]
   );
   @$variables['preview'] = $computed['preview'];
@@ -176,7 +176,7 @@ function _alert_request($alert){
     CollectiveController::isRequested($collective, $requestor)
       ? [
 
-        'confirm' => render(
+        'confirm' => @render(
           Link::createFromRoute(
             'Approve', 'afrikaburn_collective.approve',
             ['cid' => $collective->id(), 'uid' => $requestor->id()],
@@ -187,7 +187,7 @@ function _alert_request($alert){
           )
         ),
 
-        'cancel' => render(
+        'cancel' => @render(
           Link::createFromRoute(
             'Reject', 'afrikaburn_collective.reject',
             ['cid' => $collective->id(), 'uid' => $requestor->id()],
@@ -227,7 +227,7 @@ function _alert_approved($alert){
           ) : ['#markup' => ''],
           [
             '#suffix' => $collective->field_col_description
-              ? render(
+              ? @render(
                   $collective->field_col_description->view('teaser')
                 )
               : ''
@@ -269,7 +269,7 @@ function _alert_invited($alert){
         ) : ['#markup' => ''],
         [
           '#suffix' => $collective->field_col_description
-          ? render(
+          ? @render(
               $collective->field_col_description->view('teaser')
             )
           : ''
@@ -280,7 +280,7 @@ function _alert_invited($alert){
     $invitee && $invitee->id() == Utils::currentUser()->id() &&
     CollectiveController::isInvited($collective,$invitee) ? [
 
-      'confirm' => render(
+      'confirm' => @render(
         Link::createFromRoute(
           'Accept', 'afrikaburn_collective.accept',
           ['cid' => $collective->id(), 'uid' => $invitee->id()],
@@ -291,7 +291,7 @@ function _alert_invited($alert){
         )
       ),
 
-      'cancel' => render(
+      'cancel' => @render(
         Link::createFromRoute(
           'Ignore', 'afrikaburn_collective.ignore',
           ['cid' => $collective->id(), 'uid' => $invitee->id()],
@@ -340,8 +340,8 @@ function _label($target){
       case 'user':
         $names = array_filter(
           [
-            strip_tags(render($target->field_first_name->view('full_name'))),
-            strip_tags(render($target->field_last_name->view('full_name'))),
+            @strip_tags(@render($target->field_first_name->view('full_name'))),
+            @strip_tags(@render($target->field_last_name->view('full_name'))),
           ]
         );
         $build = [
@@ -350,7 +350,7 @@ function _label($target){
             ? ' (' . trim(implode(' ', $names)) . ')'
             : '',
         ];
-        return render($build);
+        return @render($build);
 
       case 'art':
       case 'mutant_vehicles':
