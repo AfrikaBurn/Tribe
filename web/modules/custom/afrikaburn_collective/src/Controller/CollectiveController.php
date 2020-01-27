@@ -529,7 +529,7 @@ class CollectiveController extends ControllerBase {
     $flag = $flag_service->getFlagById($flag_id);
     return $collective
       ? (
-        $user
+        $user->isAuthenticated()
           ? $flag_service->getFlagging($flag, $collective, $user)
           : $flag_service->getFlagging($flag, $collective)
       ) : FALSE;
