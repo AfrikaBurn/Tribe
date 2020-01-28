@@ -254,6 +254,7 @@ function afrikaburn_collective_entity_field_access($op, $definition, $user, $ite
             'theme_camp_wrangler',
             'communications_wrangler',
             'support_wrangler',
+            'sanctuary_admin',
           ]
         )
       ) || in_array(
