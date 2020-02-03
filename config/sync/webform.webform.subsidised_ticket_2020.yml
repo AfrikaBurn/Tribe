@@ -1,6 +1,6 @@
 uuid: 166a41f7-2685-4949-bfb6-88b3dedc9487
 langcode: en
-status: open
+status: closed
 dependencies:
   module:
     - afrikaburn_application
@@ -27,11 +27,11 @@ settings:
   page_submit_path: /apply/subsidised-ticket
   page_confirm_path: ''
   page_admin_theme: false
-  form_title: both
+  form_title: source_entity_webform
   form_submit_once: false
-  form_exception_message: ''
+  form_exception_message: 'Subsidised ticket applications are now closed for 2020.'
   form_open_message: ''
-  form_close_message: ''
+  form_close_message: 'Subsidised ticket applications are now closed for 2020.'
   form_previous_submissions: true
   form_confidential: false
   form_confidential_message: ''
@@ -51,9 +51,9 @@ settings:
   form_submit_back: false
   form_autofocus: false
   form_details_toggle: false
-  form_access_denied: default
+  form_access_denied: message
   form_access_denied_title: ''
-  form_access_denied_message: ''
+  form_access_denied_message: 'Subsidised ticket applications are now closed for 2020.'
   form_access_denied_attributes: {  }
   form_file_limit: ''
   submission_label: ''
@@ -158,8 +158,7 @@ access:
     users: {  }
     permissions: {  }
   view_own:
-    roles:
-      - authenticated
+    roles: {  }
     users: {  }
     permissions: {  }
   update_own:
