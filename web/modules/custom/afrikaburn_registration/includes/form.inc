@@ -327,7 +327,7 @@ function _get_supporting_project($registration){
   $rid = \Drupal::request()->query->get('field_supporting_project')
     ? \Drupal::request()->query->get('field_supporting_project')
     : ($registration && $registration->field_supporting_project
-      ? $registration->field_supporting_project->getValue()[0]['target_id']
+      ? @$registration->field_supporting_project->getValue()[0]['target_id']
       : false);
   return $rid
     ? \Drupal::entityTypeManager()->getStorage('node')->load($rid)
