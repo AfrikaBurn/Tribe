@@ -239,35 +239,9 @@ class UpdateController extends ControllerBase {
    */
   public static function resaveWebformResults($webform_id, $batch_size){
     $sids = db_query('SELECT sid FROM {webform_submission} WHERE webform_id = ?', [$webform_id])->fetchCol();
-    $batch = [
-      'title' => t('Resaving Webform Submissions...'),
-      'operations' => [],
-      'progress_message' => t('Resaving @current out of @total.'),
-      'error_message'    => t('An error occurred during processing'),
-      'finished' => '\Drupal\afrikaburn_shared\Controller\UpdateController::WebformResaved',
-    ];
     foreach($sids as $sid){
-      $batch['operations'][] = [
-        '\Drupal\afrikaburn_shared\Controller\UpdateController::resaveWebformResult',
-        [$sid]
-      ];
+      \Drupal::entityTypeManager()->getStorage('webform_submission')->load($sid)->save();
     }
-    batch_set($batch);
-  }
-
-  public static function resaveWebformResult($sid, &$context) {
-    \Drupal::entityTypeManager()->getStorage('webform_submission')->load($sid)->save();
-    $context['results'][] = 1;
-  }
-
-  public static function WebformResaved($success, $results, $operations) {
-    drupal_set_message(
-      $success
-        ? \Drupal::translation()->formatPlural(
-            count($results),
-            'One Webform Submission resaved.', '@count Webform Submissions resaved.'
-          )
-        : t('Finished with errors.')
-    );
+    drupal_set_message(count($sids) . ' results resaved!');
   }
 }
