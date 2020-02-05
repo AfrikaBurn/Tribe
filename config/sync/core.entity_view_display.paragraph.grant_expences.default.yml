@@ -11,28 +11,49 @@ dependencies:
     - field.field.paragraph.grant_expences.field_price_total_
     - field.field.paragraph.grant_expences.field_type_of_expence
     - paragraphs.paragraphs_type.grant_expences
+  module:
+    - ds
+third_party_settings:
+  ds:
+    layout:
+      id: layout_threecol_33_34_33
+      library: layout_discovery/threecol_33_34_33
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      first:
+        - field_grt_brk_description
+        - field_field_specifications
+        - field_type_of_expence
+        - field_other
+      second:
+        - field_field_quantity
+        - field_cost_type
+      third:
+        - field_price_total_
 id: paragraph.grant_expences.default
 targetEntityType: paragraph
 bundle: grant_expences
 mode: default
 content:
   field_cost_type:
-    weight: 4
+    weight: 5
     label: above
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
-    region: content
+    region: second
   field_field_quantity:
-    weight: 2
+    weight: 4
     label: above
     settings:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
     type: number_integer
-    region: content
+    region: second
   field_field_specifications:
     weight: 1
     label: above
@@ -40,7 +61,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-    region: content
+    region: first
   field_grt_brk_description:
     weight: 0
     label: above
@@ -48,30 +69,30 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-    region: content
+    region: first
   field_other:
-    weight: 6
+    weight: 3
     label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-    region: content
+    region: first
   field_price_total_:
-    weight: 3
+    weight: 6
     label: above
     settings:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
     type: number_integer
-    region: content
+    region: third
   field_type_of_expence:
-    weight: 5
+    weight: 2
     label: above
     settings:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
-    region: content
+    region: first
 hidden: {  }

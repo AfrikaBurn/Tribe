@@ -49,6 +49,10 @@ afrikaburn_registration.wrangle_mutant_vehicles:
   path: '/wrangle/projects/mutant_vehicles'
   options:
     _admin_route: TRUE
+afrikaburn_registration.wrangle_mutant_vehicle.grants:
+  path: '/wrangle/projects/mutant_vehicles/grants'
+  options:
+    _admin_route: TRUE
 afrikaburn_registration.wrangle_mutant_vehicles.archive:
   path: '/wrangle/projects/mutant_vehicles/archive'
   options:

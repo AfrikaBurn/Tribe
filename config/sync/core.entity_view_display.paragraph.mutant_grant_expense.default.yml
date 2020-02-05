@@ -7,7 +7,30 @@ dependencies:
     - field.field.paragraph.mutant_grant_expense.field_price_total_
     - paragraphs.paragraphs_type.mutant_grant_expense
   module:
+    - ds
     - empty_fields
+third_party_settings:
+  ds:
+    layout:
+      id: ds_2col
+      library: ds/ds_2col
+      disable_css: false
+      entity_classes: all_classes
+      settings:
+        wrappers:
+          left: div
+          right: div
+        outer_wrapper: div
+        attributes: ''
+        link_attribute: ''
+        link_custom: ''
+        classes:
+          layout_class: {  }
+    regions:
+      left:
+        - field_grt_brk_description
+      right:
+        - field_price_total_
 id: paragraph.mutant_grant_expense.default
 targetEntityType: paragraph
 bundle: mutant_grant_expense
@@ -20,7 +43,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     type: string
-    region: content
+    region: left
   field_price_total_:
     weight: 1
     label: hidden
@@ -31,5 +54,5 @@ content:
       empty_fields:
         handler: ''
     type: number_integer
-    region: content
+    region: right
 hidden: {  }
