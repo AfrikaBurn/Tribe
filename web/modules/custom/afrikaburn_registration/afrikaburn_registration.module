@@ -238,13 +238,13 @@ function afrikaburn_registration_preprocess_views_view(&$variables){
     case 'wrangle_art':
     case 'wrangle_binnekring_events':
     case 'wrangle_mutant_vehicles':
-      if (in_array($variables['display_id'], ['dmv_book', 'ranger_book', 'guide'])) {
+      if (in_array($variables['display_id'], ['dmv_book', 'ranger_book', 'grant'])) {
         $variables['view_array']['#attached']['library'][] = 'afrikaburn_registration/book';
       }
     case 'wrangle_theme_camps':
     case 'wrangle_wtf':
       $variables['#attached']['library'][] = 'afrikaburn_registration/wrangle';
-      if (in_array($variables['display_id'], ['bench','support_camps', 'tasks', 'assessment', 'engineering'])){
+      if (in_array($variables['display_id'], ['bench','support_camps', 'tasks', 'assessment', 'engineering', 'grants'])){
         module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
         ab_prepare_wrangler_view($variables);
       }
@@ -289,7 +289,7 @@ function afrikaburn_registration_preprocess_views_view_table(&$variables) {
         $editable = FALSE;
       }
 
-      if (in_array($variables['view']->current_display, ['bench', 'support_camps', 'tasks', 'assessment', 'engineering'])){
+      if (in_array($variables['view']->current_display, ['bench', 'support_camps', 'tasks', 'assessment', 'engineering', 'grants'])){
         module_load_include('inc', 'afrikaburn_registration', 'includes/wrangle.projects');
         ab_insert_wrangler_view_rows($variables, $comments, $merge, $editable);
       }
