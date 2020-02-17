@@ -601,6 +601,22 @@ div.collapsible.collapsed{
 }
 
 
+/* 17 Feb 2020 */
+@media (min-width: 0px){
+
+  .navbar .navbar-inner .nav-collapse .content > ul.menu > li {
+    list-style-type: none;
+    list-style-image: none;
+    margin: 0;
+  }
+
+  .navbar .navbar-inner .nav-collapse .content > ul.menu li a {
+    font-size: 16px;
+  }
+
+}
+
+
 /* 10 June 2018 Collective menu */
 
 .view-id-anouncements .views-field-edit-node{
