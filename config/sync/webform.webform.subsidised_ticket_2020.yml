@@ -133,8 +133,7 @@ settings:
   token_update: true
 access:
   create:
-    roles:
-      - authenticated
+    roles: {  }
     users: {  }
     permissions: {  }
   view_any:
@@ -158,21 +157,23 @@ access:
     users: {  }
     permissions: {  }
   view_own:
-    roles: {  }
+    roles:
+      - administrator
+      - supplier
     users: {  }
     permissions: {  }
   update_own:
-    roles: {  }
+    roles:
+      - administrator
+      - supplier
     users: {  }
     permissions: {  }
   delete_own:
-    roles:
-      - administrator
+    roles: {  }
     users: {  }
     permissions: {  }
   administer:
-    roles:
-      - administrator
+    roles: {  }
     users: {  }
     permissions: {  }
   test:
