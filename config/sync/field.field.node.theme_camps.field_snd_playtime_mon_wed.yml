@@ -17,7 +17,7 @@ field_name: field_snd_playtime_mon_wed
 entity_type: node
 bundle: theme_camps
 label: 'What are the daily times that you plan on playing music from and until between Monday and Wednesday?'
-description: ''
+description: "Please enter time in the following format: \r\nHH:MM:SS\r\neg. 13:15:00"
 required: false
 translatable: true
 default_value: {  }
