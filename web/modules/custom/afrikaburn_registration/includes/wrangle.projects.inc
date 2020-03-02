@@ -281,11 +281,31 @@ function ab_prepare_wrangler_view(&$variables){
         $field_form['#attributes']['class'][] = 'editor-parent';
 
         // Links to completed forms
-        if ($field == 'field_prjr_complete'){
+
+        $supporting = @$row->_entity->field_supporting_project->entity;
+
+        if ($field == 'field_prjr_complete' && $supporting) {
+          $field_form = [
+            '#markup' => '
+              <ul>
+                <li><a href="/node/' . $nid . '/support_camp">View</a></li>
+                <li><a href="/node/' . $nid . '/edit/support_camp">Edit</a></li>
+                <li><a href="/node/' . $nid . '/layout_print">Print</a></li>
+              </ul>
+            ',
+          ];
+        }
+
+        if ($field == 'field_prjr_complete' && !$supporting){
+
+          if ($type == 'theme_camps'){
+            unset($field_form['#options']['support_camp']);
+            unset($field_form['support_camp']);
+          }
+
           foreach($field_form['#options'] as $option=>$markup){
 
             if ($option == 'support_camp'){
-              $supporting = @$row->_relationship_entities['reverse__node__field_supporting_project'];
               if ($supporting){
                 $sid = $supporting->nid->value;
                 $field_form[$option]['#description'] =
@@ -310,7 +330,7 @@ function ab_prepare_wrangler_view(&$variables){
           }
         }
 
-        $view->editor[$index][$field] = render($field_form);
+        if ($field_form) $view->editor[$index][$field] = render($field_form);
       }
     }
   }

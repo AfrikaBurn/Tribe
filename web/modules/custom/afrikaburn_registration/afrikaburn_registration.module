@@ -825,10 +825,8 @@ function afrikaburn_registration_node_presave($entity){
 
     // Year cycle
     if (in_array($entity->bundle(), ['art', 'performances', 'mutant_vehicles', 'theme_camps'])){
-      if (!count($entity->get('field_year_cycle')->getValue())){
-        module_load_include('module', 'afrikaburn_shared', 'afrikaburn_shared');
-        $entity->set('field_year_cycle', computed_field_field_year_cycle_compute(null, $entity, null, null));
-      }
+      module_load_include('module', 'afrikaburn_shared', 'afrikaburn_shared');
+      $entity->set('field_year_cycle', computed_field_field_year_cycle_compute(null, $entity, null, null));
     }
 
     // Registration number
