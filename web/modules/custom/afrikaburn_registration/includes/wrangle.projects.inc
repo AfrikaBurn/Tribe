@@ -288,9 +288,9 @@ function ab_prepare_wrangler_view(&$variables){
           $field_form = [
             '#markup' => '
               <ul>
-                <li><a href="/node/' . $nid . '/support_camp">View</a></li>
-                <li><a href="/node/' . $nid . '/edit/support_camp">Edit</a></li>
-                <li><a href="/node/' . $nid . '/layout_print">Print</a></li>
+                <li><a href="/node/' . $nid . '/support_camp" target="_blank">View</a></li>
+                <li><a href="/node/' . $nid . '/edit/support_camp" target="_blank">Edit</a></li>
+                <li><a href="/node/' . $nid . '/layout_print" target="_blank">Print</a></li>
               </ul>
             ',
           ];
