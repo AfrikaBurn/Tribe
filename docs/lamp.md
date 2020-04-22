@@ -72,7 +72,6 @@ You will need to added the following details to the folder. If you plan to insta
 
         ServerName tribe.localhost
         ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/tribe/web
 
         DirectoryIndex index.php
 
